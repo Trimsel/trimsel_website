@@ -1,0 +1,70 @@
+@font-face {
+    font-family: 'Gilroy-Regular';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Gilroy-Regular'), url('../public/fonts/Gilroy-Regular.woff') format('woff');
+    }
+    
+
+    @font-face {
+    font-family: 'Gilroy-Medium';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: local('Gilroy-Medium'), url('../public/fonts/Gilroy-Medium.woff') format('woff');
+    }
+    
+
+    @font-face {
+    font-family: 'Gilroy-Bold';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local('Gilroy-Bold'), url('../public/fonts/Gilroy-Bold.woff') format('woff');
+    }
+    
+
+    @font-face {
+    font-family: 'Gilroy-Semibold';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: local('Gilroy-Semibold'), url('../public/fonts/Gilroy-SemiBold.woff') format('woff');
+    }
+    
+
+    @font-face {
+    font-family: 'Gilroy-Heavy';
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: local('Gilroy-Heavy'), url('../public/fonts/Gilroy-Heavy.woff') format('woff');
+    }
+    
+
+    @font-face {
+    font-family: 'Gilroy-Thin';
+    font-style: normal;
+    font-weight: 100;
+    font-display: swap;
+    src: local('Gilroy-Thin'), url('../public/fonts/Gilroy-Thin.woff') format('woff');
+    }
+    
+
+    @font-face {
+    font-family: 'Gilroy-Light';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: local('Gilroy-Light'), url('../public/fonts/Gilroy-Light.woff') format('woff');
+    }
+    
+
+    @font-face {
+    font-family: 'Gilroy-UltraLight';
+    font-style: normal;
+    font-weight: 200;
+    font-display: swap;
+    src: local('Gilroy-UltraLight'), url('../public/fonts/Gilroy-UltraLight.woff') format('woff');
+    }

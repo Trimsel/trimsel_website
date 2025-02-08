@@ -1,0 +1,552 @@
+section.hero-mbl
+{
+    background: url(/images/mobilebg.svg) no-repeat;
+    background-size: cover;
+}
+.whiteLink {
+    color: #fff !important;
+}
+.blackLink {
+    color : #252525 !important;
+}
+.mbl-md 
+{
+    background: #fff;
+    color: #01aaec;
+    border: 1px solid #01aaec;
+}
+.mbl-md:hover {
+    background: #fff;
+    color: #01aaec;
+}
+.breadcrumbs a {
+    text-decoration: none;
+    color: #6b738a;
+    font-size: 20px;
+}
+p.breadcrumbs {
+    font-size: 20px;
+    color: #01aaec;
+}
+.breadcrumbs a:hover {
+    text-decoration: underline;
+    color: #fff;
+    font-size: 20px;
+}
+.cafe-inner.whiteLink.new-title {
+    width: 85%;
+}
+img.mbl-logo {
+    display: none;
+}
+.mbl-btn {
+    background: #fff;
+    color: #01aaec;
+    padding: 10px 15px 10px 15px;
+}
+
+#app.new-mbls {
+    padding-bottom: 0vmin;
+}
+/*About Section*/
+
+.mbl-about{
+    background: url('/images/about-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: right;
+    margin-top: 0px;
+    margin-bottom: 60px;
+    padding: 75px 50px 80px 50px;
+  }
+p.abt-desc {
+    font-size: 20px;
+    font-weight: 600;
+    color: #6b738a;
+  }
+.about-head {
+    color: #1e2436;
+}
+img.mdl-btn {
+    margin-left: 120px;
+    margin-top: -68px;
+}
+
+/*Digital Sections*/
+section#digital-mbl {
+    margin-top: 150px;
+}
+h3.dgt-heading{
+    font-size: 39px;
+}
+p.dgt-para{
+    font-size: 18px;
+    font-weight: 600;
+    color: #6b738a;
+}
+.dgt-btn {
+    padding: 20px 30px;
+    float: right;
+    background: #f3f5fa;
+    border: 1px solid #f3f5fa;
+    color: #1e2436;
+    font-weight: 500;
+    cursor: default;
+}
+.dgt-btn:hover {
+    background: #f3f5fa;
+    border: 1px solid #f3f5fa;
+    color: #1e2436;
+}
+.mbl-card.card {
+    padding: 25px 10px 20px 10px;
+    background: #f3f5fa;
+    border: 1px solid #f3f5fa;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+.title-dsgn img {
+    width: 40px;
+    margin-bottom: 7px;
+}
+.title-dsgn {
+    font-size: 25px;
+}
+p.card-para {
+    color: #6b738a;
+    font-family: "Gilroy-Medium";
+}
+
+/*Helper Section CSS*/
+section#help-mbl{
+    margin-top: 60px;
+    background: #f3f5fa;
+}
+.helper-row {
+    padding: 100px 0px;
+}
+.helper-para {
+    font-family: 'Gilroy-Medium';
+    font-size: 20px;
+    color: #6b738a;
+}
+h3.helper-title{
+    font-size: 40px;
+}
+span.list-icon {
+    margin-right: 30px;
+}
+.helper-list-item {
+    padding: 10px;
+    border: 1px solid #fff;
+    border-radius: 15px !important;
+    font-family: 'Gilroy-Semibold';
+}
+.helper-list-column {
+    padding-left: 4px;
+    padding-top: 13px;
+}
+.helper-list-columns {
+    padding-left: 4px;
+}
+.helper-list-group {
+    margin-top: 52px;
+}
+p.service-mobile-para {
+    font-size: 18px;
+    color: #6b738a;
+    line-height: 30px;
+    font-family: 'Gilroy-Medium';
+}
+.card.service-mobile-card {
+    padding: 15px 20px 20px 20px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    box-shadow: rgb(244 250 255) 15px 16px 30px 0px, rgb(244 250 255) 0px 0px 0px 1px;
+}
+.service-mobile-card-title h3 {
+    font-size: 20px;
+    white-space: normal;
+}
+.card-images img {
+    width: 63px;
+}
+section#process {
+    margin-top: 80px;
+    background: url(/images/processbg.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 80px;
+}
+.process-heading {
+    font-size: 34px;
+    line-height: 46px;
+    color: #1e2436;
+}
+p.process-para {
+    font-family: 'Gilroy-Medium';
+    font-size: 18px;
+    color: #6b738a;
+}
+.process-btn {
+    padding: 15px 40px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background: #e7f4f9;
+    border: 0px;
+    transition: 0.5s all ease-in;
+    z-index: 99;
+}
+.process-btn:hover {
+    background: #e7f4f9;
+    transform: scale(110%);
+}
+.image-num img {
+    float: right;
+}
+.process-btn p {
+    color: #6b738a;
+    margin-bottom: 5px !important;
+    text-align: left !important;
+    font-size: 20px;
+    margin-left: 0px;
+}
+.process-btn h6 {
+    color: #01aaec;
+    white-space: nowrap;
+    margin-bottom: 3px !important;
+    text-align: left !important;
+    font-size: 20px;
+    margin-left: 20px;
+}
+.process-btn h6::before {
+    content: '';
+    background: url('/images/btn-case-icon.png');
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin-left: -25px;
+}
+.process-card {
+    border: 1px solid #fff;
+    border-radius: 10px;
+    padding: 10px 0px;
+    margin-bottom: 20px;
+}
+.process-tab-design {
+    border: 1px solid #fff;
+    border-radius: 10px;
+    padding: 10px 0px;
+    margin-bottom: 20px;
+}
+.processs-card {
+    border: 1px solid #fff;
+    border-radius: 10px;
+    padding: 10px 0px 5px 0px;
+    margin-bottom: 20px;
+}
+.processer-card {
+    border: 1px solid #fff;
+    border-radius: 10px;
+    padding: 15px 0px 25px 0px;
+    margin-bottom: 20px;
+}
+.processers-card {
+    border: 1px solid #fff;
+    border-radius: 10px;
+    padding: 15px 0px 25px 0px;
+    margin-bottom: 20px;
+}
+.process-card-header {
+    background: #fff;
+    border: 0px;
+}
+h3.process-title {
+    font-size: 21px;
+    color: #1e2436;
+}
+/*Case Carousel CSS*/
+.case-carousel-header {
+    background: transparent;
+    border: 0px;
+}
+.case-carousel-header img {
+    width: 480px;
+}
+.case-carousel-card.card {
+    border: 0px;
+    background: transparent;
+}
+.case-carousel-link {
+    text-decoration: none;
+    font-size: 20px;
+}
+h3.case-carousel-heading {
+    font-size: 30px;
+    color: #1e2436;
+}
+p.case-carousel-para {
+    font-size: 20px;
+    color: #6b738a;
+}
+
+.carousel-indicator {
+    background-color: #ded;
+    border: 1px solid white;
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+    margin: 0px 10px;
+    cursor: pointer;
+  }
+  .carousel-indicator.active {
+    background-color: #d9d9d9;
+  }
+.casecarousel-para {
+    font-size: 19px;
+    color: #6b738a;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+.mbl-cta {
+    padding: 27px 25px;
+    border-radius: 10px;
+    background: url("/images/cta-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    border: 0px;
+}
+.mbl-card-body {
+    margin-top: 40px;
+}
+.mbl-card-col {
+    padding-top: 115px;
+}
+section#faq{
+    margin: 80px 0px;
+}
+.accordion-para {
+    color: #6b738a;
+    font-size: 17px;
+    text-align: justify;
+    line-height: 28px;
+    font-family: 'Gilroy-Medium';
+}
+.accordion-button:not(.collapsed) {
+    background: #fff;
+    font-size: 21px;
+    font-family: 'Gilroy-Bold';
+}
+.accordion-button.collapsed {
+    font-size: 21px;
+}
+.accordion-item {
+    border-bottom: 0px;
+}
+
+.new-title h1{
+    font-size: 49px;
+    width: 85%;
+    line-height: 68px;
+}
+
+section#mobile-services {
+    background: url(/images/mbl-service.png) repeat;
+    background-size: cover;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background-position: right;
+}
+.container.process-container{
+    padding-top: 80px;
+}
+.container.mbltool-container{
+    padding-top: 80px;
+    padding-bottom: 50px;
+}
+section.mbl-tools{
+    margin-top: 80px;
+    background: url(/images/tlsbg.webp) no-repeat;
+    background-size: cover;
+}
+section#recent-mbl-work{
+    margin-top: 100px;
+    background: url(/images/tlsbg.webp) no-repeat;
+    background-size: cover;
+    padding-bottom: 80px;
+    margin-bottom: 100px;
+}
+h4.tools-title{
+    color: #6b738a;
+    margin-bottom: 20px;
+}
+
+
+@media screen and (min-width:768px) and (max-width: 820px) {
+    img.hero-imgs{
+        margin-top: 0px;
+    }
+    img.mbl-logo {
+        display: block !important;
+    }
+    img.dsktp-logo {
+        display: none;
+    }
+    .nav-link {
+        color: #252525 !important;
+    }
+    img.mdl-btn {
+        width: 160px;
+        margin-left: 30px;
+        margin-top: -78px;
+    }
+    .about-head {
+        font-size: 22px;
+        white-space: nowrap;
+    }
+    .title-dsgn {
+        font-size: 14px;
+    }
+    .title-dsgn img {
+        width: 37px;
+    }
+    .mbl-card.card {
+        padding: 20px 0px 5px 5px;
+    }
+    section#digital-mbl {
+        margin-top: 80px;
+    }
+    img.helper-image {
+        width: 350px;
+    }
+    .helper-list-column {
+        padding-left: 8px;
+        padding-top: 0px;
+    }
+    .helper-list-columns {
+        padding-left: 8px;
+    }
+    .helper-list-group {
+        margin-top: 0px;
+    }
+    .processer-card {
+        border: 1px solid #fff;
+        border-radius: 10px;
+        padding: 15px 0px 0px 0px;
+    }
+    h3.process-title {
+        font-size: 18px;
+        color: #1e2436;
+    }
+    .process-tab-design {
+        padding: 10px 0px 0px 0px;
+    }
+    .process-card {
+        padding: 10px 0px 20px 0px;
+    }
+    .process-heading {
+        font-size: 20px;
+        line-height: 35px;
+    }
+    p.process-para {
+        font-size: 16px;
+    }
+    .process-btn{
+        padding: 15px 25px;
+    }
+    .case-carousel-header img{
+        width: 320px;
+    }
+    .casecarousel-para {
+        font-size: 16px;
+    }
+}
+@media  screen and (max-width:768px) {
+    .process-btn {
+        padding: 15px 10px;
+    }
+}
+@media screen and (max-width:762px) {
+    .container.mbltool-container{
+        padding-top: 20px;
+        padding-bottom: 50px;
+    }
+    .new-title h1{
+        font-size: 33px;
+        width: 100%;
+        line-height: 50px;
+    }
+    section#recent-mbl-work{
+        margin-top: 100px;
+        background: url(/images/tlsbg.webp) no-repeat;
+        background-size: cover;
+        padding-bottom: 20px;
+        margin-bottom: 0px;
+    }
+    img.mbl-logo {
+        display: block !important;
+    }
+    img.dsktp-logo {
+        display: none;
+    }
+    .nav-link {
+        color: #252525 !important;
+    }
+    .cafe-inner.whiteLink.new-title {
+        width: 100% !important;
+        font-size: 34px;
+    }
+    p.breadcrumbs {
+        font-size: 17px !important;
+    }
+    .breadcrumbs a{
+        font-size: 17px;
+    }
+    img.mdl-btn {
+        width: 110px;
+        margin-left: 0px;
+        margin-top: 0px;
+        height: auto;
+    }
+    .about-head {
+        font-size: 22px;
+        line-height: 32px;
+    }
+    .mbl-about {
+        padding: 145px 25px;
+        background-position-x: center;
+        margin-top: -283px;
+    }
+    .mbl-card.card{
+        margin-bottom: 20px;
+    }
+    section#digital-mbl {
+        margin-top: 80px;
+    }
+    .dgt-btn {
+        float: none;
+    }
+    img.helper-image {
+        width: 350px;
+    }
+    .helper-list-column {
+        padding-left: 8px;
+    }
+    .helper-list-group {
+        margin-top: 0px;
+    }
+    section#process {
+        margin-top: 80px;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+    }
+    .process-btn {
+        padding: 15px 40px;
+    }
+    .case-carousel-header img{
+        width: 330px;
+    }
+}

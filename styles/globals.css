@@ -1,0 +1,16 @@
+h1 , h2 , h3 {
+  font-family: 'Gilroy-Bold';
+  
+  letter-spacing: 0.5px;
+}
+
+h4 , h5 , h6, a, button {
+  font-family: 'Gilroy-Semibold' ;
+  
+  letter-spacing: 0.5px;
+}
+
+p , label {
+  font-family: 'Gilroy-Regular';
+}
+
