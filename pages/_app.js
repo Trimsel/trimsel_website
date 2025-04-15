@@ -53,9 +53,9 @@ export default function App({ Component, pageProps }) {
 
       {/* Your custom script */}
       <Script type="module" src="/sc.js" strategy="afterInteractive" />
+      <Component {...pageProps} />
       <SpeedInsights />
       <Analytics/>
-      <Component {...pageProps} />
     </>
   );
 }
