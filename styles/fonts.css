@@ -1,70 +1,83 @@
-@font-face {
-    font-family: 'Gilroy-Regular';
-    font-style: normal;
+/* ✅ Primary SEO-Friendly Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap');
+
+:root {
+    --primary-font: 'Poppins', 'Montserrat', sans-serif;
+    --heading-font: 'Montserrat', 'Poppins', sans-serif;
+    --body-font: 'Poppins', sans-serif;
+    --text-color: #333333;
+    --heading-color: #1A1A2E;
+}
+
+/* ✅ Global Styling */
+body {
+    font-family: var(--body-font);
+    color: var(--text-color);
+    line-height: 1.6;
     font-weight: 400;
-    font-display: swap;
-    src: local('Gilroy-Regular'), url('../public/fonts/Gilroy-Regular.woff') format('woff');
-    }
-    
+    background-color: #ffffff;
+}
 
-    @font-face {
-    font-family: 'Gilroy-Medium';
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    src: local('Gilroy-Medium'), url('../public/fonts/Gilroy-Medium.woff') format('woff');
-    }
-    
-
-    @font-face {
-    font-family: 'Gilroy-Bold';
-    font-style: normal;
+/* ✅ Headings - Optimized for Readability & SEO */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
     font-weight: 700;
-    font-display: swap;
-    src: local('Gilroy-Bold'), url('../public/fonts/Gilroy-Bold.woff') format('woff');
-    }
-    
+    color: var(--heading-color);
+}
 
-    @font-face {
-    font-family: 'Gilroy-Semibold';
-    font-style: normal;
+/* ✅ Paragraphs & General Text */
+p, span, a, button {
+    font-family: var(--body-font);
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+/* ✅ CTA Buttons - Optimized for Conversions */
+button, .cta-button {
+    font-family: var(--body-font);
     font-weight: 600;
-    font-display: swap;
-    src: local('Gilroy-Semibold'), url('../public/fonts/Gilroy-SemiBold.woff') format('woff');
-    }
-    
+    text-transform: uppercase;
+    padding: 12px 20px;
+    border-radius: 6px;
+    color: #ffffff;
+    background-color: #007BFF;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
 
-    @font-face {
-    font-family: 'Gilroy-Heavy';
-    font-style: normal;
-    font-weight: 800;
-    font-display: swap;
-    src: local('Gilroy-Heavy'), url('../public/fonts/Gilroy-Heavy.woff') format('woff');
-    }
-    
+button:hover, .cta-button:hover {
+    background-color: #0056b3;
+}
 
-    @font-face {
-    font-family: 'Gilroy-Thin';
-    font-style: normal;
-    font-weight: 100;
-    font-display: swap;
-    src: local('Gilroy-Thin'), url('../public/fonts/Gilroy-Thin.woff') format('woff');
-    }
-    
+/* ✅ Forms & Input Fields */
+input, textarea {
+    font-family: var(--body-font);
+    font-weight: 400;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
 
-    @font-face {
-    font-family: 'Gilroy-Light';
-    font-style: normal;
-    font-weight: 300;
-    font-display: swap;
-    src: local('Gilroy-Light'), url('../public/fonts/Gilroy-Light.woff') format('woff');
+/* ✅ Mobile Responsiveness */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
     }
-    
 
-    @font-face {
-    font-family: 'Gilroy-UltraLight';
-    font-style: normal;
-    font-weight: 200;
-    font-display: swap;
-    src: local('Gilroy-UltraLight'), url('../public/fonts/Gilroy-UltraLight.woff') format('woff');
+    h1 {
+        font-size: 22px;
     }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+}

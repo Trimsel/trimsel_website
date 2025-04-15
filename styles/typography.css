@@ -1,0 +1,88 @@
+/* ✅ Importing SEO-Friendly Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Montserrat:wght@600;700&display=swap');
+
+:root {
+  --font-heading: 'Montserrat', 'Poppins', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+
+  --color-text: #333333;
+  --color-heading: #1A1A2E;
+  --color-primary: #007BFF;
+  --color-hover: #0056b3;
+  --color-muted: #6c757d;
+}
+
+/* ✅ Base Styles */
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--color-text);
+  background-color: #fff;
+  line-height: 1.6;
+}
+
+/* ✅ Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-heading);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2.2rem; }
+h3 { font-size: 1.8rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+
+/* ✅ Paragraphs & Text */
+p, span, li, a {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ✅ Buttons & CTA */
+button, .cta-button, .portcta-btn {
+  font-family: var(--font-body);
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button:hover, .cta-button:hover, .portcta-btn:hover {
+  background-color: var(--color-hover);
+}
+
+/* ✅ Form Fields */
+input, textarea, select {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+/* ✅ Lists */
+ul {
+  padding-left: 1.5rem;
+}
+ul li::marker {
+  color: var(--color-primary);
+}
+
+/* ✅ Responsive Typography */
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
+  p, li { font-size: 0.95rem; }
+}

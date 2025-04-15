@@ -34,42 +34,42 @@ const PostPage = ({ serializedContent }) => {
   );
 };
 
-export const getStaticPaths = async () => {
-  const files = fs.readdirSync(path.join("posts"));
-  const paths = files.map((filename) => ({
-    params: {
-      slug: filename.split(".")[0],
-    },
-  }));
+// export const getStaticPaths = async () => {
+//   const files = fs.readdirSync(path.join("posts"));
+//   const paths = files.map((filename) => ({
+//     params: {
+//       slug: filename.split(".")[0],
+//     },
+//   }));
 
-  return {
-    paths,
-    fallback: false,
-  };
-};
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// };
 
-export const getStaticProps = async ({ params }) => {
-  const markdown = fs.readFileSync(
-    path.join("posts", params.slug + ".mdx"),
-    "utf-8"
-  );
+// export const getStaticProps = async ({ params }) => {
+//   const markdown = fs.readFileSync(
+//     path.join("posts", params.slug + ".mdx"),
+//     "utf-8"
+//   );
 
-  const serializedContent = await serialize(markdown, {
-    format: "mdx",
-    parseFrontmatter: true,
-    scope: "",
-    mdxOptions: {
-      remarkPlugins: [],
-      rehypePlugins: [],
-    },
-  });
+//   const serializedContent = await serialize(markdown, {
+//     format: "mdx",
+//     parseFrontmatter: true,
+//     scope: "",
+//     mdxOptions: {
+//       remarkPlugins: [],
+//       rehypePlugins: [],
+//     },
+//   });
 
-  return {
-    props: {
-      serializedContent,
-    },
-    revalidate: 60,
-  };
-};
+//   return {
+//     props: {
+//       serializedContent,
+//     },
+//     revalidate: 60,
+//   };
+// };
 
 export default PostPage;

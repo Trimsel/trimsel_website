@@ -7,6 +7,9 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { FaMapMarkerAlt } from "@react-icons/all-files/fa/FaMapMarkerAlt";
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/bootstrap.css';
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function ContactModal({ title }) {
   const {
@@ -18,8 +21,15 @@ export default function ContactModal({ title }) {
   } = useForm();
 
   const [isSubmitted, setIsSubmitted] = useState(false);
-
+  const [phone, setPhone] = useState("");
   const [selectedOption, setSelectedOption] = useState(0);
+  const [recaptchaToken, setRecaptchaToken] = useState("");
+
+  const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+
+  const handleCaptchaChange = (token) => {
+    setRecaptchaToken(token);
+  };
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
@@ -27,23 +37,31 @@ export default function ContactModal({ title }) {
   };
 
   async function onSubmitForm(values) {
-    let config = {
-      method: "post",
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/api/contact`,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: values,
+    const apiUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/api/contact`;
+  
+    if (!recaptchaToken) {
+      setMessage("Please verify you are not a robot.");
+      return;
+    }
+  
+    const payload = {
+      ...values,
+      phone,
+      service: selectedOption,
+      recaptchaToken,
     };
-
+  
     try {
-      const response = await axios(config);
-      console.log(response);
-    } catch (error) {
-      console.log(error);
+      await axios.post(apiUrl, payload);
+      setMessage("Thank you! We have received your message. Our team will get back to you soon.");
       setIsSubmitted(true);
+      reset();
+    } catch (error) {
+      setMessage("Failed to send your message. Please try again.");
     }
   }
+  
+  const [message, setMessage] = useState("");
   const [show, setShow] = useState(false);
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -84,10 +102,10 @@ export default function ContactModal({ title }) {
                         <Link href="tel:72000841581" className="lets-popup-link">
                           +91-72000841581
                         </Link>{" "}
-                        <span> & </span>
-                        <Link href="tel:7200841581" className="lets-popup-link">
+                        {/* <span> & </span> */}
+                        {/* <Link href="tel:7200841581" className="lets-popup-link">
                           +91-7200841581
-                        </Link>{" "}
+                        </Link>{" "} */}
                       </p>
                       <div className="row">
                         <div className="col-lg-12 col-md-12">
@@ -109,17 +127,17 @@ export default function ContactModal({ title }) {
                       <div className="scan mt-5 pt-3">
                         <div className="card scan-card mb-2" >
                           <h6>
-                           <Image src="/images/whatsapp-icon.png" width={21} height={20} alt="Whatsapp Icon" />
+                           <Image src="/images/whatsapp-icon.png" width={21} height={20} alt="Trimsel Whatsapp Icon" loading="lazy"/>
                             Scan and Chat</h6>
                         </div>
                       </div>
 
                       <div className="whatsapp-qr">
                         <Image
-                          src="/images/minitzonqr.png"
+                          src="/images/trimselqr.png"
                           width={90}
                           height={90}
-                          alt="Whatsapp QR Code"
+                          alt="Trimsel Whatsapp QR Code"
                           className="qr-cde"
                         />
                       </div>
@@ -128,6 +146,7 @@ export default function ContactModal({ title }) {
                 </div>
                 <div className="col-lg-7 col-md-7 ">
                   <form id="home-form" onSubmit={handleSubmit(onSubmitForm)}>
+                    {message && <p className="form-message">{message}</p>}
                     <div className="row">
                       <div className="col-lg-6 py-3">
                         <div className="md-form pe-3">
@@ -153,38 +172,27 @@ export default function ContactModal({ title }) {
                         </div>
                       </div>
                       <div className="col-lg-6 py-3">
-                        <div className="md-form pe-3">
-                          <label htmlFor="phone" className="labels">
-                            <h5>Mobile Number *</h5>
-                          </label>
-                          <input
-                            {...register("phone", {
-                              required: {
-                                value: true,
-                                message: "Your phone number is required",
-                              },
-                              minLength: {
-                                value: 10,
-                                message: "Enter a valid mobile number",
-                              },
-                              maxLength: {
-                                value: 11,
-                                message: "Enter a valid mobile number",
-                              },
-                            })}
-                            type="tel"
-                            name="phone"
-                            id="phone"
-                            className="form-control popup-form"
-                            placeholder="12345 67890"
-                          />
-                          <span className="error-design pt-3">
-                            {errors?.phone?.message}
-                            {errors?.phone?.maxLength?.message}
-                            {errors?.phone?.minLength?.message}
-                          </span>
-                        </div>
-                      </div>
+  <div className="md-form pe-3">
+    <label htmlFor="phone" className="labels">
+      <h5>Mobile Number *</h5>
+    </label>
+    <div className="phone-input-container">
+      <PhoneInput
+        country={'in'}
+        value={phone}
+        onChange={setPhone}
+        inputProps={{
+          name: 'phone',
+          required: true,
+          className: 'form-control popup-form',
+        }}
+        inputStyle={{ width: '100%' }}
+      />
+    </div>
+  </div>
+</div>
+
+
                       <div className="col-lg-6 py-3">
                         <div className="md-form pe-3">
                           <label htmlFor="email" className="labels">
@@ -197,10 +205,9 @@ export default function ContactModal({ title }) {
                                 message: "Email id is required",
                               },
                               pattern: {
-                                value:
-                                  /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
+                                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
                                 message: "Enter a valid email address",
-                              },
+                              }
                             })}
                             type="email"
                             name="email"
@@ -254,12 +261,15 @@ export default function ContactModal({ title }) {
                             <option value="Cloud and DevOps">
                               Cloud and DevOps
                             </option>
-                            <option value="Quality Engineering and Testing">
+                            <option value="Other">
+                              Other
+                            </option>
+                            {/* <option value="Quality Engineering and Testing">
                               Quality Engineering and Testing
-                            </option>
-                            <option value="Blockchain Development">
+                            </option> */}
+                            {/* <option value="Blockchain Development">
                               Blockchain Development
-                            </option>
+                            </option> */}
                           </select>
                         </div>
                       </div>
@@ -278,10 +288,16 @@ export default function ContactModal({ title }) {
                           />
                         </div>
                       </div>
-
+                      <div className="col-lg-12 py-3">
+                      <ReCAPTCHA
+  sitekey={siteKey}
+  onChange={handleCaptchaChange}
+  onExpired={() => setRecaptchaToken(null)}
+/>
+                    </div>
                       <div className="col-lg-12 py-3">
                         <div className="text-right text-md-end">
-                          <input type="submit" className="sbmt-btn" />
+                          <input type="submit" className="sbmt-btn" disabled={!recaptchaToken}/>
                         </div>
                       </div>
                     </div>
@@ -313,7 +329,7 @@ export default function ContactModal({ title }) {
                   </Button>
                 </Link>
 
-                <Link
+                {/* <Link
                   href="/portfolio"
                   passHref
                   style={{ textDecoration: "none" }}
@@ -321,15 +337,16 @@ export default function ContactModal({ title }) {
                   <Button variant="primary" className="mt-3 mb-2">
                     View Our Case Studies
                   </Button>
-                </Link>
+                </Link> */}
               </h6>
             </div>
             <div className="row">
               <div className="col-lg-6 col-md-6 col-6 follow-col">
                 <h4 className="contact-addrs">Follow Us:</h4>
                 <Link
-                  href="https://www.facebook.com/minitzon.technologies"
+                  href="https://www.facebook.com/trimsel.softwares"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <img
                     className="social-icon"
@@ -338,8 +355,9 @@ export default function ContactModal({ title }) {
                   />
                 </Link>{" "}
                 <Link
-                  href="https://www.instagram.com/minitzon/"
+                  href="https://www.instagram.com/trimsel/"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <img
                     className="social-icon"
@@ -354,7 +372,7 @@ export default function ContactModal({ title }) {
                     alt="Linkedin Icon"
                   />
                 </Link>{" "}
-                <Link href="https://in.pinterest.com/minitzon/" target="_blank">
+                <Link href="https://in.pinterest.com/trimsel/" target="_blank" rel="noopener noreferrer">
                   <img
                     className="social-icon"
                     src="/images/pinterest-icon.png"
@@ -371,11 +389,12 @@ export default function ContactModal({ title }) {
                     alt="whatsapp-icon"
                   />
                   <Image
-                    src="/images/minitzonqr.png"
+                    src="/images/trimselqr.png"
                     width={90}
                     height={90}
-                    alt="Whatsapp QR Code"
+                    alt="Trimsel Whatsapp QR Code"
                     className="wht-qr"
+                    loading="lazy"
                   />
                 </div>
               </div>

@@ -3,6 +3,7 @@ import Card from "react-bootstrap/Card";
 import { useState } from "react";
 import Link from "next/link";
 import { FaLongArrowAltRight } from "@react-icons/all-files/fa/FaLongArrowAltRight";
+import Image from "next/image";
 export default function CarouselComponent() {
   const slides = [1, 2, 3];
   const [index, setIndex] = useState(0);
@@ -18,13 +19,14 @@ export default function CarouselComponent() {
         indicators={false}
         interval={null}
         controls={false}
+        aria-label="Portfolio Case Studies Carousel"
       >
         <Carousel.Item>
           <div className="row py-5">
             <div className="col-lg-6 col-md-6">
               <Card className="case-carousel-card">
                 <Card.Header className="case-carousel-header">
-                  <img src="/images/Group3001.png" alt="Ezyhelpers Mobile App Screens" />
+                <Image src="/images/Group3001.png" width={500} height={300} alt="Ezyhelpers Mobile App Screens" loading="lazy" />
                 </Card.Header>
                 <Card.Body className="case-carousel-body">
                   <h3 className="case-carousel-heading">Ezyhelpers</h3>
@@ -32,7 +34,7 @@ export default function CarouselComponent() {
                     Quisque a pretium nulla, at porttitor eros. Mauris pharetra
                     nisl sit amet mauris efficitur malesuada.
                   </p>
-                  <Link className="case-carousel-link" href="/portfolio/ezyhelpers-case-study">
+                  <Link className="case-carousel-link" href="/portfolio/ezyhelpers-case-study" >
                     Read Case Study <FaLongArrowAltRight />
                   </Link>
                 </Card.Body>
@@ -41,7 +43,7 @@ export default function CarouselComponent() {
             <div className="col-lg-6 col-md-6">
               <Card className="case-carousel-card">
                 <Card.Header className="case-carousel-header">
-                  <img src="/images/Group3002.png" alt="Xaber Mobile App Screen" />
+                <Image src="/images/Group3002.png" width={500} height={300} alt="Xaber Mobile App Screen" loading="lazy"/>
                 </Card.Header>
                 <Card.Body className="case-carousel-body">
                   <h3 className="case-carousel-heading">Xaber</h3>
@@ -62,7 +64,7 @@ export default function CarouselComponent() {
             <div className="col-lg-6 col-md-6">
               <Card className="case-carousel-card">
                 <Card.Header className="case-carousel-header">
-                  <img src="/images/kariotscreen.webp" alt="karIOT Mobile App Screens" />
+                  <img src="/images/kariotscreen.webp" width={500} height={300} alt="karIOT Mobile App Screens" loading="lazy"/>
                 </Card.Header>
                 <Card.Body className="case-carousel-body">
                   <h3 className="case-carousel-heading">KarIOT</h3>
@@ -79,7 +81,7 @@ export default function CarouselComponent() {
             <div className="col-lg-6 col-md-6">
               <Card className="case-carousel-card">
                 <Card.Header className="case-carousel-header">
-                  <img src="/images/Group3002.png" alt="Xaber Mobile App Screen"/>
+                  <img src="/images/Group3002.png" alt="Xaber Mobile App Screen" loading="lazy"/>
                 </Card.Header>
                 <Card.Body className="case-carousel-body">
                   <h3 className="case-carousel-heading">Xaber</h3>
@@ -140,6 +142,9 @@ export default function CarouselComponent() {
               key={i}
               data-slide-to={i}
               onClick={(e) => handleSelect(i, e)}
+              role="button"
+              tabIndex="0"
+              aria-label={`Go to slide ${i + 1}`}
             />
           ))}
         </ol>

@@ -11,22 +11,42 @@ export default function ScrollSection() {
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
+    // const pin = gsap.fromTo(
+    //   sectionRef.current,
+    //   {
+    //     translateX: 0,
+    //   },
+    //   {
+    //     translateX: "-300vw",
+    //     ease: "power2.in",
+    //     duration: 1,
+    //     scrollTrigger: {
+    //       trigger: triggerRef.current,
+    //       start: "top top",
+    //       end: "2000 top",
+    //       scrub: 0.5,
+    //       pin: true,
+          
+    //     },
+    //   }
+    // );
     const pin = gsap.fromTo(
       sectionRef.current,
       {
         translateX: 0,
+        willChange: "transform",
+        force3D: true,
       },
       {
-        translateX: "-300vw",
+        translateX: "-200vw", // Reduce scroll distance
         ease: "power2.in",
-        duration: 1,
+        duration: 1.2,
         scrollTrigger: {
           trigger: triggerRef.current,
           start: "top top",
-          end: "2000 top",
+          end: "1500 top", // Reduce end trigger
           scrub: 0.5,
           pin: true,
-          
         },
       }
     );
@@ -40,34 +60,38 @@ export default function ScrollSection() {
   // Function to scroll to a particular section
   const scrollToSection = (index) => {
     sectionRefs.current[index].scrollIntoView({ behavior: "smooth" });
-    console.log(sectionRefs.current[index]);
+    // console.log(sectionRefs.current[index]);
   };
 
   return (
     <>
       <section className="scroll-section-outer">
-      {/*<div className="nav-dots">
+      <div className="nav-dots">
               <div
                 className="nav-dot"
                 onClick={() => scrollToSection(0)}
                 data-slide="1"
+                aria-label="Go to Recent Works Section 1"
               ></div>
               <div
                 className="nav-dot"
                 onClick={() => scrollToSection(1)}
                 data-slide="2"
+                aria-label="Go to Recent Works Section 2"
               ></div>
               <div
                 className="nav-dot"
                 onClick={() => scrollToSection(2)}
                 data-slide="3"
+                aria-label="Go to Recent Works Section 3"
               ></div>
               <div
                 className="nav-dot"
                 onClick={() => scrollToSection(3)}
                 data-slide="4"
+                aria-label="Go to Recent Works Section 4"
               ></div>
-  </div>*/}
+  </div>
         <div ref={triggerRef}>
           <div ref={sectionRef} className="scroll-section-inner">
             
@@ -82,12 +106,12 @@ export default function ScrollSection() {
                     <h5>OUR RECENT WORKS</h5>
                   </div>
                   <div className="col-lg-6 col-md-5 image-content">
-                    <img src="/images/12346.png" className="overlap-image" />
+                    <img src="/images/12346.png" className="overlap-image" alt="Recent Works - Project Showcase" loading="lazy"/>
                   </div>
                   <div className="col-lg-5 col-md-5 contents py-3">
                     <div className="container">
                       <span className="case-image">
-                        <img src="/images/01.png" />
+                        <img src="/images/01.png" alt="Ezyhelpers Case Study" loading="lazy"/>
                       </span>
                       <h2 className="case-title mb-3">Ezyhelpers</h2>
                       <Stack direction="horizontal" gap={3}>
@@ -103,7 +127,7 @@ export default function ScrollSection() {
                         convallis. Aliquam a accumsan justo, vel mattis augue.
                       </p>
                       <Link href="/portfolio/ezyhelpers-case-study" passHref>
-                      <button className="btn case-btn mb-3">
+                      <button className="btn case-btn mb-3" aria-label="View Ezyhelpers Case Study">
                         View Case Study{" "}
                         <img src="/images/material-symbols_arrow-right-alt.png" />
                       </button>
@@ -128,6 +152,8 @@ export default function ScrollSection() {
                     <img
                       src="/images/top-mobile-a.png"
                       className="overlaps-image"
+                      alt="Xaber Uber Clone Case Study"
+                      loading="lazy"
                     />
                   </div>
                   <div className="col-lg-5 col-md-5 contents1 py-3">

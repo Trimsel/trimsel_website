@@ -88,21 +88,21 @@ export default function Blog({ posts }) {
               <button className="btn social-btn">
                 <h4 className="social-title mb-3">Follow Us:</h4>
                 <Link
-                  href="https://www.facebook.com/minitzon.technologies"
+                  href="https://www.facebook.com/trimsel.softwares"
                   target="_blank"
                 >
                   <img src="/images/facebook61.png" className="social-img" />
                 </Link>
                 <Link
-                  href="https://www.instagram.com/minitzon/"
+                  href="https://www.instagram.com/trimsel/"
                   target="_blank"
                 >
                   <img src="/images/instagram61.png" className="social-img" />
                 </Link>
-                <Link href="https://www.linkedin.com/company/minitzon">
+                <Link href="https://www.linkedin.com/company/trimsel">
                   <img src="/images/linkedin71.png" className="social-img" />
                 </Link>
-                <Link href="https://in.pinterest.com/minitzon/">
+                <Link href="https://in.pinterest.com/trimsel/">
                   <img src="/images/pinterest71.png" className="social-img" />
                 </Link>
               </button>

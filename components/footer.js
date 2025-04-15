@@ -1,6 +1,12 @@
 import Link from "next/link";
+import Image from "next/image";
+
 
 function Footer() {
+  const contactEmail = "contact@trimsel.com";
+  const contactPhone = "+91-720-084-1581";
+  const currentYear = new Date().getFullYear();
+
   return (
     <>
       <footer id="new-footer">
@@ -9,53 +15,60 @@ function Footer() {
             <div className="col-lg-6 col-md-6 pb-3">
               <h5 className="newd-title text-white">CONTACT US</h5>
               <span className="mail-link">
-                <a href="mailto:contact@trimsel.com">contact@trimsel.com</a>
+                <Link href={`mailto:${contactEmail}`} className="mail-link">{contactEmail}</Link>
               </span>{" "}
               |{" "}
               <span className="mail-link">
-                <a href="tel: +917200841581">(+91)-720-084-1581</a>
+              <Link href={`tel:${contactPhone}`} className="mail-link">{contactPhone}</Link>
               </span>
             </div>
             <div className="col-lg-6 col-md-6 pb-0">
               <h5 className="contact-addrs text-white">Visit Us:</h5>
-              <p className="contact-para">
+                <address className="contact-para text-white">
+                  <span>21B 5th Cross St, South Phase</span><br />
+                  <span>Thiru VI KA Industrial Estate, Guindy</span><br />
+                  <span>Chennai, Tamil Nadu 600032, India</span>
+                </address>
+              {/* <p className="contact-para">
                 21B 5th Cross St, South Phase Thiru VI KA Industrial Estate,
                 Guindy, Chennai, Tamilnadu 600032, India
-              </p>
+              </p> */}
             </div>
           </div>
           <div className="row pt-5 no-gutters new-row">
             <div className="col-lg-3 col-md-5 pb-3">
-              <img
-                src="/minitzon-logo-white.png"
+              <Image
+                src="/trimsel-logo-white.svg"
                 className="white-logo"
-                width="253px"
-                height="88px"
+                width={253}
+                height={88}
+                alt="Trimsel Softwares Logo"
+                priority
               />
               <p className="footer-para py-3">
-                At Minitzon, we focus on providing digital solutions built with
+                At Trimsel, we focus on providing digital solutions built with
                 cutting-edge technology, so our clients are always ahead of the
                 curve.
               </p>
               <h4 className="contact-addrs">Follow Us:</h4>
-              <Link href="https://www.facebook.com/minitzon.technologies" target="_blank">
-                <img className="social-icon" src="/facebook.png" width="50" />
+              <Link href="https://www.facebook.com/trimsel.softwares" passHref target="_blank" rel="noopener noreferrer nofollow">
+                <Image className="social-icon" src="/facebook.png" width={50} height={40} alt="Follow Trimsel on Facebook" loading="lazy"/>
               </Link>{" "}
-              <Link href="https://www.instagram.com/minitzon/" target="_blank">
-                <img className="social-icon" src="/insta.png" width="50" />
+              <Link href="https://www.instagram.com/trimsel/" passHref target="_blank" rel="noopener noreferrer nofollow">
+                <Image className="social-icon" src="/insta.png" width={50} height={40} alt="Follow Trimsel on Instagram" loading="lazy"/>
               </Link>{" "}
-              <Link href="#" target="_blank">
-                <img className="social-icon" src="/linkedin.png" width="50" />
+              <Link href="https://www.linkedin.com/company/trimsel/" passHref target="_blank" rel="noopener noreferrer nofollow">
+                <Image className="social-icon" src="/linkedin.png" width={50} height={40} alt="Follow Trimsel on LinkdIn" loading="lazy"/>
               </Link>{" "}
-              <Link href="https://in.pinterest.com/minitzon/" target="_blank">
-                <img className="social-icon" src="/pinterest.png" width="50" />
+              <Link href="https://in.pinterest.com/trimsel/" passHref target="_blank" rel="noopener noreferrer nofollow">
+                <Image className="social-icon" src="/pinterest.png" width={50} height={40} alt="Follow Trimsel on Pinterest" loading="lazy"/>
               </Link>
             </div>
             <div className="col-lg-3 col-md-3 footer-sides  mb-2">
               <h5 className="footer-heading">SERVICES</h5>
               <div className="footer-menu">
                 <p className="pt-3 footer-p-link">
-                  <a href="/mobile-app" className="footer-link">
+                  <a href="/mobile-app-development-chennai" className="footer-link">
                     Mobile App Development
                   </a>
                 </p>
@@ -85,7 +98,7 @@ function Footer() {
                     Digital Marketing
                   </Link>
                 </p>
-                <p className="footer-p-link">
+                {/* <p className="footer-p-link">
                   <Link
                     href="/quality-engineering-testing"
                     className="footer-link"
@@ -97,7 +110,7 @@ function Footer() {
                   <Link href="#" className="footer-link">
                     Cyber Security
                   </Link>
-                </p>
+                </p> */}
               </div>
             </div>
             <div className="col-lg-3 col-md-3 footer-side  mb-2">
@@ -132,7 +145,7 @@ function Footer() {
             </div>
             <div id="pin" className="box">
               <div className="pin-text">
-                <img src="/mahabalipuram.jpeg" width="250px" height="166px" />
+              <Image src="/mahabalipuram.jpeg" width={250} height={166} alt="Scenic view of Mahabalipuram" loading="lazy" />
               </div>
             </div>
           </div>
@@ -142,7 +155,7 @@ function Footer() {
             <div className="row ">
               <div className="col-lg-6 col-md-6">
                 <small className="mt-2 pb-2" style={{fontFamily:"Gilroy-Semibold"}} >
-                  Trimsel Softwares 2021. All Rights Reserved.
+                  Trimsel Softwares {currentYear}. All Rights Reserved.
                 </small>
               </div>
               <div className="col-lg-6 col-md-6">

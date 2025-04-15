@@ -115,11 +115,12 @@ ul.devtab-list li {
 .devcta-heading {
     font-size: 35px;
     line-height: 50px;
+    color: #ffffff;
 }
 button.devcta-button{
     padding: 10px 40px;
-    background: #f34f6c;
-    border: 1px solid #f34f6c;
+    background: #007bff;
+    /* border: 1px solid #f34f6c; */
     border-radius: 10px;
     color: #fff;
     font-weight: 600;

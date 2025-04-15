@@ -1,6 +1,35 @@
 import React, { useRef, useEffect } from 'react';
 
-const Image = ({ image, idx }) => {
+// const Image = ({ image, idx }) => {
+//   const imageRef = useRef(null);
+
+//   useEffect(() => {
+//     const observer = new IntersectionObserver((entries) => {
+//       entries.forEach((entry) => {
+//         if (entry.isIntersecting) {
+//           entry.target.classList.add(`slide-in-${idx}`);
+//           observer.unobserve(entry.target);
+//         }
+//       });
+//     });
+//     observer.observe(imageRef.current);
+
+//     return () => {
+//       observer.disconnect();
+//     };
+//   }, [imageRef, idx]);
+
+//   return (
+//     <img
+//       ref={imageRef}
+//       src={image}
+//       alt=""
+//       className="slide-in"
+//     />
+//   );
+// };
+
+const Image = ({ image, altText, idx }) => {
   const imageRef = useRef(null);
 
   useEffect(() => {
@@ -12,6 +41,7 @@ const Image = ({ image, idx }) => {
         }
       });
     });
+
     observer.observe(imageRef.current);
 
     return () => {
@@ -23,8 +53,9 @@ const Image = ({ image, idx }) => {
     <img
       ref={imageRef}
       src={image}
-      alt=""
+      alt={altText}
       className="slide-in"
+      loading="lazy"
     />
   );
 };

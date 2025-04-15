@@ -38,12 +38,12 @@ const Headers = () => {
         <nav className="navbar navbar-expand-lg fixed-top" ref={navRef}>
           <div className="container">
             <Link className="navbar-brand" href="/">
-              <img src="/minitlogocolor (1).webp" className="mbl-logo" />
+              <img src="/trimsel-logo-svg" className="mbl-logo" />
               <img
                 src={
                   scrollPosition > 50
-                    ? "/minitlogocolor (1).webp"
-                    : "/minitzon-logo-white.png"
+                    ? "/trimsel-logo.svg"
+                    : "/trimsel-logo-white.svg"
                 }
                 className="dsktp-logo"
                 alt="Logo"
@@ -124,7 +124,7 @@ const Headers = () => {
                           <div className="row  rounded-lg pt-2 mega-row">
                             <div className="col-lg-6 col-md-6 mt-2 first-column">
                               <Link
-                                href="/mobile-app"
+                                href="/mobile-app-development-chennai"
                                 passHref
                                 className="dropdown-links"
                               >
@@ -145,8 +145,7 @@ const Headers = () => {
                                       </h2>
 
                                       <p className="dropdown-para">
-                                        Build cross-platform apps for both IOS
-                                        and Android
+                                      Develop high-performance iOS & Android apps with a seamless user experience and scalable architecture.
                                       </p>
                                     </div>
                                   </div>
@@ -155,7 +154,7 @@ const Headers = () => {
                             </div>
                             <div className="col-lg-6 col-md-6 mt-2">
                               <Link
-                                href="/devops-consulting-service"
+                                href="/devops-consulting-services"
                                 passHref
                                 className="dropdown-links"
                               >
@@ -176,8 +175,7 @@ const Headers = () => {
                                       </h2>
 
                                       <p className="dropdown-para">
-                                        Build cross-platform apps for both IOS
-                                        and Android
+                                      Automate deployments, enhance security, and streamline development with expert DevOps solutions.
                                       </p>
                                     </div>
                                   </div>
@@ -186,7 +184,7 @@ const Headers = () => {
                             </div>
                             <div className="col-lg-6 col-md-6 mt-2">
                               <Link
-                                href="/web-development"
+                                href="/web-development-company-chennai"
                                 passHref
                                 className="dropdown-links"
                               >
@@ -207,15 +205,14 @@ const Headers = () => {
                                       </h2>
 
                                       <p className="dropdown-para">
-                                        Build cross-platform apps for both IOS
-                                        and Android
+                                      Create responsive, SEO-optimized, and scalable web applications tailored to your business needs.
                                       </p>
                                     </div>
                                   </div>
                                 </div>
                               </Link>
                             </div>
-                            <div className="col-lg-6 col-md-6 mt-2">
+                            {/* <div className="col-lg-6 col-md-6 mt-2">
                               <Link
                                 href="/quality-engineering-testing"
                                 passHref
@@ -245,10 +242,10 @@ const Headers = () => {
                                   </div>
                                 </div>
                               </Link>
-                            </div>
+                            </div> */}
                             <div className="col-lg-6 col-md-6 mt-2">
                               <Link
-                                href="/digital-marketing"
+                                href="/digital-marketing-company-chennai"
                                 passHref
                                 className="dropdown-links"
                               >
@@ -269,15 +266,14 @@ const Headers = () => {
                                       </h2>
 
                                       <p className="dropdown-para">
-                                        Build cross-platform apps for both IOS
-                                        and Android
+                                      Boost online visibility, drive traffic, and generate leads with strategic SEO, PPC, and content marketing.
                                       </p>
                                     </div>
                                   </div>
                                 </div>
                               </Link>
                             </div>
-                            <div className="col-lg-6 col-md-6 mt-2">
+                            {/* <div className="col-lg-6 col-md-6 mt-2">
                               <Link
                                 href="/blockchain-development"
                                 passHref
@@ -307,11 +303,10 @@ const Headers = () => {
                                   </div>
                                 </div>
                               </Link>
-                            </div>
+                            </div> */}
                             <div className="col-lg-6 col-md-6 mt-2">
                               <Link
-                                href="/cloud-consulting-services"
-                                passHref
+                                href="/cloud-consulting-services" passHref
                                 className="dropdown-links"
                               >
                                 <div className="card menu-seventh-card h-100">
@@ -331,8 +326,7 @@ const Headers = () => {
                                       </h2>
 
                                       <p className="dropdown-para">
-                                        Build cross-platform apps for both IOS
-                                        and Android
+                                      Leverage cloud technologies with expert AWS, GCP, and Azure consulting for cost-efficient and scalable cloud solutions.
                                       </p>
                                     </div>
                                   </div>

@@ -6,34 +6,35 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.2.1",
-    "@fortawesome/free-solid-svg-icons": "^6.2.1",
-    "@fortawesome/react-fontawesome": "^0.2.0",
-    "@next/font": "13.0.7",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@react-icons/all-files": "^4.1.0",
-    "eslint": "8.30.0",
-    "eslint-config-next": "13.0.7",
-    "next": "13.0.7",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
-  },
-  "devDependencies": {
     "axios": "^1.2.2",
-    "babel-plugin-styled-components": "^2.0.7",
-    "bootstrap": "^5.2.3",
+    "classnames": "^2.5.1",
+    "eslint": "^9.20.0",
     "gray-matter": "^4.0.3",
     "gsap": "^3.11.4",
-    "next-mdx-remote": "^4.4.1",
+    "next": "^14.0.0",
+    "next-mdx-remote": "^5.0.0",
+    "next-seo": "^5.12.0",
+    "next-sitemap": "^4.2.3",
     "nodemailer": "^6.9.0",
+    "react": "^18.2.0",
     "react-bootstrap": "^2.7.0",
-    "react-countup": "^6.4.0",
+    "react-countup": "^6.5.3",
+    "react-dom": "^18.2.0",
+    "react-google-recaptcha": "^3.1.0",
     "react-hook-form": "^7.42.0",
     "react-intersection-observer": "^9.4.1",
+    "react-phone-input-2": "^2.15.1",
     "react-scroll-trigger": "^0.6.14",
     "react-syntax-highlighter": "^15.5.0",
-    "use-isomorphic-layout-effect": "^1.1.2"
+    "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "eslint-config-next": "^15.1.6"
   }
 }

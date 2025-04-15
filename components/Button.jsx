@@ -1,9 +1,11 @@
 import React from 'react'
 
-const Button= ({text}) => {
+const Button = ({ text, className = "", ...props }) => {
   return (
-    <button className='btn btn-primary'> {text} </button>
-  )
-}
+    <button type={type} className={`btn btn-primary ${className}`} aria-label={text} {...props}>
+      {text || "Click Here"}
+    </button>
+  );
+};
 
 export default Button

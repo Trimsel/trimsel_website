@@ -4,6 +4,23 @@ import Card from "react-bootstrap/Card";
 import Image from "next/image";
 import { useState } from "react";
 
+const testimonials = [
+  {
+    name: "Kalyan Krishnamurthy",
+    position: "CEO at Flipkart",
+    image: "/images/client.webp",
+    linkedin: "/images/bi_linkedin.png",
+    feedback: "It's a big team and what's really good is that it's a specialized team, so that means they have to be the best at what they do. I am very happy and impressed.",
+  },
+  {
+    name: "Sundar Pichai",
+    position: "CEO at Google",
+    image: "/images/client2.webp",
+    linkedin: "/images/bi_linkedin.png",
+    feedback: "Working with this team has been an exceptional experience. Their attention to detail and technical expertise are second to none.",
+  }
+];
+
 
 export default function TestimonialClient() {
   const slides = [0, 1, 2];
