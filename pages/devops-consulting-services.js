@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Headers from "../components/headers";
+import Header from "../components/header";
 import Footer from "../components/footer";
 import Link from "next/link";
 import Image from "next/image";
@@ -283,7 +283,7 @@ export default function DevOps() {
   ]}
 />
       <section className="dev-hero">
-  <Headers />
+  <Header />
   <section className="hero-dev">
     <div className="container pt-3">
       <div className="row">
