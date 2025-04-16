@@ -396,13 +396,18 @@ export default function Contact() {
                             <h5>Your Message</h5>
                           </label>
                           <textarea
-                          {...register('message')}
-                          type = 'textarea'
-                          name = 'message'
-                          id   = 'message'
-                          className='form-control lg-textarea'
-                          placeholder='Describe your Project'
-                          />
+  {...register('message', {
+    required: {
+      value: true,
+      message: 'Please describe your project',
+    }
+  })}
+  name="message"
+  id="message"
+  className="form-control lg-textarea"
+  placeholder="Describe your Project"
+/>
+<span className="error-design pt-3">{errors?.message?.message}</span>
 
                         </div>
                       </div>

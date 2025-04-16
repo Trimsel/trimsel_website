@@ -402,14 +402,19 @@ export default function ContactForm() {
 
                 <div className="col-lg-12 py-3">
                   <div className="md-form ps-3">
-                    <textarea
-                      {...register("message")}
-                      type="textarea"
-                      name="message"
-                      id="message"
-                      className="form-control  abot-form"
-                      placeholder="Your Message"
-                    />
+                  <textarea
+  {...register('message', {
+    required: {
+      value: true,
+      message: 'Please describe your project',
+    }
+  })}
+  name="message"
+  id="message"
+  className="form-control lg-textarea"
+  placeholder="Describe your Project"
+/>
+<span className="error-design pt-3">{errors?.message?.message}</span>
                   </div>
                 </div>
                 <div className="col-lg-12 py-3">
