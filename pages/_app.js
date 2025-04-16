@@ -8,6 +8,8 @@ import '../styles/wholestyle.css';
 import '../styles/mbl.css';
 import '../styles/devops.css';
 import '../styles/typography.css';
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react"
 
 import { gsap } from 'gsap/dist/gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
@@ -52,6 +54,8 @@ export default function App({ Component, pageProps }) {
       {/* Your custom script */}
       <Script type="module" src="/sc.js" strategy="afterInteractive" />
       <Component {...pageProps} />
+      <SpeedInsights />
+      <Analytics />
     </>
   );
 }

@@ -60,15 +60,15 @@ export default function About() {
 <NextSeo
   title="About Trimsel | Digital Transformation & IT Services Company in India"
   description="Trimsel delivers digital transformation, software development, cloud, DevOps & AI solutions to help businesses scale with cutting-edge IT services."
-  canonical="https://trimsel.com/about-us"
+  canonical="https://www.trimsel.com/about-us"
   openGraph={{
     type: "website",
-    url: "https://trimsel.com/about-us",
+    url: "https://www.trimsel.com/about-us",
     title: "About Trimsel | Digital Transformation Experts",
     description: "Trimsel is a digital transformation company in Chennai offering software development, cloud solutions, DevOps & product engineering to scale your business.",
     images: [
       {
-        url: "https://trimsel.com/images/about-page-banner.jpg",
+        url: "https://www.trimsel.com/images/about-page-banner.jpg",
         width: 1200,
         height: 630,
         alt: "Trimsel Digital Transformation Team",
@@ -80,19 +80,19 @@ export default function About() {
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "@id": "https://trimsel.com/about-us",
+      "@id": "https://www.trimsel.com/about-us",
       "name": "About Trimsel",
-      "url": "https://trimsel.com/about-us",
+      "url": "https://www.trimsel.com/about-us",
       "telephone": "+91 72008 41581",
       "description": "Trimsel is a global leader in digital transformation, software development, cloud computing, and DevOps solutions.",
-      "image": "https://trimsel.com/images/about-page-banner.jpg",
+      "image": "https://www.trimsel.com/images/about-page-banner.jpg",
       "publisher": {
         "@type": "Organization",
         "name": "Trimsel Softwares",
-        "url": "https://trimsel.com",
+        "url": "https://www.trimsel.com",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://trimsel.com/logo.png"
+          "url": "https://www.trimsel.com/logo.png"
         },
         "contactPoint": {
           "@type": "ContactPoint",

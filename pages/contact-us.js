@@ -72,15 +72,15 @@ export default function Contact() {
         <NextSeo
   title="Contact Trimsel | Leading Mobile App Development Company in Chennai"
   description="Get in touch with Trimsel, a top mobile app development company in Chennai. We build iOS, Android & cross-platform apps. Book your free consultation today!"
-  canonical="https://trimsel.com/contact-us"
+  canonical="https://www.trimsel.com/contact-us"
   openGraph={{
     type: 'website',
-    url: 'https://trimsel.com/contact-us',
+    url: 'https://www.trimsel.com/contact-us',
     title: 'Contact Trimsel | Leading Mobile App Development Company in Chennai',
     description: 'Contact Trimsel for mobile app development in Chennai. Let’s build your Android, iOS, or cross-platform app today!',
     images: [
       {
-        url: 'https://trimsel.com/images/contact-hero.jpg',
+        url: 'https://www.trimsel.com/images/contact-hero.jpg',
         width: 1200,
         height: 630,
         alt: 'Trimsel Contact Page',
@@ -95,9 +95,9 @@ export default function Contact() {
       "name": "Trimsel - Mobile App Development Experts",
       "telephone": "+91 72008 41581",
       "description": "Trimsel is a leading mobile app development company in Chennai, providing world-class solutions for iOS, Android, and web applications.",
-      "url": "https://trimsel.com/contact-us",
-      "logo": "https://trimsel.com/logo.png",
-      "image": "https://trimsel.com/images/contact-hero.jpg",
+      "url": "https://www.trimsel.com/contact-us",
+      "logo": "https://www.trimsel.com/logo.png",
+      "image": "https://www.trimsel.com/images/contact-hero.jpg",
       "email": "contact@trimsel.com",
       "contactPoint": {
         "@type": "ContactPoint",

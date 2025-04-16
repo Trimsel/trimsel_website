@@ -80,15 +80,15 @@ export default function Home() {
        <NextSeo
   title="Digital Transformation Company in Chennai | Custom Software Services"
   description="Trimsel is a digital transformation company in Chennai offering software development, cloud solutions, DevOps & product engineering to scale your business."
-  canonical="https://trimsel.com"
+  canonical="https://www.trimsel.com"
   openGraph={{
     type: "website",
-    url: "https://trimsel.com",
+    url: "https://www.trimsel.com",
     title: "Digital Transformation Company in Chennai | Custom Software Services",
     description: "Trimsel is a digital transformation company in Chennai offering software development, cloud solutions, DevOps & product engineering to scale your business.",
     images: [
       {
-        url: "https://trimsel.com/images/home-hero-banner.webp",
+        url: "https://www.trimsel.com/images/home-hero-banner.webp",
         width: 1200,
         height: 630,
         alt: "Digital Transformation Company - Trimsel",
@@ -106,13 +106,13 @@ export default function Home() {
     {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
-      "@id": "https://trimsel.com",
+      "@id": "https://www.trimsel.com",
       "name": "Trimsel - Digital Transformation & Software Services",
       "telephone": "+91 72008 41581",
       "description": "Trimsel is a digital transformation company offering custom software development, cloud consulting, DevOps, and digital product engineering.",
-      "url": "https://trimsel.com",
-      "logo": "https://trimsel.com/logo.png",
-      "image": "https://trimsel.com/images/home-hero-banner.webp",
+      "url": "https://www.trimsel.com",
+      "logo": "https://www.trimsel.com/logo.png",
+      "image": "https://www.trimsel.com/images/home-hero-banner.webp",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+91 72008 41581",
@@ -127,6 +127,35 @@ export default function Home() {
         "postalCode": "600032",
         "addressCountry": "IN"
       },
+      "areaServed": [
+  {
+    "@type": "Place",
+    "name": "Chennai",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "13.0827",
+      "longitude": "80.2707"
+    }
+  },
+  { "@type": "Country", "name": "India" },
+  { "@type": "Country", "name": "United Arab Emirates" },
+  { "@type": "Country", "name": "Australia" },
+  { "@type": "Country", "name": "United States" },
+  { "@type": "Country", "name": "United Kingdom" },
+  { "@type": "Country", "name": "Canada" },
+  { "@type": "Country", "name": "Germany" },
+  { "@type": "Country", "name": "France" },
+  { "@type": "Country", "name": "Netherlands" },
+  { "@type": "Country", "name": "Singapore" },
+  { "@type": "Country", "name": "Malaysia" },
+  { "@type": "Country", "name": "Kenya" },
+  { "@type": "Country", "name": "South Africa" }
+],
+"geo": {
+  "@type": "GeoCoordinates",
+  "latitude": "13.0827",
+  "longitude": "80.2707"
+},
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Software & Digital Services",

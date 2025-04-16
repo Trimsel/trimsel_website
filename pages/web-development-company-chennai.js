@@ -56,16 +56,16 @@ export default function WebDevelopment() {
 <NextSeo
   title="Top Web Development Company in Chennai | Website Design Experts"
   description="Trimsel is a top web development company in Chennai offering website design, CMS, ecommerce, and custom solutions in ReactJS & NodeJS."
-  canonical="https://trimsel.com/web-development-company-chennai"
+  canonical="https://www.trimsel.com/web-development-company-chennai"
   openGraph={{
     type: "website",
-    url: "https://trimsel.com/web-development-company-chennai",
+    url: "https://www.trimsel.com/web-development-company-chennai",
     title: "Top Web Development Company in Chennai | Website Design & Development",
     description:
       "Trimsel is a trusted web development company in Chennai, offering high-performance web development services, including ReactJS, NodeJS, CMS, and ecommerce.",
     images: [
       {
-        url: "https://trimsel.com/images/web-dev-hero.png",
+        url: "https://www.trimsel.com/images/web-dev-hero.png",
         width: 1200,
         height: 630,
         alt: "Top Web Development Company in Chennai"
@@ -83,13 +83,13 @@ export default function WebDevelopment() {
     {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
-      "@id": "https://trimsel.com/web-development-company-chennai",
+      "@id": "https://www.trimsel.com/web-development-company-chennai",
       "name": "Trimsel - Web Development Company",
       "telephone": "+91 72008 41581",
       "description": "Trimsel is a top web development company in Chennai, India. We specialize in website design, ecommerce, CMS, and web app development using ReactJS & NodeJS.",
-      "url": "https://trimsel.com/web-development-company-chennai",
-      "logo": "https://trimsel.com/logo.png",
-      "image": "https://trimsel.com/images/web-dev-hero.png",
+      "url": "https://www.trimsel.com/web-development-company-chennai",
+      "logo": "https://www.trimsel.com/logo.png",
+      "image": "https://www.trimsel.com/images/web-dev-hero.png",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+91 72008 41581",

@@ -24,15 +24,15 @@ export default function CloudConsulting() {
   <NextSeo
   title="Cloud Consulting in Chennai, India | AWS, Azure & GCP Experts"
   description="Trimsel offers expert cloud consulting in Chennai, India, including AWS, Azure & GCP consulting, migration, and cost optimization. Get started today!"
-  canonical="https://trimsel.com/cloud-consulting-services"
+  canonical="https://www.trimsel.com/cloud-consulting-services"
   openGraph={{
     type: 'website',
-    url: 'https://trimsel.com/cloud-consulting-services',
+    url: 'https://www.trimsel.com/cloud-consulting-services',
     title: 'Cloud Consulting Services in Chennai, India | AWS, Azure & GCP Experts',
     description: 'Expert Cloud Consulting Services in Chennai, India. We offer cloud migration, cloud cost optimization, AWS, Azure & GCP consulting. Get in touch today!',
     images: [
       {
-        url: 'https://trimsel.com/images/cloud-hero.png',
+        url: 'https://www.trimsel.com/images/cloud-hero.png',
         width: 1200,
         height: 630,
         alt: 'Cloud Consulting Services in Chennai, India',
@@ -49,13 +49,13 @@ export default function CloudConsulting() {
     {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
-      "@id": "https://trimsel.com/trimsel-cloud-consulting",
+      "@id": "https://www.trimsel.com/trimsel-cloud-consulting",
       "name": "Trimsel - Cloud Consulting",
       "telephone": "+91 72008 41581",
-      "url": "https://trimsel.com/cloud-consulting-services",
-      "logo": "https://trimsel.com/images/trimsel-logo.svg",
+      "url": "https://www.trimsel.com/cloud-consulting-services",
+      "logo": "https://www.trimsel.com/images/trimsel-logo.svg",
       "description": "Cloud Consulting Services in Chennai, India. Specializing in AWS, Azure, and GCP cloud migration, cost optimization, and cloud engineering.",
-      "image": "https://trimsel.com/images/cloud-hero.png",
+      "image": "https://www.trimsel.com/images/cloud-hero.png",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "No. 21-B, 5th Cross St, South Phase, Thiru Vi Ka Industrial Estate, Indira Nagar, Guindy",

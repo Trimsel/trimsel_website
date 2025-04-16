@@ -121,21 +121,21 @@ function Footer() {
                     About Us
                   </Link>
                 </p>
-                <p className="footer-p-link">
+                {/* <p className="footer-p-link">
                   <Link href="#" className="footer-link">
                     Technologies
                   </Link>
-                </p>
-                <p className="footer-p-link">
+                </p> */}
+                {/* <p className="footer-p-link">
                   <Link href="#" className="footer-link">
                     Blogs
                   </Link>
-                </p>
-                <p className="footer-p-link">
+                </p> */}
+                {/* <p className="footer-p-link">
                   <Link href="/portfolio" className="footer-link">
                     Portfolio
                   </Link>
-                </p>
+                </p> */}
                 <p className="footer-p-link">
                   <Link href="/contact-us" className="footer-link">
                     Contact Us

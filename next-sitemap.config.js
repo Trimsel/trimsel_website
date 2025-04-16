@@ -1,7 +1,7 @@
 // next-sitemap.config.js
 
 module.exports = {
-    siteUrl: 'https://trimsel.com',
+    siteUrl: 'https://www.trimsel.com',
     generateRobotsTxt: true,
     sitemapSize: 7000,
     changefreq: 'weekly',

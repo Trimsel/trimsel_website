@@ -43,15 +43,15 @@ export default function Digital() {
     <NextSeo
   title="Top Digital Marketing Company in Chennai | SEO, PPC, SMM Experts"
   description="Trimsel is a digital marketing company in Chennai offering SEO, PPC, social media marketing & content strategies to boost visibility and drive results."
-  canonical="https://trimsel.com/digital-marketing-company-chennai"
+  canonical="https://www.trimsel.com/digital-marketing-company-chennai"
   openGraph={{
     type: "website",
-    url: "https://trimsel.com/digital-marketing-company-chennai",
+    url: "https://www.trimsel.com/digital-marketing-company-chennai",
     title: "Top Digital Marketing Company in Chennai | SEO, PPC, SMM Experts",
     description: "Trimsel is a trusted digital marketing agency in Chennai specializing in SEO services, PPC advertising, and social media campaigns for high-growth brands.",
     images: [
       {
-        url: "https://trimsel.com/images/digital-marketing-hero.jpg",
+        url: "https://www.trimsel.com/images/digital-marketing-hero.jpg",
         width: 1200,
         height: 630,
         alt: "Top Digital Marketing Company in Chennai",
@@ -69,13 +69,13 @@ export default function Digital() {
     {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "@id": "https://trimsel.com/digital-marketing-company-chennai",
+    "@id": "https://www.trimsel.com/digital-marketing-company-chennai",
     "name": "Trimsel - Digital Marketing Company",
     "telephone": "+91 72008 41581",
     "description": "Trimsel is a top digital marketing company in Chennai offering SEO, PPC, SMM, LinkedIn & Instagram marketing services to boost brand visibility and lead generation.",
-    "url": "https://trimsel.com/digital-marketing-company-chennai",
-    "logo": "https://trimsel.com/logo.png",
-    "image": "https://trimsel.com/images/digital-marketing-hero.jpg",
+    "url": "https://www.trimsel.com/digital-marketing-company-chennai",
+    "logo": "https://www.trimsel.com/logo.png",
+    "image": "https://www.trimsel.com/images/digital-marketing-hero.jpg",
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+91 72008 41581",

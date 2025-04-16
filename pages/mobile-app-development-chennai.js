@@ -68,16 +68,16 @@ export default function mobileApp() {
 <NextSeo
   title="Top Mobile App Development Company in Chennai, India | Trimsel"
   description="Trimsel is a top mobile app development company in Chennai, India. We build secure, scalable iOS, Android, Flutter & hybrid apps tailored to your business."
-  canonical="https://trimsel.com/mobile-app-development-chennai"
+  canonical="https://www.trimsel.com/mobile-app-development-chennai"
   openGraph={{
     type: "website",
-    url: "https://trimsel.com/mobile-app-development-chennai",
+    url: "https://www.trimsel.com/mobile-app-development-chennai",
     title: "Top Mobile App Development Company in Chennai, India | Trimsel",
     description:
       "Trimsel is a leading mobile app development company in Chennai, India. Expert Android, iOS, Flutter & Hybrid app developers delivering scalable, secure solutions.",
     images: [
       {
-        url: "https://trimsel.com/images/mobilehero.webp",
+        url: "https://www.trimsel.com/images/mobilehero.webp",
         width: 1200,
         height: 630,
         alt: "Leading Mobile App Development Company in Chennai"
@@ -95,12 +95,12 @@ export default function mobileApp() {
     {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
-      "@id": "https://trimsel.com/mobile-app-development-chennai",
+      "@id": "https://www.trimsel.com/mobile-app-development-chennai",
       "name": "Trimsel - Mobile App Development Company",
       "description": "Trimsel is a leading mobile app development company in Chennai, India. Expert Android, iOS, Flutter & Hybrid app developers delivering scalable, secure solutions.",
-      "url": "https://trimsel.com/mobile-app-development-chennai",
-      "logo": "https://trimsel.com/logo.png",
-      "image": "https://trimsel.com/images/mobilehero.webp",
+      "url": "https://www.trimsel.com/mobile-app-development-chennai",
+      "logo": "https://www.trimsel.com/logo.png",
+      "image": "https://www.trimsel.com/images/mobilehero.webp",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+91 72008 41581",

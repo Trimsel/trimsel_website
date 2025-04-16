@@ -81,15 +81,15 @@ export default function DevOps() {
 <NextSeo
   title="Best DevOps Consulting Services | DevOps Automation & Cloud Solutions"
   description="Trimsel offers DevOps consulting, CI/CD pipelines, Kubernetes consulting, and infrastructure automation to optimize your cloud and deployment workflows."
-  canonical="https://trimsel.com/devops-consulting-services"
+  canonical="https://www.trimsel.com/devops-consulting-services"
   openGraph={{
     type: "website",
-    url: "https://trimsel.com/devops-consulting-services",
+    url: "https://www.trimsel.com/devops-consulting-services",
     title: "Best DevOps Consulting Services | DevOps Automation & Cloud Solutions",
     description: "Looking for a trusted DevOps consulting company? Trimsel specializes in DevOps implementation, release management, and Kubernetes solutions.",
     images: [
       {
-        url: "https://trimsel.com/images/devops-banner.webp",
+        url: "https://www.trimsel.com/images/devops-banner.webp",
         width: 1200,
         height: 630,
         alt: "DevOps Automation & Consulting Services",
@@ -107,13 +107,13 @@ export default function DevOps() {
     {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
-      "@id": "https://trimsel.com/devops-consulting-services",
+      "@id": "https://www.trimsel.com/devops-consulting-services",
       "name": "Trimsel - DevOps Consulting Services",
       "telephone": "+91 72008 41581",
       "description": "Trimsel provides expert DevOps solutions, including CI/CD pipelines, cloud automation, Kubernetes consulting, and infrastructure as code.",
-      "url": "https://trimsel.com/devops-consulting-services",
-      "logo": "https://trimsel.com/logo.png",
-      "image": "https://trimsel.com/images/devops-banner.webp",
+      "url": "https://www.trimsel.com/devops-consulting-services",
+      "logo": "https://www.trimsel.com/logo.png",
+      "image": "https://www.trimsel.com/images/devops-banner.webp",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+91 72008 41581",
