@@ -8,22 +8,41 @@ import '../styles/wholestyle.css';
 import '../styles/mbl.css';
 import '../styles/devops.css';
 import '../styles/typography.css';
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
 import { gsap } from 'gsap/dist/gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useEffect } from 'react';
 import Script from 'next/script';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 gsap.registerPlugin(ScrollTrigger);
 config.autoAddCss = false;
 
 export default function App({ Component, pageProps }) {
+  const router = useRouter();
+
   useEffect(() => {
     require('bootstrap/dist/js/bootstrap.bundle.min');
-  }, []);
+
+    const cleanBodyStyles = () => {
+      // ✅ Fix overflow issue
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+      document.body.classList.remove('modal-open');
+
+      // ✅ Remove any leftover Bootstrap backdrop elements
+      const backdrops = document.querySelectorAll('.offcanvas-backdrop, .modal-backdrop');
+      backdrops.forEach(el => el.remove());
+    };
+
+    router.events.on('routeChangeComplete', cleanBodyStyles);
+    return () => {
+      router.events.off('routeChangeComplete', cleanBodyStyles);
+    };
+  }, [router.events]);
 
   return (
     <>
@@ -31,7 +50,6 @@ export default function App({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
       </Head>
 
-      {/* ✅ Load GA4 script */}
       <Script
         strategy="afterInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
@@ -50,9 +68,8 @@ export default function App({ Component, pageProps }) {
           `,
         }}
       />
-
-      {/* Your custom script */}
       <Script type="module" src="/sc.js" strategy="afterInteractive" />
+
       <Component {...pageProps} />
       <SpeedInsights />
       <Analytics />
