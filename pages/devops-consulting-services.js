@@ -1090,7 +1090,7 @@ export default function DevOps() {
       </section>
       <ContactForm />
 
-      <section id="blog" className="py-4">
+      {/* <section id="blog" className="py-4">
         <div className="container blog-container">
           <div className="row py-3">
             <Stack direction="horizontal">
@@ -1113,7 +1113,7 @@ export default function DevOps() {
             </div>
             <div className="col-lg-7 col-md-7 py-4">
               <p className="blog-para">
-                At Minitzon, there is continuous learning that happens as we
+                At Trimsel, there is continuous learning that happens as we
                 work on various projects. We also love to update and upgrade
                 with the latest innovations in the field of technology and apps.
               </p>
@@ -1182,7 +1182,7 @@ export default function DevOps() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section id="faq">
   <div className="container faq-container">
@@ -1301,7 +1301,7 @@ export default function DevOps() {
   </div>
 </section>
 
-      <ContactModal title="Need A DevOps Service? Contact Us" />
+      {/* <ContactModal title="Need A DevOps Service? Contact Us" /> */}
       <Footer />
     </>
   );

@@ -88,6 +88,7 @@ export default function HomeSlider() {
                         height={38}
                         alt="Mobile App Development Experts in Chennai"
                         className="one"
+                        loading="lazy"
                       />
                       <h1 className="headings-title">
                         Build Scalable <span style={{ color: "#01aaec" }}>Mobile Apps</span> <br /> for Your Business
@@ -133,6 +134,7 @@ export default function HomeSlider() {
                         height={38}
                         alt="Cloud Consulting Experts India"
                         className="one"
+                        loading="lazy"
                       />
                       <h1 className="headings-title">
                         Scale Your Business with <br /> <span style={{ color: "#01aaec" }}>Cloud Consulting Services</span>

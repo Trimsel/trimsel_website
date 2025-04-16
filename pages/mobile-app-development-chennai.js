@@ -1427,7 +1427,7 @@ Cost-effective, scalable solutions<br></br>
   </div>
 </section>
         <ContactForm />
-        <ContactModal title="Wanna Develop A Mobile Application? Contact Us" />
+        {/* <ContactModal title="Wanna Develop A Mobile Application? Contact Us" /> */}
         <Footer />
       </main>
     </>

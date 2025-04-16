@@ -1075,7 +1075,7 @@ export default function Digital() {
   </div>
 </section>
 
-      <ContactModal title="Need A Website To Digitialize Your Business?" />
+      {/* <ContactModal title="Need A Website To Digitialize Your Business?" /> */}
       <Footer />
     </>
   );

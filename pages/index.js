@@ -1517,7 +1517,7 @@ export default function Home() {
           </div>
         </section> */}
         <ContactForm />
-        <ContactModal title = "Have A Project Idea ? Contact Us" />
+        {/* <ContactModal title = "Have A Project Idea ? Contact Us" /> */}
         <section id="faq">
   <div className="container faq-container">
     <h2 className="faq-heading">Frequently Asked Questions</h2>

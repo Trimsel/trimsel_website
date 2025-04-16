@@ -1260,7 +1260,7 @@ export default function CloudConsulting() {
 </section>
 
 
-      <ContactModal title="Need A Dedicated Cloud Partner? Contact Us"/>
+      {/* <ContactModal title="Need A Dedicated Cloud Partner? Contact Us"/> */}
       <Footer />
     </>
   );
