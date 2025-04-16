@@ -889,9 +889,9 @@ export default function Home() {
             <Image src="/images/backend.png" width={80} height={80} className="do-icon pb-3" alt="Web Development icon" loading="lazy" />
             <h3 className="qs-card-heading">Website Development</h3>
             <p className="qsd-para">
-              We’re a <a href="/web-development">leading website development company in Chennai</a> building fast, SEO-friendly websites and enterprise-grade web applications that scale with your business.
+              We’re a <a href="/web-development-compant-chennai">leading website development company in Chennai</a> building fast, SEO-friendly websites and enterprise-grade web applications that scale with your business.
             </p>
-            <Link href="/web-development" passHref>
+            <Link href="/web-development-company-chennai" passHref>
               <Image src="/images/Group2495.png" width={56} height={56} className="do-btn-icon" alt="Web CTA" loading="lazy" />
             </Link>
           </Card.Body>
@@ -947,7 +947,7 @@ export default function Home() {
       </div>
 
       {/* Testing */}
-      <div className="col-lg-4 col-md-6 pt-3">
+      {/* <div className="col-lg-4 col-md-6 pt-3">
         <Card className="hm-customize-card">
           <Card.Body>
             <Image src="/images/testing.png" width={80} height={80} className="do-icon pb-3" alt="Testing icon" loading="lazy" />
@@ -960,7 +960,7 @@ export default function Home() {
             </Link>
           </Card.Body>
         </Card>
-      </div>
+      </div> */}
     </div>
   </div>
 </section>
