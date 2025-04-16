@@ -338,7 +338,7 @@ const Headers = () => {
                       </div>
                     </div>
                   </li>
-                  <li className="nav-item ps-3">
+                  {/* <li className="nav-item ps-3">
                     <Link
                       href="/portfolio"
                       className={`${
@@ -357,7 +357,7 @@ const Headers = () => {
                     >
                       BLOG
                     </Link>
-                  </li>
+                  </li> */}
                   <li className="nav-item ps-3">
                     <Link href="/contact-us" passHref>
                       <button
