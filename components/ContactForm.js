@@ -335,17 +335,28 @@ export default function ContactForm() {
       <h5>Mobile Number *</h5>
     </label>
     <div className="phone-input-container">
-      <PhoneInput
-        country={'in'}
-        value={phone}
-        onChange={setPhone}
-        inputProps={{
-          name: 'phone',
-          required: true,
-          className: 'form-control popup-form',
-        }}
-        inputStyle={{ width: '100%' }}
-      />
+    <PhoneInput
+  country={'in'}
+  enableSearch={true}
+  value={phone}
+  onChange={(phone) => setPhone(phone)}
+  inputProps={{
+    name: 'mobile',
+    required: true,
+  }}
+  inputStyle={{
+    width: '100%',
+    height: '58px',
+    border: '1px solid #ccc',
+    borderRadius: '5px',
+    paddingLeft: '45px',
+  }}
+  containerStyle={{ width: '100%' }}
+/>
+{errors?.mobile && (
+  <span className="error-design pt-3">Mobile number is required</span>
+)}
+
     </div>
   </div>
 </div>
