@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Header from "../components/header";
+import Headers from "../components/headers";
 import Link from 'next/link'
 import Carousel from 'react-bootstrap/Carousel'
 import { useForm } from 'react-hook-form'
@@ -160,7 +160,7 @@ export default function Contact() {
 
         <main>
         <section className='hero-cntct'>
-        <Header />
+        <Headers />
             <div className='overlay'></div>
             
             <section className="hero">
