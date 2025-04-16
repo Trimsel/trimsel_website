@@ -67,8 +67,8 @@ const Headers = () => {
             >
               <div className="offcanvas-header">
                 <img
-                  src="/minitlogocolor (1).webp"
-                  alt="Default logo"
+                  src="/trimsel-logo.svg"
+                  alt="Trimsel Logo"
                   style={{ width: "170px", height: "auto" }}
                 />
                 <button
