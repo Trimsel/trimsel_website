@@ -51,12 +51,10 @@ export default function App({ Component, pageProps }) {
       </Head>
 
       <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-MXLK9Z82J3"
         strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
       />
-      <Script
-        id="google-analytics"
-        strategy="afterInteractive"
+      <Script id="google-analytics" strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
@@ -68,7 +66,7 @@ export default function App({ Component, pageProps }) {
           `,
         }}
       />
-      <Script type="module" src="/sc.js" strategy="afterInteractive" />
+      <Script type="module" src="/sc.js" strategy="lazyOnload" />
 
       <Component {...pageProps} />
       <SpeedInsights />
