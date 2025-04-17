@@ -108,7 +108,7 @@ export default function HomeSlider() {
                   </div>
                   <div className="col-lg-6 col-md-6">
                     <Image
-                      src="/images/home-slider-two.png"
+                      src="/images/cloudhm.png"
                       className="home--scnd"
                       alt="Mobile App Development Company in Chennai - Trimsel"
                       width={793}
@@ -132,31 +132,32 @@ export default function HomeSlider() {
                         src="/images/digital.png"
                         width={298}
                         height={38}
-                        alt="Cloud Consulting Experts India"
+                        alt="Digital Marketing Company in Chennai"
                         className="one"
                         loading="lazy"
                       />
                       <h1 className="headings-title">
-                        Scale Your Business with <br /> <span style={{ color: "#01aaec" }}>Cloud Consulting Services</span>
-                      </h1>
-                      <h2 style={{ display: "none" }}>
-                        Cloud consulting service in Chennai, AWS experts, Azure consultants, GCP cloud solutions, scalable cloud infrastructure
-                      </h2>
-                      <p className="abt-hero-para">
-                        Optimize performance and reduce costs with <strong>AWS, Azure, and GCP cloud solutions</strong>. Let our <strong>cloud experts</strong> help you streamline operations and scale effortlessly.
-                      </p>
-                      <Link href="/cloud-consulting-services" passHref>
+              Drive Leads with Expert <br />
+              <span style={{ color: "#01aaec" }}>Digital Marketing Services</span>
+            </h1>
+            <h2 style={{ display: "none" }}>
+              Digital Marketing Company in Chennai, SEO Services, Google Ads, Social Media Marketing, Instagram & Facebook Ads
+            </h2>
+            <p className="abt-hero-para">
+              Boost your online presence with expert <strong>SEO services</strong>, high-converting <strong>Google Ads</strong>, and result-driven <strong>Instagram & Facebook Marketing</strong>. Partner with the top <strong>digital marketing company in Chennai</strong> to scale your business.
+            </p>
+                      <Link href="//digital-marketing-company-chennai" passHref>
                         <button className="btn btn-primary get-btn">
-                          Explore Cloud Solutions <img src="/images/material-symbols_arrow-right-alt.png" />
+                        Explore Marketing Solutions <img src="/images/material-symbols_arrow-right-alt.png" />
                         </button>
                       </Link>
                     </div>
                   </div>
                   <div className="col-lg-6 col-md-6">
                     <Image
-                      src="/images/cloudhm.png"
+                      src="/images/home-slider-two.png"
                       className="home--third"
-                      alt="Cloud Computing Solutions Chennai - Trimsel"
+                      alt="SEO Company in Chennai - Trimsel"
                       width={666}
                       height={681}
                       loading="lazy"
