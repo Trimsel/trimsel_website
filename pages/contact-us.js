@@ -153,7 +153,7 @@ export default function Contact() {
   additionalMetaTags={[
     {
       name: "robots",
-      content: "noindex, nofollow", // ← allow Google to index the contact-us page
+      content: "index, follow", // ← allow Google to index the contact-us page
     },
   ]}
 />

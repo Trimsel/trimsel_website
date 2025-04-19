@@ -62,7 +62,7 @@ export default function Digital() {
   additionalMetaTags={[
     {
       name: "robots",
-      content: "noindex, nofollow"
+      content: "index, follow"
     }
   ]}
   additionalJsonLd={[

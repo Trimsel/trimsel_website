@@ -99,7 +99,7 @@ export default function Home() {
   additionalMetaTags={[
     {
       name: "robots",
-      content: "noindex, nofollow",
+      content: "index, follow",
     },
   ]}
   additionalJsonLd={[

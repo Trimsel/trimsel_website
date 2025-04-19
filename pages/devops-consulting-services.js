@@ -100,7 +100,7 @@ export default function DevOps() {
   additionalMetaTags={[
     {
       name: "robots",
-      content: "noindex, nofollow",
+      content: "index, follow",
     },
   ]}
   additionalJsonLd={[

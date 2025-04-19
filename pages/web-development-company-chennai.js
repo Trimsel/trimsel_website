@@ -76,7 +76,7 @@ export default function WebDevelopment() {
   additionalMetaTags={[
     {
       name: "robots",
-      content: "noindex, nofollow"
+      content: "index, follow"
     }
   ]}
   additionalJsonLd={[

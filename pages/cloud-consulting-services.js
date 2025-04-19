@@ -42,7 +42,7 @@ export default function CloudConsulting() {
   additionalMetaTags={[
     {
       name: "robots",
-      content: "noindex, nofollow"
+      content: "index, follow"
     }
   ]}
   additionalJsonLd={[

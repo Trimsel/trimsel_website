@@ -148,7 +148,7 @@ export default function About() {
   additionalMetaTags={[
     {
       name: "robots",
-      content: "noindex, nofollow",
+      content: "index, follow",
     },
   ]}
 />
