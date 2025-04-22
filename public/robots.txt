@@ -1,6 +1,15 @@
 # *
 User-agent: *
 Allow: /
+Disallow: /thank-you
+Disallow: /blog
+Disallow: /blockchain-development
+Disallow: /portfolio
+Disallow: /portfolio/ezyhelpers-case-study
+Disallow: /portfolio/kariot-case-study
+Disallow: /portfolio/mocial-case-study
+Disallow: /portfolio/xaber-case-study
+Disallow: /quality-engineering-testing
 
 # Host
 Host: https://www.trimsel.com
