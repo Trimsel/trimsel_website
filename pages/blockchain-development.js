@@ -52,6 +52,7 @@ function Blockchain() {
   return (
     <>
       <Head>
+        <meta name="robots" content="noindex, nofollow" />
         <title>Blockchain Development </title>
         <meta
           name="description"
