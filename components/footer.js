@@ -87,14 +87,14 @@ function Footer() {
                 </p>
                 <p className="footer-p-link">
                   <Link
-                    href="/devops-consulting-service"
+                    href="/devops-consulting-services"
                     className="footer-link"
                   >
                     DevOps Consulting
                   </Link>
                 </p>
                 <p className="footer-p-link">
-                  <Link href="/digital-marketing" className="footer-link">
+                  <Link href="/digital-marketing-company-chennai" className="footer-link">
                     Digital Marketing
                   </Link>
                 </p>

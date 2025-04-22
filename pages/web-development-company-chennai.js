@@ -335,7 +335,7 @@ export default function WebDevelopment() {
                 <span style={{ color: "#01aaec" }}> Half the Cost </span>{" "}
               </Button> */}
               <p className="web-abt-para pb-3">
-  In today’s fast-paced digital world, your website is more than just a digital address — it's your brand’s first impression, credibility marker, and sales engine. At Trimsel, a top web development company in Chennai, we don’t just build websites — we craft digital experiences that connect, convert, and scale. From <Link href="/digital-marketing">SEO-ready architecture</Link> to responsive design, every site we build is primed for visibility and performance. Whether you're launching a new brand, expanding your ecommerce presence, or modernizing an outdated site, our goal is to turn your vision into a high-performance web solution.
+  In today’s fast-paced digital world, your website is more than just a digital address — it's your brand’s first impression, credibility marker, and sales engine. At Trimsel, a top web development company in Chennai, we don’t just build websites — we craft digital experiences that connect, convert, and scale. From <Link href="/digital-marketing-company-chennai">SEO-ready architecture</Link> to responsive design, every site we build is primed for visibility and performance. Whether you're launching a new brand, expanding your ecommerce presence, or modernizing an outdated site, our goal is to turn your vision into a high-performance web solution.
 </p>
 
               <p className="web-abt-para pb-3">
@@ -498,7 +498,7 @@ export default function WebDevelopment() {
           desc: (
             <>
               Streamline deployment and scaling with our{" "}
-              <Link href="/devops-consulting-service">DevOps services</Link> –
+              <Link href="/devops-consulting-services">DevOps services</Link> –
               CI/CD pipelines, automated testing, and cloud infrastructure.
             </>
           ),
@@ -769,7 +769,7 @@ export default function WebDevelopment() {
             <Card className="carel-card">
               <h4 className="carel-heading">SEO-Optimized Web Design That Ranks</h4>
               <p className="carel-para">
-                Implement <a href="/digital-marketing">technical SEO</a> and content-first strategies to drive higher organic traffic and conversions.
+                Implement <a href="/digital-marketing-company-chennai">technical SEO</a> and content-first strategies to drive higher organic traffic and conversions.
               </p>
             </Card>
           </div>
@@ -1228,7 +1228,7 @@ export default function WebDevelopment() {
         </Accordion.Header>
         <Accordion.Body>
           <p className="accordion-para">
-            Yes, we build SEO-friendly websites following Google’s latest guidelines, including optimized URLs, meta tags, mobile responsiveness, and performance improvements. We also offer <a href="/digital-marketing">digital marketing services</a> for long-term growth.
+            Yes, we build SEO-friendly websites following Google’s latest guidelines, including optimized URLs, meta tags, mobile responsiveness, and performance improvements. We also offer <a href="/digital-marketing-company-chennai">digital marketing services</a> for long-term growth.
           </p>
         </Accordion.Body>
       </Accordion.Item>

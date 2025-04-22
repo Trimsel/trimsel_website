@@ -7,11 +7,15 @@ import { useState, useEffect } from 'react'
 import Footer from '../components/footer'
 import { NextSeo } from 'next-seo';
 import axios from 'axios';
-import PhoneInput from 'react-phone-input-2';
+// import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/bootstrap.css';
-import ReCAPTCHA from "react-google-recaptcha";
+// import ReCAPTCHA from "react-google-recaptcha";
 import Button from 'react-bootstrap/Button';
 import Modal from "react-bootstrap/Modal";
+import dynamic from 'next/dynamic';
+
+const PhoneInput = dynamic(() => import('react-phone-input-2'), { ssr: false });
+const ReCAPTCHA = dynamic(() => import("react-google-recaptcha"), { ssr: false });
 
 
 export default function Contact() {
@@ -159,10 +163,10 @@ export default function Contact() {
 />
 
         <main>
+        
         <section className='hero-cntct'>
-        <Headers />
+        <Headers />        
             <div className='overlay'></div>
-            
             <section className="hero">
   <div className="container pt-3">
     <div id="apps">

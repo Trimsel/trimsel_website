@@ -889,7 +889,7 @@ export default function Home() {
             <Image src="/images/backend.png" width={80} height={80} className="do-icon pb-3" alt="Web Development icon" loading="lazy" />
             <h3 className="qs-card-heading">Website Development</h3>
             <p className="qsd-para">
-              We’re a <a href="/web-development-compant-chennai">leading website development company in Chennai</a> building fast, SEO-friendly websites and enterprise-grade web applications that scale with your business.
+              We’re a <a href="/web-development-company-chennai">leading website development company in Chennai</a> building fast, SEO-friendly websites and enterprise-grade web applications that scale with your business.
             </p>
             <Link href="/web-development-company-chennai" passHref>
               <Image src="/images/Group2495.png" width={56} height={56} className="do-btn-icon" alt="Web CTA" loading="lazy" />
@@ -921,9 +921,9 @@ export default function Home() {
             <Image src="/images/devops.png" width={80} height={80} className="do-icon pb-3" alt="DevOps icon" loading="lazy" />
             <h3 className="qs-card-heading">DevOps Consulting</h3>
             <p className="qsd-para">
-              Our <a href="/devops-consulting-service">DevOps services in India</a> bring automation, CI/CD, and container orchestration (Kubernetes, Docker) to boost development speed and infrastructure reliability.
+              Our <a href="/devops-consulting-services">DevOps services in India</a> bring automation, CI/CD, and container orchestration (Kubernetes, Docker) to boost development speed and infrastructure reliability.
             </p>
-            <Link href="/devops-consulting-service" passHref>
+            <Link href="/devops-consulting-services" passHref>
               <Image src="/images/Group2495.png" width={56} height={56} className="do-btn-icon" alt="DevOps CTA" loading="lazy" />
             </Link>
           </Card.Body>
@@ -937,9 +937,9 @@ export default function Home() {
             <Image src="/images/digital-marketing.png" width={80} height={80} className="do-icon pb-3" alt="Digital Marketing icon" loading="lazy" />
             <h3 className="qs-card-heading">Digital Marketing</h3>
             <p className="qsd-para">
-              As a performance-driven <a href="/digital-marketing">digital marketing agency in Chennai</a>, we offer SEO, PPC, social ads & content strategies to help you grow visibility and leads.
+              As a performance-driven <a href="/digital-marketing-company-chennai">digital marketing agency in Chennai</a>, we offer SEO, PPC, social ads & content strategies to help you grow visibility and leads.
             </p>
-            <Link href="/digital-marketing" passHref>
+            <Link href="/digital-marketing-company-chennai" passHref>
               <Image src="/images/Group2495.png" width={56} height={56} className="do-btn-icon" alt="Marketing CTA" loading="lazy" />
             </Link>
           </Card.Body>
@@ -1561,7 +1561,7 @@ export default function Home() {
         </Accordion.Header>
         <Accordion.Body>
           <p className="accordion-para">
-            Yes. Our <a href="/devops-consulting-service">DevOps consulting services</a> include CI/CD pipeline setup, Kubernetes deployment, infrastructure automation using Terraform, and cloud-native implementation across AWS, GCP, and Azure.
+            Yes. Our <a href="/devops-consulting-services">DevOps consulting services</a> include CI/CD pipeline setup, Kubernetes deployment, infrastructure automation using Terraform, and cloud-native implementation across AWS, GCP, and Azure.
           </p>
         </Accordion.Body>
       </Accordion.Item>
