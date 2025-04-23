@@ -1539,7 +1539,7 @@ export default function Home() {
         </Accordion.Header>
         <Accordion.Body>
           <p className="accordion-para">
-            We work across multiple industries including Fintech, Healthcare, E-commerce, SaaS, Logistics, and Startups. Our <a href="/digital-transformation">digital transformation solutions</a> are customized to suit industry-specific needs such as scalability, compliance, and automation.
+            We work across multiple industries including Fintech, Healthcare, E-commerce, SaaS, Logistics, and Startups. Our <a href="/mobile-app-development-chennai">digital transformation solutions</a> are customized to suit industry-specific needs such as scalability, compliance, and automation.
           </p>
         </Accordion.Body>
       </Accordion.Item>

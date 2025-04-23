@@ -549,7 +549,7 @@ export default function About() {
             <p className="qsd-para">
               From business websites to enterprise-grade platforms, we build responsive and SEO-friendly websites that engage users and boost conversions.
             </p>
-            <Link href="/web-development" passHref>
+            <Link href="/web-development-company-chennai" passHref>
               <div className="explore-link">
                 🔗 <strong>Explore Web Development</strong>
                 <Image src="/images/Group2495.png" width={56} height={56} className="do-btn-icon" alt="button icon" />

@@ -73,7 +73,7 @@ function Footer() {
                   </a>
                 </p>
                 <p className="footer-p-link">
-                  <Link href="/web-development" className="footer-link">
+                  <Link href="/web-development-company-chennai" className="footer-link">
                     Web Development
                   </Link>
                 </p>
