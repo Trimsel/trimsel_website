@@ -1528,7 +1528,7 @@ export default function Home() {
         </Accordion.Header>
         <Accordion.Body>
           <p className="accordion-para">
-            Trimsel offers <a href="/custom-software-development">custom software development</a>, <a href="/mobile-app-development-chennai">mobile app development in Chennai</a>, web design, <a href="/cloud-consulting-services">cloud consulting</a>, DevOps automation, digital marketing, and quality engineering services. Our solutions are tailored to help businesses digitally transform and scale efficiently.
+            Trimsel offers <a href="/web-development-company-chennai">custom software development</a>, <a href="/mobile-app-development-chennai">mobile app development in Chennai</a>, web design, <a href="/cloud-consulting-services">cloud consulting</a>, DevOps automation, digital marketing, and quality engineering services. Our solutions are tailored to help businesses digitally transform and scale efficiently.
           </p>
         </Accordion.Body>
       </Accordion.Item>
@@ -1550,7 +1550,7 @@ export default function Home() {
         </Accordion.Header>
         <Accordion.Body>
           <p className="accordion-para">
-            The cost of <a href="/custom-software-development">custom application development</a> varies based on project complexity, tech stack, timeline, and features. We offer flexible engagement models for startups, SMEs, and enterprises. Get a free consultation to receive a tailored quote.
+            The cost of <a href="/mobile-app-development-chennai">custom application development</a> varies based on project complexity, tech stack, timeline, and features. We offer flexible engagement models for startups, SMEs, and enterprises. Get a free consultation to receive a tailored quote.
           </p>
         </Accordion.Body>
       </Accordion.Item>
