@@ -60,10 +60,10 @@ export default function About() {
 <NextSeo
   title="About Trimsel | Digital Transformation & IT Services Company in India"
   description="Trimsel delivers digital transformation, software development, cloud, DevOps & AI solutions to help businesses scale with cutting-edge IT services."
-  canonical="https://www.trimsel.com/about-us"
+  canonical="https://www.trimsel.com/aboutus"
   openGraph={{
     type: "website",
-    url: "https://www.trimsel.com/about-us",
+    url: "https://www.trimsel.com/aboutus",
     title: "About Trimsel | Digital Transformation Experts",
     description: "Trimsel is a digital transformation company in Chennai offering software development, cloud solutions, DevOps & product engineering to scale your business.",
     images: [
@@ -80,9 +80,9 @@ export default function About() {
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "@id": "https://www.trimsel.com/about-us",
+      "@id": "https://www.trimsel.com/aboutus",
       "name": "About Trimsel",
-      "url": "https://www.trimsel.com/about-us",
+      "url": "https://www.trimsel.com/aboutus",
       "telephone": "+91 72008 41581",
       "description": "Trimsel is a global leader in digital transformation, software development, cloud computing, and DevOps solutions.",
       "image": "https://www.trimsel.com/images/about-page-banner.jpg",
