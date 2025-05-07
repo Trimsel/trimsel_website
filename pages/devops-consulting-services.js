@@ -301,7 +301,9 @@ export default function DevOps() {
               </div>
               <div className="cafe">
                 <div className="cafe-inner devo-title">
+                  <h1>
                   Leading DevOps Consulting Services
+                  </h1>
                 </div>
               </div>
               <div className="mozart">

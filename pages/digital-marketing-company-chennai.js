@@ -256,7 +256,9 @@ export default function Digital() {
               </div>
               <div className="cafe">
                 <div className="cafe-inner news-title">
+                  <h1>
                   Top Digital Marketing Company in Chennai, India
+                  </h1>
                 </div>
               </div>
               <div className="mozart">

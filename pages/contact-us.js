@@ -177,7 +177,9 @@ export default function Contact() {
           </p>
         </div>
         <div className="cafes-inner col-lg-9 cntct-cafe">
+          <h1>
           Have a project? We would love to help.
+          </h1>
         </div>
         <p className="cntct-mozart">
           Looking for{" "}

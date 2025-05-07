@@ -242,7 +242,10 @@ export default function CloudConsulting() {
             </div>
             <div className="cafe">
               <div className="cafe-inner news-title">
+                <h1>
+                  {" "}
                 Cloud Consulting & Implementation Services in Chennai, India
+                </h1>
               </div>
             </div>
             <div className="mozart">
