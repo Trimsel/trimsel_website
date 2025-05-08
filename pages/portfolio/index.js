@@ -290,7 +290,7 @@ function Portfolio() {
                     veritatis velit hic, eveniet ullam.
                   </p>
                   <div id="container-right">
-                    <Link
+                    {/* <Link
                       href="/portfolio/kariot-case-study"
                       passHref
                       className="new-portbtn"
@@ -302,7 +302,7 @@ function Portfolio() {
                           alt="arrow-icon"
                         />
                       </button>
-                    </Link>
+                    </Link> */}
                   </div>
                 </div>
               </div>
