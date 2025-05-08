@@ -417,7 +417,7 @@ function Portfolio() {
                     veritatis velit hic, eveniet ullam.
                   </p>
                   <div id="container-right">
-                    <Link
+                    {/* <Link
                       href="/portfolio/mocial-case-study"
                       passHref
                       className="new-portbtn"
@@ -426,7 +426,7 @@ function Portfolio() {
                         View Case Study{" "}
                         <img src="/images/material-symbols_arrow-right-alt.png" />
                       </button>
-                    </Link>
+                    </Link> */}
                   </div>
                 </div>
               </div>
