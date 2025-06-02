@@ -72,7 +72,7 @@ export default function mobileApp() {
   openGraph={{
     type: "website",
     url: "https://www.trimsel.com/mobile-app-development-chennai",
-    title: "Top Mobile App Development Company in Chennai, India | Trimsel",
+    title: "Best Mobile App Development Company in Chennai, India | Trimsel",
     description:
       "Trimsel is a leading mobile app development company in Chennai, India. Expert Android, iOS, Flutter & Hybrid app developers delivering scalable, secure solutions.",
     images: [
@@ -291,7 +291,7 @@ export default function mobileApp() {
                     <div className="mozart">
                       <div className="mozart-inner">
                         <p>
-                        Trimsel is a top-rated mobile app development company in Chennai, India, delivering high-quality Android, iOS, Flutter, and cross-platform mobile applications. Hire our mobile app experts for innovative, secure, and scalable app solutions.
+                        At Trimsel, we craft custom-built mobile apps for businesses that demand speed, security, and growth-focused outcomes. From MVPs to enterprise-grade apps, we bring your ideas to life.
                         </p>
                       </div>
                     </div>
