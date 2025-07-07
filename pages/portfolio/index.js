@@ -148,15 +148,10 @@ function Portfolio() {
                       ideas into great applications.
                     </h1>
                     <p className="abot-hero-para">
-                      In <strong>6 years we have completed </strong> more than
-                      <strong> 200 individual projects </strong> to develop
-                      modern{" "}
-                      <strong>
-                        {" "}
-                        Websites, Desktop and Mobile Applications,{" "}
-                      </strong>
-                      for clients from <strong> all over the world </strong>
-                    </p>
+  From innovative mobile apps to robust web platforms, we help businesses turn ideas into exceptional digital products.  
+  Our portfolio spans a range of solutions including{" "}
+  <strong>Websites, Desktop and Mobile Applications</strong> for clients in diverse industries.
+</p>
                   </div>
                 </div>
                 <div
@@ -189,37 +184,29 @@ function Portfolio() {
                     alt="List number"
                     className="lez pb-3"
                   />
-                  <h2 className="portlist-heading">Ezyhelpers</h2>
-                  <div className="new-stack pt-3">
-                    <Stack direction="horizontal" gap={3}>
-                      <div className="badges-new">IOS & ANDROID</div>
-                      <div className="badges-new">WEB</div>
-                    </Stack>
-                  </div>
-                  <h2 className="portlist-desc py-2">
-                    Home Service & House Work App
-                  </h2>
-                  <p className="portlist-para">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Mauris non augue dui. Donec venenatis eu lorem mollis
-                    convallis. Aliquam a accumsan justo, vel mattis augue.
-                  </p>
-                  <div id="container">
-                    <Link
-                      href="/portfolio/ezyhelpers-case-study"
-                      passHref
-                      className="new-portbtn"
-                    >
-                      <button className="btn btn-primary get-btn">
-                        View Case Study{" "}
-                        <img
-                          src="/images/material-symbols_arrow-right-alt.png"
-                          alt="arrow icon"
-                          aria-label="View Case Study"
-                        />
-                      </button>
-                    </Link>
-                  </div>
+                  <h2 className="portlist-heading" style={{ color: "#10a8ef", fontWeight: 700 }}>Ezyhelpers</h2>
+<div className="new-stack pt-3">
+  <Stack direction="horizontal" gap={3}>
+    <div className="badges-new">IOS & ANDROID</div>
+    <div className="badges-new">WEB</div>
+  </Stack>
+</div>
+<h2 className="portlist-desc py-2">
+  Home Service & House Work App
+</h2>
+<p className="portlist-para">
+  Ezyhelpers is a seamless mobile and web platform connecting users with trusted home service professionals. 
+  Whether you need cleaning, elder care, cooking, plumbing, or other daily assistance, Ezyhelpers makes it easy to book reliable help—right from your phone.<br /><br />
+  Designed for convenience and peace of mind, Ezyhelpers empowers busy families and individuals to manage household tasks effortlessly, with verified service providers and transparent booking.
+</p>
+<div id="container">
+  <Link href="/portfolio/ezyhelpers-case-study" passHref className="new-portbtn">
+    <button className="btn btn-primary get-btn">
+      View Case Study{" "}
+      <img src="/images/material-symbols_arrow-right-alt.png" alt="arrow icon" aria-label="View Case Study" />
+    </button>
+  </Link>
+</div>
                 </div>
                 <div className="col-lg-7 col-md-7 col-image">
                   <div className="parent">
@@ -275,35 +262,29 @@ function Portfolio() {
                     alt="List number"
                     className="lek pb-3"
                   />
-                  <h1 className="portlist-heading1 pb-2">KarIOT</h1>
-                  <Stack direction="horizontal" gap={3}>
-                    <div className="badges-new">IOS & ANDROID</div>
-                    <div className="badges-new">WEB</div>
-                  </Stack>
-                  <h2 className="portlist-desc1 pt-3">
-                    We aim to build a better world where clean water
-                  </h2>
-                  <p className="portlist-para1">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Commodi et eum explicabo ea consequuntur itaque laudantium,
-                    iste esse, corporis illum ducimus quos sequi deserunt illo
-                    veritatis velit hic, eveniet ullam.
-                  </p>
-                  <div id="container-right">
-                    {/* <Link
-                      href="/portfolio/kariot-case-study"
-                      passHref
-                      className="new-portbtn"
-                    >
-                      <button className="btn btn-primary get-btn">
-                        View Case Study{" "}
-                        <img
-                          src="/images/material-symbols_arrow-right-alt.png"
-                          alt="arrow-icon"
-                        />
-                      </button>
-                    </Link> */}
-                  </div>
+                  <h2 className="portlist-heading" style={{ color: "#10a8ef", fontWeight: 700 }}>KarIOT</h2>
+<div className="new-stack pt-3">
+  <Stack direction="horizontal" gap={3}>
+    <div className="badges-new">IOS & ANDROID</div>
+    <div className="badges-new">WEB</div>
+  </Stack>
+</div>
+<h2 className="portlist-desc py-2">
+  We aim to build a better world where clean water is accessible
+</h2>
+<p className="portlist-para">
+  KarIOT is a smart water management system leveraging IoT technology to monitor, optimize, and automate water usage in high-rise buildings, commercial properties, and hotels. The platform enables real-time data collection, leak detection, and predictive maintenance, helping organizations conserve water, reduce costs, and achieve sustainability goals.<br /><br />
+  KarIOT empowers facility managers and building owners to make data-driven decisions for efficient water usage—protecting resources and supporting a cleaner, greener future.
+</p>
+<div id="container">
+  <Link href="/portfolio/kariot-case-study" passHref className="new-portbtn">
+    <button className="btn btn-primary get-btn">
+      View Case Study{" "}
+      <img src="/images/material-symbols_arrow-right-alt.png" alt="arrow icon" aria-label="View Case Study" />
+    </button>
+  </Link>
+</div>
+
                 </div>
               </div>
               <div className="row mt-5">
@@ -316,37 +297,29 @@ function Portfolio() {
                     className="lez pb-3"
                   />
 
-                  <h2 className="portlist-heading">Xaber</h2>
-                  <div className="new-stack py-3">
-                    <Stack direction="horizontal" gap={3}>
-                      <div className="badges-new">IOS & ANDROID</div>
-                      <div className="badges-new">WEB</div>
-                    </Stack>
-                  </div>
-                  <h2 className="portlist-desc">
-                    Taxi Business With Our Uber Clone Software
-                  </h2>
-                  <p className="portlist-para">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Commodi et eum explicabo ea consequuntur itaque laudantium,
-                    iste esse, corporis illum ducimus quos sequi deserunt illo
-                    veritatis velit hic, eveniet ullam.
-                  </p>
-                  <div id="container">
-                    <Link
-                      href="/portfolio/xaber-case-study"
-                      passHref
-                      className="new-portbtn"
-                    >
-                      <button className="btn btn-primary get-btn">
-                        View Case Study{" "}
-                        <img
-                          src="/images/material-symbols_arrow-right-alt.png"
-                          alt="arrow-icon"
-                        />
-                      </button>
-                    </Link>
-                  </div>
+<h2 className="portlist-heading" style={{ color: "#10a8ef", fontWeight: 700 }}>Xaber</h2>
+<div className="new-stack pt-3">
+  <Stack direction="horizontal" gap={3}>
+    <div className="badges-new">IOS & ANDROID</div>
+    <div className="badges-new">WEB</div>
+  </Stack>
+</div>
+<h2 className="portlist-desc py-2">
+  Taxi Business With Our Uber Clone Software
+</h2>
+<p className="portlist-para">
+  Xaber is a robust ride-hailing app solution inspired by the Uber model, designed for startups and taxi businesses to launch their own branded service. The platform supports real-time bookings, driver tracking, fare calculation, and seamless payment integration—delivering a convenient and scalable experience for both riders and drivers.<br /><br />
+  With Xaber, entrepreneurs and taxi operators can quickly enter the mobility market with a proven, customizable solution—empowering them to offer safe, reliable, and user-friendly transportation services.
+</p>
+<div id="container">
+  <Link href="/portfolio/xaber-case-study" passHref className="new-portbtn">
+    <button className="btn btn-primary get-btn">
+      View Case Study{" "}
+      <img src="/images/material-symbols_arrow-right-alt.png" alt="arrow icon" aria-label="View Case Study" />
+    </button>
+  </Link>
+</div>
+
                 </div>
                 <div className="col-lg-7 col-md-7 col-image">
                   <div className="parent">
@@ -402,32 +375,32 @@ function Portfolio() {
                     alt="List number"
                     className="lek pb-3"
                   />
-                  <h1 className="portlist-heading1 pb-4">Mocial</h1>
-                  <Stack direction="horizontal" gap={3}>
-                    <div className="badges-new">IOS & ANDROID</div>
-                    <div className="badges-new">WEB</div>
-                  </Stack>
-                  <h2 className="portlist-desc1 pt-3">
-                    An all-in-one platform for social media.
-                  </h2>
-                  <p className="portlist-para1">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Commodi et eum explicabo ea consequuntur itaque laudantium,
-                    iste esse, corporis illum ducimus quos sequi deserunt illo
-                    veritatis velit hic, eveniet ullam.
-                  </p>
-                  <div id="container-right">
-                    {/* <Link
-                      href="/portfolio/mocial-case-study"
-                      passHref
-                      className="new-portbtn"
-                    >
-                      <button className="btn btn-primary get-btn">
-                        View Case Study{" "}
-                        <img src="/images/material-symbols_arrow-right-alt.png" />
-                      </button>
-                    </Link> */}
-                  </div>
+                  <h2 className="portlist-heading" style={{ color: "#10a8ef", fontWeight: 700 }}>Mocial</h2>
+<div className="new-stack pt-3">
+  <Stack direction="horizontal" gap={3}>
+    <div className="badges-new">DevOps</div>
+    <div className="badges-new">Cloud</div>
+    <div className="badges-new">Architecture</div>
+    <div className="badges-new">Consulting</div>
+  </Stack>
+</div>
+<h2 className="portlist-desc py-2">
+  DevOps & Cloud Transformation for a Next-Gen Social Platform
+</h2>
+<p className="portlist-para">
+  Mocial is an ambitious all-in-one social super app, bringing together streaming, networking, and sharing into one unified experience. While the platform was developed by another team, the Mocial leadership engaged Trimsel to overcome major stability and scalability challenges that hindered user growth and reliability.<br /><br />
+  <b>Our Impact:</b> Working closely with Mocial’s development team, Trimsel re-architected the platform using a microservices approach and modern cloud infrastructure. We designed and implemented an end-to-end DevOps strategy, including automated CI/CD pipelines, infrastructure-as-code, cloud monitoring, and self-healing deployments—ensuring the app could scale rapidly and run reliably at all times.<br /><br />
+  Our DevOps and cloud transformation empowered Mocial to move faster, improve user experience, and focus on new features—without worrying about downtime, deployment issues, or scaling roadblocks.
+</p>
+<div id="container">
+  <Link href="/portfolio/mocial-case-study" passHref className="new-portbtn">
+    <button className="btn btn-primary get-btn">
+      View Case Study{" "}
+      <img src="/images/material-symbols_arrow-right-alt.png" alt="arrow icon" aria-label="View Case Study" />
+    </button>
+  </Link>
+</div>
+
                 </div>
               </div>
             </div>

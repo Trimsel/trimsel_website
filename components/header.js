@@ -16,7 +16,8 @@ function Header({ page }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 56) {
+      if (!navRef.current) return; // <-- Safe guard!
+      if (window.scrollY > 50) {
         navRef.current.classList.add("navbar-scrolled");
       } else {
         navRef.current.classList.remove("navbar-scrolled");
@@ -335,7 +336,7 @@ function Header({ page }) {
                       </div>
                     </div>
                   </li>
-                  {/* <li className="nav-item ps-3">
+                  <li className="nav-item ps-3">
                     <Link href="/portfolio" className="nav-link">
                       PORTFOLIO
                     </Link>
@@ -344,7 +345,7 @@ function Header({ page }) {
                     <Link href="/blog" className="nav-link">
                       BLOGS
                     </Link>
-                  </li> */}
+                  </li>
                   <li className="nav-item ps-3">
                     <Link href="/contact-us" passHref>
                       <button
