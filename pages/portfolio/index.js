@@ -559,28 +559,6 @@ function Portfolio() {
                     </div>
                   </div>
                 </div>
-                <div className="card ceo-card">
-                  <div className="row">
-                    <div className="col-lg-3 col-md-12 col-3">
-                      <Image
-                        src="/images/person1.png"
-                        width={74}
-                        height={74}
-                        alt="CEO Linked in profile image"
-                        className="person-icon"
-                      />
-                    </div>
-                    <div className="col-lg-9 col-md-12 col-9">
-                      <h3 className="ceo-heading mb-0 pb-1">
-                        Mr. Karthick Ganesan
-                      </h3>
-                      <p className="lets-para mb-0 pb-1">Co-Founder</p>
-                      <h4 className="ceo-contact">
-                        Phone No : <span>+91 72008 41581</span>
-                      </h4>
-                    </div>
-                  </div>
-                </div>
                 <div className="card contct-card mt-4">
                   <div className="row">
                     <div className="col-lg-2 col-md-12 col-2">
