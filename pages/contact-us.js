@@ -177,17 +177,17 @@ export default function Contact() {
           </p>
         </div>
         <div className="cafes-inner col-lg-9 cntct-cafe">
-          <h1>
+          <h1 style={{ color: "#fff" }}>
           Have a project? We would love to help.
           </h1>
         </div>
         <p className="cntct-mozart">
           Looking for{" "}
-          <Link href="/mobile-app-development-chennai">
+          <Link href="/mobile-app-development-chennai" style={{ color: "orange" }}>
             mobile app development
           </Link>
           ? Contact our expert developers today or email us at{" "}
-          <Link href="mailto:contact@trimsel.com">
+          <Link href="mailto:contact@trimsel.com" style={{ color: "orange" }}>
             contact@trimsel.com
           </Link>.
         </p>

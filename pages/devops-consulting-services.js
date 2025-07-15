@@ -301,7 +301,7 @@ export default function DevOps() {
               </div>
               <div className="cafe">
                 <div className="cafe-inner devo-title">
-                  <h1>
+                  <h1 style={{ color: "#fff" }}>
                   Leading DevOps Consulting Services
                   </h1>
                 </div>

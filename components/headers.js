@@ -82,7 +82,7 @@ const Headers = () => {
                 <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                   <li className="nav-item px-3">
                     <Link
-                      href="/aboutus"
+                      href="/"
                       className={`${
                         scrollPosition > 50 ? "blackLink" : "whiteLink"
                       } nav-link`}

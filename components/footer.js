@@ -25,9 +25,9 @@ function Footer() {
             <div className="col-lg-6 col-md-6 pb-0">
               <h5 className="contact-addrs text-white">Visit Us:</h5>
                 <address className="contact-para text-white">
-                  <span>21B 5th Cross St, South Phase</span><br />
-                  <span>Thiru VI KA Industrial Estate, Guindy</span><br />
-                  <span>Chennai, Tamil Nadu 600032, India</span>
+                  <span style={{ color: "white"}}>21B 5th Cross St, South Phase</span><br />
+                  <span style={{ color: "white"}}>Thiru VI KA Industrial Estate, Guindy</span><br />
+                  <span style={{ color: "white"}}>Chennai, Tamil Nadu 600032, India</span>
                 </address>
               {/* <p className="contact-para">
                 21B 5th Cross St, South Phase Thiru VI KA Industrial Estate,
