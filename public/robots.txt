@@ -1,6 +1,8 @@
 # *
 User-agent: *
 Allow: /
+Disallow: /_next/
+Disallow: /api/
 Disallow: /thank-you
 Disallow: /blog
 Disallow: /blockchain-development

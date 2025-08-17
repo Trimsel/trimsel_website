@@ -251,7 +251,7 @@ export default function CloudConsulting() {
             <div className="mozart">
               <div className="mozart-inner">
                 <p className="cloud-para">
-                  Accelerate your digital transformation with our expert <strong>cloud consulting services in Chennai, India</strong>. At Trimsel, our certified <strong>AWS, Azure, and GCP cloud experts</strong> provide end-to-end support for <strong>cloud migration consulting</strong>, <strong>cloud engineering services</strong>, and <strong>cost optimization</strong>. From modernization to automation, we ensure secure, scalable, and high-performance <strong>cloud computing solutions</strong> tailored to your business needs.
+                Accelerate your digital transformation with our expert cloud consulting services in Chennai, India. Our certified AWS, Azure, and GCP cloud experts provide end-to-end support for cloud migration consulting, cloud engineering services, and cost optimization. From modernization to automation, we ensure secure, scalable, and high-performance cloud computing solutions tailored to your business needs.
                 </p>
               </div>
             </div>
@@ -273,29 +273,6 @@ export default function CloudConsulting() {
           </div>
         </div>
       </div>
-
-      <div className="col-lg-6 col-md-6">
-        <div className="imgrs">
-          <Image
-            src="/images/cloud-hero.png"
-            className="cloud-hero-image"
-            alt="Cloud Consulting Experts"
-            width={500}
-            height={356}
-            priority
-            quality={100}
-          />
-          <Image
-            src="/images/cloud-result.png"
-            className="cloud-Result-Image"
-            alt="Cloud Business Transformation Results"
-            width={350}
-            height={350}
-            priority
-            quality={100}
-          />
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -312,7 +289,7 @@ export default function CloudConsulting() {
       Expert Cloud Consulting Services for Businesses of All Sizes
     </h2>
     <p className="cld-abt-para">
-      As one of the top cloud computing companies in India, we provide comprehensive cloud consulting services—ranging from strategic planning, cloud migration consulting, and cloud automation to cloud cost optimization. Our certified AWS, Azure, and GCP consultants ensure your cloud environment is secure, scalable, and cost-efficient.
+    As one of the top cloud computing companies in India, we provide comprehensive cloud consulting services, ranging from strategic planning, cloud migration consulting, and cloud automation to cloud cost optimization. Our certified AWS, Azure, and GCP experts ensure your cloud environment is secure, scalable, and cost-efficient.
     </p>
     
     <div className="row">
@@ -322,7 +299,7 @@ export default function CloudConsulting() {
             <Image src="/images/cloud-mig.png" width={80} height={80} className="do-icon pb-3" alt="Cloud Migration icon" />
             <h3 className="qs-card-heading">Cloud Migration Services & Adoption Consulting</h3>
             <p className="qsd-para">
-              Transition seamlessly to the cloud with our cloud migration services. Our AWS cloud experts, Azure consultants, and GCP specialists design the best-fit cloud adoption strategy, ensuring minimal disruption, optimized performance, and cost efficiency. Whether you're migrating from on-premise to the cloud or between cloud providers, we provide a secure, scalable, and cost-effective migration plan.
+            Transition seamlessly to the cloud with our cloud migration services. Our AWS cloud experts, Azure consultants, and GCP specialists design the best-fit cloud adoption strategy, ensuring minimal disruption, optimized performance, and cost efficiency. Whether you're migrating from on-premise to the cloud or between cloud providers, we provide a secure, scalable, and cost-effective migration plan.
             </p>
           </Card.Body>
         </Card>
@@ -334,7 +311,7 @@ export default function CloudConsulting() {
             <Image src="/images/cloud-optim.png" width={80} height={80} className="do-icon pb-3" alt="Cloud Optimization icon" />
             <h3 className="qs-card-heading">Cloud Cost Optimization & Performance Tuning</h3>
             <p className="qsd-para">
-              Maximize your cloud investment with cloud cost optimization services. We analyze your cloud usage, eliminate wasteful spending, and implement best practices to reduce cloud costs while enhancing performance. Whether you're using AWS, Azure, or GCP, our cloud consultants ensure efficient resource allocation, auto-scaling, and budget control.
+            Cloud cost optimization services can help you get the most out of your cloud investments. We analyse your cloud usage, eliminate excessive expenditure, and adopt best practices to save cloud expenses while improving performance. Whether you use AWS, Azure, or GCP, our cloud specialists guarantee that resources are allocated efficiently, auto-scaling is enabled, and budgets are controlled.
             </p>
           </Card.Body>
         </Card>
@@ -374,7 +351,7 @@ export default function CloudConsulting() {
               Cloud Architecture Design & Automation
             </h3>
             <p className="qsd-para">
-              Build a future-ready cloud infrastructure with our cloud architecture consulting. Our Azure, AWS, and GCP architects design scalable, high-availability, and cost-efficient cloud systems. We implement cloud automation services to streamline deployments, improve fault tolerance, and enhance security posture.
+            Our cloud architecture recommendations can help you create a cloud infrastructure that is future-ready. Our certified Azure, AWS, and GCP architects create scalable, highly available, and cost-effective cloud solutions. We implement cloud automation services to streamline deployments, improve fault tolerance, and enhance security posture.
             </p>
           </Card.Body>
         </Card>
@@ -386,7 +363,7 @@ export default function CloudConsulting() {
             <Image src="/images/cloud-roi.png" width={74} height={72} className="do-icon pb-3" alt="Cloud Security icon" />
             <h3 className="asd-card-heading"> Cloud Security & Compliance Consulting </h3>
             <p className="qsd-para">
-              Safeguard your cloud infrastructure with enterprise-grade cloud security solutions. Our AWS security experts, Azure consultants, and GCP specialists help businesses implement zero-trust security models, IAM, encryption strategies, and compliance frameworks like ISO 27001, HIPAA, and GDPR. We ensure continuous monitoring, threat detection, and vulnerability management to secure cloud environments from cyber threats.
+            Safeguard your cloud infrastructure with enterprise-grade cloud security solutions. Our AWS security experts, Azure consultants, and GCP specialists  help businesses implement zero-trust security models, IAM, encryption strategies, and compliance frameworks like ISO 27001, HIPAA, and GDPR. We ensure continuous monitoring, threat detection, and vulnerability management to secure cloud environments from cyber threats.
             </p>
           </Card.Body>
         </Card>
@@ -402,17 +379,8 @@ export default function CloudConsulting() {
           Cloud-Native & Cloud-Agnostic Consulting Services
         </h2>
         <p className="native-para">
-          Choosing the right cloud deployment model is crucial for business agility, cost efficiency, and security. At Trimsel, our cloud experts provide cloud consulting services to help businesses adopt scalable, secure, and high-performing cloud environments tailored to their unique needs.
+        Choosing the right cloud deployment model is crucial for business agility, cost efficiency, and security. Our cloud experts provide cloud consulting services to help businesses adopt scalable, secure, and high-performing cloud environments tailored to their unique needs.
         </p>
-        <Link href="/contact-us" passHref>
-        <Image
-          src="/images/talkimg.png"
-          width={284}
-          height={286}
-          className="talk-new-img"
-          alt="Talk to our Cloud Consultants"
-        />
-        </Link>
       </div>
       <div className="col-lg-6 col-md-6">
         <img
@@ -714,9 +682,9 @@ export default function CloudConsulting() {
           <Row>
             <Col lg={8} md={8}>
               <p className="dev-ser-para">
-                🔹 We deliver <strong>multi-cloud solutions</strong> across AWS, Azure, and GCP—free from vendor lock-in.<br />
-                🔹 Our cloud-agnostic approach ensures <strong>flexibility, scalability, and cost efficiency</strong> based on your specific business goals.<br />
-                🔹 Get strategic cloud adoption guidance customized for performance and resilience.
+                We deliver <strong>multi-cloud solutions</strong> across AWS, Azure, and GCP—free from vendor lock-in.<br />
+                Our cloud-agnostic approach ensures <strong>flexibility, scalability, and cost efficiency</strong> based on your specific business goals.<br />
+                Get strategic cloud adoption guidance customized for performance and resilience.
               </p>
             </Col>
             <Col lg={4} md={4}>
@@ -729,9 +697,9 @@ export default function CloudConsulting() {
           <Row>
             <Col lg={8} md={8}>
               <p className="dev-ser-para">
-                🔹 Our certified engineers bring deep expertise in <strong>AWS, Azure, GCP, Kubernetes, Terraform, and Serverless</strong> architectures.<br />
-                🔹 Specialized teams in <strong>cloud strategy, infrastructure automation, and DevOps consulting</strong>.<br />
-                🔹 We ensure <strong>secure, scalable, and future-ready deployments</strong> for every cloud initiative.
+                Our certified engineers bring deep expertise in <strong>AWS, Azure, GCP, Kubernetes, Terraform, and Serverless</strong> architectures.<br />
+                Specialized teams in <strong>cloud strategy, infrastructure automation, and DevOps consulting</strong>.<br />
+                We ensure <strong>secure, scalable, and future-ready deployments</strong> for every cloud initiative.
               </p>
             </Col>
             <Col lg={4} md={4}>
@@ -744,9 +712,9 @@ export default function CloudConsulting() {
           <Row>
             <Col lg={8} md={8}>
               <p className="dev-ser-para">
-                🔹 Successfully delivered cloud consulting across <strong>Fintech, Healthcare, Retail, SaaS, and AI/ML</strong> verticals.<br />
-                🔹 Experts in <strong>hybrid and multi-cloud deployments</strong> with governance and security compliance.<br />
-                🔹 We enable digital transformation for businesses of all sizes—from startups to global enterprises.
+                Successfully delivered cloud consulting across <strong>Fintech, Healthcare, Retail, SaaS, and AI/ML</strong> verticals.<br />
+                Experts in <strong>hybrid and multi-cloud deployments</strong> with governance and security compliance.<br />
+                We enable digital transformation for businesses of all sizes—from startups to global enterprises.
               </p>
             </Col>
             <Col lg={4} md={4}>
@@ -759,9 +727,9 @@ export default function CloudConsulting() {
           <Row>
             <Col lg={8} md={8}>
               <p className="dev-ser-para">
-                🔹 Over <strong>100+ successful cloud migration projects</strong> with zero-downtime strategies.<br />
-                🔹 Recognized as a trusted partner for <strong>cloud cost optimization</strong> and secure deployments across India, UAE, and the USA.<br />
-                🔹 Helped clients <strong>reduce cloud expenses by up to 40%</strong> using automation and performance monitoring.
+                Over <strong>100+ successful cloud migration projects</strong> with zero-downtime strategies.<br />
+                Recognized as a trusted partner for <strong>cloud cost optimization</strong> and secure deployments across India, UAE, and the USA.<br />
+                Helped clients <strong>reduce cloud expenses by up to 40%</strong> using automation and performance monitoring.
               </p>
             </Col>
             <Col lg={4} md={4}>
@@ -1143,7 +1111,7 @@ export default function CloudConsulting() {
           </div>
         </div>
       </section>  */}
-      <ContactForm />
+      <ContactForm heading="Transform Your Business With The Cloud" subText="Leverage AWS, Azure, or GCP with expert guidance on migration, architecture, and cost-efficient cloud strategy."/>
 
       <section id="faq">
   <div className="container faq-container">

@@ -1,27 +1,23 @@
 import Link from "next/link";
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Stack from "react-bootstrap/Stack";
 import Image from "next/image";
 import Accordion from "react-bootstrap/Accordion";
 import ListGroup from "react-bootstrap/ListGroup";
-import Header from "../components/header";
-import Footer from "../components/footer";
-import TestimonialClient from "../components/testimonial";
-import ClientLogo from "../components/clientLogo";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import CarouselComponent from "../components/carouselComponent";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { FaRegEnvelope } from "@react-icons/all-files/fa/FaRegEnvelope";
-import { FaLongArrowAltRight } from "@react-icons/all-files/fa/FaLongArrowAltRight";
-import ContactModal from "../components/ContactModal";
 import Table from "react-bootstrap/Table";
 import { NextSeo } from "next-seo";
-import Head from "next/head";
-import ContactForm from "../components/ContactForm";
+import dynamic from 'next/dynamic';
+
+const Header = dynamic(() => import("../components/header"), { ssr: true });
+const Footer = dynamic(() => import("../components/footer"), { ssr: false });
+const ClientLogo = dynamic(() => import("../components/clientLogo"), { ssr: false });
+const ContactForm = dynamic(() => import("../components/ContactForm"), { ssr: false });
 
 export default function mobileApp() {
   const {
@@ -291,7 +287,7 @@ export default function mobileApp() {
                     <div className="mozart">
                       <div className="mozart-inner">
                         <p>
-                        At Trimsel, we craft custom-built mobile apps for businesses that demand speed, security, and growth-focused outcomes. From MVPs to enterprise-grade apps, we bring your ideas to life.
+                        We craft custom-built mobile apps for businesses that demand speed, security, and growth-focused outcomes. From MVPs to enterprise-grade apps, we bring your ideas to life.
                         </p>
                       </div>
                     </div>
@@ -314,6 +310,7 @@ export default function mobileApp() {
                     width={637}
                     height={666}
                     alt="Leading mobile app development company in Chennai – Build high-performance Android & iOS apps today!"
+                    priority
                   />
                 </div>
               </div>
@@ -336,12 +333,10 @@ export default function mobileApp() {
             </Stack>
             <div className="row pt-3">
               <div className="col-lg-6 col-md-6">
-                <h2 className="client-title">Trusted by Leading Brands for Mobile App Development</h2>
+                <h2 className="client-title">Trusted by Leading Brands</h2>
               </div>
               <div className="col-lg-6 col-md-6">
-                <p>
-                  At Trimsel, we collaborate with industry-leading brands, constantly innovating and upgrading to deliver cutting-edge mobile applications. Our expertise in Android, iOS, and cross-platform app development has helped businesses scale, improve user experience, and achieve digital transformation.
-                </p>
+                <p>We collaborate with startups and enterprises to ship secure, scalable mobile apps that improve user experience and unlock growth.</p>
               </div>
             </div>
             <ClientLogo />
@@ -378,20 +373,20 @@ export default function mobileApp() {
               </div>
             </div>
             <p>
-            In today’s digital-first world, mobile apps do more than support your business — they define it. At Trimsel, we believe a successful app should solve real-world challenges, create user delight, and deliver long-term value. It’s not just about building software — it’s about building the future.
+            In today’s digital-first world, mobile apps do more than support your business. At Trimsel, we believe a successful app should solve real-world challenges, create user delight, and deliver long-term value. It’s not just about building software, it's about building the future.
             </p>
             <p>
               <br></br>
-            At Trimsel, we don’t just build apps—we create future-ready digital solutions that drive business growth. As a top mobile app development company in Chennai, we specialize in developing custom Android, iOS, and cross-platform applications that are scalable, secure, and high-performing.<br></br><br></br>
+              Our team blends technical expertise with creativity to build future-ready digital solutions that drive business growth. As a top mobile app development company in Chennai, we specialize in developing custom Android, iOS, and cross-platform applications that are scalable, secure, and high-performing.<br></br><br></br>
 
-            Why Businesses Choose Trimsel for Mobile App Development?<br></br>
+            Why Do Businesses Choose Trimsel for Mobile App Development?<br></br>
               <b>Customized Mobile Solutions</b> – Tailored iOS, Android, and Hybrid apps designed for startups & enterprises.<br></br>
               <b>Comprehensive App Development</b> – End-to-end app strategy, UI/UX design, development, and deployment.<br></br>
               <b>Cutting-Edge Technologies</b> – Harnessing AI, Machine Learning, IoT, and Blockchain to build next-generation mobile experiences.<br></br>
               <b>Seamless Performance</b> – Optimized for scalability, security, and superior user experience.<br></br>
             </p>
             <p>
-            At Trimsel, we closely monitor industry trends, user preferences, and niche market insights to deliver apps that resonate deeply with your audience, driving higher engagement and tangible business results. Our expertise in leveraging cutting-edge technologies ensures every application we develop not only meets current market demands but also positions your business for long-term success.
+            We closely monitor industry trends, user preferences, and niche market insights to deliver apps that resonate deeply with your audience, driving higher engagement and tangible business results. Our expertise in leveraging cutting-edge technologies ensures every application we develop not only meets current market demands but also positions your business for long-term success.
             </p>
             <p>
             Our commitment to high-quality app development services in Chennai has earned us recognition as a trusted mobile app development brand in India.
@@ -487,7 +482,7 @@ export default function mobileApp() {
                   </Card.Title>
                   <Card.Body>
                     <p className="card-para">
-                    Our cost-effective mobile app development services offer balanced solutions that combine quality and affordability, making enterprise-grade apps accessible for startups and SMEs alike.
+                      Through our mobile app development services, we deliver scalable solutions that balance cost-effectiveness with enterprise-level quality, helping your business grow without limits. From startups to expanding enterprises, our apps ensure robust performance, reliability, and a user experience that drives long-term success.
                     </p>
                   </Card.Body>
                 </Card>
@@ -572,57 +567,12 @@ export default function mobileApp() {
                   </Card.Title>
                   <Card.Body>
                     <p className="card-para">
-                    Our commitment extends beyond app development, providing ongoing 24/7 support, regular updates, and proactive maintenance to ensure your app remains optimized, secure, and successful in the long term.
+                    Our commitment extends beyond app development, providing ongoing 24/7 support, regular updates, and proactive maintenance to ensure your app remains optimized, secure, and successful in the long term
                     </p>
                   </Card.Body>
                 </Card>
               </div>
             </div>
-          </div>
-        </section>
-
-        <section className="pm-sec-cta">
-          <div className="container">
-            <Card className="port-cta my-5">
-              <Card.Body>
-                <div className="row">
-                  <div className="col-lg-7 col-md-7 col-12">
-                    <Stack direction="horizontal">
-                      <div className=" badge-abot-btn">
-                        <img
-                          src="/images/Rectangle-kariot.png"
-                          className="me-2"
-                          alt="design-dot"
-                        />
-                        <p> GET INTO TOUCH </p>
-                      </div>
-                    </Stack>
-                    <h2 className="homcta-heading pt-2">
-                        Ready to Build Your Mobile App? Let’s Talk!
-                    </h2>
-                    <p className="hmcta-para">
-                    At <strong>Trimsel</strong>, we help businesses like yours thrive
-              with top-notch <strong>iOS, Android, and cross-platform app development services</strong>.
-              Whether you're a startup or enterprise, we deliver <strong>scalable, secure, and high-performance mobile applications</strong> tailored to your goals.
-                    </p>
-                    <Link href="/contact-us" passHref>
-                      <button className="portcta-btn mt-3">
-                        <FaRegEnvelope className="me-2" /> Get In Touch{" "}
-                      </button>
-                    </Link>
-                  </div>
-                  <div className="col-lg-5 col-md-5">
-                    <Image
-                      src="/images/ctambbg.webp"
-                      width={600}
-                      height={598}
-                      alt="Chat with our expert "
-                      className="hmcta-image"
-                    />
-                  </div>
-                </div>
-              </Card.Body>
-            </Card>
           </div>
         </section>
 
@@ -756,7 +706,7 @@ export default function mobileApp() {
               </div>
               <div className="col-lg-7">
                 <p className="service-mobile-para pb-3">
-                In today’s fast-evolving digital world, having a high-performance mobile application can give your business a competitive edge. At Trimsel, we offer end-to-end mobile app development services, ensuring your app is visually stunning, scalable, and highly functional.
+                With a user-first approach, we execute end-to-end mobile app development services, ensuring your app is visually stunning, scalable, and highly functional. In today’s fast-evolving digital world, a high-performance mobile application can give your business a competitive edge.
                 </p>
               </div>
             </div>
@@ -780,9 +730,6 @@ export default function mobileApp() {
                         </p>
                       </div>
                       <div className="card-link">
-                        {/* <Link className="explore-link" href="#">
-                          Explore Our Design Process <FaLongArrowAltRight />
-                        </Link> */}
                       </div>
                     </div>
                   </div>
@@ -802,9 +749,6 @@ export default function mobileApp() {
                         </p>
                       </div>
                       <div className="card-link">
-                        {/* <Link className="explore-link" href="#">
-                          Build a Powerful IOS App <FaLongArrowAltRight />
-                        </Link> */}
                       </div>
                     </div>
                   </div>
@@ -824,9 +768,6 @@ export default function mobileApp() {
                         </p>
                       </div>
                       <div className="card-link">
-                        {/* <Link className="explore-link" href="#">
-                          Start Your Android App Journey <FaLongArrowAltRight />
-                        </Link> */}
                       </div>
                     </div>
                   </div>
@@ -850,9 +791,6 @@ Native-like performance & UI consistency<br></br>
                         </p>
                       </div>
                       <div className="card-link">
-                        {/* <Link className="explore-link" href="#">
-                          Explore Hybrid App Solutions <FaLongArrowAltRight />
-                        </Link> */}
                       </div>
                     </div>
                   </div>
@@ -872,9 +810,6 @@ Native-like performance & UI consistency<br></br>
                         </p>
                       </div>
                       <div className="card-link">
-                        {/* <Link className="explore-link" href="#">
-                          Test Your Mobile App <FaLongArrowAltRight />
-                        </Link> */}
                       </div>
                     </div>
                   </div>
@@ -897,9 +832,6 @@ Cost-effective, scalable solutions<br></br>
                         </p>
                       </div>
                       <div className="card-link">
-                        {/* <Link className="explore-link" href="#">
-                          Explore More <FaLongArrowAltRight />
-                        </Link> */}
                       </div>
                     </div>
                   </div>
@@ -1070,7 +1002,8 @@ Cost-effective, scalable solutions<br></br>
         </Stack>
         <h3 className="process-heading">Mobile App Development Process – From Idea to Launch & Beyond</h3>
         <p className="process-para">
-          At Trimsel, we follow a streamlined and transparent mobile app development process to turn your vision into a successful app — on time and within budget.
+        Our expert team follows a streamlined and transparent mobile app development process to bring your vision to life, on time and within budget.
+
         </p>
       </div>
     </div>
@@ -1157,10 +1090,7 @@ Cost-effective, scalable solutions<br></br>
       </Col>
       <Col lg={6} md={6}>
         <p className="tools-para">
-          At Trimsel, we use the latest and most powerful technologies to build
-          **high-performance, secure, and scalable** mobile applications. Whether
-          you're looking for **native, hybrid, or cross-platform app development**,
-          our technology stack ensures **seamless user experience** and efficiency.
+        Utilizing the latest innovations, we use the most powerful tools to build high-performance, secure, and scalable mobile applications.Whether you're looking for native, hybrid, or cross-platform app development, our technology stack ensures seamless user experience and efficiency.
         </p>
       </Col>
     </Row>
@@ -1383,7 +1313,7 @@ Cost-effective, scalable solutions<br></br>
         {
           question: "Do You Offer Flutter App Development Services?",
           answer:
-            "Yes! We’re a Flutter app development company in Chennai offering fast, cost-efficient cross-platform mobile applications with native-like performance.",
+            "Yes! As a Flutter app development company in Chennai, we build fast, cost-effective cross-platform mobile applications that deliver native-like performance and seamless user experiences.",
         },
         {
           question: "How Long Does It Take to Develop a Mobile App?",
@@ -1408,7 +1338,7 @@ Cost-effective, scalable solutions<br></br>
         {
           question: "Do You Provide Post-Launch Support and Maintenance?",
           answer:
-            "Yes, we offer ongoing maintenance, feature enhancements, performance monitoring, and support services to keep your app secure and up to date.",
+            "Yes, In order to keep your app safe and up to date, we do offer ongoing maintenance, feature enhancements, performance tracking, and support services.",
         },
         {
           question: "How Can I Get Started with My Mobile App Project?",
@@ -1426,7 +1356,7 @@ Cost-effective, scalable solutions<br></br>
     </Accordion>
   </div>
 </section>
-        <ContactForm />
+        <ContactForm heading="Ready To Build Your Mobile App?" subText="Speak with our iOS & Android experts to turn your idea into a secure, high-performance mobile product."/>
         {/* <ContactModal title="Wanna Develop A Mobile Application? Contact Us" /> */}
         <Footer />
       </main>

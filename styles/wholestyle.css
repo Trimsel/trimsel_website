@@ -1638,7 +1638,7 @@ h4.social-title {
   justify-content: space-around;
 }
 section#xaber-hero {
-  background: url(/images/Group2532.png);
+  background: url(/images/Group2532.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-color: #ffd78a;
@@ -1727,7 +1727,7 @@ p.hero-para {
 }
 section#xaber-about {
   padding-top: 100px;
-  background: url(/images/Frame4.png);
+  background: url(/images/Frame4.webp);
   background-size: cover;
   background-position-y: -140px;
   background-position-x: 0px;
@@ -1944,7 +1944,7 @@ section#xaber-challenge {
 }
 #xaber-prob {
   padding-top: 100px;
-  background: url(/images/Frame4.png);
+  background: url(/images/Frame4.webp);
   background-size: cover;
   background-position-y: -140px;
   background-position-x: 0px;

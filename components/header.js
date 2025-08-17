@@ -1,13 +1,9 @@
 import Head from "next/head";
 import Link from "next/link";
-import { NextScript } from "next/document";
 import { useEffect, useRef, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FaBars } from "@react-icons/all-files/fa/FaBars";
 import { HiArrowNarrowRight } from "@react-icons/all-files/hi/HiArrowNarrowRight";
-import Script from "next/script";
 import Image from "next/image";
-
 
 
 function Header({ page }) {
@@ -48,14 +44,14 @@ function Header({ page }) {
       </Head>
 
       <header className="menu_wrapper">
-        <nav className="navbar navbar-expand-lg fixed-top" ref={navRef}>
+        <nav className="navbar navbar-expand-lg fixed-top" ref={navRef} role="navigation" aria-label="Main navigation">
           <div className="container">
             <Link className="navbar-brand" href="/">
               {logo === "default" && (
-                <img src="/trimsel-logo.svg" alt="Default logo" />
+                <Image src="/trimsel-logo.svg" alt="Trimsel logo" width={150} height={40} priority />
               )}
               {logo === "mobile-app" && (
-                <img src="/trimsel-logo-white.svg" alt="White logo" />
+                <Image src="/trimsel-logo-white.svg" alt="Trimsel logo" width={150} height={40} priority />
               )}
             </Link>
             <button
@@ -209,9 +205,9 @@ function Header({ page }) {
                                 </div>
                               </Link>
                             </div>
-                            {/* <div className="col-lg-6 col-md-6 mt-2">
+                            <div className="col-lg-6 col-md-6 mt-2">
                               <Link
-                                href="/quality-engineering-testing"
+                                href="/ai-development-company"
                                 passHref
                                 className="dropdown-links"
                               >
@@ -222,24 +218,23 @@ function Header({ page }) {
                                         src="/images/menu-qa-icon.png"
                                         width={40}
                                         height={40}
-                                        alt="Quality Engineering and Testing Icon"
+                                        alt="AI Develoment company Icon"
                                       />
                                     </div>
                                     <div className="col-lg-11 col-md-11 card-ned-col">
                                       <h2 className="menu-dropdown">
-                                        QA & Software Testing{" "}
+                                        AI & ML Development{" "}
                                         <HiArrowNarrowRight className="svg-four" />
                                       </h2>
 
                                       <p className="dropdown-para">
-                                        Build cross-platform apps for both IOS
-                                        and Android
+                                      Build custom AI agents & machine-learning models to automate tasks, predict outcomes, and deliver smarter experiences.
                                       </p>
                                     </div>
                                   </div>
                                 </div>
                               </Link>
-                            </div> */}
+                            </div>
                             <div className="col-lg-6 col-md-6 mt-2">
                               <Link
                                 href="/digital-marketing-company-chennai"
@@ -270,37 +265,6 @@ function Header({ page }) {
                                 </div>
                               </Link>
                             </div>
-                            {/* <div className="col-lg-6 col-md-6 mt-2">
-                              <Link
-                                href="/blockchain-development"
-                                passHref
-                                className="dropdown-links"
-                              >
-                                <div className="card menu-sixth-card h-100">
-                                  <div className="row">
-                                    <div className="col-lg-1 col-md-1">
-                                      <Image
-                                        src="/images/menu-blockchain-icon.png"
-                                        width={40}
-                                        height={40}
-                                        alt="Blockchain Development Icon"
-                                      />
-                                    </div>
-                                    <div className="col-lg-11 col-md-11 card-ned-col">
-                                      <h2 className="menu-dropdown">
-                                        Blockchain Development{" "}
-                                        <HiArrowNarrowRight className="svg-six" />
-                                      </h2>
-
-                                      <p className="dropdown-para">
-                                        Build cross-platform apps for both IOS
-                                        and Android
-                                      </p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </Link>
-                            </div> */}
                             <div className="col-lg-6 col-md-6 mt-2">
                               <Link
                                 href="/cloud-consulting-services"
@@ -343,7 +307,7 @@ function Header({ page }) {
                   </li>
                   <li className="nav-item ps-3">
                     <Link href="/blog" className="nav-link">
-                      BLOGS
+                      BLOG
                     </Link>
                   </li>
                   <li className="nav-item ps-3">

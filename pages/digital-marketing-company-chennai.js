@@ -1,18 +1,17 @@
-import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import Header from "../components/header";
-import Footer from "../components/footer";
 import { useForm } from "react-hook-form";
 import Button from "react-bootstrap/Button";
 import Stack from "react-bootstrap/Stack";
 import Card from "react-bootstrap/Card";
-import CarouselComponent from "../components/carouselComponent";
-import ClientLogo from "../components/clientLogo";
 import Accordion from "react-bootstrap/Accordion"
-import ContactModal from "../components/ContactModal";
-import ContactForm from "../components/ContactForm";
 import { NextSeo } from 'next-seo';
+import dynamic from 'next/dynamic';
+
+const Header = dynamic(() => import("../components/header"), { ssr: true });
+const Footer = dynamic(() => import("../components/footer"), { ssr: false });
+const ClientLogo = dynamic(() => import("../components/clientLogo"), { ssr: false });
+const ContactForm = dynamic(() => import("../components/ContactForm"), { ssr: false });
 
 export default function Digital() {
   const {
@@ -264,7 +263,7 @@ export default function Digital() {
               <div className="mozart">
                 <div className="mozart-inner">
                   <p className="dev-para">
-                    Looking to boost your online visibility and drive targeted traffic? Trimsel is a top-rated digital marketing agency in Chennai offering result-driven services including SEO, PPC, social media marketing, Instagram ads, LinkedIn marketing, and content marketing. Our SEO experts help you rank higher on Google, grow your audience, and generate more qualified leads.
+                  Looking to boost your online visibility and drive targeted traffic? Trimsel is a top-rated digital marketing agency in Chennai offering result-driven services including SEO, PPC, social media marketing, Instagram ads, LinkedIn marketing, and content marketing. Our SEO experts help you rank higher on Google, grow your audience, and generate more qualified leads.
                   </p>
                 </div>
               </div>
@@ -272,7 +271,7 @@ export default function Digital() {
                 <div className="mozarts-inner">
                   <Link href="/contact-us" passHref>
                     <button className="btn btn-primary dev-btn">
-                      Get a Free Digital Strategy Session{" "}
+                      Get a Digital Strategy Session{" "}
                       <img
                         src="/images/material-symbols_arrow-right-alt.png"
                         alt="arrow-icon"
@@ -322,13 +321,14 @@ export default function Digital() {
           Leading Digital Marketing Company in Chennai – SEO, PPC & SMM Experts
         </h2>
         <p className="dig-para">
-  In today’s fast-paced online world, having a great product or service isn't enough — you need visibility. That’s where digital marketing comes in. Whether you want to increase website traffic, generate quality leads, or build a loyal customer base, digital marketing plays a vital role. From SEO and social media to paid advertising and content marketing, digital strategies help businesses grow, compete, and stay relevant in a crowded digital landscape.
+        In today’s fast-paced online world, having a great product or service isn't enough. You need visibility. That’s where digital marketing comes in. Whether you want to increase website traffic, generate quality leads, or build a loyal customer base, digital marketing plays a vital role. From SEO and social media to paid advertising and content marketing, digital strategies help businesses grow, compete, and stay relevant in a crowded digital landscape.
 </p>
         <p className="dig-para">
-          At Trimsel, we empower brands to grow online with powerful digital marketing strategies. As a top digital marketing company in Chennai, we specialize in Search Engine Optimization (SEO), Pay-Per-Click (PPC), and Social Media Marketing (SMM) to drive measurable traffic, quality leads, and higher ROI.
+        At Trimsel, we empower brands to grow online with powerful digital marketing strategies. As a top digital marketing company in Chennai, we specialize in Search Engine Optimization (SEO), Pay-Per-Click (PPC), Content Marketing and Social Media Marketing (SMM) to drive measurable traffic, quality leads, and higher ROI.
         </p>
         <p className="dig-para">
-          The digital landscape changes rapidly — new Google algorithms, evolving user behavior, and dynamic platforms. Our SEO experts in Chennai stay ahead of these trends to ensure your brand remains visible, competitive, and conversion-focused. Whether you're a startup or enterprise, we help you stay on top.
+        The digital landscape changes rapidly with new Google algorithms, evolving user behavior, and dynamic platforms reshaping how businesses grow online. Our SEO experts in Chennai stay ahead of these trends to keep your brand visible, competitive, and conversion-focused. Whether you're a startup or an enterprise, we help you stay on top
+
         </p>
       </div>
       <div className="col-lg-5 col-md-6">
@@ -571,7 +571,7 @@ export default function Digital() {
                     />
                     <h3 className="qs-card-heading">Content Marketing </h3>
                     <p className="qsd-para">
-                    Create and distribute compelling content with our content marketing agency in Chennai. We focus on SEO-optimized blogs, landing pages, and video content to attract and retain customers.
+                    Deliver meaningful engagement through our content marketing agency in Chennai. From SEO-rich blogs to compelling landing pages and videos, we help you connect with your audience at every stage of the funnel.
                     </p>
                     <Link href="/contact-us" passHref>
                       <Image
@@ -711,7 +711,7 @@ export default function Digital() {
                     />
                     <h3 className="qs-card-heading">Instagram & Facebook Ads</h3>
                     <p className="qsd-para">
-                    As a top social media marketing company in Chennai, we help you grow brand visibility and generate qualified leads with powerful <strong>Instagram Ads</strong> and <strong>Facebook marketing</strong>. Our experts craft tailored campaigns for maximum ROI on both platforms.
+                    As a top social media marketing company in Chennai, we help you grow brand visibility and generate qualified leads with powerful Instagram Ads and Facebook marketing. Our experts craft tailored campaigns for maximum ROI on both platforms.
                     </p>
                     <Link href="/contact-us" passHref>
                       <Image
@@ -738,7 +738,7 @@ export default function Digital() {
                   Why Trimsel is the Best Digital Marketing Agency in Chennai for Growth-Driven Brands
                 </h3>
                 <p className="digi-para">
-                At Trimsel, we don't just "do digital marketing" — we build digital journeys that drive real business growth. We understand that behind every brand is a story, a goal, and a team striving to make an impact. That’s why our approach goes beyond campaigns and clicks.
+                We don't just "do digital marketing" — we build digital journeys that drive real business growth. We understand that behind every brand is a story, a goal, and a team striving to make an impact. That’s why our approach goes beyond campaigns and clicks.
                 </p>
                 <p className="digi-para">
                 Our expert digital marketing team helps businesses establish a strong online presence by combining <Link href="/web-development-company-chennai" className="text-link">
@@ -939,31 +939,6 @@ export default function Digital() {
     </Card>
   </div>
 </section>
-
-        {/* <section id="recents-works">
-          <div className="container new-ds">
-            <div className="row">
-              <div className="col-lg-3 col-md-3">
-                <h2 className="case-heading">CASE STUDIES</h2>
-              </div>
-              <div className="col-lg-6 col-md-6">
-                <p className="casecarousel-para">
-                  In 6 years we have completed more than 200 individual projects
-                  to develop modern websites, web and mobile applications for
-                  clients from all over the world.
-                </p>
-              </div>
-              <div className="col-lg-3 col-md-3">
-                <button className="about-btn">
-                  View All Cases{" "}
-                  <img src="/images/material-symbols_arrow-right-alt.png" />
-                </button>
-              </div>
-            </div>
-            <CarouselComponent />
-          </div>
-        </section> */}
-        
         <section id="client" className="client-section">
         <div className="container mt-5">
           <h2 className="client-title">
@@ -977,7 +952,7 @@ export default function Digital() {
           <ClientLogo />
         </div>
       </section>
-      <ContactForm page="web"/>
+      <ContactForm heading="Want More Traffic & Leads?" subText="Talk to our growth strategists about SEO, PPC and content plans that actually drive results."/>
       <section id="faq">
   <div className="container faq-container">
     <h2 className="faq-heading">Frequently Asked Questions</h2>
@@ -987,7 +962,7 @@ export default function Digital() {
         <Accordion.Header>What is digital marketing and how can it help my business?</Accordion.Header>
         <Accordion.Body>
           <p className="accordion-para">
-            Digital marketing is the use of online channels like search engines, social media, and websites to promote your business. It helps build brand awareness, increase website traffic, generate qualified leads, and ultimately drive revenue.
+          Using websites, social media, and search engines to advertise your business is known as digital marketing. It increases website traffic, creates quality leads, raises brand exposure, and eventually boosts income.
           </p>
         </Accordion.Body>
       </Accordion.Item>
@@ -996,7 +971,7 @@ export default function Digital() {
         <Accordion.Header>How does SEO work, and why is it important for Chennai-based businesses?</Accordion.Header>
         <Accordion.Body>
           <p className="accordion-para">
-            SEO (Search Engine Optimization) improves your website's visibility on Google for relevant searches. If you're a business in Chennai, SEO ensures local customers find your services when they search online — which boosts credibility and sales.
+          SEO works by optimizing your website’s content, structure, and authority so that it ranks higher in search engine results. This makes it easier for potential customers to find you online. It's essential because it drives organic traffic, builds credibility, and helps your business grow sustainably without relying solely on paid advertising.
           </p>
         </Accordion.Body>
       </Accordion.Item>

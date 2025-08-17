@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import Header from "../components/header";
@@ -13,11 +12,9 @@ import Col from "react-bootstrap/Col";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import axios from "axios";
-import CarouselComponent from "../components/carouselComponent";
 import ClientLogo from "../components/clientLogo";
 import { FaRegEnvelope } from "@react-icons/all-files/fa/FaRegEnvelope";
 import ContactForm from "../components/ContactForm";
-import ContactModal from "../components/ContactModal";
 import { NextSeo } from 'next-seo';
 
 export default function WebDevelopment() {
@@ -268,7 +265,6 @@ export default function WebDevelopment() {
                       <div className="whiteLink">
                         <p className="breadcrumbs-kar">
                           <Link href="/">Home</Link> <span> &#x2027; </span>{" "}
-                          {/* <Link href="#">Services</Link> <span> &#x2027; </span>{" "} */}
                           Web Development Services
                         </p>
                       </div>
@@ -276,14 +272,14 @@ export default function WebDevelopment() {
                     <div className="cafe">
                       <div className="cafe-inner news-title">
                         <h1>
-                      Top Web Development Company in Chennai – Fast, Scalable & Custom Websites
+                        Top Web Development Company in Chennai  Fast, Flexible & Built for Results
                       </h1>
                       </div>
                     </div>
                     <div className="mozart">
                       <div className="mozart-inner">
                         <p>
-                        Trimsel is a leading web development company in Chennai delivering responsive, SEO-friendly websites and web applications. Our developers specialize in ReactJS, NodeJS, WordPress, and CMS platforms to build fast, scalable, and conversion-driven websites for businesses of all sizes.
+                        Trimsel is a leading web development company in Chennai, creating responsive websites and powerful web applications tailored to your business needs. From sleek business sites to feature-rich platforms, we use cutting-edge tools like ReactJS, NodeJS, and WordPress to deliver seamless, high-performance digital experiences.
                         </p>
                       </div>
                     </div>
@@ -325,7 +321,7 @@ export default function WebDevelopment() {
           <div className="row">
             <div className="col-lg-7 col-md-6">
               <h2 className="webdev-title pt-3">
-                Web Development Services in Chennai – Tailored for Growth
+                Custom Web Development Services That Work for You
               </h2>
               {/* <Button className="web-btn mb-3" href="#">
                 <img
@@ -337,23 +333,18 @@ export default function WebDevelopment() {
                 <span style={{ color: "#01aaec" }}> Half the Cost </span>{" "}
               </Button> */}
               <p className="web-abt-para pb-3">
-  In today’s fast-paced digital world, your website is more than just a digital address — it's your brand’s first impression, credibility marker, and sales engine. At Trimsel, a top web development company in Chennai, we don’t just build websites — we craft digital experiences that connect, convert, and scale. From <Link href="/digital-marketing-company-chennai">SEO-ready architecture</Link> to responsive design, every site we build is primed for visibility and performance. Whether you're launching a new brand, expanding your ecommerce presence, or modernizing an outdated site, our goal is to turn your vision into a high-performance web solution.
-</p>
-
-              <p className="web-abt-para pb-3">
-          At Trimsel, we empower businesses with high-quality web development services in Chennai. As a trusted website development company, we build fast, secure, and scalable websites, web applications, and CMS platforms that align with your goals.
-        </p>
-
+              Your website is often the first impression people have of your brand. It should not only look good but function effortlessly. At Trimsel, each website is built with clean code, a mobile-first design, and performance in mind. Whether launching a new brand, upgrading an outdated site, or expanding an online store, our team ensures the outcome drives results.
+Every project is responsive, optimized for speed, and scalable to match future business growth.</p>
         <p className="web-abt-para pb-3">
-          From startups to enterprises, our custom web solutions include:
+        Our Core Services
         </p>
 
         <ul className="web-features-list pb-3">
-          <li>✅ <strong>Custom Website Development</strong> – Fully tailored to your brand & business</li>
-          <li>✅ <strong>Web App Development</strong> – Scalable, secure, and performance-driven apps</li>
-          <li>✅ <strong>Ecommerce Website Solutions</strong> – Designed for sales, speed & UX</li>
-          <li>✅ <strong>SEO-Optimized & Mobile-Friendly</strong> – Improve your online visibility</li>
-          <li>✅ <strong>CMS Development</strong> – WordPress & custom CMS built for manageability</li>
+          <li><strong>Custom Website Development</strong> – Designed from scratch to fit your business and your brand.</li>
+          <li><strong>Web App Development</strong> – Built to be fast, reliable, and ready to handle growth.</li>
+          <li><strong>Ecommerce Website Solutions</strong> – Online stores that make buying simple and secure.</li>
+          <li><strong>Mobile-Responsive, SEO-Ready Sites</strong> – Improve your online visibility</li>
+          <li><strong>CMS Development</strong> – WordPress, Joomla, Drupal, and custom CMS setups.</li>
         </ul>
 
         <p className="web-abt-para pb-3">
@@ -447,12 +438,12 @@ export default function WebDevelopment() {
     <div className="row">
       <div className="col-lg-6 col-md-6">
         <h2 className="do-heading">
-          Full-Stack Web Development Services in Chennai – Tailored for Growth
+          Full-Stack Web Development Services in Chennai
         </h2>
       </div>
       <div className="col-lg-6 col-md-6">
         <p className="dos-para">
-          At Trimsel, we deliver comprehensive web development services in Chennai. From custom websites and CMS platforms to API integration and DevOps for deployment, we build scalable, SEO-friendly digital experiences for startups and enterprises alike.
+          We deliver comprehensive web development services in Chennai. From custom websites and CMS platforms to API integration and DevOps for deployment, we build scalable, SEO-friendly digital experiences for startups and enterprises alike.
         </p>
       </div>
     </div>
@@ -551,23 +542,8 @@ export default function WebDevelopment() {
     <div className="row">
       <div className="col-lg-8 col-md-6">
         <h2 className="websor-title pt-3">
-          Outsource Web Development to Chennai’s Top Experts
+          Why Outsource Web Development to Trimsel?
         </h2>
-      </div>
-      <div className="col-lg-4 col-md-6">
-        <Link href="/contact-us" style={{ textDecoration: "none" }}>
-          <Button className="gif-button mt-3">
-            <img
-              src="/images/slightly-smiling-face.gif"
-              alt="Smiling Face GIF Image"
-              className="new-smile"
-            />
-            <h6 className="smile-heading">
-              <p className="smile-para">Request Your Free Consultation</p>
-              <img src="/images/gifbtniconarrow.png" alt="arrow-icon" />
-            </h6>
-          </Button>
-        </Link>
       </div>
     </div>
 
@@ -619,10 +595,10 @@ export default function WebDevelopment() {
     <div className="row">
       <div className="col-lg-6 col-md-6">
         <h2 className="websor-title pt-3">
-          Why Every Modern Business Needs a Website and Web App
+        Why a Great Website Matters for Your Business?
         </h2>
         <p className="webapp-para pt-3">
-          Your website is the first touchpoint for your brand. At Trimsel, we help startups and enterprises across India and globally transform their business with high-performance websites and scalable web applications. Our expert developers in Chennai deliver SEO-friendly, secure, and lightning-fast solutions designed for business growth.
+        Your website is where potential customers first interact with your brand. We help businesses from startups to enterprises create fast, secure, and reliable web platforms that drive growth.
         </p>
         <Link href="/contact-us" passHref>
         <button className="btn btn-primary dev-btn mb-4">
@@ -1087,11 +1063,11 @@ export default function WebDevelopment() {
             </Stack>
 
             <h2 className="webkcta-heading pt-2">
-              Let's Build a Website That Works for Your Business
+            Let’s Build a Website That Delivers Real Value
             </h2>
 
             <p className="webkcta-para">
-              Whether you're starting fresh or revamping your current site, Trimsel – a trusted web development company in Chennai – delivers SEO-friendly, mobile-responsive websites that boost engagement, leads, and revenue. Book your free consultation today!
+            Whether you're starting from scratch or reworking an old site, we’re ready to help. We’ll work closely with you to build something that reflects your brand and actually supports your goals.
             </p>
 
             <Link href="/contact-us" passHref>
@@ -1116,44 +1092,6 @@ export default function WebDevelopment() {
     </Card>
   </div>
 </section>
-
-
-      {/* <section id="recent-dev-work">
-        <div className="container new-ds">
-          <div className="row">
-            <Stack direction="horizontal" className="mb-5">
-              <div className=" badge-abot-btn">
-                <img
-                  src="/images/Rectangle-kariot.png"
-                  className="me-2"
-                  alt="design-dot"
-                />
-                <p> CASE STUDIES </p>
-              </div>
-            </Stack>
-            <div className="col-lg-3 col-md-3">
-              <h2 className="case-heading">CASE STUDIES</h2>
-            </div>
-            <div className="col-lg-6 col-md-6">
-              <p className="casecarousel-para">
-                In <strong> 6 years we have completed </strong> more than{" "}
-                <strong>200 individual projects </strong>
-                to develop modern{" "}
-                <strong> Websites, Web and Mobile Applications </strong> for
-                clients from <strong> all over the world.</strong>
-              </p>
-            </div>
-            <div className="col-lg-3 col-md-3">
-              <button className="about-btn">
-                View All Cases{" "}
-                <img src="/images/material-symbols_arrow-right-alt.png" alt="Arrow-Icon"/>
-              </button>
-            </div>
-          </div>
-          <CarouselComponent />
-        </div>
-      </section> */}
-
       <section id="client" className="client-section">
         <div className="container mt-5">
           <Stack direction="horizontal" className="mb-5">
@@ -1184,7 +1122,7 @@ export default function WebDevelopment() {
         </div>
       </section>
 
-      <ContactForm page="web"/>
+      <ContactForm heading="Launch A High-Performance Web App" subText="Let’s architect a scalable, SEO-ready web application tailored to your business goals."/>
 
       <section id="faq">
   <div className="container faq-container">
@@ -1304,8 +1242,6 @@ export default function WebDevelopment() {
     </Accordion>
   </div>
 </section>
-
-      {/* <ContactModal title="Need A Website To Digitialize Your Business?" /> */}
       <Footer />
       </main>
     </>

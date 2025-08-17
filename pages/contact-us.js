@@ -594,7 +594,7 @@ export default function Contact() {
       {/* Map Image */}
       <div className="col-lg-7 col-md-6 text-center">
         <img
-          src="/images/Group2529.png"
+          src="/images/Group2529.webp"
           className="office-map img-fluid"
           alt="Map showing Trimsel Chennai Office Location"
           loading="lazy"

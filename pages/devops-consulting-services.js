@@ -540,7 +540,7 @@ export default function DevOps() {
                         Infrastructure as Code & Automation
                         </h2>
                         <p className="devtab-para">
-                        Effective Infrastructure Management is crucial for scalable and resilient IT environments. We employ Infrastructure as Code (IaC) practices using tools like Terraform and AWS CloudFormation to provision and manage infrastructure programmatically. Our services encompass cloud infrastructure setup, on-premises solutions, and hybrid models, ensuring optimal performance and cost-efficiency.
+                        Effective Infrastructure Management is crucial for scalable and resilient IT environments. To provide and manage infrastructure programmatically, we use Infrastructure as Code (IaC) techniques with tools like Terraform and AWS CloudFormation. Our services encompass cloud infrastructure setup, on-premises solutions, and hybrid models, ensuring optimal performance and cost-efficiency.
                         </p>
                         <div className="row">
                           <div className="col-lg-6 col-md-6">
@@ -588,14 +588,14 @@ export default function DevOps() {
                         Configuration Management
                         </h2>
                         <p className="devtab-para">
-                        Configuration Management involves maintaining consistency of systems and software across the infrastructure. By utilizing tools such as Ansible, Puppet, and Chef, we automate the configuration of servers and environments, reducing manual errors and ensuring compliance with desired states. This automation enhances system reliability and accelerates deployment processes.
+                        Configuration Management involves maintaining consistency of systems and software across the infrastructure. By utilizing tools such as Ansible, Puppet, and Chef, we automate the configuration of servers and environments, reducing manual errors and ensuring compliance with desired states. This automation speeds up deployment procedures and improves system reliability.
                         </p>
                         <div className="row">
                           <div className="col-lg-6 col-md-6">
                             <ul className="devtab-list">
-                              <li className="pb-2">Configuration as Code (CaC) – Automate configurations using Ansible, Puppet, Chef, or SaltStack.</li>
-                              <li className="pb-2">Immutable Infrastructure – Use Docker & Kubernetes to enforce repeatable deployments.</li>
-                              <li className="pb-2">State & Secrets Management – Manage configurations securely with HashiCorp Vault, AWS Secrets Manager, and Azure Key Vault.</li>
+                              <li className="pb-2">Configuration as Code (CaC): Use Ansible, Puppet, or Chef to automate configurations.</li>
+                              <li className="pb-2">Immutable Infrastructure: To ensure repeated deployments, use Docker and Kubernetes.</li>
+                              <li className="pb-2">State & Secrets Management: Use HashiCorp Vault, Azure Key Vault and AWS Secrets Manager to safely manage configurations.</li>
                             </ul>
                           </div>
                           <div className="col-lg-6 col-md-6">
@@ -878,7 +878,7 @@ export default function DevOps() {
               Scale Smarter with Our DevOps Consulting Services – Book a Free Consultation!
             </h2>
             <p className="cta-para text-white">
-              Whether you're a startup or enterprise, Trimsel’s <strong>DevOps consulting firm</strong> can help streamline your software delivery, implement CI/CD, and automate cloud operations. Let’s work together to improve efficiency and time-to-market.
+            Partner with a DevOps consulting firm that understands your infrastructure inside out, aligning strategy with execution to optimize CI/CD pipelines, automate cloud workflows, and accelerate deployment cycles with precision and confidence.
             </p>
             <Link href="/contact-us" passHref>
             <button className="devcta-button btn-lg btn-info mt-3">
@@ -1090,7 +1090,7 @@ export default function DevOps() {
           <ClientLogo />
         </div>
       </section>
-      <ContactForm />
+      <ContactForm heading="Need A High-Performance DevOps Partner?" subText="Automate releases, improve CI/CD, and scale securely with proven DevOps and infrastructure engineering support."/>
 
       {/* <section id="blog" className="py-4">
         <div className="container blog-container">

@@ -175,7 +175,7 @@ export default function About() {
         <p className="abot-hero-para">
           <strong>Empower your business transformation</strong> by replacing outdated legacy systems with 
           <strong> modern digital solutions</strong> that ensure <strong>growth, operational optimization</strong>, and 
-          measurable <strong>ROI</strong>. At Trimsel, we architect mission-driven technology that accelerates innovation.
+          measurable <strong>ROI</strong>. At Trimsel, We architect mission-driven technology that accelerates innovation.
         </p>
         <Link href="/contact-us" passHref>
           <Image
@@ -227,7 +227,7 @@ export default function About() {
         </p>
 
         <p className="abot-abt-para">
-          At Trimsel, we enable enterprises to drive complete digital transformation through cutting-edge mobile & web development, cloud consulting, and DevOps automation. Whether it's automating internal workflows, improving customer engagement, or scaling your business model, we deliver tailored digital solutions that unlock long-term value and innovation.
+        Through our expertise, we enable enterprises to drive complete digital transformation through cutting-edge mobile & web development, cloud consulting, and DevOps automation. Whether it's automating internal workflows, improving customer engagement, or scaling your business model, we deliver tailored digital solutions that unlock long-term value and innovation.
         </p>
 
         <p className="abot-abt-para">
@@ -242,70 +242,8 @@ export default function About() {
         </p>
 
         <p className="abot-abt-para">
-          At Trimsel, we believe in future-focused innovation — building technology that adapts to business needs today and tomorrow.
+          We believe in future-focused innovation — building technology that adapts to business needs today and tomorrow.
         </p>
-      </div>
-
-      <div className="col-lg-5 col-md-5 tbd-dsgn">
-        <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
-          <div className="card smp-card">
-            <div className="row">
-              <div className="col-3 text-center">
-                <Image src="/images/about-laun.webp" width={86} height={87} alt="Rocket Launch Icon" />
-              </div>
-              <div className="col-9">
-                <h2 className="abot-car-heading">
-                  {counterOn && <CountUp start={0} end={150} duration={2} delay={0} />}
-                  <span>+</span>
-                </h2>
-                <h3 className="abot-car-para">Projects Launched</h3>
-              </div>
-            </div>
-          </div>
-
-          <div className="card smp-card mt-3">
-            <div className="row">
-              <div className="col-3 text-center">
-                <Image src="/images/analysis.webp" width={86} height={87} alt="Analysis Icon" />
-              </div>
-              <div className="col-9">
-                <h2 className="abot-car-heading">
-                  <span>$</span>{counterOn && <CountUp start={0} end={200} duration={2} delay={0} />}<span>M</span>
-                </h2>
-                <h3 className="abot-car-para">Raised by Our Clients</h3>
-              </div>
-            </div>
-          </div>
-
-          <div className="card smp-card mt-3">
-            <div className="row">
-              <div className="col-3 text-center">
-                <Image src="/images/business-suitcase.webp" width={86} height={87} alt="Tech Team Icon" />
-              </div>
-              <div className="col-9">
-                <h2 className="abot-car-heading">
-                  {counterOn && <CountUp start={0} end={1000} duration={2} delay={0} />}
-                  <span>+</span>
-                </h2>
-                <h3 className="abot-car-para">Tech Experts Onboard</h3>
-              </div>
-            </div>
-          </div>
-
-          <div className="card smp-card mt-3">
-            <div className="row">
-              <div className="col-3 text-center">
-                <Image src="/images/coin-stack.webp" width={86} height={87} alt="Bootstrap Icon" />
-              </div>
-              <div className="col-9">
-                <h2 className="abot-car-heading">
-                  {counterOn && <CountUp start={0} end={100} duration={2} delay={0} />}<span>%</span>
-                </h2>
-                <h3 className="abot-car-para">Bootstrapped Growth</h3>
-              </div>
-            </div>
-          </div>
-        </ScrollTrigger>
       </div>
     </div>
   </div>
@@ -325,13 +263,13 @@ export default function About() {
         </p>
 
         <p className="abot-abt-para">
-          🔹 <strong>Tailored Digital Transformation:</strong> We deliver customized technology strategies aligned with your business vision and industry requirements.<br />
-          🔹 <strong>Scalable & Future-Ready Solutions:</strong> Our cloud and DevOps experts build high-performing, secure, and flexible applications that evolve with your business.<br />
-          🔹 <strong>Next-Gen Technology Integration:</strong> From AI automation to cloud migration, our services are designed to give you a strategic edge in the global market.
+          <strong>Tailored Digital Transformation:</strong> We deliver customized technology strategies aligned with your business vision and industry requirements.<br />
+          <strong>Scalable & Future-Ready Solutions:</strong> Our cloud and DevOps experts build high-performing, secure, and flexible applications that evolve with your business.<br />
+          <strong>Next-Gen Technology Integration:</strong> From AI automation to cloud migration, our services are designed to give you a strategic edge in the global market.
         </p>
 
         <p className="abot-abt-para">
-          💡 <strong>At Trimsel</strong>, we don’t just build technology—we create impact-driven experiences that transform the way you operate and grow.
+          <strong>At Trimsel</strong>, we don’t just build technology—we create impact-driven experiences that transform the way you operate and grow.
         </p>
       </div>
 
@@ -350,9 +288,9 @@ export default function About() {
             <p className="qsd-para">
               Innovation is at the heart of everything we do at Trimsel. Our team embraces emerging technologies to design intelligent solutions that improve performance, scalability, and user experience across platforms.
               <br /><br />
-              🔹 AI-powered automation to streamline operations<br />
-              🔹 Scalable cloud-native solutions across AWS, Azure, and GCP<br />
-              🔹 Optimized digital interfaces designed for conversion and speed
+              AI-powered automation to streamline operations<br />
+              Scalable cloud-native solutions across AWS, Azure, and GCP<br />
+              Optimized digital interfaces designed for conversion and speed
             </p>
           </Card.Body>
         </Card>
@@ -370,9 +308,9 @@ export default function About() {
             <p className="qsd-para">
               Your success is our mission. Whether you're a startup or a global enterprise, our commitment is to deliver scalable, secure, and mission-critical digital solutions that accelerate your path to market and maximize ROI.
               <br /><br />
-              ✅ User-focused design and engineering<br />
-              ✅ End-to-end cloud and DevOps transformation<br />
-              ✅ Reliable, future-proof applications that drive business outcomes
+              User-focused design and engineering<br />
+              End-to-end cloud and DevOps transformation<br />
+              Reliable, future-proof applications that drive business outcomes
             </p>
           </Card.Body>
         </Card>
@@ -392,7 +330,7 @@ export default function About() {
       </div>
       <div className="col-lg-6 col-md-6">
         <p className="dos-para">
-          At Trimsel, we’re driven by a relentless pursuit of innovation. From cloud-native solutions to agile delivery, everything we do is geared toward crafting scalable, secure, and engaging digital experiences.
+        we’re driven by a relentless pursuit of innovation. From cloud-native solutions to agile delivery, everything we do is geared toward crafting scalable, secure, and engaging digital experiences.
         </p>
       </div>
     </div>
@@ -405,7 +343,8 @@ export default function About() {
             <Image src="/images/light-bulb.png" width={142} height={142} className="dr-icon" alt="Scalable Solutions icon" />
             <h3 className="do-card-heading">Scalable Cloud-Native Architecture</h3>
             <p className="do-para">
-            At Trimsel, we architect highly scalable and resilient cloud-native infrastructures tailored to your growth. Whether on AWS, Azure, or GCP, our cloud consultants ensure your applications are built with microservices, containers, and serverless capabilities that scale effortlessly and deliver enterprise-grade performance.
+              We bring proven cloud capability to architect highly scalable and resilient cloud-native infrastructures tailored to your growth. Whether on AWS, Azure, or GCP, our cloud consultants ensure your applications are built with microservices, containers, and serverless capabilities that scale effortlessly and deliver enterprise-grade performance.
+
             </p>
           </Card.Body>
         </Card>
@@ -418,7 +357,7 @@ export default function About() {
             <Image src="/images/ui-icon.png" width={142} height={142} className="dr-icon" alt="UI/UX icon" />
             <h3 className="do-card-heading">Customer-First UI/UX Excellence</h3>
             <p className="do-para">
-            We design with purpose—keeping your users at the heart of every interaction. Our design team creates intuitive, accessible, and high-converting user experiences across mobile and web platforms, ensuring your product isn’t just functional but also memorable and user-loved.
+            We design with purpose, keeping your users at the heart of every interaction. Our design team creates intuitive, accessible, and high-converting user experiences across mobile and web platforms, ensuring your product isn’t just functional but also memorable and user-loved.
             </p>
           </Card.Body>
         </Card>
@@ -458,6 +397,7 @@ export default function About() {
             <h3 className="do-card-heading">Data-Driven & Secure Digital Development</h3>
             <p className="do-para">
             Security and data integrity are built into every phase of our development process. We implement secure coding practices, automated testing, and compliance measures like GDPR, HIPAA, and ISO standards to ensure every solution is both reliable and future-proof.
+
             </p>
           </Card.Body>
         </Card>
@@ -470,7 +410,7 @@ export default function About() {
             <Image src="/images/clients.png" width={142} height={142} className="dr-icon" alt="Client Focused Icon" />
             <h3 className="do-card-heading">Client-Centric Digital Strategy Execution</h3>
             <p className="do-para">
-            Your business vision drives our strategy. Our team works as an extended partner—analyzing business goals, understanding market positioning, and crafting custom digital strategies that accelerate ROI, reduce risk, and future-proof your digital investments.
+            Your business vision drives our strategy. Our team works as an extended partner by analyzing business goals, understanding market positioning, and crafting custom digital strategies that accelerate ROI, reduce risk, and future-proof your digital investments.
             </p>
           </Card.Body>
         </Card>
@@ -502,8 +442,7 @@ export default function About() {
       </div>
       <div className="col-lg-6 col-md-6 col-12">
         <p className="abds-para pt-4">
-          We specialize in end-to-end digital transformation by offering cutting-edge technology solutions
-          that empower businesses to thrive in the modern digital landscape.
+        We specialize in end-to-end digital transformation by offering cutting-edge technology solutions that empower businesses to thrive in the modern digital landscape.
         </p>
       </div>
     </div>
@@ -522,7 +461,7 @@ export default function About() {
             />
             <h3 className="qs-card-heading">Mobile App Development</h3>
             <p className="qsd-para">
-              We develop scalable and secure Android & iOS apps with intuitive UI/UX, native performance, and cloud integration to accelerate your digital growth.
+            We develop scalable and secure Android & iOS apps with intuitive UI/UX, native performance, and cloud integration to accelerate your digital growth.
             </p>
             <Link href="/mobile-app-development-chennai" passHref>
               <div className="explore-link">
@@ -547,7 +486,7 @@ export default function About() {
             />
             <h3 className="qs-card-heading">Website Development</h3>
             <p className="qsd-para">
-              From business websites to enterprise-grade platforms, we build responsive and SEO-friendly websites that engage users and boost conversions.
+            From business websites to enterprise-grade platforms, we build responsive and SEO-friendly websites that engage users and boost conversions.
             </p>
             <Link href="/web-development-company-chennai" passHref>
               <div className="explore-link">
@@ -572,7 +511,7 @@ export default function About() {
             />
             <h3 className="qs-card-heading">Cloud Consulting & Implementation</h3>
             <p className="qsd-para">
-              Migrate, modernize, and manage infrastructure across AWS, Azure, and GCP with our expert cloud consulting services.
+            Migrate, modernize, and manage infrastructure across AWS, Azure, and GCP with our expert cloud consulting services.
             </p>
             <Link href="/cloud-consulting-services" passHref>
               <div className="explore-link">
@@ -597,7 +536,7 @@ export default function About() {
             />
             <h3 className="qs-card-heading">DevOps Consulting & Automation</h3>
             <p className="qsd-para">
-              Accelerate delivery pipelines with CI/CD, Infrastructure as Code (IaC), and Kubernetes automation powered by expert DevOps consulting.
+            Accelerate delivery pipelines with CI/CD, Infrastructure as Code (IaC), and Kubernetes automation powered by expert DevOps consulting.
             </p>
             <Link href="/devops-consulting-services" passHref>
               <div className="explore-link">
@@ -622,7 +561,7 @@ export default function About() {
             />
             <h3 className="qs-card-heading">Digital Marketing & SEO</h3>
             <p className="qsd-para">
-              We help brands grow online through strategic SEO, paid ads, social media, and content marketing that drive targeted traffic and conversions.
+            We help brands grow online through strategic SEO, paid ads, social media, and content marketing that drive targeted traffic and conversions.
             </p>
             <Link href="/digital-marketing-company-chennai" passHref>
               <div className="explore-link">
@@ -635,7 +574,7 @@ export default function About() {
       </div>
 
       {/* Software Testing */}
-      {/* <div className="col-lg-4 col-md-6 pt-3">
+      <div className="col-lg-4 col-md-6 pt-3">
         <Card className="qs-customize-card">
           <Card.Body style={{ paddingRight: "0px", paddingLeft: "0px" }}>
             <Image
@@ -645,7 +584,7 @@ export default function About() {
               className="do-icon pb-3"
               alt="Software Testing icon"
             />
-            <h3 className="qs-card-heading">Quality Engineering & Testing</h3>
+            <h3 className="qs-card-heading">AI Development services</h3>
             <p className="qsd-para">
               Ensure reliability and performance with our manual and automated testing services including functional, load, and security testing.
             </p>
@@ -657,7 +596,7 @@ export default function About() {
             </Link>
           </Card.Body>
         </Card>
-      </div> */}
+      </div>
     </div>
   </div>
 </section>

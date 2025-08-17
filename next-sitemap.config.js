@@ -7,14 +7,7 @@ module.exports = {
     sitemapSize: 7000,
     exclude: [
       '/thank-you',
-      '/blog',
       '/blockchain-development',
-      '/portfolio',
-      '/portfolio/ezyhelpers-case-study',
-      '/portfolio/kariot-case-study',
-      '/portfolio/mocial-case-study',
-      '/portfolio/xaber-case-study',
-      '/quality-engineering-testing'
     ],
     robotsTxtOptions: {
       policies: [
@@ -23,14 +16,7 @@ module.exports = {
           allow: '/',
           disallow: [
             '/thank-you',
-            '/blog',
             '/blockchain-development',
-            '/portfolio',
-            '/portfolio/ezyhelpers-case-study',
-            '/portfolio/kariot-case-study',
-            '/portfolio/mocial-case-study',
-            '/portfolio/xaber-case-study',
-            '/quality-engineering-testing'
           ],
         },
       ],

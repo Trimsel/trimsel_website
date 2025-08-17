@@ -1,174 +1,74 @@
-import Head from "next/head";
 import Link from "next/link";
-import Carousel from "react-bootstrap/Carousel";
 import Image from "next/image";
 import Header from "./header";
-import { useEffect, useState } from "react";
 
 export default function HomeSlider() {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % 3);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <>
-      <section id="new-hm">
-        <Header />
-        <Carousel
-          className="home-slider"
-          activeIndex={index}
-          onSelect={setIndex}
-          indicators={false}
-          controls={false}
-          aria-label="Home Slider Carousel"
-        >
-          {/* ✅ First Slide - Digital Transformation */}
-          <Carousel.Item>
-            <section id="hm-pgone">
-              <div className="container hm-sl-container">
-                <div className="row">
-                  <div className="col-lg-6 col-md-6">
-                    <div className="titles">
-                      <div className="titles-inner">
-                        <Image
-                          src="/images/digital.png"
-                          width={298}
-                          height={38}
-                          alt="Digital Transformation Solutions Chennai - Trimsel"
-                          className="one"
-                          priority
-                        />
-                        <h1 className="headings-title">
-                          Transform Your Business with <br /> <span style={{ color: "#01aaec" }}>End-to-End Digital Solutions</span>
-                        </h1>
-                        <h2 style={{ display: "none" }}>
-                          Digital transformation company in Chennai, custom application development, custom software development services, cloud consulting services
-                        </h2>
-                        <p className="abt-hero-para">
-                          Trimsel is a <strong>leading digital transformation company</strong> specializing in <strong>custom software development</strong>, <strong>mobile app solutions</strong>, and <strong>cloud computing</strong> to drive business success.
-                        </p>
-                        <Link href="/contact-us" passHref>
-                          <button className="btn btn-primary get-btn">
-                            Get Your Free Consultation <img src="/images/material-symbols_arrow-right-alt.png" />
-                          </button>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-lg-6 col-md-6">
-                    <Image
-                      src="/images/digital-homepageone.png"
-                      className="home--frst"
-                      alt="Custom Software and Digital Transformation - Trimsel"
-                      width={600}
-                      height={626}
-                      priority
-                    />
-                  </div>
-                </div>
-              </div>
-            </section>
-          </Carousel.Item>
+    <section id="new-hm" aria-label="Trimsel hero">
+      <Header />
+      <section id="hm-hero">
+        <div className="container hm-sl-container">
+          <div className="row align-items-center">
+            {/* Left: Copy + CTAs */}
+            <div className="col-lg-6 col-md-6">
+              <div className="titles">
+                <div className="titles-inner">
+                  {/* Decorative tag – hidden from SR */}
+                  <Image
+                    src="/images/digital.png"
+                    width={298}
+                    height={38}
+                    alt=""
+                    className="one"
+                    priority
+                    aria-hidden="true"
+                  />
 
-          {/* ✅ Second Slide - Mobile App Development */}
-          <Carousel.Item>
-            <section id="hm-pgtwo">
-              <div className="container hm-sl-container">
-                <div className="row">
-                  <div className="col-lg-6 col-md-6">
-                    <div className="titles">
-                      <Image
-                        src="/images/digital.png"
-                        width={298}
-                        height={38}
-                        alt="Mobile App Development Experts in Chennai"
-                        className="one"
-                        loading="lazy"
-                      />
-                      <h1 className="headings-title">
-                        Build Scalable <span style={{ color: "#01aaec" }}>Mobile Apps</span> <br /> for Your Business
-                      </h1>
-                      <h2 style={{ display: "none" }}>
-                        Mobile app development company in Chennai, custom mobile applications, iOS development, Android app experts
-                      </h2>
-                      <p className="abt-hero-para">
-                        Get <strong>custom iOS, Android, and cross-platform apps</strong> built by top <strong>mobile app developers in Chennai</strong>. Leverage the latest technologies for a seamless user experience.
-                      </p>
-                      <Link href="/mobile-app-development-chennai" passHref>
-                        <button className="btn btn-primary get-btn">
-                          Start Your App Project <img src="/images/material-symbols_arrow-right-alt.png" />
-                        </button>
-                      </Link>
-                    </div>
-                  </div>
-                  <div className="col-lg-6 col-md-6">
-                    <Image
-                      src="/images/cloudhm.png"
-                      className="home--scnd"
-                      alt="Mobile App Development Company in Chennai - Trimsel"
-                      width={793}
-                      height={681}
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
-              </div>
-            </section>
-          </Carousel.Item>
+                  <h1 className="headings-title">
+                    Vision to Reality<br />
+                    Engineering the Future with AI-Driven Innovation
+                  </h1>
 
-          {/* ✅ Third Slide - Cloud Consulting Services */}
-          <Carousel.Item>
-            <section id="hm-pgthree">
-              <div className="container hm-sl-container">
-                <div className="row">
-                  <div className="col-lg-6 col-md-6">
-                    <div className="titles">
-                      <Image
-                        src="/images/digital.png"
-                        width={298}
-                        height={38}
-                        alt="Digital Marketing Company in Chennai"
-                        className="one"
-                        loading="lazy"
-                      />
-                      <h1 className="headings-title">
-              Drive Leads with Expert <br />
-              <span style={{ color: "#01aaec" }}>Digital Marketing Services</span>
-            </h1>
-            <h2 style={{ display: "none" }}>
-              Digital Marketing Company in Chennai, SEO Services, Google Ads, Social Media Marketing, Instagram & Facebook Ads
-            </h2>
-            <p className="abt-hero-para">
-              Boost your online presence with expert <strong>SEO services</strong>, high-converting <strong>Google Ads</strong>, and result-driven <strong>Instagram & Facebook Marketing</strong>. Partner with the top <strong>digital marketing company in Chennai</strong> to scale your business.
-            </p>
-                      <Link href="//digital-marketing-company-chennai" passHref>
-                        <button className="btn btn-primary get-btn">
-                        Explore Marketing Solutions <img src="/images/material-symbols_arrow-right-alt.png" />
-                        </button>
-                      </Link>
-                    </div>
+                  <p className="abt-hero-para">
+                    We blend <strong>AI</strong> with <strong>mobile</strong>, <strong>web</strong>, <strong>cloud</strong>, and <strong>DevOps</strong> to help businesses launch faster, smarter, and stronger.
+                  </p>
+
+                  <div className="d-flex gap-3">
+                    <Link href="/contact-us" className="btn btn-primary get-btn" aria-label="Book a free strategy call">
+                      Book a free strategy call{" "}
+                      <Image src="/images/material-symbols_arrow-right-alt.png" width={24} height={24} alt="" />
+                    </Link>
+                    <Link href="/portfolio" className="btn btn-outline-secondary get-btn" aria-label="See case studies">
+                      See case studies{" "}
+                      <Image src="/images/material-symbols_arrow-right-alt.png" width={24} height={24} alt="" />
+                    </Link>
                   </div>
-                  <div className="col-lg-6 col-md-6">
-                    <Image
-                      src="/images/home-slider-two.png"
-                      className="home--third"
-                      alt="SEO Company in Chennai - Trimsel"
-                      width={666}
-                      height={681}
-                      loading="lazy"
-                    />
-                  </div>
+
+                  {/* Optional mini social proof */}
+                  <ul className="list-inline mt-3 mb-0">
+                    <li className="list-inline-item me-3">AI + Product Engineering</li>
+                    <li className="list-inline-item me-3">Cloud: AWS · Azure · GCP</li>
+                    <li className="list-inline-item">From MVP to Enterprise</li>
+                  </ul>
                 </div>
               </div>
-            </section>
-          </Carousel.Item>
-        </Carousel>
+            </div>
+
+            {/* Right: Hero visual */}
+            <div className="col-lg-6 col-md-6 text-center">
+              <Image
+                src="/images/digital-homepageone.png"
+                className="home--frst"
+                alt="Teams using AI to build and launch modern digital products"
+                width={600}
+                height={626}
+                priority
+                sizes="(max-width: 768px) 100vw, 600px"
+              />
+            </div>
+          </div>
+        </div>
       </section>
-    </>
+    </section>
   );
 }
