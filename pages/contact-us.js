@@ -75,7 +75,7 @@ export default function Contact() {
         <>
         <NextSeo
   title="Contact Trimsel | Leading Mobile App Development Company in Chennai"
-  description="Get in touch with Trimsel, a top mobile app development company in Chennai. We build iOS, Android & cross-platform apps. Book your free consultation today!"
+  description="Get in touch with Trimsel, a top mobile app development company in Chennai. We build iOS, Android & cross-platform apps. Book your consultation today!"
   canonical="https://www.trimsel.com/contact-us"
   openGraph={{
     type: 'website',

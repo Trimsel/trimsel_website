@@ -157,7 +157,7 @@ export default function Kariot() {
                   The KarIOT platform empowers government agencies, commercial buildings, and communities to remotely track water supply, detect anomalies, and automate control of valves and pumps. By providing actionable insights through mobile and web dashboards, KarIOT helps users cut water waste, improve reporting, and support compliance and sustainability.
                 </p>
                 <p>
-                  Interested in similar digital transformation? Learn more about our <Link href="/cloud-consulting-services">cloud solutions</Link>, <Link href="/devops-consulting-services">DevOps consulting</Link>, and <Link href="/contact-us">contact us</Link> for a free strategy session.
+                  Interested in similar digital transformation? Learn more about our <Link href="/cloud-consulting-services">cloud solutions</Link>, <Link href="/devops-consulting-services">DevOps consulting</Link>, and <Link href="/contact-us">contact us</Link> for a strategy session.
                 </p>
               </div>
               <div className="col-lg-5 col-md-6">
@@ -166,7 +166,7 @@ export default function Kariot() {
                     <h5 className="pb-3">START YOUR PROJECT</h5>
                     <h2>Interested in building something similar?</h2>
                     <p>
-                      Request a free one to one consultation for your next big idea.
+                      Request a one to one consultation for your next big idea.
                     </p>
                     <form id="home-form" onSubmit={handleSubmit(onSubmitForm)}>
                       <div className="md-form">
@@ -196,7 +196,7 @@ export default function Kariot() {
                       <input
                         type="submit"
                         className="subs-btn my-3"
-                        value="Book A Free Consultation"
+                        value="Book A  Consultation"
                       />
                     </form>
                   </div>

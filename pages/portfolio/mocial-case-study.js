@@ -180,7 +180,7 @@ export default function Mocial() {
                     <h5 className="pb-3">START YOUR PROJECT</h5>
                     <h2>Interested in building something similar?</h2>
                     <p>
-                      Request a free one to one consultation for your next big
+                      Request a one to one consultation for your next big
                       idea.
                     </p>
                     <form id="home-form" onSubmit={handleSubmit(onSubmitForm)}>
@@ -211,7 +211,7 @@ export default function Mocial() {
                       <input
                         type="submit"
                         className="moc-btn my-3"
-                        value="Book A Free Consultation"
+                        value="Book A Consultation"
                       />
                     </form>
                   </div>

@@ -8,10 +8,11 @@ import Link from "next/link";
 import Accordion from 'react-bootstrap/Accordion';
 
 // Lazy Load Components for Performance Optimization
-const Footer = dynamic(() => import("../components/footer"), { ssr: false });
+
 const HomeSlider = dynamic(() => import("../components/homeSlider"), { ssr: false });
 const ClientLogo = dynamic(() => import("../components/clientLogo"), { ssr: false });
 const ContactForm = dynamic(() => import("../components/ContactForm"), { ssr: false });
+const Footer = dynamic(() => import("../components/footer"), { ssr: false });
 const ScrollSection = dynamic(() => import("../components/ScrollSection"), {ssr: false,loading: () => null, // or a tiny skeleton if you prefer
 });
 
@@ -272,7 +273,7 @@ export default function Home() {
 
             <Link href="/contact-us" passHref>
               <button type="button" className="about-btn mt-3">
-                Book a Free Strategy Call{" "}
+                Book a Strategy Call{" "}
                 <Image
                   src="/images/material-symbols_arrow-right-alt.png"
                   width={24}
@@ -549,7 +550,7 @@ export default function Home() {
         </Accordion.Header>
         <Accordion.Body>
           <p className="accordion-para">
-            The cost of <a href="/mobile-app-development-chennai">custom application development</a> varies based on project complexity, tech stack, timeline, and features. We offer flexible engagement models for startups, SMEs, and enterprises. Get a free consultation to receive a tailored quote.
+            The cost of <a href="/mobile-app-development-chennai">custom application development</a> varies based on project complexity, tech stack, timeline, and features. We offer flexible engagement models for startups, SMEs, and enterprises. Get a consultation to receive a tailored quote.
           </p>
         </Accordion.Body>
       </Accordion.Item>

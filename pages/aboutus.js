@@ -6,20 +6,13 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import Stack from "react-bootstrap/Stack";
 import ContactForm from "../components/ContactForm";
-import ContactModal from "../components/ContactModal";
-import ScrollTrigger from "react-scroll-trigger";
 import { useState } from "react";
-import CountUp from "react-countup";
 import Card from "react-bootstrap/Card";
-import Modal from "react-bootstrap/Modal";
 import dynamic from "next/dynamic";
-// import CarouselComponent from "../components/carouselComponent";
-import Button from "react-bootstrap/Button";
-// import ClientLogo from "../components/clientLogo";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
-const CarouselComponent = dynamic(() => import("../components/carouselComponent"), { ssr: false });
+
 const ClientLogo = dynamic(() => import("../components/clientLogo"), { ssr: false });
 
 
@@ -463,12 +456,12 @@ export default function About() {
             <p className="qsd-para">
             We develop scalable and secure Android & iOS apps with intuitive UI/UX, native performance, and cloud integration to accelerate your digital growth.
             </p>
-            <Link href="/mobile-app-development-chennai" passHref>
+            {/* <Link href="/mobile-app-development-chennai" passHref>
               <div className="explore-link">
                 🔗 <strong>Explore Mobile App Development</strong>
                 <Image src="/images/Group2495.png" width={56} height={56} className="do-btn-icon" alt="button icon" />
               </div>
-            </Link>
+            </Link> */}
           </Card.Body>
         </Card>
       </div>
@@ -488,12 +481,12 @@ export default function About() {
             <p className="qsd-para">
             From business websites to enterprise-grade platforms, we build responsive and SEO-friendly websites that engage users and boost conversions.
             </p>
-            <Link href="/web-development-company-chennai" passHref>
+            {/* <Link href="/web-development-company-chennai" passHref>
               <div className="explore-link">
                 🔗 <strong>Explore Web Development</strong>
                 <Image src="/images/Group2495.png" width={56} height={56} className="do-btn-icon" alt="button icon" />
               </div>
-            </Link>
+            </Link> */}
           </Card.Body>
         </Card>
       </div>
@@ -513,12 +506,12 @@ export default function About() {
             <p className="qsd-para">
             Migrate, modernize, and manage infrastructure across AWS, Azure, and GCP with our expert cloud consulting services.
             </p>
-            <Link href="/cloud-consulting-services" passHref>
+            {/* <Link href="/cloud-consulting-services" passHref>
               <div className="explore-link">
                 🔗 <strong>Explore Cloud Services</strong>
                 <Image src="/images/Group2495.png" width={56} height={56} className="do-btn-icon" alt="button icon" />
               </div>
-            </Link>
+            </Link> */}
           </Card.Body>
         </Card>
       </div>
@@ -538,12 +531,12 @@ export default function About() {
             <p className="qsd-para">
             Accelerate delivery pipelines with CI/CD, Infrastructure as Code (IaC), and Kubernetes automation powered by expert DevOps consulting.
             </p>
-            <Link href="/devops-consulting-services" passHref>
+            {/* <Link href="/devops-consulting-services" passHref>
               <div className="explore-link">
                 🔗 <strong>Explore DevOps Consulting</strong>
                 <Image src="/images/Group2495.png" width={56} height={56} className="do-btn-icon" alt="button icon" />
               </div>
-            </Link>
+            </Link> */}
           </Card.Body>
         </Card>
       </div>
@@ -563,17 +556,17 @@ export default function About() {
             <p className="qsd-para">
             We help brands grow online through strategic SEO, paid ads, social media, and content marketing that drive targeted traffic and conversions.
             </p>
-            <Link href="/digital-marketing-company-chennai" passHref>
+            {/* <Link href="/digital-marketing-company-chennai" passHref>
               <div className="explore-link">
                 🔗 <strong>Explore Digital Marketing</strong>
                 <Image src="/images/Group2495.png" width={56} height={56} className="do-btn-icon" alt="button icon" />
               </div>
-            </Link>
+            </Link> */}
           </Card.Body>
         </Card>
       </div>
 
-      {/* Software Testing */}
+      {/* AI/ML Development */}
       <div className="col-lg-4 col-md-6 pt-3">
         <Card className="qs-customize-card">
           <Card.Body style={{ paddingRight: "0px", paddingLeft: "0px" }}>
@@ -584,161 +577,17 @@ export default function About() {
               className="do-icon pb-3"
               alt="Software Testing icon"
             />
-            <h3 className="qs-card-heading">AI Development services</h3>
+            <h3 className="qs-card-heading">AI/ML Development services</h3>
             <p className="qsd-para">
-              Ensure reliability and performance with our manual and automated testing services including functional, load, and security testing.
+            Build intelligent, future-ready solutions with our end-to-end AI development services — from use-case discovery and model development to multi-agent orchestration and production deployment. We help you leverage generative AI, machine learning, and AI agents to automate processes, enhance customer experiences, and drive business growth.
             </p>
-            <Link href="/quality-engineering-testing" passHref>
-              <div className="explore-link">
-                🔗 <strong>Explore Software Testing</strong>
-                <Image src="/images/Group2495.png" width={56} height={56} className="do-btn-icon" alt="button icon" />
-              </div>
-            </Link>
           </Card.Body>
         </Card>
       </div>
     </div>
   </div>
 </section>
-
-
-        {/* <section id="abot-efficient">
-          <div className="container efficient-container">
-            <Stack direction="horizontal">
-              <div className=" badge-abot-btn">
-                <Image src={"/images/Rectangle-kariot.png"} className="me-2" height={15} width={15} alt="design-dot" loading="lazy"/>
-                <p>
-                  {" "}
-                  <strong>OUR DELIVERY MODELS</strong>{" "}
-                </p>
-              </div>
-            </Stack>
-            <div className="row pt-4">
-              <div className="col-lg-6 col-md-6">
-                <h2 className="abot-new-title">
-                  You get more than just a testing service provider you get a
-                  true partner and an extension of your team.
-                </h2>
-              </div>
-              <div className="col-lg-6 col-md-6">
-                <p className="abot-hero-para">
-                  When you work with Testing Mavens, you get more than a{" "}
-                  <strong> testing services provider </strong> -you get a{" "}
-                  <strong> true partner </strong> and an extension of your team.
-                  Our delivery models are designed to be{" "}
-                  <strong> flexible, efficient </strong>, and{" "}
-                  <strong>
-                    {" "}
-                    easily scalable to meet your changing needs.{" "}
-                  </strong>
-                </p>
-              </div>
-            </div>
-            <div className="image-abot-container pt-5">
-              <Image
-                src="/images/delivery-card.png"
-                width={1116}
-                height={556}
-                alt="Delivery Process Card"
-                className="del-image"
-              />
-            </div>
-          </div>
-        </section> */}
-
-        {/* <section id="abot-payment">
-          <div className="container payment-container">
-            <Stack direction="horizontal">
-              <div className=" badge-abot-btn">
-                <Image src={"/images/Rectangle-kariot.png"} className="me-2" height={15} width={15} alt="design-dot" loading="lazy"/>
-                <p>
-                  {" "}
-                  <strong>PAYMENT MILESTONES</strong>{" "}
-                </p>
-              </div>
-            </Stack>
-            <div className="row pay-row">
-              <div className="col-lg-7 col-md-6">
-                <h3 className="pay-heading">
-                  What are the payment milestones in the plan?
-                </h3>
-              </div>
-              <div className="col-lg-5 col-md-6">
-                <Button className="dgt-btn" href="#">
-                  <Image src="/images/Group309.png" height={40} width={40} alt="Fire image" loading="lazy" /> Your deadlines
-                  are our goals
-                </Button>
-              </div>
-            </div>
-            <div className="row pt-5">
-              <div className="col-lg-7 col-md-7">
-                <p className="pay-para">
-                  We have designed the most{" "}
-                  <strong> flexible payment methods </strong> so that you
-                  <strong> feel safe </strong> and <strong> secure </strong>{" "}
-                  while we ensure the value we provide during each release meets{" "}
-                  <strong> your expectation. </strong> The payment is equally
-                  divided into five milestones where you are requested to{" "}
-                  <strong> pay 20% during each milestone. </strong> This ensures
-                  that you <strong> feel confident </strong> and{" "}
-                  <strong> pay as you go. </strong> Currently, we don't{" "}
-                  <strong> accept revenue </strong> <strong>sharing </strong> or{" "}
-                  <strong> equity-based payment </strong> since we might not
-                  understand the industry insights. We ensure you get{" "}
-                  <strong> great value </strong> and a{" "}
-                  <strong>
-                    {" "}
-                    world-class product worth the amount you pay.
-                  </strong>
-                </p>
-              </div>
-              <div className="col-lg-5 col-md-5">
-                <Image
-                  src="/images/payment-mile.webp"
-                  width={451}
-                  height={246}
-                  alt="Payment Milestone Video Image"
-                  className="pay-image"
-                />
-
-                <Image
-                  src="/images/watch-video.webp"
-                  width={149}
-                  height={150}
-                  alt="Watch Video Icon Image"
-                  className="wtch-vd"
-                  onClick={handleShow}
-                />
-              </div>
-            </div>
-            <div className="payment-info-container">
-              <Image
-                src="/images/payment-mile.png"
-                width={1116}
-                height={179}
-                alt="Payment Plan Infographics"
-                className="pay-info"
-                quality={100}
-              />
-            </div>
-          </div>
-        </section> */}
-        {/* <Modal
-          show={show}
-          onHide={handleClose}
-          size="lg"
-          aria-labelledby="contained-modal-title-vcenter"
-          centered
-        >
-          <Modal.Header closeButton>
-            <Modal.Title>Payment Milestones In A Project</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>Add Video To Play</Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary">Close</Button>
-            <Button variant="primary">Save changes</Button>
-          </Modal.Footer>
-        </Modal> */}
+        
 
 <section className="abot-sec-cta">
   <div className="container">
@@ -765,7 +614,7 @@ export default function About() {
               Let’s Transform Your Business with Digital Innovation!
             </h2>
             <p className="abtcta-para">
-              Whether it's <strong>mobile app development</strong>, <strong>cloud consulting</strong>, <strong>DevOps automation</strong>, or <strong>digital marketing</strong>, our experts will guide your digital journey. Book a <strong>free consultation</strong> today and discover how we can elevate your business.
+              Whether it's <strong>mobile app development</strong>, <strong>cloud consulting</strong>, <strong>DevOps automation</strong>, or <strong>digital marketing</strong>, our experts will guide your digital journey. Book a <strong>consultation</strong> today and discover how we can elevate your business.
             </p>
 
             <Link href="/contact-us" passHref>

@@ -254,7 +254,7 @@ export default function mobileApp() {
         "name": "How Can I Get Started with My Mobile App Project?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "You can book a free consultation with our team to discuss your app idea, goals, and expectations. We’ll help you plan and validate your mobile app development journey from start to finish."
+          "text": "You can book a consultation with our team to discuss your app idea, goals, and expectations. We’ll help you plan and validate your mobile app development journey from start to finish."
         }
       }]
     }
@@ -295,7 +295,7 @@ export default function mobileApp() {
                       <div className="mozart-inner">
                         <Link href="/contact-us" passHref>
                           <button className="btn btn-primary get-btn">
-                          Get a Free Consultation{" "}
+                          Get a Consultation{" "}
                             <img src="/images/material-symbols_arrow-right-alt.png" />
                           </button>
                         </Link>
@@ -1343,7 +1343,7 @@ Cost-effective, scalable solutions<br></br>
         {
           question: "How Can I Get Started with My Mobile App Project?",
           answer:
-            "You can book a free consultation with our team to discuss your app idea, goals, and expectations. We’ll help you plan and validate your mobile app development journey from start to finish.",
+            "You can book a consultation with our team to discuss your app idea, goals, and expectations. We’ll help you plan and validate your mobile app development journey from start to finish.",
         },
       ].map((faq, index) => (
         <Accordion.Item eventKey={index.toString()} key={index} className="pb-3">

@@ -287,7 +287,7 @@ export default function WebDevelopment() {
                       <div className="mozarts-inner">
                       <Link href="/contact-us" passHref>
                         <button className="btn btn-primary dev-btn">
-                        Get a Free Web Development Consultation{" "}
+                        Get a Web Development Consultation{" "}
                           <img
                             src="/images/material-symbols_arrow-right-alt.png"
                             alt="arrow-icon"
@@ -359,7 +359,7 @@ Every project is responsive, optimized for speed, and scalable to match future b
                   Ready to Launch Your New Website?
                   </h2>
                   <p>
-                  Book a free consultation with our experts to get started today.
+                  Book a consultation with our experts to get started today.
                   </p>
                   <form id="home-form" onSubmit={handleSubmit(onSubmitForm)}>
                     <div className="md-form">
@@ -417,7 +417,7 @@ Every project is responsive, optimized for speed, and scalable to match future b
                     <input
                       type="submit"
                       className="subs-btn my-3"
-                      value="Book A Free Consultation"
+                      value="Book A Consultation"
                     />
                   </form>
                 </div>
@@ -1072,7 +1072,7 @@ Every project is responsive, optimized for speed, and scalable to match future b
 
             <Link href="/contact-us" passHref>
               <button className="portcta-btn mt-3">
-                <FaRegEnvelope className="me-2" /> Get a Free Consultation
+                <FaRegEnvelope className="me-2" /> Get a Consultation
               </button>
             </Link>
           </div>
@@ -1083,7 +1083,7 @@ Every project is responsive, optimized for speed, and scalable to match future b
               src="/images/web-cta-secondary.webp"
               width={521}
               height={557}
-              alt="Expert web development consultant offering free website consultation"
+              alt="Expert web development consultant offering website consultation"
               className="webcta-image"
             />
           </div>

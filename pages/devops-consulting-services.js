@@ -317,7 +317,7 @@ export default function DevOps() {
               <Link href="/contact-us" passHref>
                 <div className="mozarts-inner">
                   <button className="btn btn-primary dev-btn">
-                    Get a Free DevOps Consultation <img src="/images/material-symbols_arrow-right-alt.png" alt="Free DevOps Consultation" />
+                    Get a DevOps Consultation <img src="/images/material-symbols_arrow-right-alt.png" alt="DevOps Consultation" />
                   </button>
                 </div>
                 </Link>
@@ -370,7 +370,7 @@ export default function DevOps() {
             <Col lg={3} md={3}>
             <Link href="/contact-us" passHref>
               <button className="dev-abt-btn btn mt-3">
-              Get a Free Consultation
+              Get a Consultation
                 <img
                   src="/images/material-symbols_arrow-right-alt.png"
                   alt="Right arrow icon"
@@ -875,7 +875,7 @@ export default function DevOps() {
               </div>
             </Stack>
             <h2 className="devcta-heading pt-2">
-              Scale Smarter with Our DevOps Consulting Services – Book a Free Consultation!
+              Scale Smarter with Our DevOps Consulting Services – Book a Consultation!
             </h2>
             <p className="cta-para text-white">
             Partner with a DevOps consulting firm that understands your infrastructure inside out, aligning strategy with execution to optimize CI/CD pipelines, automate cloud workflows, and accelerate deployment cycles with precision and confidence.

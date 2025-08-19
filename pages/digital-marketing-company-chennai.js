@@ -255,9 +255,7 @@ export default function Digital() {
               </div>
               <div className="cafe">
                 <div className="cafe-inner news-title">
-                  <h1>
-                  Top Digital Marketing Company in Chennai, India
-                  </h1>
+                  <h1>Top Digital Marketing Company in Chennai, India</h1>
                 </div>
               </div>
               <div className="mozart">
@@ -789,7 +787,7 @@ export default function Digital() {
                 </h3>
                 <Link href="/contact-us" passHref>
                   <button className="btn btn-primary lev-btn">
-                  Get a Free Digital Marketing Strategy Consultation{" "}
+                  Get a Digital Marketing Strategy Consultation{" "}
                     <img src="/images/material-symbols_arrow-right-alt.png" />
                   </button>
                 </Link>

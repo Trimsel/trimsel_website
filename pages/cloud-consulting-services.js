@@ -218,7 +218,7 @@ export default function CloudConsulting() {
           "name": "How do I get started with your cloud services?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Simply reach out to our cloud consulting team for a free assessment. We'll evaluate your current environment, understand your goals, and propose a personalized roadmap covering cloud strategy, migration, optimization, and ongoing support."
+            "text": "Simply reach out to our cloud consulting team for a assessment. We'll evaluate your current environment, understand your goals, and propose a personalized roadmap covering cloud strategy, migration, optimization, and ongoing support."
           }
         }
       ]
@@ -1222,7 +1222,7 @@ export default function CloudConsulting() {
         </Accordion.Header>
         <Accordion.Body>
           <p className="accordion-para">
-            Simply reach out to our cloud consulting team for a free assessment. We'll evaluate your current environment, understand your goals, and propose a personalized roadmap covering cloud strategy, migration, optimization, and ongoing support.
+            Simply reach out to our cloud consulting team for an assessment. We'll evaluate your current environment, understand your goals, and propose a personalized roadmap covering cloud strategy, migration, optimization, and ongoing support.
           </p>
         </Accordion.Body>
       </Accordion.Item>

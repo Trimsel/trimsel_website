@@ -515,7 +515,7 @@ function Portfolio() {
                 <h2 className="contct-heading">Hey! Got a startup idea?</h2>
                 <p className="contct-para">
                   Let us give you our honest opinion. Book your{" "}
-                  <strong style={{ color: "#1e2436" }}> FREE 30-Minute </strong>{" "}
+                  <strong style={{ color: "#1e2436" }}> 30-Minute </strong>{" "}
                   consultation:
                 </p>
                 <div className="card contct-card">

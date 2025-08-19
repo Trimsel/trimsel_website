@@ -212,9 +212,9 @@ const Headers = () => {
                                 </div>
                               </Link>
                             </div>
-                            {/* <div className="col-lg-6 col-md-6 mt-2">
+                            <div className="col-lg-6 col-md-6 mt-2">
                               <Link
-                                href="/quality-engineering-testing"
+                                href="/ai-development-company"
                                 passHref
                                 className="dropdown-links"
                               >
@@ -225,24 +225,23 @@ const Headers = () => {
                                         src="/images/menu-qa-icon.png"
                                         width={40}
                                         height={40}
-                                        alt="Quality Engineering and Testing Icon"
+                                        alt="AI Develoment company Icon"
                                       />
                                     </div>
                                     <div className="col-lg-11 col-md-11 card-ned-col">
                                       <h2 className="menu-dropdown">
-                                        QA & Software Testing{" "}
+                                        AI & ML Development{" "}
                                         <HiArrowNarrowRight className="svg-four" />
                                       </h2>
 
                                       <p className="dropdown-para">
-                                        Build cross-platform apps for both IOS
-                                        and Android
+                                      Build custom AI agents & machine-learning models to automate tasks, predict outcomes, and deliver smarter experiences.
                                       </p>
                                     </div>
                                   </div>
                                 </div>
                               </Link>
-                            </div> */}
+                            </div>
                             <div className="col-lg-6 col-md-6 mt-2">
                               <Link
                                 href="/digital-marketing-company-chennai"
