@@ -560,9 +560,10 @@ export default function Contact() {
                   alt="Location marker icon"
                 />
                 <Link
-                  href="https://www.google.com/maps/place/Trimsel/@13.0125615,80.1988776,904m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3a52679044415e91:0xf6d63600f08408c6!8m2!3d13.0125615!4d80.2014525"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="https://maps.google.com/?q=Trimsel+Softwares,+Guindy,+Chennai+600032"
+                  target="_blank" 
+                  rel="noopener noreferrer nofollow"
+                  aria-label="Open Trimsel location on Google Maps"
                 >
                   Guindy, Chennai
                 </Link>

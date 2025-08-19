@@ -168,13 +168,10 @@ export default function Quality() {
                     </div>
                     <div className="mozarts">
                       <div className="mozarts-inner">
-                        <button className="btn btn-primary dev-btn">
-                        Talk to an AI Expert{" "}
-                          <img
-                            src="/images/material-symbols_arrow-right-alt.png"
-                            alt="right arrow icon"
-                          />
-                        </button>
+                      <Link href="/contact-us" className="btn btn-primary get-btn" aria-label="Talk to an AI Expert">
+                      Talk to an AI Expert{" "}
+                      <Image src="/images/material-symbols_arrow-right-alt.png" width={24} height={24} alt="AI Expert" />
+                    </Link>
                       </div>
                     </div>
                   </div>

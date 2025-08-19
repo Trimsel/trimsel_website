@@ -87,6 +87,7 @@ function Footer() {
             <li className="footer-p-link"><Link href="/cloud-consulting-services" className="footer-link">Cloud Consulting</Link></li>
             <li className="footer-p-link"><Link href="/devops-consulting-services" className="footer-link">DevOps Consulting</Link></li>
             <li className="footer-p-link"><Link href="/digital-marketing-company-chennai" className="footer-link">Digital Marketing</Link></li>
+            <li className="footer-p-link"><Link href="/ai-development-company" className="footer-link">AI/ML development</Link></li>
           </ul>
         </nav>
       </div>
