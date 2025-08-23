@@ -58,7 +58,8 @@ export default function About() {
     type: "website",
     url: "https://www.trimsel.com/aboutus",
     title: "About Trimsel | Digital Transformation Experts",
-    description: "Trimsel is a digital transformation company in Chennai offering software development, cloud solutions, DevOps & product engineering to scale your business.",
+    description:
+      "Trimsel is a digital transformation company in Chennai offering software development, cloud solutions, DevOps & product engineering to scale your business.",
     images: [
       {
         url: "https://www.trimsel.com/images/about-page-banner.jpg",
@@ -69,80 +70,36 @@ export default function About() {
     ],
     site_name: "Trimsel",
   }}
+  additionalMetaTags={[
+    { name: "robots", content: "index, follow" },
+  ]}
   additionalJsonLd={[
+    // More specific than generic WebPage
     {
       "@context": "https://schema.org",
-      "@type": "WebPage",
-      "@id": "https://www.trimsel.com/aboutus",
-      "name": "About Trimsel",
+      "@type": "AboutPage",
+      "@id": "https://www.trimsel.com/aboutus#aboutpage",
       "url": "https://www.trimsel.com/aboutus",
-      "telephone": "+91 72008 41581",
+      "name": "About Trimsel",
       "description": "Trimsel is a global leader in digital transformation, software development, cloud computing, and DevOps solutions.",
-      "image": "https://www.trimsel.com/images/about-page-banner.jpg",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Trimsel Softwares",
-        "url": "https://www.trimsel.com",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://www.trimsel.com/logo.png"
-        },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+91 72008 41581",
-          "contactType": "customer support",
-          "areaServed": "Worldwide"
-        },
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "21B, 5th Cross St, South Phase, Thiru Vi Ka Industrial Estate",
-          "addressLocality": "Guindy",
-          "addressRegion": "Chennai, Tamil Nadu",
-          "postalCode": "600032",
-          "addressCountry": "IN"
-        }
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://www.trimsel.com/images/about-page-banner.jpg"
       },
-      "areaServed": [
-        {
-          "@type": "Place",
-          "name": "Chennai",
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "13.0827",
-            "longitude": "80.2707"
-          }
-        },
-        { "@type": "Country", "name": "India" },
-        { "@type": "Country", "name": "United Arab Emirates" },
-        { "@type": "Country", "name": "Australia" },
-        { "@type": "Country", "name": "United States" },
-        { "@type": "Country", "name": "United Kingdom" },
-        { "@type": "Country", "name": "Canada" },
-        { "@type": "Country", "name": "Germany" },
-        { "@type": "Country", "name": "France" },
-        { "@type": "Country", "name": "Netherlands" },
-        { "@type": "Country", "name": "Singapore" },
-        { "@type": "Country", "name": "Malaysia" },
-        { "@type": "Country", "name": "Kenya" },
-        { "@type": "Country", "name": "South Africa" }
-      ],
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "13.0827",
-        "longitude": "80.2707"
-      },
-      "sameAs": [
-        "https://www.linkedin.com/company/trimsel",
-        "https://www.instagram.com/trimsel_softwares/",
-        "https://www.google.com/maps/place/Trimsel/@13.0125615,80.1988776,904m"
+      // Reference your global org defined on the home page
+      "publisher": { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
+      "mainEntity": { "@type": "Organization", "@id": "https://www.trimsel.com/#org" }
+    },
+    // Optional but recommended breadcrumbs (if you show them)
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "@id": "https://www.trimsel.com/aboutus#breadcrumbs",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.trimsel.com/" },
+        { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://www.trimsel.com/aboutus" }
       ]
     }
-  ]}  
-  additionalMetaTags={[
-    {
-      name: "robots",
-      content: "index, follow",
-    },
   ]}
 />
       <main>

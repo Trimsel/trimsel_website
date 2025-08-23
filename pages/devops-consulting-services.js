@@ -97,114 +97,57 @@ export default function DevOps() {
     ],
     site_name: "Trimsel",
   }}
-  additionalMetaTags={[
-    {
-      name: "robots",
-      content: "index, follow",
-    },
-  ]}
+  additionalMetaTags={[{ name: "robots", content: "index, follow" }]}
   additionalJsonLd={[
+    // Service schema
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "@id": "https://www.trimsel.com/devops-consulting-services",
-      "name": "Trimsel - DevOps Consulting Services",
-      "telephone": "+91 72008 41581",
-      "description": "Trimsel provides expert DevOps solutions, including CI/CD pipelines, cloud automation, Kubernetes consulting, and infrastructure as code.",
-      "url": "https://www.trimsel.com/devops-consulting-services",
-      "logo": "https://www.trimsel.com/logo.png",
-      "image": "https://www.trimsel.com/images/devops-banner.webp",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+91 72008 41581",
-        "contactType": "Customer Service",
-        "areaServed": "Worldwide"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "No. 21-B, 5th Cross St, South Phase, Thiru Vi Ka Industrial Estate, Guindy",
-        "addressLocality": "Chennai",
-        "addressRegion": "TN",
-        "postalCode": "600032",
-        "addressCountry": "IN"
-      },
-      "areaServed": {
-        "@type": "GeoShape",
-        "name": "Global",
-        "box": "-90,-180 90,180",
-        "additionalProperty": [
-        { "@type": "GeoCoordinates", "name": "Chennai", "latitude": "13.0827", "longitude": "80.2707" },
-        { "@type": "GeoCoordinates", "name": "Tirunelveli", "latitude": "8.7139", "longitude": "77.7567" },
-        { "@type": "GeoCoordinates", "name": "Bangalore", "latitude": "12.9716", "longitude": "77.5946" },
-        { "@type": "GeoCoordinates", "name": "Mumbai", "latitude": "19.0760", "longitude": "72.8777" },
-        { "@type": "GeoCoordinates", "name": "Delhi", "latitude": "28.6139", "longitude": "77.2090" },
-        { "@type": "GeoCoordinates", "name": "Dubai", "latitude": "25.276987", "longitude": "55.296249" },
-        { "@type": "GeoCoordinates", "name": "Melbourne", "latitude": "-37.8136", "longitude": "144.9631" },
-        { "@type": "GeoCoordinates", "name": "Sydney", "latitude": "-33.8688", "longitude": "151.2093" },
-        { "@type": "GeoCoordinates", "name": "Brisbane", "latitude": "-27.4698", "longitude": "153.0251" },
-        { "@type": "GeoCoordinates", "name": "New York", "latitude": "40.7128", "longitude": "-74.0060" },
-        { "@type": "GeoCoordinates", "name": "San Francisco", "latitude": "37.7749", "longitude": "-122.4194" },
-        { "@type": "GeoCoordinates", "name": "Los Angeles", "latitude": "34.0522", "longitude": "-118.2437" },
-        { "@type": "GeoCoordinates", "name": "Chicago", "latitude": "41.8781", "longitude": "-87.6298" },
-        { "@type": "GeoCoordinates", "name": "Toronto", "latitude": "43.651070", "longitude": "-79.347015" },
-        { "@type": "GeoCoordinates", "name": "Vancouver", "latitude": "49.2827", "longitude": "-123.1207" },
-        { "@type": "GeoCoordinates", "name": "London", "latitude": "51.5074", "longitude": "-0.1278" },
-        { "@type": "GeoCoordinates", "name": "Manchester", "latitude": "53.4808", "longitude": "-2.2426" },
-        { "@type": "GeoCoordinates", "name": "Berlin", "latitude": "52.5200", "longitude": "13.4050" },
-        { "@type": "GeoCoordinates", "name": "Paris", "latitude": "48.8566", "longitude": "2.3522" },
-        { "@type": "GeoCoordinates", "name": "Amsterdam", "latitude": "52.3676", "longitude": "4.9041" },
-        { "@type": "GeoCoordinates", "name": "Singapore", "latitude": "1.3521", "longitude": "103.8198" },
-        { "@type": "GeoCoordinates", "name": "Kuala Lumpur", "latitude": "3.1390", "longitude": "101.6869" },
-        { "@type": "GeoCoordinates", "name": "Nairobi", "latitude": "-1.2921", "longitude": "36.8219" },
-        { "@type": "GeoCoordinates", "name": "Johannesburg", "latitude": "-26.2041", "longitude": "28.0473" },
-    
-        { "@type": "Country", "name": "India" },
-        { "@type": "Country", "name": "United Arab Emirates" },
-        { "@type": "Country", "name": "Australia" },
-        { "@type": "Country", "name": "United States" },
-        { "@type": "Country", "name": "United Kingdom" },
-        { "@type": "Country", "name": "Canada" },
-        { "@type": "Country", "name": "Germany" },
-        { "@type": "Country", "name": "France" },
-        { "@type": "Country", "name": "Netherlands" },
-        { "@type": "Country", "name": "Singapore" },
-        { "@type": "Country", "name": "Malaysia" },
-        { "@type": "Country", "name": "Kenya" },
-        { "@type": "Country", "name": "South Africa" }
-      ]
-      },
+      "@type": "Service",
+      "@id": "https://www.trimsel.com/devops-consulting-services#service",
+      "name": "DevOps Consulting & Automation Services",
+      "serviceType": "DevOps Consulting",
+      "description": "CI/CD pipelines, Kubernetes consulting, infrastructure as code, release management, and managed DevOps solutions.",
+      "provider": { "@id": "https://www.trimsel.com/#org" }, // points to global org
+      "areaServed": [
+        { "@type": "Place", "name": "Chennai" },
+        { "@type": "Country", "name": "India" }
+      ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "DevOps Consulting Services",
         "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "DevOps Consulting Company in Chennai, India" } },
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "DevOps Services & Solutions" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud DevOps Implementation" } },
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CI/CD Pipeline Automation" } },
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kubernetes Consulting Services" } },
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Infrastructure Automation" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "DevOps Migration Services" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "DevOps Release Management" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "DevOps Migration & Release Management" } },
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Managed DevOps Services" } },
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hire DevOps Engineer" } }
         ]
-      },
-      "sameAs": [
-      "https://www.linkedin.com/company/trimsel",
-      "https://www.instagram.com/trimsel_softwares/",
-      "https://www.google.com/maps/place/Trimsel/@13.0125615,80.1988776,904m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3a52679044415e91:0xf6d63600f08408c6!8m2!3d13.0125615!4d80.2014525!16s%2Fg%2F11wm_p7v38?entry=ttu&g_ep=EgoyMDI1MDQwOS4wIKXMDSoJLDEwMjExNjQwSAFQAw%3D%3D"
-    ]
+      }
     },
+    // Breadcrumbs
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "@id": "https://www.trimsel.com/devops-consulting-services#breadcrumbs",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.trimsel.com/" },
+        { "@type": "ListItem", "position": 2, "name": "DevOps Consulting Services", "item": "https://www.trimsel.com/devops-consulting-services" }
+      ]
+    },
+    // FAQ schema (keep only if these are actual visible Q&A on the page)
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
+      "@id": "https://www.trimsel.com/devops-consulting-services#faq",
       "mainEntity": [
         {
           "@type": "Question",
           "name": "What are DevOps consulting services?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "DevOps consulting services help businesses automate their development and operations processes using CI/CD pipelines, cloud platforms, and infrastructure as code to accelerate software delivery.",
+            "text": "DevOps consulting services help businesses automate their development and operations processes using CI/CD pipelines, cloud platforms, and infrastructure as code to accelerate software delivery."
           }
         },
         {
@@ -212,7 +155,7 @@ export default function DevOps() {
           "name": "Why should I choose Trimsel for DevOps services?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Trimsel is a trusted DevOps consulting firm offering end-to-end services including cloud DevOps, Kubernetes implementation, and infrastructure automation tailored to your business goals.",
+            "text": "Trimsel is a trusted DevOps consulting firm offering end-to-end services including cloud DevOps, Kubernetes implementation, and infrastructure automation tailored to your business goals."
           }
         },
         {
@@ -220,7 +163,7 @@ export default function DevOps() {
           "name": "What industries benefit from DevOps solutions?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Industries like finance, healthcare, e-commerce, and SaaS benefit from DevOps by improving agility, enhancing release cycles, and reducing operational costs.",
+            "text": "Industries like finance, healthcare, e-commerce, and SaaS benefit from DevOps by improving agility, enhancing release cycles, and reducing operational costs."
           }
         },
         {
@@ -228,7 +171,7 @@ export default function DevOps() {
           "name": "Can I hire a dedicated DevOps engineer from Trimsel?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, we offer flexible engagement models to hire DevOps engineers for short-term or long-term projects, depending on your infrastructure needs.",
+            "text": "Yes, we offer flexible engagement models to hire DevOps engineers for short-term or long-term projects, depending on your infrastructure needs."
           }
         },
         {
@@ -236,7 +179,7 @@ export default function DevOps() {
           "name": "What DevOps tools do you use?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We leverage tools like Jenkins, GitLab CI/CD, Docker, Kubernetes, Terraform, Ansible, Prometheus, and ELK Stack to automate and monitor the DevOps workflow.",
+            "text": "We leverage tools like Jenkins, GitLab CI/CD, Docker, Kubernetes, Terraform, Ansible, Prometheus, and ELK Stack to automate and monitor the DevOps workflow."
           }
         },
         {
@@ -244,44 +187,14 @@ export default function DevOps() {
           "name": "Do you provide managed DevOps services?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, our managed DevOps services include infrastructure monitoring, CI/CD pipeline management, security automation, and 24/7 DevOps support.",
+            "text": "Yes, our managed DevOps services include infrastructure monitoring, CI/CD pipeline management, security automation, and 24/7 DevOps support."
           }
-        },
-        {
-          "@type": "Question",
-          "name": "What is your approach to cloud and DevOps integration?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We integrate DevOps practices with cloud platforms like AWS, Azure, and GCP for scalable deployments using containerization, serverless, and automation frameworks.",
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you offer Kubernetes consulting services?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Absolutely. We provide Kubernetes deployment, management, and security consulting to optimize microservices and containerized applications.",
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How does infrastructure automation benefit my business?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Infrastructure automation reduces manual errors, increases speed of deployment, and ensures consistency across environments using tools like Terraform and Ansible.",
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is included in your DevOps implementation services?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Our DevOps implementation services include strategic planning, CI/CD setup, security automation, continuous monitoring, and cloud infrastructure management.",
-          }
-        }]
+        }
+      ]
     }
   ]}
 />
+
       <section className="dev-hero">
   <Headers />
   <section className="hero-dev">

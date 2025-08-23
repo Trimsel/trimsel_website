@@ -49,34 +49,73 @@ export default function Kariot() {
 
   return (
     <>
-      <NextSeo
-        title="KarIOT Case Study – Smart IoT Water Management | Trimsel"
-        description="See how Trimsel enabled KarIOT to deliver real-time water management and sustainability through IoT, cloud, and automation for cities and industry."
-        canonical="https://trimsel.com/portfolio/kariot-case-study"
-        openGraph={{
-          title: "KarIOT Case Study – Smart IoT Water Management | Trimsel",
-          description:
-            "See how Trimsel enabled KarIOT to deliver real-time water management and sustainability through IoT, cloud, and automation for cities and industry.",
-          url: "https://trimsel.com/portfolio/kariot-case-study",
-          images: [
-            {
-              url: "https://trimsel.com/images/portfolio/kariot-og.jpg",
-              width: 1200,
-              height: 630,
-              alt: "KarIOT Portfolio",
-            },
-          ],
-        }}
-        twitter={{
-          handle: "@TrimselSoftwares",
-          site: "@TrimselSoftwares",
-          cardType: "summary_large_image",
-        }}
-      />
-      <Head>
-        <meta name="robots" content="index, follow" />
-        <link rel="icon" href="/favicon-min.ico" />
-      </Head>
+  <NextSeo
+  title="KarIOT Case Study – Smart IoT Water Management | Trimsel"
+  description="See how Trimsel enabled KarIOT to deliver real-time water management and sustainability through IoT, cloud, and automation for cities and industry."
+  canonical="https://www.trimsel.com/portfolio/kariot-case-study"
+  openGraph={{
+    type: "article",
+    url: "https://www.trimsel.com/portfolio/kariot-case-study",
+    title: "KarIOT Case Study – Smart IoT Water Management | Trimsel",
+    description:
+      "See how Trimsel enabled KarIOT to deliver real-time water management and sustainability through IoT, cloud, and automation for cities and industry.",
+    images: [
+      {
+        url: "https://www.trimsel.com/images/portfolio/kariot-og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "KarIOT Portfolio",
+      },
+    ],
+    site_name: "Trimsel",
+  }}
+  twitter={{
+    handle: "@TrimselSoftwares",
+    site: "@TrimselSoftwares",
+    cardType: "summary_large_image",
+  }}
+  additionalMetaTags={[
+    { name: "robots", content: "index, follow" }
+  ]}
+  additionalJsonLd={[
+    {
+      "@context": "https://schema.org",
+      "@type": "CaseStudy",
+      "@id": "https://www.trimsel.com/portfolio/kariot-case-study#case",
+      "name": "KarIOT Case Study – Smart IoT Water Management",
+      "headline": "KarIOT Case Study – Smart IoT Water Management",
+      "description": "Trimsel developed KarIOT, an IoT-based platform for smart water management with real-time monitoring, automation, and cloud scalability for sustainable cities and industries.",
+      "inLanguage": "en",
+      "url": "https://www.trimsel.com/portfolio/kariot-case-study",
+      "isPartOf": { "@type": "WebSite", "@id": "https://www.trimsel.com/#website" },
+      "about": { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
+      "author": { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
+      "publisher": { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://www.trimsel.com/images/portfolio/kariot-og.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://www.trimsel.com/images/portfolio/kariot-og.jpg",
+        "width": 1200,
+        "height": 630
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "@id": "https://www.trimsel.com/portfolio/kariot-case-study#breadcrumbs",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.trimsel.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://www.trimsel.com/portfolio" },
+        { "@type": "ListItem", "position": 3, "name": "KarIOT Case Study", "item": "https://www.trimsel.com/portfolio/kariot-case-study" }
+      ]
+    }
+  ]}
+/>
       <main>
         {/* HERO SECTION */}
         <section className="kar-hero">

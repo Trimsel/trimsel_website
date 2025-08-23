@@ -92,24 +92,23 @@ export default function Contact() {
     ],
     site_name: 'Trimsel',
   }}
+  additionalMetaTags={[
+    {
+      name: "robots",
+      content: "index, follow",
+    },
+  ]}
   additionalJsonLd={[
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
+      "@type": "ProfessionalService",   // switched from LocalBusiness
+      "@id": "https://www.trimsel.com/#local",
       "name": "Trimsel - Mobile App Development Experts",
-      "telephone": "+91 72008 41581",
-      "description": "Trimsel is a leading mobile app development company in Chennai, providing world-class solutions for iOS, Android, and web applications.",
-      "url": "https://www.trimsel.com/contact-us",
+      "url": "https://www.trimsel.com/",
       "logo": "https://www.trimsel.com/logo.png",
       "image": "https://www.trimsel.com/images/contact-hero.jpg",
       "email": "contact@trimsel.com",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+91 72008 41581",
-        "contactType": "Customer Service",
-        "areaServed": "Worldwide",
-        "availableLanguage": ["English"]
-      },
+      "telephone": "+91 72008 41581",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "No. 21-B, 5th Cross St, South Phase, Thiru Vi Ka Industrial Estate, Guindy",
@@ -118,50 +117,32 @@ export default function Contact() {
         "postalCode": "600032",
         "addressCountry": "IN"
       },
-      "areaServed": [
-        {
-          "@type": "Place",
-          "name": "Chennai",
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "13.0827",
-            "longitude": "80.2707"
-          }
-        },
-        { "@type": "Country", "name": "India" },
-        { "@type": "Country", "name": "United Arab Emirates" },
-        { "@type": "Country", "name": "Australia" },
-        { "@type": "Country", "name": "United States" },
-        { "@type": "Country", "name": "United Kingdom" },
-        { "@type": "Country", "name": "Canada" },
-        { "@type": "Country", "name": "Germany" },
-        { "@type": "Country", "name": "France" },
-        { "@type": "Country", "name": "Netherlands" },
-        { "@type": "Country", "name": "Singapore" },
-        { "@type": "Country", "name": "Malaysia" },
-        { "@type": "Country", "name": "Kenya" },
-        { "@type": "Country", "name": "South Africa" }
-      ],
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": "13.0827",
-        "longitude": "80.2707"
+        "latitude": 13.0827,
+        "longitude": 80.2707
       },
-      "hasMap": "https://www.google.com/maps/place/Trimsel/@13.0125615,80.1988776,904m",
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      }],
+      "hasMap": "https://www.google.com/maps/place/Trimsel/",
       "sameAs": [
         "https://www.linkedin.com/company/trimsel",
         "https://www.instagram.com/trimsel_softwares/"
-      ]
+      ],
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "telephone": "+91 72008 41581",
+        "contactType": "customer service",
+        "areaServed": "IN",
+        "availableLanguage": ["English"]
+      }]
     }
   ]}
-  additionalMetaTags={[
-    {
-      name: "robots",
-      content: "index, follow", // ← allow Google to index the contact-us page
-    },
-  ]}
 />
-
         <main>
         
         <section className='hero-cntct'>

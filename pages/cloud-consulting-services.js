@@ -31,195 +31,103 @@ export default function CloudConsulting() {
     title: 'Cloud Consulting Services in Chennai, India | AWS, Azure & GCP Experts',
     description: 'Expert Cloud Consulting Services in Chennai, India. We offer cloud migration, cloud cost optimization, AWS, Azure & GCP consulting. Get in touch today!',
     images: [
-      {
-        url: 'https://www.trimsel.com/images/cloud-hero.png',
-        width: 1200,
-        height: 630,
-        alt: 'Cloud Consulting Services in Chennai, India',
-      },
+      { url: 'https://www.trimsel.com/images/cloud-hero.png', width: 1200, height: 630, alt: 'Cloud Consulting Services in Chennai, India' }
     ],
+    site_name: 'Trimsel',
   }}
-  additionalMetaTags={[
-    {
-      name: "robots",
-      content: "index, follow"
-    }
-  ]}
+  additionalMetaTags={[{ name: "robots", content: "index, follow" }]}
   additionalJsonLd={[
+    // Primary service entity (clean)
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "@id": "https://www.trimsel.com/trimsel-cloud-consulting",
-      "name": "Trimsel - Cloud Consulting",
-      "telephone": "+91 72008 41581",
-      "url": "https://www.trimsel.com/cloud-consulting-services",
-      "logo": "https://www.trimsel.com/images/trimsel-logo.svg",
-      "description": "Cloud Consulting Services in Chennai, India. Specializing in AWS, Azure, and GCP cloud migration, cost optimization, and cloud engineering.",
-      "image": "https://www.trimsel.com/images/cloud-hero.png",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "No. 21-B, 5th Cross St, South Phase, Thiru Vi Ka Industrial Estate, Indira Nagar, Guindy",
-        "addressLocality": "Chennai",
-        "addressRegion": "TN",
-        "postalCode": "600032",
-        "addressCountry": "IN"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+91 72008 41581",
-        "contactType": "customer support",
-        "areaServed": "Worldwide"
-      },
-      "sameAs": [
-        "https://www.linkedin.com/company/trimsel",
-        "https://www.instagram.com/trimsel_softwares/",
-        "https://www.google.com/maps/place/Trimsel/@13.0125615,80.1988776,904m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3a52679044415e91:0xf6d63600f08408c6"
+      "@type": "Service",
+      "@id": "https://www.trimsel.com/cloud-consulting-services#service",
+      "name": "Cloud Consulting & Modernization (Chennai)",
+      "serviceType": "Cloud Consulting",
+      "description": "AWS, Azure & GCP strategy, migration, modernization, automation, governance, and cost optimization.",
+      "provider": { "@id": "https://www.trimsel.com/#org" }, // reference your global org
+      "areaServed": [
+        { "@type": "Place", "name": "Chennai" },
+        { "@type": "Country", "name": "India" }
       ],
-      "areaServed": {
-        "@type": "GeoShape",
-        "name": "Global",
-        "box": "-90,-180 90,180",
-        "additionalProperty": [
-        { "@type": "GeoCoordinates", "name": "Chennai", "latitude": "13.0827", "longitude": "80.2707" },
-        { "@type": "GeoCoordinates", "name": "Tirunelveli", "latitude": "8.7139", "longitude": "77.7567" },
-        { "@type": "GeoCoordinates", "name": "Bangalore", "latitude": "12.9716", "longitude": "77.5946" },
-        { "@type": "GeoCoordinates", "name": "Mumbai", "latitude": "19.0760", "longitude": "72.8777" },
-        { "@type": "GeoCoordinates", "name": "Delhi", "latitude": "28.6139", "longitude": "77.2090" },
-        { "@type": "GeoCoordinates", "name": "Dubai", "latitude": "25.276987", "longitude": "55.296249" },
-        { "@type": "GeoCoordinates", "name": "Melbourne", "latitude": "-37.8136", "longitude": "144.9631" },
-        { "@type": "GeoCoordinates", "name": "Sydney", "latitude": "-33.8688", "longitude": "151.2093" },
-        { "@type": "GeoCoordinates", "name": "Brisbane", "latitude": "-27.4698", "longitude": "153.0251" },
-        { "@type": "GeoCoordinates", "name": "New York", "latitude": "40.7128", "longitude": "-74.0060" },
-        { "@type": "GeoCoordinates", "name": "San Francisco", "latitude": "37.7749", "longitude": "-122.4194" },
-        { "@type": "GeoCoordinates", "name": "Los Angeles", "latitude": "34.0522", "longitude": "-118.2437" },
-        { "@type": "GeoCoordinates", "name": "Chicago", "latitude": "41.8781", "longitude": "-87.6298" },
-        { "@type": "GeoCoordinates", "name": "Toronto", "latitude": "43.651070", "longitude": "-79.347015" },
-        { "@type": "GeoCoordinates", "name": "Vancouver", "latitude": "49.2827", "longitude": "-123.1207" },
-        { "@type": "GeoCoordinates", "name": "London", "latitude": "51.5074", "longitude": "-0.1278" },
-        { "@type": "GeoCoordinates", "name": "Manchester", "latitude": "53.4808", "longitude": "-2.2426" },
-        { "@type": "GeoCoordinates", "name": "Berlin", "latitude": "52.5200", "longitude": "13.4050" },
-        { "@type": "GeoCoordinates", "name": "Paris", "latitude": "48.8566", "longitude": "2.3522" },
-        { "@type": "GeoCoordinates", "name": "Amsterdam", "latitude": "52.3676", "longitude": "4.9041" },
-        { "@type": "GeoCoordinates", "name": "Singapore", "latitude": "1.3521", "longitude": "103.8198" },
-        { "@type": "GeoCoordinates", "name": "Kuala Lumpur", "latitude": "3.1390", "longitude": "101.6869" },
-        { "@type": "GeoCoordinates", "name": "Nairobi", "latitude": "-1.2921", "longitude": "36.8219" },
-        { "@type": "GeoCoordinates", "name": "Johannesburg", "latitude": "-26.2041", "longitude": "28.0473" },
-    
-        { "@type": "Country", "name": "India" },
-        { "@type": "Country", "name": "United Arab Emirates" },
-        { "@type": "Country", "name": "Australia" },
-        { "@type": "Country", "name": "United States" },
-        { "@type": "Country", "name": "United Kingdom" },
-        { "@type": "Country", "name": "Canada" },
-        { "@type": "Country", "name": "Germany" },
-        { "@type": "Country", "name": "France" },
-        { "@type": "Country", "name": "Netherlands" },
-        { "@type": "Country", "name": "Singapore" },
-        { "@type": "Country", "name": "Malaysia" },
-        { "@type": "Country", "name": "Kenya" },
-        { "@type": "Country", "name": "South Africa" }
-      ]
-      },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Cloud Consulting Services",
         "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud Consulting Services India" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AWS Cloud Consulting Services" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Azure Cloud Experts" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "GCP Cloud Experts" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud Migration Consulting Services" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud Engineering Services" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud Cost Optimization Services" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud Automation Services" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud Modernization Services" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud Computing Solutions" } }
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud Strategy & Architecture" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud Migration (AWS/Azure/GCP)" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud Cost Optimization (FinOps)" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Automation & IaC (Terraform/CDK/Bicep)" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud Security & Compliance" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Observability & SRE" } }
         ]
       }
     },
+    // Breadcrumbs
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "@id": "https://www.trimsel.com/cloud-consulting-services#breadcrumbs",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.trimsel.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Cloud Consulting Services", "item": "https://www.trimsel.com/cloud-consulting-services" }
+      ]
+    },
+    // Keep ONLY if these Q&As are visible on the page
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
+      "@id": "https://www.trimsel.com/cloud-consulting-services#faq",
       "mainEntity": [
         {
           "@type": "Question",
           "name": "What does a cloud consulting company do?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A cloud consulting company like Trimsel helps businesses plan, migrate, and optimize their cloud infrastructure. Our certified AWS, Azure, and GCP experts deliver cloud strategy, architecture, security, and performance solutions for seamless cloud adoption."
-          }
+          "acceptedAnswer": { "@type": "Answer", "text": "A cloud consulting company like Trimsel helps businesses plan, migrate, and optimize their cloud infrastructure. Our certified AWS, Azure, and GCP experts deliver cloud strategy, architecture, security, and performance solutions for seamless cloud adoption." }
         },
         {
           "@type": "Question",
           "name": "Why choose Trimsel for cloud consulting services in India?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Trimsel is one of the top cloud consulting companies in India with proven experience in multi-cloud deployments, cloud migration services, and cloud engineering. We provide scalable and secure cloud solutions across AWS, Azure, and GCP tailored to your business needs."
-          }
+          "acceptedAnswer": { "@type": "Answer", "text": "Trimsel is one of the top cloud consulting companies in India with proven experience in multi-cloud deployments, cloud migration services, and cloud engineering. We provide scalable and secure cloud solutions across AWS, Azure, and GCP tailored to your business needs." }
         },
         {
           "@type": "Question",
           "name": "What cloud platforms do you support?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We support all major public cloud platforms, including Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP). Our cloud consultants design, deploy, and optimize workloads across these platforms using best practices in security, automation, and cost management."
-          }
+          "acceptedAnswer": { "@type": "Answer", "text": "We support all major public cloud platforms, including Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP). Our cloud consultants design, deploy, and optimize workloads across these platforms using best practices in security, automation, and cost management." }
         },
         {
           "@type": "Question",
           "name": "What are the benefits of cloud migration consulting?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Cloud migration consulting ensures a smooth transition from on-premise or legacy systems to the cloud. Our cloud migration experts assess your existing infrastructure, design a custom migration plan, and ensure high availability, data security, and business continuity."
-          }
+          "acceptedAnswer": { "@type": "Answer", "text": "Cloud migration consulting ensures a smooth transition from on-premise or legacy systems to the cloud. Our cloud migration experts assess your existing infrastructure, design a custom migration plan, and ensure high availability, data security, and business continuity." }
         },
         {
           "@type": "Question",
           "name": "Do you provide cloud cost optimization services?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Trimsel's cloud cost optimization services identify and eliminate unnecessary cloud spend, optimize resource usage, and implement budgeting strategies. We help businesses improve ROI while maintaining performance across AWS, Azure, and GCP."
-          }
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Trimsel's cloud cost optimization services identify and eliminate unnecessary cloud spend, optimize resource usage, and implement budgeting strategies. We help businesses improve ROI while maintaining performance across AWS, Azure, and GCP." }
         },
         {
           "@type": "Question",
           "name": "What is cloud-native application development?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Cloud-native development involves building and running scalable applications using modern technologies like containers, microservices, and serverless architecture. We help you build cloud-native apps on AWS Lambda, Azure Functions, Kubernetes, and more."
-          }
+          "acceptedAnswer": { "@type": "Answer", "text": "Cloud-native development involves building and running scalable applications using modern technologies like containers, microservices, and serverless architecture. We help you build cloud-native apps on AWS Lambda, Azure Functions, Kubernetes, and more." }
         },
         {
           "@type": "Question",
           "name": "How do you ensure cloud security and compliance?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Our cloud security consulting services include IAM implementation, data encryption, security automation, and compliance with standards like HIPAA, GDPR, and ISO 27001. We integrate security into every layer of your cloud architecture."
-          }
+          "acceptedAnswer": { "@type": "Answer", "text": "Our cloud security consulting services include IAM implementation, data encryption, security automation, and compliance with standards like HIPAA, GDPR, and ISO 27001. We integrate security into every layer of your cloud architecture." }
         },
         {
           "@type": "Question",
           "name": "Can you support hybrid or multi-cloud strategies?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Absolutely. Trimsel specializes in hybrid and multi-cloud strategies. We help businesses distribute workloads across AWS, Azure, and GCP, implement failover solutions, and avoid vendor lock-in while maintaining centralized monitoring and governance."
-          }
+          "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Trimsel specializes in hybrid and multi-cloud strategies. We help businesses distribute workloads across AWS, Azure, and GCP, implement failover solutions, and avoid vendor lock-in while maintaining centralized monitoring and governance." }
         },
         {
           "@type": "Question",
           "name": "What industries do you serve with cloud consulting?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We provide cloud consulting services for a wide range of industries including fintech, healthcare, e-commerce, SaaS, and logistics. Our solutions are tailored to meet industry-specific needs such as regulatory compliance, high availability, and scalability."
-          }
+          "acceptedAnswer": { "@type": "Answer", "text": "We provide cloud consulting services for a wide range of industries including fintech, healthcare, e-commerce, SaaS, and logistics. Our solutions are tailored to meet industry-specific needs such as regulatory compliance, high availability, and scalability." }
         },
         {
           "@type": "Question",
           "name": "How do I get started with your cloud services?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Simply reach out to our cloud consulting team for a assessment. We'll evaluate your current environment, understand your goals, and propose a personalized roadmap covering cloud strategy, migration, optimization, and ongoing support."
-          }
+          "acceptedAnswer": { "@type": "Answer", "text": "Simply reach out to our cloud consulting team for an assessment. We'll evaluate your current environment, understand your goals, and propose a personalized roadmap covering cloud strategy, migration, optimization, and ongoing support." }
         }
       ]
     }

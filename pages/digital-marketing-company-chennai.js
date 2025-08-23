@@ -47,7 +47,8 @@ export default function Digital() {
     type: "website",
     url: "https://www.trimsel.com/digital-marketing-company-chennai",
     title: "Top Digital Marketing Company in Chennai | SEO, PPC, SMM Experts",
-    description: "Trimsel is a trusted digital marketing agency in Chennai specializing in SEO services, PPC advertising, and social media campaigns for high-growth brands.",
+    description:
+      "Trimsel is a trusted digital marketing agency in Chennai specializing in SEO services, PPC advertising, and social media campaigns for high-growth brands.",
     images: [
       {
         url: "https://www.trimsel.com/images/digital-marketing-hero.jpg",
@@ -58,184 +59,102 @@ export default function Digital() {
     ],
     site_name: "Trimsel",
   }}
-  additionalMetaTags={[
+  additionalMetaTags={[{ name: "robots", content: "index, follow" }]}
+  additionalJsonLd={[
+    // Primary service entity (clean)
     {
-      name: "robots",
-      content: "index, follow"
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://www.trimsel.com/digital-marketing-company-chennai#service",
+      "name": "Digital Marketing Services (Chennai)",
+      "serviceType": "Digital Marketing",
+      "description": "SEO, PPC, social media marketing, content marketing, and analytics for growth-focused brands.",
+      "provider": { "@id": "https://www.trimsel.com/#org" }, // reference your global org
+      "areaServed": [
+        { "@type": "Place", "name": "Chennai" },
+        { "@type": "Country", "name": "India" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Digital Marketing Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO Services in Chennai" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "PPC (Pay-Per-Click) Campaigns" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media Marketing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "LinkedIn & Instagram Marketing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Content & Email Marketing" } }
+        ]
+      }
+    },
+    // Breadcrumbs
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "@id": "https://www.trimsel.com/digital-marketing-company-chennai#breadcrumbs",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.trimsel.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Digital Marketing Company Chennai", "item": "https://www.trimsel.com/digital-marketing-company-chennai" }
+      ]
+    },
+    // Keep ONLY if the same Q&A is visible on the page
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": "https://www.trimsel.com/digital-marketing-company-chennai#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is digital marketing and how can it help my business?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Digital marketing is the use of online channels like search engines, social media, and websites to promote your business. It helps build brand awareness, increase website traffic, generate qualified leads, and ultimately drive revenue." }
+        },
+        {
+          "@type": "Question",
+          "name": "How does SEO work, and why is it important for Chennai-based businesses?",
+          "acceptedAnswer": { "@type": "Answer", "text": "SEO (Search Engine Optimization) improves your website's visibility on Google for relevant searches. If you're a business in Chennai, SEO ensures local customers find your services when they search online — which boosts credibility and sales." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer Local SEO services?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, we specialize in Local SEO to help your business appear in local searches and Google Maps results. Whether you're a store, clinic, or service provider in Chennai, our Local SEO strategy can significantly increase your foot traffic and leads." }
+        },
+        {
+          "@type": "Question",
+          "name": "What platforms do you cover under social media marketing?",
+          "acceptedAnswer": { "@type": "Answer", "text": "We manage and optimize campaigns across Instagram, Facebook, LinkedIn, and other platforms. Our strategies include Instagram Ads, Facebook retargeting, LinkedIn lead generation, and more to increase your brand’s online engagement." }
+        },
+        {
+          "@type": "Question",
+          "name": "How are your SEO consultants in Chennai different from others?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Our SEO consultants go beyond just keywords. We dive into technical SEO, content strategy, link-building, and analytics to deliver real, measurable growth — not just rankings. We also tailor our approach for local and niche industries." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you help with lead generation through Google Ads or PPC?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. As a PPC and pay-per-click advertising company, we create highly targeted ad campaigns on Google and other platforms to bring in high-quality leads within your budget. Our goal is to maximize your ROI." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I know which digital marketing service I need?",
+          "acceptedAnswer": { "@type": "Answer", "text": "If you're not sure where to begin, our experts will assess your current digital presence and recommend a strategy that fits your business goals — whether it’s SEO, social media management, or paid advertising." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is social media marketing effective for B2B businesses?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. While B2C often uses Instagram and Facebook, B2B businesses benefit from LinkedIn marketing and targeted content strategies. We’ve helped B2B clients generate leads through educational content and professional networking ads." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer content marketing as part of your services?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, we do. Our content marketing strategy includes blog posts, landing pages, email campaigns, and social media content — all designed to boost SEO performance and engage your target audience." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is Trimsel considered one of the top digital marketing agencies in Chennai?",
+          "acceptedAnswer": { "@type": "Answer", "text": "At Trimsel, we blend creativity with data-backed strategies. Our experience across SEO, PPC, and social media combined with local market insights makes us one of the most trusted digital marketing partners for Chennai-based businesses." }
+        }
+      ]
     }
   ]}
-  additionalJsonLd={[
-    {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "@id": "https://www.trimsel.com/digital-marketing-company-chennai",
-    "name": "Trimsel - Digital Marketing Company",
-    "telephone": "+91 72008 41581",
-    "description": "Trimsel is a top digital marketing company in Chennai offering SEO, PPC, SMM, LinkedIn & Instagram marketing services to boost brand visibility and lead generation.",
-    "url": "https://www.trimsel.com/digital-marketing-company-chennai",
-    "logo": "https://www.trimsel.com/logo.png",
-    "image": "https://www.trimsel.com/images/digital-marketing-hero.jpg",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+91 72008 41581",
-      "contactType": "Customer Service",
-      "areaServed": "Worldwideß"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "No. 21-B, 5th Cross St, South Phase, Thiru Vi Ka Industrial Estate, Indira Nagar, Guindy",
-      "addressLocality": "Chennai",
-      "addressRegion": "TN",
-      "postalCode": "600032",
-      "addressCountry": "IN"
-    },
-    "areaServed": {
-      "@type": "GeoShape",
-      "name": "Global",
-      "box": "-90,-180 90,180",
-      "additionalProperty": [
-        { "@type": "GeoCoordinates", "name": "Chennai", "latitude": "13.0827", "longitude": "80.2707" },
-        { "@type": "GeoCoordinates", "name": "Tirunelveli", "latitude": "8.7139", "longitude": "77.7567" },
-        { "@type": "GeoCoordinates", "name": "Bangalore", "latitude": "12.9716", "longitude": "77.5946" },
-        { "@type": "GeoCoordinates", "name": "Mumbai", "latitude": "19.0760", "longitude": "72.8777" },
-        { "@type": "GeoCoordinates", "name": "Delhi", "latitude": "28.6139", "longitude": "77.2090" },
-        { "@type": "GeoCoordinates", "name": "Dubai", "latitude": "25.276987", "longitude": "55.296249" },
-        { "@type": "GeoCoordinates", "name": "Melbourne", "latitude": "-37.8136", "longitude": "144.9631" },
-        { "@type": "GeoCoordinates", "name": "Sydney", "latitude": "-33.8688", "longitude": "151.2093" },
-        { "@type": "GeoCoordinates", "name": "Brisbane", "latitude": "-27.4698", "longitude": "153.0251" },
-        { "@type": "GeoCoordinates", "name": "New York", "latitude": "40.7128", "longitude": "-74.0060" },
-        { "@type": "GeoCoordinates", "name": "San Francisco", "latitude": "37.7749", "longitude": "-122.4194" },
-        { "@type": "GeoCoordinates", "name": "Los Angeles", "latitude": "34.0522", "longitude": "-118.2437" },
-        { "@type": "GeoCoordinates", "name": "Chicago", "latitude": "41.8781", "longitude": "-87.6298" },
-        { "@type": "GeoCoordinates", "name": "Toronto", "latitude": "43.651070", "longitude": "-79.347015" },
-        { "@type": "GeoCoordinates", "name": "Vancouver", "latitude": "49.2827", "longitude": "-123.1207" },
-        { "@type": "GeoCoordinates", "name": "London", "latitude": "51.5074", "longitude": "-0.1278" },
-        { "@type": "GeoCoordinates", "name": "Manchester", "latitude": "53.4808", "longitude": "-2.2426" },
-        { "@type": "GeoCoordinates", "name": "Berlin", "latitude": "52.5200", "longitude": "13.4050" },
-        { "@type": "GeoCoordinates", "name": "Paris", "latitude": "48.8566", "longitude": "2.3522" },
-        { "@type": "GeoCoordinates", "name": "Amsterdam", "latitude": "52.3676", "longitude": "4.9041" },
-        { "@type": "GeoCoordinates", "name": "Singapore", "latitude": "1.3521", "longitude": "103.8198" },
-        { "@type": "GeoCoordinates", "name": "Kuala Lumpur", "latitude": "3.1390", "longitude": "101.6869" },
-        { "@type": "GeoCoordinates", "name": "Nairobi", "latitude": "-1.2921", "longitude": "36.8219" },
-        { "@type": "GeoCoordinates", "name": "Johannesburg", "latitude": "-26.2041", "longitude": "28.0473" },
-    
-        { "@type": "Country", "name": "India" },
-        { "@type": "Country", "name": "United Arab Emirates" },
-        { "@type": "Country", "name": "Australia" },
-        { "@type": "Country", "name": "United States" },
-        { "@type": "Country", "name": "United Kingdom" },
-        { "@type": "Country", "name": "Canada" },
-        { "@type": "Country", "name": "Germany" },
-        { "@type": "Country", "name": "France" },
-        { "@type": "Country", "name": "Netherlands" },
-        { "@type": "Country", "name": "Singapore" },
-        { "@type": "Country", "name": "Malaysia" },
-        { "@type": "Country", "name": "Kenya" },
-        { "@type": "Country", "name": "South Africa" }
-      ]
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Digital Marketing Services",
-      "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO Services in Chennai" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "PPC (Pay-Per-Click) Campaigns" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media Marketing" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "LinkedIn & Instagram Marketing" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Content & Email Marketing" } }
-      ]
-    },
-    "sameAs": [
-      "https://www.linkedin.com/company/trimsel",
-      "https://www.instagram.com/trimsel_softwares/",
-      "https://www.google.com/maps/place/Trimsel/@13.0125615,80.1988776,904m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3a52679044415e91:0xf6d63600f08408c6!8m2!3d13.0125615!4d80.2014525!16s%2Fg%2F11wm_p7v38?entry=ttu"
-    ]
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [{
-      "@type": "Question",
-      "name": "What is digital marketing and how can it help my business?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Digital marketing is the use of online channels like search engines, social media, and websites to promote your business. It helps build brand awareness, increase website traffic, generate qualified leads, and ultimately drive revenue."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How does SEO work, and why is it important for Chennai-based businesses?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "SEO (Search Engine Optimization) improves your website's visibility on Google for relevant searches. If you're a business in Chennai, SEO ensures local customers find your services when they search online — which boosts credibility and sales."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you offer Local SEO services?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, we specialize in Local SEO to help your business appear in local searches and Google Maps results. Whether you're a store, clinic, or service provider in Chennai, our Local SEO strategy can significantly increase your foot traffic and leads."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What platforms do you cover under social media marketing?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We manage and optimize campaigns across Instagram, Facebook, LinkedIn, and other platforms. Our strategies include Instagram Ads, Facebook retargeting, LinkedIn lead generation, and more to increase your brand’s online engagement."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How are your SEO consultants in Chennai different from others?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Our SEO consultants go beyond just keywords. We dive into technical SEO, content strategy, link-building, and analytics to deliver real, measurable growth — not just rankings. We also tailor our approach for local and niche industries."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can you help with lead generation through Google Ads or PPC?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely. As a PPC and pay-per-click advertising company, we create highly targeted ad campaigns on Google and other platforms to bring in high-quality leads within your budget. Our goal is to maximize your ROI."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I know which digital marketing service I need?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "If you're not sure where to begin, our experts will assess your current digital presence and recommend a strategy that fits your business goals — whether it’s SEO, social media management, or paid advertising."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is social media marketing effective for B2B businesses?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. While B2C often uses Instagram and Facebook, B2B businesses benefit from LinkedIn marketing and targeted content strategies. We’ve helped B2B clients generate leads through educational content and professional networking ads."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you offer content marketing as part of your services?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, we do. Our content marketing strategy includes blog posts, landing pages, email campaigns, and social media content — all designed to boost SEO performance and engage your target audience."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why is Trimsel considered one of the top digital marketing agencies in Chennai?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "At Trimsel, we blend creativity with data-backed strategies. Our experience across SEO, PPC, and social media combined with local market insights makes us one of the most trusted digital marketing partners for Chennai-based businesses."
-      }
-    }]
-  }
-]}
 />
       <section className="dig-hero">
   <Header />

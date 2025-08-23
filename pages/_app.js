@@ -1,44 +1,47 @@
 // pages/_app.js
-import { config } from '@fortawesome/fontawesome-svg-core';
-import '@fortawesome/fontawesome-svg-core/styles.css';
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 
 // 1) Put globals FIRST so tokens/variables exist before other CSS
-import '../styles/globals.css';
+import "../styles/globals.css";
 
 // Keep Bootstrap CSS next; custom CSS can override it below
-import 'bootstrap/dist/css/bootstrap.css';
+import "bootstrap/dist/css/bootstrap.css";
 
-// 2) Custom styles (trim if anything is unused)
-import '../styles/typography.css';
-import '../styles/port.css';
-import '../styles/wholestyle.css';
-import '../styles/mbl.css';
-import '../styles/devops.css';
+// 2) Custom styles
+import "../styles/typography.css";
+import "../styles/port.css";
+import "../styles/wholestyle.css";
+import "../styles/mbl.css";
+import "../styles/devops.css";
 
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
-import { gsap } from 'gsap/dist/gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { useEffect } from 'react';
-import Script from 'next/script';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { useEffect } from "react";
+import Script from "next/script";
+import Head from "next/head";
+import { useRouter } from "next/router";
 
-// 3) Self-hosted fonts via next/font (no render-blocking @import)
-import { Poppins, Montserrat } from 'next/font/google';
+// Fonts via next/font (no render-blocking @import)
+import { Poppins, Montserrat } from "next/font/google";
 const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-poppins',
-  display: 'swap',
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-poppins",
+  display: "swap",
 });
 const montserrat = Montserrat({
-  subsets: ['latin'],
-  weight: ['600', '700'],
-  variable: '--font-montserrat',
-  display: 'swap',
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  variable: "--font-montserrat",
+  display: "swap",
 });
+
+// Site-wide SEO defaults
+import { DefaultSeo } from "next-seo";
 
 gsap.registerPlugin(ScrollTrigger);
 config.autoAddCss = false;
@@ -46,38 +49,63 @@ config.autoAddCss = false;
 export default function App({ Component, pageProps }) {
   const router = useRouter();
 
-  // 4) Load Bootstrap JS once on client; clean up backdrops on route change
+  // Load Bootstrap JS once on client; clean up backdrops on route change
   useEffect(() => {
-    require('bootstrap/dist/js/bootstrap.bundle.min');
+    require("bootstrap/dist/js/bootstrap.bundle.min");
 
     const cleanBodyStyles = () => {
-      document.body.style.overflow = '';
-      document.body.style.paddingRight = '';
-      document.body.classList.remove('modal-open');
-      document.querySelectorAll('.offcanvas-backdrop, .modal-backdrop').forEach(el => el.remove());
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+      document.body.classList.remove("modal-open");
+      document
+        .querySelectorAll(".offcanvas-backdrop, .modal-backdrop")
+        .forEach((el) => el.remove());
     };
 
-    router.events.on('routeChangeComplete', cleanBodyStyles);
-    return () => router.events.off('routeChangeComplete', cleanBodyStyles);
+    router.events.on("routeChangeComplete", cleanBodyStyles);
+    return () => router.events.off("routeChangeComplete", cleanBodyStyles);
   }, [router.events]);
 
-  // 5) GA single-page app pageviews
+  // GA single-page app pageviews
   useEffect(() => {
     const handleRouteChange = (url) => {
       if (window.gtag) {
-        window.gtag('config', 'G-8PHY8FQ1CW', { page_path: url });
+        window.gtag("config", "G-8PHY8FQ1CW", { page_path: url });
       }
     };
-    router.events.on('routeChangeComplete', handleRouteChange);
-    return () => router.events.off('routeChangeComplete', handleRouteChange);
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => router.events.off("routeChangeComplete", handleRouteChange);
   }, [router.events]);
 
   return (
-    // 6) Apply font variables at the top-level wrapper
+    // Apply font variables at the top-level wrapper
     <div className={`${poppins.variable} ${montserrat.variable}`}>
+      {/* Viewport once for the whole app */}
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
+
+      {/* Site-wide SEO defaults (per-page <NextSeo> can override) */}
+      <DefaultSeo
+        openGraph={{
+          type: "website",
+          site_name: "Trimsel",
+          url: "https://www.trimsel.com/",
+        }}
+        twitter={{
+          cardType: "summary_large_image",
+          handle: "@TrimselSoftwares",
+          site: "@TrimselSoftwares",
+        }}
+        additionalMetaTags={[
+          // Good global default; you can still override per page
+          {
+            name: "robots",
+            content:
+              "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+          },
+        ]}
+      />
 
       {/* GA: load afterInteractive */}
       <Script

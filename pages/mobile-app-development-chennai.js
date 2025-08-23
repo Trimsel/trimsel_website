@@ -82,184 +82,135 @@ export default function mobileApp() {
     site_name: "Trimsel"
   }}
   additionalMetaTags={[
-    {
-      name: "robots",
-      content: "index, follow"
-    }
+    { name: "robots", content: "index, follow" }
   ]}
   additionalJsonLd={[
+    // Primary service entity (clean & focused)
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "@id": "https://www.trimsel.com/mobile-app-development-chennai",
-      "name": "Trimsel - Mobile App Development Company",
-      "description": "Trimsel is a leading mobile app development company in Chennai, India. Expert Android, iOS, Flutter & Hybrid app developers delivering scalable, secure solutions.",
-      "url": "https://www.trimsel.com/mobile-app-development-chennai",
-      "logo": "https://www.trimsel.com/logo.png",
-      "image": "https://www.trimsel.com/images/mobilehero.webp",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+91 72008 41581",
-        "contactType": "Customer Service",
-        "areaServed": "Worldwide"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "No. 21-B, 5th Cross St, South Phase, Thiru Vi Ka Industrial Estate, Indira Nagar, Guindy",
-        "addressLocality": "Chennai",
-        "addressRegion": "TN",
-        "postalCode": "600032",
-        "addressCountry": "IN"
-      },
-      "areaServed": {
-        "@type": "GeoShape",
-        "name": "Global",
-        "box": "-90,-180 90,180",
-        "additionalProperty": [
-          { "@type": "GeoCoordinates", "name": "Chennai", "latitude": "13.0827", "longitude": "80.2707" },
-          { "@type": "GeoCoordinates", "name": "Tirunelveli", "latitude": "8.7139", "longitude": "77.7567" },
-          { "@type": "GeoCoordinates", "name": "Bangalore", "latitude": "12.9716", "longitude": "77.5946" },
-          { "@type": "GeoCoordinates", "name": "Mumbai", "latitude": "19.0760", "longitude": "72.8777" },
-          { "@type": "GeoCoordinates", "name": "Delhi", "latitude": "28.6139", "longitude": "77.2090" },
-          { "@type": "GeoCoordinates", "name": "Dubai", "latitude": "25.276987", "longitude": "55.296249" },
-          { "@type": "GeoCoordinates", "name": "Melbourne", "latitude": "-37.8136", "longitude": "144.9631" },
-          { "@type": "GeoCoordinates", "name": "Sydney", "latitude": "-33.8688", "longitude": "151.2093" },
-          { "@type": "GeoCoordinates", "name": "Brisbane", "latitude": "-27.4698", "longitude": "153.0251" },
-          { "@type": "GeoCoordinates", "name": "New York", "latitude": "40.7128", "longitude": "-74.0060" },
-          { "@type": "GeoCoordinates", "name": "San Francisco", "latitude": "37.7749", "longitude": "-122.4194" },
-          { "@type": "GeoCoordinates", "name": "Los Angeles", "latitude": "34.0522", "longitude": "-118.2437" },
-          { "@type": "GeoCoordinates", "name": "Chicago", "latitude": "41.8781", "longitude": "-87.6298" },
-          { "@type": "GeoCoordinates", "name": "Toronto", "latitude": "43.651070", "longitude": "-79.347015" },
-          { "@type": "GeoCoordinates", "name": "Vancouver", "latitude": "49.2827", "longitude": "-123.1207" },
-          { "@type": "GeoCoordinates", "name": "London", "latitude": "51.5074", "longitude": "-0.1278" },
-          { "@type": "GeoCoordinates", "name": "Manchester", "latitude": "53.4808", "longitude": "-2.2426" },
-          { "@type": "GeoCoordinates", "name": "Berlin", "latitude": "52.5200", "longitude": "13.4050" },
-          { "@type": "GeoCoordinates", "name": "Paris", "latitude": "48.8566", "longitude": "2.3522" },
-          { "@type": "GeoCoordinates", "name": "Amsterdam", "latitude": "52.3676", "longitude": "4.9041" },
-          { "@type": "GeoCoordinates", "name": "Singapore", "latitude": "1.3521", "longitude": "103.8198" },
-          { "@type": "GeoCoordinates", "name": "Kuala Lumpur", "latitude": "3.1390", "longitude": "101.6869" },
-          { "@type": "GeoCoordinates", "name": "Nairobi", "latitude": "-1.2921", "longitude": "36.8219" },
-          { "@type": "GeoCoordinates", "name": "Johannesburg", "latitude": "-26.2041", "longitude": "28.0473" },
-          { "@type": "Country", "name": "India" },
-          { "@type": "Country", "name": "United Arab Emirates" },
-          { "@type": "Country", "name": "Australia" },
-          { "@type": "Country", "name": "United States" },
-          { "@type": "Country", "name": "United Kingdom" },
-          { "@type": "Country", "name": "Canada" },
-          { "@type": "Country", "name": "Germany" },
-          { "@type": "Country", "name": "France" },
-          { "@type": "Country", "name": "Netherlands" },
-          { "@type": "Country", "name": "Singapore" },
-          { "@type": "Country", "name": "Malaysia" },
-          { "@type": "Country", "name": "Kenya" },
-          { "@type": "Country", "name": "South Africa" }
-        ]
-      },
+      "@type": "Service",
+      "@id": "https://www.trimsel.com/mobile-app-development-chennai#service",
+      "name": "Mobile App Development (Chennai)",
+      "serviceType": "Mobile Application Development",
+      "description": "iOS, Android, and cross-platform (Flutter/React Native) app development with secure, scalable architectures.",
+      "provider": { "@id": "https://www.trimsel.com/#org" },
+      "areaServed": [
+        { "@type": "Place", "name": "Chennai" },
+        { "@type": "Country", "name": "India" }
+      ],
       "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Mobile App Development Services",
+        "@type": "OfferCatalog",
+        "name": "Mobile App Development Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "iOS App Development" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Android App Development" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Flutter / Cross-platform Apps" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "App Testing & Security" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "UI/UX & App Design" } }
+        ]
+      }
+    },
+    // Breadcrumbs (nice signal)
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "@id": "https://www.trimsel.com/mobile-app-development-chennai#breadcrumbs",
       "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile app development company in Chennai, India" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "iOS App Development" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Android App Development" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cross-Platform Mobile Apps" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Flutter & React Native Development" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile App Testing & Security" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile App Design" } }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.trimsel.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Mobile App Development (Chennai)", "item": "https://www.trimsel.com/mobile-app-development-chennai" }
       ]
     },
-      "sameAs": [
-        "https://www.linkedin.com/company/trimsel",
-        "https://www.instagram.com/trimsel_softwares/",
-        "https://www.google.com/maps/place/Trimsel/@13.0125615,80.1988776,904m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3a52679044415e91:0xf6d63600f08408c6!8m2!3d13.0125615!4d80.2014525!16s%2Fg%2F11wm_p7v38?entry=ttu"
-      ]
-    },
+    // Keep this ONLY if questions/answers are visible on the page
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "Why Choose Trimsel as Your Mobile App Development Company in Chennai?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Trimsel is a top-rated mobile app development company in Chennai, India, trusted by startups and enterprises. We specialize in iOS, Android, and cross-platform apps using cutting-edge technologies like Flutter and React Native."
+      "@id": "https://www.trimsel.com/mobile-app-development-chennai#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why Choose Trimsel as Your Mobile App Development Company in Chennai?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Trimsel is a top-rated mobile app development company in Chennai, India, trusted by startups and enterprises. We specialize in iOS, Android, and cross-platform apps using cutting-edge technologies like Flutter and React Native."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How Much Does It Cost to Develop a Mobile App?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The cost of mobile app development varies based on features, complexity, platform, and development approach. At Trimsel, we offer scalable solutions tailored to your unique business needs and budget."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which Is Better: Native or Cross-Platform App Development?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Native apps (iOS or Android) offer high performance, while cross-platform apps built using Flutter or React Native are faster to develop and more cost-effective. We help you choose the right approach based on your project scope."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do You Offer Flutter App Development Services?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! We’re a Flutter app development company in Chennai offering fast, cost-efficient cross-platform mobile applications with native-like performance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How Long Does It Take to Develop a Mobile App?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A basic app can take 6–8 weeks, while feature-rich enterprise mobile apps may take 4–6 months. We follow agile development for faster time-to-market without compromising quality."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I Hire Mobile App Developers from Trimsel?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. We provide dedicated mobile app developers in Chennai to work on your project full-time or part-time, ensuring transparency, speed, and technical excellence."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What Is Hybrid Mobile App Development and Is It Right for My Business?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hybrid mobile apps are built using web technologies like HTML, CSS, and JavaScript with frameworks like Ionic. They are ideal for MVPs or businesses looking for quick deployment across platforms."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is My App Secure and Compliant with Data Protection Laws?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We implement best practices for mobile app security and ensure compliance with GDPR, HIPAA, and PCI-DSS based on your industry and location."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do You Provide Post-Launch Support and Maintenance?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, we offer ongoing maintenance, feature enhancements, performance monitoring, and support services to keep your app secure and up to date."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How Can I Get Started with My Mobile App Project?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can book a consultation with our team to discuss your app idea, goals, and expectations. We’ll help you plan and validate your mobile app development journey from start to finish."
+          }
         }
-      },
-      {
-        "@type": "Question",
-        "name": "How Much Does It Cost to Develop a Mobile App?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The cost of mobile app development varies based on features, complexity, platform, and development approach. At Trimsel, we offer scalable solutions tailored to your unique business needs and budget."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Which Is Better: Native or Cross-Platform App Development?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Native apps (iOS or Android) offer high performance, while cross-platform apps built using Flutter or React Native are faster to develop and more cost-effective. We help you choose the right approach based on your project scope."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do You Offer Flutter App Development Services?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes! We’re a Flutter app development company in Chennai offering fast, cost-efficient cross-platform mobile applications with native-like performance."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How Long Does It Take to Develop a Mobile App?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "A basic app can take 6–8 weeks, while feature-rich enterprise mobile apps may take 4–6 months. We follow agile development for faster time-to-market without compromising quality."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I Hire Mobile App Developers from Trimsel?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Absolutely. We provide dedicated mobile app developers in Chennai to work on your project full-time or part-time, ensuring transparency, speed, and technical excellence."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What Is Hybrid Mobile App Development and Is It Right for My Business?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Hybrid mobile apps are built using web technologies like HTML, CSS, and JavaScript with frameworks like Ionic. They are ideal for MVPs or businesses looking for quick deployment across platforms."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is My App Secure and Compliant with Data Protection Laws?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. We implement best practices for mobile app security and ensure compliance with GDPR, HIPAA, and PCI-DSS based on your industry and location."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do You Provide Post-Launch Support and Maintenance?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, we offer ongoing maintenance, feature enhancements, performance monitoring, and support services to keep your app secure and up to date."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How Can I Get Started with My Mobile App Project?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "You can book a consultation with our team to discuss your app idea, goals, and expectations. We’ll help you plan and validate your mobile app development journey from start to finish."
-        }
-      }]
+      ]
     }
   ]}
 />
+
 
       <main>
         <section className="hero-mbl">

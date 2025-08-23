@@ -49,98 +49,41 @@ export default function Home() {
        <NextSeo
   title="Digital Transformation Company in Chennai | Custom Software Services"
   description="Trimsel is a digital transformation company in Chennai offering software development, cloud solutions, DevOps & product engineering to scale your business."
-  canonical="https://www.trimsel.com"
+  canonical="https://www.trimsel.com/"
   openGraph={{
     type: "website",
-    url: "https://www.trimsel.com",
+    url: "https://www.trimsel.com/",
     title: "Digital Transformation Company in Chennai | Custom Software Services",
     description: "Trimsel is a digital transformation company in Chennai offering software development, cloud solutions, DevOps & product engineering to scale your business.",
-    images: [
-      {
-        url: "https://www.trimsel.com/images/home-hero-banner.webp",
-        width: 1200,
-        height: 630,
-        alt: "Digital Transformation Company - Trimsel",
-      },
-    ],
+    images: [{ url: "https://www.trimsel.com/images/home-hero-banner.webp", width: 1200, height: 630, alt: "Trimsel" }],
     site_name: "Trimsel",
   }}
-  additionalMetaTags={[
-    {
-      name: "robots",
-      content: "index, follow",
-    },
-  ]}
+  twitter={{ cardType: "summary_large_image" }}
   additionalJsonLd={[
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "@id": "https://www.trimsel.com",
-      "name": "Trimsel - Digital Transformation & Software Services",
-      "telephone": "+91 72008 41581",
-      "description": "Trimsel is a digital transformation company offering custom software development, cloud consulting, DevOps, and digital product engineering.",
-      "url": "https://www.trimsel.com",
-      "logo": "https://www.trimsel.com/logo.png",
-      "image": "https://www.trimsel.com/images/home-hero-banner.webp",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+91 72008 41581",
-        "contactType": "Customer Service",
-        "areaServed": "Worldwide"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "No. 21-B, 5th Cross St, South Phase, Thiru Vi Ka Industrial Estate, Guindy",
-        "addressLocality": "Chennai",
-        "addressRegion": "TN",
-        "postalCode": "600032",
-        "addressCountry": "IN"
-      },
-      "areaServed": [
-  {
-    "@type": "Place",
-    "name": "Chennai",
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "13.0827",
-      "longitude": "80.2707"
-    }
-  },
-  { "@type": "Country", "name": "India" },
-  { "@type": "Country", "name": "United Arab Emirates" },
-  { "@type": "Country", "name": "Australia" },
-  { "@type": "Country", "name": "United States" },
-  { "@type": "Country", "name": "United Kingdom" },
-  { "@type": "Country", "name": "Canada" },
-  { "@type": "Country", "name": "Germany" },
-  { "@type": "Country", "name": "France" },
-  { "@type": "Country", "name": "Netherlands" },
-  { "@type": "Country", "name": "Singapore" },
-  { "@type": "Country", "name": "Malaysia" },
-  { "@type": "Country", "name": "Kenya" },
-  { "@type": "Country", "name": "South Africa" }
-],
-"geo": {
-  "@type": "GeoCoordinates",
-  "latitude": "13.0827",
-  "longitude": "80.2707"
-},
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Software & Digital Services",
-        "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile App Development" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Development" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "DevOps Consulting & Automation" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud Consulting & Modernization" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Digital Marketing & SEO" } }
-        ]
-      },
+      "@type": "WebSite",
+      "@id": "https://www.trimsel.com/#website",
+      "url": "https://www.trimsel.com/",
+      "name": "Trimsel"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://www.trimsel.com/#org",
+      "url": "https://www.trimsel.com/",
+      "name": "Trimsel",
+      "logo": "https://www.trimsel.com/images/logo.png",
       "sameAs": [
         "https://www.linkedin.com/company/trimsel",
-        "https://www.instagram.com/trimsel_softwares/",
-        "https://www.google.com/maps/place/Trimsel/@13.0125615,80.1988776,904m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3a52679044415e91:0xf6d63600f08408c6!8m2!3d13.0125615!4d80.2014525!16s%2Fg%2F11wm_p7v38?entry=ttu"
-      ]
+        "https://www.instagram.com/trimsel_softwares/"
+      ],
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "telephone": "+91 72008 41581",
+        "contactType": "customer service",
+        "areaServed": "Worldwide"
+      }]
     }
   ]}
 />

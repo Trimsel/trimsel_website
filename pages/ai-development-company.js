@@ -38,44 +38,27 @@ export default function Quality() {
     site_name: "Trimsel",
   }}
   additionalMetaTags={[
-    {
-      name: "robots",
-      content: "index, follow",
-    },
+    { name: "robots", content: "index, follow" },
   ]}
   additionalJsonLd={[
+    // Primary entity for this page
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "@id": "https://www.trimsel.com/ai-development-company",
-      "name": "Trimsel – AI Development Company",
-      "description": "Trimsel is a top AI development company in Chennai, India specializing in bespoke AI agents, machine learning models, NLP solutions, and generative AI product development.",
-      "url": "https://www.trimsel.com/ai-development-company",
-      "logo": "https://www.trimsel.com/logo.png",
-      "image": "https://www.trimsel.com/images/ai-hero.webp",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+91 72008 41581",
-        "contactType": "Customer Service",
-        "areaServed": "Worldwide"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "No. 21-B, 5th Cross St, South Phase, Thiru Vi Ka Industrial Estate, Indira Nagar, Guindy",
-        "addressLocality": "Chennai",
-        "addressRegion": "TN",
-        "postalCode": "600032",
-        "addressCountry": "IN"
-      },
-      "areaServed": {
-        "@type": "GeoShape",
-        "name": "Global"
-      },
+      "@type": "Service",
+      "@id": "https://www.trimsel.com/ai-development-company#service",
+      "name": "AI Development Services (Chennai)",
+      "serviceType": "Artificial Intelligence Development",
+      "description": "Custom AI agents, ML models, NLP, computer vision, generative AI, and MLOps.",
+      "provider": { "@id": "https://www.trimsel.com/#org" },
+      "areaServed": [
+        { "@type": "Place", "name": "Chennai" },
+        { "@type": "Country", "name": "India" }
+        // add more countries later as you expand
+      ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "AI Development Services",
         "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Development Company in Chennai, India" } },
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom AI Agent Development" } },
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Machine Learning Model Development" } },
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Natural Language Processing (NLP)" } },
@@ -83,16 +66,23 @@ export default function Quality() {
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Generative AI Solutions" } },
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "MLOps & AI Consulting" } }
         ]
-      },
-      "sameAs": [
-        "https://www.linkedin.com/company/trimsel",
-        "https://www.instagram.com/trimsel_softwares/",
-        "https://www.google.com/maps/place/Trimsel/@13.0125615,80.1988776,904m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3a52679044415e91:0xf6d63600f08408c6!8m2!3d13.0125615!4d80.2014525!16s%2Fg%2F11wm_p7v38?entry=ttu"
+      }
+    },
+    // Breadcrumbs (nice signal; show them in UI if possible)
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "@id": "https://www.trimsel.com/ai-development-company#breadcrumbs",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.trimsel.com/" },
+        { "@type": "ListItem", "position": 2, "name": "AI Development Company", "item": "https://www.trimsel.com/ai-development-company" }
       ]
     },
+    // Keep this ONLY if the same Q&A appears on the page
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
+      "@id": "https://www.trimsel.com/ai-development-company#faq",
       "mainEntity": [
         {
           "@type": "Question",

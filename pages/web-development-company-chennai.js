@@ -71,187 +71,136 @@ export default function WebDevelopment() {
     site_name: "Trimsel"
   }}
   additionalMetaTags={[
-    {
-      name: "robots",
-      content: "index, follow"
-    }
+    { name: "robots", content: "index, follow" }
   ]}
   additionalJsonLd={[
+    // Primary service entity (clean & focused)
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "@id": "https://www.trimsel.com/web-development-company-chennai",
-      "name": "Trimsel - Web Development Company",
-      "telephone": "+91 72008 41581",
-      "description": "Trimsel is a top web development company in Chennai, India. We specialize in website design, ecommerce, CMS, and web app development using ReactJS & NodeJS.",
-      "url": "https://www.trimsel.com/web-development-company-chennai",
-      "logo": "https://www.trimsel.com/logo.png",
-      "image": "https://www.trimsel.com/images/web-dev-hero.png",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+91 72008 41581",
-        "contactType": "Customer Service",
-        "areaServed": "Worldwide"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "No. 21-B, 5th Cross St, South Phase, Thiru Vi Ka Industrial Estate, Indira Nagar, Guindy",
-        "addressLocality": "Chennai",
-        "addressRegion": "TN",
-        "postalCode": "600032",
-        "addressCountry": "IN"
-      },
-      "areaServed": {
-        "@type": "GeoShape",
-        "name": "Global",
-        "box": "-90,-180 90,180",
-        "additionalProperty": [
-          { "@type": "GeoCoordinates", "name": "Chennai", "latitude": "13.0827", "longitude": "80.2707" },
-          { "@type": "GeoCoordinates", "name": "Tirunelveli", "latitude": "8.7139", "longitude": "77.7567" },
-          { "@type": "GeoCoordinates", "name": "Bangalore", "latitude": "12.9716", "longitude": "77.5946" },
-          { "@type": "GeoCoordinates", "name": "Mumbai", "latitude": "19.0760", "longitude": "72.8777" },
-          { "@type": "GeoCoordinates", "name": "Delhi", "latitude": "28.6139", "longitude": "77.2090" },
-          { "@type": "GeoCoordinates", "name": "Dubai", "latitude": "25.276987", "longitude": "55.296249" },
-          { "@type": "GeoCoordinates", "name": "Melbourne", "latitude": "-37.8136", "longitude": "144.9631" },
-          { "@type": "GeoCoordinates", "name": "Sydney", "latitude": "-33.8688", "longitude": "151.2093" },
-          { "@type": "GeoCoordinates", "name": "Brisbane", "latitude": "-27.4698", "longitude": "153.0251" },
-          { "@type": "GeoCoordinates", "name": "New York", "latitude": "40.7128", "longitude": "-74.0060" },
-          { "@type": "GeoCoordinates", "name": "San Francisco", "latitude": "37.7749", "longitude": "-122.4194" },
-          { "@type": "GeoCoordinates", "name": "Los Angeles", "latitude": "34.0522", "longitude": "-118.2437" },
-          { "@type": "GeoCoordinates", "name": "Chicago", "latitude": "41.8781", "longitude": "-87.6298" },
-          { "@type": "GeoCoordinates", "name": "Toronto", "latitude": "43.651070", "longitude": "-79.347015" },
-          { "@type": "GeoCoordinates", "name": "Vancouver", "latitude": "49.2827", "longitude": "-123.1207" },
-          { "@type": "GeoCoordinates", "name": "London", "latitude": "51.5074", "longitude": "-0.1278" },
-          { "@type": "GeoCoordinates", "name": "Manchester", "latitude": "53.4808", "longitude": "-2.2426" },
-          { "@type": "GeoCoordinates", "name": "Berlin", "latitude": "52.5200", "longitude": "13.4050" },
-          { "@type": "GeoCoordinates", "name": "Paris", "latitude": "48.8566", "longitude": "2.3522" },
-          { "@type": "GeoCoordinates", "name": "Amsterdam", "latitude": "52.3676", "longitude": "4.9041" },
-          { "@type": "GeoCoordinates", "name": "Singapore", "latitude": "1.3521", "longitude": "103.8198" },
-          { "@type": "GeoCoordinates", "name": "Kuala Lumpur", "latitude": "3.1390", "longitude": "101.6869" },
-          { "@type": "GeoCoordinates", "name": "Nairobi", "latitude": "-1.2921", "longitude": "36.8219" },
-          { "@type": "GeoCoordinates", "name": "Johannesburg", "latitude": "-26.2041", "longitude": "28.0473" },
-          { "@type": "Country", "name": "India" },
-          { "@type": "Country", "name": "United Arab Emirates" },
-          { "@type": "Country", "name": "Australia" },
-          { "@type": "Country", "name": "United States" },
-          { "@type": "Country", "name": "United Kingdom" },
-          { "@type": "Country", "name": "Canada" },
-          { "@type": "Country", "name": "Germany" },
-          { "@type": "Country", "name": "France" },
-          { "@type": "Country", "name": "Netherlands" },
-          { "@type": "Country", "name": "Singapore" },
-          { "@type": "Country", "name": "Malaysia" },
-          { "@type": "Country", "name": "Kenya" },
-          { "@type": "Country", "name": "South Africa" }
-        ]
-      },
+      "@type": "Service",
+      "@id": "https://www.trimsel.com/web-development-company-chennai#service",
+      "name": "Web Development Services (Chennai)",
+      "serviceType": "Web Development",
+      "description": "Website design, ecommerce, CMS, and custom web apps using ReactJS & NodeJS.",
+      "provider": { "@id": "https://www.trimsel.com/#org" },
+      "areaServed": [
+        { "@type": "Place", "name": "Chennai" },
+        { "@type": "Country", "name": "India" }
+      ],
       "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Web Development Services",
+        "@type": "OfferCatalog",
+        "name": "Web Development Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Web Development" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website Design (UI/UX)" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ecommerce Development" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ReactJS & NodeJS Development" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "WordPress & CMS Development" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Hosting & Maintenance" } }
+        ]
+      }
+    },
+    // Breadcrumbs
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "@id": "https://www.trimsel.com/web-development-company-chennai#breadcrumbs",
       "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Development Company in Chennai" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website Development Company in Chennai" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website Design Company in Chennai" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Web Development" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ecommerce Website Development" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ReactJS & NodeJS Development" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "WordPress & CMS Development" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Static Website Development" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Hosting & Maintenance" } }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.trimsel.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Web Development Company Chennai", "item": "https://www.trimsel.com/web-development-company-chennai" }
       ]
     },
-      "sameAs": [
-        "https://www.linkedin.com/company/trimsel",
-        "https://www.instagram.com/trimsel_softwares/",
-        "https://www.google.com/maps/place/Trimsel/@13.0125615,80.1988776,904m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3a52679044415e91:0xf6d63600f08408c6!8m2!3d13.0125615!4d80.2014525!16s%2Fg%2F11wm_p7v38?entry=ttu"
-      ]
-    },
+    // Keep ONLY if the same Q&A is visible on the page
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "Why should I choose Trimsel as my web development company in Chennai?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Trimsel is a leading web development company in Chennai offering customized websites, web apps, CMS platforms, and ecommerce solutions. With deep technical expertise in ReactJS, NodeJS, and WordPress, we deliver scalable and secure solutions that meet your business goals."
+      "@id": "https://www.trimsel.com/web-development-company-chennai#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why should I choose Trimsel as my web development company in Chennai?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Trimsel is a leading web development company in Chennai offering customized websites, web apps, CMS platforms, and ecommerce solutions. With deep technical expertise in ReactJS, NodeJS, and WordPress, we deliver scalable and secure solutions that meet your business goals."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does it cost to build a website or web application?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Website development costs depend on features, design complexity, tech stack, and platform. A basic website may start at ₹25,000, while advanced ecommerce or web apps can range upwards of ₹1,00,000. We offer affordable pricing for startups and enterprises alike."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take to develop a website?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Timelines depend on project complexity. A static website may take 2-3 weeks, while dynamic or ecommerce platforms take 4-10 weeks. Our agile process ensures timely delivery with milestone-based tracking."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you provide SEO-optimized websites?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, we build SEO-friendly websites following Google’s latest guidelines, including optimized URLs, meta tags, mobile responsiveness, and performance improvements. We also offer digital marketing services for long-term growth."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What industries do you serve for web development?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We serve a wide range of industries including ecommerce, education, healthcare, logistics, real estate, SaaS, travel, and finance. Our web development services are tailored to the specific needs of each domain."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What technologies do you use for web development?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We work with modern frameworks and languages like ReactJS, Angular, VueJS, NodeJS, .NET, PHP, WordPress, MongoDB, and MySQL. We choose the stack based on performance, scalability, and your business goals."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you redesign or revamp my existing website?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely! Whether your website is outdated, slow, or not mobile-responsive, we can revamp it with a modern design, better performance, and improved user experience to reflect your brand and attract more visitors."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer ecommerce website development in Chennai?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We build secure and scalable ecommerce websites using WooCommerce, Shopify, Magento, and custom solutions. Our ecommerce development includes product management, payment gateway integration, and responsive design."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer CMS-based website development?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our CMS development services cover WordPress, Drupal, Joomla, and custom CMS platforms. We ensure your content management system is intuitive, secure, and easy to manage without technical knowledge."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will you maintain and update my website after launch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Trimsel offers post-launch website support including bug fixes, security patches, feature updates, and performance optimization. Our maintenance plans ensure your website remains up-to-date and competitive."
+          }
         }
-      },
-      {
-        "@type": "Question",
-        "name": "How much does it cost to build a website or web application?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Website development costs depend on features, design complexity, tech stack, and platform. A basic website may start at ₹25,000, while advanced ecommerce or web apps can range upwards of ₹1,00,000. We offer affordable pricing for startups and enterprises alike."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How long does it take to develop a website?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Timelines depend on project complexity. A static website may take 2-3 weeks, while dynamic or ecommerce platforms take 4-10 weeks. Our agile process ensures timely delivery with milestone-based tracking."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you provide SEO-optimized websites?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, we build SEO-friendly websites following Google’s latest guidelines, including optimized URLs, meta tags, mobile responsiveness, and performance improvements. We also offer digital marketing services for long-term growth."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What industries do you serve for web development?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We serve a wide range of industries including ecommerce, education, healthcare, logistics, real estate, SaaS, travel, and finance. Our web development services are tailored to the specific needs of each domain."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What technologies do you use for web development?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We work with modern frameworks and languages like ReactJS, Angular, VueJS, NodeJS, .NET, PHP, WordPress, MongoDB, and MySQL. We choose the stack based on performance, scalability, and your business goals."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can you redesign or revamp my existing website?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Absolutely! Whether your website is outdated, slow, or not mobile-responsive, we can revamp it with a modern design, better performance, and improved user experience to reflect your brand and attract more visitors."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you offer ecommerce website development in Chennai?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. We build secure and scalable ecommerce websites using WooCommerce, Shopify, Magento, and custom solutions. Our ecommerce development includes product management, payment gateway integration, and responsive design."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you offer CMS-based website development?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, our CMS development services cover WordPress, Drupal, Joomla, and custom CMS platforms. We ensure your content management system is intuitive, secure, and easy to manage without technical knowledge."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Will you maintain and update my website after launch?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Trimsel offers post-launch website support including bug fixes, security patches, feature updates, and performance optimization. Our maintenance plans ensure your website remains up-to-date and competitive."
-        }
-      }]
+      ]
     }
   ]}
 />
+
 <main>
       <section className="web-hero">
         <Header />

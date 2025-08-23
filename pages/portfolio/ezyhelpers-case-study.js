@@ -47,34 +47,72 @@ export default function Ezyhelpers() {
   return (
     <>
       <NextSeo
-        title="Ezyhelpers Case Study – Home Services App | Trimsel"
-        description="See how Trimsel built Ezyhelpers, an AWS-hosted mobile and web platform for booking trusted home service professionals, using ReactJS, Flutter, NodeJS, and DevOps automation."
-        canonical="https://trimsel.com/portfolio/ezyhelpers-case-study"
-        openGraph={{
-          title: "Ezyhelpers Case Study – Home Services App | Trimsel",
-          description:
-            "See how Trimsel built Ezyhelpers, an AWS-hosted mobile and web platform for booking trusted home service professionals, using ReactJS, Flutter, NodeJS, and DevOps automation.",
-          url: "https://trimsel.com/portfolio/ezyhelpers-case-study",
-          images: [
-            {
-              url: "https://trimsel.com/images/portfolio/ezyhelpers-og.jpg",
-              width: 1200,
-              height: 630,
-              alt: "Ezyhelpers Portfolio",
-            },
-          ],
-        }}
-        twitter={{
-          handle: '@TrimselSoftwares',
-          site: '@TrimselSoftwares',
-          cardType: 'summary_large_image',
-        }}
-      />
-
-      <Head>
-        <meta name="robots" content="index, follow" />
-        <link rel="icon" href="/favicon-min.ico" />
-      </Head>
+  title="Ezyhelpers Case Study – Home Services App | Trimsel"
+  description="See how Trimsel built Ezyhelpers, an AWS-hosted mobile and web platform for booking trusted home service professionals, using ReactJS, Flutter, NodeJS, and DevOps automation."
+  canonical="https://www.trimsel.com/portfolio/ezyhelpers-case-study"
+  openGraph={{
+    type: "article",
+    url: "https://www.trimsel.com/portfolio/ezyhelpers-case-study",
+    title: "Ezyhelpers Case Study – Home Services App | Trimsel",
+    description:
+      "See how Trimsel built Ezyhelpers, an AWS-hosted mobile and web platform for booking trusted home service professionals, using ReactJS, Flutter, NodeJS, and DevOps automation.",
+    images: [
+      {
+        url: "https://www.trimsel.com/images/portfolio/ezyhelpers-og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Ezyhelpers Portfolio",
+      },
+    ],
+    site_name: "Trimsel",
+  }}
+  twitter={{
+    handle: "@TrimselSoftwares",
+    site: "@TrimselSoftwares",
+    cardType: "summary_large_image",
+  }}
+  additionalMetaTags={[
+    { name: "robots", content: "index, follow" }
+  ]}
+  additionalJsonLd={[
+    {
+      "@context": "https://schema.org",
+      "@type": "CaseStudy",
+      "@id": "https://www.trimsel.com/portfolio/ezyhelpers-case-study#case",
+      "name": "Ezyhelpers Case Study – Home Services App",
+      "headline": "Ezyhelpers Case Study – Home Services App",
+      "description": "Trimsel developed Ezyhelpers, a cloud-hosted mobile and web platform for booking trusted home service professionals, using ReactJS, Flutter, NodeJS, and DevOps automation.",
+      "inLanguage": "en",
+      "url": "https://www.trimsel.com/portfolio/ezyhelpers-case-study",
+      "isPartOf": { "@type": "WebSite", "@id": "https://www.trimsel.com/#website" },
+      "about": { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
+      "author": { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
+      "publisher": { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://www.trimsel.com/images/portfolio/ezyhelpers-og.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://www.trimsel.com/images/portfolio/ezyhelpers-og.jpg",
+        "width": 1200,
+        "height": 630
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "@id": "https://www.trimsel.com/portfolio/ezyhelpers-case-study#breadcrumbs",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.trimsel.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://www.trimsel.com/portfolio" },
+        { "@type": "ListItem", "position": 3, "name": "Ezyhelpers Case Study", "item": "https://www.trimsel.com/portfolio/ezyhelpers-case-study" }
+      ]
+    }
+  ]}
+/>
 
       <main>
         <section id="ezy-section">
