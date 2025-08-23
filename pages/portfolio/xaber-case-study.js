@@ -13,6 +13,7 @@ import ScrollTrigger from "react-scroll-trigger";
 import CountUp from "react-countup";
 import SlideComponent from "../../components/slideComponent";
 import { FaLongArrowAltRight } from "@react-icons/all-files/fa/FaLongArrowAltRight";
+import { NextSeo } from 'next-seo';
 
 export default function Xaber() {
   const {
