@@ -47,14 +47,14 @@ export default function Home() {
     <>
        {/* ✅ Next-SEO for SEO Optimization */}
        <NextSeo
-  title="Digital Transformation Company in Chennai | Custom Software Services"
-  description="Trimsel is a digital transformation company in Chennai offering software development, cloud solutions, DevOps & product engineering to scale your business."
+  title="AI-Powered Software Development Company in Chennai | Trimsel"
+  description="Trimsel is a leading AI-powered software development company in Chennai, India. We build intelligent mobile apps, scalable web solutions, AI/ML applications, cloud consulting, DevOps automation, and performance-driven digital marketing strategies for global businesses."
   canonical="https://www.trimsel.com/"
   openGraph={{
     type: "website",
     url: "https://www.trimsel.com/",
-    title: "Digital Transformation Company in Chennai | Custom Software Services",
-    description: "Trimsel is a digital transformation company in Chennai offering software development, cloud solutions, DevOps & product engineering to scale your business.",
+    title: "AI-Powered Software Development Company in Chennai | Trimsel",
+    description: "Trimsel is a leading AI-powered software development company in Chennai, India. We build intelligent mobile apps, scalable web solutions, AI/ML applications, cloud consulting, DevOps automation, and performance-driven digital marketing strategies for global businesses.",
     images: [{ url: "https://www.trimsel.com/images/home-hero-banner.webp", width: 1200, height: 630, alt: "Trimsel" }],
     site_name: "Trimsel",
   }}
@@ -90,7 +90,7 @@ export default function Home() {
       {/* ✅ Keep only necessary elements in <Head> */}
       <main>
         <HomeSlider />
-        <h1 className="visually-hidden">Trimsel — Digital Transformation Company in Chennai</h1>
+        <h1 className="visually-hidden">AI-Powered Software Development Company in Chennai | Trimsel</h1>
         {/* ✅ Client Section */}
 <section id="client" className="client-section">
   <div className="container mt-5 clt-container">
