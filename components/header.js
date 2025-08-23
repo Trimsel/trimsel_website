@@ -38,11 +38,6 @@ function Header({ page }) {
 
   return (
     <>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <header className="menu_wrapper">
         <nav className="navbar navbar-expand-lg fixed-top" ref={navRef} role="navigation" aria-label="Main navigation">
           <div className="container">
