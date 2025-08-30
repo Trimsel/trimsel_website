@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import Card from "react-bootstrap/Card";
 import dynamic from 'next/dynamic';
-import { NextSeo } from "next-seo";
+import { NextSeo, OrganizationJsonLd, SiteLinksSearchBoxJsonLd, LogoJsonLd } from 'next-seo';
 import Image from "next/image";
 import Link from "next/link";
 import Accordion from 'react-bootstrap/Accordion';
@@ -54,37 +54,53 @@ export default function Home() {
     type: "website",
     url: "https://www.trimsel.com/",
     title: "AI-Powered Software Development Company in Chennai | Trimsel",
-    description: "Trimsel is a leading AI-powered software development company in Chennai, India. We build intelligent mobile apps, scalable web solutions, AI/ML applications, cloud consulting, DevOps automation, and performance-driven digital marketing strategies for global businesses.",
+    description:
+      "Trimsel is a leading AI-powered software development company in Chennai, India. We build intelligent mobile apps, scalable web solutions, AI/ML applications, cloud consulting, DevOps automation, and performance-driven digital marketing strategies for global businesses.",
     images: [{ url: "https://www.trimsel.com/images/home-hero-banner.webp", width: 1200, height: 630, alt: "Trimsel" }],
     site_name: "Trimsel",
   }}
   twitter={{ cardType: "summary_large_image" }}
-  additionalJsonLd={[
+  additionalMetaTags={[
+    { name: "robots", content: "index, follow" },
+    { name: "application-name", content: "Trimsel" },
+    { name: "site_name", content: "Trimsel" },
+  ]}
+/>
+
+{/* 2) ADD these three JSON-LD components right after <NextSeo/> */}
+<OrganizationJsonLd
+  id="https://www.trimsel.com/#org"
+  name="Trimsel"
+  legalName="Trimsel"
+  url="https://www.trimsel.com/"
+  logo="https://www.trimsel.com/images/logo.png"
+  sameAs={[
+    "https://www.linkedin.com/company/trimsel",
+    "https://www.instagram.com/trimsel_softwares/",
+  ]}
+  contactPoint={[
     {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "@id": "https://www.trimsel.com/#website",
-      "url": "https://www.trimsel.com/",
-      "name": "Trimsel"
+      telephone: "+91 72008 41581",
+      contactType: "customer service",
+      areaServed: "Worldwide",
+      availableLanguage: ["en"],
     },
+  ]}
+/>
+
+<LogoJsonLd
+  logo="https://www.trimsel.com/images/logo.png"
+  url="https://www.trimsel.com/"
+/>
+
+<SiteLinksSearchBoxJsonLd
+  id="https://www.trimsel.com/#website"
+  url="https://www.trimsel.com/"
+  potentialActions={[
     {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "@id": "https://www.trimsel.com/#org",
-      "url": "https://www.trimsel.com/",
-      "name": "Trimsel",
-      "logo": "https://www.trimsel.com/images/logo.png",
-      "sameAs": [
-        "https://www.linkedin.com/company/trimsel",
-        "https://www.instagram.com/trimsel_softwares/"
-      ],
-      "contactPoint": [{
-        "@type": "ContactPoint",
-        "telephone": "+91 72008 41581",
-        "contactType": "customer service",
-        "areaServed": "Worldwide"
-      }]
-    }
+      target: "https://www.trimsel.com/search?q={search_term_string}",
+      queryInput: "required name=search_term_string",
+    },
   ]}
 />
       {/* ✅ Keep only necessary elements in <Head> */}
