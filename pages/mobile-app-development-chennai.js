@@ -247,7 +247,7 @@ export default function mobileApp() {
                         <Link href="/contact-us" passHref>
                           <button className="btn btn-primary get-btn">
                           Get a Consultation{" "}
-                            <img src="/images/material-symbols_arrow-right-alt.png" />
+                            <Image src="/images/material-symbols_arrow-right-alt.png" width={24} height={24} alt="right arrow" loading="lazy" aria-hidden="true"/>
                           </button>
                         </Link>
                       </div>
@@ -274,11 +274,16 @@ export default function mobileApp() {
           <div className="container mt-5">
             <Stack direction="horizontal">
               <div className=" badge-abot-btn">
-                <img
-                  src="/images/Rectangle-kariot.png"
-                  className="me-2"
-                  alt="design-dot"
-                />
+                <Image
+  src="/images/Rectangle-kariot.png"
+  width={18}
+  height={18}
+  alt="design dot"
+  loading="lazy"
+  aria-hidden="true"
+  className="me-2"
+/>
+
                 <p> OUR CLIENTS </p>
               </div>
             </Stack>
@@ -301,11 +306,16 @@ export default function mobileApp() {
               <div className="col-lg-9 col-md-9">
                 <Stack direction="horizontal" className="pb-4">
                   <div className=" badge-abot-btn">
-                    <img
-                      src="/images/Rectangle-kariot.png"
-                      className="me-2"
-                      alt="design-dot"
-                    />
+                    <Image
+  src="/images/Rectangle-kariot.png"
+  width={18}
+  height={18}
+  alt="design dot"
+  loading="lazy"
+  aria-hidden="true"
+  className="me-2"
+/>
+
                     <p> WHO WE ARE </p>
                   </div>
                 </Stack>
@@ -411,7 +421,8 @@ export default function mobileApp() {
               <div className="col-lg-4 col-md-4">
                 <Card className="mbl-card">
                   <Card.Title className="title-dsgn">
-                    <img src="/images/like1.png" /> Enterprise-Grade Mobile Applications
+                    <Image src="/images/like1.png" width={40} height={40} alt="Enterprise mobile apps" loading="lazy" />
+ Enterprise-Grade Mobile Applications
                   </Card.Title>
                   <Card.Body>
                     <p className="card-para">
@@ -441,7 +452,8 @@ export default function mobileApp() {
               <div className="col-lg-4 col-md-4">
                 <Card className="mbl-card">
                   <Card.Title className="title-dsgn">
-                    <img src="/images/guru1.png" /> Expert Mobile App Developers
+                    <Image src="/images/guru1.png" width={40} height={40} alt="Expert mobile app developers" loading="lazy" />
+ Expert Mobile App Developers
                   </Card.Title>
                   <Card.Body>
                     <p className="card-para">
@@ -453,7 +465,8 @@ export default function mobileApp() {
               <div className="col-lg-4 col-md-4">
                 <Card className="mbl-card">
                   <Card.Title className="title-dsgn">
-                    <img src="/images/ethics1.png" /> Agile & Transparent Development Process
+                    <Image src="/images/ethics1.png" width={40} height={40} alt="Agile & transparent process" loading="lazy" />
+ Agile & Transparent Development Process
                   </Card.Title>
                   <Card.Body>
                     <p className="card-para">
@@ -466,7 +479,8 @@ export default function mobileApp() {
               <div className="col-lg-4 col-md-4">
                 <Card className="mbl-card">
                   <Card.Title className="title-dsgn">
-                    <img src="/images/customer1.png" /> User-Centric Mobile App Design
+                    <Image src="/images/customer1.png" width={40} height={40} alt="User-centric app design" loading="lazy" />
+ User-Centric Mobile App Design
                   </Card.Title>
                   <Card.Body>
                     <p className="card-para">
@@ -478,7 +492,8 @@ export default function mobileApp() {
               <div className="col-lg-4 col-md-4">
                 <Card className="mbl-card">
                   <Card.Title className="title-dsgn">
-                    <img src="/images/time1.png" /> Faster Mobile App Development & Deployment
+                    <Image src="/images/time1.png" width={40} height={40} alt="Faster app development" loading="lazy" />
+ Faster Mobile App Development & Deployment
                   </Card.Title>
                   <Card.Body>
                     <p className="card-para">
@@ -490,7 +505,8 @@ export default function mobileApp() {
               <div className="col-lg-4 col-md-4">
                 <Card className="mbl-card">
                   <Card.Title className="title-dsgn">
-                    <img src="/images/customer1.png" /> Cross-Platform App Development
+                    <Image src="/images/customer1.png" width={40} height={40} alt="User-centric app design" loading="lazy" />
+ Cross-Platform App Development
                   </Card.Title>
                   <Card.Body>
                     <p className="card-para">
@@ -502,7 +518,8 @@ export default function mobileApp() {
               <div className="col-lg-4 col-md-4">
                 <Card className="mbl-card">
                   <Card.Title className="title-dsgn">
-                    <img src="/images/customer1.png" /> Security & Compliance
+                    <Image src="/images/customer1.png" width={40} height={40} alt="User-centric app design" loading="lazy" />
+ Security & Compliance
                   </Card.Title>
                   <Card.Body>
                     <p className="card-para">
@@ -514,7 +531,8 @@ export default function mobileApp() {
               <div className="col-lg-4 col-md-4">
                 <Card className="mbl-card">
                   <Card.Title className="title-dsgn">
-                    <img src="/images/customer1.png" /> Post-Launch Support & Maintenance
+                    <Image src="/images/customer1.png" width={40} height={40} alt="User-centric app design" loading="lazy" />
+ Post-Launch Support & Maintenance
                   </Card.Title>
                   <Card.Body>
                     <p className="card-para">
@@ -535,7 +553,16 @@ export default function mobileApp() {
                 <p className="helper-para">
                 At Trimsel, our structured mobile app development process ensures the successful delivery of custom-built iOS, Android, and cross-platform mobile applications. As a leading mobile app development company in Chennai, India, we streamline every stage from ideation to deployment, leveraging agile methodologies and advanced technologies for rapid development, robust performance, and seamless user experiences.
                 </p>
-                <img src="/images/beatsnoop4.png" className="helper-image" />
+                <Image
+  src="/images/beatsnoop4.png"
+  width={600}
+  height={400}
+  alt="Mobile app development workflow"
+  className="helper-image"
+  loading="lazy"
+  sizes="(max-width: 768px) 90vw, 600px"
+/>
+
               </div>
               <div className="col-lg-6 col-md-6">
                 <ListGroup className="helper-list-group">
@@ -543,7 +570,7 @@ export default function mobileApp() {
                     <div className="row">
                       <div className="col-lg-2 col-md-2 col-2">
                         <span className="list-icon">
-                          <img src="/images/Group2539.png" />
+                          <Image src="/images/Group2539.png" width={40} height={40} alt="" loading="lazy" aria-hidden="true" />
                         </span>
                       </div>
                       <div className="col-lg-10 col-md-10 col-10 helper-list-column">
@@ -556,7 +583,7 @@ export default function mobileApp() {
                     <div className="row">
                       <div className="col-lg-2 col-md-2 col-2">
                         <span className="list-icon">
-                          <img src="/images/Group2538.png" />
+                          <Image src="/images/Group2538.png" width={40} height={40} alt="" loading="lazy" aria-hidden="true" />
                         </span>
                       </div>
                       <div className="col-lg-10 col-md-10 col-10 helper-list-column">
@@ -569,7 +596,7 @@ export default function mobileApp() {
                     <div className="row">
                       <div className="col-lg-2 col-md-2 col-2">
                         <span className="list-icon">
-                          <img src="/images/Group2540.png" />
+                          <Image src="/images/Group2540.png" width={40} height={40} alt="" loading="lazy" aria-hidden="true" />
                         </span>
                       </div>
                       <div className="col-lg-10 col-md-10 col-10 helper-list-column">
@@ -582,7 +609,7 @@ export default function mobileApp() {
                     <div className="row">
                       <div className="col-lg-2 col-md-2 col-2">
                         <span className="list-icon">
-                          <img src="/images/Group2541.png" />
+                          <Image src="/images/Group2541.png" width={40} height={40} alt="" loading="lazy" aria-hidden="true" />
                         </span>
                       </div>
                       <div className="col-lg-10 col-md-10 col-10 helper-list-columns">
@@ -595,7 +622,7 @@ export default function mobileApp() {
                     <div className="row">
                       <div className="col-lg-2 col-md-2 col-2">
                         <span className="list-icon">
-                          <img src="/images/Group2542.png" />
+                          <Image src="/images/Group2542.png" width={40} height={40} alt="" loading="lazy" aria-hidden="true" />
                         </span>
                       </div>
                       <div className="col-lg-10 col-md-10 col-10 helper-list-column">
@@ -608,7 +635,7 @@ export default function mobileApp() {
                     <div className="row">
                       <div className="col-lg-2 col-md-2 col-2 ">
                         <span className="list-icon">
-                          <img src="/images/Group2543.png" />
+                          <Image src="/images/Group2543.png" width={40} height={40} alt="" loading="lazy" aria-hidden="true" />
                         </span>
                       </div>
                       <div className="col-lg-10 col-md-10 col-10 helper-list-column">
@@ -621,7 +648,7 @@ export default function mobileApp() {
                     <div className="row">
                       <div className="col-lg-2 col-md-2 col-2 ">
                         <span className="list-icon">
-                          <img src="/images/Group2543.png" />
+                          <Image src="/images/Group2543.png" width={40} height={40} alt="" loading="lazy" aria-hidden="true" />
                         </span>
                       </div>
                       <div className="col-lg-10 col-md-10 col-10 helper-list-column">
@@ -642,11 +669,16 @@ export default function mobileApp() {
             <div className="row">
               <Stack direction="horizontal" className="pb-4">
                 <div className=" badge-abot-btn">
-                  <img
-                    src="/images/Rectangle-kariot.png"
-                    className="me-2"
-                    alt="design-dot"
-                  />
+                  <Image
+  src="/images/Rectangle-kariot.png"
+  width={18}
+  height={18}
+  alt="design dot"
+  loading="lazy"
+  aria-hidden="true"
+  className="me-2"
+/>
+
                   <p> WHAT WE DO </p>
                 </div>
               </Stack>
@@ -670,7 +702,7 @@ export default function mobileApp() {
                   <div className="card service-mobile-card">
                     <div className="card-body">
                       <div className="card-images">
-                        <img src="/images/Group322.png" />
+                        <Image src="/images/Group322.png" width={64} height={64} alt="Mobile app design services" loading="lazy" />
                       </div>
                       <div className="service-card-title pt-4 pb-2">
                         <h3>Mobile App Design Services</h3>
@@ -689,7 +721,7 @@ export default function mobileApp() {
                   <div className="card service-mobile-card">
                     <div className="card-body">
                       <div className="card-images">
-                        <img src="/images/Group323.png" />
+                        <Image src="/images/Group323.png" width={64} height={64} alt="iOS app development" loading="lazy" />
                       </div>
                       <div className="service-card-title pt-4 pb-2">
                         <h3>iOS App Development</h3>
@@ -708,7 +740,7 @@ export default function mobileApp() {
                   <div className="card service-mobile-card">
                     <div className="card-body">
                       <div className="card-images">
-                        <img src="/images/Group324.png" />
+                        <Image src="/images/Group324.png" width={64} height={64} alt="Android app development" loading="lazy" />
                       </div>
                       <div className="service-mobile-card-title pt-4 pb-2">
                         <h3>Android App Development</h3>
@@ -727,7 +759,7 @@ export default function mobileApp() {
                   <div className="card service-mobile-card">
                     <div className="card-body">
                       <div className="card-images">
-                        <img src="/images/Group325.png" />
+                        <Image src="/images/Group325.png" width={64} height={64} alt="Hybrid app development" loading="lazy" />
                       </div>
                       <div className="service-card-title pt-4 pb-2">
                         <h3>Hybrid App Development</h3>
@@ -750,7 +782,7 @@ Native-like performance & UI consistency<br></br>
                   <div className="card service-mobile-card">
                     <div className="card-body">
                       <div className="card-images">
-                        <img src="/images/Group326.png" />
+                        <Image src="/images/Group326.png" width={64} height={64} alt="Enterprise mobile solutions" loading="lazy" />
                       </div>
                       <div className="service-card-title pt-4 pb-2">
                         <h3 className="dff">Enterprise Mobile Solutions</h3>
@@ -769,7 +801,7 @@ Native-like performance & UI consistency<br></br>
                   <div className="card service-mobile-card">
                     <div className="card-body">
                       <div className="card-images">
-                        <img src="/images/Group327.png" />
+                        <Image src="/images/Group327.png" width={64} height={64} alt="Flutter app development" loading="lazy" />
                       </div>
                       <div className="service-card-title pt-4 pb-2">
                         <h3>Flutter app development services</h3>
@@ -821,7 +853,16 @@ Cost-effective, scalable solutions<br></br>
           <div className="col-lg-7 col-md-7 col-12">
             <Stack direction="horizontal">
               <div className="badge-abot-btn">
-                <img src="/images/Rectangle-kariot.png" className="me-2" alt="design-dot" />
+                <Image
+  src="/images/Rectangle-kariot.png"
+  width={18}
+  height={18}
+  alt="design dot"
+  loading="lazy"
+  aria-hidden="true"
+  className="me-2"
+/>
+
                 <p className="cta-badge-text">🚀 GET IN TOUCH</p> {/* Improved contrast & readability */}
               </div>
             </Stack>
@@ -947,7 +988,16 @@ Cost-effective, scalable solutions<br></br>
       <div className="col-12">
         <Stack direction="horizontal" className="pb-3">
           <div className="badge-abot-btn">
-            <img src="/images/Rectangle-kariot.png" className="me-2" alt="design-dot" />
+            <Image
+  src="/images/Rectangle-kariot.png"
+  width={18}
+  height={18}
+  alt="design dot"
+  loading="lazy"
+  aria-hidden="true"
+  className="me-2"
+/>
+
             <p> DEVELOPMENT PROCESS </p>
           </div>
         </Stack>
@@ -1018,7 +1068,14 @@ Cost-effective, scalable solutions<br></br>
       ].map((step, idx) => (
         <div className="col-lg-4 col-md-6" key={idx}>
           <div className="process-card text-center">
-            <img src={step.icon} alt={step.title} className="mb-3" width={60} />
+            <Image
+  src={step.icon}
+  alt={step.title}
+  width={60}
+  height={60}
+  className="mb-3"
+  loading="lazy"
+/>
             <h5 className="mb-1"><strong>{step.step}. {step.title}</strong></h5>
             <p>{step.desc}</p>
           </div>
