@@ -6,9 +6,9 @@ import Accordion from "react-bootstrap/Accordion";
 import ListGroup from "react-bootstrap/ListGroup";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import axios from "axios";
+// import { useState } from "react";
+// import { useForm } from "react-hook-form";
+// import axios from "axios";
 import { FaRegEnvelope } from "@react-icons/all-files/fa/FaRegEnvelope";
 import Table from "react-bootstrap/Table";
 import { NextSeo } from "next-seo";
@@ -20,44 +20,44 @@ const ClientLogo = dynamic(() => import("../components/clientLogo"), { ssr: fals
 const ContactForm = dynamic(() => import("../components/ContactForm"), { ssr: false });
 
 export default function mobileApp() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-    setValue,
-  } = useForm();
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   formState: { errors },
+  //   reset,
+  //   setValue,
+  // } = useForm();
 
-  const [selectedOption, setSelectedOption] = useState(0);
+  // const [selectedOption, setSelectedOption] = useState(0);
 
-  const handleOptionChange = (event) => {
-    setSelectedOption(event.target.value);
-    setValue("selectOption", event.target.value);
-  };
+  // const handleOptionChange = (event) => {
+  //   setSelectedOption(event.target.value);
+  //   setValue("selectOption", event.target.value);
+  // };
 
-  async function onSubmitForm(values) {
-    let config = {
-      method: "post",
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/api/contact`,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: values,
-    };
+  // async function onSubmitForm(values) {
+  //   let config = {
+  //     method: "post",
+  //     url: `${process.env.NEXT_PUBLIC_BASE_URL}/api/contact`,
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     data: values,
+  //   };
 
-    try {
-      const response = await axios(config);
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  //   try {
+  //     const response = await axios(config);
+  //     console.log(response);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
-  const slides = [1, 2, 3];
-  const [index, setIndex] = useState(0);
-  const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex);
-  };
+  // const slides = [1, 2, 3];
+  // const [index, setIndex] = useState(0);
+  // const handleSelect = (selectedIndex, e) => {
+  //   setIndex(selectedIndex);
+  // };
 
   return (
     <>
