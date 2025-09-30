@@ -16,7 +16,7 @@ import dynamic from 'next/dynamic';
 
 const Header = dynamic(() => import("../components/header"), { ssr: true });
 const Footer = dynamic(() => import("../components/footer"), { ssr: false });
-const ClientLogo = dynamic(() => import("../components/clientLogo"), { ssr: false });
+const ClientLogo = dynamic(() => import("../components/clientLogo"), { ssr: true });
 const ContactForm = dynamic(() => import("../components/ContactForm"), { ssr: false });
 
 export default function mobileApp() {
@@ -68,9 +68,9 @@ export default function mobileApp() {
   openGraph={{
     type: "website",
     url: "https://www.trimsel.com/mobile-app-development-chennai",
-    title: "Best Mobile App Development Company in Chennai, India | Trimsel",
+    title: "Top Mobile App Development Company in Chennai, India | Trimsel",
     description:
-      "Trimsel is a leading mobile app development company in Chennai, India. Expert Android, iOS, Flutter & Hybrid app developers delivering scalable, secure solutions.",
+      "Trimsel is a top mobile app development company in Chennai, India. We build secure, scalable iOS, Android, Flutter & hybrid apps tailored to your business.",
     images: [
       {
         url: "https://www.trimsel.com/images/mobilehero.webp",
@@ -238,8 +238,11 @@ export default function mobileApp() {
                     <div className="mozart">
                       <div className="mozart-inner">
                         <p>
-                        We craft custom-built mobile apps for businesses that demand speed, security, and growth-focused outcomes. From MVPs to enterprise-grade apps, we bring your ideas to life.
-                        </p>
+  We craft custom-built mobile apps for businesses that demand speed, security, and growth-focused outcomes.
+  From MVPs to enterprise-grade apps, we bring your ideas to life — explore our
+  {" "}<Link href="#mobile-services">mobile app services</Link>{" "}
+  or <Link href="/portfolio">see our portfolio</Link>.
+</p>
                       </div>
                     </div>
                     <div className="mozart">
@@ -323,22 +326,15 @@ export default function mobileApp() {
                   About Trimsel – Leading Mobile App Development Company in Chennai, India
                 </h2>
               </div>
-              <div className="col-lg-3 col-md-3">
-                <Image
-                  src="/images/Group306.png"
-                  className="mdl-btn"
-                  alt="Lets talk image"
-                  width={160}
-                  height={160}
-                />
-              </div>
             </div>
             <p>
             In today’s digital-first world, mobile apps do more than support your business. At Trimsel, we believe a successful app should solve real-world challenges, create user delight, and deliver long-term value. It’s not just about building software, it's about building the future.
             </p>
             <p>
               <br></br>
-              Our team blends technical expertise with creativity to build future-ready digital solutions that drive business growth. As a top mobile app development company in Chennai, we specialize in developing custom Android, iOS, and cross-platform applications that are scalable, secure, and high-performing.<br></br><br></br>
+              Our team blends technical expertise with creativity to build future-ready digital solutions that drive business growth. As a top mobile app development company in Chennai, we specialize in developing custom Android, iOS, and cross-platform applications that are scalable, secure, and high-performing.We also handle backend, CI/CD and releases via our{" "}
+  <Link href="/devops-consulting-services">DevOps services</Link> and{" "}
+  <Link href="/cloud-consulting-services">Cloud consulting</Link>.<br></br><br></br>
 
             Why Do Businesses Choose Trimsel for Mobile App Development?<br></br>
               <b>Customized Mobile Solutions</b> – Tailored iOS, Android, and Hybrid apps designed for startups & enterprises.<br></br>
@@ -1364,9 +1360,8 @@ Cost-effective, scalable solutions<br></br>
     </Accordion>
   </div>
 </section>
-        <ContactForm heading="Ready To Build Your Mobile App?" subText="Speak with our iOS & Android experts to turn your idea into a secure, high-performance mobile product."/>
-        {/* <ContactModal title="Wanna Develop A Mobile Application? Contact Us" /> */}
-        <Footer />
+  <ContactForm heading="Ready To Build Your Mobile App?" subText="Speak with our iOS & Android experts to turn your idea into a secure, high-performance mobile product."/>
+  <Footer />
       </main>
     </>
   );

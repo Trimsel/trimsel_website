@@ -111,3 +111,7 @@ img {
 .footer-contact li + li { margin-top: .25rem; }
 .social-icon { opacity: .9; transition: transform .15s ease, opacity .15s ease; }
 .social-icon:hover { transform: translateY(-2px); opacity: 1; }
+
+/* .faq-item { border-bottom: 1px solid #e6e6e6; padding: 12px 0; }
+.faq-q { cursor: pointer; font-weight: 600; outline: none; }
+.faq-a { margin-top: 8px; } */

@@ -7,6 +7,10 @@ export default function Document() {
       <Head>
         {/* Charset once for the whole site */}
         <meta charSet="utf-8" />
+        <meta
+          name="google-site-verification"
+          content="cB62A54YcMiiZWlDW516EC2D3SzSH7sqpHQ7xFoz4Bc"
+        />
 
         {/* Favicons (keep your SVG; add ICO + apple-touch if you have them) */}
         <link rel="icon" href="/trimsel-logo-favicon.svg" />
