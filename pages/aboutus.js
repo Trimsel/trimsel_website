@@ -70,9 +70,7 @@ export default function About() {
     ],
     site_name: "Trimsel",
   }}
-  additionalMetaTags={[
-    { name: "robots", content: "index, follow" },
-  ]}
+  additionalMetaTags={[{ name: "robots", content: "index, follow" }]}
   additionalJsonLd={[
     // More specific than generic WebPage
     {

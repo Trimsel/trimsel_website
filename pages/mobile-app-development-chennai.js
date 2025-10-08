@@ -81,9 +81,7 @@ export default function mobileApp() {
     ],
     site_name: "Trimsel"
   }}
-  additionalMetaTags={[
-    { name: "robots", content: "index, follow" }
-  ]}
+  additionalMetaTags={[{ name: "robots", content: "index, follow" }]}
   additionalJsonLd={[
     // Primary service entity (clean & focused)
     {

@@ -37,9 +37,7 @@ export default function Quality() {
     ],
     site_name: "Trimsel",
   }}
-  additionalMetaTags={[
-    { name: "robots", content: "index, follow" },
-  ]}
+  additionalMetaTags={[{ name: "robots", content: "index, follow" }]}
   additionalJsonLd={[
     // Primary entity for this page
     {
