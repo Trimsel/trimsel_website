@@ -10,7 +10,6 @@ Disallow: /thank-you
 Disallow: /blockchain-development
 Disallow: /quality-engineering-testing
 
-Host: ${BASE}
 Sitemap: ${BASE}/sitemap.xml
 `;
 }
