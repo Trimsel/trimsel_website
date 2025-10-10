@@ -4,7 +4,6 @@ const BASE = 'https://www.trimsel.com';
 function generateRobots() {
   return `User-agent: *
 Allow: /
-Disallow: /_next/
 Disallow: /api/
 Disallow: /thank-you
 Disallow: /blockchain-development
