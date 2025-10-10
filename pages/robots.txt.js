@@ -8,7 +8,6 @@ Disallow: /_next/
 Disallow: /api/
 Disallow: /thank-you
 Disallow: /blockchain-development
-Disallow: /quality-engineering-testing
 
 Sitemap: ${BASE}/sitemap.xml
 `;
