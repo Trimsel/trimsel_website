@@ -576,7 +576,7 @@ export default function Quality() {
                   <p className="qsd-para">
                     It is highly essential for a company’s website to be up and
                     running at all times. It cannot afford to have bugs or
-                    errors. Minitzon software testing company in Chennai ensures
+                    errors. Trimsel AI development company in Chennai ensures
                     that all aspects of your website are functioning and are
                     devoid of broken pages.
                   </p>

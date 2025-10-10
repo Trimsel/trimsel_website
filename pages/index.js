@@ -60,8 +60,7 @@ export default function Home() {
     site_name: "Trimsel",
   }}
   twitter={{ cardType: "summary_large_image" }}
-  additionalMetaTags={[
-    { name: "robots", content: "index, follow" },
+  additionalMetaTags={[{ name: "robots", content: "index, follow" },
     { name: "application-name", content: "Trimsel" },
     { name: "site_name", content: "Trimsel" },
   ]}
@@ -225,11 +224,10 @@ export default function Home() {
             </h2>
 
             <p className="hmcta-para">
-              Partner with Trimsel — your trusted{" "}
-              <strong>App development company</strong> in Chennai — 
-              for end-to-end digital transformation, AI application development, and cloud-first strategies.
+            Partner with Trimsel — your trusted{" "}
+            <Link href="/mobile-app-development-chennai">mobile app development company in Chennai</Link> — 
+            for end-to-end digital transformation, AI application development, and cloud-first strategies.
             </p>
-
             <Link href="/contact-us" passHref>
               <button type="button" className="about-btn mt-3">
                 Book a Strategy Call{" "}
