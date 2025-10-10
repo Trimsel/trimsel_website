@@ -137,6 +137,7 @@ export default function Quality() {
                     <div className="cafe">
                       <div className="whiteLink">
                         <p className="breadcrumbs-kar">
+                          <h1 className="visually-hidden">AI Development Company in Chennai | Trimsel</h1>
                           <Link href="/">Home</Link> <span> &#x2027; </span>{" "}
                           AI Development services
                         </p>
