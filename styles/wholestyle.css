@@ -4829,13 +4829,6 @@ section#stage-modal {
   border: 0px;
 }
 
-section#why-mnt {
-  background: url(/images/why-minitzon.svg) no-repeat;
-  background-size: cover;
-  padding-bottom: 80px;
-  padding-top: 80px;
-}
-
 .hm-card.card {
   background: #fff;
   padding: 30px 20px 20px 20px;

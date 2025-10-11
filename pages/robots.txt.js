@@ -6,7 +6,6 @@ function generateRobots() {
 Allow: /
 Disallow: /api/
 Disallow: /thank-you
-Disallow: /blockchain-development
 
 Sitemap: ${BASE}/sitemap.xml
 `;

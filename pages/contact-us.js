@@ -641,41 +641,6 @@ export default function Contact() {
           </Carousel>
         </div>
       </section> */}
-
-      {/* <section id='contact-details'>
-        <div className='container details-container'>
-            <div className='details-bg'></div>
-            <div className='row details-row'>
-                <div className='col-lg-4 col-md-6'>
-                    <h3 className='details-title'>
-                        Got a Startup Idea?
-                    </h3>
-                    <p className='details-para pt-3'>
-                    Let us give you our honest opinion. Book your <strong> FREE 30-Minute </strong> consultation:
-                    </p>
-                    <button className='abouts-btn mt-3'>Consult Our Experts <img src='/images/short-right.png' /></button>
-                </div>
-                <div className='col-lg-4 col-md-6'>
-                    <h4 className='details-name'>
-                        Mr. Balaji Kailasundaram
-                    </h4>
-                    <h5 className='details-position pt-2'>
-                        Co-Founder
-                    </h5>
-                    <p className='details-contact'>
-                        Email Address: <br/> <Link href='mailto:balaji@minitzon.com'>balaji@minitzon.com</Link>
-                    </p>
-                    <p className='details-contact'>
-                        Phone Number: <br/> <Link href='tel:+917200841581'>(+91)-720-084-1581</Link>
-                    </p>
-                    <p className='details-socials'>
-                    <Link href='#' target="_blank"><img className='social-icon' src='/images/facebook41.png' /></Link> <Link href='#' target="_blank"><img className='social-icon' src='/images/linkedin51.png'/></Link> <Link href='#' target="_blank"><img className='social-icon' src='/images/instagram41.png'/></Link> 
-                    </p>
-                </div>
-            </div>
-        </div>
-      </section> */}
-
      
      {/* <section id="contact-details">
   <div className="container details-container">

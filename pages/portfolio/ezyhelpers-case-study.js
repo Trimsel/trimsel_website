@@ -135,7 +135,7 @@ export default function Ezyhelpers() {
                       <div className="cafe">
                         <div className="cafe-inner mb-2">
                           <Image
-                            src="/minitzon-clients/ezyhelpers-logo.png"
+                            src="/trimsel-clients/ezyhelpers-logo.png"
                             width={224}
                             height={64}
                             alt="Ezyhelpers-logo"

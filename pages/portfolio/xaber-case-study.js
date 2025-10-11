@@ -150,7 +150,7 @@ export default function Xaber() {
                     <div className="cafes">
                       <div className="cafes-inner mb-2">
                         <img
-                          src="/minitzon-clients/xaber-logo.png"
+                          src="/trimsel-clients/xaber-logo.png"
                           width={211}
                           height={58}
                         />
