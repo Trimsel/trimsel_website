@@ -101,23 +101,52 @@ export default function WebDevelopment() {
   description="Trimsel is a top web development company in Chennai offering website design, CMS, ecommerce, and custom solutions in ReactJS & NodeJS."
   canonical="https://www.trimsel.com/web-development-company-chennai"
   openGraph={{
-    type: "website",
+    type: "article",
     url: "https://www.trimsel.com/web-development-company-chennai",
     title: "Top Web Development Company in Chennai | Website Design & Development",
     description:
       "Trimsel is a trusted web development company in Chennai, offering high-performance web development services, including ReactJS, NodeJS, CMS, and ecommerce.",
+    locale: "en_IN",
+    site_name: "Trimsel",
     images: [
       {
         url: "https://www.trimsel.com/images/web-dev-hero.png",
         width: 1200,
         height: 630,
-        alt: "Top Web Development Company in Chennai"
-      }
+        alt: "Trimsel web development team building responsive interfaces in Chennai",
+      },
     ],
-    site_name: "Trimsel"
+    article: {
+      section: "Web Development",
+      tags: [
+        "Web Development",
+        "ReactJS",
+        "NodeJS",
+        "Ecommerce Development",
+        "Chennai",
+      ],
+    },
+  }}
+  twitter={{
+    cardType: "summary_large_image",
+    handle: "@TrimselSoftwares",
+    site: "@TrimselSoftwares",
   }}
   additionalMetaTags={[
-    { name: "robots", content: "index, follow" }
+    { name: "robots", content: "index, follow" },
+    {
+      name: "twitter:title",
+      content: "Web Development Company in Chennai – Trimsel",
+    },
+    {
+      name: "twitter:description",
+      content:
+        "Custom websites, ecommerce platforms, and CMS solutions crafted by Trimsel’s Chennai-based web developers.",
+    },
+    {
+      name: "twitter:image:alt",
+      content: "Trimsel web development team designing responsive interfaces",
+    },
   ]}
   additionalJsonLd={serviceJsonLd}
 />

@@ -51,23 +51,50 @@ export default function Kariot() {
     title: "KarIOT Case Study – Smart IoT Water Management | Trimsel",
     description:
       "See how Trimsel enabled KarIOT to deliver real-time water management and sustainability through IoT, cloud, and automation for cities and industry.",
+    locale: "en_IN",
     images: [
       {
         url: "https://www.trimsel.com/images/portfolio/kariot-og.jpg",
         width: 1200,
         height: 630,
-        alt: "KarIOT Portfolio",
+        alt: "Trimsel KarIOT smart water management case study",
       },
     ],
     site_name: "Trimsel",
+    article: {
+      section: "Case Study",
+      tags: [
+        "Case Study",
+        "IoT",
+        "Water Management",
+        "Smart City",
+        "Trimsel",
+      ],
+    },
   }}
   twitter={{
     handle: "@TrimselSoftwares",
     site: "@TrimselSoftwares",
     cardType: "summary_large_image",
+    title: "Case Study: KarIOT Smart Water Management",
+    description:
+      "Explore how Trimsel engineered the KarIOT smart water management platform leveraging IoT and cloud automation.",
   }}
   additionalMetaTags={[
-    { name: "robots", content: "index, follow" }
+    { name: "robots", content: "index, follow" },
+    {
+      name: "twitter:title",
+      content: "Case Study: KarIOT Smart Water Management",
+    },
+    {
+      name: "twitter:description",
+      content:
+        "Explore how Trimsel engineered the KarIOT smart water management platform leveraging IoT and cloud automation.",
+    },
+    {
+      name: "twitter:image:alt",
+      content: "Trimsel KarIOT smart water management case study",
+    },
   ]}
   additionalJsonLd={[
     {

@@ -129,21 +129,52 @@ export default function DevOps() {
   description="Trimsel offers DevOps consulting, CI/CD pipelines, Kubernetes consulting, and infrastructure automation to optimize your cloud and deployment workflows."
   canonical="https://www.trimsel.com/devops-consulting-services"
   openGraph={{
-    type: "website",
+    type: "article",
     url: "https://www.trimsel.com/devops-consulting-services",
     title: "Best DevOps Consulting Services | DevOps Automation & Cloud Solutions",
     description: "Looking for a trusted DevOps consulting company? Trimsel specializes in DevOps implementation, release management, and Kubernetes solutions.",
+    locale: "en_IN",
+    site_name: "Trimsel",
     images: [
       {
         url: "https://www.trimsel.com/images/devops-banner.webp",
         width: 1200,
         height: 630,
-        alt: "DevOps Automation & Consulting Services",
+        alt: "Trimsel DevOps engineers implementing CI/CD automation",
       },
     ],
-    site_name: "Trimsel",
+    article: {
+      section: "DevOps Consulting",
+      tags: [
+        "DevOps Consulting",
+        "CI/CD Automation",
+        "Kubernetes Services",
+        "Infrastructure as Code",
+        "Chennai",
+      ],
+    },
   }}
-  additionalMetaTags={[{ name: "robots", content: "index, follow" }]}
+  twitter={{
+    cardType: "summary_large_image",
+    handle: "@TrimselSoftwares",
+    site: "@TrimselSoftwares",
+  }}
+  additionalMetaTags={[
+    { name: "robots", content: "index, follow" },
+    {
+      name: "twitter:title",
+      content: "Trimsel DevOps Consulting & Automation",
+    },
+    {
+      name: "twitter:description",
+      content:
+        "Accelerate deployments with Trimsel’s DevOps experts for CI/CD, Kubernetes, and infrastructure automation.",
+    },
+    {
+      name: "twitter:image:alt",
+      content: "Trimsel DevOps consultants configuring CI/CD pipelines",
+    },
+  ]}
   additionalJsonLd={serviceJsonLd}
 />
 

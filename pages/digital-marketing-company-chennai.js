@@ -105,27 +105,58 @@ export default function Digital() {
   });
   return (
     <>
-    <NextSeo
+<NextSeo
   title="Top Digital Marketing Company in Chennai | SEO, PPC, SMM Experts"
   description="Trimsel is a digital marketing company in Chennai offering SEO, PPC, social media marketing & content strategies to boost visibility and drive results."
   canonical="https://www.trimsel.com/digital-marketing-company-chennai"
   openGraph={{
-    type: "website",
+    type: "article",
     url: "https://www.trimsel.com/digital-marketing-company-chennai",
     title: "Top Digital Marketing Company in Chennai | SEO, PPC, SMM Experts",
     description:
       "Trimsel is a trusted digital marketing agency in Chennai specializing in SEO services, PPC advertising, and social media campaigns for high-growth brands.",
+    locale: "en_IN",
+    site_name: "Trimsel",
     images: [
       {
         url: "https://www.trimsel.com/images/digital-marketing-hero.jpg",
         width: 1200,
         height: 630,
-        alt: "Top Digital Marketing Company in Chennai",
+        alt: "Trimsel digital marketing experts collaborating in Chennai",
       },
     ],
-    site_name: "Trimsel",
+    article: {
+      section: "Digital Marketing",
+      tags: [
+        "Digital Marketing",
+        "SEO Services",
+        "PPC Campaigns",
+        "Social Media Marketing",
+        "Chennai",
+      ],
+    },
   }}
-  additionalMetaTags={[{ name: "robots", content: "index, follow" }]}
+  twitter={{
+    cardType: "summary_large_image",
+    handle: "@TrimselSoftwares",
+    site: "@TrimselSoftwares",
+  }}
+  additionalMetaTags={[
+    { name: "robots", content: "index, follow" },
+    {
+      name: "twitter:title",
+      content: "Digital Marketing Agency in Chennai – Trimsel",
+    },
+    {
+      name: "twitter:description",
+      content:
+        "Boost visibility and qualified leads with Trimsel’s SEO, PPC, and social media experts based in Chennai.",
+    },
+    {
+      name: "twitter:image:alt",
+      content: "Trimsel digital marketing specialists planning campaigns in Chennai",
+    },
+  ]}
   additionalJsonLd={serviceJsonLd}
 />
       <section className="dig-hero">

@@ -87,10 +87,27 @@ export default function App({ Component, pageProps }) {
 
       {/* Site-wide SEO defaults (per-page <NextSeo> can override) */}
       <DefaultSeo
+        defaultTitle="Trimsel – Software, Cloud & AI Services"
+        titleTemplate="%s | Trimsel"
         openGraph={{
           type: "website",
           site_name: "Trimsel",
           url: "https://www.trimsel.com/",
+          locale: "en_IN",
+          images: [
+            {
+              url: "https://www.trimsel.com/images/home-hero-banner.webp",
+              width: 1200,
+              height: 630,
+              alt: "Trimsel team delivering cloud, mobile, and AI solutions",
+            },
+            {
+              url: "https://www.trimsel.com/images/mobilehero.webp",
+              width: 800,
+              height: 418,
+              alt: "Trimsel team delivering cloud, mobile, and AI solutions",
+            },
+          ],
         }}
         twitter={{
           cardType: "summary_large_image",
@@ -103,6 +120,10 @@ export default function App({ Component, pageProps }) {
             name: "robots",
             content:
               "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+          },
+          {
+            name: "format-detection",
+            content: "telephone=no",
           },
         ]}
       />

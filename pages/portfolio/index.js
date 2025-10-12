@@ -101,23 +101,53 @@ function Portfolio() {
   description="Explore Trimsel’s portfolio—mobile apps, web platforms, DevOps and cloud projects delivered for startups and enterprises."
   canonical="https://www.trimsel.com/portfolio"
   openGraph={{
-    type: "website",
+    type: "article",
     url: "https://www.trimsel.com/portfolio",
     title: "Portfolio | Case Studies & Projects | Trimsel",
     description:
       "Explore Trimsel’s portfolio—mobile apps, web platforms, DevOps and cloud projects delivered for startups and enterprises.",
+    locale: "en_IN",
+    site_name: "Trimsel",
     images: [
       {
         url: "https://www.trimsel.com/images/portfolio-thumbnail.jpg",
         width: 1200,
         height: 630,
-        alt: "Trimsel portfolio overview"
-      }
+        alt: "Trimsel portfolio showcasing digital products delivered in Chennai",
+      },
     ],
-    site_name: "Trimsel"
+    article: {
+      section: "Portfolio",
+      tags: [
+        "Case Studies",
+        "Mobile Apps",
+        "Cloud Consulting",
+        "DevOps",
+        "Product Engineering",
+      ],
+    },
   }}
-  twitter={{ cardType: "summary_large_image" }}
-  additionalMetaTags={[{ name: "robots", content: "index, follow" }]}
+  twitter={{
+    cardType: "summary_large_image",
+    handle: "@TrimselSoftwares",
+    site: "@TrimselSoftwares",
+  }}
+  additionalMetaTags={[
+    { name: "robots", content: "index, follow" },
+    {
+      name: "twitter:title",
+      content: "Trimsel Portfolio – Case Studies & Digital Products",
+    },
+    {
+      name: "twitter:description",
+      content:
+        "Review Trimsel’s portfolio of mobile apps, cloud platforms, and DevOps projects delivered for startups and enterprises.",
+    },
+    {
+      name: "twitter:image:alt",
+      content: "Trimsel portfolio showcasing recent digital projects",
+    },
+  ]}
 />
 
 {/* JSON-LD */}

@@ -52,23 +52,50 @@ export default function Xaber() {
     title: "Xaber Case Study – Ride-hailing App (Uber-like) | Trimsel",
     description:
       "Multi-platform Uber-like taxi booking solution built by Trimsel with growth-focused UX and scalable architecture.",
+    locale: "en_IN",
     images: [
       {
         url: "https://www.trimsel.com/images/portfolio/xaber-og.jpg", // update if your OG image differs
         width: 1200,
         height: 630,
-        alt: "Xaber case study cover",
+        alt: "Trimsel Xaber ride-hailing app case study",
       },
     ],
     site_name: "Trimsel",
+    article: {
+      section: "Case Study",
+      tags: [
+        "Case Study",
+        "Ride-hailing",
+        "Mobile App",
+        "Taxi Booking",
+        "Trimsel",
+      ],
+    },
   }}
   twitter={{
     handle: "@TrimselSoftwares",
     site: "@TrimselSoftwares",
     cardType: "summary_large_image",
+    title: "Case Study: Xaber Ride-hailing Platform",
+    description:
+      "Discover how Trimsel delivered Xaber’s multi-platform ride-hailing solution spanning web, mobile, and desktop.",
   }}
   additionalMetaTags={[
-    { name: "robots", content: "index, follow" }
+    { name: "robots", content: "index, follow" },
+    {
+      name: "twitter:title",
+      content: "Case Study: Xaber Ride-hailing Platform",
+    },
+    {
+      name: "twitter:description",
+      content:
+        "Discover how Trimsel delivered Xaber’s multi-platform ride-hailing solution spanning web, mobile, and desktop.",
+    },
+    {
+      name: "twitter:image:alt",
+      content: "Trimsel Xaber ride-hailing case study",
+    },
   ]}
   additionalJsonLd={[
     // CaseStudy entity

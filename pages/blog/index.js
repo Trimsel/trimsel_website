@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import Badge from "react-bootstrap/Badge";
@@ -10,6 +9,7 @@ import Stack from "react-bootstrap/Stack";
 import Button from "../../components/Button";
 import Carousel from "react-bootstrap/Carousel";
 import { useState } from "react";
+import { NextSeo } from "next-seo";
 
 export default function Blog({ posts }) {
   const slides = [0, 1, 2, 3, 4];
@@ -57,6 +57,37 @@ export default function Blog({ posts }) {
   const newSlicedPosts = sortedPosts.slice(0, 4);
   return (
     <>
+      <NextSeo
+        title="Trimsel Blog | Cloud, DevOps, AI & Product Engineering Insights"
+        description="Read Trimsel’s latest insights on cloud adoption, DevOps automation, AI development, and custom software delivery for startups and enterprises."
+        canonical="https://www.trimsel.com/blog"
+        openGraph={{
+          type: "article",
+          url: "https://www.trimsel.com/blog",
+          title: "Trimsel Blog | Cloud, DevOps, AI & Product Engineering Insights",
+          description:
+            "Expert articles from Trimsel’s team covering cloud consulting, DevOps, AI/ML, and digital product engineering.",
+          locale: "en_IN",
+          site_name: "Trimsel",
+          images: [
+            {
+              url: "https://www.trimsel.com/images/home-hero-banner.webp",
+              width: 1200,
+              height: 630,
+              alt: "Trimsel blog covering cloud, DevOps, and AI topics",
+            },
+          ],
+        }}
+        twitter={{
+          cardType: "summary_large_image",
+          handle: "@TrimselSoftwares",
+          site: "@TrimselSoftwares",
+          title: "Trimsel Blog – Tech Insights",
+          description:
+            "Catch up on Trimsel’s latest articles exploring cloud, DevOps, AI, and software innovation.",
+        }}
+        additionalMetaTags={[{ name: "robots", content: "index, follow" }]}
+      />
       <section className="blog-home">
         <Header />
         <div className="container blog-container">

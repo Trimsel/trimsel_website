@@ -67,27 +67,58 @@ export default function Quality() {
   });
   return (
     <>
-      <NextSeo
+<NextSeo
   title="AI Development Company in Chennai, India | Trimsel"
   description="Trimsel is a leading AI development company in Chennai, India specializing in custom AI agents, machine learning models, NLP, and generative AI solutions."
   canonical="https://www.trimsel.com/ai-development-company"
   openGraph={{
-    type: "website",
+    type: "article",
     url: "https://www.trimsel.com/ai-development-company",
     title: "Best AI Development Company in Chennai, India | Trimsel",
     description:
       "Trimsel is a top AI development company in Chennai, India helping enterprises build scalable AI agents, predictive models, NLP, and generative AI products.",
+    locale: "en_IN",
+    site_name: "Trimsel",
     images: [
       {
         url: "https://www.trimsel.com/images/ai-hero.webp",
         width: 1200,
         height: 630,
-        alt: "AI development services company in Chennai",
+        alt: "Trimsel AI engineers building machine learning solutions in Chennai",
       },
     ],
-    site_name: "Trimsel",
+    article: {
+      section: "AI Development",
+      tags: [
+        "AI Development",
+        "Machine Learning",
+        "Generative AI",
+        "NLP",
+        "Chennai",
+      ],
+    },
   }}
-  additionalMetaTags={[{ name: "robots", content: "index, follow" }]}
+  twitter={{
+    cardType: "summary_large_image",
+    handle: "@TrimselSoftwares",
+    site: "@TrimselSoftwares",
+  }}
+  additionalMetaTags={[
+    { name: "robots", content: "index, follow" },
+    {
+      name: "twitter:title",
+      content: "AI Development Experts in Chennai – Trimsel",
+    },
+    {
+      name: "twitter:description",
+      content:
+        "Build production-ready AI agents, ML models, and generative AI products with Trimsel’s Chennai team.",
+    },
+    {
+      name: "twitter:image:alt",
+      content: "Trimsel AI engineers collaborating on machine learning models",
+    },
+  ]}
   additionalJsonLd={serviceJsonLd}
 />
       <section className="quality-hero">

@@ -48,23 +48,50 @@ export default function Ezyhelpers() {
     title: "Ezyhelpers Case Study – Home Services App | Trimsel",
     description:
       "See how Trimsel built Ezyhelpers, an AWS-hosted mobile and web platform for booking trusted home service professionals, using ReactJS, Flutter, NodeJS, and DevOps automation.",
+    locale: "en_IN",
     images: [
       {
         url: "https://www.trimsel.com/images/portfolio/ezyhelpers-og.jpg",
         width: 1200,
         height: 630,
-        alt: "Ezyhelpers Portfolio",
+        alt: "Trimsel Ezyhelpers mobile and web platform case study",
       },
     ],
     site_name: "Trimsel",
+    article: {
+      section: "Case Study",
+      tags: [
+        "Case Study",
+        "Home Services",
+        "Mobile App",
+        "AWS",
+        "Trimsel",
+      ],
+    },
   }}
   twitter={{
     handle: "@TrimselSoftwares",
     site: "@TrimselSoftwares",
     cardType: "summary_large_image",
+    title: "Case Study: Ezyhelpers Home Services Platform",
+    description:
+      "Learn how Trimsel delivered the Ezyhelpers mobile and web platform with AWS, Flutter, and NodeJS.",
   }}
   additionalMetaTags={[
-    { name: "robots", content: "index, follow" }
+    { name: "robots", content: "index, follow" },
+    {
+      name: "twitter:title",
+      content: "Case Study: Ezyhelpers Home Services Platform",
+    },
+    {
+      name: "twitter:description",
+      content:
+        "How Trimsel delivered the Ezyhelpers on-demand home services platform across mobile and web.",
+    },
+    {
+      name: "twitter:image:alt",
+      content: "Trimsel Ezyhelpers home services case study",
+    },
   ]}
   additionalJsonLd={[
     {

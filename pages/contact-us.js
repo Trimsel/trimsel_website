@@ -79,20 +79,39 @@ export default function Contact() {
     url: 'https://www.trimsel.com/contact-us',
     title: 'Contact Trimsel | Leading Mobile App Development Company in Chennai',
     description: 'Contact Trimsel for mobile app development in Chennai. Let’s build your Android, iOS, or cross-platform app today!',
+    locale: 'en_IN',
+    site_name: 'Trimsel',
     images: [
       {
         url: 'https://www.trimsel.com/images/contact-hero.jpg',
         width: 1200,
         height: 630,
-        alt: 'Trimsel Contact Page',
+        alt: 'Trimsel Chennai office contact hero image',
       },
     ],
-    site_name: 'Trimsel',
+  }}
+  twitter={{
+    cardType: "summary_large_image",
+    handle: "@TrimselSoftwares",
+    site: "@TrimselSoftwares",
   }}
   additionalMetaTags={[
     {
       name: "robots",
       content: "index, follow",
+    },
+    {
+      name: "twitter:title",
+      content: "Contact Trimsel",
+    },
+    {
+      name: "twitter:description",
+      content:
+        "Book a consultation with Trimsel’s Chennai software team for mobile, web, cloud, or AI projects.",
+    },
+    {
+      name: "twitter:image:alt",
+      content: "Trimsel Chennai office contact hero image",
     },
   ]}
   additionalJsonLd={[

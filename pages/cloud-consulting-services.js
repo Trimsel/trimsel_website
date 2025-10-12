@@ -100,16 +100,47 @@ export default function CloudConsulting() {
   description="Trimsel offers expert cloud consulting in Chennai, India, including AWS, Azure & GCP consulting, migration, and cost optimization. Get started today!"
   canonical="https://www.trimsel.com/cloud-consulting-services"
   openGraph={{
-    type: 'website',
+    type: 'article',
     url: 'https://www.trimsel.com/cloud-consulting-services',
     title: 'Cloud Consulting Services in Chennai, India | AWS, Azure & GCP Experts',
     description: 'Expert Cloud Consulting Services in Chennai, India. We offer cloud migration, cloud cost optimization, AWS, Azure & GCP consulting. Get in touch today!',
-    images: [
-      { url: 'https://www.trimsel.com/images/cloud-hero.png', width: 1200, height: 630, alt: 'Cloud Consulting Services in Chennai, India' }
-    ],
+    locale: 'en_IN',
     site_name: 'Trimsel',
+    images: [
+      { url: 'https://www.trimsel.com/images/cloud-hero.png', width: 1200, height: 630, alt: 'Trimsel cloud consultants collaborating in Chennai' }
+    ],
+    article: {
+      section: 'Cloud Consulting',
+      tags: [
+        'Cloud Consulting',
+        'AWS',
+        'Azure',
+        'GCP',
+        'Cloud Migration',
+      ],
+    },
   }}
-  additionalMetaTags={[{ name: "robots", content: "index, follow" }]}
+  twitter={{
+    cardType: "summary_large_image",
+    handle: "@TrimselSoftwares",
+    site: "@TrimselSoftwares",
+  }}
+  additionalMetaTags={[
+    { name: "robots", content: "index, follow" },
+    {
+      name: "twitter:title",
+      content: "Cloud Consulting Experts in Chennai – Trimsel",
+    },
+    {
+      name: "twitter:description",
+      content:
+        "Certified AWS, Azure, and GCP engineers delivering migration, modernization, and FinOps services from Chennai.",
+    },
+    {
+      name: "twitter:image:alt",
+      content: "Trimsel cloud consultants planning AWS, Azure, and GCP strategy",
+    },
+  ]}
   additionalJsonLd={serviceJsonLd}
 />
       <section className="cloud-hero">

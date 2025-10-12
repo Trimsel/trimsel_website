@@ -132,22 +132,53 @@ export default function mobileApp() {
   description="Trimsel is a top mobile app development company in Chennai, India. We build secure, scalable iOS, Android, Flutter & hybrid apps tailored to your business."
   canonical="https://www.trimsel.com/mobile-app-development-chennai"
   openGraph={{
-    type: "website",
+    type: "article",
     url: "https://www.trimsel.com/mobile-app-development-chennai",
     title: "Top Mobile App Development Company in Chennai, India | Trimsel",
     description:
       "Trimsel is a top mobile app development company in Chennai, India. We build secure, scalable iOS, Android, Flutter & hybrid apps tailored to your business.",
+    locale: "en_IN",
+    site_name: "Trimsel",
     images: [
       {
         url: "https://www.trimsel.com/images/mobilehero.webp",
         width: 1200,
         height: 630,
-        alt: "Leading Mobile App Development Company in Chennai"
-      }
+        alt: "Trimsel team delivering mobile app solutions in Chennai",
+      },
     ],
-    site_name: "Trimsel"
+    article: {
+      section: "Mobile App Development",
+      tags: [
+        "Mobile App Development",
+        "iOS Development",
+        "Android Development",
+        "Flutter Development",
+        "Chennai",
+      ],
+    },
   }}
-  additionalMetaTags={[{ name: "robots", content: "index, follow" }]}
+  twitter={{
+    cardType: "summary_large_image",
+    handle: "@TrimselSoftwares",
+    site: "@TrimselSoftwares",
+  }}
+  additionalMetaTags={[
+    { name: "robots", content: "index, follow" },
+    {
+      name: "twitter:title",
+      content: "Mobile App Development Experts in Chennai | Trimsel",
+    },
+    {
+      name: "twitter:description",
+      content:
+        "Build secure, scalable iOS, Android, and cross-platform apps with Trimsel’s Chennai-based mobile app development team.",
+    },
+    {
+      name: "twitter:image:alt",
+      content: "Trimsel mobile app development team collaborating in Chennai",
+    },
+  ]}
   additionalJsonLd={serviceJsonLd}
 />
       <main>

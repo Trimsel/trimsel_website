@@ -48,23 +48,50 @@ export default function Mocial() {
     title: "Mocial Case Study – Social Network Platform | Trimsel",
     description:
       "Scalable social network engineered by Trimsel: posts, groups, voice/video, live streams, notifications, and admin tools.",
+    locale: "en_IN",
     images: [
       {
         url: "https://www.trimsel.com/images/portfolio/mocial-og.jpg", // update if your OG image differs
         width: 1200,
         height: 630,
-        alt: "Mocial case study cover",
+        alt: "Trimsel Mocial social network case study",
       },
     ],
     site_name: "Trimsel",
+    article: {
+      section: "Case Study",
+      tags: [
+        "Case Study",
+        "Social Network",
+        "Live Streaming",
+        "Mobile App",
+        "Trimsel",
+      ],
+    },
   }}
   twitter={{
     handle: "@TrimselSoftwares",
     site: "@TrimselSoftwares",
     cardType: "summary_large_image",
+    title: "Case Study: Mocial Social Network",
+    description:
+      "Discover how Trimsel built Mocial’s scalable social media platform with live streaming and community tools.",
   }}
   additionalMetaTags={[
-    { name: "robots", content: "index, follow" }
+    { name: "robots", content: "index, follow" },
+    {
+      name: "twitter:title",
+      content: "Case Study: Mocial Social Network",
+    },
+    {
+      name: "twitter:description",
+      content:
+        "Discover how Trimsel built Mocial’s scalable social media platform with live streaming and community tools.",
+    },
+    {
+      name: "twitter:image:alt",
+      content: "Trimsel Mocial social network case study",
+    },
   ]}
   additionalJsonLd={[
     // CaseStudy entity

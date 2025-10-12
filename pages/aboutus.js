@@ -60,12 +60,13 @@ export default function About() {
     title: "About Trimsel | Digital Transformation Experts",
     description:
       "Trimsel is a digital transformation company in Chennai offering software development, cloud solutions, DevOps & product engineering to scale your business.",
+    locale: "en_IN",
     images: [
       {
         url: "https://www.trimsel.com/images/about-page-banner.jpg",
         width: 1200,
         height: 630,
-        alt: "Trimsel Digital Transformation Team",
+        alt: "Trimsel digital transformation team collaborating in Chennai",
       },
     ],
     site_name: "Trimsel",
