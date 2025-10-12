@@ -208,8 +208,6 @@ export default function mobileApp() {
     }
   ]}
 />
-
-
       <main>
         <section className="hero-mbl">
           <Header />

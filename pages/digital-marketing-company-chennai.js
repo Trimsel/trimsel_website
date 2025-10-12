@@ -6,11 +6,10 @@ import Stack from "react-bootstrap/Stack";
 import Card from "react-bootstrap/Card";
 import Accordion from "react-bootstrap/Accordion"
 import { NextSeo } from 'next-seo';
-import dynamic from 'next/dynamic';
-
-const Header = dynamic(() => import("../components/header"), { ssr: true });
-const Footer = dynamic(() => import("../components/footer"), { ssr: false });
-const ClientLogo = dynamic(() => import("../components/clientLogo"), { ssr: false });
+import dynamic from "next/dynamic";
+import Header from "../components/header";
+import Footer from "../components/footer";
+import ClientLogo from "../components/clientLogo";
 const ContactForm = dynamic(() => import("../components/ContactForm"), { ssr: false });
 
 export default function Digital() {

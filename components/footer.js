@@ -99,9 +99,8 @@ function Footer() {
           <ul className="footer-menu list-unstyled mb-0">
             <li className="pt-3 footer-p-link"><Link href="/aboutus" className="footer-link">About Us</Link></li>
             <li className="footer-p-link"><Link href="/contact-us" className="footer-link">Contact Us</Link></li>
-            {/* Re-enable when ready */}
-            {/* <li className="footer-p-link"><Link href="/portfolio" className="footer-link">Portfolio</Link></li> */}
-            {/* <li className="footer-p-link"><Link href="/blog" className="footer-link">Blog</Link></li> */}
+            <li className="footer-p-link"><Link href="/portfolio" className="footer-link">Portfolio</Link></li>
+            <li className="footer-p-link"><Link href="/blog" className="footer-link">Blog</Link></li>
           </ul>
         </nav>
       </div>

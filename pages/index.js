@@ -2,19 +2,18 @@ import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import Card from "react-bootstrap/Card";
 import dynamic from 'next/dynamic';
-import { NextSeo, OrganizationJsonLd, SiteLinksSearchBoxJsonLd, LogoJsonLd } from 'next-seo';
+import { NextSeo } from 'next-seo';
+import HomeSlider from "../components/homeSlider";
+import ClientLogo from "../components/clientLogo";
+import Footer from "../components/footer";
+import ScrollSection from "../components/ScrollSection";
 import Image from "next/image";
 import Link from "next/link";
 import Accordion from 'react-bootstrap/Accordion';
 
 // Lazy Load Components for Performance Optimization
 
-const HomeSlider = dynamic(() => import("../components/homeSlider"), { ssr: false });
-const ClientLogo = dynamic(() => import("../components/clientLogo"), { ssr: false });
 const ContactForm = dynamic(() => import("../components/ContactForm"), { ssr: false });
-const Footer = dynamic(() => import("../components/footer"), { ssr: false });
-const ScrollSection = dynamic(() => import("../components/ScrollSection"), {ssr: false,loading: () => null, // or a tiny skeleton if you prefer
-});
 
 export default function Home() {
  
@@ -66,42 +65,6 @@ export default function Home() {
   ]}
 />
 
-{/* 2) ADD these three JSON-LD components right after <NextSeo/> */}
-<OrganizationJsonLd
-  id="https://www.trimsel.com/#org"
-  name="Trimsel"
-  legalName="Trimsel"
-  url="https://www.trimsel.com/"
-  logo="https://www.trimsel.com/images/logo.png"
-  sameAs={[
-    "https://www.linkedin.com/company/trimsel",
-    "https://www.instagram.com/trimsel_softwares/",
-  ]}
-  contactPoint={[
-    {
-      telephone: "+91 72008 41581",
-      contactType: "customer service",
-      areaServed: "Worldwide",
-      availableLanguage: ["en"],
-    },
-  ]}
-/>
-
-<LogoJsonLd
-  logo="https://www.trimsel.com/images/logo.png"
-  url="https://www.trimsel.com/"
-/>
-
-<SiteLinksSearchBoxJsonLd
-  id="https://www.trimsel.com/#website"
-  url="https://www.trimsel.com/"
-  potentialActions={[
-    {
-      target: "https://www.trimsel.com/search?q={search_term_string}",
-      queryInput: "required name=search_term_string",
-    },
-  ]}
-/>
       {/* ✅ Keep only necessary elements in <Head> */}
       <main>
         <HomeSlider />

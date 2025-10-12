@@ -41,7 +41,7 @@ const montserrat = Montserrat({
 });
 
 // Site-wide SEO defaults
-import { DefaultSeo } from "next-seo";
+import { DefaultSeo, OrganizationJsonLd, LogoJsonLd, SiteLinksSearchBoxJsonLd } from "next-seo";
 
 gsap.registerPlugin(ScrollTrigger);
 config.autoAddCss = false;
@@ -103,6 +103,36 @@ export default function App({ Component, pageProps }) {
             name: "robots",
             content:
               "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+          },
+        ]}
+      />
+      <OrganizationJsonLd
+        id="https://www.trimsel.com/#org"
+        name="Trimsel"
+        legalName="Trimsel"
+        url="https://www.trimsel.com/"
+        logo="https://www.trimsel.com/images/logo.png"
+        sameAs={[
+          "https://www.linkedin.com/company/trimsel",
+          "https://www.instagram.com/trimsel_softwares/",
+        ]}
+        contactPoint={[
+          {
+            telephone: "+91 72008 41581",
+            contactType: "customer service",
+            areaServed: "Worldwide",
+            availableLanguage: ["en"],
+          },
+        ]}
+      />
+      <LogoJsonLd logo="https://www.trimsel.com/images/logo.png" url="https://www.trimsel.com/" />
+      <SiteLinksSearchBoxJsonLd
+        id="https://www.trimsel.com/#website"
+        url="https://www.trimsel.com/"
+        potentialActions={[
+          {
+            target: "https://www.trimsel.com/search?q={search_term_string}",
+            queryInput: "required name=search_term_string",
           },
         ]}
       />
