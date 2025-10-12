@@ -10,7 +10,7 @@ import { useState } from "react";
 import Card from "react-bootstrap/Card";
 import dynamic from "next/dynamic";
 import { useForm } from "react-hook-form";
-import axios from "axios";
+import { postJson } from "../lib/api";
 
 
 const ClientLogo = dynamic(() => import("../components/clientLogo"), { ssr: false });
@@ -35,10 +35,10 @@ export default function About() {
 
   async function onSubmitForm(values) {
     try {
-      const { data } = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/contact`, values);
-      console.log(data);
+      await postJson("/api/contact", values);
+      console.log("Contact request sent");
     } catch (error) {
-      console.error(error);
+      console.error("Contact request failed", error);
     }
   }
 

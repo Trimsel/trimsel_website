@@ -8,12 +8,12 @@ import Carousel from "react-bootstrap/Carousel";
 import Card from "react-bootstrap/Card";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import axios from "axios";
 import ScrollTrigger from "react-scroll-trigger";
 import CountUp from "react-countup";
 import SlideComponent from "../../components/slideComponent";
 import { FaLongArrowAltRight } from "@react-icons/all-files/fa/FaLongArrowAltRight";
 import { NextSeo } from 'next-seo';
+import { postJson } from "../../lib/api";
 
 export default function Xaber() {
   const {
@@ -24,20 +24,11 @@ export default function Xaber() {
   } = useForm();
 
   async function onSubmitForm(values) {
-    let config = {
-      method: "post",
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/api/newcontact`,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: values,
-    };
-
     try {
-      const response = await axios(config);
-      console.log(response);
+      await postJson("/api/newcontact", values);
+      console.log("Contact request sent");
     } catch (error) {
-      console.log(error);
+      console.error("Failed to submit form", error);
     }
   }
 

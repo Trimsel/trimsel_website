@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import Headers from "../components/headers";
 import Link from 'next/link'
 import Carousel from 'react-bootstrap/Carousel'
@@ -6,7 +5,7 @@ import { useForm } from 'react-hook-form'
 import { useState, useEffect } from 'react'
 import Footer from '../components/footer'
 import { NextSeo } from 'next-seo';
-import axios from 'axios';
+import { postJson } from "../lib/api";
 // import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/bootstrap.css';
 // import ReCAPTCHA from "react-google-recaptcha";
@@ -25,13 +24,13 @@ export default function Contact() {
     const [selectedOption, setSelectedOption] = useState(0);
     const [phone, setPhone] = useState("");
     const [message, setMessage] = useState("");
-    const [recaptchaToken, setRecaptchaToken] = useState(null);
+    const [recaptchaToken, setRecaptchaToken] = useState("");
     const [showThankYou, setShowThankYou] = useState(false);
 
     const handleThankYouClose = () => {
       setShowThankYou(false);
       setIsSubmitted(false);         // ✅ reset success state
-      setRecaptchaToken(null);       // ✅ reset captcha
+      setRecaptchaToken("");       // ✅ reset captcha
     };
     const handleThankYouShow = () => setShowThankYou(true);
 
@@ -47,8 +46,6 @@ export default function Contact() {
     };
 
     async function onSubmitForm(values) {
-      const apiUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/api/contact`;
-    
       if (!recaptchaToken) {
         setMessage("Please verify you are not a robot.");
         return;
@@ -62,7 +59,7 @@ export default function Contact() {
       };
     
       try {
-        await axios.post(apiUrl, payload);
+        await postJson("/api/contact", payload);
         setIsSubmitted(true);
         handleThankYouShow();
         reset();

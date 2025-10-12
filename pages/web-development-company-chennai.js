@@ -11,7 +11,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import axios from "axios";
+import { postJson } from "../lib/api";
+import { buildServiceJsonLd } from "../lib/serviceSchema";
 import ClientLogo from "../components/clientLogo";
 import { FaRegEnvelope } from "@react-icons/all-files/fa/FaRegEnvelope";
 import ContactForm from "../components/ContactForm";
@@ -26,22 +27,67 @@ export default function WebDevelopment() {
   } = useForm();
 
   async function onSubmitForm(values) {
-    let config = {
-      method: "post",
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/api/newcontact`,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: values,
-    };
-
     try {
-      const response = await axios(config);
-      console.log(response);
+      await postJson("/api/newcontact", values);
+      console.log("Contact request sent");
     } catch (error) {
-      console.log(error);
+      console.error("Failed to submit form", error);
     }
   }
+  const serviceJsonLd = buildServiceJsonLd({
+    slug: "web-development-company-chennai",
+    serviceName: "Web Development Services (Chennai)",
+    serviceType: "Web Development",
+    description:
+      "Website design, ecommerce, CMS, and custom web apps using ReactJS & NodeJS.",
+    offers: [
+      "Custom Web Development",
+      "Website Design (UI/UX)",
+      "Ecommerce Development",
+      "ReactJS & NodeJS Development",
+      "WordPress & CMS Development",
+      "Web Hosting & Maintenance",
+    ],
+    faq: [
+      {
+        question: "Why should I choose Trimsel as my web development company in Chennai?",
+        answer:
+          "Trimsel is a leading web development company in Chennai offering customized websites, web apps, CMS platforms, and ecommerce solutions. With deep technical expertise in ReactJS, NodeJS, and WordPress, we deliver scalable and secure solutions that meet your business goals.",
+      },
+      {
+        question: "How much does it cost to build a website or web application?",
+        answer:
+          "Website development costs depend on features, design complexity, tech stack, and platform. A basic website may start at ₹25,000, while advanced ecommerce or web apps can range upwards of ₹1,00,000. We offer affordable pricing for startups and enterprises alike.",
+      },
+      {
+        question: "How long does it take to develop a website?",
+        answer:
+          "Timelines depend on project complexity. A static website may take 2-3 weeks, while dynamic or ecommerce platforms take 4-10 weeks. Our agile process ensures timely delivery with milestone-based tracking.",
+      },
+      {
+        question: "Do you provide SEO-optimized websites?",
+        answer:
+          "Yes, we build SEO-friendly websites following Google’s latest guidelines, including optimized URLs, meta tags, mobile responsiveness, and performance improvements. We also offer digital marketing services for long-term growth.",
+      },
+      {
+        question: "What industries do you serve for web development?",
+        answer:
+          "We serve a wide range of industries including ecommerce, education, healthcare, logistics, real estate, SaaS, travel, and finance. Our web development services are tailored to the specific needs of each domain.",
+      },
+      {
+        question: "Do you offer website maintenance and support?",
+        answer:
+          "Absolutely. We provide ongoing maintenance, security updates, feature enhancements, and hosting support to keep your website running smoothly and securely.",
+      },
+    ],
+    breadcrumbs: [
+      { name: "Home", item: "https://www.trimsel.com/" },
+      {
+        name: "Web Development Company Chennai",
+        item: "https://www.trimsel.com/web-development-company-chennai",
+      },
+    ],
+  });
   const slides = [0, 1, 2];
   const [index, setIndex] = useState(0);
   const handleSelect = (selectedIndex, e) => {
@@ -73,132 +119,7 @@ export default function WebDevelopment() {
   additionalMetaTags={[
     { name: "robots", content: "index, follow" }
   ]}
-  additionalJsonLd={[
-    // Primary service entity (clean & focused)
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "@id": "https://www.trimsel.com/web-development-company-chennai#service",
-      "name": "Web Development Services (Chennai)",
-      "serviceType": "Web Development",
-      "description": "Website design, ecommerce, CMS, and custom web apps using ReactJS & NodeJS.",
-      "provider": { "@id": "https://www.trimsel.com/#org" },
-      "areaServed": [
-        { "@type": "Place", "name": "Chennai" },
-        { "@type": "Country", "name": "India" }
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Web Development Services",
-        "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Web Development" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website Design (UI/UX)" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ecommerce Development" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ReactJS & NodeJS Development" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "WordPress & CMS Development" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Hosting & Maintenance" } }
-        ]
-      }
-    },
-    // Breadcrumbs
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "@id": "https://www.trimsel.com/web-development-company-chennai#breadcrumbs",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.trimsel.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Web Development Company Chennai", "item": "https://www.trimsel.com/web-development-company-chennai" }
-      ]
-    },
-    // Keep ONLY if the same Q&A is visible on the page
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "@id": "https://www.trimsel.com/web-development-company-chennai#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Why should I choose Trimsel as my web development company in Chennai?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Trimsel is a leading web development company in Chennai offering customized websites, web apps, CMS platforms, and ecommerce solutions. With deep technical expertise in ReactJS, NodeJS, and WordPress, we deliver scalable and secure solutions that meet your business goals."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How much does it cost to build a website or web application?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Website development costs depend on features, design complexity, tech stack, and platform. A basic website may start at ₹25,000, while advanced ecommerce or web apps can range upwards of ₹1,00,000. We offer affordable pricing for startups and enterprises alike."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How long does it take to develop a website?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Timelines depend on project complexity. A static website may take 2-3 weeks, while dynamic or ecommerce platforms take 4-10 weeks. Our agile process ensures timely delivery with milestone-based tracking."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you provide SEO-optimized websites?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, we build SEO-friendly websites following Google’s latest guidelines, including optimized URLs, meta tags, mobile responsiveness, and performance improvements. We also offer digital marketing services for long-term growth."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What industries do you serve for web development?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We serve a wide range of industries including ecommerce, education, healthcare, logistics, real estate, SaaS, travel, and finance. Our web development services are tailored to the specific needs of each domain."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What technologies do you use for web development?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We work with modern frameworks and languages like ReactJS, Angular, VueJS, NodeJS, .NET, PHP, WordPress, MongoDB, and MySQL. We choose the stack based on performance, scalability, and your business goals."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can you redesign or revamp my existing website?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Absolutely! Whether your website is outdated, slow, or not mobile-responsive, we can revamp it with a modern design, better performance, and improved user experience to reflect your brand and attract more visitors."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you offer ecommerce website development in Chennai?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. We build secure and scalable ecommerce websites using WooCommerce, Shopify, Magento, and custom solutions. Our ecommerce development includes product management, payment gateway integration, and responsive design."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you offer CMS-based website development?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, our CMS development services cover WordPress, Drupal, Joomla, and custom CMS platforms. We ensure your content management system is intuitive, secure, and easy to manage without technical knowledge."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Will you maintain and update my website after launch?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Trimsel offers post-launch website support including bug fixes, security patches, feature updates, and performance optimization. Our maintenance plans ensure your website remains up-to-date and competitive."
-          }
-        }
-      ]
-    }
-  ]}
+  additionalJsonLd={serviceJsonLd}
 />
 
 <main>

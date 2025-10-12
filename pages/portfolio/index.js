@@ -7,13 +7,14 @@ import Script from "next/script";
 import Stack from "react-bootstrap/Stack";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { useForm } from "react-hook-form"
+import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import { FaRegEnvelope } from "@react-icons/all-files/fa/FaRegEnvelope";
-import { gsap, Power2, TimelineLite } from "gsap/dist/gsap";
+import { gsap, Power2 } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import ClientLogo from "../../components/clientLogo";
 import { NextSeo } from 'next-seo';
+import { postJson } from "../../lib/api";
 
 function Portfolio() {
   const { gsap } = require("gsap/dist/gsap");
@@ -86,20 +87,11 @@ function Portfolio() {
   };
 
   async function onSubmitForm(values) {
-    let config = {
-      method: "post",
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/api/contact`,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: values,
-    };
-
     try {
-      const response = await axios(config);
-      console.log(response);
+      await postJson("/api/contact", values);
+      console.log("Contact request sent");
     } catch (error) {
-      console.log(error);
+      console.error("Failed to submit form", error);
     }
   }
   return (

@@ -8,15 +8,16 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import axios from "axios";
 import { FaRegEnvelope } from "@react-icons/all-files/fa/FaRegEnvelope";
 import Table from "react-bootstrap/Table";
 import { NextSeo } from "next-seo";
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
+import Header from "../components/header";
+import Footer from "../components/footer";
+import ClientLogo from "../components/clientLogo";
+import { postJson } from "../lib/api";
+import { buildServiceJsonLd } from "../lib/serviceSchema";
 
-const Header = dynamic(() => import("../components/header"), { ssr: true });
-const Footer = dynamic(() => import("../components/footer"), { ssr: false });
-const ClientLogo = dynamic(() => import("../components/clientLogo"), { ssr: true });
 const ContactForm = dynamic(() => import("../components/ContactForm"), { ssr: false });
 
 export default function mobileApp() {
@@ -36,22 +37,87 @@ export default function mobileApp() {
   };
 
   async function onSubmitForm(values) {
-    let config = {
-      method: "post",
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/api/contact`,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: values,
-    };
-
     try {
-      const response = await axios(config);
-      console.log(response);
+      await postJson("/api/contact", values);
+      console.log("Contact request sent");
     } catch (error) {
-      console.log(error);
+      console.error("Failed to submit form", error);
     }
   }
+
+  const serviceJsonLd = buildServiceJsonLd({
+    slug: "mobile-app-development-chennai",
+    serviceName: "Mobile App Development (Chennai)",
+    serviceType: "Mobile Application Development",
+    description:
+      "iOS, Android, and cross-platform (Flutter/React Native) app development with secure, scalable architectures.",
+    offers: [
+      "iOS App Development",
+      "Android App Development",
+      "Flutter / Cross-platform Apps",
+      "App Testing & Security",
+      "UI/UX & App Design",
+    ],
+    faq: [
+      {
+        question: "Why Choose Trimsel as Your Mobile App Development Company in Chennai?",
+        answer:
+          "Trimsel is a top-rated mobile app development company in Chennai, India, trusted by startups and enterprises. We specialize in iOS, Android, and cross-platform apps using cutting-edge technologies like Flutter and React Native.",
+      },
+      {
+        question: "How Much Does It Cost to Develop a Mobile App?",
+        answer:
+          "The cost of mobile app development varies based on features, complexity, platform, and development approach. At Trimsel, we offer scalable solutions tailored to your unique business needs and budget.",
+      },
+      {
+        question: "Which Is Better: Native or Cross-Platform App Development?",
+        answer:
+          "Native apps (iOS or Android) offer high performance, while cross-platform apps built using Flutter or React Native are faster to develop and more cost-effective. We help you choose the right approach based on your project scope.",
+      },
+      {
+        question: "Do You Offer Flutter App Development Services?",
+        answer:
+          "Yes! We’re a Flutter app development company in Chennai offering fast, cost-efficient cross-platform mobile applications with native-like performance.",
+      },
+      {
+        question: "How Long Does It Take to Develop a Mobile App?",
+        answer:
+          "A basic app can take 6–8 weeks, while feature-rich enterprise mobile apps may take 4–6 months. We follow agile development for faster time-to-market without compromising quality.",
+      },
+      {
+        question: "Can I Hire Mobile App Developers from Trimsel?",
+        answer:
+          "Absolutely. We provide dedicated mobile app developers in Chennai to work on your project full-time or part-time, ensuring transparency, speed, and technical excellence.",
+      },
+      {
+        question: "What Is Hybrid Mobile App Development and Is It Right for My Business?",
+        answer:
+          "Hybrid mobile apps are built using web technologies like HTML, CSS, and JavaScript with frameworks like Ionic. They are ideal for MVPs or businesses looking for quick deployment across platforms.",
+      },
+      {
+        question: "Is My App Secure and Compliant with Data Protection Laws?",
+        answer:
+          "Yes. We implement best practices for mobile app security and ensure compliance with GDPR, HIPAA, and PCI-DSS based on your industry and location.",
+      },
+      {
+        question: "Do You Provide Post-Launch Support and Maintenance?",
+        answer:
+          "Yes, we offer ongoing maintenance, feature enhancements, performance monitoring, and support services to keep your app secure and up to date.",
+      },
+      {
+        question: "How Can I Get Started with My Mobile App Project?",
+        answer:
+          "You can book a consultation with our team to discuss your app idea, goals, and expectations. We’ll help you plan and validate your mobile app development journey from start to finish.",
+      },
+    ],
+    breadcrumbs: [
+      { name: "Home", item: "https://www.trimsel.com/" },
+      {
+        name: "Mobile App Development (Chennai)",
+        item: "https://www.trimsel.com/mobile-app-development-chennai",
+      },
+    ],
+  });
 
   const slides = [1, 2, 3];
   const [index, setIndex] = useState(0);
@@ -82,131 +148,7 @@ export default function mobileApp() {
     site_name: "Trimsel"
   }}
   additionalMetaTags={[{ name: "robots", content: "index, follow" }]}
-  additionalJsonLd={[
-    // Primary service entity (clean & focused)
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "@id": "https://www.trimsel.com/mobile-app-development-chennai#service",
-      "name": "Mobile App Development (Chennai)",
-      "serviceType": "Mobile Application Development",
-      "description": "iOS, Android, and cross-platform (Flutter/React Native) app development with secure, scalable architectures.",
-      "provider": { "@id": "https://www.trimsel.com/#org" },
-      "areaServed": [
-        { "@type": "Place", "name": "Chennai" },
-        { "@type": "Country", "name": "India" }
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Mobile App Development Services",
-        "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "iOS App Development" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Android App Development" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Flutter / Cross-platform Apps" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "App Testing & Security" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "UI/UX & App Design" } }
-        ]
-      }
-    },
-    // Breadcrumbs (nice signal)
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "@id": "https://www.trimsel.com/mobile-app-development-chennai#breadcrumbs",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.trimsel.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Mobile App Development (Chennai)", "item": "https://www.trimsel.com/mobile-app-development-chennai" }
-      ]
-    },
-    // Keep this ONLY if questions/answers are visible on the page
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "@id": "https://www.trimsel.com/mobile-app-development-chennai#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Why Choose Trimsel as Your Mobile App Development Company in Chennai?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Trimsel is a top-rated mobile app development company in Chennai, India, trusted by startups and enterprises. We specialize in iOS, Android, and cross-platform apps using cutting-edge technologies like Flutter and React Native."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How Much Does It Cost to Develop a Mobile App?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The cost of mobile app development varies based on features, complexity, platform, and development approach. At Trimsel, we offer scalable solutions tailored to your unique business needs and budget."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Which Is Better: Native or Cross-Platform App Development?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Native apps (iOS or Android) offer high performance, while cross-platform apps built using Flutter or React Native are faster to develop and more cost-effective. We help you choose the right approach based on your project scope."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do You Offer Flutter App Development Services?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes! We’re a Flutter app development company in Chennai offering fast, cost-efficient cross-platform mobile applications with native-like performance."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How Long Does It Take to Develop a Mobile App?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A basic app can take 6–8 weeks, while feature-rich enterprise mobile apps may take 4–6 months. We follow agile development for faster time-to-market without compromising quality."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I Hire Mobile App Developers from Trimsel?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Absolutely. We provide dedicated mobile app developers in Chennai to work on your project full-time or part-time, ensuring transparency, speed, and technical excellence."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What Is Hybrid Mobile App Development and Is It Right for My Business?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Hybrid mobile apps are built using web technologies like HTML, CSS, and JavaScript with frameworks like Ionic. They are ideal for MVPs or businesses looking for quick deployment across platforms."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is My App Secure and Compliant with Data Protection Laws?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. We implement best practices for mobile app security and ensure compliance with GDPR, HIPAA, and PCI-DSS based on your industry and location."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do You Provide Post-Launch Support and Maintenance?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, we offer ongoing maintenance, feature enhancements, performance monitoring, and support services to keep your app secure and up to date."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How Can I Get Started with My Mobile App Project?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "You can book a consultation with our team to discuss your app idea, goals, and expectations. We’ll help you plan and validate your mobile app development journey from start to finish."
-          }
-        }
-      ]
-    }
-  ]}
+  additionalJsonLd={serviceJsonLd}
 />
       <main>
         <section className="hero-mbl">

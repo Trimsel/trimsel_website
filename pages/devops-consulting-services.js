@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Headers from "../components/headers";
 import Footer from "../components/footer";
 import Link from "next/link";
@@ -14,11 +13,11 @@ import ClientLogo from "../components/clientLogo";
 import Card from "react-bootstrap/Card";
 import Accordion from "react-bootstrap/Accordion";
 import { useForm } from "react-hook-form";
-import axios from "axios";
 import { useState } from "react";
-import ContactModal from "../components/ContactModal";
 import ContactForm from "../components/ContactForm";
 import { NextSeo } from "next-seo";
+import { postJson } from "../lib/api";
+import { buildServiceJsonLd } from "../lib/serviceSchema";
 
 export default function DevOps() {
   const images = [
@@ -60,22 +59,69 @@ export default function DevOps() {
   };
 
   async function onSubmitForm(values) {
-    let config = {
-      method: "post",
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/api/contact`,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: values,
-    };
-
     try {
-      const response = await axios(config);
-      console.log(response);
+      await postJson("/api/contact", values);
+      console.log("Contact request sent");
     } catch (error) {
-      console.log(error);
+      console.error("Failed to submit form", error);
     }
   }
+
+  const serviceJsonLd = buildServiceJsonLd({
+    slug: "devops-consulting-services",
+    serviceName: "DevOps Consulting & Automation Services",
+    serviceType: "DevOps Consulting",
+    description:
+      "CI/CD pipelines, Kubernetes consulting, infrastructure as code, release management, and managed DevOps solutions.",
+    offers: [
+      "DevOps Services & Solutions",
+      "CI/CD Pipeline Automation",
+      "Kubernetes Consulting Services",
+      "Infrastructure Automation",
+      "DevOps Migration & Release Management",
+      "Managed DevOps Services",
+      "Hire DevOps Engineer",
+    ],
+    faq: [
+      {
+        question: "What are DevOps consulting services?",
+        answer:
+          "DevOps consulting services help businesses automate their development and operations processes using CI/CD pipelines, cloud platforms, and infrastructure as code to accelerate software delivery.",
+      },
+      {
+        question: "Why should I choose Trimsel for DevOps services?",
+        answer:
+          "Trimsel is a trusted DevOps consulting firm offering end-to-end services including cloud DevOps, Kubernetes implementation, and infrastructure automation tailored to your business goals.",
+      },
+      {
+        question: "What DevOps tools and platforms do you support?",
+        answer:
+          "We work across AWS, Azure, GCP, Kubernetes, Docker, Terraform, Jenkins, GitHub Actions, GitLab CI/CD, and more to build automated, secure, and scalable delivery pipelines.",
+      },
+      {
+        question: "Do you offer DevSecOps and security automation?",
+        answer:
+          "Yes. We integrate security scanning, compliance checks, and policy guardrails into CI/CD pipelines to deliver secure software without slowing teams down.",
+      },
+      {
+        question: "Can you help migrate legacy applications to a DevOps model?",
+        answer:
+          "Absolutely. We assess your existing infrastructure, design a modernization roadmap, and implement version control, CI/CD, observability, and automation for legacy workloads.",
+      },
+      {
+        question: "Do you provide ongoing managed DevOps services?",
+        answer:
+          "Yes, Trimsel offers managed DevOps services with 24/7 monitoring, incident response, cost optimization, and continuous improvements to your delivery pipelines.",
+      },
+    ],
+    breadcrumbs: [
+      { name: "Home", item: "https://www.trimsel.com/" },
+      {
+        name: "DevOps Consulting Services",
+        item: "https://www.trimsel.com/devops-consulting-services",
+      },
+    ],
+  });
   return (
     <>
 <NextSeo
@@ -98,101 +144,7 @@ export default function DevOps() {
     site_name: "Trimsel",
   }}
   additionalMetaTags={[{ name: "robots", content: "index, follow" }]}
-  additionalJsonLd={[
-    // Service schema
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "@id": "https://www.trimsel.com/devops-consulting-services#service",
-      "name": "DevOps Consulting & Automation Services",
-      "serviceType": "DevOps Consulting",
-      "description": "CI/CD pipelines, Kubernetes consulting, infrastructure as code, release management, and managed DevOps solutions.",
-      "provider": { "@id": "https://www.trimsel.com/#org" }, // points to global org
-      "areaServed": [
-        { "@type": "Place", "name": "Chennai" },
-        { "@type": "Country", "name": "India" }
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "DevOps Consulting Services",
-        "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "DevOps Services & Solutions" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CI/CD Pipeline Automation" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kubernetes Consulting Services" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Infrastructure Automation" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "DevOps Migration & Release Management" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Managed DevOps Services" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hire DevOps Engineer" } }
-        ]
-      }
-    },
-    // Breadcrumbs
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "@id": "https://www.trimsel.com/devops-consulting-services#breadcrumbs",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.trimsel.com/" },
-        { "@type": "ListItem", "position": 2, "name": "DevOps Consulting Services", "item": "https://www.trimsel.com/devops-consulting-services" }
-      ]
-    },
-    // FAQ schema (keep only if these are actual visible Q&A on the page)
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "@id": "https://www.trimsel.com/devops-consulting-services#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What are DevOps consulting services?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "DevOps consulting services help businesses automate their development and operations processes using CI/CD pipelines, cloud platforms, and infrastructure as code to accelerate software delivery."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Why should I choose Trimsel for DevOps services?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Trimsel is a trusted DevOps consulting firm offering end-to-end services including cloud DevOps, Kubernetes implementation, and infrastructure automation tailored to your business goals."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What industries benefit from DevOps solutions?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Industries like finance, healthcare, e-commerce, and SaaS benefit from DevOps by improving agility, enhancing release cycles, and reducing operational costs."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I hire a dedicated DevOps engineer from Trimsel?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, we offer flexible engagement models to hire DevOps engineers for short-term or long-term projects, depending on your infrastructure needs."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What DevOps tools do you use?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We leverage tools like Jenkins, GitLab CI/CD, Docker, Kubernetes, Terraform, Ansible, Prometheus, and ELK Stack to automate and monitor the DevOps workflow."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you provide managed DevOps services?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, our managed DevOps services include infrastructure monitoring, CI/CD pipeline management, security automation, and 24/7 DevOps support."
-          }
-        }
-      ]
-    }
-  ]}
+  additionalJsonLd={serviceJsonLd}
 />
 
       <section className="dev-hero">

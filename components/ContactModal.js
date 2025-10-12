@@ -4,12 +4,12 @@ import Link from "next/link";
 import Image from "next/image";
 import Button from "react-bootstrap/Button";
 import { useForm } from "react-hook-form";
-import axios from "axios";
 import { useState, useEffect } from "react";
 import { FaMapMarkerAlt } from "@react-icons/all-files/fa/FaMapMarkerAlt";
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/bootstrap.css';
 import ReCAPTCHA from "react-google-recaptcha";
+import { postJson } from "../lib/api";
 
 export default function ContactModal({ title }) {
   const {
@@ -37,8 +37,6 @@ export default function ContactModal({ title }) {
   };
 
   async function onSubmitForm(values) {
-    const apiUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/api/contact`;
-  
     if (!recaptchaToken) {
       setMessage("Please verify you are not a robot.");
       return;
@@ -51,11 +49,14 @@ export default function ContactModal({ title }) {
       recaptchaToken,
     };
   
+    setMessage("");
+
     try {
-      await axios.post(apiUrl, payload);
+      await postJson("/api/contact", payload);
       setMessage("Thank you! We have received your message. Our team will get back to you soon.");
       setIsSubmitted(true);
       reset();
+      setRecaptchaToken("");
     } catch (error) {
       setMessage("Failed to send your message. Please try again.");
     }

@@ -12,6 +12,7 @@ import Carousel from "react-bootstrap/Carousel";
 import Card from "react-bootstrap/Card";
 import { FaLongArrowAltRight } from "@react-icons/all-files/fa/FaLongArrowAltRight";
 import { NextSeo } from 'next-seo';
+import { postJson } from "../../lib/api";
 
 export default function Ezyhelpers() {
   const slides = [0, 1, 2];
@@ -28,20 +29,11 @@ export default function Ezyhelpers() {
   } = useForm();
 
   async function onSubmitForm(values) {
-    let config = {
-      method: "post",
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/api/newcontact`,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: values,
-    };
-
     try {
-      const response = await axios(config);
-      console.log(response);
+      await postJson("/api/newcontact", values);
+      console.log("Contact request sent");
     } catch (error) {
-      console.log(error);
+      console.error("Failed to submit form", error);
     }
   }
   return (

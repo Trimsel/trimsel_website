@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Card from "react-bootstrap/Card";
 import dynamic from 'next/dynamic';
@@ -10,6 +10,7 @@ import ScrollSection from "../components/ScrollSection";
 import Image from "next/image";
 import Link from "next/link";
 import Accordion from 'react-bootstrap/Accordion';
+import { postJson } from "../lib/api";
 
 // Lazy Load Components for Performance Optimization
 
@@ -22,26 +23,13 @@ export default function Home() {
   const [selectedOption, setSelectedOption] = useState(0);
   const handleOptionChange = (event) => {setSelectedOption(event.target.value); setValue("selectOption", event.target.value);};
   async function onSubmitForm(values) {
-    let config = {
-      method: "post",
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/api/contact`,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: values,
-    };
     try {
-      const response = await axios(config);
-      console.log(response);
+      await postJson("/api/contact", values);
+      console.log("Contact request sent");
     } catch (error) {
-      console.log(error);
+      console.error("Failed to submit contact form", error);
     }
   }
-  const slides = [0, 1, 2];
-  const [index, setIndex] = useState(0);
-  const handleSelect = (selectedIndex, e) => {setIndex(selectedIndex);};
-  const [counterOn, setCounterOn] = useState(false);
-
   return (
     <>
        {/* ✅ Next-SEO for SEO Optimization */}

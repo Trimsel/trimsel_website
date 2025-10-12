@@ -152,9 +152,6 @@ export default function App({ Component, pageProps }) {
         `}
       </Script>
 
-      {/* Your custom script (lazy) */}
-      <Script type="module" src="/sc.js" strategy="lazyOnload" />
-
       <Component {...pageProps} />
       <SpeedInsights />
       <Analytics />

@@ -9,12 +9,62 @@ import Col from "react-bootstrap/Col";
 import Table from "react-bootstrap/Table";
 import dynamic from 'next/dynamic';
 import { NextSeo } from "next-seo";
+import { buildServiceJsonLd } from "../lib/serviceSchema";
 
 const ClientLogo = dynamic(() => import("../components/clientLogo"), { ssr: false });
 const ContactForm = dynamic(() => import("../components/ContactForm"), { ssr: false });
 const Footer = dynamic(() => import("../components/footer"), { ssr: false });
 
 export default function Quality() {
+  const serviceJsonLd = buildServiceJsonLd({
+    slug: "ai-development-company",
+    serviceName: "AI Development Services (Chennai)",
+    serviceType: "Artificial Intelligence Development",
+    description:
+      "Custom AI agents, ML models, NLP, computer vision, generative AI, and MLOps.",
+    offers: [
+      "Custom AI Agent Development",
+      "Machine Learning Model Development",
+      "Natural Language Processing (NLP)",
+      "Computer Vision & Predictive Analytics",
+      "Generative AI Solutions",
+      "MLOps & AI Consulting",
+    ],
+    faq: [
+      {
+        question: "Why choose Trimsel as your AI development company in Chennai?",
+        answer:
+          "Trimsel has an expert AI development team in Chennai who specialize in building production-ready AI solutions — from predictive analytics and NLP models to generative AI agents — tailored for real business outcomes.",
+      },
+      {
+        question: "What AI development services do you offer?",
+        answer:
+          "We offer custom AI agent development, machine learning models, predictive analytics, NLP, computer vision, generative AI solutions, and MLOps deployment.",
+      },
+      {
+        question: "How much does AI development cost?",
+        answer:
+          "AI solution cost depends on scope, complexity, dataset availability, and deployment needs. We provide scalable packages based on prototype, MVP, and enterprise requirements.",
+      },
+      {
+        question: "Do you offer MLOps and post-launch support?",
+        answer:
+          "Yes. We help deploy, monitor, and maintain AI models in production with CI/CD, retraining pipelines, and infrastructure automation.",
+      },
+      {
+        question: "How long does it take to build an AI solution?",
+        answer:
+          "Initial prototype/POC can take 4–6 weeks. Full-scale enterprise AI system rollout generally takes 3–6 months depending on integrations, data availability, and compliance requirements.",
+      },
+    ],
+    breadcrumbs: [
+      { name: "Home", item: "https://www.trimsel.com/" },
+      {
+        name: "AI Development Company",
+        item: "https://www.trimsel.com/ai-development-company",
+      },
+    ],
+  });
   return (
     <>
       <NextSeo
@@ -38,93 +88,7 @@ export default function Quality() {
     site_name: "Trimsel",
   }}
   additionalMetaTags={[{ name: "robots", content: "index, follow" }]}
-  additionalJsonLd={[
-    // Primary entity for this page
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "@id": "https://www.trimsel.com/ai-development-company#service",
-      "name": "AI Development Services (Chennai)",
-      "serviceType": "Artificial Intelligence Development",
-      "description": "Custom AI agents, ML models, NLP, computer vision, generative AI, and MLOps.",
-      "provider": { "@id": "https://www.trimsel.com/#org" },
-      "areaServed": [
-        { "@type": "Place", "name": "Chennai" },
-        { "@type": "Country", "name": "India" }
-        // add more countries later as you expand
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "AI Development Services",
-        "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom AI Agent Development" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Machine Learning Model Development" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Natural Language Processing (NLP)" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Computer Vision & Predictive Analytics" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Generative AI Solutions" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "MLOps & AI Consulting" } }
-        ]
-      }
-    },
-    // Breadcrumbs (nice signal; show them in UI if possible)
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "@id": "https://www.trimsel.com/ai-development-company#breadcrumbs",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.trimsel.com/" },
-        { "@type": "ListItem", "position": 2, "name": "AI Development Company", "item": "https://www.trimsel.com/ai-development-company" }
-      ]
-    },
-    // Keep this ONLY if the same Q&A appears on the page
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "@id": "https://www.trimsel.com/ai-development-company#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Why choose Trimsel as your AI development company in Chennai?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Trimsel has an expert AI development team in Chennai who specialize in building production-ready AI solutions — from predictive analytics and NLP models to generative AI agents — tailored for real business outcomes."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What AI development services do you offer?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We offer custom AI agent development, machine learning models, predictive analytics, NLP, computer vision, generative AI solutions, and MLOps deployment."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How much does AI development cost?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "AI solution cost depends on scope, complexity, dataset availability, and deployment needs. We provide scalable packages based on prototype, MVP, and enterprise requirements."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you offer MLOps and post-launch support?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. We help deploy, monitor, and maintain AI models in production with CI/CD, retraining pipelines, and infrastructure automation."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How long does it take to build an AI solution?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Initial prototype/POC can take 4–6 weeks. Full-scale enterprise AI system rollout generally takes 3–6 months depending on integrations, data availability, and compliance requirements."
-          }
-        }
-      ]
-    }
-  ]}
+  additionalJsonLd={serviceJsonLd}
 />
       <section className="quality-hero">
         <Header />

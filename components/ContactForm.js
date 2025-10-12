@@ -5,11 +5,11 @@ import Stack from "react-bootstrap/Stack";
 import Button from "react-bootstrap/Button";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import axios from "axios";
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/bootstrap.css';
 import ReCAPTCHA from "react-google-recaptcha";
 import Modal from "react-bootstrap/Modal";
+import { postJson } from "../lib/api";
 
 export default function ContactForm({
   heading = "Let’s Build Your Dream App — Get a Free Consultation!",
@@ -33,7 +33,7 @@ export default function ContactForm({
   const handleThankYouClose = () => {
     setShowThankYou(false);
     setIsSubmitted(false);
-    setRecaptchaToken(null);
+    setRecaptchaToken("");
   };
   const handleThankYouShow = () => setShowThankYou(true);
 
@@ -51,8 +51,6 @@ export default function ContactForm({
   };
 
   async function onSubmitForm(values) {
-    const apiUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/api/contact`;
-
     // simple client checks
     if (!values.service) {
       setMessage("Please choose what you’re interested in.");
@@ -74,8 +72,10 @@ export default function ContactForm({
       recaptchaToken,
     };
 
+    setMessage("");
+
     try {
-      await axios.post(apiUrl, payload);
+      await postJson("/api/contact", payload);
       setMessage("Thank you! We have received your message. Our team will get back to you soon.");
       setIsSubmitted(true);
       handleThankYouShow();
@@ -83,6 +83,7 @@ export default function ContactForm({
       setPhone("");
       setSelectedOption("");
       setValue("service", "");
+      setRecaptchaToken("");
     } catch (error) {
       setMessage("Failed to send your message. Please try again.");
     }

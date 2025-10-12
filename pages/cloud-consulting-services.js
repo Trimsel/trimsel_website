@@ -15,10 +15,84 @@ import Footer from "../components/footer";
 import Stack from "react-bootstrap/Stack";
 import { CgCheckO } from "@react-icons/all-files/cg/CgCheckO";
 import ContactForm from "../components/ContactForm";
-import ContactModal from "../components/ContactModal";
 import Accordion from 'react-bootstrap/Accordion';
+import { buildServiceJsonLd } from "../lib/serviceSchema";
 
 export default function CloudConsulting() {
+  const serviceJsonLd = buildServiceJsonLd({
+    slug: "cloud-consulting-services",
+    serviceName: "Cloud Consulting & Modernization (Chennai)",
+    serviceType: "Cloud Consulting",
+    description:
+      "AWS, Azure & GCP strategy, migration, modernization, automation, governance, and cost optimization.",
+    offers: [
+      "Cloud Strategy & Architecture",
+      "Cloud Migration (AWS/Azure/GCP)",
+      "Cloud Cost Optimization (FinOps)",
+      "Automation & IaC (Terraform/CDK/Bicep)",
+      "Cloud Security & Compliance",
+      "Observability & SRE",
+    ],
+    faq: [
+      {
+        question: "What does a cloud consulting company do?",
+        answer:
+          "A cloud consulting company like Trimsel helps businesses plan, migrate, and optimize their cloud infrastructure. Our certified AWS, Azure, and GCP experts deliver cloud strategy, architecture, security, and performance solutions for seamless cloud adoption.",
+      },
+      {
+        question: "Why choose Trimsel for cloud consulting services in India?",
+        answer:
+          "Trimsel is one of the top cloud consulting companies in India with proven experience in multi-cloud deployments, cloud migration services, and cloud engineering. We provide scalable and secure cloud solutions across AWS, Azure, and GCP tailored to your business needs.",
+      },
+      {
+        question: "What cloud platforms do you support?",
+        answer:
+          "We support all major public cloud platforms, including Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP). Our cloud consultants design, deploy, and optimize workloads across these platforms using best practices in security, automation, and cost management.",
+      },
+      {
+        question: "What are the benefits of cloud migration consulting?",
+        answer:
+          "Cloud migration consulting ensures a smooth transition from on-premise or legacy systems to the cloud. Our cloud migration experts assess your existing infrastructure, design a custom migration plan, and ensure high availability, data security, and business continuity.",
+      },
+      {
+        question: "Do you provide cloud cost optimization services?",
+        answer:
+          "Yes. Trimsel's cloud cost optimization services identify and eliminate unnecessary cloud spend, optimize resource usage, and implement budgeting strategies. We help businesses improve ROI while maintaining performance across AWS, Azure, and GCP.",
+      },
+      {
+        question: "What is cloud-native application development?",
+        answer:
+          "Cloud-native development involves building and running scalable applications using modern technologies like containers, microservices, and serverless architecture. We help you build cloud-native apps on AWS Lambda, Azure Functions, Kubernetes, and more.",
+      },
+      {
+        question: "How do you ensure cloud security and compliance?",
+        answer:
+          "Our cloud security consulting services include IAM implementation, data encryption, security automation, and compliance with standards like HIPAA, GDPR, and ISO 27001. We integrate security into every layer of your cloud architecture.",
+      },
+      {
+        question: "Can you support hybrid or multi-cloud strategies?",
+        answer:
+          "Absolutely. Trimsel specializes in hybrid and multi-cloud strategies. We help businesses distribute workloads across AWS, Azure, and GCP, implement failover solutions, and avoid vendor lock-in while maintaining centralized monitoring and governance.",
+      },
+      {
+        question: "What industries do you serve with cloud consulting?",
+        answer:
+          "We provide cloud consulting services for a wide range of industries including fintech, healthcare, e-commerce, SaaS, and logistics. Our solutions are tailored to meet industry-specific needs such as regulatory compliance, high availability, and scalability.",
+      },
+      {
+        question: "How do I get started with your cloud services?",
+        answer:
+          "Simply reach out to our cloud consulting team for an assessment. We'll evaluate your current environment, understand your goals, and propose a personalized roadmap covering cloud strategy, migration, optimization, and ongoing support.",
+      },
+    ],
+    breadcrumbs: [
+      { name: "Home", item: "https://www.trimsel.com/" },
+      {
+        name: "Cloud Consulting Services",
+        item: "https://www.trimsel.com/cloud-consulting-services",
+      },
+    ],
+  });
   return (
     <>
   <NextSeo
@@ -36,102 +110,7 @@ export default function CloudConsulting() {
     site_name: 'Trimsel',
   }}
   additionalMetaTags={[{ name: "robots", content: "index, follow" }]}
-  additionalJsonLd={[
-    // Primary service entity (clean)
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "@id": "https://www.trimsel.com/cloud-consulting-services#service",
-      "name": "Cloud Consulting & Modernization (Chennai)",
-      "serviceType": "Cloud Consulting",
-      "description": "AWS, Azure & GCP strategy, migration, modernization, automation, governance, and cost optimization.",
-      "provider": { "@id": "https://www.trimsel.com/#org" }, // reference your global org
-      "areaServed": [
-        { "@type": "Place", "name": "Chennai" },
-        { "@type": "Country", "name": "India" }
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Cloud Consulting Services",
-        "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud Strategy & Architecture" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud Migration (AWS/Azure/GCP)" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud Cost Optimization (FinOps)" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Automation & IaC (Terraform/CDK/Bicep)" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud Security & Compliance" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Observability & SRE" } }
-        ]
-      }
-    },
-    // Breadcrumbs
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "@id": "https://www.trimsel.com/cloud-consulting-services#breadcrumbs",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.trimsel.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Cloud Consulting Services", "item": "https://www.trimsel.com/cloud-consulting-services" }
-      ]
-    },
-    // Keep ONLY if these Q&As are visible on the page
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "@id": "https://www.trimsel.com/cloud-consulting-services#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What does a cloud consulting company do?",
-          "acceptedAnswer": { "@type": "Answer", "text": "A cloud consulting company like Trimsel helps businesses plan, migrate, and optimize their cloud infrastructure. Our certified AWS, Azure, and GCP experts deliver cloud strategy, architecture, security, and performance solutions for seamless cloud adoption." }
-        },
-        {
-          "@type": "Question",
-          "name": "Why choose Trimsel for cloud consulting services in India?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Trimsel is one of the top cloud consulting companies in India with proven experience in multi-cloud deployments, cloud migration services, and cloud engineering. We provide scalable and secure cloud solutions across AWS, Azure, and GCP tailored to your business needs." }
-        },
-        {
-          "@type": "Question",
-          "name": "What cloud platforms do you support?",
-          "acceptedAnswer": { "@type": "Answer", "text": "We support all major public cloud platforms, including Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP). Our cloud consultants design, deploy, and optimize workloads across these platforms using best practices in security, automation, and cost management." }
-        },
-        {
-          "@type": "Question",
-          "name": "What are the benefits of cloud migration consulting?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Cloud migration consulting ensures a smooth transition from on-premise or legacy systems to the cloud. Our cloud migration experts assess your existing infrastructure, design a custom migration plan, and ensure high availability, data security, and business continuity." }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you provide cloud cost optimization services?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Trimsel's cloud cost optimization services identify and eliminate unnecessary cloud spend, optimize resource usage, and implement budgeting strategies. We help businesses improve ROI while maintaining performance across AWS, Azure, and GCP." }
-        },
-        {
-          "@type": "Question",
-          "name": "What is cloud-native application development?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Cloud-native development involves building and running scalable applications using modern technologies like containers, microservices, and serverless architecture. We help you build cloud-native apps on AWS Lambda, Azure Functions, Kubernetes, and more." }
-        },
-        {
-          "@type": "Question",
-          "name": "How do you ensure cloud security and compliance?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Our cloud security consulting services include IAM implementation, data encryption, security automation, and compliance with standards like HIPAA, GDPR, and ISO 27001. We integrate security into every layer of your cloud architecture." }
-        },
-        {
-          "@type": "Question",
-          "name": "Can you support hybrid or multi-cloud strategies?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Trimsel specializes in hybrid and multi-cloud strategies. We help businesses distribute workloads across AWS, Azure, and GCP, implement failover solutions, and avoid vendor lock-in while maintaining centralized monitoring and governance." }
-        },
-        {
-          "@type": "Question",
-          "name": "What industries do you serve with cloud consulting?",
-          "acceptedAnswer": { "@type": "Answer", "text": "We provide cloud consulting services for a wide range of industries including fintech, healthcare, e-commerce, SaaS, and logistics. Our solutions are tailored to meet industry-specific needs such as regulatory compliance, high availability, and scalability." }
-        },
-        {
-          "@type": "Question",
-          "name": "How do I get started with your cloud services?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Simply reach out to our cloud consulting team for an assessment. We'll evaluate your current environment, understand your goals, and propose a personalized roadmap covering cloud strategy, migration, optimization, and ongoing support." }
-        }
-      ]
-    }
-  ]}
+  additionalJsonLd={serviceJsonLd}
 />
       <section className="cloud-hero">
         <Header />
