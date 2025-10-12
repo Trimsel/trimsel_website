@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import Header from "./header";
+import heroIllustration from "../public/images/digital-homepage.webp";
+import ribbonImage from "../public/images/digital.png";
 
 export default function HomeSlider() {
   return (
@@ -15,13 +17,15 @@ export default function HomeSlider() {
                 <div className="titles-inner">
                   {/* Decorative tag – hidden from SR */}
                   <Image
-                    src="/images/digital.png"
+                    src={ribbonImage}
                     width={298}
                     height={38}
                     alt=""
                     className="one"
-                    priority
+                    loading="lazy"
                     aria-hidden="true"
+                    placeholder="blur"
+                    blurDataURL={ribbonImage.blurDataURL}
                   />
 
                   <h1 className="headings-title">
@@ -36,11 +40,11 @@ export default function HomeSlider() {
                   <div className="d-flex gap-3">
                     <Link href="/contact-us" className="btn btn-primary get-btn" aria-label="Book a free strategy call">
                       Book a free strategy call{" "}
-                      <Image src="/images/material-symbols_arrow-right-alt.png" width={24} height={24} alt="" />
+                      <Image src="/images/material-symbols_arrow-right-alt.png" width={24} height={24} alt="" loading="lazy" />
                     </Link>
                     <Link href="/portfolio" className="btn btn-outline-secondary get-btn" aria-label="See case studies">
                       See case studies{" "}
-                      <Image src="/images/material-symbols_arrow-right-alt.png" width={24} height={24} alt="" />
+                      <Image src="/images/material-symbols_arrow-right-alt.png" width={24} height={24} alt="" loading="lazy" />
                     </Link>
                   </div>
 
@@ -57,13 +61,14 @@ export default function HomeSlider() {
             {/* Right: Hero visual */}
             <div className="col-lg-6 col-md-6 text-center">
               <Image
-                src="/images/digital-homepageone.png"
+                src={heroIllustration}
                 className="home--frst"
                 alt="Teams using AI to build and launch modern digital products"
                 width={600}
                 height={626}
                 priority
-                sizes="(max-width: 768px) 100vw, 600px"
+                placeholder="blur"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 480px"
               />
             </div>
           </div>

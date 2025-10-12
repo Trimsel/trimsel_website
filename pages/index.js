@@ -4,9 +4,7 @@ import Card from "react-bootstrap/Card";
 import dynamic from 'next/dynamic';
 import { NextSeo } from 'next-seo';
 import HomeSlider from "../components/homeSlider";
-import ClientLogo from "../components/clientLogo";
 import Footer from "../components/footer";
-import ScrollSection from "../components/ScrollSection";
 import Image from "next/image";
 import Link from "next/link";
 import Accordion from 'react-bootstrap/Accordion';
@@ -15,6 +13,20 @@ import { postJson } from "../lib/api";
 // Lazy Load Components for Performance Optimization
 
 const ContactForm = dynamic(() => import("../components/ContactForm"), { ssr: false });
+const ClientLogo = dynamic(() => import("../components/clientLogo"), {
+  ssr: false,
+  loading: () => (
+    <div className="text-center w-100 py-5" role="status" aria-live="polite">
+      <span className="spinner-border text-primary" aria-hidden="true"></span>
+      <span className="ms-2">Loading client logos…</span>
+    </div>
+  ),
+});
+
+const ScrollSection = dynamic(() => import("../components/ScrollSection"), {
+  ssr: false,
+  loading: () => <div className="section text-center text-muted">Loading highlights…</div>,
+});
 
 export default function Home() {
  

@@ -20,6 +20,13 @@ export default function Document() {
 
         {/* Theme color for address bar (optional) */}
         <meta name="theme-color" content="#0b0f19" />
+
+        <link
+          rel="preload"
+          as="image"
+          href="/images/digital-homepage.webp"
+          imagesizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 480px"
+        />
       </Head>
       <body>
         <Main />
