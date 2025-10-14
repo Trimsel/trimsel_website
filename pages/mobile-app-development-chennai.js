@@ -8,17 +8,21 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { FaRegEnvelope } from "@react-icons/all-files/fa/FaRegEnvelope";
 import Table from "react-bootstrap/Table";
 import { NextSeo } from "next-seo";
 import dynamic from "next/dynamic";
 import Header from "../components/header";
 import Footer from "../components/footer";
-import ClientLogo from "../components/clientLogo";
 import { postJson } from "../lib/api";
 import { buildServiceJsonLd } from "../lib/serviceSchema";
+import ArrowRightIcon from "../components/icons/ArrowRightIcon";
+import MailIcon from "../components/icons/MailIcon";
 
 const ContactForm = dynamic(() => import("../components/ContactForm"), { ssr: false });
+const ClientLogo = dynamic(() => import("../components/clientLogo"), {
+  ssr: false,
+  loading: () => <div className="text-center text-muted py-5">Loading client logos…</div>,
+});
 
 export default function mobileApp() {
   const {
@@ -119,12 +123,6 @@ export default function mobileApp() {
     ],
   });
 
-  const slides = [1, 2, 3];
-  const [index, setIndex] = useState(0);
-  const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex);
-  };
-
   return (
     <>
 <NextSeo
@@ -216,12 +214,11 @@ export default function mobileApp() {
                     </div>
                     <div className="mozart">
                       <div className="mozart-inner">
-                        <Link href="/contact-us" passHref>
-                          <button className="btn btn-primary get-btn">
-                          Get a Consultation{" "}
-                            <Image src="/images/material-symbols_arrow-right-alt.png" width={24} height={24} alt="right arrow" loading="lazy" aria-hidden="true"/>
-                          </button>
-                        </Link>
+                    <Link href="/contact-us" passHref>
+                      <button className="btn btn-primary get-btn">
+                      Get a Consultation <ArrowRightIcon width={24} height={24} />
+                      </button>
+                    </Link>
                       </div>
                     </div>
                   </div>
@@ -234,6 +231,10 @@ export default function mobileApp() {
                     height={666}
                     alt="Leading mobile app development company in Chennai – Build high-performance Android & iOS apps today!"
                     priority
+                    quality={70}
+                    placeholder="blur"
+                    blurDataURL="data:image/webp;base64,UklGRiIAAABXRUJQVlA4IDAAAADQAgCdASoIAAgAAkA4JQBOgCH/89JAAA=="
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 480px"
                   />
                 </div>
               </div>
@@ -786,29 +787,6 @@ Cost-effective, scalable solutions<br></br>
                 </div>
               </div>
             </div>
-
-            {/* <section id="recent-mbl-work">
-  <div className="container new-ds">
-    <div className="row align-items-center">
-      <div className="col-lg-3 col-md-3">
-        <h2 className="case-heading">Transforming Businesses with Our Custom Mobile App development solutions</h2>
-      </div>
-      <div className="col-lg-6 col-md-6">
-        <p className="casecarousel-para">
-          With <strong>6+ years of expertise</strong>, Trimsel has delivered <strong>200+ high-performance mobile apps</strong> for startups and enterprises worldwide. Our expert mobile app developers ensure **industry-leading** standards in performance, security, and scalability.
-        </p>
-      </div>
-      <div className="col-lg-3 col-md-3 text-end">
-        <button className="case-btn">
-          View All Cases
-          <img src="/images/material-symbols_arrow-right-alt.png" />
-        </button>
-      </div>
-    </div>
-    <CarouselComponent />
-  </div>
-</section> */}
-
 <section className="pm-sec-cta">
   <div className="container">
     <Card className="port-cta my-5">
@@ -845,7 +823,7 @@ Cost-effective, scalable solutions<br></br>
             {/* Call-To-Action Button */}
             <Link href="/contact-us" passHref>
               <button className="portcta-btn mt-3">
-                <FaRegEnvelope className="me-2" /> Get In Touch
+                <MailIcon className="me-2" /> Get In Touch
               </button>
             </Link>
           </div>
@@ -857,6 +835,10 @@ Cost-effective, scalable solutions<br></br>
               height={550}
               alt="Chat with our expert"
               className="hmcta-image"
+              quality={70}
+              placeholder="blur"
+              blurDataURL="data:image/webp;base64,UklGRiIAAABXRUJQVlA4IDAAAADQAgCdASoIAAgAAkA4JQBOgCH/89JAAA=="
+              sizes="(max-width: 768px) 100vw, 320px"
             />
           </div>
         </div>
@@ -864,89 +846,6 @@ Cost-effective, scalable solutions<br></br>
     </Card>
   </div>
 </section>
-        {/* <section className="pm-sec-cta">
-          <div className="container">
-            <Card className="port-cta my-5">
-              <Card.Body>
-                <div className="row">
-                  <div className="col-lg-7 col-md-7 col-12">
-                    <Stack direction="horizontal">
-                      <div className=" badge-abot-btn">
-                        <img
-                          src="/images/Rectangle-kariot.png"
-                          className="me-2"
-                          alt="design-dot"
-                        />
-                        <p> GET INTO TOUCH </p>
-                      </div>
-                    </Stack>
-                    <h2 className="homcta-heading pt-2">
-                      Let's Build Your Mobile App – Contact Our Experts Today!
-                    </h2>
-                    <p className="hmcta-para">
-                    Looking for a trusted mobile app development company to bring your app idea to life? Whether you need a custom iOS, Android, or cross-platform app, our expert developers at Trimsel are here to help!
-                    </p>
-                    <Link href="/contact-us" passHref>
-                      <button className="portcta-btn mt-3">
-                        <FaRegEnvelope className="me-2" /> Get In Touch{" "}
-                      </button>
-                    </Link>
-                  </div>
-                  <div className="col-lg-5 col-md-5">
-                    <Image
-                      src="/images/ctambbg.webp"
-                      width={600}
-                      height={598}
-                      alt="Chat with our expert "
-                      className="hmcta-image"
-                    />
-                  </div>
-                </div>
-              </Card.Body>
-            </Card>
-          </div>
-        </section> */}
-
-
-            {/* <div className="container process-container">
-              <div className="row py-5">
-                <Stack direction="horizontal" className="pb-4">
-                  <div className=" badge-abot-btn">
-                    <img
-                      src="/images/Rectangle-kariot.png"
-                      className="me-2"
-                      alt="design-dot"
-                    />
-                    <p> DEVELOPMENT PROCESS </p>
-                  </div>
-                </Stack>
-                <div className="col-lg-4 col-md-4">
-                  <h3 className="process-heading">
-                    Mobile App Development Process – From Idea to Launch & Beyond
-                  </h3>
-                </div>
-                <div className="col-lg-5 col-md-5">
-                  <p className="process-para">
-                  At Trimsel, we follow a streamlined and transparent mobile app development process that ensures your app is built with precision, security, and scalability.
-                  </p>
-                </div>
-                <div className="col-lg-3 col-md-3">
-                  <Link href="/portfolio" passHref>
-                    <Button className="process-btn">
-                      <p>look at our</p> <h6>Case Studies</h6>{" "}
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-              <Image
-                src="/images/processimg.webp"
-                width={1116}
-                height={725}
-                alt="Process Image"
-                className="prcimg"
-              />
-            </div> */}
-
 <section id="app-process">
   <div className="container process-container py-5">
     <div className="row mb-4">
