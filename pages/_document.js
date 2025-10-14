@@ -25,7 +25,8 @@ export default function Document() {
           rel="preload"
           as="image"
           href="/images/digital-homepage.webp"
-          imagesizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 480px"
+          imageSrcSet="/images/digital-homepage.webp 480w, /images/digital-homepage.webp 768w, /images/digital-homepage.webp 1200w"
+          imageSizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 480px"
         />
       </Head>
       <body>

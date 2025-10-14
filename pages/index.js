@@ -7,8 +7,9 @@ import HomeSlider from "../components/homeSlider";
 import Footer from "../components/footer";
 import Image from "next/image";
 import Link from "next/link";
-import Accordion from 'react-bootstrap/Accordion';
+import Accordion from "react-bootstrap/Accordion";
 import { postJson } from "../lib/api";
+import ArrowRightIcon from "../components/icons/ArrowRightIcon";
 
 // Lazy Load Components for Performance Optimization
 
@@ -147,8 +148,8 @@ export default function Home() {
                 </div>
                 <Link href="/aboutus" passHref>
                   <button className="abt-btn">
-                    Explore More{" "}
-                    <Image src="/images/material-symbols_arrow-right-alt.png" width={24} height={24} alt="Arrow Icon" loading="lazy"/>
+                    Explore More
+                    <ArrowRightIcon />
                   </button>
                 </Link>
               </div>
@@ -193,14 +194,8 @@ export default function Home() {
             </p>
             <Link href="/contact-us" passHref>
               <button type="button" className="about-btn mt-3">
-                Book a Strategy Call{" "}
-                <Image
-                  src="/images/material-symbols_arrow-right-alt.png"
-                  width={24}
-                  height={24}
-                  alt="Arrow Right Icon"
-                  loading="lazy"
-                />
+                Book a Strategy Call
+                <ArrowRightIcon />
               </button>
             </Link>
           </div>
@@ -209,11 +204,13 @@ export default function Home() {
           <div className="col-lg-5 col-md-5">
             <Image
               src="/images/homecta.webp"
-              width={640}
-              height={660}
+              width={480}
+              height={500}
               alt="Connect with Trimsel's Digital Experts"
               className="hmcta-image"
               loading="lazy"
+              quality={70}
+              sizes="(max-width: 768px) 80vw, 380px"
             />
           </div>
         </div>
@@ -362,8 +359,8 @@ export default function Home() {
               <div className="col-lg-3 col-md-3">
                 <Link href="/portfolio" passHref>
                   <button className="about-btn">
-                    View All Cases{" "}
-                    <Image src="/images/material-symbols_arrow-right-alt.png" alt="" width={24} height={24} loading="lazy" />
+                    View All Cases
+                    <ArrowRightIcon />
                   </button>
                 </Link>
               </div>

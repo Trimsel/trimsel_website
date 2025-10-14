@@ -198,9 +198,9 @@ section#client {
 }
 /*About Section CSS */
 section#about {
-  background: url("/images/about-bg.png");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background:
+    radial-gradient(circle at top right, rgba(1, 170, 236, 0.12), transparent 55%),
+    linear-gradient(135deg, #f8fbff 0%, #eef5ff 60%, #ffffff 100%);
   margin-left: 50px;
   margin-right: 50px;
 }
@@ -286,11 +286,10 @@ section#cta {
   margin: 130px 0px;
 }
 .cta-bg {
-  background: url("/images/homecta.webp");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  border: 1px solid #fff;
+  background:
+    radial-gradient(circle at top right, rgba(1, 170, 236, 0.25), transparent 60%),
+    linear-gradient(135deg, #0b1220 0%, #15294d 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 25px;
 }
 h3.cta-heading {
@@ -321,8 +320,9 @@ button.btn.btn-cta.btn-primary {
 /*SERVICE CSS */
 
 section#services {
-  background: url(/images/what-we-do.svg) no-repeat;
-  background-size: cover;
+  background:
+    radial-gradient(circle at top left, rgba(0, 89, 255, 0.12), transparent 55%),
+    linear-gradient(135deg, #f8fbff 0%, #eef3ff 65%, #ffffff 100%);
   padding-bottom: 80px;
 }
 

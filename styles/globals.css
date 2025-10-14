@@ -130,6 +130,14 @@ button:hover,
   box-shadow: 0 12px 24px rgba(0, 89, 255, 0.18);
 }
 
+.btn svg,
+button svg,
+.cta-button svg,
+.portcta-btn svg {
+  margin-left: 0.5rem;
+  flex-shrink: 0;
+}
+
 .btn:active,
 button:active {
   transform: translateY(0);

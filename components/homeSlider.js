@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Header from "./header";
+import ArrowRightIcon from "./icons/ArrowRightIcon";
 import heroIllustration from "../public/images/digital-homepage.webp";
 import ribbonImage from "../public/images/digital.png";
 
@@ -39,12 +40,12 @@ export default function HomeSlider() {
 
                   <div className="d-flex gap-3">
                     <Link href="/contact-us" className="btn btn-primary get-btn" aria-label="Book a free strategy call">
-                      Book a free strategy call{" "}
-                      <Image src="/images/material-symbols_arrow-right-alt.png" width={24} height={24} alt="" loading="lazy" />
+                      Book a free strategy call
+                      <ArrowRightIcon />
                     </Link>
                     <Link href="/portfolio" className="btn btn-outline-secondary get-btn" aria-label="See case studies">
-                      See case studies{" "}
-                      <Image src="/images/material-symbols_arrow-right-alt.png" width={24} height={24} alt="" loading="lazy" />
+                      See case studies
+                      <ArrowRightIcon />
                     </Link>
                   </div>
 
@@ -68,6 +69,7 @@ export default function HomeSlider() {
                 height={626}
                 priority
                 placeholder="blur"
+                quality={70}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 480px"
               />
             </div>
