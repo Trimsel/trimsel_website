@@ -35,19 +35,18 @@ function Footer() {
 
         {/* Address */}
         <h5 className="footer-heading mt-3">Visit Us</h5>
-        <address className="contact-para text-white mb-2">
-          21B 5th Cross St, South Phase<br/>
-          Thiru VI KA Industrial Estate, Guindy<br/>
-          Chennai, Tamil Nadu 600032, India
+        <address className="contact-para footer-address text-white mb-2">
+          <a
+            href="https://maps.google.com/?q=Trimsel+Softwares,+Guindy,+Chennai+600032"
+            target="_blank" rel="noopener noreferrer nofollow"
+            className="footer-address-link"
+            aria-label="Open Trimsel location on Google Maps"
+          >
+            21B 5th Cross St, South Phase<br />
+            Thiru VI KA Industrial Estate, Guindy<br />
+            Chennai, Tamil Nadu 600032, India
+          </a>
         </address>
-        <a
-          href="https://maps.google.com/?q=Trimsel+Softwares,+Guindy,+Chennai+600032"
-          target="_blank" rel="noopener noreferrer nofollow"
-          className="footer-link"
-          aria-label="Open Trimsel location on Google Maps"
-        >
-          View on Google Maps →
-        </a>
 
         {/* Social */}
         <h5 className="footer-heading mt-4">Follow Us</h5>

@@ -1081,6 +1081,16 @@ address.contact-para {
   font-weight: 600;
   font-style: normal;
 }
+address.footer-address .footer-address-link {
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+}
+address.footer-address .footer-address-link:hover,
+address.footer-address .footer-address-link:focus {
+  color: #ffffff;
+  text-decoration: underline;
+}
 img.social-icon {
   margin-right: 10px;
   margin-top: 10px;

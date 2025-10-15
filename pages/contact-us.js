@@ -461,19 +461,19 @@ export default function Contact() {
             <div className="col-8">
               <h3 className="office-heading">🇮🇳 India</h3>
               <h4 className="office-addr">
-                <img
+                {/* <img
                   src="/images/marker-icon.png"
                   className="marker-icon"
                   alt="Location marker icon"
-                />
-                <Link
+                /> */}
+                {/* <Link
                   href="https://maps.google.com/?q=Trimsel+Softwares,+Guindy,+Chennai+600032"
                   target="_blank" 
                   rel="noopener noreferrer nofollow"
                   aria-label="Open Trimsel location on Google Maps"
                 >
                   Guindy, Chennai
-                </Link>
+                </Link> */}
               </h4>
             </div>
           </div>
@@ -483,9 +483,10 @@ export default function Contact() {
         <h3 className="office-name pt-3">Trimsel Softwares</h3>
         <p className="office-para">
           <Link
-            href="https://www.google.com/maps/place/Trimsel/@13.0125615,80.1988776,904m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3a52679044415e91:0xf6d63600f08408c6!8m2!3d13.0125615!4d80.2014525"
+            href="https://maps.google.com/?q=Trimsel+Softwares,+Guindy,+Chennai+600032"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Open Trimsel location on Google Maps"
           >
             21B 5th Cross St, South Phase, Thiru VI KA Industrial Estate, Guindy,
             Chennai, Tamil Nadu 600032
