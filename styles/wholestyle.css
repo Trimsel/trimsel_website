@@ -3190,6 +3190,12 @@ img.cloud-hero-image {
   width: -webkit-fill-available;
   height: auto;
 }
+.cloud-hero-art {
+  margin-top: 0;
+  width: min(100%, 480px);
+  height: auto;
+  filter: drop-shadow(0 18px 36px rgba(12, 24, 46, 0.25));
+}
 .cloud-hero {
   background: url(/images/cloudbg.png) no-repeat;
   background-size: cover;

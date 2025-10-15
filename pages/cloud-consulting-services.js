@@ -1,5 +1,4 @@
 import { NextSeo } from "next-seo";
-import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "react-bootstrap/Button";
@@ -8,15 +7,24 @@ import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
 import Row from "react-bootstrap/Row";
 import Tab from "react-bootstrap/Tab";
-import CarouselComponent from "../components/carouselComponent";
-import ClientLogo from "../components/clientLogo";
+import Stack from "react-bootstrap/Stack";
+import Accordion from "react-bootstrap/Accordion";
+import dynamic from "next/dynamic";
 import Header from "../components/header";
 import Footer from "../components/footer";
-import Stack from "react-bootstrap/Stack";
-import { CgCheckO } from "@react-icons/all-files/cg/CgCheckO";
-import ContactForm from "../components/ContactForm";
-import Accordion from 'react-bootstrap/Accordion';
 import { buildServiceJsonLd } from "../lib/serviceSchema";
+import ArrowRightIcon from "../components/icons/ArrowRightIcon";
+import CheckIcon from "../components/icons/CheckIcon";
+
+const ContactForm = dynamic(() => import("../components/ContactForm"), { ssr: false });
+const CarouselComponent = dynamic(() => import("../components/carouselComponent"), {
+  ssr: false,
+  loading: () => <div className="text-center text-muted py-5">Loading success stories…</div>,
+});
+const ClientLogo = dynamic(() => import("../components/clientLogo"), {
+  ssr: false,
+  loading: () => <div className="text-center text-muted py-5">Loading client logos…</div>,
+});
 
 export default function CloudConsulting() {
   const serviceJsonLd = buildServiceJsonLd({
@@ -107,7 +115,7 @@ export default function CloudConsulting() {
     locale: 'en_IN',
     site_name: 'Trimsel',
     images: [
-      { url: 'https://www.trimsel.com/images/cloud-hero.png', width: 1200, height: 630, alt: 'Trimsel cloud consultants collaborating in Chennai' }
+      { url: 'https://www.trimsel.com/images/clouded-hero.png', width: 1200, height: 630, alt: 'Trimsel cloud consultants collaborating in Chennai' }
     ],
     article: {
       section: 'Cloud Consulting',
@@ -147,7 +155,7 @@ export default function CloudConsulting() {
         <Header />
         <section className="hero-dev">
   <div className="container pt-3">
-    <div className="row">
+    <div className="row align-items-center">
       <div className="col-lg-6 col-md-6">
         <div className="title">
           <div className="title-inner">
@@ -177,19 +185,27 @@ export default function CloudConsulting() {
             <Link href="/contact-us" passHref>
               <div className="mozarts-inner">
                 <button className="btn btn-primary dev-btn">
-                  Contact Our Cloud Experts{" "}
-                  <Image
-                    src="/images/material-symbols_arrow-right-alt.png"
-                    alt="arrow-icon"
-                    width={20}
-                    height={20}
-                  />
+                  Contact Our Cloud Experts <ArrowRightIcon width={18} height={18} />
                 </button>
               </div>
               </Link>
             </div>
           </div>
         </div>
+      </div>
+      <div className="col-lg-6 col-md-6 mt-4 mt-lg-0 text-center">
+        <Image
+          src="/images/clouded-hero.png"
+          width={620}
+          height={480}
+          alt="Trimsel cloud consultants creating architecture diagrams"
+          className="cloud-hero-art"
+          priority
+          quality={70}
+          placeholder="blur"
+          blurDataURL="data:image/gif;base64,R0lGODlhAQABAAAAACw="
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 55vw, 520px"
+        />
       </div>
     </div>
   </div>
@@ -198,8 +214,8 @@ export default function CloudConsulting() {
 <section id="cloud-about">
   <div className="container cloud-abt-container">
     <Stack direction="horizontal" className="pb-4">
-      <div className="badge-abot-btn">
-        <Image src="/images/Rectangle-kariot.png" className="me-2" alt="design-dot" width={20} height={20} />
+              <div className="badge-abot-btn">
+                <Image src="/images/Rectangle-kariot.png" className="me-2" alt="design-dot" width={20} height={20} loading="lazy" />
         <p> WHAT WE DO </p>
       </div>
     </Stack>
@@ -214,7 +230,7 @@ export default function CloudConsulting() {
       <div className="col-lg-4 col-md-6 pt-3">
         <Card className="hm-customize-card h-100">
           <Card.Body>
-            <Image src="/images/cloud-mig.png" width={80} height={80} className="do-icon pb-3" alt="Cloud Migration icon" />
+            <Image src="/images/cloud-mig.png" width={80} height={80} className="do-icon pb-3" alt="Cloud Migration icon" quality={70} loading="lazy" />
             <h3 className="qs-card-heading">Cloud Migration Services & Adoption Consulting</h3>
             <p className="qsd-para">
             Transition seamlessly to the cloud with our cloud migration services. Our AWS cloud experts, Azure consultants, and GCP specialists design the best-fit cloud adoption strategy, ensuring minimal disruption, optimized performance, and cost efficiency. Whether you're migrating from on-premise to the cloud or between cloud providers, we provide a secure, scalable, and cost-effective migration plan.
@@ -226,7 +242,7 @@ export default function CloudConsulting() {
       <div className="col-lg-4 col-md-6 pt-3">
         <Card className="hm-customize-card h-100">
           <Card.Body>
-            <Image src="/images/cloud-optim.png" width={80} height={80} className="do-icon pb-3" alt="Cloud Optimization icon" />
+            <Image src="/images/cloud-optim.png" width={80} height={80} className="do-icon pb-3" alt="Cloud Optimization icon" quality={70} loading="lazy" />
             <h3 className="qs-card-heading">Cloud Cost Optimization & Performance Tuning</h3>
             <p className="qsd-para">
             Cloud cost optimization services can help you get the most out of your cloud investments. We analyse your cloud usage, eliminate excessive expenditure, and adopt best practices to save cloud expenses while improving performance. Whether you use AWS, Azure, or GCP, our cloud specialists guarantee that resources are allocated efficiently, auto-scaling is enabled, and budgets are controlled.
@@ -238,7 +254,7 @@ export default function CloudConsulting() {
       <div className="col-lg-4 col-md-6 pt-3">
         <Card className="hm-customize-card h-100">
           <Card.Body>
-            <Image src="/images/cloud-infra.png" width={80} height={80} className="do-icon pb-3" alt="Cloud Infrastructure icon" />
+            <Image src="/images/cloud-infra.png" width={80} height={80} className="do-icon pb-3" alt="Cloud Infrastructure icon" quality={70} loading="lazy" />
             <h3 className="qs-card-heading">Cloud Engineering & Infrastructure Management Services</h3>
             <p className="qsd-para">
               Ensure a resilient, high-performing cloud infrastructure with our cloud engineering services. Our multi-cloud experts handle everything from serverless architecture to Kubernetes deployments and cloud automation. If you're building a SaaS or large-scale web solution, our <Link href="/web-development-company-chennai">web development expertise</Link> ensures seamless performance and cloud integration.
@@ -250,7 +266,7 @@ export default function CloudConsulting() {
       <div className="col-lg-4 col-md-6 pt-3">
         <Card className="hm-customize-card h-100">
           <Card.Body>
-            <Image src="/images/cloud-app.png" width={80} height={80} className="do-icon pb-3" alt="Cloud Application Development Icon" />
+            <Image src="/images/cloud-app.png" width={80} height={80} className="do-icon pb-3" alt="Cloud Application Development Icon" quality={70} loading="lazy" />
             <h3 className="qs-card-heading">
               Cloud-Native <Link href="/mobile-app-development-chennai">App Development</Link> & Modernization
             </h3>
@@ -264,7 +280,7 @@ export default function CloudConsulting() {
       <div className="col-lg-4 col-md-6 pt-3">
         <Card className="hm-customize-card h-100">
           <Card.Body>
-            <Image src="/images/cloud-arch.png" width={80} height={80} className="do-icon pb-3" alt="Cloud Architecture icon" />
+            <Image src="/images/cloud-arch.png" width={80} height={80} className="do-icon pb-3" alt="Cloud Architecture icon" quality={70} loading="lazy" />
             <h3 className="qs-card-heading">
               Cloud Architecture Design & Automation
             </h3>
@@ -278,7 +294,7 @@ export default function CloudConsulting() {
       <div className="col-lg-4 col-md-6 pt-3">
         <Card className="hm-customize-card h-100">
           <Card.Body>
-            <Image src="/images/cloud-roi.png" width={74} height={72} className="do-icon pb-3" alt="Cloud Security icon" />
+            <Image src="/images/cloud-roi.png" width={74} height={72} className="do-icon pb-3" alt="Cloud Security icon" quality={70} loading="lazy" />
             <h3 className="asd-card-heading"> Cloud Security & Compliance Consulting </h3>
             <p className="qsd-para">
             Safeguard your cloud infrastructure with enterprise-grade cloud security solutions. Our AWS security experts, Azure consultants, and GCP specialists  help businesses implement zero-trust security models, IAM, encryption strategies, and compliance frameworks like ISO 27001, HIPAA, and GDPR. We ensure continuous monitoring, threat detection, and vulnerability management to secure cloud environments from cyber threats.
@@ -312,7 +328,7 @@ export default function CloudConsulting() {
 
     <div className="new-cloud-row">
       <h3 className="new-cloud-text">
-        <CgCheckO className="check-svg" /> Private Cloud Consulting
+        <CheckIcon className="check-svg" width={18} height={18} /> Private Cloud Consulting
       </h3>
       <p className="new-cloud-para">
         &bull; <strong>Best for:</strong> Enterprises requiring high security, governance, and compliance.<br />
@@ -326,7 +342,7 @@ export default function CloudConsulting() {
       <div className="row">
         <div className="col-lg-6 col-md-6 pb-4">
           <h3 className="new-cloud-text">
-            <CgCheckO className="check-svg" /> Public Cloud Consulting
+            <CheckIcon className="check-svg" width={18} height={18} /> Public Cloud Consulting
           </h3>
           <p className="new-clouds-para">
             &bull; <strong>Best for:</strong> Businesses seeking flexible and scalable cloud infrastructure.<br />
@@ -340,7 +356,7 @@ export default function CloudConsulting() {
 
         <div className="col-lg-6 col-md-6 pb-4">
           <h3 className="new-cloud-text">
-            <CgCheckO className="check-svg" /> Multi-Cloud Consulting
+            <CheckIcon className="check-svg" width={18} height={18} /> Multi-Cloud Consulting
           </h3>
           <p className="new-clouds-para">
             &bull; <strong>Best for:</strong> Enterprises aiming for flexibility and vendor independence.<br />
@@ -354,7 +370,7 @@ export default function CloudConsulting() {
 
         <div className="col-lg-6 col-md-6 pb-4">
           <h3 className="new-cloud-text">
-            <CgCheckO className="check-svg" /> Hybrid Cloud Consulting
+            <CheckIcon className="check-svg" width={18} height={18} /> Hybrid Cloud Consulting
           </h3>
           <p className="new-clouds-para">
             &bull; <strong>Best for:</strong> Businesses balancing private and public cloud usage.<br />
@@ -368,7 +384,7 @@ export default function CloudConsulting() {
 
         <div className="col-lg-6 col-md-6 pb-4">
           <h3 className="new-cloud-text">
-            <CgCheckO className="check-svg" /> Distributed Cloud Consulting
+            <CheckIcon className="check-svg" width={18} height={18} /> Distributed Cloud Consulting
           </h3>
           <p className="new-clouds-para">
             &bull; <strong>Best for:</strong> Businesses requiring edge computing and real-time processing.<br />
@@ -517,13 +533,9 @@ export default function CloudConsulting() {
               </Card>
             </div>
           </div>
-          <Link href="/contact-us" passHref>
+      <Link href="/contact-us" passHref>
           <button className="btn btn-primary dev-btn">
-          Talk to Our Cloud Experts Today{" "}
-            <img
-              src="/images/material-symbols_arrow-right-alt.png"
-              alt="arrow-icon"
-            />
+          Talk to Our Cloud Experts Today <ArrowRightIcon width={18} height={18} />
           </button>
           </Link>
         </div>
@@ -668,10 +680,13 @@ export default function CloudConsulting() {
           <div className="col-lg-7 col-md-12 col-12">
             <Stack direction="horizontal" className="pb-4">
               <div className="badge-abot-btn">
-                <img
+                <Image
                   src="/images/Rectangle-kariot.png"
                   className="me-2"
                   alt="design-dot"
+                  width={18}
+                  height={18}
+                  loading="lazy"
                 />
                 <p> LET'S TALK CLOUD </p>
               </div>
@@ -684,11 +699,7 @@ export default function CloudConsulting() {
             </p>
             <Link href="/contact-us" passHref>
             <button className="btn btn-primary dev-btn mt-3">
-              Contact Us{" "}
-              <img
-                src="/images/material-symbols_arrow-right-alt.png"
-                alt="arrow-icon"
-              />
+              Contact Us <ArrowRightIcon width={18} height={18} />
             </button>
             </Link>
           </div>
@@ -941,10 +952,13 @@ export default function CloudConsulting() {
           <div className="row py-3">
             <Stack direction="horizontal">
               <div className=" badge-abot-btn">
-                <img
+                <Image
                   src="/images/Rectangle-kariot.png"
                   className="me-2"
                   alt="design-dot"
+                  width={18}
+                  height={18}
+                  loading="lazy"
                 />
                 <p>
                   {" "}
