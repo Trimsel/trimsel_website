@@ -1,52 +1,18 @@
 import { NextSeo } from "next-seo";
-import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import Stack from "react-bootstrap/Stack";
 import ContactForm from "../components/ContactForm";
-import { useState } from "react";
 import Card from "react-bootstrap/Card";
 import dynamic from "next/dynamic";
-import { useForm } from "react-hook-form";
-import { postJson } from "../lib/api";
 
 
 const ClientLogo = dynamic(() => import("../components/clientLogo"), { ssr: false });
 
 
 export default function About() {
-  const [counterOn, setCounterOn] = useState(false);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-    setValue,
-  } = useForm();
-  const [selectedOption, setSelectedOption] = useState(0);
-
-  const handleOptionChange = (event) => {
-    setSelectedOption(event.target.value);
-    setValue("selectOption", event.target.value);
-  };
-
-  async function onSubmitForm(values) {
-    try {
-      await postJson("/api/contact", values);
-      console.log("Contact request sent");
-    } catch (error) {
-      console.error("Contact request failed", error);
-    }
-  }
-
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
   return (
     <>
 {/* ✅ Next-SEO for Optimized Metadata */}

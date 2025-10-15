@@ -97,7 +97,7 @@ const Headers = () => {
                         scrollPosition > 50 ? "blackLink" : "whiteLink"
                       } nav-link`}
                     >
-                      COMPANY
+                      ABOUT US
                     </Link>
                   </li>
                   <li className="nav-item dropdown dropdown-mega position-static px-3">
@@ -344,7 +344,7 @@ const Headers = () => {
                         scrollPosition > 50 ? "blackLink" : "whiteLink"
                       } nav-link`}
                     >
-                      PORTFOLIO
+                      OUR WORK
                     </Link>
                   </li>
                   <li className="nav-item ps-3">

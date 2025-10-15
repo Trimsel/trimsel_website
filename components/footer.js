@@ -91,14 +91,14 @@ function Footer() {
         </nav>
       </div>
 
-      {/* Company */}
+      {/* About Trimsel */}
       <div className="col-lg-3 col-md-6 footer-side mb-4">
-        <h5 className="footer-heading">Company</h5>
-        <nav aria-label="Company">
+        <h5 className="footer-heading">About Us</h5>
+        <nav aria-label="About Trimsel">
           <ul className="footer-menu list-unstyled mb-0">
             <li className="pt-3 footer-p-link"><Link href="/aboutus" className="footer-link">About Us</Link></li>
             <li className="footer-p-link"><Link href="/contact-us" className="footer-link">Contact Us</Link></li>
-            <li className="footer-p-link"><Link href="/portfolio" className="footer-link">Portfolio</Link></li>
+            <li className="footer-p-link"><Link href="/portfolio" className="footer-link">Our Work</Link></li>
             <li className="footer-p-link"><Link href="/blog" className="footer-link">Blog</Link></li>
           </ul>
         </nav>

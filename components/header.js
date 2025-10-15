@@ -87,7 +87,7 @@ function Header({ page }) {
                   </li>
                   <li className="nav-item px-3">
                     <Link href="/aboutus" className="nav-link">
-                      COMPANY
+                      ABOUT US
                     </Link>
                   </li>
                   <li className="nav-item dropdown dropdown-mega position-static px-3">
@@ -297,7 +297,7 @@ function Header({ page }) {
                   </li>
                   <li className="nav-item ps-3">
                     <Link href="/portfolio" className="nav-link">
-                      PORTFOLIO
+                      OUR WORK
                     </Link>
                   </li>
                   <li className="nav-item ps-3">
