@@ -20,13 +20,11 @@ export default function ContactForm({
     handleSubmit,
     formState: { errors },
     reset,
-    setValue,
   } = useForm();
   
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [message, setMessage] = useState("");
   const [phone, setPhone] = useState("");
-  const [selectedOption, setSelectedOption] = useState("");
   const [recaptchaToken, setRecaptchaToken] = useState("");
   const [showThankYou, setShowThankYou] = useState(false);
 
@@ -43,19 +41,8 @@ export default function ContactForm({
     setRecaptchaToken(token);
   };
 
-  const handleOptionChange = (event) => {
-    const val = event.target.value;
-    setSelectedOption(val);
-    // tie radios to a single “service” field for RHF validation
-    setValue("service", val, { shouldValidate: true });
-  };
-
   async function onSubmitForm(values) {
     // simple client checks
-    if (!values.service) {
-      setMessage("Please choose what you’re interested in.");
-      return;
-    }
     if (!phone) {
       setMessage("Please enter your mobile number (include country code).");
       return;
@@ -68,7 +55,6 @@ export default function ContactForm({
     const payload = {
       ...values,
       phone,
-      service: values.service,
       recaptchaToken,
     };
 
@@ -81,8 +67,6 @@ export default function ContactForm({
       handleThankYouShow();
       reset();
       setPhone("");
-      setSelectedOption("");
-      setValue("service", "");
       setRecaptchaToken("");
     } catch (error) {
       setMessage("Failed to send your message. Please try again.");

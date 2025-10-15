@@ -19,9 +19,8 @@ const ReCAPTCHA = dynamic(() => import("react-google-recaptcha"), { ssr: false }
 
 export default function Contact() {
 
-    const {register, handleSubmit, formState : {errors}, reset, setValue} = useForm();
+    const {register, handleSubmit, formState : {errors}, reset} = useForm();
     const [isSubmitted, setIsSubmitted] = useState(false);
-    const [selectedOption, setSelectedOption] = useState(0);
     const [phone, setPhone] = useState("");
     const [message, setMessage] = useState("");
     const [recaptchaToken, setRecaptchaToken] = useState("");
@@ -36,11 +35,6 @@ export default function Contact() {
 
     const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
-    const handleOptionChange = (event) => {
-        setSelectedOption(event.target.value);
-        setValue('selectOption', event.target.value);
-    };
-
     const handleCaptchaChange = (token) => {
       setRecaptchaToken(token);
     };
@@ -54,15 +48,18 @@ export default function Contact() {
       const payload = {
         ...values,
         phone,
-        service: selectedOption,
         recaptchaToken,
       };
+
+      setMessage("");
     
       try {
         await postJson("/api/contact", payload);
         setIsSubmitted(true);
         handleThankYouShow();
         reset();
+        setPhone("");
+        setRecaptchaToken("");
       } catch (error) {
         setMessage("Failed to send your message. Please try again.");
       }
@@ -203,93 +200,6 @@ export default function Contact() {
                     <div className='col-lg-8 col-md-8'>
                         <form id='home-form' onSubmit={handleSubmit(onSubmitForm)}>
                         {message && <p className="form-message">{message}</p>}
-                        <p className='mt-5 form-lbl-para'> I'm intrested in :</p>
-                        <div className='options'>
-                        <input 
-                        {...register('product')}
-                        type = "radio"
-                        name = "selectOption"
-                        value= "Product Development"
-                        id   = "product"
-                        checked={selectedOption === 'Product Development'}
-                        onChange={handleOptionChange}
-                        className='form-control'
-                        placeholder='product'
-                        />
-                        <label htmlFor='product' className='radio-style mt-3' >Product Development</label>
-
-                        <input 
-                        {...register('mobile-app')}
-                        type = "radio"
-                        name = "selectOption"
-                        value= "Mobile App Development"
-                        id   = "mobile-app"
-                        checked={selectedOption === 'Mobile App Development'}
-                        onChange={handleOptionChange}
-                        />
-                        <label htmlFor='mobile-app' className='radio-style mt-3' >Mobile App Development</label>
-
-                        <input 
-                        {...register('cloud-devops')}
-                        type = "radio"
-                        name = "selectOption"
-                        value= "Cloud and DevOps"
-                        id   = "cloud-devops"
-                        checked={selectedOption === 'Cloud and DevOps'}
-                        onChange={handleOptionChange}
-                        />
-                        <label htmlFor='cloud-devops' className='radio-style mt-3' >Cloud & DevOps</label>
-                        <input 
-                        {...register('website-development')}
-                        type = "radio"
-                        name = "selectOption"
-                        value= "Website Development"
-                        id   = "website-development"
-                        checked={selectedOption === 'Website Development'}
-                        onChange={handleOptionChange}
-                        />
-                        <label htmlFor='website-development' className='mt-3 radio-style' >Website Development</label>
-                        <input 
-                        {...register('digital-marketing')}
-                        type = "radio"
-                        name = "selectOption"
-                        value= "Digital Marketing"
-                        id   = "digital-marketing"
-                        checked={selectedOption === 'Digital Marketing'}
-                        onChange={handleOptionChange}
-                        />
-                        <label htmlFor='digital-marketing' className='mt-3 radio-style' >Digital Marketing</label>
-                        {/* <input 
-                        {...register('blockchain-development')}
-                        type = "radio"
-                        name = "selectOption"
-                        value= "Blockchain Development"
-                        id   = "blockchain-development"
-                        checked={selectedOption === 'Blockchain Development'}
-                        onChange={handleOptionChange}
-                        />
-                        <label htmlFor='blockchain-development' className='mt-3 radio-style' >Block Chain Development</label> */}
-                        {/* <input 
-                        {...register('quality-testing')}
-                        type = "radio"
-                        name = "selectOption"
-                        value= "Quality Engineering and Technology"
-                        id   = "quality-testing"
-                        checked={selectedOption === 'Quality Engineering and Technology'}
-                        onChange={handleOptionChange}
-                        />
-                        <label htmlFor='quality-testing' className='mt-3 radio-style' >Quality Engineering & Technology</label> */}
-                        <input 
-                        {...register('other')}
-                        type = "radio"
-                        name = "selectOption"
-                        value= "Other"
-                        id   = "other"
-                        checked={selectedOption === 'Other'}
-                        onChange={handleOptionChange}
-                        />
-                        <label htmlFor='other' className='mt-3 radio-style' >Other</label>   
-                    </div>
                     <div className='row py-3'>
                     <div className='col-lg-6 py-3'>
                       <div className='md-form ps-3'>
