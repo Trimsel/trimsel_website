@@ -41,13 +41,19 @@ const montserrat = Montserrat({
 });
 
 // Site-wide SEO defaults
-import { DefaultSeo, OrganizationJsonLd, LogoJsonLd, SiteLinksSearchBoxJsonLd } from "next-seo";
+import { DefaultSeo, OrganizationJsonLd, LogoJsonLd } from "next-seo";
 
 gsap.registerPlugin(ScrollTrigger);
 config.autoAddCss = false;
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
+  const baseUrl = "https://www.trimsel.com";
+  const cleanPath = router.asPath.split("?")[0].split("#")[0];
+  const canonicalUrl =
+    cleanPath && cleanPath !== "/"
+      ? `${baseUrl}${cleanPath.startsWith("/") ? cleanPath : `/${cleanPath}`}`
+      : `${baseUrl}/`;
 
   // Load Bootstrap JS once on client; clean up backdrops on route change
   useEffect(() => {
@@ -89,10 +95,12 @@ export default function App({ Component, pageProps }) {
       <DefaultSeo
         defaultTitle="Trimsel – Software, Cloud & AI Services"
         titleTemplate="%s | Trimsel"
+        description="Trimsel is an AI-powered software development company in Chennai delivering custom mobile apps, cloud solutions, DevOps, AI, and digital marketing."
+        canonical={canonicalUrl}
         openGraph={{
           type: "website",
           site_name: "Trimsel",
-          url: "https://www.trimsel.com/",
+          url: canonicalUrl,
           locale: "en_IN",
           images: [
             {
@@ -147,17 +155,6 @@ export default function App({ Component, pageProps }) {
         ]}
       />
       <LogoJsonLd logo="https://www.trimsel.com/images/logo.png" url="https://www.trimsel.com/" />
-      <SiteLinksSearchBoxJsonLd
-        id="https://www.trimsel.com/#website"
-        url="https://www.trimsel.com/"
-        potentialActions={[
-          {
-            target: "https://www.trimsel.com/search?q={search_term_string}",
-            queryInput: "required name=search_term_string",
-          },
-        ]}
-      />
-
       {/* GA: load afterInteractive */}
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-8PHY8FQ1CW"
