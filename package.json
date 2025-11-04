@@ -9,6 +9,10 @@
     "lint": "next lint",
     "cms": "npx decap-server"
   },
+  "engines": {
+    "node": ">=18.17.0",
+    "npm": ">=9.0.0"
+  },
   "dependencies": {
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@mdx-js/react": "^3.1.1",
