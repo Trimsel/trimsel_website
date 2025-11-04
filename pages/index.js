@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Card from "react-bootstrap/Card";
 import dynamic from 'next/dynamic';
-import { NextSeo } from 'next-seo';
+import { NextSeo, FAQPageJsonLd } from 'next-seo';
 import HomeSlider from "../components/homeSlider";
 import Footer from "../components/footer";
 import Image from "next/image";
@@ -48,14 +48,13 @@ export default function Home() {
        {/* ✅ Next-SEO for SEO Optimization */}
        <NextSeo
   title="AI-Powered Software Development Company in Chennai | Trimsel"
-  description="Trimsel is a leading AI-powered software development company in Chennai, India. We build intelligent mobile apps, scalable web solutions, AI/ML applications, cloud consulting, DevOps automation, and performance-driven digital marketing strategies for global businesses."
+  description="We build intelligent mobile apps, scalable web solutions, AI and ML apps, cloud consulting, DevOps automation, and ROI-focused digital marketing for global brands"
   canonical="https://www.trimsel.com/"
   openGraph={{
     type: "website",
     url: "https://www.trimsel.com/",
     title: "AI-Powered Software Development Company in Chennai | Trimsel",
-    description:
-      "Trimsel is a leading AI-powered software development company in Chennai, India. We build intelligent mobile apps, scalable web solutions, AI/ML applications, cloud consulting, DevOps automation, and performance-driven digital marketing strategies for global businesses.",
+    description: "We build intelligent mobile apps, scalable web solutions, AI abd ML apps, cloud consulting, DevOps automation, and ROI-focused digital marketing for global brands",
     images: [{ url: "https://www.trimsel.com/images/home-hero-banner.webp", width: 1200, height: 630, alt: "Trimsel" }],
     site_name: "Trimsel",
   }}
@@ -69,7 +68,6 @@ export default function Home() {
       {/* ✅ Keep only necessary elements in <Head> */}
       <main>
         <HomeSlider />
-        <h1 className="visually-hidden">AI-Powered Software Development Company in Chennai | Trimsel</h1>
         {/* ✅ Client Section */}
 <section id="client" className="client-section">
   <div className="container mt-5 clt-container">
@@ -80,7 +78,8 @@ export default function Home() {
           className="me-2"
           width={15}
           height={15}
-          alt="Trimsel Section Divider"
+          alt=""
+          aria-hidden="true"
           loading="lazy"
         />
         <p> OUR CLIENTS </p>
@@ -110,7 +109,7 @@ export default function Home() {
           <div className="container nw-abt-container">
           <div className="d-flex align-items-center">
               <div className=" badge-abot-btn">
-                <Image src={"/images/Rectangle-kariot.png"} className="me-2" width={15} height={15} alt="design-dot" loading="lazy"/>
+                <Image src={"/images/Rectangle-kariot.png"} className="me-2" width={15} height={15} alt="" aria-hidden="true" loading="lazy"/>
                 <p> WHO WE ARE </p>
               </div>
             </div>
@@ -146,11 +145,9 @@ export default function Home() {
                     </div>
                   </h4>
                 </div>
-                <Link href="/aboutus" passHref>
-                  <button className="abt-btn">
-                    Explore More
-                    <ArrowRightIcon />
-                  </button>
+                <Link href="/aboutus" className="abt-btn" aria-label="Learn more about Trimsel">
+                  Explore More
+                  <ArrowRightIcon />
                 </Link>
               </div>
               <div className="col-lg-4 col-md-6 mbvl">
@@ -176,7 +173,8 @@ export default function Home() {
                   className="me-2"
                   width={15}
                   height={15}
-                  alt="design-dot"
+                  alt=""
+                  aria-hidden="true"
                   loading="lazy"
                 />
                 <p> GET IN TOUCH </p>
@@ -192,11 +190,9 @@ export default function Home() {
             <Link href="/mobile-app-development-chennai">mobile app development company in Chennai</Link> — 
             for end-to-end digital transformation, AI application development, and cloud-first strategies.
             </p>
-            <Link href="/contact-us" passHref>
-              <button type="button" className="about-btn mt-3">
-                Book a Strategy Call
-                <ArrowRightIcon />
-              </button>
+            <Link href="/contact-us" className="about-btn mt-3" aria-label="Book a strategy call with Trimsel">
+              Book a Strategy Call
+              <ArrowRightIcon />
             </Link>
           </div>
 
@@ -226,7 +222,7 @@ export default function Home() {
   <div className="container service-container">
   <div className="d-flex align-items-center">
       <div className="badge-abot-btn">
-        <Image src="/images/Rectangle-kariot.png" className="me-2" width={15} height={15} alt="design-dot" loading="lazy" />
+        <Image src="/images/Rectangle-kariot.png" className="me-2" width={15} height={15} alt="" aria-hidden="true" loading="lazy" />
         <p> WHAT WE DO </p>
       </div>
     </div>
@@ -341,7 +337,7 @@ export default function Home() {
           <div className="container new-ds">
           <div className="d-flex align-items-center">
               <div className=" badge-abot-btn">
-                <Image src={"/images/Rectangle-kariot.png"} className="me-2" width={15} height={15} alt="design-dot" loading="lazy"/>
+                <Image src={"/images/Rectangle-kariot.png"} className="me-2" width={15} height={15} alt="" aria-hidden="true" loading="lazy"/>
                 <p> CASE STUDIES </p>
               </div>
             </div>
@@ -357,11 +353,9 @@ export default function Home() {
         </p>
               </div>
               <div className="col-lg-3 col-md-3">
-                <Link href="/portfolio" passHref>
-                  <button className="about-btn">
-                    View All Cases
-                    <ArrowRightIcon />
-                  </button>
+                <Link href="/portfolio" className="about-btn" aria-label="View all Trimsel case studies">
+                  View All Cases
+                  <ArrowRightIcon />
                 </Link>
               </div>
             </div>
@@ -373,7 +367,7 @@ export default function Home() {
   <div className="container mnt-container">
   <div className="d-flex align-items-center">
       <div className="badge-abot-btn">
-        <Image src="/images/Rectangle-kariot.png" className="me-2" width={15} height={15} alt="design-dot" loading="lazy" />
+        <Image src="/images/Rectangle-kariot.png" className="me-2" width={15} height={15} alt="" aria-hidden="true" loading="lazy" />
         <p> WHY TRIMSEL </p>
       </div>
     </div>
@@ -507,6 +501,41 @@ export default function Home() {
     </Accordion>
   </div>
 </section>
+
+        <FAQPageJsonLd
+          mainEntity={[
+            {
+              questionName: "What services does Trimsel provide?",
+              acceptedAnswerText:
+                "Trimsel offers custom software development, mobile app development in Chennai, web design, cloud consulting, DevOps automation, digital marketing, and quality engineering services tailored to support efficient digital transformation.",
+            },
+            {
+              questionName: "What industries does Trimsel serve?",
+              acceptedAnswerText:
+                "We collaborate with Fintech, Healthcare, E-commerce, SaaS, Logistics, and Startup businesses, adapting our digital transformation services to industry-specific needs such as compliance, scalability, and automation.",
+            },
+            {
+              questionName: "How much does custom application development cost?",
+              acceptedAnswerText:
+                "Project cost depends on scope, tech stack, timeline, and required features. Trimsel provides flexible engagement models for startups, SMEs, and enterprises along with tailored consultations.",
+            },
+            {
+              questionName: "Do you offer DevOps and CI/CD automation?",
+              acceptedAnswerText:
+                "Yes. Trimsel’s DevOps consulting covers CI/CD pipeline setup, Kubernetes deployments, infrastructure automation with Terraform, and cloud-native implementations across AWS, Azure, and Google Cloud.",
+            },
+            {
+              questionName: "Can I hire a dedicated development team from Trimsel?",
+              acceptedAnswerText:
+                "You can hire dedicated developers, UI/UX designers, cloud engineers, or DevOps specialists on full-time or project-based engagements to extend your in-house capabilities without overhead.",
+            },
+            {
+              questionName: "What makes Trimsel different from other IT service providers?",
+              acceptedAnswerText:
+                "Trimsel combines a client-first mindset with cross-functional expertise, delivering secure, scalable, and innovation-driven digital solutions that generate measurable business impact.",
+            },
+          ]}
+        />
 
         <Footer />
       </main>

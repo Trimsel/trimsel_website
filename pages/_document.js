@@ -21,13 +21,6 @@ export default function Document() {
         {/* Theme color for address bar (optional) */}
         <meta name="theme-color" content="#0b0f19" />
 
-        <link
-          rel="preload"
-          as="image"
-          href="/images/digital-homepage.webp"
-          imageSrcSet="/images/digital-homepage.webp 480w, /images/digital-homepage.webp 768w, /images/digital-homepage.webp 1200w"
-          imageSizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 480px"
-        />
       </Head>
       <body>
         <Main />
