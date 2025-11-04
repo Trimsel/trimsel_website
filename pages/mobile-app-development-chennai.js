@@ -130,7 +130,7 @@ export default function mobileApp() {
   description="Trimsel is a top mobile app development company in Chennai, India. We build secure, scalable iOS, Android, Flutter & hybrid apps tailored to your business."
   canonical="https://www.trimsel.com/mobile-app-development-chennai"
   openGraph={{
-    type: "article",
+    type: "website",
     url: "https://www.trimsel.com/mobile-app-development-chennai",
     title: "Top Mobile App Development Company in Chennai, India | Trimsel",
     description:
@@ -145,38 +145,12 @@ export default function mobileApp() {
         alt: "Trimsel team delivering mobile app solutions in Chennai",
       },
     ],
-    article: {
-      section: "Mobile App Development",
-      tags: [
-        "Mobile App Development",
-        "iOS Development",
-        "Android Development",
-        "Flutter Development",
-        "Chennai",
-      ],
-    },
   }}
   twitter={{
     cardType: "summary_large_image",
     handle: "@TrimselSoftwares",
     site: "@TrimselSoftwares",
   }}
-  additionalMetaTags={[
-    { name: "robots", content: "index, follow" },
-    {
-      name: "twitter:title",
-      content: "Mobile App Development Experts in Chennai | Trimsel",
-    },
-    {
-      name: "twitter:description",
-      content:
-        "Build secure, scalable iOS, Android, and cross-platform apps with Trimsel’s Chennai-based mobile app development team.",
-    },
-    {
-      name: "twitter:image:alt",
-      content: "Trimsel mobile app development team collaborating in Chennai",
-    },
-  ]}
   additionalJsonLd={serviceJsonLd}
 />
       <main>
@@ -214,11 +188,13 @@ export default function mobileApp() {
                     </div>
                     <div className="mozart">
                       <div className="mozart-inner">
-                    <Link href="/contact-us" passHref>
-                      <button className="btn btn-primary get-btn">
-                      Get a Consultation <ArrowRightIcon width={24} height={24} />
-                      </button>
-                    </Link>
+                        <Link
+                          href="/contact-us"
+                          className="btn btn-primary get-btn"
+                          aria-label="Book a mobile app consultation with Trimsel"
+                        >
+                          Get a Consultation <ArrowRightIcon width={24} height={24} />
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -251,7 +227,7 @@ export default function mobileApp() {
   src="/images/Rectangle-kariot.png"
   width={18}
   height={18}
-  alt="design dot"
+  alt=""
   loading="lazy"
   aria-hidden="true"
   className="me-2"
@@ -283,7 +259,7 @@ export default function mobileApp() {
   src="/images/Rectangle-kariot.png"
   width={18}
   height={18}
-  alt="design dot"
+  alt=""
   loading="lazy"
   aria-hidden="true"
   className="me-2"
@@ -298,20 +274,43 @@ export default function mobileApp() {
               </div>
             </div>
             <p>
-            In today’s digital-first world, mobile apps do more than support your business. At Trimsel, we believe a successful app should solve real-world challenges, create user delight, and deliver long-term value. It’s not just about building software, it's about building the future.
+              In today’s digital-first world, mobile apps do more than support your business.
+              At Trimsel, we believe a successful app should solve real-world challenges, create
+              user delight, and deliver long-term value. It’s not just about building software—it’s
+              about building the future.
             </p>
             <p>
-              <br></br>
-              Our team blends technical expertise with creativity to build future-ready digital solutions that drive business growth. As a top mobile app development company in Chennai, we specialize in developing custom Android, iOS, and cross-platform applications that are scalable, secure, and high-performing.We also handle backend, CI/CD and releases via our{" "}
-  <Link href="/devops-consulting-services">DevOps services</Link> and{" "}
-  <Link href="/cloud-consulting-services">Cloud consulting</Link>.<br></br><br></br>
-
-            Why Do Businesses Choose Trimsel for Mobile App Development?<br></br>
-              <b>Customized Mobile Solutions</b> – Tailored iOS, Android, and Hybrid apps designed for startups & enterprises.<br></br>
-              <b>Comprehensive App Development</b> – End-to-end app strategy, UI/UX design, development, and deployment.<br></br>
-              <b>Cutting-Edge Technologies</b> – Harnessing AI, Machine Learning, IoT, and Blockchain to build next-generation mobile experiences.<br></br>
-              <b>Seamless Performance</b> – Optimized for scalability, security, and superior user experience.<br></br>
+              Our team blends technical expertise with creativity to build future-ready digital
+              solutions that drive business growth. As a top mobile app development company in
+              Chennai, we specialize in developing custom Android, iOS, and cross-platform
+              applications that are scalable, secure, and high-performing. We also handle backend,
+              CI/CD, and releases via our{" "}
+              <Link href="/devops-consulting-services">DevOps services</Link> and{" "}
+              <Link href="/cloud-consulting-services">Cloud consulting</Link>.
             </p>
+            <div className="mt-4">
+              <h3 className="about-subhead">
+                Why Do Businesses Choose Trimsel for Mobile App Development?
+              </h3>
+              <ul className="list-unstyled about-benefits">
+                <li>
+                  <strong>Customized Mobile Solutions</strong> – Tailored iOS, Android, and hybrid
+                  apps built for startups and enterprises.
+                </li>
+                <li>
+                  <strong>Comprehensive App Development</strong> – End-to-end app strategy, UI/UX
+                  design, development, and deployment.
+                </li>
+                <li>
+                  <strong>Cutting-Edge Technologies</strong> – Harnessing AI, machine learning, IoT,
+                  and blockchain to build next-generation mobile experiences.
+                </li>
+                <li>
+                  <strong>Seamless Performance</strong> – Optimized for scalability, security, and
+                  superior user experience.
+                </li>
+              </ul>
+            </div>
             <p>
             We closely monitor industry trends, user preferences, and niche market insights to deliver apps that resonate deeply with your audience, driving higher engagement and tangible business results. Our expertise in leveraging cutting-edge technologies ensures every application we develop not only meets current market demands but also positions your business for long-term success.
             </p>
@@ -639,7 +638,7 @@ export default function mobileApp() {
   src="/images/Rectangle-kariot.png"
   width={18}
   height={18}
-  alt="design dot"
+  alt=""
   loading="lazy"
   aria-hidden="true"
   className="me-2"
@@ -732,12 +731,15 @@ export default function mobileApp() {
                       </div>
                       <div className="card-text service-card-text pb-1">
                         <p>
-                        Hybrid & Cross-Platform Mobile App Development<br></br>
-Looking for an app that works on both iOS & Android with a single codebase? Our Flutter, React Native & Ionic app development ensures faster delivery and cost-effective app solutions.<br></br>
-Code once, deploy across multiple platforms<br></br>
-Faster app development with reduced costs<br></br>
-Native-like performance & UI consistency<br></br>
+                          Hybrid & cross-platform mobile app development that balances speed,
+                          quality, and budget. Our Flutter, React Native, and Ionic teams ship apps
+                          that feel native on every device.
                         </p>
+                        <ul className="list-unstyled service-benefits">
+                          <li>Code once, deploy across multiple platforms</li>
+                          <li>Accelerated delivery with a cost-efficient stack</li>
+                          <li>Consistent UI and native-like performance</li>
+                        </ul>
                       </div>
                       <div className="card-link">
                       </div>
@@ -774,11 +776,14 @@ Native-like performance & UI consistency<br></br>
                       </div>
                       <div className="card-text service-card-text pb-3">
                         <p>
-Our Flutter experts deliver high-performance, cost-effective mobile apps with stunning UI & seamless cross-platform functionality for businesses of all sizes.<br></br>
-High-speed development with Flutter framework<br></br>
-Smooth animations & native-like performance<br></br>
-Cost-effective, scalable solutions<br></br>
+                          Our Flutter experts deliver high-performance, cost-effective mobile apps
+                          with stunning UI and seamless cross-platform functionality.
                         </p>
+                        <ul className="list-unstyled service-benefits">
+                          <li>Rapid builds powered by the Flutter framework</li>
+                          <li>Refined motion design with native-grade performance</li>
+                          <li>Solutions that stay scalable and affordable</li>
+                        </ul>
                       </div>
                       <div className="card-link">
                       </div>
@@ -800,7 +805,7 @@ Cost-effective, scalable solutions<br></br>
   src="/images/Rectangle-kariot.png"
   width={18}
   height={18}
-  alt="design dot"
+  alt=""
   loading="lazy"
   aria-hidden="true"
   className="me-2"
@@ -821,10 +826,12 @@ Cost-effective, scalable solutions<br></br>
               <li>✅ <strong>100% Scalable, Secure & Optimized for Performance</strong></li>
             </ul>
             {/* Call-To-Action Button */}
-            <Link href="/contact-us" passHref>
-              <button className="portcta-btn mt-3">
-                <MailIcon className="me-2" /> Get In Touch
-              </button>
+            <Link
+              href="/contact-us"
+              className="portcta-btn mt-3"
+              aria-label="Contact Trimsel's mobile app experts"
+            >
+              <MailIcon className="me-2" /> Get In Touch
             </Link>
           </div>
           {/* Right Side - Image */}
@@ -856,7 +863,7 @@ Cost-effective, scalable solutions<br></br>
   src="/images/Rectangle-kariot.png"
   width={18}
   height={18}
-  alt="design dot"
+  alt=""
   loading="lazy"
   aria-hidden="true"
   className="me-2"
