@@ -41,7 +41,7 @@ const montserrat = Montserrat({
 });
 
 // Site-wide SEO defaults
-import { DefaultSeo, OrganizationJsonLd, LogoJsonLd } from "next-seo";
+import { DefaultSeo, OrganizationJsonLd, LogoJsonLd, LocalBusinessJsonLd } from "next-seo";
 
 gsap.registerPlugin(ScrollTrigger);
 config.autoAddCss = false;
@@ -141,9 +141,23 @@ export default function App({ Component, pageProps }) {
         legalName="Trimsel"
         url="https://www.trimsel.com/"
         logo="https://www.trimsel.com/images/logo.png"
+        image="https://www.trimsel.com/images/logo.png"
+        description="Trimsel is a technology partner delivering AI/ML application development, mobile apps, web platforms, cloud consulting, DevOps, and digital marketing for global brands."
+        foundingDate="2024-09-01"
+        address={{
+          "@type": "PostalAddress",
+          streetAddress:
+            "No. 21-B, 5th Cross St, South Phase, Thiru Vi Ka Industrial Estate, Indira Nagar, Guindy",
+          addressLocality: "Chennai",
+          addressRegion: "Tamil Nadu",
+          postalCode: "600032",
+          addressCountry: "IN",
+        }}
         sameAs={[
           "https://www.linkedin.com/company/trimsel",
           "https://www.instagram.com/trimsel_softwares/",
+          "https://www.facebook.com/trimsel.softwares",
+          "https://in.pinterest.com/trimsel/",
         ]}
         contactPoint={[
           {
@@ -153,8 +167,57 @@ export default function App({ Component, pageProps }) {
             availableLanguage: ["en"],
           },
         ]}
+        knowsAbout={[
+          "AI & ML development",
+          "Mobile app development",
+          "Digital marketing",
+          "DevOps consulting",
+          "Cloud consulting",
+          "Web development",
+        ]}
       />
       <LogoJsonLd logo="https://www.trimsel.com/images/logo.png" url="https://www.trimsel.com/" />
+      <LocalBusinessJsonLd
+        type="ProfessionalService"
+        id="https://www.trimsel.com/#location"
+        name="Trimsel"
+        description="Trimsel is a technology partner delivering AI/ML application development, mobile apps, web platforms, cloud consulting, DevOps, and digital marketing for global brands."
+        url="https://www.trimsel.com/"
+        telephone="+91 72008 41581"
+        address={{
+          streetAddress:
+            "No. 21-B, 5th Cross St, South Phase, Thiru Vi Ka Industrial Estate, Indira Nagar, Guindy",
+          addressLocality: "Chennai",
+          addressRegion: "Tamil Nadu",
+          postalCode: "600032",
+          addressCountry: "IN",
+        }}
+        geo={{
+          latitude: 13.008903,
+          longitude: 80.213701,
+        }}
+        openingHours={[
+          {
+            opens: "00:00",
+            closes: "23:59",
+            dayOfWeek: [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday",
+            ],
+          },
+        ]}
+        sameAs={[
+          "https://www.linkedin.com/company/trimsel",
+          "https://www.instagram.com/trimsel_softwares/",
+          "https://www.facebook.com/trimsel.softwares",
+          "https://in.pinterest.com/trimsel/",
+        ]}
+      />
       {/* GA: load afterInteractive */}
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-8PHY8FQ1CW"
