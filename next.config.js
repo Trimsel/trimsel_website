@@ -27,6 +27,20 @@ const nextConfig = {
       },
     ];
   },
+
+  async rewrites() {
+    return [
+      { source: '/admin', destination: '/admin/index.html' },
+      { source: '/admin/', destination: '/admin/index.html' },
+      { source: '/config.yml', destination: '/admin/config.yml' },
+    ];
+  },
+
+  async redirects() {
+    return [
+      { source: '/admin/config.yml', destination: '/admin/config.yml', permanent: false },
+    ];
+  },
 };
 
 module.exports = nextConfig;

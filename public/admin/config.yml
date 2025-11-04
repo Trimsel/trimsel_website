@@ -1,0 +1,103 @@
+backend:
+  name: github
+  repo: Trimsel/trimsel_website
+  branch: main
+  base_url: https://www.trimsel.com
+  auth_endpoint: api/auth
+
+local_backend: true
+
+media_folder: "public/images/blog"
+public_folder: "/images/blog"
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: "posts"
+    label: "Blog Posts"
+    label_singular: "Blog Post"
+    folder: "posts"
+    extension: "mdx"
+    format: "frontmatter"
+    create: true
+    slug: "{{slug}}"
+    preview_path: "blog/{{slug}}"
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+      - label: "Publish Date"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        time_format: false
+      - label: "Author"
+        name: "author"
+        widget: "string"
+        default: "Trimsel"
+      - label: "Excerpt"
+        name: "excerpt"
+        widget: "text"
+        hint: "Short summary used on blog listing and meta description."
+      - label: "Cover Image"
+        name: "coverImage"
+        widget: "image"
+        choose_url: true
+      - label: "Thumbnail Image"
+        name: "thumbnailUrl"
+        widget: "image"
+        choose_url: true
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        allow_add: true
+        summary: "{{fields.label}}"
+        field:
+          label: "Tag"
+          name: "label"
+          widget: "string"
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+      - label: "SEO Settings"
+        name: "seo"
+        widget: "object"
+        collapsed: true
+        fields:
+          - label: "Meta Title"
+            name: "metaTitle"
+            widget: "string"
+            required: false
+          - label: "Meta Description"
+            name: "metaDescription"
+            widget: "text"
+            required: false
+          - label: "Canonical URL"
+            name: "canonicalUrl"
+            widget: "string"
+            required: false
+            hint: "Leave blank to auto-generate https://www.trimsel.com/blog/<slug>"
+          - label: "Open Graph / Social Image"
+            name: "ogImage"
+            widget: "image"
+            choose_url: true
+            required: false
+          - label: "Custom JSON-LD"
+            name: "jsonLd"
+            widget: "text"
+            required: false
+            hint: "Optional raw JSON-LD (must be valid JSON)."
+          - label: "Allow Indexing"
+            name: "indexing"
+            widget: "boolean"
+            default: true
+            required: false
+            hint: "Toggle to control robots meta (index/follow)."
+          - label: "FAQ Entries"
+            name: "faq"
+            widget: "list"
+            collapsed: true
+            required: false
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }

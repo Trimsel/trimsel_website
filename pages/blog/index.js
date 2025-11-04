@@ -11,6 +11,22 @@ import Carousel from "react-bootstrap/Carousel";
 import { useState } from "react";
 import { NextSeo } from "next-seo";
 
+const mapTags = (tags) => {
+  if (!Array.isArray(tags)) return [];
+
+  return tags
+    .map((tag) => {
+      if (typeof tag === "string") return tag;
+      if (tag && typeof tag === "object") {
+        if ("label" in tag && typeof tag.label === "string") return tag.label;
+        if ("name" in tag && typeof tag.name === "string") return tag.name;
+        if ("tag" in tag && typeof tag.tag === "string") return tag.tag;
+      }
+      return "";
+    })
+    .filter(Boolean);
+};
+
 export default function Blog({ posts }) {
   const slides = [0, 1, 2, 3, 4];
   const [index, setIndex] = useState(0);
@@ -321,9 +337,18 @@ export const getStaticProps = async () => {
       "utf-8"
     );
     const { data } = matter(markdownWithMeta);
+    const normalizedFrontmatter = {
+      ...data,
+      date: data?.date
+        ? typeof data.date === "string"
+          ? data.date
+          : data.date.toISOString().split("T")[0]
+        : "",
+      tags: mapTags(data?.tags),
+    };
 
     return {
-      frontmatter: data,
+      frontmatter: normalizedFrontmatter,
       slug: filename.split(".")[0],
     };
   });
