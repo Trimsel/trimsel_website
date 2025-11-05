@@ -10,6 +10,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Table from "react-bootstrap/Table";
 import { NextSeo } from "next-seo";
+import Head from "next/head";
 import dynamic from "next/dynamic";
 import Header from "../components/header";
 import Footer from "../components/footer";
@@ -151,8 +152,16 @@ export default function mobileApp() {
     handle: "@TrimselSoftwares",
     site: "@TrimselSoftwares",
   }}
-  additionalJsonLd={serviceJsonLd}
 />
+      <Head>
+        {serviceJsonLd.map((schema, index) => (
+          <script
+            key={`mobile-app-service-schema-${index}`}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
+        ))}
+      </Head>
       <main>
         <section className="hero-mbl">
           <Header />
