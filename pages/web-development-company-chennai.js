@@ -17,6 +17,7 @@ import ClientLogo from "../components/clientLogo";
 import { FaRegEnvelope } from "@react-icons/all-files/fa/FaRegEnvelope";
 import ContactForm from "../components/ContactForm";
 import { NextSeo } from 'next-seo';
+import Head from "next/head";
 
 export default function WebDevelopment() {
   const {
@@ -148,8 +149,16 @@ export default function WebDevelopment() {
       content: "Trimsel web development team designing responsive interfaces",
     },
   ]}
-  additionalJsonLd={serviceJsonLd}
 />
+<Head>
+  {serviceJsonLd.map((schema, index) => (
+    <script
+      key={`web-dev-schema-${index}`}
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  ))}
+</Head>
 
 <main>
       <section className="web-hero">

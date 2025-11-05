@@ -93,7 +93,9 @@ export default function Mocial() {
       content: "Trimsel Mocial social network case study",
     },
   ]}
-  additionalJsonLd={[
+/>
+      <Head>
+        {[
     // CaseStudy entity
     {
       "@context": "https://schema.org",
@@ -136,8 +138,14 @@ export default function Mocial() {
         { "@type": "ListItem", "position": 3, "name": "Mocial Case Study", "item": "https://www.trimsel.com/portfolio/mocial-case-study" }
       ]
     }
-  ]}
-/>
+  ].map((schema, index) => (
+          <script
+            key={`mocial-schema-${index}`}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
+        ))}
+      </Head>
       <main>
         <section id="moc-section">
           <Header />

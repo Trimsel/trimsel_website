@@ -96,7 +96,9 @@ export default function Kariot() {
       content: "Trimsel KarIOT smart water management case study",
     },
   ]}
-  additionalJsonLd={[
+/>
+      <Head>
+        {[
     {
       "@context": "https://schema.org",
       "@type": "CaseStudy",
@@ -133,8 +135,14 @@ export default function Kariot() {
         { "@type": "ListItem", "position": 3, "name": "KarIOT Case Study", "item": "https://www.trimsel.com/portfolio/kariot-case-study" }
       ]
     }
-  ]}
-/>
+  ].map((schema, index) => (
+          <script
+            key={`kariot-schema-${index}`}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
+        ))}
+      </Head>
       <main>
         {/* HERO SECTION */}
         <section className="kar-hero">

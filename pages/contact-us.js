@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import { useState, useEffect } from 'react'
 import Footer from '../components/footer'
 import { NextSeo } from 'next-seo';
+import Head from "next/head";
 import { postJson } from "../lib/api";
 // import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/bootstrap.css';
@@ -111,7 +112,9 @@ export default function Contact() {
       content: "Trimsel Chennai office contact hero image",
     },
   ]}
-  additionalJsonLd={[
+/>
+        <Head>
+          {[
     {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",   // switched from LocalBusiness
@@ -154,8 +157,14 @@ export default function Contact() {
         "availableLanguage": ["English"]
       }]
     }
-  ]}
-/>
+  ].map((schema, index) => (
+            <script
+              key={`contact-schema-${index}`}
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+            />
+          ))}
+        </Head>
         <main>
         
         <section className='hero-cntct'>
