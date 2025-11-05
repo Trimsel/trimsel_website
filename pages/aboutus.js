@@ -1,4 +1,5 @@
 import { NextSeo } from "next-seo";
+import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import Header from "../components/header";
@@ -13,6 +14,33 @@ const ClientLogo = dynamic(() => import("../components/clientLogo"), { ssr: fals
 
 
 export default function About() {
+  const aboutJsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "@id": "https://www.trimsel.com/aboutus#aboutpage",
+      url: "https://www.trimsel.com/aboutus",
+      name: "About Trimsel",
+      description:
+        "Trimsel is a global leader in digital transformation, software development, cloud computing, and DevOps solutions.",
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: "https://www.trimsel.com/images/about-page-banner.jpg",
+      },
+      publisher: { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
+      mainEntity: { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "@id": "https://www.trimsel.com/aboutus#breadcrumbs",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://www.trimsel.com/" },
+        { "@type": "ListItem", position: 2, name: "About Us", item: "https://www.trimsel.com/aboutus" },
+      ],
+    },
+  ];
+
   return (
     <>
 {/* ✅ Next-SEO for Optimized Metadata */}
@@ -38,35 +66,16 @@ export default function About() {
     site_name: "Trimsel",
   }}
   additionalMetaTags={[{ name: "robots", content: "index, follow" }]}
-  additionalJsonLd={[
-    // More specific than generic WebPage
-    {
-      "@context": "https://schema.org",
-      "@type": "AboutPage",
-      "@id": "https://www.trimsel.com/aboutus#aboutpage",
-      "url": "https://www.trimsel.com/aboutus",
-      "name": "About Trimsel",
-      "description": "Trimsel is a global leader in digital transformation, software development, cloud computing, and DevOps solutions.",
-      "primaryImageOfPage": {
-        "@type": "ImageObject",
-        "url": "https://www.trimsel.com/images/about-page-banner.jpg"
-      },
-      // Reference your global org defined on the home page
-      "publisher": { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
-      "mainEntity": { "@type": "Organization", "@id": "https://www.trimsel.com/#org" }
-    },
-    // Optional but recommended breadcrumbs (if you show them)
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "@id": "https://www.trimsel.com/aboutus#breadcrumbs",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.trimsel.com/" },
-        { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://www.trimsel.com/aboutus" }
-      ]
-    }
-  ]}
 />
+      <Head>
+        {aboutJsonLd.map((schema, index) => (
+          <script
+            key={`aboutus-schema-${index}`}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
+        ))}
+      </Head>
       <main>
         <section id="abot-section">
           <Header />

@@ -1,4 +1,5 @@
 import { NextSeo } from "next-seo";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "react-bootstrap/Button";
@@ -149,8 +150,16 @@ export default function CloudConsulting() {
       content: "Trimsel cloud consultants planning AWS, Azure, and GCP strategy",
     },
   ]}
-  additionalJsonLd={serviceJsonLd}
 />
+      <Head>
+        {serviceJsonLd.map((schema, index) => (
+          <script
+            key={`cloud-schema-${index}`}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
+        ))}
+      </Head>
       <section className="cloud-hero">
         <Header />
         <section className="hero-dev">

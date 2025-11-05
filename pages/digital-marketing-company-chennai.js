@@ -6,6 +6,7 @@ import Stack from "react-bootstrap/Stack";
 import Card from "react-bootstrap/Card";
 import Accordion from "react-bootstrap/Accordion"
 import { NextSeo } from 'next-seo';
+import Head from "next/head";
 import dynamic from "next/dynamic";
 import Header from "../components/header";
 import Footer from "../components/footer";
@@ -157,8 +158,16 @@ export default function Digital() {
       content: "Trimsel digital marketing specialists planning campaigns in Chennai",
     },
   ]}
-  additionalJsonLd={serviceJsonLd}
 />
+      <Head>
+        {serviceJsonLd.map((schema, index) => (
+          <script
+            key={`digital-marketing-schema-${index}`}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
+        ))}
+      </Head>
       <section className="dig-hero">
   <Header />
   <section className="hero-dig">

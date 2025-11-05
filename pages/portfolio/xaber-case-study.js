@@ -97,7 +97,9 @@ export default function Xaber() {
       content: "Trimsel Xaber ride-hailing case study",
     },
   ]}
-  additionalJsonLd={[
+/>
+      <Head>
+        {[
     // CaseStudy entity
     {
       "@context": "https://schema.org",
@@ -140,8 +142,14 @@ export default function Xaber() {
         { "@type": "ListItem", "position": 3, "name": "Xaber Case Study", "item": "https://www.trimsel.com/portfolio/xaber-case-study" }
       ]
     }
-  ]}
-/>
+  ].map((schema, index) => (
+          <script
+            key={`xaber-schema-${index}`}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
+        ))}
+      </Head>
       <section id="xaber-hero">
         <Header />
         <div className="container xaber-container">

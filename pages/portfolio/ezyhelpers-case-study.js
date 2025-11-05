@@ -93,7 +93,9 @@ export default function Ezyhelpers() {
       content: "Trimsel Ezyhelpers home services case study",
     },
   ]}
-  additionalJsonLd={[
+/>
+      <Head>
+        {[
     {
       "@context": "https://schema.org",
       "@type": "CaseStudy",
@@ -130,8 +132,14 @@ export default function Ezyhelpers() {
         { "@type": "ListItem", "position": 3, "name": "Ezyhelpers Case Study", "item": "https://www.trimsel.com/portfolio/ezyhelpers-case-study" }
       ]
     }
-  ]}
-/>
+  ].map((schema, index) => (
+          <script
+            key={`ezyhelpers-schema-${index}`}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
+        ))}
+      </Head>
 
       <main>
         <section id="ezy-section">

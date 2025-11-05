@@ -16,6 +16,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import ContactForm from "../components/ContactForm";
 import { NextSeo } from "next-seo";
+import Head from "next/head";
 import { postJson } from "../lib/api";
 import { buildServiceJsonLd } from "../lib/serviceSchema";
 
@@ -168,10 +169,18 @@ export default function DevOps() {
   twitter={{
     cardType: "summary_large_image",
     handle: "@TrimselSoftwares",
-    site: "@TrimselSoftwares",
+   site: "@TrimselSoftwares",
   }}
-  additionalJsonLd={serviceJsonLd}
 />
+      <Head>
+        {serviceJsonLd.map((schema, index) => (
+          <script
+            key={`devops-schema-${index}`}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
+        ))}
+      </Head>
 
       <section className="dev-hero">
   <Headers />

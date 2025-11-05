@@ -9,6 +9,7 @@ import Col from "react-bootstrap/Col";
 import Table from "react-bootstrap/Table";
 import dynamic from 'next/dynamic';
 import { NextSeo } from "next-seo";
+import Head from "next/head";
 import { buildServiceJsonLd } from "../lib/serviceSchema";
 
 const ClientLogo = dynamic(() => import("../components/clientLogo"), { ssr: false });
@@ -119,8 +120,16 @@ export default function Quality() {
       content: "Trimsel AI engineers collaborating on machine learning models",
     },
   ]}
-  additionalJsonLd={serviceJsonLd}
 />
+      <Head>
+        {serviceJsonLd.map((schema, index) => (
+          <script
+            key={`ai-dev-schema-${index}`}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
+        ))}
+      </Head>
       <section className="quality-hero">
         <Header />
         <section className="hero-dev">
