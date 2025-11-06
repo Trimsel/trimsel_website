@@ -109,7 +109,7 @@ export default function CloudConsulting() {
   description="Trimsel offers expert cloud consulting in Chennai, India, including AWS, Azure & GCP consulting, migration, and cost optimization. Get started today!"
   canonical="https://www.trimsel.com/cloud-consulting-services"
   openGraph={{
-    type: 'article',
+    type: 'website',
     url: 'https://www.trimsel.com/cloud-consulting-services',
     title: 'Cloud Consulting Services in Chennai, India | AWS, Azure & GCP Experts',
     description: 'Expert Cloud Consulting Services in Chennai, India. We offer cloud migration, cloud cost optimization, AWS, Azure & GCP consulting. Get in touch today!',
@@ -190,13 +190,15 @@ export default function CloudConsulting() {
               </div>
             </div>
             <div className="mozarts">
-            <Link href="/contact-us" passHref>
               <div className="mozarts-inner">
-                <button className="btn btn-primary dev-btn">
+                <Link
+                  href="/contact-us"
+                  className="btn btn-primary dev-btn"
+                  aria-label="Contact Trimsel's cloud consultants"
+                >
                   Contact Our Cloud Experts <ArrowRightIcon width={18} height={18} />
-                </button>
+                </Link>
               </div>
-              </Link>
             </div>
           </div>
         </div>
@@ -223,7 +225,7 @@ export default function CloudConsulting() {
   <div className="container cloud-abt-container">
     <Stack direction="horizontal" className="pb-4">
               <div className="badge-abot-btn">
-                <Image src="/images/Rectangle-kariot.png" className="me-2" alt="design-dot" width={20} height={20} loading="lazy" />
+                <Image src="/images/Rectangle-kariot.png" className="me-2" alt="" aria-hidden="true" width={20} height={20} loading="lazy" />
         <p> WHAT WE DO </p>
       </div>
     </Stack>
@@ -325,11 +327,13 @@ export default function CloudConsulting() {
         </p>
       </div>
       <div className="col-lg-6 col-md-6">
-        <img
+        <Image
           src="/images/cloudnewgroup.png"
           width={600}
+          height={400}
           className="cloud-gtoup"
-          alt="Cloud Strategy Options"
+          alt="Cloud strategy options visual"
+          loading="lazy"
         />
       </div>
     </div>
@@ -338,70 +342,100 @@ export default function CloudConsulting() {
       <h3 className="new-cloud-text">
         <CheckIcon className="check-svg" width={18} height={18} /> Private Cloud Consulting
       </h3>
-      <p className="new-cloud-para">
-        &bull; <strong>Best for:</strong> Enterprises requiring high security, governance, and compliance.<br />
-        &bull; <strong>What We Offer:</strong><br />
-        - Customized private cloud solutions using AWS, Azure, or GCP.<br />
-        - Data governance and regulatory compliance.<br />
-        - Secure deployment with automation and monitoring.<br />
-        - Optimized workload performance and cost efficiency.
-      </p>
+      <ul className="new-cloud-para list-unstyled">
+        <li>
+          <strong>Best for:</strong> Enterprises requiring high security, governance, and compliance.
+        </li>
+        <li>
+          <strong>What We Offer:</strong>
+          <ul className="list-unstyled ps-3">
+            <li>Customized private cloud solutions using AWS, Azure, or GCP.</li>
+            <li>Data governance and regulatory compliance.</li>
+            <li>Secure deployment with automation and monitoring.</li>
+            <li>Optimized workload performance and cost efficiency.</li>
+          </ul>
+        </li>
+      </ul>
 
       <div className="row">
         <div className="col-lg-6 col-md-6 pb-4">
           <h3 className="new-cloud-text">
             <CheckIcon className="check-svg" width={18} height={18} /> Public Cloud Consulting
           </h3>
-          <p className="new-clouds-para">
-            &bull; <strong>Best for:</strong> Businesses seeking flexible and scalable cloud infrastructure.<br />
-            &bull; <strong>What We Offer:</strong><br />
-            - Migration to AWS, Azure, or GCP with minimal disruption.<br />
-            - Pay-as-you-go architecture and cost optimization.<br />
-            - High availability and automated scaling capabilities.<br />
-            - Cloud-native development and deployment support.
-          </p>
+          <ul className="new-clouds-para list-unstyled">
+            <li>
+              <strong>Best for:</strong> Businesses seeking flexible and scalable cloud infrastructure.
+            </li>
+            <li>
+              <strong>What We Offer:</strong>
+              <ul className="list-unstyled ps-3">
+                <li>Migration to AWS, Azure, or GCP with minimal disruption.</li>
+                <li>Pay-as-you-go architecture and cost optimization.</li>
+                <li>High availability and automated scaling capabilities.</li>
+                <li>Cloud-native development and deployment support.</li>
+              </ul>
+            </li>
+          </ul>
         </div>
 
         <div className="col-lg-6 col-md-6 pb-4">
           <h3 className="new-cloud-text">
             <CheckIcon className="check-svg" width={18} height={18} /> Multi-Cloud Consulting
           </h3>
-          <p className="new-clouds-para">
-            &bull; <strong>Best for:</strong> Enterprises aiming for flexibility and vendor independence.<br />
-            &bull; <strong>What We Offer:</strong><br />
-            - Seamless integration across AWS, Azure, and GCP.<br />
-            - Centralized governance and security posture.<br />
-            - Cross-cloud workload optimization.<br />
-            - Unified monitoring and cloud operations.
-          </p>
+          <ul className="new-clouds-para list-unstyled">
+            <li>
+              <strong>Best for:</strong> Enterprises aiming for flexibility and vendor independence.
+            </li>
+            <li>
+              <strong>What We Offer:</strong>
+              <ul className="list-unstyled ps-3">
+                <li>Seamless integration across AWS, Azure, and GCP.</li>
+                <li>Centralized governance and security posture.</li>
+                <li>Cross-cloud workload optimization.</li>
+                <li>Unified monitoring and cloud operations.</li>
+              </ul>
+            </li>
+          </ul>
         </div>
 
         <div className="col-lg-6 col-md-6 pb-4">
           <h3 className="new-cloud-text">
             <CheckIcon className="check-svg" width={18} height={18} /> Hybrid Cloud Consulting
           </h3>
-          <p className="new-clouds-para">
-            &bull; <strong>Best for:</strong> Businesses balancing private and public cloud usage.<br />
-            &bull; <strong>What We Offer:</strong><br />
-            - Hybrid strategy consulting and workload orchestration.<br />
-            - Seamless data flow between environments.<br />
-            - Strong security and compliance frameworks.<br />
-            - Custom integration aligned with industry regulations.
-          </p>
+          <ul className="new-clouds-para list-unstyled">
+            <li>
+              <strong>Best for:</strong> Businesses balancing private and public cloud usage.
+            </li>
+            <li>
+              <strong>What We Offer:</strong>
+              <ul className="list-unstyled ps-3">
+                <li>Hybrid strategy consulting and workload orchestration.</li>
+                <li>Seamless data flow between environments.</li>
+                <li>Strong security and compliance frameworks.</li>
+                <li>Custom integration aligned with industry regulations.</li>
+              </ul>
+            </li>
+          </ul>
         </div>
 
         <div className="col-lg-6 col-md-6 pb-4">
           <h3 className="new-cloud-text">
             <CheckIcon className="check-svg" width={18} height={18} /> Distributed Cloud Consulting
           </h3>
-          <p className="new-clouds-para">
-            &bull; <strong>Best for:</strong> Businesses requiring edge computing and real-time processing.<br />
-            &bull; <strong>What We Offer:</strong><br />
-            - Low-latency architecture with global reach.<br />
-            - Cloud-native deployment across edge locations.<br />
-            - Resilient design for uptime and fault tolerance.<br />
-            - Optimized resource utilization and performance tuning.
-          </p>
+          <ul className="new-clouds-para list-unstyled">
+            <li>
+              <strong>Best for:</strong> Businesses requiring edge computing and real-time processing.
+            </li>
+            <li>
+              <strong>What We Offer:</strong>
+              <ul className="list-unstyled ps-3">
+                <li>Low-latency architecture with global reach.</li>
+                <li>Cloud-native deployment across edge locations.</li>
+                <li>Resilient design for uptime and fault tolerance.</li>
+                <li>Optimized resource utilization and performance tuning.</li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -419,15 +453,25 @@ export default function CloudConsulting() {
       </div>
       <div className="col-lg-4 col-md-6">
         <Button href="/contact-us" className="gif-button mt-3">
-          <img
+          <Image
             src="/images/slightly-smiling-face.gif"
-            alt="Talk to Cloud Expert"
+            alt="Smiling face icon"
             className="new-smile"
+            width={48}
+            height={48}
+            loading="lazy"
           />
           <h6 className="smile-heading">
             <p className="smile-para"> Talk to a </p>
             Cloud Expert{" "}
-            <img src="/images/gifbtniconarrow.png" alt="arrow-icon" />
+            <Image
+              src="/images/gifbtniconarrow.png"
+              alt=""
+              aria-hidden="true"
+              width={20}
+              height={20}
+              loading="lazy"
+            />
           </h6>
         </Button>
       </div>
@@ -491,10 +535,14 @@ export default function CloudConsulting() {
         <div className="container value-container">
           <Stack direction="horizontal" className="pb-4">
             <div className=" badge-abot-btn">
-              <img
+              <Image
                 src="/images/Rectangle-kariot.png"
                 className="me-2"
-                alt="design-dot"
+                alt=""
+                aria-hidden="true"
+                width={18}
+                height={18}
+                loading="lazy"
               />
               <p> OUR VALUE PROPOSITION </p>
             </div>
@@ -541,11 +589,13 @@ export default function CloudConsulting() {
               </Card>
             </div>
           </div>
-      <Link href="/contact-us" passHref>
-          <button className="btn btn-primary dev-btn">
-          Talk to Our Cloud Experts Today <ArrowRightIcon width={18} height={18} />
-          </button>
-          </Link>
+      <Link
+        href="/contact-us"
+        className="btn btn-primary dev-btn"
+        aria-label="Speak with Trimsel cloud experts"
+      >
+        Talk to Our Cloud Experts Today <ArrowRightIcon width={18} height={18} />
+      </Link>
         </div>
       </section>
 
@@ -626,7 +676,14 @@ export default function CloudConsulting() {
               </p>
             </Col>
             <Col lg={4} md={4}>
-              <img src="/images/prjdel.png" className="service-img-detail" alt="Vendor Agnostic Cloud Consulting" />
+              <Image
+                src="/images/prjdel.png"
+                className="service-img-detail"
+                alt="Vendor Agnostic Cloud Consulting"
+                width={200}
+                height={200}
+                loading="lazy"
+              />
             </Col>
           </Row>
         </Tab.Pane>
@@ -641,7 +698,14 @@ export default function CloudConsulting() {
               </p>
             </Col>
             <Col lg={4} md={4}>
-              <img src="/images/prjdel.png" className="service-img-detail" alt="Certified Cloud Engineers" />
+              <Image
+                src="/images/prjdel.png"
+                className="service-img-detail"
+                alt="Certified Cloud Engineers"
+                width={200}
+                height={200}
+                loading="lazy"
+              />
             </Col>
           </Row>
         </Tab.Pane>
@@ -656,7 +720,14 @@ export default function CloudConsulting() {
               </p>
             </Col>
             <Col lg={4} md={4}>
-              <img src="/images/prjdel.png" className="service-img-detail" alt="Industry-Specific Cloud Expertise" />
+              <Image
+                src="/images/prjdel.png"
+                className="service-img-detail"
+                alt="Industry-Specific Cloud Expertise"
+                width={200}
+                height={200}
+                loading="lazy"
+              />
             </Col>
           </Row>
         </Tab.Pane>
@@ -671,7 +742,14 @@ export default function CloudConsulting() {
               </p>
             </Col>
             <Col lg={4} md={4}>
-              <img src="/images/prjdel.png" className="service-img-detail" alt="Proven DevOps & Cloud Results" />
+              <Image
+                src="/images/prjdel.png"
+                className="service-img-detail"
+                alt="Proven DevOps & Cloud Results"
+                width={200}
+                height={200}
+                loading="lazy"
+              />
             </Col>
           </Row>
         </Tab.Pane>
@@ -691,7 +769,8 @@ export default function CloudConsulting() {
                 <Image
                   src="/images/Rectangle-kariot.png"
                   className="me-2"
-                  alt="design-dot"
+                  alt=""
+                  aria-hidden="true"
                   width={18}
                   height={18}
                   loading="lazy"
@@ -705,10 +784,12 @@ export default function CloudConsulting() {
             <p className="cloud-cta-para mt-2 text-white">
               Whether you're planning a cloud migration, cost optimization, or full-scale modernization—our certified AWS, Azure, and GCP consultants are here to help. Let’s turn your cloud vision into scalable results.
             </p>
-            <Link href="/contact-us" passHref>
-            <button className="btn btn-primary dev-btn mt-3">
+            <Link
+              href="/contact-us"
+              className="btn btn-primary dev-btn mt-3"
+              aria-label="Contact Trimsel for cloud consulting"
+            >
               Contact Us <ArrowRightIcon width={18} height={18} />
-            </button>
             </Link>
           </div>
         </div>
@@ -914,13 +995,21 @@ export default function CloudConsulting() {
               </p>
             </div>
             <div className="col-lg-3 col-md-3">
-              <button className="about-btn">
+              <Link
+                href="/portfolio"
+                className="about-btn"
+                aria-label="View Trimsel cloud case studies"
+              >
                 View All Cases{" "}
-                <img
+                <Image
                   src="/images/material-symbols_arrow-right-alt.png"
-                  alt="right-arrow-icon"
+                  alt=""
+                  aria-hidden="true"
+                  width={24}
+                  height={24}
+                  loading="lazy"
                 />
-              </button>
+              </Link>
             </div>
           </div>
           <CarouselComponent />
@@ -931,10 +1020,14 @@ export default function CloudConsulting() {
         <div className="container mt-5">
           <Stack direction="horizontal">
             <div className=" badge-abot-btn">
-              <img
+              <Image
                 src="/images/Rectangle-kariot.png"
                 className="me-2"
-                alt="design-dot"
+                alt=""
+                aria-hidden="true"
+                width={18}
+                height={18}
+                loading="lazy"
               />
               <p> OUR CLIENTS </p>
             </div>
@@ -963,7 +1056,8 @@ export default function CloudConsulting() {
                 <Image
                   src="/images/Rectangle-kariot.png"
                   className="me-2"
-                  alt="design-dot"
+                  alt=""
+                  aria-hidden="true"
                   width={18}
                   height={18}
                   loading="lazy"
