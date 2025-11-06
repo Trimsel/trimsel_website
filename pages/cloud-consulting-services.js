@@ -135,7 +135,6 @@ export default function CloudConsulting() {
     site: "@TrimselSoftwares",
   }}
   additionalMetaTags={[
-    { name: "robots", content: "index, follow" },
     {
       name: "twitter:title",
       content: "Cloud Consulting Experts in Chennai – Trimsel",
