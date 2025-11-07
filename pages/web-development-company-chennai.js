@@ -102,7 +102,7 @@ export default function WebDevelopment() {
   description="Trimsel is a top web development company in Chennai offering website design, CMS, ecommerce, and custom solutions in ReactJS & NodeJS."
   canonical="https://www.trimsel.com/web-development-company-chennai"
   openGraph={{
-    type: "article",
+    type: "website",
     url: "https://www.trimsel.com/web-development-company-chennai",
     title: "Top Web Development Company in Chennai | Website Design & Development",
     description:
@@ -134,7 +134,6 @@ export default function WebDevelopment() {
     site: "@TrimselSoftwares",
   }}
   additionalMetaTags={[
-    { name: "robots", content: "index, follow" },
     {
       name: "twitter:title",
       content: "Web Development Company in Chennai – Trimsel",
@@ -193,15 +192,21 @@ export default function WebDevelopment() {
                     </div>
                     <div className="mozarts">
                       <div className="mozarts-inner">
-                      <Link href="/contact-us" passHref>
-                        <button className="btn btn-primary dev-btn">
+                      <Link
+                        href="/contact-us"
+                        className="btn btn-primary dev-btn"
+                        aria-label="Book a web development consultation with Trimsel"
+                      >
                         Get a Web Development Consultation{" "}
-                          <img
-                            src="/images/material-symbols_arrow-right-alt.png"
-                            alt="arrow-icon"
-                          />
-                        </button>
-                        </Link>
+                        <Image
+                          src="/images/material-symbols_arrow-right-alt.png"
+                          alt=""
+                          aria-hidden="true"
+                          width={18}
+                          height={18}
+                          loading="lazy"
+                        />
+                      </Link>
                       </div>
                     </div>
                   </div>
@@ -339,7 +344,7 @@ Every project is responsive, optimized for speed, and scalable to match future b
   <div className="container do-container">
     <Stack direction="horizontal" className="mb-3">
       <div className=" badge-web-btn">
-        <img src="/images/web-rect.png" className="me-2" alt="design-dot" />
+        <Image src="/images/web-rect.png" className="me-2" alt="" aria-hidden="true" width={18} height={18} loading="lazy" />
         <p> WHAT WE DO </p>
       </div>
     </Stack>
@@ -508,14 +513,20 @@ Every project is responsive, optimized for speed, and scalable to match future b
         <p className="webapp-para pt-3">
         Your website is where potential customers first interact with your brand. We help businesses from startups to enterprises create fast, secure, and reliable web platforms that drive growth.
         </p>
-        <Link href="/contact-us" passHref>
-        <button className="btn btn-primary dev-btn mb-4">
+        <Link
+          href="/contact-us"
+          className="btn btn-primary dev-btn mb-4"
+          aria-label="Start a web app project with Trimsel"
+        >
           Let's Build Your Web App{" "}
-          <img
+          <Image
             src="/images/material-symbols_arrow-right-alt.png"
-            alt="arrow-icon"
+            alt=""
+            aria-hidden="true"
+            width={18}
+            height={18}
+            loading="lazy"
           />
-        </button>
         </Link>
       </div>
 
@@ -584,17 +595,23 @@ Every project is responsive, optimized for speed, and scalable to match future b
       className="web-car"
       animation="fade"
       prevIcon={
-        <img
+        <Image
           src="/images/chevron-right-icon.png"
           className="previous-icon"
           alt="Previous"
+          width={32}
+          height={32}
+          loading="lazy"
         />
       }
       nextIcon={
-        <img
+        <Image
           src="/images/chevron-left.png"
           className="next-icon"
           alt="Next"
+          width={32}
+          height={32}
+          loading="lazy"
         />
       }
       interval={null}
@@ -687,22 +704,29 @@ Every project is responsive, optimized for speed, and scalable to match future b
     <div className="dest-top">
       <Stack direction="horizontal" className="hor-new">
         <div className="badge-kariot-btn">
-          <img
+          <Image
             src="/images/Rectangle-kariot.png"
             className="me-2"
-            alt="design-dot"
+            alt=""
+            aria-hidden="true"
+            width={18}
+            height={18}
+            loading="lazy"
           />
           <p> WHY TRIMSEL?</p>
         </div>
       </Stack>
 
-      <h2 className="new-lnr pt-4 pb-3">
+  <h2 className="new-lnr pt-4 pb-3">
         {"<"} WEB{" "}
         <span className="slash">
-          <img
+          <Image
             src="/images/new-linear.png"
             className="slasher"
             alt="Slash-Image"
+            width={40}
+            height={12}
+            loading="lazy"
           />
         </span>{" "}
         DEVELOPMENT {">"}
@@ -789,7 +813,7 @@ Every project is responsive, optimized for speed, and scalable to match future b
           {/* Phase 1 */}
           <Accordion.Item eventKey="0" className="dev-acc-item pb-3">
             <Accordion.Header className="dev-acc-header">
-              <img src="/images/bino-icon.png" width={40} height={40} alt="Discovery Icon" />
+              <Image src="/images/bino-icon.png" width={40} height={40} alt="Discovery Icon" loading="lazy" />
               <h3 className="dev-app-header ms-2">Pre-Discovery & Requirement Gathering</h3>
             </Accordion.Header>
             <Accordion.Body>
@@ -805,7 +829,7 @@ Every project is responsive, optimized for speed, and scalable to match future b
           {/* Phase 2 */}
           <Accordion.Item eventKey="1" className="pb-3">
             <Accordion.Header>
-              <img src="/images/discoveryicon.png" width={40} height={40} alt="Discovery Icon" />
+              <Image src="/images/discoveryicon.png" width={40} height={40} alt="Discovery Icon" loading="lazy" />
               <h3 className="dev-app-header ms-2">Discovery & Planning</h3>
             </Accordion.Header>
             <Accordion.Body>
@@ -821,7 +845,7 @@ Every project is responsive, optimized for speed, and scalable to match future b
           {/* Phase 3 */}
           <Accordion.Item eventKey="2" className="pb-3">
             <Accordion.Header>
-              <img src="/images/designicon.png" width={40} height={40} alt="Design Icon" />
+              <Image src="/images/designicon.png" width={40} height={40} alt="Design Icon" loading="lazy" />
               <h3 className="dev-app-header ms-2">UI/UX Design & Prototyping</h3>
             </Accordion.Header>
             <Accordion.Body>
@@ -837,7 +861,7 @@ Every project is responsive, optimized for speed, and scalable to match future b
           {/* Phase 4 */}
           <Accordion.Item eventKey="3" className="pb-3">
             <Accordion.Header>
-              <img src="/images/gearicon.png" width={40} height={40} alt="Gear Icon" />
+              <Image src="/images/gearicon.png" width={40} height={40} alt="Gear Icon" loading="lazy" />
               <h3 className="dev-app-header ms-2">Web Development & Testing</h3>
             </Accordion.Header>
             <Accordion.Body>
@@ -853,7 +877,7 @@ Every project is responsive, optimized for speed, and scalable to match future b
           {/* Phase 5 */}
           <Accordion.Item eventKey="4" className="pb-3">
             <Accordion.Header>
-              <img src="/images/launchicon.png" width={40} height={40} alt="Launch Icon" />
+              <Image src="/images/launchicon.png" width={40} height={40} alt="Launch Icon" loading="lazy" />
               <h3 className="dev-app-header ms-2">Deployment & Continuous Improvement</h3>
             </Accordion.Header>
             <Accordion.Body>
@@ -875,7 +899,15 @@ Every project is responsive, optimized for speed, and scalable to match future b
   <div className="container devtool-container">
     <Stack direction="horizontal" className="mb-3">
       <div className="badge-abot-btn">
-        <img src="/images/Rectangle-kariot.png" className="me-2" alt="design-dot" />
+        <Image
+          src="/images/Rectangle-kariot.png"
+          className="me-2"
+          alt=""
+          aria-hidden="true"
+          width={18}
+          height={18}
+          loading="lazy"
+        />
         <p> TECHNOLOGIES WE USE </p>
       </div>
     </Stack>
@@ -961,10 +993,14 @@ Every project is responsive, optimized for speed, and scalable to match future b
           <div className="col-lg-6 col-md-6 col-12">
             <Stack direction="horizontal">
               <div className="badge-abot-btn">
-                <img
+                <Image
                   src="/images/Rectangle-kariot.png"
                   className="me-2"
-                  alt="Blue dot badge design"
+                  alt=""
+                  aria-hidden="true"
+                  width={18}
+                  height={18}
+                  loading="lazy"
                 />
                 <p> GET IN TOUCH </p>
               </div>
@@ -978,10 +1014,12 @@ Every project is responsive, optimized for speed, and scalable to match future b
             Whether you're starting from scratch or reworking an old site, we’re ready to help. We’ll work closely with you to build something that reflects your brand and actually supports your goals.
             </p>
 
-            <Link href="/contact-us" passHref>
-              <button className="portcta-btn mt-3">
-                <FaRegEnvelope className="me-2" /> Get a Consultation
-              </button>
+            <Link
+              href="/contact-us"
+              className="portcta-btn mt-3"
+              aria-label="Book a Trimsel web consultation"
+            >
+              <FaRegEnvelope className="me-2" /> Get a Consultation
             </Link>
           </div>
 
@@ -1004,10 +1042,14 @@ Every project is responsive, optimized for speed, and scalable to match future b
         <div className="container mt-5">
           <Stack direction="horizontal" className="mb-5">
             <div className=" badge-abot-btn">
-              <img
+              <Image
                 src="/images/Rectangle-kariot.png"
                 className="me-2"
-                alt="design-dot"
+                alt=""
+                aria-hidden="true"
+                width={18}
+                height={18}
+                loading="lazy"
               />
               <p> OUR CLIENTS </p>
             </div>
