@@ -41,6 +41,23 @@ export default function mobileApp() {
     setValue("selectOption", event.target.value);
   };
 
+  const featuredArticles = [
+    {
+      title: "5 Easy Ways a Mobile App Can Grow Your Business",
+      excerpt:
+        "Discover practical tactics to boost retention, repeat sales, and loyalty with a branded mobile experience.",
+      href: "/blog/how-mobile-apps-grow-business",
+      tag: "Mobile Strategy",
+    },
+    {
+      title: "Explore All Trimsel Insights",
+      excerpt:
+        "Browse more articles on AI copilots, DevOps automation, and cloud-native delivery to plan your roadmap.",
+      href: "/blog",
+      tag: "Digital Transformation",
+    },
+  ];
+
   async function onSubmitForm(values) {
     try {
       await postJson("/api/contact", values);
@@ -190,7 +207,7 @@ export default function mobileApp() {
                         <p>
   We craft custom-built mobile apps for businesses that demand speed, security, and growth-focused outcomes.
   From MVPs to enterprise-grade apps, we bring your ideas to life — explore our
-  {" "}<Link href="#mobile-services">mobile app services</Link>{" "}
+  {" "}<Link href="#digital-mbl">mobile app services</Link>{" "}
   or <Link href="/portfolio">see our portfolio</Link>.
 </p>
                       </div>
@@ -204,6 +221,9 @@ export default function mobileApp() {
                         >
                           Get a Consultation <ArrowRightIcon width={24} height={24} />
                         </Link>
+                        <p className="hero-proof">
+                          200+ apps launched across FinTech, healthcare, and SaaS with 4.8★ store ratings on average.
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -224,7 +244,7 @@ export default function mobileApp() {
                 </div>
               </div>
             </div>
-          </section>
+        </section>
         </section>
 
 {/*Our Trusted Clients Section*/}
@@ -383,6 +403,9 @@ export default function mobileApp() {
                 <p>
                 Trimsel, a leading mobile app development company in Chennai, India, empowers businesses to achieve scalable growth and digital success with innovative mobile solutions. Our expert mobile app developers build tailored iOS, Android, and cross-platform applications designed specifically to meet your business objectives, ensuring enhanced performance, robust security, and exceptional user experience.
                 </p>
+                <p>
+                  Looking for inspiration? Read our latest insight <Link href="/blog/how-mobile-apps-grow-business">“5 Easy Ways a Mobile App Can Grow Your Business.”</Link> It covers the exact tactics we use to turn an MVP into a revenue-driving product.
+                </p>
               </div>
               <div className="col-lg-6 col-md-6">
                 {/* <Button className="dgt-btn" href="#">
@@ -400,7 +423,7 @@ export default function mobileApp() {
                   </Card.Title>
                   <Card.Body>
                     <p className="card-para">
-                    We deliver enterprise mobile application development solutions with industry-leading standards. Our mobile apps undergo rigorous testing, ensuring robust security, seamless scalability, and high-performance experiences across devices.
+                    We deliver enterprise mobile application development solutions with industry-leading standards. Our mobile apps undergo rigorous testing, ensuring robust security, seamless scalability, and high-performance experiences across devices, all backed by our <Link href="/cloud-consulting-services">cloud consulting experts</Link>.
                     </p>
                   </Card.Body>
                 </Card>
@@ -444,7 +467,7 @@ export default function mobileApp() {
                   </Card.Title>
                   <Card.Body>
                     <p className="card-para">
-                    Our agile development approach provides transparent, real-time updates and collaborative workflows, ensuring clients stay informed and involved throughout the development lifecycle for seamless execution and faster market launch.
+                    Our agile development approach provides transparent, real-time updates and collaborative workflows, ensuring clients stay informed and involved throughout the development lifecycle for seamless execution and faster market launch with support from our <Link href="/devops-consulting-services">DevOps consulting team</Link>.
                     </p>
                   </Card.Body>
                 </Card>
@@ -484,7 +507,7 @@ export default function mobileApp() {
                   </Card.Title>
                   <Card.Body>
                     <p className="card-para">
-                    As a premier cross-platform app development company, our expertise in Flutter and React Native enables us to develop highly effective apps that run flawlessly on both iOS and Android, significantly reducing development time and cost.
+                    As a premier cross-platform app development company, our expertise in Flutter and React Native enables us to develop highly effective apps that run flawlessly on both iOS and Android, significantly reducing development time and cost while integrating AI-driven personalization via our <Link href="/ai-development-company">AI development practice</Link>.
                     </p>
                   </Card.Body>
                 </Card>
@@ -637,170 +660,8 @@ export default function mobileApp() {
           </div>
         </section>
 
-        {/*Mobile App Service Section*/}
-        <section id="mobile-services">
-          <div className="container service-container">
-            <div className="row">
-              <Stack direction="horizontal" className="pb-4">
-                <div className=" badge-abot-btn">
-                  <Image
-  src="/images/Rectangle-kariot.png"
-  width={18}
-  height={18}
-  alt=""
-  loading="lazy"
-  aria-hidden="true"
-  className="me-2"
-/>
 
-                  <p> WHAT WE DO </p>
-                </div>
-              </Stack>
-              <div className="col-lg-5">
-                <h2 className="service-heading">
-                Our Mobile App Development Services
-                </h2>
-              </div>
-              <div className="col-lg-7">
-                <p className="service-mobile-para pb-3">
-                With a user-first approach, we execute end-to-end mobile app development services, ensuring your app is visually stunning, scalable, and highly functional. In today’s fast-evolving digital world, a high-performance mobile application can give your business a competitive edge.
-                </p>
-              </div>
-            </div>
-          </div>
 
-          <section id="services-list">
-            <div className="container servicelist-container">
-              <div className="row">
-                <div className="col-lg-4 col-md-6 mt-4">
-                  <div className="card service-mobile-card">
-                    <div className="card-body">
-                      <div className="card-images">
-                        <Image src="/images/Group322.png" width={64} height={64} alt="Mobile app design services" loading="lazy" />
-                      </div>
-                      <div className="service-card-title pt-4 pb-2">
-                        <h3>Mobile App Design Services</h3>
-                      </div>
-                      <div className="card-text service-card-text pb-3">
-                        <p>
-                        Creating intuitive, user-centric mobile UI designs that enhance user engagement and retention, making your app stand out in the market.
-                        </p>
-                      </div>
-                      <div className="card-link">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-4 col-md-6 mt-4">
-                  <div className="card service-mobile-card">
-                    <div className="card-body">
-                      <div className="card-images">
-                        <Image src="/images/Group323.png" width={64} height={64} alt="iOS app development" loading="lazy" />
-                      </div>
-                      <div className="service-card-title pt-4 pb-2">
-                        <h3>iOS App Development</h3>
-                      </div>
-                      <div className="card-text service-card-text pb-3">
-                        <p>
-                        Specializing in custom iOS applications, our expert iOS app developers ensure seamless app performance, robust security, and excellent user experience tailored to business needs.
-                        </p>
-                      </div>
-                      <div className="card-link">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-4 col-md-6 mt-4">
-                  <div className="card service-mobile-card">
-                    <div className="card-body">
-                      <div className="card-images">
-                        <Image src="/images/Group324.png" width={64} height={64} alt="Android app development" loading="lazy" />
-                      </div>
-                      <div className="service-mobile-card-title pt-4 pb-2">
-                        <h3>Android App Development</h3>
-                      </div>
-                      <div className="card-text service-card-text pb-3">
-                        <p>
-                        Developing secure, scalable, and feature-rich Android apps. As a leading Android application development company in Chennai, we offer tailored solutions optimized for performance and user engagement.
-                        </p>
-                      </div>
-                      <div className="card-link">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-4 col-md-6 mt-4">
-                  <div className="card service-mobile-card">
-                    <div className="card-body">
-                      <div className="card-images">
-                        <Image src="/images/Group325.png" width={64} height={64} alt="Hybrid app development" loading="lazy" />
-                      </div>
-                      <div className="service-card-title pt-4 pb-2">
-                        <h3>Hybrid App Development</h3>
-                      </div>
-                      <div className="card-text service-card-text pb-1">
-                        <p>
-                          Hybrid & cross-platform mobile app development that balances speed,
-                          quality, and budget. Our Flutter, React Native, and Ionic teams ship apps
-                          that feel native on every device.
-                        </p>
-                        <ul className="list-unstyled service-benefits">
-                          <li>Code once, deploy across multiple platforms</li>
-                          <li>Accelerated delivery with a cost-efficient stack</li>
-                          <li>Consistent UI and native-like performance</li>
-                        </ul>
-                      </div>
-                      <div className="card-link">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-4 col-md-6 mt-4">
-                  <div className="card service-mobile-card">
-                    <div className="card-body">
-                      <div className="card-images">
-                        <Image src="/images/Group326.png" width={64} height={64} alt="Enterprise mobile solutions" loading="lazy" />
-                      </div>
-                      <div className="service-card-title pt-4 pb-2">
-                        <h3 className="dff">Enterprise Mobile Solutions</h3>
-                      </div>
-                      <div className="card-text service-card-text pb-3">
-                        <p>
-                        We deliver enterprise-grade mobile application development tailored for large-scale operations, ensuring security, scalability, and seamless integration.
-                        </p>
-                      </div>
-                      <div className="card-link">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-4 col-md-6 mt-4">
-                  <div className="card service-mobile-card">
-                    <div className="card-body">
-                      <div className="card-images">
-                        <Image src="/images/Group327.png" width={64} height={64} alt="Flutter app development" loading="lazy" />
-                      </div>
-                      <div className="service-card-title pt-4 pb-2">
-                        <h3>Flutter app development services</h3>
-                      </div>
-                      <div className="card-text service-card-text pb-3">
-                        <p>
-                          Our Flutter experts deliver high-performance, cost-effective mobile apps
-                          with stunning UI and seamless cross-platform functionality.
-                        </p>
-                        <ul className="list-unstyled service-benefits">
-                          <li>Rapid builds powered by the Flutter framework</li>
-                          <li>Refined motion design with native-grade performance</li>
-                          <li>Solutions that stay scalable and affordable</li>
-                        </ul>
-                      </div>
-                      <div className="card-link">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
 <section className="pm-sec-cta">
   <div className="container">
     <Card className="port-cta my-5">
@@ -862,199 +723,6 @@ export default function mobileApp() {
     </Card>
   </div>
 </section>
-<section id="app-process">
-  <div className="container process-container py-5">
-    <div className="row mb-4">
-      <div className="col-12">
-        <Stack direction="horizontal" className="pb-3">
-          <div className="badge-abot-btn">
-            <Image
-  src="/images/Rectangle-kariot.png"
-  width={18}
-  height={18}
-  alt=""
-  loading="lazy"
-  aria-hidden="true"
-  className="me-2"
-/>
-
-            <p> DEVELOPMENT PROCESS </p>
-          </div>
-        </Stack>
-        <h3 className="process-heading">Mobile App Development Process – From Idea to Launch & Beyond</h3>
-        <p className="process-para">
-        Our expert team follows a streamlined and transparent mobile app development process to bring your vision to life, on time and within budget.
-
-        </p>
-      </div>
-    </div>
-
-    <div className="row gy-4">
-      {[
-        {
-          icon: "/images/processicon.png",
-          step: "01",
-          title: "Requirements Analysis",
-          desc: "We collaborate closely with you to understand your business needs, target audience, and goals to define the project roadmap.",
-        },
-        {
-          icon: "/images/processicon1.png",
-          step: "02",
-          title: "Design",
-          desc: "Our UI/UX designers create wireframes and prototypes that are intuitive, visually appealing, and conversion-optimized.",
-        },
-        {
-          icon: "/images/processicon2.png",
-          step: "03",
-          title: "Architecture",
-          desc: "We define the technical architecture, database schema, and technology stack for optimal scalability and security.",
-        },
-        {
-          icon: "/images/processicon3.png",
-          step: "04",
-          title: "Development",
-          desc: "Using agile methods, we build your app feature by feature while maintaining code quality and flexibility.",
-        },
-        {
-          icon: "/images/processicon4.png",
-          step: "05",
-          title: "Build & Release",
-          desc: "We integrate features, APIs, and back-end services and prepare your app for beta or internal testing builds.",
-        },
-        {
-          icon: "/images/processicon5.png",
-          step: "06",
-          title: "Quality Assurance",
-          desc: "Rigorous manual and automated testing ensures bug-free performance across different devices and platforms.",
-        },
-        {
-          icon: "/images/processicon6.png",
-          step: "07",
-          title: "Submission to App Stores",
-          desc: "We handle app store compliance, metadata, and deployment for both Google Play and Apple App Store.",
-        },
-        {
-          icon: "/images/processicon7.png",
-          step: "08",
-          title: "Go Live",
-          desc: "Your app is launched to the world. We ensure it’s functioning perfectly and visible to your audience.",
-        },
-        {
-          icon: "/images/processicon8.png",
-          step: "09",
-          title: "Support & Maintenance",
-          desc: "Post-launch, we offer ongoing updates, performance monitoring, and support to ensure continued success.",
-        },
-      ].map((step, idx) => (
-        <div className="col-lg-4 col-md-6" key={idx}>
-          <div className="process-card text-center">
-            <Image
-  src={step.icon}
-  alt={step.title}
-  width={60}
-  height={60}
-  className="mb-3"
-  loading="lazy"
-/>
-            <h5 className="mb-1"><strong>{step.step}. {step.title}</strong></h5>
-            <p>{step.desc}</p>
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
-
-          </section>
-        </section>
-
-        <section className="mbl-tools">
-  <div className="container mbltool-container">
-    <Row>
-      <Col lg={6} md={6}>
-        <h3 className="tools-heading">
-          Cutting-Edge Technologies for High-Performance Mobile Apps
-        </h3>
-      </Col>
-      <Col lg={6} md={6}>
-        <p className="tools-para">
-        Utilizing the latest innovations, we use the most powerful tools to build high-performance, secure, and scalable mobile applications.Whether you're looking for native, hybrid, or cross-platform app development, our technology stack ensures seamless user experience and efficiency.
-        </p>
-      </Col>
-    </Row>
-
-    {/* Technology Stack Table */}
-    <Row className="mt-4">
-      {/* iOS Technologies */}
-      <Col lg={3} md={6} xs={6} className="mb-3">
-        <h4 className="tools-title"> iOS </h4>
-        <Table className="tech-table">
-          <tbody>
-            <tr>
-              <td className="tech-box">
-                <Image src="/images/Swift_logo.png" width={110} height={34} 
-                  alt="Swift iOS Application Development Logo" className="tech-icon" />
-              </td>
-              <td className="tech-box">
-                <Image src="/images/obj-c.png" width={120} height={41} 
-                  alt="Objective-C iOS Development Logo" className="tech-icon" />
-              </td>
-            </tr>
-          </tbody>
-        </Table>
-      </Col>
-
-      {/* Cross-Platform Technologies */}
-      <Col lg={3} md={6} xs={6} className="mb-3">
-        <h4 className="tools-title"> Cross-Platform </h4>
-        <Table className="tech-table">
-          <tbody>
-            <tr>
-              <td className="tech-box">
-                <Image src="/images/react-native-mbl.png" width={100} height={34} 
-                  alt="React Native Development Logo" className="tech-icon" />
-              </td>
-              <td className="tech-box">
-                <Image src="/images/mbl-flutter.png" width={110} height={32} 
-                  alt="Flutter Development Logo" className="tech-icon" />
-              </td>
-            </tr>
-          </tbody>
-        </Table>
-      </Col>
-
-      {/* Android Technologies */}
-      <Col lg={3} md={6} xs={6} className="mb-3">
-        <h4 className="tools-title"> Android </h4>
-        <Table className="tech-table">
-          <tbody>
-            <tr>
-              <td className="tech-box">
-                <Image src="/images/Kotlin_logo.png" width={110} height={24} 
-                  alt="Kotlin Android Development Logo" className="tech-icon" />
-              </td>
-            </tr>
-          </tbody>
-        </Table>
-      </Col>
-
-      {/* Hybrid Technologies */}
-      <Col lg={3} md={6} xs={6} className="mb-3">
-        <h4 className="tools-title"> Hybrid </h4>
-        <Table className="tech-table">
-          <tbody>
-            <tr>
-              <td className="tech-box">
-                <Image src="/images/ionic.png" width={110} height={37} 
-                  alt="Ionic Hybrid App Development Logo" className="tech-icon" />
-              </td>
-            </tr>
-          </tbody>
-        </Table>
-      </Col>
-    </Row>
-  </div>
-</section>
 
 
         {/* <section id="recent-mbl-work">
@@ -1081,169 +749,44 @@ export default function mobileApp() {
 
         {/* <TestimonialClient /> */}
 
-        {/* <section id="blog" className="py-4">
+        <section id="mobile-insights" className="py-5">
           <div className="container blog-container">
-            <div className="row py-3">
-              <Stack direction="horizontal">
-                <div className=" badge-abot-btn">
-                  <img
-                    src="/images/Rectangle-kariot.png"
-                    className="me-2"
-                    alt="design-dot"
-                  />
-                  <p>
-                    {" "}
-                    <b> OUR BLOGS </b>{" "}
-                  </p>
+            <div className="row py-3 align-items-center">
+              <div className="col-lg-5 col-md-6">
+                <div className="badge-abot-btn">
+                  <Image src="/images/Rectangle-kariot.png" className="me-2" width={18} height={18} alt="" aria-hidden="true" loading="lazy" />
+                  <p> INSIGHTS </p>
                 </div>
-              </Stack>
-              <div className="col-lg-5 col-md-5 py-4">
-                <h2 className="contacts-heading">
-                  Latest Trends & Insights in Mobile App Development
-                </h2>
+                <h2 className="contacts-heading pt-3">Latest Mobile App Growth Playbooks</h2>
               </div>
-              <div className="col-lg-7 col-md-7 py-4">
+              <div className="col-lg-7 col-md-6">
                 <p className="blog-para">
-                  At Trimsel, there is continuous learning that happens as we
-                  work on various projects. We also love to update and upgrade
-                  with the latest innovations in the field of technology and
-                  apps.
+                  Stay ahead with Trimsel’s how-to guides on app monetization, retention, DevOps automation, and AI-driven product growth.
                 </p>
               </div>
             </div>
-            <div className="row no-gutters">
-              <div className="col-lg-6">
-                <div className="card blog-card">
-                  <div className="row no-gutters">
-                    <div className="col-lg-5 col-md-5 py-3">
-                      <img
-                        className="card-img"
-                        src="/images/blog-img.png"
-                        alt=""
-                      />
-                    </div>
-                    <div className="col-lg-7 col-md-7">
-                      <Button className="card-badge mb-2">Development</Button>
-                      <h5 className="blog-card-title">
-                        Top 10 Mobile App Development Frameworks in 2023
-                      </h5>
-                      <p className="blog-card-para">
-                        We've entered on age where our lives are...{" "}
-                        <Link href="#">Read More</Link>
-                      </p>
-                    </div>
-                  </div>
-                  <div className="row no-gutters">
-                    <div className="col-lg-5 col-md-5 py-3">
-                      <img
-                        className="card-img"
-                        src="/images/blogs-img.png"
-                        alt=""
-                      />
-                    </div>
-                    <div className="col-lg-7 col-md-7 py-3">
-                      <Button className="card-badge mb-2">Development</Button>
-                      <h5 className="blog-card-title">
-                        Top 10 Mobile App Development Frameworks in 2023
-                      </h5>
-                      <p className="blog-card-para">
-                        We've entered on age where our lives are...{" "}
-                        <Link href="#">Read More</Link>
-                      </p>
-                    </div>
-                  </div>
+            <div className="row g-4">
+              {featuredArticles.map((article) => (
+                <div className="col-lg-6" key={article.title}>
+                  <Card className="blog-card h-100">
+                    <Card.Body>
+                      <p className="insight-tag">{article.tag}</p>
+                      <h3 className="blogs-card-title">
+                        <Link href={article.href}>{article.title}</Link>
+                      </h3>
+                      <p className="blog-card-para">{article.excerpt}</p>
+                      <Link href={article.href} className="about-btn" aria-label={`Read ${article.title}`}>
+                        Read More
+                        <ArrowRightIcon />
+                      </Link>
+                    </Card.Body>
+                  </Card>
                 </div>
-              </div>
-              <div className="col-lg-6">
-                <div className="card blog-card">
-                  <div className="card-image">
-                    <img className="blog-image" src="/images/blog-image.png" />
-                  </div>
-                  <div className="card-content">
-                    <Button className="card-badge my-2">Development</Button>
-                    <h5 className="blogs-card-title">
-                      How hybrid app development can help you build custom apps
-                    </h5>
-                    <p className="blog-card-para">
-                      Digitization has taken over every industry and business
-                      aspect. The pandemic only fuelled our shift tower...
-                      <Link href="#">Read More</Link>
-                    </p>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
-        </section> */}
-<section id="faq">
-  <div className="container faq-container">
-    <h2 className="faq-heading">
-      Frequently Asked Questions About Mobile App Development
-    </h2>
+        </section>
 
-    <Accordion defaultActiveKey="0" flush className="py-5">
-      {[
-        {
-          question: "Why Choose Trimsel as Your Mobile App Development Company in Chennai?",
-          answer:
-            "Trimsel is a top-rated mobile app development company in Chennai, India, trusted by startups and enterprises. We specialize in iOS, Android, and cross-platform apps using cutting-edge technologies like Flutter and React Native.",
-        },
-        {
-          question: "How Much Does It Cost to Develop a Mobile App?",
-          answer:
-            "The cost of mobile app development varies based on features, complexity, platform, and development approach. At Trimsel, we offer scalable solutions tailored to your unique business needs and budget.",
-        },
-        {
-          question: "Which Is Better: Native or Cross-Platform App Development?",
-          answer:
-            "Native apps (iOS or Android) offer high performance, while cross-platform apps built using Flutter or React Native are faster to develop and more cost-effective. We help you choose the right approach based on your project scope.",
-        },
-        {
-          question: "Do You Offer Flutter App Development Services?",
-          answer:
-            "Yes! As a Flutter app development company in Chennai, we build fast, cost-effective cross-platform mobile applications that deliver native-like performance and seamless user experiences.",
-        },
-        {
-          question: "How Long Does It Take to Develop a Mobile App?",
-          answer:
-            "A basic app can take 6–8 weeks, while feature-rich enterprise mobile apps may take 4–6 months. We follow agile development for faster time-to-market without compromising quality.",
-        },
-        {
-          question: "Can I Hire Mobile App Developers from Trimsel?",
-          answer:
-            "Absolutely. We provide dedicated mobile app developers in Chennai to work on your project full-time or part-time, ensuring transparency, speed, and technical excellence.",
-        },
-        {
-          question: "What Is Hybrid Mobile App Development and Is It Right for My Business?",
-          answer:
-            "Hybrid mobile apps are built using web technologies like HTML, CSS, and JavaScript with frameworks like Ionic. They are ideal for MVPs or businesses looking for quick deployment across platforms.",
-        },
-        {
-          question: "Is My App Secure and Compliant with Data Protection Laws?",
-          answer:
-            "Yes. We implement best practices for mobile app security and ensure compliance with GDPR, HIPAA, and PCI-DSS based on your industry and location.",
-        },
-        {
-          question: "Do You Provide Post-Launch Support and Maintenance?",
-          answer:
-            "Yes, In order to keep your app safe and up to date, we do offer ongoing maintenance, feature enhancements, performance tracking, and support services.",
-        },
-        {
-          question: "How Can I Get Started with My Mobile App Project?",
-          answer:
-            "You can book a consultation with our team to discuss your app idea, goals, and expectations. We’ll help you plan and validate your mobile app development journey from start to finish.",
-        },
-      ].map((faq, index) => (
-        <Accordion.Item eventKey={index.toString()} key={index} className="pb-3">
-          <Accordion.Header>{faq.question}</Accordion.Header>
-          <Accordion.Body>
-            <p className="accordion-para">{faq.answer}</p>
-          </Accordion.Body>
-        </Accordion.Item>
-      ))}
-    </Accordion>
-  </div>
-</section>
   <ContactForm heading="Ready To Build Your Mobile App?" subText="Speak with our iOS & Android experts to turn your idea into a secure, high-performance mobile product."/>
   <Footer />
       </main>
