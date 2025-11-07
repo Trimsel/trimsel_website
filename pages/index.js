@@ -54,8 +54,8 @@ export default function Home() {
     type: "website",
     url: "https://www.trimsel.com/",
     title: "AI-Powered Software Development Company in Chennai",
-    description: "We build intelligent mobile apps, scalable web apps, AI abd ML apps, cloud consulting, DevOps, and ROI-focused digital marketing for global brands",
-    images: [{ url: "https://www.trimsel.com/images/home-hero-banner.webp", width: 1200, height: 630, alt: "Trimsel" }],
+    description: "We build intelligent mobile apps, scalable web apps, AI and ML apps, cloud consulting, DevOps, and ROI-focused digital marketing for global brands",
+    images: [{ url: "https://www.trimsel.com/images/myherocloud.png", width: 1200, height: 630, alt: "Trimsel" }],
     site_name: "Trimsel",
   }}
   twitter={{ cardType: "summary_large_image" }}

@@ -82,7 +82,7 @@ export default function Quality() {
     site_name: "Trimsel",
     images: [
       {
-        url: "https://www.trimsel.com/images/ai-hero.webp",
+        url: "https://www.trimsel.com/images/qa-hero-img.webp",
         width: 1200,
         height: 630,
         alt: "Trimsel AI engineers building machine learning solutions in Chennai",
