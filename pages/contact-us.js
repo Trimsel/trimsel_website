@@ -18,6 +18,118 @@ import dynamic from 'next/dynamic';
 const PhoneInput = dynamic(() => import('react-phone-input-2'), { ssr: false });
 const ReCAPTCHA = dynamic(() => import("react-google-recaptcha"), { ssr: false });
 
+const CONTACT_JSON_LD = [
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": "https://www.trimsel.com/#local",
+    "name": "Trimsel - AI Digital Transformation Experts",
+    "url": "https://www.trimsel.com/",
+    "logo": "https://www.trimsel.com/logo.png",
+    "image": "https://www.trimsel.com/images/contact-hero.jpg",
+    "email": "contact@trimsel.com",
+    "telephone": "+91 72008 41581",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "No. 21-B, 5th Cross St, South Phase, Thiru Vi Ka Industrial Estate, Guindy",
+      "addressLocality": "Chennai",
+      "addressRegion": "TN",
+      "postalCode": "600032",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 13.0827,
+      "longitude": 80.2707
+    },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }],
+    "hasMap": "https://www.google.com/maps/place/Trimsel/",
+    "sameAs": [
+      "https://www.linkedin.com/company/trimsel",
+      "https://www.instagram.com/trimsel_softwares/",
+      "https://in.pinterest.com/trimsel/"
+    ],
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+91 72008 41581",
+        "contactType": "customer service",
+        "areaServed": "IN",
+        "availableLanguage": ["English"]
+      },
+      {
+        "@type": "ContactPoint",
+        "telephone": "+91 72008 41581",
+        "contactType": "AI consulting",
+        "contactOption": ["HearingImpairedSupported"],
+        "areaServed": ["IN","AE","SG","US"],
+        "availableLanguage": ["English"]
+      },
+      {
+        "@type": "ContactPoint",
+        "telephone": "+91 72008 41581",
+        "contactType": "sales",
+        "contactOption": ["TollFree","WhatsApp"],
+        "areaServed": ["IN","AE","US"],
+        "availableLanguage": ["English"]
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.trimsel.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Contact Us",
+        "item": "https://www.trimsel.com/contact-us"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How soon will Trimsel respond to a contact request?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our AI delivery team responds to every enquiry within one business day and usually schedules discovery calls within 48 hours."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which digital transformation services do you provide?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We design and build AI copilots, mobile apps, cloud-native platforms, and automation workflows tailored to modernize your business processes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you sign NDAs before sharing project details?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We are happy to sign a mutual NDA before discussing sensitive information and we can use Trimsel’s template or yours."
+        }
+      }
+    ]
+  }
+];
+
 
 export default function Contact() {
 
@@ -115,117 +227,7 @@ export default function Contact() {
   ]}
 />
         <Head>
-          {[
-            {
-              "@context": "https://schema.org",
-              "@type": "ProfessionalService",
-              "@id": "https://www.trimsel.com/#local",
-              "name": "Trimsel - AI Digital Transformation Experts",
-              "url": "https://www.trimsel.com/",
-              "logo": "https://www.trimsel.com/logo.png",
-              "image": "https://www.trimsel.com/images/contact-hero.jpg",
-              "email": "contact@trimsel.com",
-              "telephone": "+91 72008 41581",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "No. 21-B, 5th Cross St, South Phase, Thiru Vi Ka Industrial Estate, Guindy",
-                "addressLocality": "Chennai",
-                "addressRegion": "TN",
-                "postalCode": "600032",
-                "addressCountry": "IN"
-              },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": 13.0827,
-                "longitude": 80.2707
-              },
-              "openingHoursSpecification": [{
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
-                "opens": "09:00",
-                "closes": "18:00"
-              }],
-              "hasMap": "https://www.google.com/maps/place/Trimsel/",
-              "sameAs": [
-                "https://www.linkedin.com/company/trimsel",
-                "https://www.instagram.com/trimsel_softwares/",
-                "https://in.pinterest.com/trimsel/"
-              ],
-              "contactPoint": [
-                {
-                  "@type": "ContactPoint",
-                  "telephone": "+91 72008 41581",
-                  "contactType": "customer service",
-                  "areaServed": "IN",
-                  "availableLanguage": ["English"]
-                },
-                {
-                  "@type": "ContactPoint",
-                  "telephone": "+91 72008 41581",
-                  "contactType": "AI consulting",
-                  "contactOption": ["HearingImpairedSupported"],
-                  "areaServed": ["IN","AE","SG","US"],
-                  "availableLanguage": ["English"]
-                },
-                {
-                  "@type": "ContactPoint",
-                  "telephone": "+91 72008 41581",
-                  "contactType": "sales",
-                  "contactOption": ["TollFree","WhatsApp"],
-                  "areaServed": ["IN","AE","US"],
-                  "availableLanguage": ["English"]
-                }
-              ]
-            },
-            {
-              "@context": "https://schema.org",
-              "@type": "BreadcrumbList",
-              "itemListElement": [
-                {
-                  "@type": "ListItem",
-                  "position": 1,
-                  "name": "Home",
-                  "item": "https://www.trimsel.com/"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 2,
-                  "name": "Contact Us",
-                  "item": "https://www.trimsel.com/contact-us"
-                }
-              ]
-            },
-            {
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "How soon will Trimsel respond to a contact request?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Our AI delivery team responds to every enquiry within one business day and usually schedules discovery calls within 48 hours."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Which digital transformation services do you provide?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "We design and build AI copilots, mobile apps, cloud-native platforms, and automation workflows tailored to modernize your business processes."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Do you sign NDAs before sharing project details?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes. We are happy to sign a mutual NDA before discussing sensitive information and we can use Trimsel’s template or yours."
-                  }
-                }
-              ]
-            }
-          ].map((schema, index) => (
+          {CONTACT_JSON_LD.map((schema, index) => (
             <script
               key={`contact-schema-${index}`}
               type="application/ld+json"
