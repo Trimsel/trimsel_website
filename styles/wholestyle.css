@@ -4716,6 +4716,36 @@ section#recent-web-work {
   margin-top: 120px;
 }
 
+.home-hero-intro {
+  background: #f7fbff;
+}
+.home-hero-heading {
+  font-size: 40px;
+  font-weight: 700;
+  color: #051937;
+}
+.home-hero-copy {
+  font-size: 18px;
+  color: #5a6278;
+  max-width: 720px;
+}
+.home-hero-links {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+.home-hero-links li {
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.home-hero-links a {
+  color: #01aaec;
+  text-decoration: none;
+}
+.home-hero-links a:hover {
+  text-decoration: underline;
+}
+
 .home-cta.my-5.card {
   padding: 30px 20px 5px;
   background: #e6f6fd;
@@ -4747,6 +4777,37 @@ section#stage-modal {
 .hm-sec-cta {
   margin-top: 190px;
   margin-bottom: 100px;
+}
+
+.home-insights {
+  background: #f5f7fb;
+}
+.insight-card {
+  border: 0;
+  border-radius: 20px;
+  box-shadow: rgba(15, 30, 50, 0.08) 0 20px 40px;
+}
+.insight-tag {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 12px;
+  color: #5c6f92;
+}
+.insight-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 12px 0;
+}
+.insight-title a {
+  color: #061638;
+  text-decoration: none;
+}
+.insight-title a:hover {
+  color: #01aaec;
+}
+.insight-excerpt {
+  color: #4b5675;
+  min-height: 60px;
 }
 
 .hm-customize-card.card {
