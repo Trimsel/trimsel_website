@@ -104,6 +104,21 @@ export default function Digital() {
       },
     ],
   });
+
+  const marketingInsights = [
+    {
+      title: "5 Easy Ways a Mobile App Can Grow Your Business",
+      excerpt: "See how omnichannel campaigns + in-app personalization boost retention and revenue for Chennai brands.",
+      href: "/blog/how-mobile-apps-grow-business",
+      tag: "Growth Playbook",
+    },
+    {
+      title: "Explore Trimsel’s Digital Growth Library",
+      excerpt: "Dive into SEO, PPC, and automation articles to plan your next demand-generation sprint.",
+      href: "/blog",
+      tag: "Digital Insights",
+    },
+  ];
   return (
     <>
 <NextSeo
@@ -210,6 +225,9 @@ export default function Digital() {
                       />
                     </button>
                   </Link>
+                  <p className="hero-proof">
+                    150+ campaigns delivered for SaaS, retail, and BFSI brands with 4.5x average ROAS.
+                  </p>
                 </div>
               </div>
             </div>
@@ -253,16 +271,16 @@ export default function Digital() {
           Leading Digital Marketing Company in Chennai – SEO, PPC & SMM Experts
         </h2>
         <p className="dig-para">
-        In today’s fast-paced online world, having a great product or service isn't enough. You need visibility. That’s where digital marketing comes in. Whether you want to increase website traffic, generate quality leads, or build a loyal customer base, digital marketing plays a vital role. From SEO and social media to paid advertising and content marketing, digital strategies help businesses grow, compete, and stay relevant in a crowded digital landscape.
+        In today’s fast-paced online world, having a great product or service isn't enough. You need visibility. That’s where digital marketing comes in. Whether you want to increase website traffic, generate quality leads, or build a loyal customer base, digital marketing plays a vital role. From <Link href="/web-development-company-chennai">SEO-friendly web experiences</Link> and social media to paid advertising and content marketing, digital strategies help businesses grow, compete, and stay relevant in a crowded digital landscape.
 </p>
         <p className="dig-para">
-        At Trimsel, we empower brands to grow online with powerful digital marketing strategies. As a top digital marketing company in Chennai, we specialize in Search Engine Optimization (SEO), Pay-Per-Click (PPC), Content Marketing and Social Media Marketing (SMM) to drive measurable traffic, quality leads, and higher ROI.
+        At Trimsel, we empower brands to grow online with powerful digital marketing strategies. As a top digital marketing company in Chennai, we specialize in Search Engine Optimization (SEO), Pay-Per-Click (PPC), Content Marketing and Social Media Marketing (SMM) to drive measurable traffic, quality leads, and higher ROI. Need help aligning channels? Our <Link href="/cloud-consulting-services">cloud consultants</Link> and <Link href="/devops-consulting-services">DevOps architects</Link> ensure your martech stack scales with every campaign while <Link href="/ai-development-company">AI engineers</Link> unlock predictive targeting.
         </p>
         <p className="dig-para">
-        From T. Nagar retailers and OMR SaaS scale-ups to Ambattur manufacturers, we tailor channel mixes that reflect Chennai’s unique customer behavior. Expect hyperlocal landing pages, Tamil-and-English ad sets, and analytics dashboards that map every rupee you spend to pipeline created.
+        From T. Nagar retailers and OMR SaaS scale-ups to Ambattur manufacturers, we tailor channel mixes that reflect Chennai’s unique customer behavior. Expect hyperlocal landing pages, Tamil-and-English ad sets, and analytics dashboards that map every rupee you spend to pipeline created, supported by insights from our <Link href="/blog/how-mobile-apps-grow-business">latest growth playbooks</Link>.
         </p>
         <p className="dig-para">
-        The digital landscape changes rapidly with new Google algorithms, evolving user behavior, and dynamic platforms reshaping how businesses grow online. Our SEO experts in Chennai stay ahead of these trends to keep your brand visible, competitive, and conversion-focused. Whether you're a startup or an enterprise, we help you stay on top
+        The digital landscape changes rapidly with new Google algorithms, evolving user behavior, and dynamic platforms reshaping how businesses grow online. Our SEO experts in Chennai stay ahead of these trends to keep your brand visible, competitive, and conversion-focused. Whether you're a startup or an enterprise, we help you stay on top—see our <Link href="/blog/how-mobile-apps-grow-business">latest marketing insight</Link> for a preview of the playbooks we implement.
 
         </p>
       </div>
@@ -1015,7 +1033,37 @@ export default function Digital() {
           <ClientLogo />
         </div>
       </section>
-      <ContactForm heading="Want More Traffic & Leads?" subText="Talk to our growth strategists about SEO, PPC and content plans that actually drive results."/>
+  <section id="digital-insights" className="home-insights py-5">
+    <div className="container">
+      <div className="d-flex align-items-center">
+        <div className="badge-abot-btn">
+          <Image src="/images/Rectangle-kariot.png" className="me-2" width={15} height={15} alt="" aria-hidden="true" loading="lazy" />
+          <p> LATEST DIGITAL INSIGHTS </p>
+        </div>
+      </div>
+      <div className="row pt-4 g-4">
+        {marketingInsights.map((article) => (
+          <div className="col-lg-6" key={article.title}>
+            <Card className="insight-card h-100">
+              <Card.Body>
+                <p className="insight-tag">{article.tag}</p>
+                <h3 className="insight-title">
+                  <Link href={article.href}>{article.title}</Link>
+                </h3>
+                <p className="insight-excerpt">{article.excerpt}</p>
+                <Link href={article.href} className="about-btn" aria-label={`Read ${article.title}`}>
+                  Read More
+                  <Image src="/images/material-symbols_arrow-right-alt.png" width={18} height={18} alt="" loading="lazy" />
+                </Link>
+              </Card.Body>
+            </Card>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <ContactForm heading="Want More Traffic & Leads?" subText="Talk to our growth strategists about SEO, PPC and content plans that actually drive results."/>
       <section id="digital-faq">
   <div className="container faq-container">
     <h2 className="faq-heading">Frequently Asked Questions</h2>
