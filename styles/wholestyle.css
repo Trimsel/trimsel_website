@@ -4716,6 +4716,12 @@ section#recent-web-work {
   margin-top: 120px;
 }
 
+.hero-proof {
+  font-size: 16px;
+  color: #d7f2ff;
+  margin-top: 10px;
+}
+
 .home-hero-intro {
   background: #f7fbff;
 }
