@@ -73,7 +73,7 @@ export default function Quality() {
   description="Trimsel is a leading AI development company in Chennai, India specializing in custom AI agents, machine learning models, NLP, and generative AI solutions."
   canonical="https://www.trimsel.com/ai-development-company"
   openGraph={{
-    type: "article",
+    type: "website",
     url: "https://www.trimsel.com/ai-development-company",
     title: "Best AI Development Company in Chennai, India | Trimsel",
     description:
@@ -105,7 +105,6 @@ export default function Quality() {
     site: "@TrimselSoftwares",
   }}
   additionalMetaTags={[
-    { name: "robots", content: "index, follow" },
     {
       name: "twitter:title",
       content: "AI Development Experts in Chennai – Trimsel",
@@ -140,8 +139,8 @@ export default function Quality() {
                   <div className="title-inner">
                     <div className="cafe">
                       <div className="whiteLink">
+                        <h1 className="visually-hidden">AI Development Company in Chennai | Trimsel</h1>
                         <p className="breadcrumbs-kar">
-                          <h1 className="visually-hidden">AI Development Company in Chennai | Trimsel</h1>
                           <Link href="/">Home</Link> <span> &#x2027; </span>{" "}
                           AI Development services
                         </p>
@@ -227,10 +226,14 @@ export default function Quality() {
             <div className="col-lg-6 col-md-6 col-12">
               <Stack direction="horizontal">
                 <div className=" badge-kariot-btn">
-                  <img
+                  <Image
                     src="/images/Rectangle-kariot.png"
                     className="me-2"
-                    alt="design-dot"
+                    alt=""
+                    aria-hidden="true"
+                    width={18}
+                    height={18}
+                    loading="lazy"
                   />
                   <p> Build your AI Product </p>
                 </div>
@@ -456,10 +459,14 @@ export default function Quality() {
         <div className="container test-container">
           <Stack direction="horizontal">
             <div className=" badge-kariot-btn">
-              <img
+              <Image
                 src="/images/Rectangle-kariot.png"
                 className="me-2"
-                alt="design-dot"
+                alt=""
+                aria-hidden="true"
+                width={18}
+                height={18}
+                loading="lazy"
               />
               <p> WHAT WE DO </p>
             </div>
@@ -599,10 +606,14 @@ export default function Quality() {
                 <div className="col-lg-7 col-md-12 col-12">
                   <Stack direction="horizontal">
                     <div className=" badge-kariot-btn">
-                      <img
+                      <Image
                         src="/images/Rectangle-kariot.png"
                         className="me-2"
-                        alt="design-dot"
+                        alt=""
+                        aria-hidden="true"
+                        width={18}
+                        height={18}
+                        loading="lazy"
                       />
                       <p> GET IN TOUCH </p>
                     </div>
@@ -610,13 +621,21 @@ export default function Quality() {
                   <h2 className="cldcta-heading pt-2">
                     Experience Technology to the Fullest with Trimsel AI Development Company
                   </h2>
-                  <button className="btn btn-primary dev-btn mt-3">
+                  <Link
+                    href="/contact-us"
+                    className="btn btn-primary dev-btn mt-3"
+                    aria-label="Contact Trimsel's AI team"
+                  >
                     Contact Us{" "}
-                    <img
+                    <Image
                       src="/images/material-symbols_arrow-right-alt.png"
-                      alt="arrow-icon"
+                      alt=""
+                      aria-hidden="true"
+                      width={18}
+                      height={18}
+                      loading="lazy"
                     />
-                  </button>
+                  </Link>
                 </div>
               </div>
             </Card.Body>
@@ -830,10 +849,14 @@ export default function Quality() {
                 <div className="card-sor-details">
                   <Stack direction="horizontal">
                     <div className=" badge-kariot-btn mb-3">
-                      <img
+                      <Image
                         src="/images/Rectangle-kariot.png"
                         className="me-2"
-                        alt="design-dot"
+                        alt=""
+                        aria-hidden="true"
+                        width={18}
+                        height={18}
+                        loading="lazy"
                       />
                       <p> WHAT WE DELIVER </p>
                     </div>
@@ -872,10 +895,13 @@ export default function Quality() {
                 <tbody>
                   <tr>
                     <td className="new-bdr">
-                      <img
+                      <Image
                         src="/images/tools-image/selenium_logo.png"
                         className="mbl-tools pb-3"
                         alt="Selenium Automation Tool Logo"
+                        width={150}
+                        height={60}
+                        loading="lazy"
                       />
                     </td>
                     <td className="new-bdr">

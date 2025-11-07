@@ -25,7 +25,7 @@ export default function About() {
         "Trimsel is a global leader in digital transformation, software development, cloud computing, and DevOps solutions.",
       primaryImageOfPage: {
         "@type": "ImageObject",
-        url: "https://www.trimsel.com/images/about-page-banner.jpg",
+        url: "https://www.trimsel.com/images/about-bg.png",
       },
       publisher: { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
       mainEntity: { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
@@ -37,6 +37,37 @@ export default function About() {
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: "https://www.trimsel.com/" },
         { "@type": "ListItem", position: 2, name: "About Us", item: "https://www.trimsel.com/aboutus" },
+      ],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": "https://www.trimsel.com/aboutus#faq",
+      mainEntity: [
+        {
+          "@type": "Question",
+          "name": "What industries does Trimsel support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We partner with SaaS scale-ups, BFSI leaders, healthcare providers, and consumer brands to modernize products with AI, cloud, and secure engineering practices."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How fast can Trimsel start a new engagement?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Discovery begins within 5 business days once scope is aligned. We can deploy a blended pod of product strategist, solution architect, and engineers in under 3 weeks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Trimsel work with in-house teams?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Our squads plug into your product or platform teams, sharing documentation, DevSecOps guardrails, and regular business reviews to keep stakeholders aligned."
+          }
+        }
       ],
     },
   ];
@@ -57,7 +88,7 @@ export default function About() {
     locale: "en_IN",
     images: [
       {
-        url: "https://www.trimsel.com/images/about-page-banner.jpg",
+        url: "https://www.trimsel.com/images/about-bg.png",
         width: 1200,
         height: 630,
         alt: "Trimsel digital transformation team collaborating in Chennai",
@@ -88,12 +119,12 @@ export default function About() {
         </p>
       </div>
       <div className="col-lg-6 col-md-6">
-        <h2 className="abot-heading py-3">
-          Who are <span className="badge abot-badge">We</span>?
-        </h2>
-        <h4 className="abot-abt">
+        <h1 className="abot-heading py-3">
+          About Trimsel — <span className="badge abot-badge">AI-First</span> Digital Transformation Partner
+        </h1>
+        <h2 className="abot-abt">
           <span className="badge about-badge">Mission</span> – Critical Digital Solutions for Complete Business Transformation
-        </h4>
+        </h2>
       </div>
       <div className="col-lg-6 col-md-6">
         <p className="abot-hero-para">
@@ -101,12 +132,13 @@ export default function About() {
           <strong> modern digital solutions</strong> that ensure <strong>growth, operational optimization</strong>, and 
           measurable <strong>ROI</strong>. At Trimsel, We architect mission-driven technology that accelerates innovation.
         </p>
-        <Link href="/contact-us" passHref>
+        <Link href="/contact-us" passHref className="lts-talk-link" aria-label="Talk with Trimsel's digital transformation consultants">
+          <span className="visually-hidden">Book a strategy call with Trimsel</span>
           <Image
             src="/images/talkimg.png"
             width={150}
             height={150}
-            alt="Let's Talk Image"
+            alt="Let's Talk with Trimsel"
             className="lts-tlk"
             loading="lazy"
           />
@@ -142,9 +174,9 @@ export default function About() {
     </Stack>
     <div className="row">
       <div className="col-lg-7 col-md-7 py-4">
-        <h1 className="abot-title">
+        <h2 className="abot-title">
           Empowering Businesses with Digital Transformation & Innovation
-        </h1>
+        </h2>
 
         <p className="abot-abt-para">
           In today’s rapidly evolving digital era, businesses that once relied on traditional brick-and-mortar operations are now embracing technology to stay competitive and future-ready. As customer expectations shift, organizations must adopt scalable, agile, and user-focused digital solutions.
@@ -387,12 +419,10 @@ export default function About() {
             <p className="qsd-para">
             We develop scalable and secure Android & iOS apps with intuitive UI/UX, native performance, and cloud integration to accelerate your digital growth.
             </p>
-            {/* <Link href="/mobile-app-development-chennai" passHref>
-              <div className="explore-link">
-                🔗 <strong>Explore Mobile App Development</strong>
-                <Image src="/images/Group2495.png" width={56} height={56} className="do-btn-icon" alt="button icon" />
-              </div>
-            </Link> */}
+            <Link href="/mobile-app-development-chennai" className="explore-link" aria-label="Explore Trimsel mobile app development services">
+              <span>🔗 <strong>Explore Mobile App Development</strong></span>
+              <Image src="/images/Group2495.png" width={56} height={56} className="do-btn-icon" alt="Arrow icon" />
+            </Link>
           </Card.Body>
         </Card>
       </div>
@@ -412,12 +442,10 @@ export default function About() {
             <p className="qsd-para">
             From business websites to enterprise-grade platforms, we build responsive and SEO-friendly websites that engage users and boost conversions.
             </p>
-            {/* <Link href="/web-development-company-chennai" passHref>
-              <div className="explore-link">
-                🔗 <strong>Explore Web Development</strong>
-                <Image src="/images/Group2495.png" width={56} height={56} className="do-btn-icon" alt="button icon" />
-              </div>
-            </Link> */}
+            <Link href="/web-development-company-chennai" className="explore-link" aria-label="Explore Trimsel web development services">
+              <span>🔗 <strong>Explore Web Development</strong></span>
+              <Image src="/images/Group2495.png" width={56} height={56} className="do-btn-icon" alt="Arrow icon" />
+            </Link>
           </Card.Body>
         </Card>
       </div>
@@ -437,12 +465,10 @@ export default function About() {
             <p className="qsd-para">
             Migrate, modernize, and manage infrastructure across AWS, Azure, and GCP with our expert cloud consulting services.
             </p>
-            {/* <Link href="/cloud-consulting-services" passHref>
-              <div className="explore-link">
-                🔗 <strong>Explore Cloud Services</strong>
-                <Image src="/images/Group2495.png" width={56} height={56} className="do-btn-icon" alt="button icon" />
-              </div>
-            </Link> */}
+            <Link href="/cloud-consulting-services" className="explore-link" aria-label="Explore Trimsel cloud consulting services">
+              <span>🔗 <strong>Explore Cloud Services</strong></span>
+              <Image src="/images/Group2495.png" width={56} height={56} className="do-btn-icon" alt="Arrow icon" />
+            </Link>
           </Card.Body>
         </Card>
       </div>
@@ -462,12 +488,10 @@ export default function About() {
             <p className="qsd-para">
             Accelerate delivery pipelines with CI/CD, Infrastructure as Code (IaC), and Kubernetes automation powered by expert DevOps consulting.
             </p>
-            {/* <Link href="/devops-consulting-services" passHref>
-              <div className="explore-link">
-                🔗 <strong>Explore DevOps Consulting</strong>
-                <Image src="/images/Group2495.png" width={56} height={56} className="do-btn-icon" alt="button icon" />
-              </div>
-            </Link> */}
+            <Link href="/devops-consulting-services" className="explore-link" aria-label="Explore Trimsel DevOps consulting services">
+              <span>🔗 <strong>Explore DevOps Consulting</strong></span>
+              <Image src="/images/Group2495.png" width={56} height={56} className="do-btn-icon" alt="Arrow icon" />
+            </Link>
           </Card.Body>
         </Card>
       </div>
@@ -487,12 +511,10 @@ export default function About() {
             <p className="qsd-para">
             We help brands grow online through strategic SEO, paid ads, social media, and content marketing that drive targeted traffic and conversions.
             </p>
-            {/* <Link href="/digital-marketing-company-chennai" passHref>
-              <div className="explore-link">
-                🔗 <strong>Explore Digital Marketing</strong>
-                <Image src="/images/Group2495.png" width={56} height={56} className="do-btn-icon" alt="button icon" />
-              </div>
-            </Link> */}
+            <Link href="/digital-marketing-company-chennai" className="explore-link" aria-label="Explore Trimsel digital marketing services">
+              <span>🔗 <strong>Explore Digital Marketing</strong></span>
+              <Image src="/images/Group2495.png" width={56} height={56} className="do-btn-icon" alt="Arrow icon" />
+            </Link>
           </Card.Body>
         </Card>
       </div>
@@ -512,6 +534,10 @@ export default function About() {
             <p className="qsd-para">
             Build intelligent, future-ready solutions with our end-to-end AI development services — from use-case discovery and model development to multi-agent orchestration and production deployment. We help you leverage generative AI, machine learning, and AI agents to automate processes, enhance customer experiences, and drive business growth.
             </p>
+            <Link href="/ai-development-company" className="explore-link" aria-label="Explore Trimsel AI development services">
+              <span>🔗 <strong>Explore AI Development</strong></span>
+              <Image src="/images/Group2495.png" width={56} height={56} className="do-btn-icon" alt="Arrow icon" />
+            </Link>
           </Card.Body>
         </Card>
       </div>
@@ -519,6 +545,49 @@ export default function About() {
   </div>
 </section>
         
+
+<section className="about-trust py-5">
+  <div className="container">
+    <div className="row">
+      <div className="col-lg-4 col-md-6 mb-4">
+        <h3>Industries We Support</h3>
+        <p>
+          SaaS scale-ups, BFSI innovators, healthcare leaders, and consumer brands trust Trimsel to modernize their products with AI, secure engineering, and compliant cloud foundations.
+        </p>
+      </div>
+      <div className="col-lg-4 col-md-6 mb-4">
+        <h3>How Fast We Engage</h3>
+        <p>
+          Discovery workshops kick off within 5 business days once scope is aligned. We assemble a pod of product strategist, solution architect, and engineers inside three weeks to keep momentum high.
+        </p>
+      </div>
+      <div className="col-lg-4 col-md-6 mb-4">
+        <h3>Partnering With Your Team</h3>
+        <p>
+          Our squads plug into your in-house team with shared documentation, DevSecOps guardrails, and executive business reviews so stakeholders stay aligned throughout the transformation journey.
+        </p>
+      </div>
+    </div>
+    <div className="row pt-4">
+      <div className="col-lg-3 col-md-6">
+        <p className="stat-label">Projects Delivered</p>
+        <p className="stat-value">200+</p>
+      </div>
+      <div className="col-lg-3 col-md-6">
+        <p className="stat-label">Client Retention</p>
+        <p className="stat-value">92%</p>
+      </div>
+      <div className="col-lg-3 col-md-6">
+        <p className="stat-label">Avg. Time to Launch</p>
+        <p className="stat-value">&lt; 12 weeks</p>
+      </div>
+      <div className="col-lg-3 col-md-6">
+        <p className="stat-label">Global Delivery Hubs</p>
+        <p className="stat-value">3</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section className="abot-sec-cta">
   <div className="container">

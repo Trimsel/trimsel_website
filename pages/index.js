@@ -59,7 +59,7 @@ export default function Home() {
     site_name: "Trimsel",
   }}
   twitter={{ cardType: "summary_large_image" }}
-  additionalMetaTags={[{ name: "robots", content: "index, follow" },
+  additionalMetaTags={[
     { name: "application-name", content: "Trimsel" },
     { name: "site_name", content: "Trimsel" },
   ]}
