@@ -6,6 +6,8 @@ function generateRobots() {
 Allow: /
 Disallow: /api/
 Disallow: /thank-you
+Disallow: /admin/
+Disallow: /admin/config.yml
 
 Sitemap: ${BASE}/sitemap.xml
 `;
