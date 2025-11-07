@@ -4442,7 +4442,8 @@ img.partnering-hero-img {
   height: auto;
   margin-top: -41px;
 }
-section#dig-about {
+section#dig-overview,
+section#dig-services {
   margin-top: 100px;
 }
 p.dig-para {
@@ -4452,6 +4453,50 @@ p.dig-para {
   font-family: "Gilroy-Medium";
   font-weight: 500;
   text-align: justify;
+}
+.service-details-container h2,
+.results-container h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #071a35;
+}
+.service-details-container .text-link,
+.results-container .text-link {
+  color: #01aaec;
+  font-weight: 600;
+  text-decoration: none;
+}
+.service-details-container .text-link:hover,
+.results-container .text-link:hover {
+  text-decoration: underline;
+}
+.result-list {
+  list-style: none;
+  padding-left: 0;
+  color: #4b5675;
+  font-size: 18px;
+}
+.result-list li {
+  margin-bottom: 8px;
+}
+.testimonial-card {
+  background: #101c3d;
+  color: #fff;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 30px 50px rgba(10, 19, 43, 0.4);
+}
+.testimonial-card h5 {
+  margin-top: 20px;
+}
+.testimonial-card .designation {
+  color: #9fb2ff;
+  margin-bottom: 0;
+}
+.form-disclaimer {
+  font-size: 14px;
+  color: #556080;
+  margin-bottom: 0;
 }
 .card.card-dig {
   padding: 40px 40px 20px;

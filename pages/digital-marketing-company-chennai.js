@@ -120,7 +120,7 @@ export default function Digital() {
     site_name: "Trimsel",
     images: [
       {
-        url: "https://www.trimsel.com/images/digital-marketing-hero.jpg",
+        url: "https://www.trimsel.com/images/digital-homepage.webp",
         width: 1200,
         height: 630,
         alt: "Trimsel digital marketing experts collaborating in Chennai",
@@ -201,9 +201,12 @@ export default function Digital() {
                   <Link href="/contact-us" passHref>
                     <button className="btn btn-primary dev-btn">
                       Get a Digital Strategy Session{" "}
-                      <img
+                      <Image
                         src="/images/material-symbols_arrow-right-alt.png"
                         alt="arrow-icon"
+                        width={28}
+                        height={28}
+                        loading="lazy"
                       />
                     </button>
                   </Link>
@@ -242,7 +245,7 @@ export default function Digital() {
     </div>
   </section>
 </section>
-<section id="dig-about">
+<section id="dig-overview">
   <div className="container web-container">
     <div className="row">
       <div className="col-lg-7 col-md-6">
@@ -254,6 +257,9 @@ export default function Digital() {
 </p>
         <p className="dig-para">
         At Trimsel, we empower brands to grow online with powerful digital marketing strategies. As a top digital marketing company in Chennai, we specialize in Search Engine Optimization (SEO), Pay-Per-Click (PPC), Content Marketing and Social Media Marketing (SMM) to drive measurable traffic, quality leads, and higher ROI.
+        </p>
+        <p className="dig-para">
+        From T. Nagar retailers and OMR SaaS scale-ups to Ambattur manufacturers, we tailor channel mixes that reflect Chennai’s unique customer behavior. Expect hyperlocal landing pages, Tamil-and-English ad sets, and analytics dashboards that map every rupee you spend to pipeline created.
         </p>
         <p className="dig-para">
         The digital landscape changes rapidly with new Google algorithms, evolving user behavior, and dynamic platforms reshaping how businesses grow online. Our SEO experts in Chennai stay ahead of these trends to keep your brand visible, competitive, and conversion-focused. Whether you're a startup or an enterprise, we help you stay on top
@@ -343,6 +349,9 @@ export default function Digital() {
                 className="subs-btn my-3"
                 value="Submit Now"
               />
+              <p className="form-disclaimer">
+                By submitting, you agree to hear from Trimsel’s growth team via phone or email and acknowledge our privacy policy.
+              </p>
             </form>
           </div>
         </div>
@@ -350,16 +359,17 @@ export default function Digital() {
     </div>
   </div>
 </section>
-
-
-        <section id="dig-about">
+        <section id="dig-services">
           <div className="container dig-container">
             <Stack direction="horizontal">
               <div className=" badge-kariot-btn">
-                <img
+                <Image
                   src="/images/Rectangle-kariot.png"
                   className="me-2"
-                  alt="design-dot"
+                  alt="Design accent dot"
+                  width={18}
+                  height={18}
+                  loading="lazy"
                 />
                 <p> WHAT WE DO </p>
               </div>
@@ -375,10 +385,14 @@ export default function Digital() {
               </div>
               <div className="col-lg-4 col-md-7">
                 <Button href="/contact-us" className="gif-button mt-3">
-                  <img
+                  <Image
                     src="/images/slightly-smiling-face.gif"
                     alt="Smiling Face GIF Image"
                     className="new-smile"
+                    width={48}
+                    height={48}
+                    loading="lazy"
+                    unoptimized
                   />
                   <h6 className="smile-heading">
                     <p className=" smile-para">
@@ -396,7 +410,7 @@ export default function Digital() {
                       </span>{" "}
                     </p>
                     Marketing. Expert{" "}
-                    <img src="/images/gifbtniconarrow.png" alt="arrow-icon" />
+                    <Image src="/images/gifbtniconarrow.png" alt="Arrow icon" width={32} height={32} loading="lazy" />
                   </h6>
                 </Button>
               </div>
@@ -418,7 +432,7 @@ export default function Digital() {
                     <p className="qsd-para">
                     Improve your website’s Google rankings with our expert SEO services in Chennai. From on-page optimization and backlink building to technical SEO audits, we drive sustainable organic growth.
                     </p>
-                    <Link href="/contact-us" passHref>
+                    <Link href="#seo-services">
                       <Image
                         src="/images/Group2495.png"
                         width={56}
@@ -446,7 +460,7 @@ export default function Digital() {
                     <p className="qsd-para">
                     Generate instant leads with performance-driven PPC campaigns. Our SEM team manages Google Ads, display ads, and YouTube promotions to ensure high ROI and maximum reach.
                     </p>
-                    <Link href="/contact-us" passHref>
+                    <Link href="#sem-services">
                       <Image
                         src="/images/Group2495.png"
                         width={56}
@@ -474,7 +488,7 @@ export default function Digital() {
                     <p className="qsd-para">
                     Elevate your brand’s social presence with targeted Facebook, Instagram, and LinkedIn marketing strategies. Our social media team creates compelling content and ad creatives that engage and convert.
                     </p>
-                    <Link href="/contact-us" passHref>
+                    <Link href="#smm-services">
                       <Image
                         src="/images/Group2495.png"
                         width={56}
@@ -502,7 +516,7 @@ export default function Digital() {
                     <p className="qsd-para">
                     Deliver meaningful engagement through our content marketing agency in Chennai. From SEO-rich blogs to compelling landing pages and videos, we help you connect with your audience at every stage of the funnel.
                     </p>
-                    <Link href="/contact-us" passHref>
+                    <Link href="#content-marketing">
                       <Image
                         src="/images/Group2495.png"
                         width={56}
@@ -530,7 +544,7 @@ export default function Digital() {
                     <p className="qsd-para">
                     Whether you're targeting other businesses or consumers, we craft tailored digital marketing strategies for both B2B and B2C audiences using LinkedIn, email marketing, and platform-specific campaigns.
                     </p>
-                    <Link href="/contact-us" passHref>
+                    <Link href="#b2b-marketing">
                       <Image
                         src="/images/Group2495.png"
                         width={56}
@@ -558,7 +572,7 @@ export default function Digital() {
                     <p className="qsd-para">
                     Build brand authority and connect with decision-makers through LinkedIn marketing. We run sponsored campaigns, content outreach, and lead generation strategies tailored for B2B growth.
                     </p>
-                    <Link href="/contact-us" passHref>
+                    <Link href="#linkedin-marketing">
                       <Image
                         src="/images/Group2495.png"
                         width={56}
@@ -586,7 +600,7 @@ export default function Digital() {
                     <p className="qsd-para">
                     As a pay-per-click advertising company, we create targeted campaigns on Google Ads, Facebook Ads, and Instagram Ads to drive conversions and increase brand exposure.
                     </p>
-                    <Link href="/contact-us" passHref>
+                    <Link href="#ppc-services">
                       <Image
                         src="/images/Group2495.png"
                         width={56}
@@ -614,7 +628,7 @@ export default function Digital() {
                     <p className="qsd-para">
                     Improve your local search visibility and rank in the Google Map Pack. We optimize Google Business Profile (GMB), local citations, and geo-targeted keywords to attract nearby customers.
                     </p>
-                    <Link href="/contact-us" passHref>
+                    <Link href="#local-seo">
                       <Image
                         src="/images/Group2495.png"
                         width={56}
@@ -642,7 +656,7 @@ export default function Digital() {
                     <p className="qsd-para">
                     As a top social media marketing company in Chennai, we help you grow brand visibility and generate qualified leads with powerful Instagram Ads and Facebook marketing. Our experts craft tailored campaigns for maximum ROI on both platforms.
                     </p>
-                    <Link href="/contact-us" passHref>
+                    <Link href="#paid-social">
                       <Image
                         src="/images/Group2495.png"
                         width={56}
@@ -653,6 +667,111 @@ export default function Digital() {
                     </Link>
                   </Card.Body>
                 </Card>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="digital-service-details" className="py-5">
+          <div className="container service-details-container">
+            <div className="row">
+              <div className="col-lg-8">
+                <h2>Chennai-first playbooks for every growth lever</h2>
+                <p className="digi-para">
+                  Every Trimsel engagement starts with a measurement plan and channel blueprint. Use the quick links below to explore how we tackle specific initiatives before you hop on a strategy call.
+                </p>
+              </div>
+              <div className="col-lg-4 text-lg-end">
+                <Link href="#digital-faq" className="text-link">
+                  Read our most asked digital marketing FAQs →
+                </Link>
+              </div>
+            </div>
+            <div className="row pt-4 g-4">
+              <div className="col-lg-6" id="seo-services">
+                <h3>Enterprise & Local SEO</h3>
+                <p>
+                  Technical clean-ups, entity-based content, and location pages keep T. Nagar, Velachery, and OMR searches flowing into your pipeline. Expect crawl-budget fixes, Core Web Vitals tuning, and conversion-focused copy.
+                </p>
+                <Link href="/contact-us" className="text-link">Book a technical SEO audit →</Link>
+              </div>
+              <div className="col-lg-6" id="sem-services">
+                <h3>Search Engine Marketing / PPC</h3>
+                <p>
+                  We build SKAG and Performance Max structures that protect ROAS while launching Chennai + GCC campaigns in parallel. Real-time dashboards show CPL, MER, and quality-score trends.
+                </p>
+                <Link href="/contact-us" className="text-link">Plan a PPC sprint →</Link>
+              </div>
+              <div className="col-lg-6" id="smm-services">
+                <h3>Social Media & Community</h3>
+                <p>
+                  From Instagram reels for D2C brands to LinkedIn thought-leadership for SaaS founders, our team crafts creative, paid, and community loops that stay on-message and on-brand.
+                </p>
+                <Link href="/contact-us" className="text-link">See our social content calendar →</Link>
+              </div>
+              <div className="col-lg-6" id="content-marketing">
+                <h3>Content & Email Engines</h3>
+                <p>
+                  We pair topic clusters with lifecycle nurture flows so every blog, case study, and drip sequence ladders up to SQLs. Copy is optimized for voice search, featured snippets, and newsletter engagement.
+                </p>
+                <Link href="/contact-us" className="text-link">Request a content roadmap →</Link>
+              </div>
+              <div className="col-lg-6" id="b2b-marketing">
+                <h3>B2B + ABM Pods</h3>
+                <p>
+                  Multi-touch campaigns target IT corridors in Thoraipakkam, Bangalore, and Dubai with custom landing pages, enrichment workflows, and SDR-ready intent data.
+                </p>
+                <Link href="/contact-us" className="text-link">Unlock an ABM pilot →</Link>
+              </div>
+              <div className="col-lg-6" id="linkedin-marketing">
+                <h3>LinkedIn Demand Gen</h3>
+                <p>
+                  We craft carousel ads, document posts, and conversation ads that speak to CXOs. Expect first-party audience building and CRM syncing so your sales team can react fast.
+                </p>
+                <Link href="/contact-us" className="text-link">Review our LinkedIn templates →</Link>
+              </div>
+              <div className="col-lg-6" id="ppc-services">
+                <h3>Performance Creative & CRO</h3>
+                <p>
+                  Trimsel’s creative lab designs thumb-stopping assets, while our CRO specialists run A/B tests on hero sections, chatbots, and checkout flows for incremental revenue wins.
+                </p>
+                <Link href="/contact-us" className="text-link">Optimize my funnels →</Link>
+              </div>
+              <div className="col-lg-6" id="local-seo">
+                <h3>Local SEO & Map Pack Wins</h3>
+                <p>
+                  We manage Google Business Profiles, call tracking, and reputation programs so Nungambakkam and Anna Nagar prospects always find you first.
+                </p>
+                <Link href="/contact-us" className="text-link">Request a location expansion plan →</Link>
+              </div>
+              <div className="col-lg-6" id="paid-social">
+                <h3>Paid Social & Creator Collabs</h3>
+                <p>
+                  Partner with Chennai creators, deploy Advantage+ Shopping campaigns, and retarget using first-party data to squeeze more revenue from Meta and Instagram.
+                </p>
+                <Link href="/contact-us" className="text-link">Discuss paid social ideas →</Link>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="digital-results" className="py-5">
+          <div className="container results-container">
+            <div className="row align-items-center">
+              <div className="col-lg-6">
+                <h2>Proof our playbooks convert</h2>
+                <ul className="result-list">
+                  <li><strong>180%</strong> organic traffic lift for an OMR SaaS brand within 5 months.</li>
+                  <li><strong>55%</strong> drop in cost-per-lead for a Chennai fintech after restructuring Google Ads.</li>
+                  <li><strong>4.2x</strong> ROAS on Meta for a D2C fashion label using AI-generated creatives.</li>
+                </ul>
+              </div>
+              <div className="col-lg-6">
+                <div className="testimonial-card">
+                  <p>
+                    “Trimsel didn’t just run campaigns—they tied every initiative to pipeline. We now have visibility into every touchpoint from ad click to CRM opportunity.”
+                  </p>
+                  <h5>Shruti Natarajan</h5>
+                  <p className="designation">CMO, Chennai-based HealthTech scale-up</p>
+                </div>
               </div>
             </div>
           </div>
@@ -719,7 +838,7 @@ export default function Digital() {
                 <Link href="/contact-us" passHref>
                   <button className="btn btn-primary lev-btn">
                   Get a Digital Marketing Strategy Consultation{" "}
-                    <img src="/images/material-symbols_arrow-right-alt.png" />
+                    <Image src="/images/material-symbols_arrow-right-alt.png" alt="Arrow icon" width={28} height={28} loading="lazy" />
                   </button>
                 </Link>
               </div>
@@ -733,10 +852,12 @@ export default function Digital() {
                   <li className="li-lev">
                     <p className="lev-list">
                       <span className="me-2">
-                        <img
+                        <Image
                           src="/images/check-circle.png"
-                          alt="check-icon"
+                          alt="Check icon"
                           width={18}
+                          height={18}
+                          loading="lazy"
                         />
                       </span>
                       Is your website getting traffic but not converting into leads or sales?
@@ -745,10 +866,12 @@ export default function Digital() {
                   <li className="li-lev">
                     <p className="lev-list">
                       <span className="me-2">
-                        <img
+                        <Image
                           src="/images/check-circle.png"
-                          alt="check-icon"
+                          alt="Check icon"
                           width={18}
+                          height={18}
+                          loading="lazy"
                         />
                       </span>
                       Have your Google rankings plateaued despite investing in SEO?
@@ -757,10 +880,12 @@ export default function Digital() {
                   <li className="li-lev">
                     <p className="lev-list">
                       <span className="me-2">
-                        <img
+                        <Image
                           src="/images/check-circle.png"
-                          alt="check-icon"
+                          alt="Check icon"
                           width={18}
+                          height={18}
+                          loading="lazy"
                         />
                       </span>
                       Are your Facebook and Instagram ads burning budget without delivering ROI?
@@ -769,10 +894,12 @@ export default function Digital() {
                   <li className="li-lev">
                     <p className="lev-list">
                       <span className="me-2">
-                        <img
+                        <Image
                           src="/images/check-circle.png"
-                          alt="check-icon"
+                          alt="Check icon"
                           width={18}
+                          height={18}
+                          loading="lazy"
                         />
                       </span>
                       Does your brand lack visibility across search engines and social platforms?
@@ -781,10 +908,12 @@ export default function Digital() {
                   <li className="li-lev">
                     <p className="lev-list">
                       <span className="me-2">
-                        <img
+                        <Image
                           src="/images/check-circle.png"
-                          alt="check-icon"
+                          alt="Check icon"
                           width={18}
+                          height={18}
+                          loading="lazy"
                         />
                       </span>
                       Do you feel overwhelmed trying to manage SEO, social media, content, and ads?
@@ -793,10 +922,12 @@ export default function Digital() {
                   <li className="li-lev">
                     <p className="lev-list">
                       <span className="me-2">
-                        <img
+                        <Image
                           src="/images/check-circle.png"
-                          alt="check-icon"
+                          alt="Check icon"
                           width={18}
+                          height={18}
+                          loading="lazy"
                         />
                       </span>
                       Are your competitors outranking you and dominating your niche online?
@@ -844,7 +975,7 @@ export default function Digital() {
       <Card.Body>
         <div className="row">
           <div className="col-lg-7 col-md-8 col-12">
-            <img src="/images/line.png" alt="Decorative Line" />
+            <Image src="/images/line.png" alt="Decorative line" width={64} height={8} loading="lazy" />
             <h2 className="cldcta-heading pt-2">
               Not Sure How to Start with Digital Marketing? Let’s Build a Strategy That Works for You.
             </h2>
@@ -855,9 +986,12 @@ export default function Digital() {
               <button className="digcta-button btn-lg btn-info mt-3">
                 Let's Boost Your Business!
                 <span className="icon">
-                  <img
+                  <Image
                     src="/images/arow-white.png"
                     alt="Arrow White Icon"
+                    width={28}
+                    height={28}
+                    loading="lazy"
                   />
                 </span>
               </button>
@@ -882,7 +1016,7 @@ export default function Digital() {
         </div>
       </section>
       <ContactForm heading="Want More Traffic & Leads?" subText="Talk to our growth strategists about SEO, PPC and content plans that actually drive results."/>
-      <section id="faq">
+      <section id="digital-faq">
   <div className="container faq-container">
     <h2 className="faq-heading">Frequently Asked Questions</h2>
     <Accordion defaultActiveKey="0" flush className="py-5">
