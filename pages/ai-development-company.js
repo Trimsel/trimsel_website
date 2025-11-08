@@ -66,6 +66,21 @@ export default function Quality() {
       },
     ],
   });
+  const aiArticles = [
+    {
+      title: "5 Easy Ways a Mobile App Can Grow Your Business",
+      excerpt: "Learn how AI-powered personalization and engagement loops inside apps accelerate retention and revenue.",
+      href: "/blog/how-mobile-apps-grow-business",
+      tag: "AI Use Cases",
+    },
+    {
+      title: "See More AI & Automation Insights",
+      excerpt: "Explore Trimsel’s playbooks on copilots, predictive analytics, and cloud-native MLOps best practices.",
+      href: "/blog",
+      tag: "Thought Leadership",
+    },
+  ];
+
   return (
     <>
 <NextSeo
@@ -82,7 +97,7 @@ export default function Quality() {
     site_name: "Trimsel",
     images: [
       {
-        url: "https://www.trimsel.com/images/ai-hero.webp",
+        url: "https://www.trimsel.com/images/qa-hero-img.webp",
         width: 1200,
         height: 630,
         alt: "Trimsel AI engineers building machine learning solutions in Chennai",
@@ -139,7 +154,6 @@ export default function Quality() {
                   <div className="title-inner">
                     <div className="cafe">
                       <div className="whiteLink">
-                        <h1 className="visually-hidden">AI Development Company in Chennai | Trimsel</h1>
                         <p className="breadcrumbs-kar">
                           <Link href="/">Home</Link> <span> &#x2027; </span>{" "}
                           AI Development services
@@ -148,7 +162,7 @@ export default function Quality() {
                     </div>
                     <div className="cafe">
                       <div className="cafe-inner qs-title">
-                        Build Smarter, Faster, and More Efficient with AI
+                        <h1>AI Development Company in Chennai</h1>
                       </div>
                     </div>
                     <div className="mozart">
@@ -164,6 +178,9 @@ export default function Quality() {
                       Talk to an AI Expert{" "}
                       <Image src="/images/material-symbols_arrow-right-alt.png" width={24} height={24} alt="AI Expert" />
                     </Link>
+                    <p className="hero-proof">
+                      40+ AI products shipped across BFSI, healthcare, logistics, and SaaS with audited MLOps pipelines.
+                    </p>
                       </div>
                     </div>
                   </div>
@@ -210,7 +227,7 @@ export default function Quality() {
             </div>
             <div className="col-lg-6 col-md-6">
               <p className="cliented-text">
-              From fast-growing startups to industry leaders, Trimsel has partnered with businesses worldwide to bring bold ideas to life. Whether it’s <strong>AI-driven innovation</strong>, <strong>custom software</strong>, <strong>cloud adoption</strong>, or <strong>mobile app development</strong>, we build solutions that don’t just work—they scale. Our team keeps its finger on the pulse of emerging technologies, ensuring the products we deliver are future-ready, high-performing, and built for real business impact.
+              From fast-growing startups to industry leaders, Trimsel has partnered with businesses worldwide to bring bold ideas to life. Whether it’s <strong>AI-driven innovation</strong>, <Link href="/web-development-company-chennai"><strong>custom software</strong></Link>, <Link href="/cloud-consulting-services"><strong>cloud adoption</strong></Link>, or <Link href="/mobile-app-development-chennai"><strong>mobile app development</strong></Link>, we build solutions that don’t just work—they scale. Our team keeps its finger on the pulse of emerging technologies, ensuring the products we deliver are future-ready, high-performing, and built for real business impact.
               </p>
             </div>
           </div>
@@ -245,10 +262,12 @@ export default function Quality() {
               Over the past few years, Artificial Intelligence has moved from being a futuristic concept to a practical, business-transforming reality. At Trimsel, we’ve seen first-hand how AI can unlock efficiency, accuracy, and innovation across industries. From enhancing customer experiences to automating complex processes, AI is no longer optional — it’s a competitive advantage.
               </p>
               <p className="qs-abt-para">
-              We work closely with businesses in Chennai and beyond to develop AI solutions that are not only cutting-edge but also practical for real-world challenges. Whether it’s leveraging data for smarter decisions, automating repetitive workflows, or creating intelligent products, our goal is simple: to help you achieve measurable outcomes through AI.
+              We work closely with businesses in Chennai and beyond to develop AI solutions that are not only cutting-edge but also practical for real-world challenges. Whether it’s leveraging data for smarter decisions, automating repetitive workflows through{" "}
+                <Link href="/devops-consulting-services">DevOps automation services</Link>, or creating intelligent products, our goal is simple: to help you achieve measurable outcomes through AI. Recent projects include multilingual support copilots for BFSI brands, predictive maintenance models for logistics fleets, and lead-qualifying chatbots for SaaS teams.
               </p>
               <p className="qs-abt-para">
-              By combining our technical expertise with a deep understanding of business needs, we create AI-driven systems that are robust, scalable, and future-ready.
+              By combining our technical expertise with a deep understanding of business needs, we create AI-driven systems that are robust, scalable, and future-ready with{" "}
+                <Link href="/cloud-consulting-services">cloud-native architecture guidance</Link>.
               </p>
             </div>
             <div className="col-lg-6 col-md-6 col-12">
@@ -346,7 +365,8 @@ export default function Quality() {
                 </div>
                 <div className="card-text service-card-text pb-3">
                   <p>
-                  We build bespoke AI models and workflows that align with your business objectives, data landscape, and operational constraints. No generic tools—only solutions that are engineered to work for you.
+                  We build bespoke AI models and workflows that align with your business objectives, data landscape, and operational constraints. No generic tools—only solutions that are engineered to work for you and integrate with existing{" "}
+                    <Link href="/web-development-company-chennai">web and mobile products</Link>.
                   </p>
                 </div>
               </div>
@@ -386,7 +406,8 @@ export default function Quality() {
                 </div>
                 <div className="card-text service-card-text pb-3">
                   <p>
-                  Your AI solution should fit into your current systems, not disrupt them. We build AI software solutions that integrate effortlessly with your CRM, mobile app, ERP, or cloud backend—ensuring minimal disruption and maximum productivity.
+                  Your AI solution should fit into your current systems, not disrupt them. We build AI software solutions that integrate effortlessly with your CRM, mobile app, ERP, or cloud backend—ensuring minimal disruption and maximum productivity with support from our{" "}
+                    <Link href="/cloud-consulting-services">cloud consulting practice</Link>.
                   </p>
                 </div>
               </div>
@@ -446,7 +467,9 @@ export default function Quality() {
                 </div>
                 <div className="card-text service-card-text pb-3">
                   <p>
-                  From initial AI consulting and strategy to ongoing optimization and support, we act as your technology partner every step of the way. Our commitment goes beyond deployment; we ensure your AI evolves as your business grows.
+                  From initial AI consulting and strategy to ongoing optimization and support, we act as your technology partner every step of the way. Our commitment goes beyond deployment; we ensure your AI evolves as your business grows alongside{" "}
+                    <Link href="/mobile-app-development-chennai">mobile</Link> and{" "}
+                    <Link href="/devops-consulting-services">DevOps</Link> roadmaps.
                   </p>
                 </div>
               </div>
@@ -1128,6 +1151,36 @@ export default function Quality() {
           </Row>
         </div>
       </section>
+      <section id="ai-insights" className="home-insights py-5">
+        <div className="container">
+          <div className="d-flex align-items-center">
+            <div className="badge-abot-btn">
+              <Image src="/images/Rectangle-kariot.png" className="me-2" width={15} height={15} alt="" aria-hidden="true" loading="lazy" />
+              <p> LATEST AI INSIGHTS </p>
+            </div>
+          </div>
+          <div className="row pt-4 g-4">
+            {aiArticles.map((article) => (
+              <div className="col-lg-6" key={article.title}>
+                <Card className="insight-card h-100">
+                  <Card.Body>
+                    <p className="insight-tag">{article.tag}</p>
+                    <h3 className="insight-title">
+                      <Link href={article.href}>{article.title}</Link>
+                    </h3>
+                    <p className="insight-excerpt">{article.excerpt}</p>
+                    <Link href={article.href} className="about-btn" aria-label={`Read ${article.title}`}>
+                      Read More
+                      <Image src="/images/material-symbols_arrow-right-alt.png" width={18} height={18} alt="" loading="lazy" />
+                    </Link>
+                  </Card.Body>
+                </Card>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <ContactForm heading="Ready to Build an AI App?" subText="Speak with our data scientists & engineers to scope your AI use-case."/>
       <section id="faq">
         <div className="container faq-container">

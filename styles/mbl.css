@@ -3,6 +3,11 @@ section.hero-mbl
     background: url(/images/mobilebg.svg) no-repeat;
     background-size: cover;
 }
+.hero-proof {
+    font-size: 16px;
+    color: #d7f2ff;
+    margin-top: 10px;
+}
 .whiteLink {
     color: #fff !important;
 }

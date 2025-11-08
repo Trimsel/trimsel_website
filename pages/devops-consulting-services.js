@@ -223,6 +223,9 @@ export default function DevOps() {
                     Get a DevOps Consultation{" "}
                     <img src="/images/material-symbols_arrow-right-alt.png" alt="" aria-hidden="true" />
                   </Link>
+                  <p className="hero-proof">
+                    60+ pipelines automated with 99.95% uptime targets for SaaS, BFSI, and ecommerce teams.
+                  </p>
                 </div>
               </div>
             </div>
@@ -1004,102 +1007,37 @@ export default function DevOps() {
           <ClientLogo />
         </div>
       </section>
-      <ContactForm heading="Need A High-Performance DevOps Partner?" subText="Automate releases, improve CI/CD, and scale securely with proven DevOps and infrastructure engineering support."/>
-
-      {/* <section id="blog" className="py-4">
-        <div className="container blog-container">
-          <div className="row py-3">
-            <Stack direction="horizontal">
-              <div className=" badge-abot-btn">
-                <img
-                  src="/images/Rectangle-kariot.png"
-                  className="me-2"
-                  alt=""
-                  aria-hidden="true"
-                />
-                <p>
-                  {" "}
-                  <b> OUR BLOGS </b>{" "}
-                </p>
-              </div>
-            </Stack>
-            <div className="col-lg-5 col-md-5 py-4">
-              <h2 className="contacts-heading">
-                Read Our Latest Blogs and News
-              </h2>
-            </div>
-            <div className="col-lg-7 col-md-7 py-4">
-              <p className="blog-para">
-                At Trimsel, there is continuous learning that happens as we
-                work on various projects. We also love to update and upgrade
-                with the latest innovations in the field of technology and apps.
-              </p>
+      <section id="devops-insights" className="home-insights py-5">
+        <div className="container">
+          <div className="d-flex align-items-center">
+            <div className="badge-abot-btn">
+              <Image src="/images/Rectangle-kariot.png" className="me-2" width={15} height={15} alt="" aria-hidden="true" loading="lazy" />
+              <p> LATEST DEVOPS INSIGHTS </p>
             </div>
           </div>
-          <div className="row no-gutters">
-            <div className="col-lg-6">
-              <div className="card blog-card">
-                <div className="row no-gutters">
-                  <div className="col-lg-5 col-md-5 py-3">
-                    <img
-                      className="card-img"
-                      src="/images/blog-img.png"
-                      alt=""
-                    />
-                  </div>
-                  <div className="col-lg-7 col-md-7">
-                    <Button className="card-badge mb-2">Development</Button>
-                    <h5 className="blog-card-title">
-                      Top 10 Mobile App Development Frameworks in 2023
-                    </h5>
-                    <p className="blog-card-para">
-                      We've entered on age where our lives are...{" "}
-                      <Link href="#">Read More</Link>
-                    </p>
-                  </div>
-                </div>
-                <div className="row no-gutters">
-                  <div className="col-lg-5 col-md-5 py-3">
-                    <img
-                      className="card-img"
-                      src="/images/blogs-img.png"
-                      alt=""
-                    />
-                  </div>
-                  <div className="col-lg-7 col-md-7 py-3">
-                    <Button className="card-badge mb-2">Development</Button>
-                    <h5 className="blog-card-title">
-                      Top 10 Mobile App Development Frameworks in 2023
-                    </h5>
-                    <p className="blog-card-para">
-                      We've entered on age where our lives are...{" "}
-                      <Link href="#">Read More</Link>
-                    </p>
-                  </div>
-                </div>
+          <div className="row pt-4 g-4">
+            {[{title: "5 Easy Ways a Mobile App Can Grow Your Business", excerpt: "Understand how CI/CD-ready cloud backends supercharge product velocity and customer retention.", href: "/blog/how-mobile-apps-grow-business", tag: "DevOps Playbook"}, {title: "Explore Trimsel DevOps & Cloud Articles", excerpt: "Browse more tutorials on Kubernetes, FinOps, and automation to plan your next release with confidence.", href: "/blog", tag: "Engineering Insights"}].map((article) => (
+              <div className="col-lg-6" key={article.title}>
+                <Card className="insight-card h-100">
+                  <Card.Body>
+                    <p className="insight-tag">{article.tag}</p>
+                    <h3 className="insight-title">
+                      <Link href={article.href}>{article.title}</Link>
+                    </h3>
+                    <p className="insight-excerpt">{article.excerpt}</p>
+                    <Link href={article.href} className="about-btn" aria-label={`Read ${article.title}`}>
+                      Read More
+                      <Image src="/images/material-symbols_arrow-right-alt.png" width={18} height={18} alt="" loading="lazy" />
+                    </Link>
+                  </Card.Body>
+                </Card>
               </div>
-            </div>
-            <div className="col-lg-6">
-              <div className="card blog-card">
-                <div className="card-image">
-                  <img className="blog-image" src="/images/blog-image.png" />
-                </div>
-                <div className="card-content">
-                  <Button className="card-badge my-2">Development</Button>
-                  <h5 className="blogs-card-title">
-                    How hybrid app development can help you build custom apps
-                  </h5>
-                  <p className="blog-card-para">
-                    Digitization has taken over every industry and business
-                    aspect. The pandemic only fuelled our shift tower...
-                    <Link href="#">Read More</Link>
-                  </p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
-      </section> */}
+      </section>
+
+      <ContactForm heading="Need A High-Performance DevOps Partner?" subText="Automate releases, improve CI/CD, and scale securely with proven DevOps and infrastructure engineering support."/>
 
       <section id="faq">
   <div className="container faq-container">

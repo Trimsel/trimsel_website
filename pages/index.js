@@ -35,6 +35,20 @@ export default function Home() {
   const {register, handleSubmit,formState: { errors }, reset, setValue,} = useForm();
   const [selectedOption, setSelectedOption] = useState(0);
   const handleOptionChange = (event) => {setSelectedOption(event.target.value); setValue("selectOption", event.target.value);};
+  const insights = [
+    {
+      title: "5 Easy Ways a Mobile App Can Grow Your Business",
+      excerpt: "Turn downloads into loyal customers with practical tactics for SMBs and funded startups.",
+      href: "/blog/how-mobile-apps-grow-business",
+      tag: "Mobile Growth",
+    },
+    {
+      title: "See More Trimsel Insights",
+      excerpt: "Browse no-code friendly playbooks on AI, cloud cost control, DevOps, and demand generation.",
+      href: "/blog",
+      tag: "Thought Leadership",
+    },
+  ];
   async function onSubmitForm(values) {
     try {
       await postJson("/api/contact", values);
@@ -54,8 +68,8 @@ export default function Home() {
     type: "website",
     url: "https://www.trimsel.com/",
     title: "AI-Powered Software Development Company in Chennai",
-    description: "We build intelligent mobile apps, scalable web apps, AI abd ML apps, cloud consulting, DevOps, and ROI-focused digital marketing for global brands",
-    images: [{ url: "https://www.trimsel.com/images/home-hero-banner.webp", width: 1200, height: 630, alt: "Trimsel" }],
+    description: "We build intelligent mobile apps, scalable web apps, AI and ML apps, cloud consulting, DevOps, and ROI-focused digital marketing for global brands",
+    images: [{ url: "https://www.trimsel.com/images/myherocloud.png", width: 1200, height: 630, alt: "Trimsel" }],
     site_name: "Trimsel",
   }}
   twitter={{ cardType: "summary_large_image" }}
@@ -68,6 +82,36 @@ export default function Home() {
       {/* ✅ Keep only necessary elements in <Head> */}
       <main>
         <HomeSlider />
+        <section className="home-hero-intro">
+          <div className="container py-5">
+            <div className="row align-items-center">
+              <div className="col-lg-8">
+                <h1 className="home-hero-heading">
+                  Chennai’s AI-first software team for apps, cloud, and growth marketing
+                </h1>
+                <p className="home-hero-copy">
+                  Trimsel blends product strategy, full-stack engineering, and DevSecOps so you can launch
+                  reliable experiences faster. Whether you are validating an MVP or modernizing enterprise
+                  platforms, our architects cover the entire journey—from discovery workshops to post-launch
+                  success metrics.
+                </p>
+              </div>
+              <div className="col-lg-4">
+                <ul className="home-hero-links">
+                  <li>
+                    <Link href="/mobile-app-development-chennai">Mobile app development</Link>
+                  </li>
+                  <li>
+                    <Link href="/cloud-consulting-services">Cloud &amp; DevOps consulting</Link>
+                  </li>
+                  <li>
+                    <Link href="/ai-development-company">AI copilots &amp; automation</Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
         {/* ✅ Client Section */}
 <section id="client" className="client-section">
   <div className="container mt-5 clt-container">
@@ -190,8 +234,8 @@ export default function Home() {
             <Link href="/mobile-app-development-chennai">mobile app development company in Chennai</Link> — 
             for end-to-end digital transformation, AI application development, and cloud-first strategies.
             </p>
-            <Link href="/contact-us" className="about-btn mt-3" aria-label="Book a strategy call with Trimsel">
-              Book a Strategy Call
+            <Link href="/contact-us" className="about-btn mt-3" aria-label="Plan your AI and cloud roadmap with Trimsel">
+              Plan Your AI &amp; Cloud Roadmap
               <ArrowRightIcon />
             </Link>
           </div>
@@ -323,7 +367,7 @@ export default function Home() {
       <h3 className="qs-card-heading">AI Development</h3>
 
       <p className="qsd-para">
-      Bring AI to the heart of your business with solutions like chatbots, copilots, intelligent search, computer vision, and workflow automation. We use the latest in LLMs, retrieval-augmented generation, and fine-tuning to take your idea from prototype to production—securely, quickly, and at scale.
+      Bring AI to the heart of your business with solutions like chatbots, copilots, intelligent search, computer vision, and workflow automation. Our <a href="/ai-development-company">AI development team in Chennai</a> uses LLMs, retrieval-augmented generation, and fine-tuning to take your idea from prototype to production—securely, quickly, and at scale.
       </p>
     </Card.Body>
   </Card>
@@ -347,8 +391,8 @@ export default function Home() {
               </div>
               <div className="col-lg-6 col-md-6">
               <p className="case-para">
-          Explore how Trimsel has delivered <strong>custom application development</strong>, 
-          <strong> software solutions</strong>, and <strong>mobile app projects</strong> that drive real results. 
+          Explore how Trimsel has delivered <Link href="/web-development-company-chennai">custom application development</Link>, 
+          <strong> software solutions</strong>, and <Link href="/mobile-app-development-chennai">mobile app projects</Link> that drive real results. 
           Over the past 6 years, we’ve completed more than 200 digital transformation projects across industries worldwide.
         </p>
               </div>
@@ -425,6 +469,35 @@ export default function Home() {
           </p>
         </Card>
       </div>
+    </div>
+  </div>
+</section>
+<section className="home-insights py-5">
+  <div className="container">
+    <div className="d-flex align-items-center">
+      <div className="badge-abot-btn">
+        <Image src="/images/Rectangle-kariot.png" className="me-2" width={15} height={15} alt="" aria-hidden="true" loading="lazy" />
+        <p> LATEST INSIGHTS </p>
+      </div>
+    </div>
+    <div className="row pt-4">
+      {insights.map((item) => (
+        <div className="col-lg-6 col-md-6 mb-4" key={item.title}>
+          <Card className="insight-card h-100">
+            <Card.Body>
+              <p className="insight-tag">{item.tag}</p>
+              <h3 className="insight-title">
+                <Link href={item.href}>{item.title}</Link>
+              </h3>
+              <p className="insight-excerpt">{item.excerpt}</p>
+              <Link href={item.href} className="about-btn" aria-label={`Read ${item.title}`}>
+                Read More
+                <ArrowRightIcon />
+              </Link>
+            </Card.Body>
+          </Card>
+        </div>
+      ))}
     </div>
   </div>
 </section>
