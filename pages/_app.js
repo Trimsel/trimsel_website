@@ -42,6 +42,7 @@ const montserrat = Montserrat({
 
 // Site-wide SEO defaults
 import { DefaultSeo, OrganizationJsonLd, LogoJsonLd, LocalBusinessJsonLd } from "next-seo";
+import WhatsAppButton from "../components/WhatsAppButton";
 
 gsap.registerPlugin(ScrollTrigger);
 config.autoAddCss = false;
@@ -234,6 +235,7 @@ export default function App({ Component, pageProps }) {
       </Script>
 
       <Component {...pageProps} />
+      <WhatsAppButton />
       <SpeedInsights />
       <Analytics />
     </div>
