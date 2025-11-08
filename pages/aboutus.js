@@ -130,7 +130,7 @@ export default function About() {
         <p className="abot-hero-para">
           <strong>Empower your business transformation</strong> by replacing outdated legacy systems with 
           <strong> modern digital solutions</strong> that ensure <strong>growth, operational optimization</strong>, and 
-          measurable <strong>ROI</strong>. At Trimsel, We architect mission-driven technology that accelerates innovation.
+          measurable <strong>ROI</strong>. At Trimsel, we architect mission-driven technology that accelerates innovation across <Link href="/cloud-consulting-services">cloud</Link>, <Link href="/mobile-app-development-chennai">mobile</Link>, and <Link href="/devops-consulting-services">DevOps</Link>.
         </p>
         <Link href="/contact-us" passHref className="lts-talk-link" aria-label="Talk with Trimsel's digital transformation consultants">
           <span className="visually-hidden">Book a strategy call with Trimsel</span>
@@ -143,6 +143,7 @@ export default function About() {
             loading="lazy"
           />
         </Link>
+        <p className="hero-proof">200+ digital programs shipped with 92% client retention and replies within 24 hours.</p>
       </div>
     </div>
   </div>
@@ -286,7 +287,7 @@ export default function About() {
       </div>
       <div className="col-lg-6 col-md-6">
         <p className="dos-para">
-        we’re driven by a relentless pursuit of innovation. From cloud-native solutions to agile delivery, everything we do is geared toward crafting scalable, secure, and engaging digital experiences.
+        We’re driven by a relentless pursuit of innovation. From <Link href="/cloud-consulting-services">cloud-native architecture</Link> to <Link href="/devops-consulting-services">agile DevOps automation</Link>, everything we do is geared toward crafting scalable, secure, and engaging digital experiences.
         </p>
       </div>
     </div>
@@ -614,21 +615,28 @@ export default function About() {
               Let’s Transform Your Business with Digital Innovation!
             </h2>
             <p className="abtcta-para">
-              Whether it's <strong>mobile app development</strong>, <strong>cloud consulting</strong>, <strong>DevOps automation</strong>, or <strong>digital marketing</strong>, our experts will guide your digital journey. Book a <strong>consultation</strong> today and discover how we can elevate your business.
+              Whether it's <strong>mobile app development</strong>, <strong>cloud consulting</strong>, <strong>DevOps automation</strong>, or <strong>digital marketing</strong>, our experts will guide your digital journey. Book a <strong>consultation</strong> today and discover how we can elevate your business. Expect a response within 24 hours and optional NDA before sharing details.
             </p>
 
-            <Link href="/contact-us" passHref>
-              <button className="btn btn-primary get-btn">
-                Get Your Free Consultation Today{" "}
-                <Image
-                  src="/images/material-symbols_arrow-right-alt.png"
-                  height={30}
-                  width={30}
-                  alt="Arrow Icon"
-                  loading="lazy"
-                />
-              </button>
-            </Link>
+            <div className="cta-buttons">
+              <Link href="/contact-us" passHref>
+                <button className="btn btn-primary get-btn me-3">
+                  Get Your Free Consultation Today{" "}
+                  <Image
+                    src="/images/material-symbols_arrow-right-alt.png"
+                    height={30}
+                    width={30}
+                    alt="Arrow Icon"
+                    loading="lazy"
+                  />
+                </button>
+              </Link>
+              <Link href="/contact-us#contact-insights" passHref>
+                <button className="btn btn-outline-primary get-btn">
+                  Preview Our Insights
+                </button>
+              </Link>
+            </div>
           </div>
 
           {/* Right Side: Image */}
@@ -684,6 +692,35 @@ export default function About() {
               latest innovations in the field of technology and apps.
             </p>
             <ClientLogo />
+          </div>
+        </section>
+        <section id="about-insights" className="home-insights py-5">
+          <div className="container">
+            <div className="d-flex align-items-center">
+              <div className="badge-abot-btn">
+                <Image src="/images/Rectangle-kariot.png" className="me-2" width={15} height={15} alt="" aria-hidden="true" loading="lazy" />
+                <p> LATEST INSIGHTS </p>
+              </div>
+            </div>
+            <div className="row pt-4 g-4">
+              {[{title: "5 Easy Ways a Mobile App Can Grow Your Business", excerpt: "See how we combine strategy, engineering, and DevOps to turn ideas into revenue.", href: "/blog/how-mobile-apps-grow-business", tag: "Growth Playbook"}, {title: "Explore Trimsel’s Digital Transformation Library", excerpt: "Browse cloud, AI, and product engineering articles that guide our client engagements.", href: "/blog", tag: "Thought Leadership"}].map((article) => (
+                <div className="col-lg-6" key={article.title}>
+                  <Card className="insight-card h-100">
+                    <Card.Body>
+                      <p className="insight-tag">{article.tag}</p>
+                      <h3 className="insight-title">
+                        <Link href={article.href}>{article.title}</Link>
+                      </h3>
+                      <p className="insight-excerpt">{article.excerpt}</p>
+                      <Link href={article.href} className="about-btn" aria-label={`Read ${article.title}`}>
+                        Read More
+                        <Image src="/images/material-symbols_arrow-right-alt.png" width={18} height={18} alt="" loading="lazy" />
+                      </Link>
+                    </Card.Body>
+                  </Card>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
         <ContactForm />

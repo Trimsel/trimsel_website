@@ -7716,3 +7716,15 @@ span.clrtxt {
     font-size: 0.65rem;
   }
 }
+p.form-benefits {
+  margin-bottom: 0;
+}
+.form-benefits {
+  list-style: none;
+  padding-left: 0;
+  color: #4e5671;
+}
+.form-benefits li {
+  margin-bottom: 8px;
+  font-size: 16px;
+}

@@ -89,6 +89,22 @@ export default function WebDevelopment() {
       },
     ],
   });
+  const webInsights = [
+    {
+      title: "5 Easy Ways a Mobile App Can Grow Your Business",
+      excerpt:
+        "Discover UI/UX and performance tactics we also apply to high-converting websites for Chennai brands.",
+      href: "/blog/how-mobile-apps-grow-business",
+      tag: "Growth Playbook",
+    },
+    {
+      title: "Explore Trimsel’s Web & Digital Insights",
+      excerpt:
+        "Browse engineering, DevOps, and digital marketing articles to plan your next release with confidence.",
+      href: "/blog",
+      tag: "Web Strategy",
+    },
+  ];
   const slides = [0, 1, 2];
   const [index, setIndex] = useState(0);
   const handleSelect = (selectedIndex, e) => {
@@ -207,6 +223,9 @@ export default function WebDevelopment() {
                           loading="lazy"
                         />
                       </Link>
+                      <p className="hero-proof">
+                        180+ websites shipped for SaaS, ecommerce, and BFSI brands with 95% on-time delivery.
+                      </p>
                       </div>
                     </div>
                   </div>
@@ -246,8 +265,7 @@ export default function WebDevelopment() {
                 <span style={{ color: "#01aaec" }}> Half the Cost </span>{" "}
               </Button> */}
               <p className="web-abt-para pb-3">
-              Your website is often the first impression people have of your brand. It should not only look good but function effortlessly. At Trimsel, each website is built with clean code, a mobile-first design, and performance in mind. Whether launching a new brand, upgrading an outdated site, or expanding an online store, our team ensures the outcome drives results.
-Every project is responsive, optimized for speed, and scalable to match future business growth.</p>
+              Your website is often the first impression people have of your brand. It should not only look good but function effortlessly. At Trimsel, each website is built with clean code, a mobile-first design, and performance in mind. Whether launching a new brand, upgrading an outdated site, or expanding an online store, our team ensures the outcome drives results. Every project is responsive, optimized for speed, and scalable to match future business growth—paired with <Link href="/cloud-consulting-services">cloud consulting</Link> and <Link href="/devops-consulting-services">DevOps automation</Link> to keep releases smooth.</p>
         <p className="web-abt-para pb-3">
         Our Core Services
         </p>
@@ -396,7 +414,12 @@ Every project is responsive, optimized for speed, and scalable to match future b
         {
           icon: "/images/do-ecom.png",
           title: "Ecommerce Web Development",
-          desc: "From Shopify to WooCommerce, we develop feature-rich ecommerce websites that offer smooth, secure shopping experiences.",
+          desc: (
+            <>
+              From Shopify to WooCommerce, we develop feature-rich ecommerce websites that offer smooth, secure shopping experiences and plug seamlessly into{" "}
+              <Link href="/digital-marketing-company-chennai">digital marketing funnels</Link>.
+            </>
+          ),
         },
         {
           icon: "/images/do-devops.png",
@@ -586,7 +609,7 @@ Every project is responsive, optimized for speed, and scalable to match future b
       </div>
       <div className="col-md-5 col-lg-5">
         <p className="webgrowth-para pt-3">
-          At Trimsel, we build powerful web development solutions that reduce time-to-market, lower costs, and help businesses scale effectively.
+          At Trimsel, we build powerful web development solutions that reduce time-to-market, lower costs, and help businesses scale effectively. Read how these choices relate to our <Link href="/blog/how-mobile-apps-grow-business">latest growth playbook</Link>.
         </p>
       </div>
     </div>
@@ -793,7 +816,7 @@ Every project is responsive, optimized for speed, and scalable to match future b
   </div>
 </section>
 
-<section id="web-approach">
+      <section id="web-approach">
   <div className="container approach-container">
     <div className="row">
       <div className="col-lg-6 col-md-6">
@@ -1072,7 +1095,6 @@ Every project is responsive, optimized for speed, and scalable to match future b
         </div>
       </section>
 
-      <ContactForm heading="Launch A High-Performance Web App" subText="Let’s architect a scalable, SEO-ready web application tailored to your business goals."/>
 
       <section id="faq">
   <div className="container faq-container">
@@ -1192,6 +1214,36 @@ Every project is responsive, optimized for speed, and scalable to match future b
     </Accordion>
   </div>
 </section>
+      <section id="web-insights" className="home-insights py-5">
+        <div className="container">
+          <div className="d-flex align-items-center">
+            <div className="badge-abot-btn">
+              <Image src="/images/Rectangle-kariot.png" className="me-2" width={15} height={15} alt="" aria-hidden="true" loading="lazy" />
+              <p> LATEST WEB INSIGHTS </p>
+            </div>
+          </div>
+          <div className="row pt-4 g-4">
+            {webInsights.map((article) => (
+              <div className="col-lg-6" key={article.title}>
+                <Card className="insight-card h-100">
+                  <Card.Body>
+                    <p className="insight-tag">{article.tag}</p>
+                    <h3 className="insight-title">
+                      <Link href={article.href}>{article.title}</Link>
+                    </h3>
+                    <p className="insight-excerpt">{article.excerpt}</p>
+                    <Link href={article.href} className="about-btn" aria-label={`Read ${article.title}`}>
+                      Read More
+                      <Image src="/images/material-symbols_arrow-right-alt.png" width={18} height={18} alt="" loading="lazy" />
+                    </Link>
+                  </Card.Body>
+                </Card>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <ContactForm heading="Launch A High-Performance Web App" subText="Let’s architect a scalable, SEO-ready web application tailored to your business goals."/>
       <Footer />
       </main>
     </>

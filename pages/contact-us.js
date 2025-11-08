@@ -258,6 +258,10 @@ export default function Contact() {
           Looking for{" "}
           <Link href="/mobile-app-development-chennai" style={{ color: "orange" }}>
             AI-driven mobile app development
+          </Link>{" "}
+          or{" "}
+          <Link href="/cloud-consulting-services" style={{ color: "orange" }}>
+            cloud modernization
           </Link>
           ? Talk to our architects about automation, copilots, or a modernization sprint, or email{" "}
           <Link href="mailto:contact@trimsel.com" style={{ color: "orange" }}>
@@ -265,7 +269,7 @@ export default function Contact() {
           </Link>.
         </p>
         <p className="cntct-mozart">
-          We blend strategy, design, engineering, and responsible AI so enterprises in Chennai and worldwide can accelerate digital transformation safely.
+          We blend strategy, design, engineering, and responsible AI so enterprises in Chennai and worldwide can accelerate digital transformation safely. Expect a response in under one business day and see how our <Link href="/devops-consulting-services" style={{ color: "orange" }}>DevOps</Link> and <Link href="/digital-marketing-company-chennai" style={{ color: "orange" }}>growth</Link> teams stay aligned with every engagement.
         </p>
       </div>
     </div>
@@ -291,7 +295,12 @@ export default function Contact() {
             <div className='container'>
                 <div className='cntct-container'>
                     <h3 className='form-heading'><Image src='/images/Group235.png' alt='' role='presentation' aria-hidden='true' width={32} height={32} /> Let's level up your brand, together  </h3>
-                    <p className='form-para'>We guarantee to get back to you within a business day</p>
+                    <p className='form-para'>We confirm receipt instantly and schedule discovery calls within 24 hours.</p>
+                    <ul className="form-benefits">
+                      <li>🔒 Optional NDA before project details</li>
+                      <li>📅 Tailored roadmap covering AI, cloud, or DevOps</li>
+                      <li>📊 Access to recent case studies & success metrics</li>
+                    </ul>
             
                 <div className='row'>
                     <div className='col-lg-8 col-md-8'>
@@ -485,18 +494,28 @@ export default function Contact() {
       <p className="thank-para">
         We have received your message. We'll reach you out immediately!
       </p>
-      <h6>
+      <div className="thank-links">
         <Link
-          href="/"
+          href="/cloud-consulting-services"
           style={{ textDecoration: "none" }}
           className="me-3"
-          aria-label="Return to Trimsel homepage"
+          aria-label="View Trimsel cloud consulting services"
         >
           <Button variant="outline-primary" className="mt-3 mb-2">
-            Back To Homepage
+            Explore Cloud Services
           </Button>
         </Link>
-      </h6>
+        <Link
+          href="/blog/how-mobile-apps-grow-business"
+          style={{ textDecoration: "none" }}
+          className="me-3"
+          aria-label="Read Trimsel insights"
+        >
+          <Button variant="outline-secondary" className="mt-3 mb-2">
+            Read Our Latest Insight
+          </Button>
+        </Link>
+      </div>
       <div className="row">
         <div className="col-lg-6 col-md-6 col-6 follow-col">
           <h4 className="contact-addrs">Follow Us:</h4>
@@ -602,6 +621,36 @@ export default function Contact() {
           />
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact-insights" className="home-insights py-5">
+  <div className="container">
+    <div className="d-flex align-items-center">
+      <div className="badge-abot-btn">
+        <Image src="/images/Rectangle-kariot.png" className="me-2" width={15} height={15} alt="" aria-hidden="true" loading="lazy" />
+        <p> LATEST INSIGHTS </p>
+      </div>
+    </div>
+    <div className="row pt-4 g-4">
+      {[{title: "5 Easy Ways a Mobile App Can Grow Your Business", excerpt: "Understand the product and GTM frameworks we bring to strategy calls.", href: "/blog/how-mobile-apps-grow-business", tag: "Growth Playbook"}, {title: "Explore Trimsel’s Cloud & AI Guides", excerpt: "Browse more articles on DevOps, automation, and digital transformation to prepare for our chat.", href: "/blog", tag: "Digital Insights"}].map((article) => (
+        <div className="col-lg-6" key={article.title}>
+          <Card className="insight-card h-100">
+            <Card.Body>
+              <p className="insight-tag">{article.tag}</p>
+              <h3 className="insight-title">
+                <Link href={article.href}>{article.title}</Link>
+              </h3>
+              <p className="insight-excerpt">{article.excerpt}</p>
+              <Link href={article.href} className="about-btn" aria-label={`Read ${article.title}`}>
+                Read More
+                <Image src="/images/material-symbols_arrow-right-alt.png" width={18} height={18} alt="" loading="lazy" />
+              </Link>
+            </Card.Body>
+          </Card>
+        </div>
+      ))}
     </div>
   </div>
 </section>

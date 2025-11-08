@@ -102,6 +102,20 @@ export default function CloudConsulting() {
       },
     ],
   });
+  const cloudInsights = [
+    {
+      title: "5 Easy Ways a Mobile App Can Grow Your Business",
+      excerpt: "See how cloud-native backends + AI analytics convert app users into loyal customers.",
+      href: "/blog/how-mobile-apps-grow-business",
+      tag: "Cloud & Growth",
+    },
+    {
+      title: "Explore Trimsel Cloud & DevOps Insights",
+      excerpt: "Browse tutorials on FinOps, hybrid strategies, and automation blueprints to plan your next migration.",
+      href: "/blog",
+      tag: "Cloud Strategy",
+    },
+  ];
   return (
     <>
   <NextSeo
@@ -198,6 +212,9 @@ export default function CloudConsulting() {
                 >
                   Contact Our Cloud Experts <ArrowRightIcon width={18} height={18} />
                 </Link>
+                <p className="hero-proof">
+                  120+ cloud projects across BFSI, healthcare, and SaaS with 40% average cost savings.
+                </p>
               </div>
             </div>
           </div>
@@ -233,7 +250,7 @@ export default function CloudConsulting() {
       Expert Cloud Consulting Services for Businesses of All Sizes
     </h2>
     <p className="cld-abt-para">
-    As one of the top cloud computing companies in India, we provide comprehensive cloud consulting services, ranging from strategic planning, cloud migration consulting, and cloud automation to cloud cost optimization. Our certified AWS, Azure, and GCP experts ensure your cloud environment is secure, scalable, and cost-efficient.
+    As one of the top cloud computing companies in India, we provide comprehensive cloud consulting services, ranging from strategic planning, cloud migration consulting, and cloud automation to cloud cost optimization. Our certified AWS, Azure, and GCP experts ensure your cloud environment is secure, scalable, and cost-efficient while pairing seamlessly with <Link href="/devops-consulting-services">DevOps pipelines</Link> and <Link href="/web-development-company-chennai">web application teams</Link>.
     </p>
     
     <div className="row">
@@ -1145,6 +1162,36 @@ export default function CloudConsulting() {
           </div>
         </div>
       </section>  */}
+      <section id="cloud-insights" className="home-insights py-5">
+        <div className="container">
+          <div className="d-flex align-items-center">
+            <div className="badge-abot-btn">
+              <Image src="/images/Rectangle-kariot.png" className="me-2" width={15} height={15} alt="" aria-hidden="true" loading="lazy" />
+              <p> LATEST CLOUD INSIGHTS </p>
+            </div>
+          </div>
+          <div className="row pt-4 g-4">
+            {cloudInsights.map((article) => (
+              <div className="col-lg-6" key={article.title}>
+                <Card className="insight-card h-100">
+                  <Card.Body>
+                    <p className="insight-tag">{article.tag}</p>
+                    <h3 className="insight-title">
+                      <Link href={article.href}>{article.title}</Link>
+                    </h3>
+                    <p className="insight-excerpt">{article.excerpt}</p>
+                    <Link href={article.href} className="about-btn" aria-label={`Read ${article.title}`}>
+                      Read More
+                      <Image src="/images/material-symbols_arrow-right-alt.png" width={18} height={18} alt="" loading="lazy" />
+                    </Link>
+                  </Card.Body>
+                </Card>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <ContactForm heading="Transform Your Business With The Cloud" subText="Leverage AWS, Azure, or GCP with expert guidance on migration, architecture, and cost-efficient cloud strategy."/>
 
       <section id="faq">
