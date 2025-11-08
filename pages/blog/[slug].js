@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import Head from "next/head";
+import { ArticleJsonLd } from "next-seo";
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import Button from "../../components/Button";
@@ -61,22 +62,7 @@ const PostPage = ({ serializedContent, slug }) => {
     : [];
   const allowIndexing = seo.indexing !== false;
 
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: frontmatter.title,
-    description: metaDescription,
-    image: ogImage ? [ogImage] : undefined,
-    datePublished: publishedDate,
-    dateModified: publishedDate,
-    author: {
-      "@type": "Person",
-      name: frontmatter.author || "Trimsel",
-    },
-    mainEntityOfPage: canonicalUrl,
-  };
-
-  const jsonLd = [articleSchema];
+  const jsonLd = [];
 
   if (faqEntries.length) {
     jsonLd.push({
@@ -143,6 +129,19 @@ const PostPage = ({ serializedContent, slug }) => {
           />
         ))}
       </Head>
+      {allowIndexing && (
+        <ArticleJsonLd
+          url={canonicalUrl}
+          title={frontmatter.title}
+          images={ogImage ? [ogImage] : []}
+          datePublished={publishedDate || undefined}
+          dateModified={publishedDate || undefined}
+          authorName={frontmatter.author || "Trimsel"}
+          publisherName="Trimsel"
+          publisherLogo={`${siteUrl}/images/logo.png`}
+          description={metaDescription}
+        />
+      )}
       <Header />
       {/* Spacer below header */}
       <div style={{ height: HEADER_HEIGHT }} />
