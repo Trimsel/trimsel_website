@@ -4724,6 +4724,7 @@ section#recent-web-work {
 
 .home-hero-intro {
   background: #f7fbff;
+  padding: 64px 40px;
 }
 .home-hero-heading {
   font-size: 40px;
@@ -4739,6 +4740,9 @@ section#recent-web-work {
   list-style: none;
   padding-left: 0;
   margin-bottom: 0;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 .home-hero-links li {
   margin-bottom: 12px;
@@ -4757,6 +4761,7 @@ section#recent-web-work {
   background: #e6f6fd;
   border: 0px;
   border-radius: 40px;
+  overflow: hidden;
 }
 img.hmcta-image {
   width: 500px;
@@ -4764,6 +4769,7 @@ img.hmcta-image {
   z-index: 999;
   position: absolute;
   margin-top: -161px;
+  right: 0;
 }
 .hmcta-para {
   font-size: 20px;
@@ -4814,6 +4820,11 @@ section#stage-modal {
 .insight-excerpt {
   color: #4b5675;
   min-height: 60px;
+}
+.insight-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .hm-customize-card.card {
@@ -5454,13 +5465,41 @@ p.qsa-para {
   line-height: 35px;
   color: #6b738a;
 }
-
-img.qsa-tool {
-  height: auto;
+.ai-tool-card {
+  border-radius: 18px;
+  border: 1px solid #e4e8f0;
+  padding: 28px;
+  height: 100%;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(20, 24, 31, 0.04);
 }
-
-td.new-bdr {
-  border: 1px solid #d2d2d2;
+.tool-cat-label {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e2436;
+  margin-bottom: 0.35rem;
+}
+.tool-card-desc {
+  color: #6b738a;
+  font-size: 16px;
+  margin-bottom: 1rem;
+}
+.tool-pill-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.tool-pill {
+  background: #eef6ff;
+  color: #005db4;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid #d7e7ff;
 }
 
 .card.addr-card {
@@ -6483,9 +6522,8 @@ img.wht-qr {
   .blockchain-cta.card {
     background-position: bottom;
   }
-  img.qsa-tool {
-    width: 135px;
-    height: auto;
+  .ai-tool-card {
+    padding: 24px;
   }
 }
 
@@ -7689,6 +7727,26 @@ span.clrtxt {
 }
 
 @media (max-width: 1024px) {
+  .home-hero-intro {
+    padding: 40px 24px;
+  }
+  .home-hero-heading {
+    font-size: 32px;
+  }
+  .home-hero-links {
+    flex-direction: column;
+  }
+  h2.abot-heading {
+    font-size: 48px;
+  }
+  img.lts-tlk {
+    position: relative;
+    margin: 20px auto 0;
+    display: block;
+  }
+  section#abot-hero {
+    margin-top: 60px;
+  }
   #app {
     grid-template-columns: repeat(12, minmax(0, 1fr));
   }
@@ -7715,6 +7773,22 @@ span.clrtxt {
   .badge-abot-btn {
     font-size: 0.65rem;
   }
+  .home-hero-heading {
+    font-size: 28px;
+  }
+  .home-hero-links li {
+    font-size: 15px;
+  }
+  .form-benefits {
+    padding-left: 12px;
+  }
+  .form-benefits li {
+    font-size: 15px;
+  }
+  .thank-links {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
 p.form-benefits {
   margin-bottom: 0;
@@ -7727,4 +7801,23 @@ p.form-benefits {
 .form-benefits li {
   margin-bottom: 8px;
   font-size: 16px;
+}
+.thank-links {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 762px) {
+  .ai-tool-card {
+    padding: 20px;
+  }
+  .tool-card-desc {
+    font-size: 15px;
+  }
+  .tool-pill {
+    font-size: 12px;
+    padding: 0.28rem 0.65rem;
+  }
 }

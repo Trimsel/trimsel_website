@@ -13,11 +13,11 @@ import Accordion from "react-bootstrap/Accordion";
 import dynamic from "next/dynamic";
 import Header from "../components/header";
 import Footer from "../components/footer";
+import ContactForm from "../components/ContactForm";
 import { buildServiceJsonLd } from "../lib/serviceSchema";
 import ArrowRightIcon from "../components/icons/ArrowRightIcon";
 import CheckIcon from "../components/icons/CheckIcon";
 
-const ContactForm = dynamic(() => import("../components/ContactForm"), { ssr: false });
 const CarouselComponent = dynamic(() => import("../components/carouselComponent"), {
   ssr: false,
   loading: () => <div className="text-center text-muted py-5">Loading success stories…</div>,
@@ -104,10 +104,10 @@ export default function CloudConsulting() {
   });
   const cloudInsights = [
     {
-      title: "5 Easy Ways a Mobile App Can Grow Your Business",
-      excerpt: "See how cloud-native backends + AI analytics convert app users into loyal customers.",
-      href: "/blog/how-mobile-apps-grow-business",
-      tag: "Cloud & Growth",
+      title: "Cloud Migration Checklist",
+      excerpt: "Review the assessment, landing zone, and cutover steps we follow for AWS, Azure, and GCP projects.",
+      href: "/blog",
+      tag: "Cloud Migration",
     },
     {
       title: "Explore Trimsel Cloud & DevOps Insights",

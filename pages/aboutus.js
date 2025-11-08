@@ -618,7 +618,7 @@ export default function About() {
               Whether it's <strong>mobile app development</strong>, <strong>cloud consulting</strong>, <strong>DevOps automation</strong>, or <strong>digital marketing</strong>, our experts will guide your digital journey. Book a <strong>consultation</strong> today and discover how we can elevate your business. Expect a response within 24 hours and optional NDA before sharing details.
             </p>
 
-            <div className="cta-buttons">
+            <div className="cta-buttons d-flex flex-wrap gap-3 mt-3">
               <Link href="/contact-us" passHref>
                 <button className="btn btn-primary get-btn me-3">
                   Get Your Free Consultation Today{" "}

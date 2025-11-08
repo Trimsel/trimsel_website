@@ -6,15 +6,14 @@ import Card from "react-bootstrap/Card";
 import Accordion from "react-bootstrap/Accordion";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Table from "react-bootstrap/Table";
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 import { NextSeo } from "next-seo";
 import Head from "next/head";
+import ContactForm from "../components/ContactForm";
+import Footer from "../components/footer";
 import { buildServiceJsonLd } from "../lib/serviceSchema";
 
 const ClientLogo = dynamic(() => import("../components/clientLogo"), { ssr: false });
-const ContactForm = dynamic(() => import("../components/ContactForm"), { ssr: false });
-const Footer = dynamic(() => import("../components/footer"), { ssr: false });
 
 export default function Quality() {
   const serviceJsonLd = buildServiceJsonLd({
@@ -68,16 +67,39 @@ export default function Quality() {
   });
   const aiArticles = [
     {
-      title: "5 Easy Ways a Mobile App Can Grow Your Business",
-      excerpt: "Learn how AI-powered personalization and engagement loops inside apps accelerate retention and revenue.",
-      href: "/blog/how-mobile-apps-grow-business",
-      tag: "AI Use Cases",
+      title: "How To Scope An AI MVP",
+      excerpt: "Use our discovery checklist to validate data readiness, model choice, and expected ROI before writing code.",
+      href: "/blog",
+      tag: "AI Strategy",
     },
     {
-      title: "See More AI & Automation Insights",
-      excerpt: "Explore Trimsel’s playbooks on copilots, predictive analytics, and cloud-native MLOps best practices.",
+      title: "Building Safe Generative AI Products",
+      excerpt: "See Trimsel’s guardrails for LLM security, prompt testing, and continuous monitoring in production.",
       href: "/blog",
-      tag: "Thought Leadership",
+      tag: "Generative AI",
+    },
+  ];
+
+  const aiToolCategories = [
+    {
+      title: "Languages & Frameworks",
+      description: "Backend foundations for AI products, APIs, and orchestration layers.",
+      tools: ["Python", "TypeScript", "Go", "FastAPI", "Node.js"],
+    },
+    {
+      title: "ML & Generative AI Platforms",
+      description: "Model training, fine-tuning, and LLM orchestration stacks we rely on.",
+      tools: ["PyTorch", "TensorFlow", "LangChain", "OpenAI", "Vertex AI", "Anthropic"],
+    },
+    {
+      title: "Data & Pipelines",
+      description: "Pipelines that keep datasets fresh, reliable, and analysis-ready.",
+      tools: ["Airflow", "dbt", "Snowflake", "BigQuery", "Kafka", "Redis"],
+    },
+    {
+      title: "Cloud & DevOps",
+      description: "Infrastructure that helps us deploy and monitor AI safely at scale.",
+      tools: ["AWS SageMaker", "Azure ML", "GCP Vertex AI", "Kubernetes", "Docker", "Argo CD"],
     },
   ];
 
@@ -176,7 +198,7 @@ export default function Quality() {
                       <div className="mozarts-inner">
                       <Link href="/contact-us" className="btn btn-primary get-btn" aria-label="Talk to an AI Expert">
                       Talk to an AI Expert{" "}
-                      <Image src="/images/material-symbols_arrow-right-alt.png" width={24} height={24} alt="AI Expert" />
+                      <Image src="/images/material-symbols_arrow-right-alt.png" width={24} height={24} alt="" aria-hidden="true" />
                     </Link>
                     <p className="hero-proof">
                       40+ AI products shipped across BFSI, healthcare, logistics, and SaaS with audited MLOps pipelines.
@@ -191,11 +213,12 @@ export default function Quality() {
                   <Image
                     src="/images/qa-hero-img.webp"
                     className="quality-hero-img"
-                    alt="Quality-Engineering-Hero-Image"
+                    alt="Trimsel AI engineers building machine learning solutions in Chennai"
                     width={650}
                     height={423}
                     priority
-                    quality={100}
+                    quality={70}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                   />
                 </div>
               </div>
@@ -899,255 +922,34 @@ export default function Quality() {
 
       <section className="qsa-tools">
         <div className="container devtool-container">
-          <Row>
+          <Row className="gy-4">
             <Col lg={6} md={6}>
-              <h3 className="tools-heading">
-              Technology Stack We Use
-              </h3>
+              <h3 className="tools-heading">Technology Stack We Use</h3>
             </Col>
             <Col lg={6} md={6}>
               <p className="qsa-para">
-                Our solutions are built using trusted tools and platforms to ensure performance, scalability, and security.
+                Our AI engineers blend reliable programming languages, modern ML platforms, and production-ready MLOps tooling to keep models accurate and secure across mobile, web, and cloud surfaces.
               </p>
             </Col>
           </Row>
-          <Row className="pt-5">
-            <Col lg={6} md={6} className="pt-2">
-              <h5 className="tool-cat-heading pb-2">Languages & Frameworks</h5>
-              <Table className="mb-5">
-                <tbody>
-                  <tr>
-                    <td className="new-bdr">
-                      <Image
-                        src="/images/tools-image/selenium_logo.png"
-                        className="mbl-tools pb-3"
-                        alt="Selenium Automation Tool Logo"
-                        width={150}
-                        height={60}
-                        loading="lazy"
-                      />
-                    </td>
-                    <td className="new-bdr">
-                      <Image
-                        src="/images/tools-image/webdriver.png"
-                        className="qsa-tool pb-3 ps-1"
-                        width={112}
-                        height={60}
-                        alt="Webdriver Automation Tool Logo"
-                      />
-                    </td>
-                    <td className="d-none d-lg-table-cell new-bdr">
-                      <Image
-                        src="/images/tools-image/cucumber.png"
-                        className="qsa-tool pb-3 ps-1"
-                        alt="Cucumber Automation Tool Logo"
-                        width={184}
-                        height={60}
-                      />
-                    </td>
-                  </tr>
-                  <tr className="table-extra-border-bottom">
-                    <td className="d-lg-none new-bdr">
-                      <Image
-                        src="/images/tools-image/cucumber.png"
-                        className="qsa-tool pb-3 ps-1"
-                        alt="Cucumber Automation Tool Logo"
-                        width={184}
-                        height={60}
-                      />
-                    </td>
-                    <td className="new-bdr">
-                      <Image
-                        src="/images/tools-image/Protractor.png"
-                        className="qsa-tool pb-3 ps-1"
-                        alt="Protactor Automation Tool Logo"
-                        width={145}
-                        height={66}
-                      />
-                    </td>
-                    <td className="d-none d-lg-table-cell new-bdr">
-                      <Image
-                        src="/images/tools-image/cypress.png"
-                        className="qsa-tool pb-3 ps-1"
-                        alt="Cypress Automation Tool Logo"
-                        width={141}
-                        height={73}
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="d-lg-none new-bdr">
-                      <Image
-                        src="/images/tools-image/cypress.png"
-                        className="qsa-tool pb-3 ps-1"
-                        alt="Cypress Automation Tool Logo"
-                        width={141}
-                        height={73}
-                      />
-                    </td>
-                  </tr>
-                </tbody>
-              </Table>
-
-              <h5 className="tool-cat-heading pb-2">Generative AI Platforms</h5>
-              <Table className="mb-5">
-                <tbody>
-                  <tr>
-                    <td className="new-bdr">
-                      <Image
-                        src="/images/tools-image/postman.png"
-                        className="qsa-tool pb-3"
-                        alt="Postman API Testing Tool Logo"
-                        width={162}
-                        height={57}
-                      />
-                    </td>
-                    <td className="new-bdr">
-                      <Image
-                        src="/images/tools-image/rest-assured.png"
-                        className="qsa-tool pb-3 ps-1"
-                        width={177}
-                        height={54}
-                        alt="Rest-Assured API Testing Tool Logo"
-                      />
-                    </td>
-                    <td className="d-none d-lg-table-cell new-bdr">
-                      <Image
-                        src="/images/tools-image/soapui.png"
-                        className="qsa-tool pb-3 ps-1"
-                        alt="SoapUI API Testing Tool Logo"
-                        width={154}
-                        height={44}
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="d-lg-none new-bdr">
-                      <Image
-                        src="/images/tools-image/soapui.png"
-                        className="qsa-tool pb-3 ps-1"
-                        alt="SoapUI API Testing Tool Logo"
-                        width={154}
-                        height={44}
-                      />
-                    </td>
-                  </tr>
-                </tbody>
-              </Table>
-
-              <h5 className="tool-cat-heading pb-2">
-              Cloud and DevOps
-              </h5>
-              <Table  className="mb-5">
-                <tbody>
-                  <tr>
-                    <td className="new-bdr">
-                      <Image
-                        src="/images/tools-image/zap-logo.png"
-                        className="qsa-tool pb-3"
-                        alt="ZAP Non-Functional Testing Tool Logo"
-                        width={131}
-                        height={51}
-                      />
-                    </td>
-                    <td className="new-bdr">
-                      <Image
-                        src="/images/tools-image/owasp.png"
-                        className="qsa-tool pb-3 ps-1"
-                        width={152}
-                        height={53}
-                        alt="Owasp Non-Functional Testing Tool Logo"
-                      />
-                    </td>
-                    <td className="d-none d-lg-table-cell new-bdr">
-                      <Image
-                        src="/images/tools-image/Apache_JMeter.png"
-                        className="qsa-tool pb-3 ps-1"
-                        alt="Apache JMeter Non-Functional Testing Tool Logo"
-                        width={141}
-                        height={48}
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="d-lg-none new-bdr">
-                      <Image
-                        src="/images/tools-image/Apache_JMeter.png"
-                        className="qsa-tool pb-3 ps-1"
-                        alt="Apache JMeter Non-Functional Testing Tool Logo"
-                        width={141}
-                        height={48}
-                      />
-                    </td>
-                    <td className="d-none d-lg-table-cell new-bdr">
-                      <Image
-                        src="/images/tools-image/blazemeter.png"
-                        className="qsa-tool pb-3 ps-1"
-                        alt="Blazemeter Non-Functional Testing Tool Logo"
-                        width={148}
-                        height={17}
-                      />
-                    </td>
-                  </tr>
-                </tbody>
-              </Table>
-            </Col>
-            <Col lg={6} md={6} className="pt-2">
-              <h5 className="tool-cat-heading pb-2">Data Tools</h5>
-              <Table  className="mb-5">
-                <tbody>
-                  <tr>
-                    <td className="new-bdr">
-                      <Image
-                        src="/images/tools-image/Atlassian-Logo.png"
-                        className="qsa-tool pb-3"
-                        alt="Atlassian Test Management Tool Logo"
-                        width={132}
-                        height={60}
-                      />
-                    </td>
-                    <td className="new-bdr">
-                      <Image
-                        src="/images/tools-image/Zephyr.png"
-                        className="qsa-tool pb-3 ps-1"
-                        width={138}
-                        height={37}
-                        alt="Zephyr Test Management Tool Logo"
-                      />
-                    </td>
-                    <td className="d-none d-lg-table-cell new-bdr">
-                      <Image
-                        src="/images/tools-image/testrail.png"
-                        className="qsa-tool pb-3 ps-1"
-                        alt="TestRail Test Management Tool Logo"
-                        width={142}
-                        height={26}
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="d-lg-none new-bdr">
-                      <Image
-                        src="/images/tools-image/testrail.png"
-                        className="qsa-tool pb-3 ps-1"
-                        alt="TestRail Test Management Tool Logo"
-                        width={142}
-                        height={26}
-                      />
-                    </td>
-                    <td className="d-none d-lg-table-cell new-bdr">
-                      <Image
-                        src="/images/tools-image/jenkins.png"
-                        className="qsa-tool pb-3 ps-1"
-                        alt="Jenkins Test Management Tool Logo"
-                        width={146}
-                        height={47}
-                      />
-                    </td>
-                  </tr>
-                </tbody>
-              </Table>
-            </Col>
+          <Row className="pt-4 g-4">
+            {aiToolCategories.map((category) => (
+              <Col lg={6} md={6} key={category.title}>
+                <Card className="ai-tool-card h-100">
+                  <Card.Body>
+                    <p className="tool-cat-label">{category.title}</p>
+                    <p className="tool-card-desc">{category.description}</p>
+                    <ul className="tool-pill-list">
+                      {category.tools.map((tool) => (
+                        <li className="tool-pill" key={`${category.title}-${tool}`}>
+                          {tool}
+                        </li>
+                      ))}
+                    </ul>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
           </Row>
         </div>
       </section>
@@ -1171,7 +973,7 @@ export default function Quality() {
                     <p className="insight-excerpt">{article.excerpt}</p>
                     <Link href={article.href} className="about-btn" aria-label={`Read ${article.title}`}>
                       Read More
-                      <Image src="/images/material-symbols_arrow-right-alt.png" width={18} height={18} alt="" loading="lazy" />
+                      <Image src="/images/material-symbols_arrow-right-alt.png" width={18} height={18} alt="" aria-hidden="true" loading="lazy" />
                     </Link>
                   </Card.Body>
                 </Card>
