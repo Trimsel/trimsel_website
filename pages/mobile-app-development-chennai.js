@@ -14,12 +14,13 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import Header from "../components/header";
 import Footer from "../components/footer";
+import ContactForm from "../components/ContactForm";
+import CarouselComponent from "../components/carouselComponent";
 import { postJson } from "../lib/api";
 import { buildServiceJsonLd } from "../lib/serviceSchema";
 import ArrowRightIcon from "../components/icons/ArrowRightIcon";
 import MailIcon from "../components/icons/MailIcon";
 
-const ContactForm = dynamic(() => import("../components/ContactForm"), { ssr: false });
 const ClientLogo = dynamic(() => import("../components/clientLogo"), {
   ssr: false,
   loading: () => <div className="text-center text-muted py-5">Loading client logos…</div>,
@@ -67,6 +68,59 @@ export default function mobileApp() {
     }
   }
 
+  const faqItems = [
+    {
+      question: "Why Choose Trimsel as Your Mobile App Development Company in Chennai?",
+      answer:
+        "Trimsel is a top-rated mobile app development company in Chennai, India, trusted by startups and enterprises. We specialize in iOS, Android, and cross-platform apps using cutting-edge technologies like Flutter and React Native.",
+    },
+    {
+      question: "How Much Does It Cost to Develop a Mobile App?",
+      answer:
+        "The cost of mobile app development varies based on features, complexity, platform, and development approach. At Trimsel, we offer scalable solutions tailored to your unique business needs and budget.",
+    },
+    {
+      question: "Which Is Better: Native or Cross-Platform App Development?",
+      answer:
+        "Native apps (iOS or Android) offer high performance, while cross-platform apps built using Flutter or React Native are faster to develop and more cost-effective. We help you choose the right approach based on your project scope.",
+    },
+    {
+      question: "Do You Offer Flutter App Development Services?",
+      answer:
+        "Yes! We’re a Flutter app development company in Chennai offering fast, cost-efficient cross-platform mobile applications with native-like performance.",
+    },
+    {
+      question: "How Long Does It Take to Develop a Mobile App?",
+      answer:
+        "A basic app can take 6–8 weeks, while feature-rich enterprise mobile apps may take 4–6 months. We follow agile development for faster time-to-market without compromising quality.",
+    },
+    {
+      question: "Can I Hire Mobile App Developers from Trimsel?",
+      answer:
+        "Absolutely. We provide dedicated mobile app developers in Chennai to work on your project full-time or part-time, ensuring transparency, speed, and technical excellence.",
+    },
+    {
+      question: "What Is Hybrid Mobile App Development and Is It Right for My Business?",
+      answer:
+        "Hybrid mobile apps are built using web technologies like HTML, CSS, and JavaScript with frameworks like Ionic. They are ideal for MVPs or businesses looking for quick deployment across platforms.",
+    },
+    {
+      question: "Is My App Secure and Compliant with Data Protection Laws?",
+      answer:
+        "Yes. We implement best practices for mobile app security and ensure compliance with GDPR, HIPAA, and PCI-DSS based on your industry and location.",
+    },
+    {
+      question: "Do You Provide Post-Launch Support and Maintenance?",
+      answer:
+        "Yes, we offer ongoing maintenance, feature enhancements, performance monitoring, and support services to keep your app secure and up to date.",
+    },
+    {
+      question: "How Can I Get Started with My Mobile App Project?",
+      answer:
+        "You can book a consultation with our team to discuss your app idea, goals, and expectations. We’ll help you plan and validate your mobile app development journey from start to finish.",
+    },
+  ];
+
   const serviceJsonLd = buildServiceJsonLd({
     slug: "mobile-app-development-chennai",
     serviceName: "Mobile App Development (Chennai)",
@@ -80,58 +134,7 @@ export default function mobileApp() {
       "App Testing & Security",
       "UI/UX & App Design",
     ],
-    faq: [
-      {
-        question: "Why Choose Trimsel as Your Mobile App Development Company in Chennai?",
-        answer:
-          "Trimsel is a top-rated mobile app development company in Chennai, India, trusted by startups and enterprises. We specialize in iOS, Android, and cross-platform apps using cutting-edge technologies like Flutter and React Native.",
-      },
-      {
-        question: "How Much Does It Cost to Develop a Mobile App?",
-        answer:
-          "The cost of mobile app development varies based on features, complexity, platform, and development approach. At Trimsel, we offer scalable solutions tailored to your unique business needs and budget.",
-      },
-      {
-        question: "Which Is Better: Native or Cross-Platform App Development?",
-        answer:
-          "Native apps (iOS or Android) offer high performance, while cross-platform apps built using Flutter or React Native are faster to develop and more cost-effective. We help you choose the right approach based on your project scope.",
-      },
-      {
-        question: "Do You Offer Flutter App Development Services?",
-        answer:
-          "Yes! We’re a Flutter app development company in Chennai offering fast, cost-efficient cross-platform mobile applications with native-like performance.",
-      },
-      {
-        question: "How Long Does It Take to Develop a Mobile App?",
-        answer:
-          "A basic app can take 6–8 weeks, while feature-rich enterprise mobile apps may take 4–6 months. We follow agile development for faster time-to-market without compromising quality.",
-      },
-      {
-        question: "Can I Hire Mobile App Developers from Trimsel?",
-        answer:
-          "Absolutely. We provide dedicated mobile app developers in Chennai to work on your project full-time or part-time, ensuring transparency, speed, and technical excellence.",
-      },
-      {
-        question: "What Is Hybrid Mobile App Development and Is It Right for My Business?",
-        answer:
-          "Hybrid mobile apps are built using web technologies like HTML, CSS, and JavaScript with frameworks like Ionic. They are ideal for MVPs or businesses looking for quick deployment across platforms.",
-      },
-      {
-        question: "Is My App Secure and Compliant with Data Protection Laws?",
-        answer:
-          "Yes. We implement best practices for mobile app security and ensure compliance with GDPR, HIPAA, and PCI-DSS based on your industry and location.",
-      },
-      {
-        question: "Do You Provide Post-Launch Support and Maintenance?",
-        answer:
-          "Yes, we offer ongoing maintenance, feature enhancements, performance monitoring, and support services to keep your app secure and up to date.",
-      },
-      {
-        question: "How Can I Get Started with My Mobile App Project?",
-        answer:
-          "You can book a consultation with our team to discuss your app idea, goals, and expectations. We’ll help you plan and validate your mobile app development journey from start to finish.",
-      },
-    ],
+    faq: faqItems,
     breadcrumbs: [
       { name: "Home", item: "https://www.trimsel.com/" },
       {
@@ -398,7 +401,7 @@ export default function mobileApp() {
         <section id="digital-mbl">
           <div className="container">
             <div className="row">
-              <div className="col-lg-12 col-md-6">
+              <div className="col-12 col-lg-8">
                 <h3 className="dgt-heading">Why Businesses Trust Trimsel for Mobile Application Development</h3>
                 <p>
                 Trimsel, a leading mobile app development company in Chennai, India, empowers businesses to achieve scalable growth and digital success with innovative mobile solutions. Our expert mobile app developers build tailored iOS, Android, and cross-platform applications designed specifically to meet your business objectives, ensuring enhanced performance, robust security, and exceptional user experience.
@@ -406,12 +409,6 @@ export default function mobileApp() {
                 <p>
                   Looking for inspiration? Read our latest insight <Link href="/blog/how-mobile-apps-grow-business">“5 Easy Ways a Mobile App Can Grow Your Business.”</Link> It covers the exact tactics we use to turn an MVP into a revenue-driving product.
                 </p>
-              </div>
-              <div className="col-lg-6 col-md-6">
-                {/* <Button className="dgt-btn" href="#">
-                  <img src="/images/Group309.png" width={40} /> Your deadlines
-                  are our goals
-                </Button> */}
               </div>
             </div>
             <div className="row pt-5">
@@ -567,7 +564,7 @@ export default function mobileApp() {
                     <div className="row">
                       <div className="col-lg-2 col-md-2 col-2">
                         <span className="list-icon">
-                          <Image src="/images/Group2539.png" width={40} height={40} alt="" loading="lazy" aria-hidden="true" />
+                          <Image src="/images/Group2539.png" width={40} height={40} alt="Strategic roadmap icon" loading="lazy" />
                         </span>
                       </div>
                       <div className="col-lg-10 col-md-10 col-10 helper-list-column">
@@ -580,7 +577,7 @@ export default function mobileApp() {
                     <div className="row">
                       <div className="col-lg-2 col-md-2 col-2">
                         <span className="list-icon">
-                          <Image src="/images/Group2538.png" width={40} height={40} alt="" loading="lazy" aria-hidden="true" />
+                          <Image src="/images/Group2538.png" width={40} height={40} alt="UI and UX design icon" loading="lazy" />
                         </span>
                       </div>
                       <div className="col-lg-10 col-md-10 col-10 helper-list-column">
@@ -593,7 +590,7 @@ export default function mobileApp() {
                     <div className="row">
                       <div className="col-lg-2 col-md-2 col-2">
                         <span className="list-icon">
-                          <Image src="/images/Group2540.png" width={40} height={40} alt="" loading="lazy" aria-hidden="true" />
+                          <Image src="/images/Group2540.png" width={40} height={40} alt="Agile development icon" loading="lazy" />
                         </span>
                       </div>
                       <div className="col-lg-10 col-md-10 col-10 helper-list-column">
@@ -606,7 +603,7 @@ export default function mobileApp() {
                     <div className="row">
                       <div className="col-lg-2 col-md-2 col-2">
                         <span className="list-icon">
-                          <Image src="/images/Group2541.png" width={40} height={40} alt="" loading="lazy" aria-hidden="true" />
+                          <Image src="/images/Group2541.png" width={40} height={40} alt="Advanced technology integration icon" loading="lazy" />
                         </span>
                       </div>
                       <div className="col-lg-10 col-md-10 col-10 helper-list-columns">
@@ -619,7 +616,7 @@ export default function mobileApp() {
                     <div className="row">
                       <div className="col-lg-2 col-md-2 col-2">
                         <span className="list-icon">
-                          <Image src="/images/Group2542.png" width={40} height={40} alt="" loading="lazy" aria-hidden="true" />
+                          <Image src="/images/Group2542.png" width={40} height={40} alt="Quality assurance shield icon" loading="lazy" />
                         </span>
                       </div>
                       <div className="col-lg-10 col-md-10 col-10 helper-list-column">
@@ -632,7 +629,7 @@ export default function mobileApp() {
                     <div className="row">
                       <div className="col-lg-2 col-md-2 col-2 ">
                         <span className="list-icon">
-                          <Image src="/images/Group2543.png" width={40} height={40} alt="" loading="lazy" aria-hidden="true" />
+                          <Image src="/images/Group2543.png" width={40} height={40} alt="App launch rocket icon" loading="lazy" />
                         </span>
                       </div>
                       <div className="col-lg-10 col-md-10 col-10 helper-list-column">
@@ -645,7 +642,7 @@ export default function mobileApp() {
                     <div className="row">
                       <div className="col-lg-2 col-md-2 col-2 ">
                         <span className="list-icon">
-                          <Image src="/images/Group2543.png" width={40} height={40} alt="" loading="lazy" aria-hidden="true" />
+                          <Image src="/images/Group2543.png" width={40} height={40} alt="Ongoing support icon" loading="lazy" />
                         </span>
                       </div>
                       <div className="col-lg-10 col-md-10 col-10 helper-list-column">
@@ -725,27 +722,63 @@ export default function mobileApp() {
 </section>
 
 
-        {/* <section id="recent-mbl-work">
+        <section id="recent-mbl-work">
           <div className="container new-ds">
             <div className="row">
-              <div className="col-lg-3 col-md-3">
+              <div className="col-lg-3 col-md-4">
                 <h2 className="case-heading">Success Stories – How Our Mobile Apps Drive Business Growth</h2>
               </div>
-              <div className="col-lg-6 col-md-6">
+              <div className="col-lg-6 col-md-5">
                 <p className="casecarousel-para">
-                With over six years of experience, we have successfully developed and launched 200+ custom mobile apps for startups and enterprises worldwide. Our expert mobile app development team ensures every app meets industry standards for performance, security, and scalability.
+                  With over six years of experience, we have launched 200+ custom iOS, Android, and cross-platform apps for fintech, healthcare, retail, and SaaS brands. Each engagement focuses on measurable outcomes like faster onboarding, higher retention, or new revenue streams.
                 </p>
               </div>
-              <div className="col-lg-3 col-md-3">
-                <button className="about-btn">
-                  View All Cases{" "}
-                  <img src="/images/material-symbols_arrow-right-alt.png" />
-                </button>
+              <div className="col-lg-3 col-md-3 d-flex align-items-center justify-content-md-end">
+                <Link className="about-btn" href="/portfolio" aria-label="See Trimsel mobile app case studies">
+                  View All Cases
+                  <Image src="/images/material-symbols_arrow-right-alt.png" width={32} height={32} alt="Arrow right" className="ms-2" />
+                </Link>
               </div>
             </div>
             <CarouselComponent />
           </div>
-        </section> */}
+        </section>
+
+        <section id="faq">
+          <div className="container">
+            <div className="row mb-4">
+              <div className="col-lg-8 col-md-10">
+                <div className="badge-abot-btn">
+                  <Image
+                    src="/images/Rectangle-kariot.png"
+                    width={18}
+                    height={18}
+                    alt=""
+                    loading="lazy"
+                    aria-hidden="true"
+                    className="me-2"
+                  />
+                  <p>FAQ</p>
+                </div>
+                <h2 className="about-head mt-3">Frequently Asked Questions</h2>
+                <p className="accordion-para">
+                  Answers to the most common questions founders and IT teams ask when planning iOS,
+                  Android, or cross-platform app development in Chennai.
+                </p>
+              </div>
+            </div>
+            <Accordion defaultActiveKey="0" alwaysOpen>
+              {faqItems.map((faq, index) => (
+                <Accordion.Item eventKey={String(index)} key={faq.question}>
+                  <Accordion.Header>{faq.question}</Accordion.Header>
+                  <Accordion.Body>
+                    <p className="accordion-para mb-0">{faq.answer}</p>
+                  </Accordion.Body>
+                </Accordion.Item>
+              ))}
+            </Accordion>
+          </div>
+        </section>
 
         {/* <TestimonialClient /> */}
 

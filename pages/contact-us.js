@@ -304,7 +304,7 @@ export default function Contact() {
                     </ul>
             
                 <div className='row'>
-                    <div className='col-lg-8 col-md-8'>
+                    <div className='col-lg-8 col-md-10'>
                         <form id='home-form' onSubmit={handleSubmit(onSubmitForm)}>
                         {message && <p className="form-message">{message}</p>}
                     <div className='row py-3'>
@@ -464,7 +464,7 @@ export default function Contact() {
                   </div>
                 </form>
             </div>
-            <div className='col-lg-4 col-md-4'>
+            <div className='col-lg-4 col-md-6'>
                 <Image
                   src='/images/Letstalk.png'
                   className='cntct-form-bg'
@@ -636,7 +636,7 @@ export default function Contact() {
     </div>
     <div className="row pt-4 g-4">
       {[{title: "5 Easy Ways a Mobile App Can Grow Your Business", excerpt: "Understand the product and GTM frameworks we bring to strategy calls.", href: "/blog/how-mobile-apps-grow-business", tag: "Growth Playbook"}, {title: "Explore Trimsel’s Cloud & AI Guides", excerpt: "Browse more articles on DevOps, automation, and digital transformation to prepare for our chat.", href: "/blog", tag: "Digital Insights"}].map((article) => (
-        <div className="col-lg-6" key={article.title}>
+        <div className="col-lg-6 col-md-6 col-12" key={article.title}>
           <Card className="insight-card h-100">
             <Card.Body>
               <p className="insight-tag">{article.tag}</p>
@@ -644,7 +644,7 @@ export default function Contact() {
                 <Link href={article.href}>{article.title}</Link>
               </h3>
               <p className="insight-excerpt">{article.excerpt}</p>
-              <Link href={article.href} className="about-btn" aria-label={`Read ${article.title}`}>
+              <Link href={article.href} className="insight-link" aria-label={`Read ${article.title}`}>
                 Read More
                 <Image src="/images/material-symbols_arrow-right-alt.png" width={18} height={18} alt="" loading="lazy" />
               </Link>

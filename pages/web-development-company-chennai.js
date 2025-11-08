@@ -2,16 +2,13 @@ import Link from "next/link";
 import Image from "next/image";
 import Header from "../components/header";
 import Footer from "../components/footer";
-import Button from "react-bootstrap/Button";
 import Stack from "react-bootstrap/Stack";
 import Card from "react-bootstrap/Card";
 import Carousel from "react-bootstrap/Carousel";
 import Accordion from "react-bootstrap/Accordion";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { postJson } from "../lib/api";
 import { buildServiceJsonLd } from "../lib/serviceSchema";
 import ClientLogo from "../components/clientLogo";
 import { FaRegEnvelope } from "@react-icons/all-files/fa/FaRegEnvelope";
@@ -20,21 +17,6 @@ import { NextSeo } from 'next-seo';
 import Head from "next/head";
 
 export default function WebDevelopment() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm();
-
-  async function onSubmitForm(values) {
-    try {
-      await postJson("/api/newcontact", values);
-      console.log("Contact request sent");
-    } catch (error) {
-      console.error("Failed to submit form", error);
-    }
-  }
   const serviceJsonLd = buildServiceJsonLd({
     slug: "web-development-company-chennai",
     serviceName: "Web Development Services (Chennai)",
@@ -91,21 +73,20 @@ export default function WebDevelopment() {
   });
   const webInsights = [
     {
-      title: "5 Easy Ways a Mobile App Can Grow Your Business",
+      title: "How We Build Lightning-Fast Websites",
       excerpt:
-        "Discover UI/UX and performance tactics we also apply to high-converting websites for Chennai brands.",
-      href: "/blog/how-mobile-apps-grow-business",
-      tag: "Growth Playbook",
+        "Learn the performance, accessibility, and SEO guardrails we bake into every Trimsel web project.",
+      href: "/blog",
+      tag: "Web Performance",
     },
     {
-      title: "Explore Trimsel’s Web & Digital Insights",
+      title: "Web & Digital Experience Guides",
       excerpt:
-        "Browse engineering, DevOps, and digital marketing articles to plan your next release with confidence.",
+        "Explore our latest breakdowns on UX audits, CMS migrations, and conversion-focused redesigns.",
       href: "/blog",
       tag: "Web Strategy",
     },
   ];
-  const slides = [0, 1, 2];
   const [index, setIndex] = useState(0);
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
@@ -240,6 +221,8 @@ export default function WebDevelopment() {
                     width={646}
                     height={651}
                     priority
+                    quality={75}
+                    sizes="(max-width: 768px) 95vw, (max-width: 1200px) 55vw, 646px"
                   />
                 </div>
               </div>
@@ -283,74 +266,14 @@ export default function WebDevelopment() {
         </p>
             </div>
             <div className="col-lg-5 col-md-6">
-              <div className=" card card-web">
+              <div className="card card-web">
                 <div className="card-web-details">
                   <h5 className="pb-3">START YOUR PROJECT</h5>
-                  <h2>
-                  Ready to Launch Your New Website?
-                  </h2>
-                  <p>
-                  Book a consultation with our experts to get started today.
-                  </p>
-                  <form id="home-form" onSubmit={handleSubmit(onSubmitForm)}>
-                    <div className="md-form">
-                      <input
-                        {...register("phone", {
-                          required: {
-                            value: true,
-                            message: "Your phone number is required",
-                          },
-                          minLength: {
-                            value: 10,
-                            message: "Enter a valid mobile number",
-                          },
-                          maxLength: {
-                            value: 11,
-                            message: "Enter a valid mobile number",
-                          },
-                        })}
-                        type="tel"
-                        name="phone"
-                        id="phone"
-                        className="form-control web-form mb-3"
-                        placeholder="Phone Number"
-                      />
-                      <span className="error-design pt-3">
-                        {errors?.phone?.message}
-                        {errors?.phone?.maxLength?.message}
-                        {errors?.phone?.minLength?.message}
-                      </span>
-                    </div>
-                    <div className="md-form">
-                      <input
-                        {...register("email", {
-                          required: {
-                            value: true,
-                            message: "Email id is required",
-                          },
-                          pattern: {
-                            value:
-                              /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
-                            message: "Enter a valid email address",
-                          },
-                        })}
-                        type="email"
-                        name="email"
-                        id="email"
-                        className="form-control web-form"
-                        placeholder="Enter Email Address"
-                      />
-                      <span className="error-design pt-3">
-                        {errors?.email?.message}
-                        {errors?.email?.pattern?.message}
-                      </span>
-                    </div>
-                    <input
-                      type="submit"
-                      className="subs-btn my-3"
-                      value="Book A Consultation"
-                    />
-                  </form>
+                  <h2>Ready to Launch Your New Website?</h2>
+                  <p>Tap the button below and our web engineers will reach out within one business day.</p>
+                  <Link href="/contact-us" className="subs-btn my-3" aria-label="Book a web development consultation">
+                    Book A Consultation
+                  </Link>
                 </div>
               </div>
             </div>
@@ -609,7 +532,7 @@ export default function WebDevelopment() {
       </div>
       <div className="col-md-5 col-lg-5">
         <p className="webgrowth-para pt-3">
-          At Trimsel, we build powerful web development solutions that reduce time-to-market, lower costs, and help businesses scale effectively. Read how these choices relate to our <Link href="/blog/how-mobile-apps-grow-business">latest growth playbook</Link>.
+          At Trimsel, we build powerful web development solutions that reduce time-to-market, lower costs, and help businesses scale effectively. Explore more detailed breakdowns in our <Link href="/blog">web growth playbooks</Link>.
         </p>
       </div>
     </div>

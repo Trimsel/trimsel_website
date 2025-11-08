@@ -6,67 +6,55 @@ import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
 import Row from "react-bootstrap/Row";
 import Tab from "react-bootstrap/Tab";
-import Button from "react-bootstrap/Button";
 import Stack from "react-bootstrap/Stack";
 import CarouselComponent from "../components/carouselComponent";
 import ClientLogo from "../components/clientLogo";
 import Card from "react-bootstrap/Card";
 import Accordion from "react-bootstrap/Accordion";
-import { useForm } from "react-hook-form";
-import { useState } from "react";
 import ContactForm from "../components/ContactForm";
 import { NextSeo } from "next-seo";
 import Head from "next/head";
-import { postJson } from "../lib/api";
 import { buildServiceJsonLd } from "../lib/serviceSchema";
 
 export default function DevOps() {
-  const images = [
-    require("../public/images/tools-image/jenkins.png"),
-    require("../public/images/tools-image/github.png"),
-    require("../public/images/tools-image/bamboo.png"),
-    require("../public/images/tools-image/kubernetes.png"),
-    require("../public/images/tools-image/docker.png"),
-    require("../public/images/tools-image/terraform.png"),
-    require("../public/images/tools-image/teamcity.png"),
-    require("../public/images/tools-image/bash.png"),
-    require("../public/images/tools-image/linux_containers.png"),
-    require("../public/images/tools-image/amazon_EKS.png"),
-    require("../public/images/tools-image/Amazon_ECS.png"),
-    require("../public/images/tools-image/azure_dev_ops.png"),
-    require("../public/images/tools-image/elasticsearch.png"),
-    require("../public/images/tools-image/logstash.png"),
-    require("../public/images/tools-image/kibana.png"),
-    require("../public/images/tools-image/beats.png"),
-    require("../public/images/tools-image/amazon_web_services.png"),
-    require("../public/images/tools-image/azure.png"),
-    require("../public/images/tools-image/cloud_development_kit.png"),
-    require("../public/images/tools-image/datadog.png"),
-    require("../public/images/tools-image/gitlab.png"),
+  const toolImages = [
+    "/images/tools-image/jenkins.png",
+    "/images/tools-image/github.png",
+    "/images/tools-image/bamboo.png",
+    "/images/tools-image/kubernetes.png",
+    "/images/tools-image/docker.png",
+    "/images/tools-image/terraform.png",
+    "/images/tools-image/teamcity.png",
+    "/images/tools-image/bash.png",
+    "/images/tools-image/linux_containers.png",
+    "/images/tools-image/amazon_EKS.png",
+    "/images/tools-image/Amazon_ECS.png",
+    "/images/tools-image/azure_dev_ops.png",
+    "/images/tools-image/elasticsearch.png",
+    "/images/tools-image/logstash.png",
+    "/images/tools-image/kibana.png",
+    "/images/tools-image/beats.png",
+    "/images/tools-image/amazon_web_services.png",
+    "/images/tools-image/azure.png",
+    "/images/tools-image/cloud_development_kit.png",
+    "/images/tools-image/datadog.png",
+    "/images/tools-image/gitlab.png",
   ];
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-    setValue,
-  } = useForm();
 
-  const [selectedOption, setSelectedOption] = useState(0);
-
-  const handleOptionChange = (event) => {
-    setSelectedOption(event.target.value);
-    setValue("selectOption", event.target.value);
-  };
-
-  async function onSubmitForm(values) {
-    try {
-      await postJson("/api/contact", values);
-      console.log("Contact request sent");
-    } catch (error) {
-      console.error("Failed to submit form", error);
-    }
-  }
+  const devopsArticles = [
+    {
+      title: "DevOps Automation Roadmap",
+      excerpt: "See how we structure discovery, CI/CD, security, and observability to ship faster without breaking releases.",
+      href: "/blog",
+      tag: "DevOps Playbook",
+    },
+    {
+      title: "Kubernetes & Cloud Runbooks",
+      excerpt: "Explore Trimsel’s guides on operating EKS/AKS/GKE, optimizing FinOps, and keeping pipelines compliant.",
+      href: "/blog",
+      tag: "Engineering Insights",
+    },
+  ];
 
   const serviceJsonLd = buildServiceJsonLd({
     slug: "devops-consulting-services",
@@ -239,7 +227,9 @@ export default function DevOps() {
               alt="DevOps Automation & Consulting Services"
               width={594}
               height={480}
-              loading="lazy"
+              priority
+              quality={75}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 594px"
             />
           </div>
         </div>
@@ -936,7 +926,7 @@ export default function DevOps() {
     </Row>
 
     <Row className="tool-img-row">
-      {images.map((image, index) => (
+      {toolImages.map((image, index) => (
         <Col lg={2} md={2} xs={4} className="pt-4 client-col" key={index}>
           <Image
             src={image}
@@ -1016,7 +1006,7 @@ export default function DevOps() {
             </div>
           </div>
           <div className="row pt-4 g-4">
-            {[{title: "5 Easy Ways a Mobile App Can Grow Your Business", excerpt: "Understand how CI/CD-ready cloud backends supercharge product velocity and customer retention.", href: "/blog/how-mobile-apps-grow-business", tag: "DevOps Playbook"}, {title: "Explore Trimsel DevOps & Cloud Articles", excerpt: "Browse more tutorials on Kubernetes, FinOps, and automation to plan your next release with confidence.", href: "/blog", tag: "Engineering Insights"}].map((article) => (
+            {devopsArticles.map((article) => (
               <div className="col-lg-6" key={article.title}>
                 <Card className="insight-card h-100">
                   <Card.Body>

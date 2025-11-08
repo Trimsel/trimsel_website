@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import { useForm } from "react-hook-form";
 import Button from "react-bootstrap/Button";
 import Stack from "react-bootstrap/Stack";
 import Card from "react-bootstrap/Card";
@@ -11,25 +10,10 @@ import dynamic from "next/dynamic";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import ClientLogo from "../components/clientLogo";
+import ContactForm from "../components/ContactForm";
 import { buildServiceJsonLd } from "../lib/serviceSchema";
-import { postJson } from "../lib/api";
-const ContactForm = dynamic(() => import("../components/ContactForm"), { ssr: false });
 
 export default function Digital() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm();
-  async function onSubmitForm(values) {
-    try {
-      await postJson("/api/newcontact", values);
-      console.log("Contact request sent");
-    } catch (error) {
-      console.error("Failed to submit form", error);
-    }
-  }
 
   const serviceJsonLd = buildServiceJsonLd({
     slug: "digital-marketing-company-chennai",
@@ -107,10 +91,10 @@ export default function Digital() {
 
   const marketingInsights = [
     {
-      title: "5 Easy Ways a Mobile App Can Grow Your Business",
-      excerpt: "See how omnichannel campaigns + in-app personalization boost retention and revenue for Chennai brands.",
-      href: "/blog/how-mobile-apps-grow-business",
-      tag: "Growth Playbook",
+      title: "Full-Funnel SEO Playbooks",
+      excerpt: "See how we combine technical SEO, landing pages, and CRO to double organic revenue for Chennai brands.",
+      href: "/blog",
+      tag: "SEO Strategy",
     },
     {
       title: "Explore Trimsel’s Digital Growth Library",
@@ -213,17 +197,8 @@ export default function Digital() {
               </div>
               <div className="mozarts">
                 <div className="mozarts-inner">
-                  <Link href="/contact-us" passHref>
-                    <button className="btn btn-primary dev-btn">
-                      Get a Digital Strategy Session{" "}
-                      <Image
-                        src="/images/material-symbols_arrow-right-alt.png"
-                        alt="arrow-icon"
-                        width={28}
-                        height={28}
-                        loading="lazy"
-                      />
-                    </button>
+                  <Link href="/contact-us" className="btn btn-primary dev-btn" aria-label="Book a digital strategy session">
+                    Get a Digital Strategy Session <Image src="/images/material-symbols_arrow-right-alt.png" alt="" aria-hidden="true" width={28} height={28} loading="lazy" />
                   </Link>
                   <p className="hero-proof">
                     150+ campaigns delivered for SaaS, retail, and BFSI brands with 4.5x average ROAS.
@@ -242,6 +217,8 @@ export default function Digital() {
               width={934}
               height={793}
               priority
+              quality={75}
+              sizes="(max-width: 768px) 95vw, (max-width: 1200px) 60vw, 934px"
             />
           </div>
         </div>
@@ -285,94 +262,17 @@ export default function Digital() {
         </p>
       </div>
       <div className="col-lg-5 col-md-6">
-        <div className="card card-dig">
-          <Image
-            src="/images/graph.png"
-            width={110}
-            height={110}
-            alt="SEO performance improvement graph"
-          />
-          <div className="card-dig-details">
-            <h2>Struggling to Generate Leads via Google? Get a Free SEO Audit!</h2>
-
-            <form id="home-form" onSubmit={handleSubmit(onSubmitForm)}>
-              <div className="md-form mb-3">
-                <input
-                  {...register("website", {
-                    required: {
-                      value: true,
-                      message: "Website URL is required",
-                    },
-                  })}
-                  type="text"
-                  name="website"
-                  id="website"
-                  className="form-control dig-form"
-                  placeholder="Website URL*"
-                />
-              </div>
-              <div className="md-form">
-                <input
-                  {...register("phone", {
-                    required: {
-                      value: true,
-                      message: "Phone number is required",
-                    },
-                    minLength: {
-                      value: 10,
-                      message: "Enter a valid mobile number",
-                    },
-                    maxLength: {
-                      value: 11,
-                      message: "Enter a valid mobile number",
-                    },
-                  })}
-                  type="tel"
-                  name="phone"
-                  id="phone"
-                  className="form-control dig-form mb-3"
-                  placeholder="Phone Number*"
-                />
-                <span className="error-design pt-3">
-                  {errors?.phone?.message}
-                  {errors?.phone?.maxLength?.message}
-                  {errors?.phone?.minLength?.message}
-                </span>
-              </div>
-              <div className="md-form">
-                <input
-                  {...register("email", {
-                    required: {
-                      value: true,
-                      message: "Email is required",
-                    },
-                    pattern: {
-                      value: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
-                      message: "Enter a valid email address",
-                    },
-                  })}
-                  type="email"
-                  name="email"
-                  id="email"
-                  className="form-control dig-form"
-                  placeholder="Email Address*"
-                />
-                <span className="error-design pt-3">
-                  {errors?.email?.message}
-                  {errors?.email?.pattern?.message}
-                </span>
-              </div>
-              <input
-                type="submit"
-                className="subs-btn my-3"
-                value="Submit Now"
-              />
-              <p className="form-disclaimer">
-                By submitting, you agree to hear from Trimsel’s growth team via phone or email and acknowledge our privacy policy.
-              </p>
-            </form>
+          <div className="card card-dig">
+            <Image src="/images/graph.png" width={110} height={110} alt="SEO performance improvement graph" />
+            <div className="card-dig-details">
+              <h2>Struggling to Generate Leads via Google? Get a Free SEO Audit!</h2>
+              <p className="dig-para">Share your goals with our growth team and we’ll audit your site, ad accounts, and analytics stack in one call.</p>
+              <Link href="/contact-us" className="subs-btn my-3" aria-label="Request an SEO audit">
+                Request An Audit
+              </Link>
+              <p className="form-disclaimer">Our team responds within one business day with next steps.</p>
+            </div>
           </div>
-        </div>
       </div>
     </div>
   </div>
@@ -853,11 +753,8 @@ export default function Digital() {
                 <h3 className="lev-heading">
                 Struggling to Grow Online? Leverage Chennai’s Trusted Digital Marketing Experts
                 </h3>
-                <Link href="/contact-us" passHref>
-                  <button className="btn btn-primary lev-btn">
-                  Get a Digital Marketing Strategy Consultation{" "}
-                    <Image src="/images/material-symbols_arrow-right-alt.png" alt="Arrow icon" width={28} height={28} loading="lazy" />
-                  </button>
+                <Link href="/contact-us" className="btn btn-primary lev-btn" aria-label="Book a digital marketing consultation">
+                  Get a Digital Marketing Strategy Consultation <Image src="/images/material-symbols_arrow-right-alt.png" alt="" aria-hidden="true" width={28} height={28} loading="lazy" />
                 </Link>
               </div>
               <div className="col-lg-7 col-md-7">
