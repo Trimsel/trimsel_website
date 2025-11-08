@@ -12,6 +12,7 @@ import { postJson } from "../lib/api";
 import 'react-phone-input-2/lib/bootstrap.css';
 // import ReCAPTCHA from "react-google-recaptcha";
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 import Modal from "react-bootstrap/Modal";
 import dynamic from 'next/dynamic';
 
