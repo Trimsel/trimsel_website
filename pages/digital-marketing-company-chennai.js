@@ -211,7 +211,7 @@ export default function Digital() {
         <div className="col-lg-6 col-md-6">
           <div className="imgrs">
             <Image
-              src="/images/digitall-hero.png"
+              src="/images/digitall-hero.webp"
               className="Digital-hero-img"
               alt="Top Digital Marketing Company in Chennai – SEO, PPC, SMM"
               width={934}

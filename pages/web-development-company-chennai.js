@@ -215,7 +215,7 @@ export default function WebDevelopment() {
               <div className="col-lg-6 col-md-6">
                 <div className="imgrs">
                   <Image
-                    src="/images/web-dev-hero.png"
+                    src="/images/web-dev-hero.webp"
                     className="web-hero-img"
                     alt="Custom Website and Web Application Development Company in Chennai"
                     width={646}

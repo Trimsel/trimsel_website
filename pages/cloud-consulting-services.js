@@ -222,7 +222,7 @@ export default function CloudConsulting() {
       </div>
       <div className="col-lg-6 col-md-6 mt-4 mt-lg-0 text-center">
         <Image
-          src="/images/clouded-hero.png"
+          src="/images/clouded-hero.webp"
           width={620}
           height={480}
           alt="Trimsel cloud consultants creating architecture diagrams"
