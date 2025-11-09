@@ -723,7 +723,7 @@ export default function About() {
             </div>
           </div>
         </section>
-        <ContactForm />
+        <ContactForm eventLabel="about_page" />
         {/* <ContactModal title="Wanna Develop A Mobile Application? Contact Us" /> */}
         <Footer />
       </main>

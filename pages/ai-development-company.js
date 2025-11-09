@@ -983,7 +983,11 @@ export default function Quality() {
         </div>
       </section>
 
-      <ContactForm heading="Ready to Build an AI App?" subText="Speak with our data scientists & engineers to scope your AI use-case."/>
+      <ContactForm
+        heading="Ready to Build an AI App?"
+        subText="Speak with our data scientists & engineers to scope your AI use-case."
+        eventLabel="ai_service_page"
+      />
       <section id="faq">
         <div className="container faq-container">
           <h2 className="faq-heading">Frequently Asked Questions</h2>

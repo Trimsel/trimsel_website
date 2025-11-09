@@ -10,10 +10,12 @@ import 'react-phone-input-2/lib/bootstrap.css';
 import ReCAPTCHA from "react-google-recaptcha";
 import Modal from "react-bootstrap/Modal";
 import { postJson } from "../lib/api";
+import { trackEvent } from "../lib/analytics";
 
 export default function ContactForm({
   heading = "Let’s Build Your Dream App — Get a Free Consultation!",
   subText = "Have an idea or need expert help with your digital project? At Trimsel, we help businesses of all sizes with end-to-end development services — from websites and mobile apps to cloud, DevOps, and digital marketing.",
+  eventLabel = "contact_form",
 }) {
   const {
     register,
@@ -62,6 +64,10 @@ export default function ContactForm({
 
     try {
       await postJson("/api/contact", payload);
+      trackEvent("contact_form_submit", {
+        event_category: "lead",
+        event_label: eventLabel,
+      });
       setMessage("Thank you! We have received your message. Our team will get back to you soon.");
       setIsSubmitted(true);
       handleThankYouShow();

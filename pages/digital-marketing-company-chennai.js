@@ -960,7 +960,11 @@ export default function Digital() {
     </div>
   </section>
 
-  <ContactForm heading="Want More Traffic & Leads?" subText="Talk to our growth strategists about SEO, PPC and content plans that actually drive results."/>
+      <ContactForm
+        heading="Want More Traffic & Leads?"
+        subText="Talk to our growth strategists about SEO, PPC and content plans that actually drive results."
+        eventLabel="digital_marketing_page"
+      />
       <section id="digital-faq">
   <div className="container faq-container">
     <h2 className="faq-heading">Frequently Asked Questions</h2>

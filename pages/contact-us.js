@@ -8,6 +8,7 @@ import Footer from '../components/footer'
 import { NextSeo } from 'next-seo';
 import Head from "next/head";
 import { postJson } from "../lib/api";
+import { trackEvent } from "../lib/analytics";
 // import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/bootstrap.css';
 // import ReCAPTCHA from "react-google-recaptcha";
@@ -174,7 +175,11 @@ export default function Contact() {
       setMessage("");
     
       try {
-        await postJson("/api/contact", payload);
+      await postJson("/api/contact", payload);
+      trackEvent("contact_form_submit", {
+        event_category: "lead",
+        event_label: "contact_us_page",
+      });
         setIsSubmitted(true);
         handleThankYouShow();
         reset();

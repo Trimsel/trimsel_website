@@ -1027,7 +1027,11 @@ export default function DevOps() {
         </div>
       </section>
 
-      <ContactForm heading="Need A High-Performance DevOps Partner?" subText="Automate releases, improve CI/CD, and scale securely with proven DevOps and infrastructure engineering support."/>
+      <ContactForm
+        heading="Need A High-Performance DevOps Partner?"
+        subText="Automate releases, improve CI/CD, and scale securely with proven DevOps and infrastructure engineering support."
+        eventLabel="devops_service_page"
+      />
 
       <section id="faq">
   <div className="container faq-container">

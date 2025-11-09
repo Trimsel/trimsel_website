@@ -1166,7 +1166,11 @@ export default function WebDevelopment() {
           </div>
         </div>
       </section>
-      <ContactForm heading="Launch A High-Performance Web App" subText="Let’s architect a scalable, SEO-ready web application tailored to your business goals."/>
+      <ContactForm
+        heading="Launch A High-Performance Web App"
+        subText="Let’s architect a scalable, SEO-ready web application tailored to your business goals."
+        eventLabel="web_service_page"
+      />
       <Footer />
       </main>
     </>

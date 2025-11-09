@@ -1192,7 +1192,11 @@ export default function CloudConsulting() {
         </div>
       </section>
 
-      <ContactForm heading="Transform Your Business With The Cloud" subText="Leverage AWS, Azure, or GCP with expert guidance on migration, architecture, and cost-efficient cloud strategy."/>
+      <ContactForm
+        heading="Transform Your Business With The Cloud"
+        subText="Leverage AWS, Azure, or GCP with expert guidance on migration, architecture, and cost-efficient cloud strategy."
+        eventLabel="cloud_service_page"
+      />
 
       <section id="faq">
   <div className="container faq-container">
