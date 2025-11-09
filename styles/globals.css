@@ -227,6 +227,10 @@ img {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
 .whatsapp-floating .whatsapp-icon {
   width: 34px;
   height: 34px;

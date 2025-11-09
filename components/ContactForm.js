@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Stack from "react-bootstrap/Stack";
 import Button from "react-bootstrap/Button";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/bootstrap.css';
 import ReCAPTCHA from "react-google-recaptcha";
@@ -27,21 +26,19 @@ export default function ContactForm({
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [message, setMessage] = useState("");
   const [phone, setPhone] = useState("");
-  const [recaptchaToken, setRecaptchaToken] = useState("");
   const [showThankYou, setShowThankYou] = useState(false);
+  const recaptchaRef = useRef(null);
 
   const handleThankYouClose = () => {
     setShowThankYou(false);
     setIsSubmitted(false);
-    setRecaptchaToken("");
   };
   const handleThankYouShow = () => setShowThankYou(true);
 
   const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
-
-  const handleCaptchaChange = (token) => {
-    setRecaptchaToken(token);
-  };
+  if (!siteKey && process.env.NODE_ENV === "development") {
+    console.warn("NEXT_PUBLIC_RECAPTCHA_SITE_KEY is missing. reCAPTCHA will not render.");
+  }
 
   async function onSubmitForm(values) {
     // simple client checks
@@ -49,8 +46,17 @@ export default function ContactForm({
       setMessage("Please enter your mobile number (include country code).");
       return;
     }
+    let recaptchaToken = "";
+    if (recaptchaRef.current) {
+      try {
+        recaptchaToken = await recaptchaRef.current.executeAsync();
+        recaptchaRef.current.reset();
+      } catch (error) {
+        console.error("Failed to execute reCAPTCHA", error);
+      }
+    }
     if (!recaptchaToken) {
-      setMessage("Please verify you are not a robot.");
+      setMessage("We couldn't verify you as human. Please try again.");
       return;
     }
 
@@ -73,7 +79,6 @@ export default function ContactForm({
       handleThankYouShow();
       reset();
       setPhone("");
-      setRecaptchaToken("");
     } catch (error) {
       setMessage("Failed to send your message. Please try again.");
     }
@@ -275,27 +280,22 @@ export default function ContactForm({
                     </div>
                   </div>
 
-                  {/* reCAPTCHA */}
-                  <div className="col-lg-12 py-3">
-                    <ReCAPTCHA
-                      sitekey={siteKey}
-                      onChange={handleCaptchaChange}
-                      onExpired={() => setRecaptchaToken(null)}
-                    />
-                    {!recaptchaToken && (
-                      <small className="form-text text-muted">This helps us prevent spam and ensures your inquiry reaches us.</small>
-                    )}
-                  </div>
-
                   {/* Submit */}
                   <div className="col-lg-12 py-3">
                     <div className="text-right text-md-end">
-                      <input type="submit" className="sbmt-btn" disabled={!recaptchaToken}/>
+                      <input type="submit" className="sbmt-btn" />
                     </div>
                   </div>
                 </div>
               </form>
             </div>
+            {siteKey && (
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={siteKey}
+                size="invisible"
+              />
+            )}
           </div>
           {/* ===== /Form ===== */}
         </div>
