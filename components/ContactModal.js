@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Link from "next/link";
 import Image from "next/image";
 import Button from "react-bootstrap/Button";
 import { useForm } from "react-hook-form";
-import { useState, useEffect } from "react";
 import { FaMapMarkerAlt } from "@react-icons/all-files/fa/FaMapMarkerAlt";
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/bootstrap.css';
@@ -23,13 +22,9 @@ export default function ContactModal({ title }) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [phone, setPhone] = useState("");
   const [selectedOption, setSelectedOption] = useState(0);
-  const [recaptchaToken, setRecaptchaToken] = useState("");
+  const recaptchaRef = useRef(null);
 
   const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
-
-  const handleCaptchaChange = (token) => {
-    setRecaptchaToken(token);
-  };
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
@@ -37,18 +32,27 @@ export default function ContactModal({ title }) {
   };
 
   async function onSubmitForm(values) {
+    let recaptchaToken = "";
+    if (recaptchaRef.current) {
+      try {
+        recaptchaToken = await recaptchaRef.current.executeAsync();
+        recaptchaRef.current.reset();
+      } catch (error) {
+        console.error("Failed to execute reCAPTCHA", error);
+      }
+    }
     if (!recaptchaToken) {
-      setMessage("Please verify you are not a robot.");
+      setMessage("We couldn't verify you as human. Please try again.");
       return;
     }
-  
+
     const payload = {
       ...values,
       phone,
       service: selectedOption,
       recaptchaToken,
     };
-  
+
     setMessage("");
 
     try {
@@ -56,7 +60,6 @@ export default function ContactModal({ title }) {
       setMessage("Thank you! We have received your message. Our team will get back to you soon.");
       setIsSubmitted(true);
       reset();
-      setRecaptchaToken("");
     } catch (error) {
       setMessage("Failed to send your message. Please try again.");
     }
@@ -306,19 +309,19 @@ export default function ContactModal({ title }) {
                         </div>
                       </div>
                       <div className="col-lg-12 py-3">
-                      <ReCAPTCHA
-  sitekey={siteKey}
-  onChange={handleCaptchaChange}
-  onExpired={() => setRecaptchaToken(null)}
-/>
-                    </div>
-                      <div className="col-lg-12 py-3">
                         <div className="text-right text-md-end">
-                          <input type="submit" className="sbmt-btn" disabled={!recaptchaToken}/>
+                          <input type="submit" className="sbmt-btn" />
                         </div>
                       </div>
                     </div>
                   </form>
+                  {siteKey && (
+                    <ReCAPTCHA
+                      ref={recaptchaRef}
+                      sitekey={siteKey}
+                      size="invisible"
+                    />
+                  )}
                 </div>
               </div>
             </div>

@@ -1,19 +1,20 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Stack from "react-bootstrap/Stack";
 import Button from "react-bootstrap/Button";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/bootstrap.css';
 import ReCAPTCHA from "react-google-recaptcha";
 import Modal from "react-bootstrap/Modal";
 import { postJson } from "../lib/api";
+import { trackEvent } from "../lib/analytics";
 
 export default function ContactForm({
   heading = "Let’s Build Your Dream App — Get a Free Consultation!",
   subText = "Have an idea or need expert help with your digital project? At Trimsel, we help businesses of all sizes with end-to-end development services — from websites and mobile apps to cloud, DevOps, and digital marketing.",
+  eventLabel = "contact_form",
 }) {
   const {
     register,
@@ -25,21 +26,19 @@ export default function ContactForm({
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [message, setMessage] = useState("");
   const [phone, setPhone] = useState("");
-  const [recaptchaToken, setRecaptchaToken] = useState("");
   const [showThankYou, setShowThankYou] = useState(false);
+  const recaptchaRef = useRef(null);
 
   const handleThankYouClose = () => {
     setShowThankYou(false);
     setIsSubmitted(false);
-    setRecaptchaToken("");
   };
   const handleThankYouShow = () => setShowThankYou(true);
 
   const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
-
-  const handleCaptchaChange = (token) => {
-    setRecaptchaToken(token);
-  };
+  if (!siteKey && process.env.NODE_ENV === "development") {
+    console.warn("NEXT_PUBLIC_RECAPTCHA_SITE_KEY is missing. reCAPTCHA will not render.");
+  }
 
   async function onSubmitForm(values) {
     // simple client checks
@@ -47,8 +46,17 @@ export default function ContactForm({
       setMessage("Please enter your mobile number (include country code).");
       return;
     }
+    let recaptchaToken = "";
+    if (recaptchaRef.current) {
+      try {
+        recaptchaToken = await recaptchaRef.current.executeAsync();
+        recaptchaRef.current.reset();
+      } catch (error) {
+        console.error("Failed to execute reCAPTCHA", error);
+      }
+    }
     if (!recaptchaToken) {
-      setMessage("Please verify you are not a robot.");
+      setMessage("We couldn't verify you as human. Please try again.");
       return;
     }
 
@@ -62,12 +70,15 @@ export default function ContactForm({
 
     try {
       await postJson("/api/contact", payload);
+      trackEvent("contact_form_submit", {
+        event_category: "lead",
+        event_label: eventLabel,
+      });
       setMessage("Thank you! We have received your message. Our team will get back to you soon.");
       setIsSubmitted(true);
       handleThankYouShow();
       reset();
       setPhone("");
-      setRecaptchaToken("");
     } catch (error) {
       setMessage("Failed to send your message. Please try again.");
     }
@@ -223,6 +234,32 @@ export default function ContactForm({
                     </div>
                   </div>
 
+                  {/* Referral Source */}
+                  <div className="col-lg-6 py-3">
+                    <div className="md-form pe-3">
+                      <select
+                        {...register("referralSource", {
+                          required: { value: true, message: "Please tell us how you heard about Trimsel" },
+                        })}
+                        id="referralSource"
+                        name="referralSource"
+                        className="form-control abot-form"
+                        aria-invalid={!!errors?.referralSource}
+                        defaultValue=""
+                      >
+                        <option value="" disabled>
+                          Where did you find us?*
+                        </option>
+                        <option value="Google">Google Search</option>
+                        <option value="Social">Social Media</option>
+                        <option value="Referral">Referral</option>
+                        <option value="Event">Event / Webinar</option>
+                        <option value="Other">Other</option>
+                      </select>
+                      <span className="error-design pt-3">{errors?.referralSource?.message}</span>
+                    </div>
+                  </div>
+
                   {/* Message */}
                   <div className="col-lg-12 py-3">
                     <div className="md-form ps-3">
@@ -243,27 +280,22 @@ export default function ContactForm({
                     </div>
                   </div>
 
-                  {/* reCAPTCHA */}
-                  <div className="col-lg-12 py-3">
-                    <ReCAPTCHA
-                      sitekey={siteKey}
-                      onChange={handleCaptchaChange}
-                      onExpired={() => setRecaptchaToken(null)}
-                    />
-                    {!recaptchaToken && (
-                      <small className="form-text text-muted">This helps us prevent spam and ensures your inquiry reaches us.</small>
-                    )}
-                  </div>
-
                   {/* Submit */}
                   <div className="col-lg-12 py-3">
                     <div className="text-right text-md-end">
-                      <input type="submit" className="sbmt-btn" disabled={!recaptchaToken}/>
+                      <input type="submit" className="sbmt-btn" />
                     </div>
                   </div>
                 </div>
               </form>
             </div>
+            {siteKey && (
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={siteKey}
+                size="invisible"
+              />
+            )}
           </div>
           {/* ===== /Form ===== */}
         </div>

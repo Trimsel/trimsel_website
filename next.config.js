@@ -2,6 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
 
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+
   experimental: {
     optimizeCss: true, // ✅ CSS optimization
   },
@@ -18,6 +22,14 @@ const nextConfig = {
 
   async headers() {
     return [
+      {
+        source: '/:path*',
+        headers: [
+          { key: 'X-DNS-Prefetch-Control', value: 'on' },
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+        ],
+      },
       {
         // Long cache for static assets in /public
         source: '/:all*(svg|jpg|jpeg|png|webp|avif|gif|ico|woff|woff2|ttf|eot)',

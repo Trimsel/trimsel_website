@@ -501,7 +501,7 @@ export default function Home() {
     </div>
   </div>
 </section>
-        <ContactForm />
+      <ContactForm eventLabel="home_page" />
         <section id="faq">
   <div className="container faq-container">
     <h2 className="faq-heading">Frequently Asked Questions</h2>

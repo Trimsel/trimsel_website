@@ -222,7 +222,7 @@ export default function CloudConsulting() {
       </div>
       <div className="col-lg-6 col-md-6 mt-4 mt-lg-0 text-center">
         <Image
-          src="/images/clouded-hero.png"
+          src="/images/clouded-hero.webp"
           width={620}
           height={480}
           alt="Trimsel cloud consultants creating architecture diagrams"
@@ -1192,7 +1192,11 @@ export default function CloudConsulting() {
         </div>
       </section>
 
-      <ContactForm heading="Transform Your Business With The Cloud" subText="Leverage AWS, Azure, or GCP with expert guidance on migration, architecture, and cost-efficient cloud strategy."/>
+      <ContactForm
+        heading="Transform Your Business With The Cloud"
+        subText="Leverage AWS, Azure, or GCP with expert guidance on migration, architecture, and cost-efficient cloud strategy."
+        eventLabel="cloud_service_page"
+      />
 
       <section id="faq">
   <div className="container faq-container">

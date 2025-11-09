@@ -820,7 +820,11 @@ export default function mobileApp() {
           </div>
         </section>
 
-  <ContactForm heading="Ready To Build Your Mobile App?" subText="Speak with our iOS & Android experts to turn your idea into a secure, high-performance mobile product."/>
+  <ContactForm
+    heading="Ready To Build Your Mobile App?"
+    subText="Speak with our iOS & Android experts to turn your idea into a secure, high-performance mobile product."
+    eventLabel="mobile_service_page"
+  />
   <Footer />
       </main>
     </>

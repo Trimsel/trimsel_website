@@ -215,7 +215,7 @@ export default function WebDevelopment() {
               <div className="col-lg-6 col-md-6">
                 <div className="imgrs">
                   <Image
-                    src="/images/web-dev-hero.png"
+                    src="/images/web-dev-hero.webp"
                     className="web-hero-img"
                     alt="Custom Website and Web Application Development Company in Chennai"
                     width={646}
@@ -1166,7 +1166,11 @@ export default function WebDevelopment() {
           </div>
         </div>
       </section>
-      <ContactForm heading="Launch A High-Performance Web App" subText="Let’s architect a scalable, SEO-ready web application tailored to your business goals."/>
+      <ContactForm
+        heading="Launch A High-Performance Web App"
+        subText="Let’s architect a scalable, SEO-ready web application tailored to your business goals."
+        eventLabel="web_service_page"
+      />
       <Footer />
       </main>
     </>

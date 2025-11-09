@@ -211,7 +211,7 @@ export default function Digital() {
         <div className="col-lg-6 col-md-6">
           <div className="imgrs">
             <Image
-              src="/images/digitall-hero.png"
+              src="/images/digitall-hero.webp"
               className="Digital-hero-img"
               alt="Top Digital Marketing Company in Chennai – SEO, PPC, SMM"
               width={934}
@@ -960,7 +960,11 @@ export default function Digital() {
     </div>
   </section>
 
-  <ContactForm heading="Want More Traffic & Leads?" subText="Talk to our growth strategists about SEO, PPC and content plans that actually drive results."/>
+      <ContactForm
+        heading="Want More Traffic & Leads?"
+        subText="Talk to our growth strategists about SEO, PPC and content plans that actually drive results."
+        eventLabel="digital_marketing_page"
+      />
       <section id="digital-faq">
   <div className="container faq-container">
     <h2 className="faq-heading">Frequently Asked Questions</h2>
