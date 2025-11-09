@@ -5,7 +5,16 @@ export default async function handler(req, res) {
     return res.status(405).json({ success: false, error: "Method not allowed" });
   }
 
-  const { name, phone, email, company, service, message, recaptchaToken } = req.body || {};
+  const {
+    name,
+    phone,
+    email,
+    company,
+    service,
+    message,
+    recaptchaToken,
+    referralSource,
+  } = req.body || {};
 
   // Basic required fields check
   if (!name || !email || !message) {
@@ -75,14 +84,68 @@ export default async function handler(req, res) {
         <p><strong>Phone:</strong> ${clean(phone)}</p>
         <p><strong>Company:</strong> ${clean(company)}</p>
         <p><strong>Service:</strong> ${clean(service)}</p>
+        <p><strong>How they found us:</strong> ${clean(referralSource)}</p>
         <p><strong>Message:</strong><br/>${clean(message)}</p>
       `,
     });
 
     console.log("Message sent", emailRes.messageId);
+
+    await maybeNotifySlack({
+      name,
+      email,
+      phone,
+      company,
+      service,
+      referralSource,
+      message,
+    });
+
     res.status(200).json({ success: true });
   } catch (error) {
     console.error("Email send failed:", error);
     res.status(500).json({ success: false, error: "Failed to send email." });
+  }
+}
+
+async function maybeNotifySlack(lead) {
+  const token = process.env.SLACK_BOT_TOKEN;
+  const channel = process.env.SLACK_CHANNEL_ID;
+  if (!token || !channel) {
+    return;
+  }
+
+  const clean = (value) => (value ? String(value) : "—");
+
+  const text = [
+    "*New Website Lead*",
+    `• *Name:* ${clean(lead.name)}`,
+    `• *Email:* ${clean(lead.email)}`,
+    `• *Phone:* ${clean(lead.phone)}`,
+    `• *Company:* ${clean(lead.company)}`,
+    `• *Service:* ${clean(lead.service)}`,
+    `• *Source:* ${clean(lead.referralSource)}`,
+    `• *Message:* ${clean(lead.message)}`,
+  ].join("\n");
+
+  try {
+    const response = await fetch("https://slack.com/api/chat.postMessage", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        channel,
+        text,
+      }),
+    });
+
+    const data = await response.json();
+    if (!data.ok) {
+      console.error("Slack notification failed", data);
+    }
+  } catch (error) {
+    console.error("Slack notification error", error);
   }
 }
