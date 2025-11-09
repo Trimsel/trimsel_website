@@ -83,7 +83,7 @@ export default async function handler(req, res) {
         <p><strong>Email:</strong> ${clean(email)}</p>
         <p><strong>Phone:</strong> ${clean(phone)}</p>
         <p><strong>Company:</strong> ${clean(company)}</p>
-        <p><strong>Service:</strong> ${clean(service)}</p>
+        ${service ? `<p><strong>Service:</strong> ${clean(service)}</p>` : ""}
         <p><strong>How they found us:</strong> ${clean(referralSource)}</p>
         <p><strong>Message:</strong><br/>${clean(message)}</p>
       `,
@@ -117,16 +117,17 @@ async function maybeNotifySlack(lead) {
 
   const clean = (value) => (value ? String(value) : "—");
 
-  const text = [
+  const lines = [
     "*New Website Lead*",
     `• *Name:* ${clean(lead.name)}`,
     `• *Email:* ${clean(lead.email)}`,
     `• *Phone:* ${clean(lead.phone)}`,
     `• *Company:* ${clean(lead.company)}`,
-    `• *Service:* ${clean(lead.service)}`,
-    `• *Source:* ${clean(lead.referralSource)}`,
+    lead.service ? `• *Service:* ${clean(lead.service)}` : null,
+    lead.referralSource ? `• *Source:* ${clean(lead.referralSource)}` : null,
     `• *Message:* ${clean(lead.message)}`,
-  ].join("\n");
+  ].filter(Boolean);
+  const text = lines.join("\n");
 
   try {
     const response = await fetch("https://slack.com/api/chat.postMessage", {
