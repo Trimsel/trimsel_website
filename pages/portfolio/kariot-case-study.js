@@ -1,3 +1,4 @@
+// pages/portfolio/kariot-case-study.js
 import Head from "next/head";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
@@ -25,6 +26,7 @@ export default function Kariot() {
   async function onSubmitForm(values) {
     try {
       await postJson("/api/newcontact", values);
+      reset();
       console.log("Contact request sent");
     } catch (error) {
       console.error("Failed to submit form", error);
@@ -32,119 +34,165 @@ export default function Kariot() {
   }
 
   const [counterOn, setCounterOn] = useState(false);
-
-  const slides = [0, 1, 2];
   const [index, setIndex] = useState(0);
-  const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex);
-  };
+  const handleSelect = (selectedIndex) => setIndex(selectedIndex);
 
-  return (
-    <>
-  <NextSeo
-  title="KarIOT Case Study – Smart IoT Water Management | Trimsel"
-  description="See how Trimsel enabled KarIOT to deliver real-time water management and sustainability through IoT, cloud, and automation for cities and industry."
-  canonical="https://www.trimsel.com/portfolio/kariot-case-study"
-  openGraph={{
-    type: "article",
-    url: "https://www.trimsel.com/portfolio/kariot-case-study",
-    title: "KarIOT Case Study – Smart IoT Water Management | Trimsel",
-    description:
-      "See how Trimsel enabled KarIOT to deliver real-time water management and sustainability through IoT, cloud, and automation for cities and industry.",
-    locale: "en_IN",
-    images: [
-      {
-        url: "https://www.trimsel.com/images/portfolio/kariot-og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Trimsel KarIOT smart water management case study",
-      },
-    ],
-    site_name: "Trimsel",
-    article: {
-      section: "Case Study",
-      tags: [
-        "Case Study",
-        "IoT",
-        "Water Management",
-        "Smart City",
-        "Trimsel",
-      ],
-    },
-  }}
-  twitter={{
-    handle: "@TrimselSoftwares",
-    site: "@TrimselSoftwares",
-    cardType: "summary_large_image",
-    title: "Case Study: KarIOT Smart Water Management",
-    description:
-      "Explore how Trimsel engineered the KarIOT smart water management platform leveraging IoT and cloud automation.",
-  }}
-  additionalMetaTags={[
-    { name: "robots", content: "index, follow" },
-    {
-      name: "twitter:title",
-      content: "Case Study: KarIOT Smart Water Management",
-    },
-    {
-      name: "twitter:description",
-      content:
-        "Explore how Trimsel engineered the KarIOT smart water management platform leveraging IoT and cloud automation.",
-    },
-    {
-      name: "twitter:image:alt",
-      content: "Trimsel KarIOT smart water management case study",
-    },
-  ]}
-/>
-      <Head>
-        {[
+  // ------- JSON-LD objects (CaseStudy + Breadcrumb + FAQ) -------
+  const jsonLd = [
     {
       "@context": "https://schema.org",
       "@type": "CaseStudy",
       "@id": "https://www.trimsel.com/portfolio/kariot-case-study#case",
-      "name": "KarIOT Case Study – Smart IoT Water Management",
-      "headline": "KarIOT Case Study – Smart IoT Water Management",
-      "description": "Trimsel developed KarIOT, an IoT-based platform for smart water management with real-time monitoring, automation, and cloud scalability for sustainable cities and industries.",
-      "inLanguage": "en",
-      "url": "https://www.trimsel.com/portfolio/kariot-case-study",
-      "isPartOf": { "@type": "WebSite", "@id": "https://www.trimsel.com/#website" },
-      "about": { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
-      "author": { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
-      "publisher": { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
-      "primaryImageOfPage": {
+      name: "KarIOT Case Study – AI-Enabled Smart Water Management",
+      headline: "KarIOT Case Study – AI-Enabled Smart Water Management",
+      description:
+        "Trimsel engineered KarIOT, an IoT and AI/ML platform for smart water management with real-time monitoring, demand forecasting, leak detection, and cloud scalability.",
+      inLanguage: "en",
+      url: "https://www.trimsel.com/portfolio/kariot-case-study",
+      isPartOf: { "@type": "WebSite", "@id": "https://www.trimsel.com/#website" },
+      about: { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
+      author: { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
+      publisher: { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
+      primaryImageOfPage: {
         "@type": "ImageObject",
-        "url": "https://www.trimsel.com/images/portfolio/kariot-og.jpg",
-        "width": 1200,
-        "height": 630
+        url: "https://www.trimsel.com/images/portfolio/kariot-og.jpg",
+        width: 1200,
+        height: 630,
       },
-      "image": {
+      image: {
         "@type": "ImageObject",
-        "url": "https://www.trimsel.com/images/portfolio/kariot-og.jpg",
-        "width": 1200,
-        "height": 630
-      }
+        url: "https://www.trimsel.com/images/portfolio/kariot-og.jpg",
+        width: 1200,
+        height: 630,
+      },
+      about: [
+        { "@type": "Thing", name: "Non-revenue water reduction" },
+        { "@type": "Thing", name: "Demand forecasting" },
+        { "@type": "Thing", name: "Leak detection" },
+        { "@type": "Thing", name: "Pump scheduling optimization" },
+      ],
+      audience: [{ "@type": "Audience", name: "Utilities" }],
+      measurableOutcome: [
+        "NRW down 12–18%",
+        "Energy cost −8–15%",
+        "Forecast MAPE 8–12%",
+        "Tickets −20–30%",
+      ],
     },
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "@id": "https://www.trimsel.com/portfolio/kariot-case-study#breadcrumbs",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.trimsel.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://www.trimsel.com/portfolio" },
-        { "@type": "ListItem", "position": 3, "name": "KarIOT Case Study", "item": "https://www.trimsel.com/portfolio/kariot-case-study" }
-      ]
-    }
-  ].map((schema, index) => (
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://www.trimsel.com/" },
+        { "@type": "ListItem", position: 2, name: "Portfolio", item: "https://www.trimsel.com/portfolio" },
+        { "@type": "ListItem", position: 3, name: "KarIOT Case Study", item: "https://www.trimsel.com/portfolio/kariot-case-study" },
+      ],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": "https://www.trimsel.com/portfolio/kariot-case-study#faq",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Can you detect leaks without acoustic sensors?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text:
+              "Yes. We baseline night flow and pressure per DMA and raise anomalies when residuals spike for sustained windows. Acoustic data further improves localization but isn’t required.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Do operators lose control?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text:
+              "No. The optimizer proposes schedules and your operator approves or overrides. Every change is logged for audit.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What’s needed for a 4-week pilot?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text:
+              "2–4 DMAs with flow/pressure/level, pump run-time signals, and gateway access. We handle ingestion and dashboards; you provide field access.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How often do models retrain?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text:
+              "Weekly by default with drift checks; urgent retrains can be triggered after topology changes or major events.",
+          },
+        },
+      ],
+    },
+  ];
+
+  return (
+    <>
+      <NextSeo
+        title="KarIOT Case Study – Smart IoT + AI Water Management | Trimsel"
+        description="See how Trimsel enabled KarIOT to deliver real-time water management with AI demand forecasting, leak detection, and cloud automation for cities and industry."
+        canonical="https://www.trimsel.com/portfolio/kariot-case-study"
+        openGraph={{
+          type: "article",
+          url: "https://www.trimsel.com/portfolio/kariot-case-study",
+          title: "KarIOT Case Study – Smart IoT + AI Water Management | Trimsel",
+          description:
+            "Real-time water management with AI demand forecasting, leak detection, and forecast-aware pump scheduling.",
+          locale: "en_IN",
+          images: [
+            {
+              url: "https://www.trimsel.com/images/portfolio/kariot-og.jpg",
+              width: 1200,
+              height: 630,
+              alt: "Trimsel KarIOT smart water management case study",
+            },
+          ],
+          site_name: "Trimsel",
+          article: {
+            section: "Case Study",
+            tags: ["Case Study", "IoT", "AI/ML", "Water Management", "Smart City", "Trimsel"],
+          },
+        }}
+        twitter={{
+          handle: "@TrimselSoftwares",
+          site: "@TrimselSoftwares",
+          cardType: "summary_large_image",
+          title: "Case Study: KarIOT Smart Water Management",
+          description:
+            "How Trimsel engineered the KarIOT platform with IoT + AI: demand forecasting, leak detection, and automation.",
+        }}
+        additionalMetaTags={[
+          { name: "robots", content: "index, follow" },
+          { name: "twitter:title", content: "Case Study: KarIOT Smart Water Management" },
+          {
+            name: "twitter:description",
+            content:
+              "How Trimsel engineered the KarIOT platform with IoT + AI: demand forecasting, leak detection, and automation.",
+          },
+          { name: "twitter:image:alt", content: "Trimsel KarIOT smart water management case study" },
+        ]}
+      />
+
+      <Head>
+        {jsonLd.map((schema, i) => (
           <script
-            key={`kariot-schema-${index}`}
+            key={`kariot-schema-${i}`}
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
           />
         ))}
       </Head>
+
       <main>
-        {/* HERO SECTION */}
+        {/* HERO */}
         <section className="kar-hero">
           <Header />
           <section className="hero-kar">
@@ -157,43 +205,47 @@ export default function Kariot() {
                         <div className="whiteLink">
                           <p className="breadcrumbs-kar">
                             <Link href="/">Home</Link> <span> &#x2027; </span>{" "}
-                            <Link href="/portfolio">Portfolio</Link>{" "}
-                            <span> &#x2027; </span> KarIOT
+                            <Link href="/portfolio">Portfolio</Link> <span> &#x2027; </span>{" "}
+                            KarIOT
                           </p>
                         </div>
                       </div>
+
                       <div className="cafe">
                         <div className="cafe-inner mb-2">
-                          <Image
-                            src="/images/kariot-logo.png"
-                            width={130}
-                            height={62}
-                            alt="kariot-logo"
-                          />
+                          <Image src="/images/kariot-logo.png" width={130} height={62} alt="kariot-logo" />
                         </div>
                       </div>
+
                       <div className="cafe">
                         <div className="cafe-inner news-title">
-                          KarIOT: IoT-Enabled Smart Water Management
+                          KarIOT: IoT + AI-Enabled Smart Water Management
                         </div>
                       </div>
+
+                      <div className="text-muted small mt-2">
+                        DMA-level • LoRaWAN/NB-IoT • Human-in-the-loop • Canary deploys • SCADA/BMS integration
+                      </div>
+
                       <div className="mozart">
                         <div className="mozart-inner">
                           <p className="kar-para">
-                            KarIOT is an advanced IoT and cloud platform that enables cities, industries, and property owners to monitor, control, and optimize water usage in real time. The system combines wireless sensors, cloud analytics, and user-friendly dashboards to reduce leaks, lower operational costs, and support water sustainability goals.
+                            KarIOT is an advanced IoT, <strong>AI/ML</strong>, and cloud platform that enables
+                            cities, industries, and property owners to monitor, control, and optimize water usage in
+                            real time. It combines wireless sensors, <strong>demand forecasting</strong>,{" "}
+                            <strong>leak/anomaly detection</strong>, and user-friendly dashboards to reduce leaks,
+                            lower operational costs, and support water sustainability goals. Learn more about our{" "}
+                            <Link href="/ai-development-company">AI &amp; ML development</Link>.
                           </p>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+
                 <div className="col-lg-6 col-md-6">
                   <div className="imgrs">
-                    <img
-                      src="/images/kariot-hero.png"
-                      className="kar-hero-img"
-                      alt="Kariot-App-Image"
-                    />
+                    <img src="/images/kariot-hero.png" className="kar-hero-img" alt="Kariot-App-Image" />
                   </div>
                 </div>
               </div>
@@ -207,44 +259,44 @@ export default function Kariot() {
             <div className="row">
               <div className="col-lg-7 col-md-6">
                 <Stack direction="horizontal">
-                  <div className=" badge-kariot-btn">
-                    <img
-                      src="/images/Rectangle-kariot.png"
-                      className="me-2"
-                      alt="design-dot"
-                    />
+                  <div className="badge-kariot-btn">
+                    <img src="/images/Rectangle-kariot.png" className="me-2" alt="design-dot" />
                     <p> OVERVIEW </p>
                   </div>
                 </Stack>
-                <h2 className="kariot-title pt-3">
-                  Enabling Data-Driven, Sustainable Water Management with IoT
-                </h2>
+
+                <h2 className="kariot-title pt-3">Enabling Data-Driven, Sustainable Water Management with IoT + AI</h2>
+
                 <p className="kariot-abt-para pb-3">
-                  The KarIOT platform empowers government agencies, commercial buildings, and communities to remotely track water supply, detect anomalies, and automate control of valves and pumps. By providing actionable insights through mobile and web dashboards, KarIOT helps users cut water waste, improve reporting, and support compliance and sustainability.
+                  The KarIOT platform empowers government agencies, commercial buildings, and communities to remotely
+                  track water supply, detect anomalies, and automate control of valves and pumps. By providing
+                  actionable insights through mobile and web dashboards, KarIOT helps users cut water waste, improve
+                  reporting, and support compliance and sustainability.
                 </p>
+
                 <p>
-                  Interested in similar digital transformation? Learn more about our <Link href="/cloud-consulting-services">cloud solutions</Link>, <Link href="/devops-consulting-services">DevOps consulting</Link>, and <Link href="/contact-us">contact us</Link> for a strategy session.
+                  Interested in similar digital transformation? Explore{" "}
+                  <Link href="/ai-development-company">AI &amp; ML development</Link>,{" "}
+                  <Link href="/devops-consulting-services">DevOps (MLOps/AIOps)</Link>, and{" "}
+                  <Link href="/cloud-consulting-services">Cloud consulting</Link>, or{" "}
+                  <Link href="/contact-us">contact us</Link> for a strategy session.
                 </p>
               </div>
+
               <div className="col-lg-5 col-md-6">
-                <div className=" card card-subs">
+                <div className="card card-subs">
                   <div className="card-subs-details">
                     <h5 className="pb-3">START YOUR PROJECT</h5>
                     <h2>Interested in building something similar?</h2>
-                    <p>
-                      Request a one to one consultation for your next big idea.
-                    </p>
+                    <p>Request a one to one consultation for your next big idea.</p>
+
                     <form id="home-form" onSubmit={handleSubmit(onSubmitForm)}>
                       <div className="md-form">
                         <input
                           {...register("email", {
-                            required: {
-                              value: true,
-                              message: "Email id is required",
-                            },
+                            required: { value: true, message: "Email id is required" },
                             pattern: {
-                              value:
-                                /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
+                              value: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
                               message: "Enter a valid email address",
                             },
                           })}
@@ -255,20 +307,17 @@ export default function Kariot() {
                           placeholder="Enter Email Address"
                         />
                         <span className="error-design pt-3">
-                          {errors?.email?.message}
-                          {errors?.email?.pattern?.message}
+                          {errors?.email?.message || errors?.email?.pattern?.message}
                         </span>
                       </div>
-                      <input
-                        type="submit"
-                        className="subs-btn my-3"
-                        value="Book A  Consultation"
-                      />
+                      <input type="submit" className="subs-btn my-3" value="Book A  Consultation" />
                     </form>
                   </div>
                 </div>
               </div>
             </div>
+
+            {/* Quick stats */}
             <div className="row xaber-details-row">
               <div className="col-lg-3 col-md-3 col-6">
                 <div className="lines-section">
@@ -279,7 +328,7 @@ export default function Kariot() {
               <div className="col-lg-3 col-md-3 col-6">
                 <div className="lines-section">
                   <h3>Industry :</h3>
-                  <p>Smart Water, IoT, Sustainability</p>
+                  <p>Smart Water, IoT, AI/ML</p>
                 </div>
               </div>
               <div className="col-lg-3 col-md-3 col-6">
@@ -299,20 +348,15 @@ export default function Kariot() {
         </section>
 
         {/* COUNTERS */}
-        <div className=" xaber-counter">
-          <ScrollTrigger
-            onEnter={() => setCounterOn(true)}
-            onExit={() => setCounterOn(false)}
-          >
+        <div className="xaber-counter">
+          <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
             <div className="row">
               <div className="col-lg-4 col-md-4 xaber-border-col">
                 <div className="card kariot-counter-card">
                   <div className="card-body card-body-bg">
                     <div className="card-title">
                       <h3 className="filled-text">
-                        {counterOn && (
-                          <CountUp start={0} end={100} duration={2} delay={0} />
-                        )}
+                        {counterOn && <CountUp start={0} end={100} duration={2} delay={0} />}
                         <span>+</span>
                       </h3>
                       <h4 className="static-text">Sites Deployed</h4>
@@ -320,14 +364,13 @@ export default function Kariot() {
                   </div>
                 </div>
               </div>
+
               <div className="col-lg-4 col-md-4">
                 <div className="card kariot-counter-card">
                   <div className="card-body card-body-bg">
                     <div className="card-title">
                       <h3 className="filleds-text">
-                        {counterOn && (
-                          <CountUp start={0} end={5} duration={2} delay={0} />
-                        )}
+                        {counterOn && <CountUp start={0} end={5} duration={2} delay={0} />}
                         <span>Cr+ </span>
                       </h3>
                       <h4 className="static-text">Litres Managed</h4>
@@ -335,14 +378,13 @@ export default function Kariot() {
                   </div>
                 </div>
               </div>
+
               <div className="col-lg-4 col-md-4">
                 <div className="card kariot-counter-card">
                   <div className="card-body card-body-bg">
                     <div className="card-title">
                       <h3 className="filledss-text">
-                        {counterOn && (
-                          <CountUp start={0} end={200} duration={2} delay={0} />
-                        )}
+                        {counterOn && <CountUp start={0} end={200} duration={2} delay={0} />}
                         <span>+</span>
                       </h3>
                       <h4 className="static-text">Clients Impacted</h4>
@@ -360,30 +402,20 @@ export default function Kariot() {
             <div className="row">
               <div className="col-lg-6 col-md-6">
                 <Stack direction="horizontal">
-                  <div className=" badge-kariot-btn">
-                    <img
-                      src="/images/Rectangle-kariot.png"
-                      className="me-2"
-                      alt="design-dot"
-                    />
+                  <div className="badge-kariot-btn">
+                    <img src="/images/Rectangle-kariot.png" className="me-2" alt="design-dot" />
                     <p> THE CHALLENGE </p>
                   </div>
                 </Stack>
-                <h3 className="chall-title pt-4">
-                  The Challenge: Manual Systems & Water Waste
-                </h3>
+                <h3 className="chall-title pt-4">The Challenge: Manual Systems & Water Waste</h3>
                 <p className="chall-para pt-2">
-                  Before KarIOT, water supply management relied on manual readings, reactive maintenance, and limited transparency—leading to leaks, wastage, and high costs. Our client needed a scalable, real-time solution for monitoring, analytics, and automated control.
+                  Before KarIOT, water supply management relied on manual readings, reactive maintenance, and limited
+                  transparency—leading to leaks, wastage, and high costs. The need: a scalable, real-time solution for
+                  monitoring, analytics, and automated control.
                 </p>
               </div>
               <div className="col-lg-6 col-md-6">
-                <Image
-                  src="/images/kariot-challenge.png"
-                  width={550}
-                  height={448}
-                  className="mt-5 mbl-chall"
-                  alt="Kariot-challenges-image"
-                />
+                <Image src="/images/kariot-challenge.png" width={550} height={448} className="mt-5 mbl-chall" alt="Kariot-challenges-image" />
               </div>
             </div>
           </div>
@@ -395,30 +427,23 @@ export default function Kariot() {
             <div className="row">
               <div className="col-lg-6 col-md-6">
                 <Stack direction="horizontal">
-                  <div className=" badge-kariot-btn">
-                    <img
-                      src="/images/Rectangle-kariot.png"
-                      className="me-2"
-                      alt="design-dot"
-                    />
+                  <div className="badge-kariot-btn">
+                    <img src="/images/Rectangle-kariot.png" className="me-2" alt="design-dot" />
                     <p> THE SOLUTION </p>
                   </div>
                 </Stack>
-                <h3 className="solt-title pt-4">
-                  Our Solution: Scalable IoT & Cloud Automation
-                </h3>
+                <h3 className="solt-title pt-4">Our Solution: IoT + AI with Cloud Automation</h3>
                 <p className="chall-para pt-2">
-                  Working with the KarIOT team, Trimsel architected and deployed a cloud-native solution that collects live data from IoT sensors, automates water control systems, and provides user-friendly dashboards for administrators. Our <Link href="/devops-consulting-services">DevOps</Link> and <Link href="/cloud-consulting-services">cloud automation</Link> expertise ensures high uptime, fast deployments, and secure, scalable operations.
+                  Trimsel architected a cloud-native platform that ingests live sensor data, applies{" "}
+                  <strong>short-term demand forecasting</strong> and <strong>leak/anomaly detection</strong>, and
+                  recommends <strong>forecast-aware pump/valve schedules</strong>. Our{" "}
+                  <Link href="/devops-consulting-services">DevOps</Link> and{" "}
+                  <Link href="/cloud-consulting-services">Cloud</Link> expertise ensures high uptime, secure operations,
+                  and rapid iterative releases.
                 </p>
               </div>
               <div className="col-lg-6 col-md-6">
-                <Image
-                  src="/images/kar-solution.png"
-                  width={480}
-                  height={470}
-                  className="solt-image"
-                  alt="Kariot-solution-image-preview"
-                />
+                <Image src="/images/kar-solution.png" width={480} height={470} className="solt-image" alt="Kariot-solution-image-preview" />
               </div>
             </div>
           </div>
@@ -430,35 +455,89 @@ export default function Kariot() {
             <div className="row">
               <div className="col-lg-6 col-md-6">
                 <Stack direction="horizontal">
-                  <div className=" badge-kariot-btn">
-                    <img
-                      src="/images/Rectangle-kariot.png"
-                      className="me-2"
-                      alt="design-dot"
-                    />
+                  <div className="badge-kariot-btn">
+                    <img src="/images/Rectangle-kariot.png" className="me-2" alt="design-dot" />
                     <p> RESULTS </p>
                   </div>
                 </Stack>
-                <h3 className="solt-title pt-4">
-                  Results: Measurable Savings & Impact
-                </h3>
+                <h3 className="solt-title pt-4">Results: Measurable Savings & Impact</h3>
                 <p className="chall-para pt-2">
-                  With KarIOT, customers now enjoy real-time visibility, proactive alerts for leaks or supply issues, and automated regulatory reports. The platform has been adopted by government and private sector clients, reducing water waste and operational costs while supporting compliance and sustainability.
+                  With KarIOT, customers now enjoy real-time visibility, proactive alerts for leaks or supply issues,
+                  and automated regulatory reports. The platform is used by government and private clients to reduce
+                  water waste, energy use, and service complaints—while improving compliance and sustainability.
                 </p>
                 <p>
-                  Want to discuss your IoT or digital transformation challenge? <Link href="/contact-us">Contact our team today.</Link>
+                  Want to discuss your IoT or AI transformation?{" "}
+                  <Link href="/ai-development-company#contact">Talk to our AI team.</Link>
                 </p>
               </div>
               <div className="col-lg-6 col-md-6">
-                <Image
-                  src="/images/kariot-hero.png"
-                  width={550}
-                  height={448}
-                  className="mt-5 mbl-chall"
-                  alt="Kariot-results-image"
-                />
+                <Image src="/images/kariot-hero.png" width={550} height={448} className="mt-5 mbl-chall" alt="Kariot-results-image" />
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* OUTCOMES (AI/ML) – KPI TILES */}
+        <section id="kariot-outcomes">
+          <div className="container sol-container">
+            <div className="row">
+              <div className="col-12">
+                <Stack direction="horizontal">
+                  <div className="badge-kariot-btn">
+                    <img src="/images/Rectangle-kariot.png" className="me-2" alt="design-dot" />
+                    <p> OUTCOMES </p>
+                  </div>
+                </Stack>
+                <h3 className="solt-title pt-4">AI Outcomes: Forecast, Prevent, Save</h3>
+
+                <div className="mt-3 row g-3">
+                  {[
+                    { label: "NRW ↓", value: "12–18%", sub: "Non-revenue water reduction (pilot DMAs)" },
+                    { label: "Energy ↓", value: "8–15%", sub: "Optimized pump scheduling" },
+                    { label: "MAPE", value: "8–12%", sub: "Forecast accuracy (short-term demand)" },
+                    { label: "Tickets ↓", value: "20–30%", sub: "Low-pressure / no-water complaints" },
+                    { label: "Payback", value: "6–12 mo", sub: "Hardware + software" },
+                  ].map((k) => (
+                    <div key={k.label} className="col-6 col-md-4 col-lg-3">
+                      <div className="rounded-3 border p-3 h-100">
+                        <div className="text-muted small">{k.label}</div>
+                        <div className="h3 fw-bold mb-1">{k.value}</div>
+                        <div className="small text-secondary">{k.sub}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <p className="chall-para pt-3">
+                  We combine <strong>short-term demand forecasting</strong>, <strong>leak/anomaly detection</strong>, and{" "}
+                  <strong>forecast-aware pump/valve scheduling</strong> to cut water loss and energy costs while
+                  improving service reliability.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* AI Pilot CTA */}
+        <section className="container mt-4">
+          <div className="p-4 rounded-3 border">
+            <h3 className="h5">Run a 4-week AI pilot</h3>
+            <p className="mb-3">
+              Data audit → model fit → live alerts &amp; forecast-aware schedules. Typical pilots surface hidden leaks
+              in the first month.
+            </p>
+            <Link
+              href="/ai-development-company#contact"
+              className="btn btn-outline-dark"
+              onClick={() =>
+                typeof window !== "undefined" &&
+                window.gtag &&
+                window.gtag("event", "cta_click", { page: "kariot_case_study", cta: "pilot" })
+              }
+            >
+              Talk to an AI Expert
+            </Link>
           </div>
         </section>
 
@@ -466,12 +545,8 @@ export default function Kariot() {
         <section id="kariot-tech">
           <div className="container tech-container mb-5">
             <Stack direction="horizontal">
-              <div className=" badge-kariot-btn">
-                <img
-                  src="/images/Rectangle-kariot.png"
-                  className="me-2"
-                  alt="design-dot"
-                />
+              <div className="badge-kariot-btn">
+                <img src="/images/Rectangle-kariot.png" className="me-2" alt="design-dot" />
                 <p> TECHNOLOGY</p>
               </div>
             </Stack>
@@ -480,67 +555,19 @@ export default function Kariot() {
               <div className="col-lg-7 col-md-8">
                 <h5 className="tech-kariot-sub py-3">Development</h5>
                 <div className="tech-img-container">
-                  <Image
-                    src="/images/iot-logo.png"
-                    alt="IoT sensors"
-                    width={120}
-                    height={70}
-                    className="me-2 mb-2 mbl-design"
-                  />
-                  <Image
-                    src="/images/aws-logo.png"
-                    alt="AWS cloud hosting"
-                    width={120}
-                    height={70}
-                    className="me-2 mb-2 mbl-design"
-                  />
-                  <Image
-                    src="/images/nodejs-logo.png"
-                    alt="Node.js backend"
-                    width={120}
-                    height={70}
-                    className="me-2 mb-2 mbl-design"
-                  />
-                  <Image
-                    src="/images/react-native.png"
-                    alt="React Native dashboard"
-                    width={120}
-                    height={70}
-                    className="me-2 mb-2 mbl-design"
-                  />
-                  <Image
-                    src="/images/postgresql-logo.png"
-                    alt="PostgreSQL database"
-                    width={120}
-                    height={70}
-                    className="me-2 mb-2 mbl-design"
-                  />
-                  <Image
-                    src="/images/devops-logo.png"
-                    alt="DevOps automation"
-                    width={120}
-                    height={70}
-                    className="me-2 mb-2 mbl-design"
-                  />
+                  <Image src="/images/iot-logo.png" alt="IoT sensors" width={120} height={70} className="me-2 mb-2 mbl-design" />
+                  <Image src="/images/aws-logo.png" alt="AWS cloud hosting" width={120} height={70} className="me-2 mb-2 mbl-design" />
+                  <Image src="/images/nodejs-logo.png" alt="Node.js backend" width={120} height={70} className="me-2 mb-2 mbl-design" />
+                  <Image src="/images/react-native.png" alt="React Native dashboard" width={120} height={70} className="me-2 mb-2 mbl-design" />
+                  <Image src="/images/postgresql-logo.png" alt="PostgreSQL database" width={120} height={70} className="me-2 mb-2 mbl-design" />
+                  <Image src="/images/devops-logo.png" alt="DevOps automation" width={120} height={70} className="me-2 mb-2 mbl-design" />
                 </div>
               </div>
               <div className="col-lg-5 col-md-4">
                 <h5 className="tech-kariot-sub py-3">Design & Cloud</h5>
                 <div className="tech-img-container">
-                  <Image
-                    src="/images/figma.png"
-                    alt="Figma design"
-                    width={120}
-                    height={70}
-                    className="me-2 mb-2 mbl-design"
-                  />
-                  <Image
-                    src="/images/photoshop.png"
-                    alt="Photoshop design"
-                    width={120}
-                    height={70}
-                    className="me-2 mb-2 mbl-design"
-                  />
+                  <Image src="/images/figma.png" alt="Figma design" width={120} height={70} className="me-2 mb-2 mbl-design" />
+                  <Image src="/images/photoshop.png" alt="Photoshop design" width={120} height={70} className="me-2 mb-2 mbl-design" />
                 </div>
               </div>
             </div>
@@ -553,20 +580,8 @@ export default function Kariot() {
             <Carousel
               className="xaber-car"
               animation="fade"
-              prevIcon={
-                <img
-                  src="/images/prev1.png"
-                  className="full-img-previous"
-                  alt="Previous"
-                />
-              }
-              nextIcon={
-                <img
-                  src="/images/next1.png"
-                  className="full-img-next"
-                  alt="Next"
-                />
-              }
+              prevIcon={<img src="/images/prev1.png" className="full-img-previous" alt="Previous" />}
+              nextIcon={<img src="/images/next1.png" className="full-img-next" alt="Next" />}
               interval={null}
               activeIndex={index}
               onSelect={handleSelect}
@@ -575,30 +590,50 @@ export default function Kariot() {
               <Carousel.Item>
                 <div className="row">
                   <div className="col-lg-4 col-md-4">
-                    <img
-                      src="/images/kariot-dashboard1.png"
-                      className="case-carousel-img"
-                      alt="KarIOT Dashboard Screenshot"
-                    />
+                    <img src="/images/kariot-dashboard1.png" className="case-carousel-img" alt="KarIOT Dashboard Screenshot" />
                   </div>
                   <div className="col-lg-4 col-md-4">
-                    <img
-                      src="/images/kariot-dashboard2.png"
-                      className="case-carousel-img"
-                      alt="KarIOT Admin Panel Screenshot"
-                    />
+                    <img src="/images/kariot-dashboard2.png" className="case-carousel-img" alt="KarIOT Admin Panel Screenshot" />
                   </div>
                   <div className="col-lg-4 col-md-4">
-                    <img
-                      src="/images/kariot-dashboard3.png"
-                      className="case-carousel-img"
-                      alt="KarIOT Mobile Screenshot"
-                    />
+                    <img src="/images/kariot-dashboard3.png" className="case-carousel-img" alt="KarIOT Mobile Screenshot" />
                   </div>
                 </div>
               </Carousel.Item>
-              {/* Add more Carousel.Items if you want more screenshots */}
             </Carousel>
+          </div>
+        </section>
+
+        {/* FAQ (AI/ML) */}
+        <section id="kariot-faq" className="container my-5">
+          <Stack direction="horizontal">
+            <div className="badge-kariot-btn">
+              <img src="/images/Rectangle-kariot.png" className="me-2" alt="design-dot" />
+              <p> FAQ</p>
+            </div>
+          </Stack>
+          <h3 className="pt-4">Frequently Asked Questions</h3>
+          <div className="mt-3">
+            <h5>Can you detect leaks without acoustic sensors?</h5>
+            <p>
+              Yes. We baseline night flow and pressure per DMA and raise anomalies when residuals spike for sustained
+              windows. Acoustic data further improves localization but isn’t required.
+            </p>
+
+            <h5 className="mt-3">Do operators lose control?</h5>
+            <p>
+              No. The optimizer proposes schedules and your operator approves or overrides. Every change is logged for
+              audit.
+            </p>
+
+            <h5 className="mt-3">What’s needed for a 4-week pilot?</h5>
+            <p>
+              2–4 DMAs with flow/pressure/level, pump run-time signals, and gateway access. We handle ingestion and
+              dashboards; you provide field access.
+            </p>
+
+            <h5 className="mt-3">How often do models retrain?</h5>
+            <p>Weekly by default with drift checks; urgent retrains can be triggered after topology changes or events.</p>
           </div>
         </section>
 
@@ -616,11 +651,7 @@ export default function Kariot() {
                       <button className="karcta-button btn-lg btn-info mt-3">
                         Get In Touch{" "}
                         <span className="icon">
-                          {" "}
-                          <img
-                            src="/images/arrowiconblue.png"
-                            alt="arrow-icon"
-                          />{" "}
+                          <img src="/images/arrowiconblue.png" alt="arrow-icon" />
                         </span>
                       </button>
                     </Link>
@@ -635,18 +666,12 @@ export default function Kariot() {
         <section id="kariot-case-carousel">
           <div className="container kariot-case-container">
             <Stack direction="horizontal">
-              <div className=" badge-kariot-btn">
-                <img
-                  src="/images/Rectangle-kariot.png"
-                  className="me-2"
-                  alt="design-dot"
-                />
+              <div className="badge-kariot-btn">
+                <img src="/images/Rectangle-kariot.png" className="me-2" alt="design-dot" />
                 <p> RELATED CASE STUDIES</p>
               </div>
             </Stack>
-            <h2 className="case-kariot-heading pt-4">
-              Read About More Digital Success Stories
-            </h2>
+            <h2 className="case-kariot-heading pt-4">Read About More Digital Success Stories</h2>
             <Carousel
               className="case-carousel"
               activeIndex={index}
@@ -660,7 +685,7 @@ export default function Kariot() {
                   <div className="col-lg-6 col-md-6">
                     <Card className="case-carousel-card">
                       <Card.Header className="case-carousel-header">
-                        <img src="/images/Group3001.png" />
+                        <img src="/images/Group3001.png" alt="Ezyhelpers" />
                       </Card.Header>
                       <Card.Body className="case-carousel-body">
                         <h3 className="case-carousel-heading">Ezyhelpers</h3>
@@ -673,10 +698,11 @@ export default function Kariot() {
                       </Card.Body>
                     </Card>
                   </div>
+
                   <div className="col-lg-6 col-md-6">
                     <Card className="case-carousel-card">
                       <Card.Header className="case-carousel-header">
-                        <img src="/images/Group3002.png" />
+                        <img src="/images/Group3002.png" alt="Xaber" />
                       </Card.Header>
                       <Card.Body className="case-carousel-body">
                         <h3 className="case-carousel-heading">Xaber</h3>
@@ -691,10 +717,10 @@ export default function Kariot() {
                   </div>
                 </div>
               </Carousel.Item>
-              {/* Add another item for Mocial, etc. */}
             </Carousel>
           </div>
         </section>
+
         <Footer />
       </main>
     </>

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from "next/image";
 import Carousel from 'react-bootstrap/Carousel'
 import { useForm, Controller } from 'react-hook-form'
-import { useState, useEffect, useRef, forwardRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Footer from '../components/footer'
 import { NextSeo } from 'next-seo';
 import Head from "next/head";
@@ -11,21 +11,13 @@ import { postJson } from "../lib/api";
 import { trackEvent } from "../lib/analytics";
 // import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/bootstrap.css';
-// import ReCAPTCHA from "react-google-recaptcha";
+import ReCAPTCHA from "react-google-recaptcha";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Modal from "react-bootstrap/Modal";
 import dynamic from 'next/dynamic';
 
 const PhoneInput = dynamic(() => import('react-phone-input-2'), { ssr: false });
-const ReCAPTCHA = dynamic(
-  () =>
-    import("react-google-recaptcha").then((mod) => {
-      const Component = mod.default;
-      return forwardRef((props, ref) => <Component ref={ref} {...props} />);
-    }),
-  { ssr: false }
-);
 
 const CONTACT_JSON_LD = [
   {
