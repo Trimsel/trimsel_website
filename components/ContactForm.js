@@ -229,6 +229,32 @@ export default function ContactForm({
                     </div>
                   </div>
 
+                  {/* Referral Source */}
+                  <div className="col-lg-6 py-3">
+                    <div className="md-form pe-3">
+                      <select
+                        {...register("referralSource", {
+                          required: { value: true, message: "Please tell us how you heard about Trimsel" },
+                        })}
+                        id="referralSource"
+                        name="referralSource"
+                        className="form-control abot-form"
+                        aria-invalid={!!errors?.referralSource}
+                        defaultValue=""
+                      >
+                        <option value="" disabled>
+                          Where did you find us?*
+                        </option>
+                        <option value="Google">Google Search</option>
+                        <option value="Social">Social Media</option>
+                        <option value="Referral">Referral</option>
+                        <option value="Event">Event / Webinar</option>
+                        <option value="Other">Other</option>
+                      </select>
+                      <span className="error-design pt-3">{errors?.referralSource?.message}</span>
+                    </div>
+                  </div>
+
                   {/* Message */}
                   <div className="col-lg-12 py-3">
                     <div className="md-form ps-3">

@@ -433,7 +433,39 @@ export default function Contact() {
                           />
                         </div>
                       </div>
-                      
+
+                      <div className='col-lg-12 py-3'>
+                        <div className='md-form ps-3'>
+                          <label htmlFor='referralSource' className='labels'>
+                            <h5>Where did you find us? *</h5>
+                          </label>
+                          <select
+                            {...register('referralSource', {
+                              required: {
+                                value: true,
+                                message: 'Please let us know how you heard about Trimsel',
+                              },
+                            })}
+                            name='referralSource'
+                            id='referralSource'
+                            className='form-control'
+                            defaultValue=''
+                          >
+                            <option value='' disabled>
+                              Select an option
+                            </option>
+                            <option value='Google'>Google Search</option>
+                            <option value='Social'>Social Media</option>
+                            <option value='Referral'>Referral</option>
+                            <option value='Event'>Event / Webinar</option>
+                            <option value='Other'>Other</option>
+                          </select>
+                          <span className='error-design pt-3'>
+                            {errors?.referralSource?.message}
+                          </span>
+                        </div>
+                      </div>
+
                       <div className='col-lg-12 py-3'>
                         <div className='md-form ps-3'>
 
