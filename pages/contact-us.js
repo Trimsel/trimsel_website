@@ -140,6 +140,7 @@ export default function Contact() {
       },
     });
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [message, setMessage] = useState("");
     const [showThankYou, setShowThankYou] = useState(false);
     const recaptchaRef = useRef(null);
@@ -156,43 +157,50 @@ export default function Contact() {
   }
 
     async function onSubmitForm(values) {
-      let recaptchaToken = "";
-      if (recaptchaRef.current) {
-        try {
-          recaptchaToken = await recaptchaRef.current.executeAsync();
-          recaptchaRef.current.reset();
-        } catch (error) {
-          console.error("Failed to execute reCAPTCHA", error);
-        }
-      }
-      if (!recaptchaToken) {
-        setMessage("We couldn't verify you as human. Please try again.");
-        return;
-      }
+      if (isSubmitting) return;
 
-      const { mobile, ...restValues } = values;
-      const payload = {
-        ...restValues,
-        phone: mobile,
-        mobile,
-        recaptchaToken,
-      };
+      setIsSubmitting(true);
 
-      setMessage("");
-    
       try {
-      await postJson("/api/contact", payload);
-      trackEvent("contact_form_submit", {
-        event_category: "lead",
-        event_label: "contact_us_page",
-      });
+        let recaptchaToken = "";
+        if (recaptchaRef.current) {
+          try {
+            recaptchaToken = await recaptchaRef.current.executeAsync();
+            recaptchaRef.current.reset();
+          } catch (error) {
+            console.error("Failed to execute reCAPTCHA", error);
+          }
+        }
+        if (!recaptchaToken) {
+          setMessage("We couldn't verify you as human. Please try again.");
+          return;
+        }
+
+        const { mobile, ...restValues } = values;
+        const payload = {
+          ...restValues,
+          phone: mobile,
+          mobile,
+          recaptchaToken,
+        };
+
+        setMessage("");
+    
+        await postJson("/api/contact", payload);
+        trackEvent("contact_form_submit", {
+          event_category: "lead",
+          event_label: "contact_us_page",
+        });
         setIsSubmitted(true);
         handleThankYouShow();
         reset();
       } catch (error) {
         setMessage("Failed to send your message. Please try again.");
+      } finally {
+        setIsSubmitting(false);
       }
     }
+
 
     return (
         <>
@@ -495,7 +503,9 @@ export default function Contact() {
                       </div>
                       <div className='col-lg-12 py-3'>
                         <div className='text-right text-md-end'>
-                          <input type='submit' className='sbmt-btn' value='Book a Digital Transformation Call'/>
+                          <button type='submit' className='sbmt-btn' disabled={isSubmitting}>
+                            {isSubmitting ? "Sending..." : "Book a Digital Transformation Call"}
+                          </button>
                         </div>
                       </div>
                   </div>
