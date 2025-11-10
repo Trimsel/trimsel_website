@@ -15,6 +15,7 @@ export default function ContactForm({
   heading = "Let’s Build Your Dream App — Get a Free Consultation!",
   subText = "Have an idea or need expert help with your digital project? At Trimsel, we help businesses of all sizes with end-to-end development services — from websites and mobile apps to cloud, DevOps, and digital marketing.",
   eventLabel = "contact_form",
+  submitLabel = "Book a Digital Transformation Call",
 }) {
   const {
     register,
@@ -24,6 +25,7 @@ export default function ContactForm({
   } = useForm();
   
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState("");
   const [phone, setPhone] = useState("");
   const [showThankYou, setShowThankYou] = useState(false);
@@ -41,34 +43,39 @@ export default function ContactForm({
   }
 
   async function onSubmitForm(values) {
+    if (isSubmitting) return;
+
     // simple client checks
     if (!phone) {
       setMessage("Please enter your mobile number (include country code).");
       return;
     }
-    let recaptchaToken = "";
-    if (recaptchaRef.current) {
-      try {
-        recaptchaToken = await recaptchaRef.current.executeAsync();
-        recaptchaRef.current.reset();
-      } catch (error) {
-        console.error("Failed to execute reCAPTCHA", error);
-      }
-    }
-    if (!recaptchaToken) {
-      setMessage("We couldn't verify you as human. Please try again.");
-      return;
-    }
 
-    const payload = {
-      ...values,
-      phone,
-      recaptchaToken,
-    };
-
-    setMessage("");
+    setIsSubmitting(true);
 
     try {
+      let recaptchaToken = "";
+      if (recaptchaRef.current) {
+        try {
+          recaptchaToken = await recaptchaRef.current.executeAsync();
+          recaptchaRef.current.reset();
+        } catch (error) {
+          console.error("Failed to execute reCAPTCHA", error);
+        }
+      }
+      if (!recaptchaToken) {
+        setMessage("We couldn't verify you as human. Please try again.");
+        return;
+      }
+
+      const payload = {
+        ...values,
+        phone,
+        recaptchaToken,
+      };
+
+      setMessage("");
+
       await postJson("/api/contact", payload);
       trackEvent("contact_form_submit", {
         event_category: "lead",
@@ -81,6 +88,8 @@ export default function ContactForm({
       setPhone("");
     } catch (error) {
       setMessage("Failed to send your message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
@@ -283,7 +292,9 @@ export default function ContactForm({
                   {/* Submit */}
                   <div className="col-lg-12 py-3">
                     <div className="text-right text-md-end">
-                      <input type="submit" className="sbmt-btn" />
+                      <button type="submit" className="sbmt-btn" disabled={isSubmitting}>
+                        {isSubmitting ? "Sending..." : submitLabel}
+                      </button>
                     </div>
                   </div>
                 </div>

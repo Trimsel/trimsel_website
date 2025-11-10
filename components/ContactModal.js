@@ -20,6 +20,7 @@ export default function ContactModal({ title }) {
   } = useForm();
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [phone, setPhone] = useState("");
   const [selectedOption, setSelectedOption] = useState(0);
   const recaptchaRef = useRef(null);
@@ -32,39 +33,46 @@ export default function ContactModal({ title }) {
   };
 
   async function onSubmitForm(values) {
-    let recaptchaToken = "";
-    if (recaptchaRef.current) {
-      try {
-        recaptchaToken = await recaptchaRef.current.executeAsync();
-        recaptchaRef.current.reset();
-      } catch (error) {
-        console.error("Failed to execute reCAPTCHA", error);
-      }
-    }
-    if (!recaptchaToken) {
-      setMessage("We couldn't verify you as human. Please try again.");
-      return;
-    }
+    if (isSubmitting) return;
 
-    const payload = {
-      ...values,
-      phone,
-      service: selectedOption,
-      recaptchaToken,
-    };
-
-    setMessage("");
+    setIsSubmitting(true);
 
     try {
+      let recaptchaToken = "";
+      if (recaptchaRef.current) {
+        try {
+          recaptchaToken = await recaptchaRef.current.executeAsync();
+          recaptchaRef.current.reset();
+        } catch (error) {
+          console.error("Failed to execute reCAPTCHA", error);
+        }
+      }
+      if (!recaptchaToken) {
+        setMessage("We couldn't verify you as human. Please try again.");
+        return;
+      }
+
+      const payload = {
+        ...values,
+        phone,
+        service: selectedOption,
+        recaptchaToken,
+      };
+
+      setMessage("");
+
       await postJson("/api/contact", payload);
       setMessage("Thank you! We have received your message. Our team will get back to you soon.");
       setIsSubmitted(true);
       reset();
     } catch (error) {
       setMessage("Failed to send your message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   }
   
+
   const [message, setMessage] = useState("");
   const [show, setShow] = useState(false);
   useEffect(() => {
@@ -310,7 +318,9 @@ export default function ContactModal({ title }) {
                       </div>
                       <div className="col-lg-12 py-3">
                         <div className="text-right text-md-end">
-                          <input type="submit" className="sbmt-btn" />
+                          <button type="submit" className="sbmt-btn" disabled={isSubmitting}>
+                            {isSubmitting ? "Sending..." : "Book a Digital Transformation Call"}
+                          </button>
                         </div>
                       </div>
                     </div>
