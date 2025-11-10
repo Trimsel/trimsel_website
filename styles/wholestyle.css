@@ -1032,6 +1032,49 @@ img.overlaps-image {
 }
 
 /*footer CSS*/
+#page-footer {
+  margin-top: 60px;
+}
+
+.footer-hero {
+  border-radius: 12px;
+  background-color: #fff;
+  background-image: url("/temple2.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right bottom;
+  padding-bottom: 2rem;
+}
+
+.footer-hero-heading h3 {
+  font-size: 32px;
+  letter-spacing: 0.08em;
+}
+
+#page-footer .footer-flag,
+.footer-hero .footer-flag {
+  max-width: 160px;
+  height: auto;
+}
+
+@media (max-width: 991px) {
+  .footer-hero {
+    background-size: 80%;
+    background-position: center bottom;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer-hero-heading {
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+
+  .footer-hero {
+    background-size: 70%;
+  }
+}
+
 #new-footer {
   background: url(/images/ftrbg.webp);
   background-repeat: no-repeat;
@@ -1076,19 +1119,21 @@ p.contact-para {
   font-weight: 600;
 }
 address.contact-para {
-  color: white !important;
+  color: inherit;
   font-size: 18px;
   font-weight: 600;
   font-style: normal;
 }
 address.footer-address .footer-address-link {
-  color: inherit;
+  color: #1e2436;
+  font-size: 18px;
+  font-weight: 500;
   text-decoration: none;
   display: inline-block;
 }
 address.footer-address .footer-address-link:hover,
 address.footer-address .footer-address-link:focus {
-  color: #ffffff;
+  color: #1e2436;
   text-decoration: underline;
 }
 img.social-icon {
