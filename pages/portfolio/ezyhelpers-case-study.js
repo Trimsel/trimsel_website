@@ -649,7 +649,7 @@ export default function Ezyhelpers() {
                   <div className="col-lg-6 col-md-6">
                     <Card className="case-carousel-card">
                       <Card.Header className="case-carousel-header">
-                        <img src="/images/Group3001.png" />
+                        <img src="/images/Group3001.png"  alt=""/>
                       </Card.Header>
                       <Card.Body className="case-carousel-body">
                         <h3 className="case-carousel-heading">KarIOT</h3>
@@ -665,7 +665,7 @@ export default function Ezyhelpers() {
                   <div className="col-lg-6 col-md-6">
                     <Card className="case-carousel-card">
                       <Card.Header className="case-carousel-header">
-                        <img src="/images/Group3002.png" />
+                        <img src="/images/Group3002.png"  alt=""/>
                       </Card.Header>
                       <Card.Body className="case-carousel-body">
                         <h3 className="case-carousel-heading">Xaber</h3>

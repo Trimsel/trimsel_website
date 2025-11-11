@@ -64,7 +64,7 @@ export default function ContactForm({
         }
       }
       if (!recaptchaToken) {
-        setMessage("We couldn't verify you as human. Please try again.");
+        setMessage("We couldn&rsquo;t verify you as human. Please try again.");
         return;
       }
 
@@ -132,7 +132,7 @@ export default function ContactForm({
                   <Image src="/images/contact-us-mail.png" width={50} height={50} alt="Contact us mail icon" className="contct-icon" />
                 </div>
                 <div className="col-lg-10 col-md-12 col-10">
-                  <p className="lets-para mb-0">Let's talk</p>
+                  <p className="lets-para mb-0">Let&rsquo;s talk</p>
                   <Link href="/contact-us" className="lets-link">Prefer a direct chat? Call our co-founders:</Link>
                 </div>
               </div>
@@ -322,7 +322,7 @@ export default function ContactForm({
                 {/* Consider replacing this GIF with a small MP4/WebM or a static image to save ~1MB */}
                 <img src="/images/astronaut-thanking.gif" alt="Thank you" className="gif-thanks" />
                 <h2 className="thank-heading">Thank you for contacting us!</h2>
-                <p className="thank-para">We have received your message. We'll reach out shortly.</p>
+                <p className="thank-para">We have received your message. We&rsquo;ll reach out shortly.</p>
                 <h6>
                   <Link href="/" passHref style={{ textDecoration: "none" }} className="me-3">
                     <Button variant="outline-primary" className="mt-3 mb-2">Back To Homepage</Button>

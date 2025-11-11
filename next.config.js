@@ -10,11 +10,16 @@ const nextConfig = {
     optimizeCss: true, // ✅ CSS optimization
   },
 
+  turbopack: {
+    root: __dirname,
+  },
+
   images: {
     formats: ['image/avif', 'image/webp'], // serve modern formats automatically
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
     deviceSizes: [360, 414, 540, 768, 992, 1200, 1440],
     imageSizes: [120, 180, 240, 320, 480],
+    qualities: [70, 75],
   },
 
   compress: true,

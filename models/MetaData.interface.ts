@@ -1,11 +1,11 @@
-import { Tag } from './Tag';
+import { TagName } from './Tag';
 
 export interface MetaData {
   title: string;
   date: Date; // Ensure proper date format
   mainImageUrl: string;
   excerpt: string;
-  tags: Tag[];
+  tags: TagName[];
 }
 
 export function isValidUrl(url: string): boolean {

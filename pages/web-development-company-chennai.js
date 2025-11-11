@@ -464,7 +464,7 @@ export default function WebDevelopment() {
           className="btn btn-primary dev-btn mb-4"
           aria-label="Start a web app project with Trimsel"
         >
-          Let's Build Your Web App{" "}
+          Let&rsquo;s Build Your Web App{" "}
           <Image
             src="/images/material-symbols_arrow-right-alt.png"
             alt=""
@@ -618,7 +618,7 @@ export default function WebDevelopment() {
             <Card className="carel-card">
               <h4 className="carel-heading">SEO-Optimized Web Design That Ranks</h4>
               <p className="carel-para">
-                Implement <a href="/digital-marketing-company-chennai">technical SEO</a> and content-first strategies to drive higher organic traffic and conversions.
+                Implement <Link href="/digital-marketing-company-chennai">technical SEO</Link> and content-first strategies to drive higher organic traffic and conversions.
               </p>
             </Card>
           </div>
@@ -957,7 +957,7 @@ export default function WebDevelopment() {
             </h2>
 
             <p className="webkcta-para">
-            Whether you're starting from scratch or reworking an old site, we’re ready to help. We’ll work closely with you to build something that reflects your brand and actually supports your goals.
+            Whether you&rsquo;re starting from scratch or reworking an old site, we’re ready to help. We’ll work closely with you to build something that reflects your brand and actually supports your goals.
             </p>
 
             <Link
@@ -1003,7 +1003,7 @@ export default function WebDevelopment() {
           <div className="row">
             <div className="col-lg-6 col-md-6">
               <h4 className="client-block-title">
-                We're a Trusted Growth Partner
+                We&rsquo;re a Trusted Growth Partner
               </h4>
             </div>
             <div className="col-lg-6 col-md-6">
@@ -1063,7 +1063,7 @@ export default function WebDevelopment() {
         </Accordion.Header>
         <Accordion.Body>
           <p className="accordion-para">
-            Yes, we build SEO-friendly websites following Google’s latest guidelines, including optimized URLs, meta tags, mobile responsiveness, and performance improvements. We also offer <a href="/digital-marketing-company-chennai">digital marketing services</a> for long-term growth.
+            Yes, we build SEO-friendly websites following Google’s latest guidelines, including optimized URLs, meta tags, mobile responsiveness, and performance improvements. We also offer <Link href="/digital-marketing-company-chennai">digital marketing services</Link> for long-term growth.
           </p>
         </Accordion.Body>
       </Accordion.Item>

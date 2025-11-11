@@ -162,11 +162,11 @@ export default function Xaber() {
                       <div className="cafes-inner mb-2">
                         <ol className="bread d-flex align-items-center">
                           <li className="case-breadcrumb">
-                            <a href="/">Home</a>
+                            <Link href="/">Home</Link>
                           </li>
                           <li className="case-dot">&middot;</li>
                           <li className="cases-breadcrumb">
-                            <a href="/portfolio">Portfolio</a>
+                            <Link href="/portfolio">Portfolio</Link>
                           </li>
                           <li className="case-dot">&middot;</li>
                           <li className="active-bread">Xaber</li>
@@ -179,6 +179,7 @@ export default function Xaber() {
                           src="/trimsel-clients/xaber-logo.png"
                           width={211}
                           height={58}
+                          alt="Xaber logo"
                         />
                       </div>
                     </div>
@@ -218,7 +219,7 @@ export default function Xaber() {
                       <div className="mozarts-inner">
                         <button className="btn btn-primary case-study-btn">
                           Get Started Today{" "}
-                          <img src="/images/material-symbols_arrow-right-alt.png" />
+                          <img src="/images/material-symbols_arrow-right-alt.png" alt="" aria-hidden="true" />
                         </button>
                       </div>
                     </div>
@@ -235,7 +236,7 @@ export default function Xaber() {
             <div className="col-lg-7 col-md-6">
               <Stack direction="horizontal">
                 <div className=" badge-xaber-btn">
-                  <img src="/images/Rectangle550.png" className="me-2" />{" "}
+                  <img src="/images/Rectangle550.png" className="me-2" alt="" aria-hidden="true" />{" "}
                   OVERVIEW
                 </div>
               </Stack>
@@ -405,7 +406,7 @@ export default function Xaber() {
             <div className="col-lg-10 col-md-9">
               <Stack direction="horizontal">
                 <div className=" badge-xaber-btn">
-                  <img src="/images/Rectangle550.png" className="me-2" /> THE
+                  <img src="/images/Rectangle550.png" className="me-2" alt="" aria-hidden="true" /> THE
                   CHALLENGE
                 </div>
               </Stack>
@@ -439,7 +440,7 @@ export default function Xaber() {
         <div className="container prob-container">
           <Stack direction="horizontal">
             <div className=" badge-xaber-btn">
-              <img src="/images/Rectangle550.png" className="me-2" /> THE
+              <img src="/images/Rectangle550.png" className="me-2" alt="" aria-hidden="true" /> THE
               CHALLENGE
             </div>
           </Stack>
@@ -464,7 +465,7 @@ export default function Xaber() {
             <div className="col-lg-6 col-md-6">
               <Stack direction="horizontal">
                 <div className=" badge-xaber-btn">
-                  <img src="/images/Rectangle550.png" className="me-2" /> THE
+                  <img src="/images/Rectangle550.png" className="me-2" alt="" aria-hidden="true" /> THE
                   SOLUTION
                 </div>
               </Stack>
@@ -488,6 +489,7 @@ export default function Xaber() {
                 width={662}
                 height={603}
                 className="sol-image"
+                alt="Xaber solution workflow"
               />
             </div>
           </div>
@@ -497,7 +499,7 @@ export default function Xaber() {
         <div className="container tech-container mb-5">
           <Stack direction="horizontal">
             <div className=" badge-xaber-btn">
-              <img src="/images/Rectangle550.png" className="me-2" /> THE
+              <img src="/images/Rectangle550.png" className="me-2" alt="" aria-hidden="true" /> THE
               SOLUTION
             </div>
           </Stack>
@@ -590,13 +592,13 @@ export default function Xaber() {
             indicators={false}
           >
             <Carousel.Item>
-              <img src="/images/Frame2.png" className="carousel-image" />
+              <img src="/images/Frame2.png" className="carousel-image" alt="Xaber admin console screen" />
             </Carousel.Item>
             <Carousel.Item>
-              <img src="/images/Frame2.png" className="carousel-image" />
+              <img src="/images/Frame2.png" className="carousel-image" alt="Xaber admin console screen" />
             </Carousel.Item>
             <Carousel.Item>
-              <img src="/images/Frame2.png" className="carousel-image" />
+              <img src="/images/Frame2.png" className="carousel-image" alt="Xaber admin console screen" />
             </Carousel.Item>
           </Carousel>
         </div>
@@ -609,7 +611,7 @@ export default function Xaber() {
                 <div className="col-lg-7 col-md-12 col-12 xaber-card-col">
                   <Stack direction="horizontal">
                     <div className=" badge-xaber-btn">
-                      <img src="/images/Rectangle550.png" className="me-2" />{" "}
+                      <img src="/images/Rectangle550.png" className="me-2" alt="" aria-hidden="true" />{" "}
                       GET IN TOUCH
                     </div>
                   </Stack>
@@ -639,7 +641,7 @@ export default function Xaber() {
         <div className="container case-container">
           <Stack direction="horizontal">
             <div className=" badge-xaber-btn">
-              <img src="/images/Rectangle550.png" className="me-2" /> GET IN
+              <img src="/images/Rectangle550.png" className="me-2" alt="" aria-hidden="true" /> GET IN
               TOUCH
             </div>
           </Stack>
@@ -651,7 +653,7 @@ export default function Xaber() {
             <div className="col-lg-6 col-md-6">
               <Card className="case-carousel-card">
                 <Card.Header className="case-carousel-header">
-                  <img src="/images/Group3001.png" />
+                  <img src="/images/Group3001.png" alt="" aria-hidden="true" />
                 </Card.Header>
                 <Card.Body className="case-carousel-body">
                   <h3 className="case-carousel-heading">Ezyhelpers</h3>
@@ -668,7 +670,7 @@ export default function Xaber() {
             <div className="col-lg-6 col-md-6">
               <Card className="case-carousel-card">
                 <Card.Header className="case-carousel-header">
-                  <img src="/images/kariot-case.png" />
+                  <img src="/images/kariot-case.png" alt="KarIOT project preview" />
                 </Card.Header>
                 <Card.Body className="case-carousel-body">
                   <h3 className="case-carousel-heading">KarIOT</h3>

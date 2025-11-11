@@ -3,9 +3,9 @@ import { useRouter } from "next/router";
 import { FaWhatsapp } from "@react-icons/all-files/fa/FaWhatsapp";
 import { trackEvent } from "../lib/analytics";
 
-const WHATSAPP_NUMBER = "917200841581"; // Trimsel's WhatsApp contact in international format without +
+const WHATSAPP_NUMBER = "917200841581"; // Trimsel&rsquo;s WhatsApp contact in international format without +
 const DEFAULT_MESSAGE = encodeURIComponent(
-  "Hi Trimsel team! I'd like to chat about a project."
+  "Hi Trimsel team! I&rsquo;d like to chat about a project."
 );
 
 export default function WhatsAppButton() {

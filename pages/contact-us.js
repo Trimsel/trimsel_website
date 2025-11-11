@@ -172,7 +172,7 @@ export default function Contact() {
           }
         }
         if (!recaptchaToken) {
-          setMessage("We couldn't verify you as human. Please try again.");
+          setMessage("We couldn&rsquo;t verify you as human. Please try again.");
           return;
         }
 
@@ -313,7 +313,7 @@ export default function Contact() {
         <section id='contact' className='py-4 my-4'>
             <div className='container'>
                 <div className='cntct-container'>
-                    <h3 className='form-heading'><Image src='/images/Group235.png' alt='' role='presentation' aria-hidden='true' width={32} height={32} /> Let's level up your brand, together  </h3>
+                    <h3 className='form-heading'><Image src='/images/Group235.png' alt='' role='presentation' aria-hidden='true' width={32} height={32} /> Let&rsquo;s level up your brand, together  </h3>
                     <p className='form-para'>We confirm receipt instantly and schedule discovery calls within 24 hours.</p>
                     <ul className="form-benefits">
                       <li>🔒 Optional NDA before project details</li>
@@ -522,7 +522,7 @@ export default function Contact() {
                 <Image
                   src='/images/Letstalk.png'
                   className='cntct-form-bg'
-                  alt="Let's Talk - Contact Trimsel"
+                  alt="Let&rsquo;s Talk - Contact Trimsel"
                   width={400}
                   height={400}
                   loading="lazy"
@@ -547,7 +547,7 @@ export default function Contact() {
       />
       <h2 className="thank-heading">Thank you for Contacting us!</h2>
       <p className="thank-para">
-        We have received your message. We'll reach you out immediately!
+        We have received your message. We&rsquo;ll reach you out immediately!
       </p>
       <div className="thank-links">
         <Link

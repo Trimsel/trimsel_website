@@ -26,7 +26,7 @@ const ClientLogo = dynamic(() => import("../components/clientLogo"), {
   loading: () => <div className="text-center text-muted py-5">Loading client logos…</div>,
 });
 
-export default function mobileApp() {
+export default function MobileApp() {
   const {
     register,
     handleSubmit,
@@ -491,7 +491,7 @@ export default function mobileApp() {
                   </Card.Title>
                   <Card.Body>
                     <p className="card-para">
-                    Leveraging cutting-edge technologies, including low-code development platforms and automated testing tools, we accelerate your app's time-to-market, delivering robust mobile solutions rapidly without compromising quality.
+                    Leveraging cutting-edge technologies, including low-code development platforms and automated testing tools, we accelerate your app&rsquo;s time-to-market, delivering robust mobile solutions rapidly without compromising quality.
                     </p>
                   </Card.Body>
                 </Card>
@@ -647,7 +647,7 @@ export default function mobileApp() {
                       </div>
                       <div className="col-lg-10 col-md-10 col-10 helper-list-column">
                         <h4>Continuous Support & Maintenance</h4>
-                          <p>Our dedicated support doesn't stop at launch; we offer proactive monitoring, regular updates, security patches, and ongoing feature enhancements, keeping your app competitive and user-friendly long-term.</p>
+                          <p>Our dedicated support doesn&rsquo;t stop at launch; we offer proactive monitoring, regular updates, security patches, and ongoing feature enhancements, keeping your app competitive and user-friendly long-term.</p>
                       </div>
                     </div>
                   </ListGroup.Item>
@@ -682,7 +682,7 @@ export default function mobileApp() {
               </div>
             </Stack>
             <h2 className="homcta-heading pt-2">
-              Let's Build Your Mobile App – Contact Our Experts Today!
+              Let&rsquo;s Build Your Mobile App – Contact Our Experts Today!
             </h2>
             <p className="hmcta-para">
               Trusted by brands across India and globally, <strong>Trimsel</strong> specializes in <strong>iOS, Android, and cross-platform mobile application development</strong> tailored to your business needs. From design to deployment, we bring your app idea to life with precision and performance.
@@ -696,7 +696,7 @@ export default function mobileApp() {
             <Link
               href="/contact-us"
               className="portcta-btn mt-3"
-              aria-label="Contact Trimsel's mobile app experts"
+              aria-label="Contact Trimsel&rsquo;s mobile app experts"
             >
               <MailIcon className="me-2" /> Get In Touch
             </Link>

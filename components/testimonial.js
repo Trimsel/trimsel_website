@@ -10,7 +10,7 @@ const testimonials = [
     position: "CEO at Flipkart",
     image: "/images/client.webp",
     linkedin: "/images/bi_linkedin.png",
-    feedback: "It's a big team and what's really good is that it's a specialized team, so that means they have to be the best at what they do. I am very happy and impressed.",
+    feedback: "It&rsquo;s a big team and what&rsquo;s really good is that it&rsquo;s a specialized team, so that means they have to be the best at what they do. I am very happy and impressed.",
   },
   {
     name: "Sundar Pichai",
@@ -117,7 +117,7 @@ export default function TestimonialClient() {
                     </div>
 
                     <blockquote className="test-text align-middle card-row">
-                      It's a big team and what's really good is that it's a
+                      It&rsquo;s a big team and what&rsquo;s really good is that it&rsquo;s a
                       specialized team, so that means they have to be the best
                       at what they do. I am very happy and impressed.
                     </blockquote>
@@ -167,111 +167,7 @@ export default function TestimonialClient() {
                     </div>
 
                     <blockquote className="test-text align-middle card-row">
-                      It's a big team and what's really good is that it's a
-                      specialized team, so that means they have to be the best
-                      at what they do. I am very happy and impressed.
-                    </blockquote>
-                  </Card.Body>
-                </Card>
-              </div>
-            </div>
-          </Carousel.Item>
-          <Carousel.Item>
-            <div className="row">
-              <div className="col-lg-6 col-md-6 mt-3">
-                <Card className="dm-customize-card">
-                  <Card.Body
-                    style={{ paddingRight: "0px", paddingLeft: "0px" }}
-                  >
-                    <div className="cl-container">
-                      <div className="row" style={{ alignItems: "center" }}>
-                        <div className="col-lg-3 col-md-3 col-3">
-                          <Image
-                            src="/images/client.webp"
-                            width={120}
-                            height={120}
-                            className="client-icon pb-3"
-                            alt="Client Icon"
-                          />
-                        </div>
-                        <div
-                          className="col-lg-7 col-md-6 col-6"
-                          style={{
-                            paddingLeft: "0px",
-                            paddingRight: "0px",
-                          }}
-                        >
-                          <h3 className="dm-card-heading">
-                            Kalyan Krishnamurthy,
-                            <br />
-                            <span className="txt">CEO at Flipkart</span>
-                          </h3>
-                        </div>
-                        <div className="col-lg-2 col-md-3 col-3">
-                          <span className="lnkimg">
-                            <Image
-                              src="/images/bi_linkedin.png"
-                              width={30}
-                              height={30}
-                              alt="Linkedin Icon image"
-                            />
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <blockquote className="test-text align-middle card-row">
-                      It's a big team and what's really good is that it's a
-                      specialized team, so that means they have to be the best
-                      at what they do. I am very happy and impressed.
-                    </blockquote>
-                  </Card.Body>
-                </Card>
-              </div>
-              <div className="col-lg-6 col-md-6 mt-3">
-                <Card className="dm-customize-card">
-                  <Card.Body
-                    style={{ paddingRight: "0px", paddingLeft: "0px" }}
-                  >
-                    <div className="cl-container">
-                      <div className="row" style={{ alignItems: "center" }}>
-                        <div className="col-lg-3 col-md-3 col-3">
-                          <Image
-                            src="/images/client.webp"
-                            width={120}
-                            height={120}
-                            className="client-icon pb-3"
-                            alt="Client Icon"
-                          />
-                        </div>
-                        <div
-                          className="col-lg-7 col-md-6 col-6"
-                          style={{
-                            paddingLeft: "0px",
-                            paddingRight: "0px",
-                          }}
-                        >
-                          <h3 className="dm-card-heading">
-                            Kalyan Krishnamurthy,
-                            <br />
-                            <span className="txt">CEO at Flipkart</span>
-                          </h3>
-                        </div>
-                        <div className="col-lg-2 col-md-3 col-3">
-                          <span className="lnkimg">
-                            <Image
-                              src="/images/bi_linkedin.png"
-                              width={30}
-                              height={30}
-                              alt="Linkedin Icon image"
-                            />
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <blockquote className="test-text align-middle card-row">
-                      It's a big team and what's really good is that it's a
+                      It&rsquo;s a big team and what&rsquo;s really good is that it&rsquo;s a
                       specialized team, so that means they have to be the best
                       at what they do. I am very happy and impressed.
                     </blockquote>
@@ -325,7 +221,7 @@ export default function TestimonialClient() {
                     </div>
 
                     <blockquote className="test-text align-middle card-row">
-                      It's a big team and what's really good is that it's a
+                      It&rsquo;s a big team and what&rsquo;s really good is that it&rsquo;s a
                       specialized team, so that means they have to be the best
                       at what they do. I am very happy and impressed.
                     </blockquote>
@@ -375,7 +271,111 @@ export default function TestimonialClient() {
                     </div>
 
                     <blockquote className="test-text align-middle card-row">
-                      It's a big team and what's really good is that it's a
+                      It&rsquo;s a big team and what&rsquo;s really good is that it&rsquo;s a
+                      specialized team, so that means they have to be the best
+                      at what they do. I am very happy and impressed.
+                    </blockquote>
+                  </Card.Body>
+                </Card>
+              </div>
+            </div>
+          </Carousel.Item>
+          <Carousel.Item>
+            <div className="row">
+              <div className="col-lg-6 col-md-6 mt-3">
+                <Card className="dm-customize-card">
+                  <Card.Body
+                    style={{ paddingRight: "0px", paddingLeft: "0px" }}
+                  >
+                    <div className="cl-container">
+                      <div className="row" style={{ alignItems: "center" }}>
+                        <div className="col-lg-3 col-md-3 col-3">
+                          <Image
+                            src="/images/client.webp"
+                            width={120}
+                            height={120}
+                            className="client-icon pb-3"
+                            alt="Client Icon"
+                          />
+                        </div>
+                        <div
+                          className="col-lg-7 col-md-6 col-6"
+                          style={{
+                            paddingLeft: "0px",
+                            paddingRight: "0px",
+                          }}
+                        >
+                          <h3 className="dm-card-heading">
+                            Kalyan Krishnamurthy,
+                            <br />
+                            <span className="txt">CEO at Flipkart</span>
+                          </h3>
+                        </div>
+                        <div className="col-lg-2 col-md-3 col-3">
+                          <span className="lnkimg">
+                            <Image
+                              src="/images/bi_linkedin.png"
+                              width={30}
+                              height={30}
+                              alt="Linkedin Icon image"
+                            />
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <blockquote className="test-text align-middle card-row">
+                      It&rsquo;s a big team and what&rsquo;s really good is that it&rsquo;s a
+                      specialized team, so that means they have to be the best
+                      at what they do. I am very happy and impressed.
+                    </blockquote>
+                  </Card.Body>
+                </Card>
+              </div>
+              <div className="col-lg-6 col-md-6 mt-3">
+                <Card className="dm-customize-card">
+                  <Card.Body
+                    style={{ paddingRight: "0px", paddingLeft: "0px" }}
+                  >
+                    <div className="cl-container">
+                      <div className="row" style={{ alignItems: "center" }}>
+                        <div className="col-lg-3 col-md-3 col-3">
+                          <Image
+                            src="/images/client.webp"
+                            width={120}
+                            height={120}
+                            className="client-icon pb-3"
+                            alt="Client Icon"
+                          />
+                        </div>
+                        <div
+                          className="col-lg-7 col-md-6 col-6"
+                          style={{
+                            paddingLeft: "0px",
+                            paddingRight: "0px",
+                          }}
+                        >
+                          <h3 className="dm-card-heading">
+                            Kalyan Krishnamurthy,
+                            <br />
+                            <span className="txt">CEO at Flipkart</span>
+                          </h3>
+                        </div>
+                        <div className="col-lg-2 col-md-3 col-3">
+                          <span className="lnkimg">
+                            <Image
+                              src="/images/bi_linkedin.png"
+                              width={30}
+                              height={30}
+                              alt="Linkedin Icon image"
+                            />
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <blockquote className="test-text align-middle card-row">
+                      It&rsquo;s a big team and what&rsquo;s really good is that it&rsquo;s a
                       specialized team, so that means they have to be the best
                       at what they do. I am very happy and impressed.
                     </blockquote>

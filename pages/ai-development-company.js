@@ -190,7 +190,7 @@ export default function Quality() {
                     <div className="mozart">
                       <div className="mozart-inner">
                         <p className="qs-para">
-                          Unlock innovation with Trimsel's end-to-end AI development services. We design intelligent solutions tailored to your business goals, from custom models to seamless integration into your workflows. Whether you are a startup looking to scale or an enterprise modernizing its processes, we provide AI that solves real problems, not just proofs of concept.
+                          Unlock innovation with Trimsel&rsquo;s end-to-end AI development services. We design intelligent solutions tailored to your business goals, from custom models to seamless integration into your workflows. Whether you are a startup looking to scale or an enterprise modernizing its processes, we provide AI that solves real problems, not just proofs of concept.
                         </p>
                       </div>
                     </div>
@@ -542,7 +542,7 @@ export default function Quality() {
                   />
                   <h3 className="qs-card-heading">Custom AI Development</h3>
                   <p className="qsd-para">
-                        Build AI-powered applications tailored to your specific use case. Whether it's a fraud detection system or an intelligent chatbot, we develop solutions that align with your unique goals and data.
+                        Build AI-powered applications tailored to your specific use case. Whether it&rsquo;s a fraud detection system or an intelligent chatbot, we develop solutions that align with your unique goals and data.
                   </p>
                 </Card.Body>
               </Card>
@@ -670,7 +670,7 @@ export default function Quality() {
                   <Link
                     href="/contact-us"
                     className="btn btn-primary dev-btn mt-3"
-                    aria-label="Contact Trimsel's AI team"
+                    aria-label="Contact Trimsel&rsquo;s AI team"
                   >
                     Contact Us{" "}
                     <Image

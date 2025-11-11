@@ -48,7 +48,7 @@ export default function ContactModal({ title }) {
         }
       }
       if (!recaptchaToken) {
-        setMessage("We couldn't verify you as human. Please try again.");
+        setMessage("We couldn&rsquo;t verify you as human. Please try again.");
         return;
       }
 
@@ -262,7 +262,7 @@ export default function ContactModal({ title }) {
                       <div className="col-lg-12 py-3">
                         <div className="md-form pe-3">
                           <label htmlFor="service" className="labels">
-                            <h5>I'm intrested in</h5>
+                            <h5>I&rsquo;m intrested in</h5>
                           </label>
                           <select
                             name="service"
@@ -345,7 +345,7 @@ export default function ContactModal({ title }) {
               />
               <h2 className="thank-heading">Thank you for Contacting us!</h2>
               <p className="thank-para">
-                We have received your message. We'll reach you out immediately!
+                We have received your message. We&rsquo;ll reach you out immediately!
               </p>
               <h6>
                 <Link

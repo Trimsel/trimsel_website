@@ -132,13 +132,13 @@ export default function About() {
           <strong> modern digital solutions</strong> that ensure <strong>growth, operational optimization</strong>, and 
           measurable <strong>ROI</strong>. At Trimsel, we architect mission-driven technology that accelerates innovation across <Link href="/cloud-consulting-services">cloud</Link>, <Link href="/mobile-app-development-chennai">mobile</Link>, and <Link href="/devops-consulting-services">DevOps</Link>.
         </p>
-        <Link href="/contact-us" passHref className="lts-talk-link" aria-label="Talk with Trimsel's digital transformation consultants">
+        <Link href="/contact-us" passHref className="lts-talk-link" aria-label="Talk with Trimsel&rsquo;s digital transformation consultants">
           <span className="visually-hidden">Book a strategy call with Trimsel</span>
           <Image
             src="/images/talkimg.png"
             width={150}
             height={150}
-            alt="Let's Talk with Trimsel"
+            alt="Let&rsquo;s Talk with Trimsel"
             className="lts-tlk"
             loading="lazy"
           />
@@ -184,7 +184,7 @@ export default function About() {
         </p>
 
         <p className="abot-abt-para">
-        Through our expertise, we enable enterprises to drive complete digital transformation through cutting-edge mobile & web development, cloud consulting, and DevOps automation. Whether it's automating internal workflows, improving customer engagement, or scaling your business model, we deliver tailored digital solutions that unlock long-term value and innovation.
+        Through our expertise, we enable enterprises to drive complete digital transformation through cutting-edge mobile & web development, cloud consulting, and DevOps automation. Whether it&rsquo;s automating internal workflows, improving customer engagement, or scaling your business model, we deliver tailored digital solutions that unlock long-term value and innovation.
         </p>
 
         <p className="abot-abt-para">
@@ -263,7 +263,7 @@ export default function About() {
             />
             <h3 className="qs-card-heading">Our Commitment to Clients</h3>
             <p className="qsd-para">
-              Your success is our mission. Whether you're a startup or a global enterprise, our commitment is to deliver scalable, secure, and mission-critical digital solutions that accelerate your path to market and maximize ROI.
+              Your success is our mission. Whether you&rsquo;re a startup or a global enterprise, our commitment is to deliver scalable, secure, and mission-critical digital solutions that accelerate your path to market and maximize ROI.
               <br /><br />
               User-focused design and engineering<br />
               End-to-end cloud and DevOps transformation<br />
@@ -340,7 +340,7 @@ export default function About() {
             <Image src="/images/versatile.png" width={142} height={142} className="dr-icon" alt="Tech Stack Icon" />
             <h3 className="do-card-heading">Cross-Platform & Emerging Tech Expertise</h3>
             <p className="do-para">
-            From Flutter and React Native to AI/ML, IoT, and Blockchain, our development team works across the full spectrum of modern technologies. We help businesses embrace innovation, reduce time-to-market, and build products that stand out in today's competitive tech ecosystem.
+            From Flutter and React Native to AI/ML, IoT, and Blockchain, our development team works across the full spectrum of modern technologies. We help businesses embrace innovation, reduce time-to-market, and build products that stand out in today&rsquo;s competitive tech ecosystem.
             </p>
           </Card.Body>
         </Card>
@@ -607,7 +607,7 @@ export default function About() {
                   alt="design-dot"
                   loading="lazy"
                 />
-                <p> LET'S CONNECT </p>
+                <p> LET&rsquo;S CONNECT </p>
               </div>
             </Stack>
 
@@ -615,7 +615,7 @@ export default function About() {
               Let’s Transform Your Business with Digital Innovation!
             </h2>
             <p className="abtcta-para">
-              Whether it's <strong>mobile app development</strong>, <strong>cloud consulting</strong>, <strong>DevOps automation</strong>, or <strong>digital marketing</strong>, our experts will guide your digital journey. Book a <strong>consultation</strong> today and discover how we can elevate your business. Expect a response within 24 hours and optional NDA before sharing details.
+              Whether it&rsquo;s <strong>mobile app development</strong>, <strong>cloud consulting</strong>, <strong>DevOps automation</strong>, or <strong>digital marketing</strong>, our experts will guide your digital journey. Book a <strong>consultation</strong> today and discover how we can elevate your business. Expect a response within 24 hours and optional NDA before sharing details.
             </p>
 
             <div className="cta-buttons d-flex flex-wrap gap-3 mt-3">

@@ -37,12 +37,12 @@ export default function Digital() {
       {
         question: "How does SEO work, and why is it important for Chennai-based businesses?",
         answer:
-          "SEO (Search Engine Optimization) improves your website's visibility on Google for relevant searches. If you're a business in Chennai, SEO ensures local customers find your services when they search online — which boosts credibility and sales.",
+          "SEO (Search Engine Optimization) improves your website&rsquo;s visibility on Google for relevant searches. If you&rsquo;re a business in Chennai, SEO ensures local customers find your services when they search online — which boosts credibility and sales.",
       },
       {
         question: "Do you offer Local SEO services?",
         answer:
-          "Yes, we specialize in Local SEO to help your business appear in local searches and Google Maps results. Whether you're a store, clinic, or service provider in Chennai, our Local SEO strategy can significantly increase your foot traffic and leads.",
+          "Yes, we specialize in Local SEO to help your business appear in local searches and Google Maps results. Whether you&rsquo;re a store, clinic, or service provider in Chennai, our Local SEO strategy can significantly increase your foot traffic and leads.",
       },
       {
         question: "What platforms do you cover under social media marketing?",
@@ -62,7 +62,7 @@ export default function Digital() {
       {
         question: "How do I know which digital marketing service I need?",
         answer:
-          "If you're not sure where to begin, our experts will assess your current digital presence and recommend a strategy that fits your business goals — whether it’s SEO, social media management, or paid advertising.",
+          "If you&rsquo;re not sure where to begin, our experts will assess your current digital presence and recommend a strategy that fits your business goals — whether it’s SEO, social media management, or paid advertising.",
       },
       {
         question: "Is social media marketing effective for B2B businesses?",
@@ -248,7 +248,7 @@ export default function Digital() {
           Leading Digital Marketing Company in Chennai – SEO, PPC & SMM Experts
         </h2>
         <p className="dig-para">
-        In today’s fast-paced online world, having a great product or service isn't enough. You need visibility. That’s where digital marketing comes in. Whether you want to increase website traffic, generate quality leads, or build a loyal customer base, digital marketing plays a vital role. From <Link href="/web-development-company-chennai">SEO-friendly web experiences</Link> and social media to paid advertising and content marketing, digital strategies help businesses grow, compete, and stay relevant in a crowded digital landscape.
+        In today’s fast-paced online world, having a great product or service isn&rsquo;t enough. You need visibility. That’s where digital marketing comes in. Whether you want to increase website traffic, generate quality leads, or build a loyal customer base, digital marketing plays a vital role. From <Link href="/web-development-company-chennai">SEO-friendly web experiences</Link> and social media to paid advertising and content marketing, digital strategies help businesses grow, compete, and stay relevant in a crowded digital landscape.
 </p>
         <p className="dig-para">
         At Trimsel, we empower brands to grow online with powerful digital marketing strategies. As a top digital marketing company in Chennai, we specialize in Search Engine Optimization (SEO), Pay-Per-Click (PPC), Content Marketing and Social Media Marketing (SMM) to drive measurable traffic, quality leads, and higher ROI. Need help aligning channels? Our <Link href="/cloud-consulting-services">cloud consultants</Link> and <Link href="/devops-consulting-services">DevOps architects</Link> ensure your martech stack scales with every campaign while <Link href="/ai-development-company">AI engineers</Link> unlock predictive targeting.
@@ -257,7 +257,7 @@ export default function Digital() {
         From T. Nagar retailers and OMR SaaS scale-ups to Ambattur manufacturers, we tailor channel mixes that reflect Chennai’s unique customer behavior. Expect hyperlocal landing pages, Tamil-and-English ad sets, and analytics dashboards that map every rupee you spend to pipeline created, supported by insights from our <Link href="/blog/how-mobile-apps-grow-business">latest growth playbooks</Link>.
         </p>
         <p className="dig-para">
-        The digital landscape changes rapidly with new Google algorithms, evolving user behavior, and dynamic platforms reshaping how businesses grow online. Our SEO experts in Chennai stay ahead of these trends to keep your brand visible, competitive, and conversion-focused. Whether you're a startup or an enterprise, we help you stay on top—see our <Link href="/blog/how-mobile-apps-grow-business">latest marketing insight</Link> for a preview of the playbooks we implement.
+        The digital landscape changes rapidly with new Google algorithms, evolving user behavior, and dynamic platforms reshaping how businesses grow online. Our SEO experts in Chennai stay ahead of these trends to keep your brand visible, competitive, and conversion-focused. Whether you&rsquo;re a startup or an enterprise, we help you stay on top—see our <Link href="/blog/how-mobile-apps-grow-business">latest marketing insight</Link> for a preview of the playbooks we implement.
 
         </p>
       </div>
@@ -460,7 +460,7 @@ export default function Digital() {
                     />
                     <h3 className="qs-card-heading"> B2B & B2C Marketing </h3>
                     <p className="qsd-para">
-                    Whether you're targeting other businesses or consumers, we craft tailored digital marketing strategies for both B2B and B2C audiences using LinkedIn, email marketing, and platform-specific campaigns.
+                    Whether you&rsquo;re targeting other businesses or consumers, we craft tailored digital marketing strategies for both B2B and B2C audiences using LinkedIn, email marketing, and platform-specific campaigns.
                     </p>
                     <Link href="#b2b-marketing">
                       <Image
@@ -704,7 +704,7 @@ export default function Digital() {
                   Why Trimsel is the Best Digital Marketing Agency in Chennai for Growth-Driven Brands
                 </h3>
                 <p className="digi-para">
-                We don't just "do digital marketing" — we build digital journeys that drive real business growth. We understand that behind every brand is a story, a goal, and a team striving to make an impact. That’s why our approach goes beyond campaigns and clicks.
+                We don&rsquo;t just &quot;do digital marketing&quot; — we build digital journeys that drive real business growth. We understand that behind every brand is a story, a goal, and a team striving to make an impact. That’s why our approach goes beyond campaigns and clicks.
                 </p>
                 <p className="digi-para">
                 Our expert digital marketing team helps businesses establish a strong online presence by combining <Link href="/web-development-company-chennai" className="text-link">
@@ -715,16 +715,16 @@ export default function Digital() {
                 Our team of <strong>SEO consultants, social media strategists, and PPC experts in Chennai</strong> work like an extension of your business — learning what sets you apart, understanding your audience, and tailoring a strategy that fits like a glove. No copy-paste tactics. No jargon. Just transparent, ROI-focused work that gets noticed.
                 </p>
                 <p className="digi-para">
-                What makes us different? We’re a performance-obsessed team that treats your success as our own. Whether you're a startup seeking visibility or an enterprise aiming to scale, we deliver measurable results through powerful <strong>SEO, Instagram & Facebook ads, LinkedIn marketing</strong>, and conversion-optimized campaigns.
+                What makes us different? We’re a performance-obsessed team that treats your success as our own. Whether you&rsquo;re a startup seeking visibility or an enterprise aiming to scale, we deliver measurable results through powerful <strong>SEO, Instagram & Facebook ads, LinkedIn marketing</strong>, and conversion-optimized campaigns.
                 </p>
                 <p className="digi-para">
   While most digital agencies stick to conventional methods, we embrace the future. At Trimsel, we integrate the power of <strong>AI-driven analytics, machine learning algorithms, and real-time marketing automation</strong> to gain deeper insights into user behavior and optimize campaigns for precision. This means your marketing spend goes further — reaching the right people, at the right time, with the right message.
 </p>
 <p className="digi-para">
-  Our tech-savvy approach allows us to predict search trends, analyze social sentiment, and dynamically adjust campaigns for maximum performance. Whether it's an <strong>AI-powered SEO strategy</strong>, chatbot-led lead generation, or smart A/B testing for paid ads, we bring Silicon Valley-level innovation right here to your business in Chennai.
+  Our tech-savvy approach allows us to predict search trends, analyze social sentiment, and dynamically adjust campaigns for maximum performance. Whether it&rsquo;s an <strong>AI-powered SEO strategy</strong>, chatbot-led lead generation, or smart A/B testing for paid ads, we bring Silicon Valley-level innovation right here to your business in Chennai.
 </p>
 <p className="digi-para">
-          If you're looking for a digital partner — not just another agency — you've just found one.
+          If you&rsquo;re looking for a digital partner — not just another agency — you&rsquo;ve just found one.
         </p>
               </div>
               <div
@@ -759,8 +759,8 @@ export default function Digital() {
               </div>
               <div className="col-lg-7 col-md-7">
                 <p className="lev-para">
-                Whether you're a startup founder, small business owner, or established enterprise—
-          digital marketing is the lifeline of your online growth. But if you're not seeing the 
+                Whether you&rsquo;re a startup founder, small business owner, or established enterprise—
+          digital marketing is the lifeline of your online growth. But if you&rsquo;re not seeing the 
           leads, engagement, or conversions you expect... something needs to change.
                 </p>
                 <ul style={{ paddingLeft: "0px" }}>
@@ -895,11 +895,11 @@ export default function Digital() {
               Not Sure How to Start with Digital Marketing? Let’s Build a Strategy That Works for You.
             </h2>
             <p className="cta-description">
-              Whether you're a startup or scaling business, Trimsel's digital marketing experts in Chennai are ready to help. From SEO to social media and PPC, we’ll craft a custom strategy to grow your brand online.
+              Whether you&rsquo;re a startup or scaling business, Trimsel&rsquo;s digital marketing experts in Chennai are ready to help. From SEO to social media and PPC, we’ll craft a custom strategy to grow your brand online.
             </p>
             <Link href="/contact-us" passHref>
               <button className="digcta-button btn-lg btn-info mt-3">
-                Let's Boost Your Business!
+                Let&rsquo;s Boost Your Business!
                 <span className="icon">
                   <Image
                     src="/images/arow-white.png"
@@ -983,7 +983,7 @@ export default function Digital() {
         <Accordion.Header>How does SEO work, and why is it important for Chennai-based businesses?</Accordion.Header>
         <Accordion.Body>
           <p className="accordion-para">
-          SEO works by optimizing your website’s content, structure, and authority so that it ranks higher in search engine results. This makes it easier for potential customers to find you online. It's essential because it drives organic traffic, builds credibility, and helps your business grow sustainably without relying solely on paid advertising.
+          SEO works by optimizing your website’s content, structure, and authority so that it ranks higher in search engine results. This makes it easier for potential customers to find you online. It&rsquo;s essential because it drives organic traffic, builds credibility, and helps your business grow sustainably without relying solely on paid advertising.
           </p>
         </Accordion.Body>
       </Accordion.Item>
@@ -992,7 +992,7 @@ export default function Digital() {
         <Accordion.Header>Do you offer Local SEO services?</Accordion.Header>
         <Accordion.Body>
           <p className="accordion-para">
-            Yes, we specialize in Local SEO to help your business appear in local searches and Google Maps results. Whether you're a store, clinic, or service provider in Chennai, our Local SEO strategy can significantly increase your foot traffic and leads.
+            Yes, we specialize in Local SEO to help your business appear in local searches and Google Maps results. Whether you&rsquo;re a store, clinic, or service provider in Chennai, our Local SEO strategy can significantly increase your foot traffic and leads.
           </p>
         </Accordion.Body>
       </Accordion.Item>
@@ -1028,7 +1028,7 @@ export default function Digital() {
         <Accordion.Header>How do I know which digital marketing service I need?</Accordion.Header>
         <Accordion.Body>
           <p className="accordion-para">
-            If you're not sure where to begin, our experts will assess your current digital presence and recommend a strategy that fits your business goals — whether it’s SEO, social media management, or paid advertising.
+            If you&rsquo;re not sure where to begin, our experts will assess your current digital presence and recommend a strategy that fits your business goals — whether it’s SEO, social media management, or paid advertising.
           </p>
         </Accordion.Body>
       </Accordion.Item>

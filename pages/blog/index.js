@@ -11,6 +11,17 @@ import Carousel from "react-bootstrap/Carousel";
 import { useState } from "react";
 import { NextSeo } from "next-seo";
 
+const CarouselControls = ({ onClickPrev, onClickNext }) => (
+  <>
+    <span className="carousel-control-prev" onClick={onClickPrev}>
+      <img src="/images/circle-arrow-left.png" className="prevblg" alt="Previous blog posts" />
+    </span>
+    <span className="carousel-control-next" onClick={onClickNext}>
+      <img src="/images/circle-arrow-right.png" className="nextblg" alt="Next blog posts" />
+    </span>
+  </>
+);
+
 const mapTags = (tags) => {
   if (!Array.isArray(tags)) return [];
 
@@ -34,19 +45,6 @@ export default function Blog({ posts }) {
     setIndex(selectedIndex);
   };
 
-  const CustomControls = ({ onClickPrev, onClickNext }) => {
-    return (
-      <>
-        <span className="carousel-control-prev" onClick={onClickPrev}>
-          <img src="/images/circle-arrow-left.png" className="prevblg" />
-        </span>
-        <span className="carousel-control-next" onClick={onClickNext}>
-          <img src="/images/circle-arrow-right.png" className="nextblg" />
-        </span>
-      </>
-    );
-  };
-
   const handlePrev = () => {
     if (index === 0) {
       setIndex(newSlicedPosts.length - 1);
@@ -57,7 +55,7 @@ export default function Blog({ posts }) {
 
   const handleNext = () => {
     if (index === newSlicedPosts.length - 1) {
-      // if we're on the last slide, loop back to the first slide
+      // if we&rsquo;re on the last slide, loop back to the first slide
       setIndex(0);
     } else {
       // otherwise, go to the next slide
@@ -109,7 +107,7 @@ export default function Blog({ posts }) {
         <div className="container blog-container">
           <Breadcrumb>
             <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-            <img src="/images/Group227.png" />
+            <img src="/images/Group227.png" alt="" aria-hidden="true" />
             <Breadcrumb.Item active>
               {" "}
               <strong> Blogs </strong>{" "}
@@ -131,19 +129,19 @@ export default function Blog({ posts }) {
                   href="https://www.facebook.com/trimsel.softwares"
                   target="_blank"
                 >
-                  <img src="/images/facebook61.png" className="social-img" />
+                  <img src="/images/facebook61.png" className="social-img" alt="Follow Trimsel on Facebook" />
                 </Link>
                 <Link
                   href="https://www.instagram.com/trimsel/"
                   target="_blank"
                 >
-                  <img src="/images/instagram61.png" className="social-img" />
+                  <img src="/images/instagram61.png" className="social-img" alt="Follow Trimsel on Instagram" />
                 </Link>
                 <Link href="https://www.linkedin.com/company/trimsel">
-                  <img src="/images/linkedin71.png" className="social-img" />
+                  <img src="/images/linkedin71.png" className="social-img" alt="Follow Trimsel on LinkedIn" />
                 </Link>
                 <Link href="https://in.pinterest.com/trimsel/">
-                  <img src="/images/pinterest71.png" className="social-img" />
+                  <img src="/images/pinterest71.png" className="social-img" alt="Follow Trimsel on Pinterest" />
                 </Link>
               </button>
             </div>
@@ -196,7 +194,7 @@ export default function Blog({ posts }) {
                   </Carousel.Item>
                 ))}
                 <Carousel.Caption>
-                  <CustomControls
+                  <CarouselControls
                     onClickPrev={handlePrev}
                     onClickNext={handleNext}
                   />
@@ -300,8 +298,8 @@ export default function Blog({ posts }) {
                   <Link href="/contact-us" passHref>
                     <button className="blgcta-btn mt-3">
                       {" "}
-                      Let's Discuss Your Project{" "}
-                      <img src="/images/material-symbols_arrow-right-alt.png" />{" "}
+                      Let&rsquo;s Discuss Your Project{" "}
+                      <img src="/images/material-symbols_arrow-right-alt.png" alt="" aria-hidden="true" />{" "}
                     </button>
                   </Link>
                 </div>

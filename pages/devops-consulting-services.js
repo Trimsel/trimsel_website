@@ -268,7 +268,7 @@ export default function DevOps() {
               <Link
                 href="/contact-us"
                 className="dev-abt-btn btn mt-3"
-                aria-label="Talk to Trimsel's DevOps consultants"
+                aria-label="Talk to Trimsel&rsquo;s DevOps consultants"
               >
                 Get a Consultation
                 <img
@@ -359,7 +359,7 @@ export default function DevOps() {
                             </ul>
                           </div>
                         </div>
-                        <p className="devtab-para">With Trimsel's Continuous Integration services, you get faster feedback loops, improved collaboration, and accelerated time to market.</p>
+                        <p className="devtab-para">With Trimsel&rsquo;s Continuous Integration services, you get faster feedback loops, improved collaboration, and accelerated time to market.</p>
                         <p className="devtab-para">
   Looking to <strong>hire DevOps engineers</strong> to build custom CI workflows? Trimsel is a <strong>DevOps service company</strong> helping businesses implement scalable pipelines.
 </p>
@@ -984,7 +984,7 @@ export default function DevOps() {
           </Stack>
           <div className="row pt-3">
             <div className="col-lg-5 col-md-5">
-              <h2 className="client-title">We're A Trusted Growth Partner</h2>
+              <h2 className="client-title">We&rsquo;re A Trusted Growth Partner</h2>
             </div>
             <div className="col-lg-7 col-md-7">
               <p className="cliented-text">

@@ -66,7 +66,7 @@ export default function CloudConsulting() {
       {
         question: "Do you provide cloud cost optimization services?",
         answer:
-          "Yes. Trimsel's cloud cost optimization services identify and eliminate unnecessary cloud spend, optimize resource usage, and implement budgeting strategies. We help businesses improve ROI while maintaining performance across AWS, Azure, and GCP.",
+          "Yes. Trimsel&rsquo;s cloud cost optimization services identify and eliminate unnecessary cloud spend, optimize resource usage, and implement budgeting strategies. We help businesses improve ROI while maintaining performance across AWS, Azure, and GCP.",
       },
       {
         question: "What is cloud-native application development?",
@@ -91,7 +91,7 @@ export default function CloudConsulting() {
       {
         question: "How do I get started with your cloud services?",
         answer:
-          "Simply reach out to our cloud consulting team for an assessment. We'll evaluate your current environment, understand your goals, and propose a personalized roadmap covering cloud strategy, migration, optimization, and ongoing support.",
+          "Simply reach out to our cloud consulting team for an assessment. We&rsquo;ll evaluate your current environment, understand your goals, and propose a personalized roadmap covering cloud strategy, migration, optimization, and ongoing support.",
       },
     ],
     breadcrumbs: [
@@ -208,7 +208,7 @@ export default function CloudConsulting() {
                 <Link
                   href="/contact-us"
                   className="btn btn-primary dev-btn"
-                  aria-label="Contact Trimsel's cloud consultants"
+                  aria-label="Contact Trimsel&rsquo;s cloud consultants"
                 >
                   Contact Our Cloud Experts <ArrowRightIcon width={18} height={18} />
                 </Link>
@@ -260,7 +260,7 @@ export default function CloudConsulting() {
             <Image src="/images/cloud-mig.png" width={80} height={80} className="do-icon pb-3" alt="Cloud Migration icon" quality={70} loading="lazy" />
             <h3 className="qs-card-heading">Cloud Migration Services & Adoption Consulting</h3>
             <p className="qsd-para">
-            Transition seamlessly to the cloud with our cloud migration services. Our AWS cloud experts, Azure consultants, and GCP specialists design the best-fit cloud adoption strategy, ensuring minimal disruption, optimized performance, and cost efficiency. Whether you're migrating from on-premise to the cloud or between cloud providers, we provide a secure, scalable, and cost-effective migration plan.
+            Transition seamlessly to the cloud with our cloud migration services. Our AWS cloud experts, Azure consultants, and GCP specialists design the best-fit cloud adoption strategy, ensuring minimal disruption, optimized performance, and cost efficiency. Whether you&rsquo;re migrating from on-premise to the cloud or between cloud providers, we provide a secure, scalable, and cost-effective migration plan.
             </p>
           </Card.Body>
         </Card>
@@ -284,7 +284,7 @@ export default function CloudConsulting() {
             <Image src="/images/cloud-infra.png" width={80} height={80} className="do-icon pb-3" alt="Cloud Infrastructure icon" quality={70} loading="lazy" />
             <h3 className="qs-card-heading">Cloud Engineering & Infrastructure Management Services</h3>
             <p className="qsd-para">
-              Ensure a resilient, high-performing cloud infrastructure with our cloud engineering services. Our multi-cloud experts handle everything from serverless architecture to Kubernetes deployments and cloud automation. If you're building a SaaS or large-scale web solution, our <Link href="/web-development-company-chennai">web development expertise</Link> ensures seamless performance and cloud integration.
+              Ensure a resilient, high-performing cloud infrastructure with our cloud engineering services. Our multi-cloud experts handle everything from serverless architecture to Kubernetes deployments and cloud automation. If you&rsquo;re building a SaaS or large-scale web solution, our <Link href="/web-development-company-chennai">web development expertise</Link> ensures seamless performance and cloud integration.
             </p>
           </Card.Body>
         </Card>
@@ -568,14 +568,14 @@ export default function CloudConsulting() {
           Why Choose Trimsel for Cloud Consulting?
           </h2>
           <p className="value-para">
-          At Trimsel, we ensure seamless cloud transformation with minimal risk and maximum efficiency. Our cloud consulting services are designed to optimize costs, enhance security, and drive tangible business value—helping you scale effortlessly across AWS, Azure, and GCP."
+          At Trimsel, we ensure seamless cloud transformation with minimal risk and maximum efficiency. Our cloud consulting services are designed to optimize costs, enhance security, and drive tangible business value—helping you scale effortlessly across AWS, Azure, and GCP.
           </p>
           <div className="row">
             <div className="col-lg-3 col-md-6">
               <Card className="value-card">
                 <h3 className="val-card-heading">Scalable Cloud Architecture</h3>
                 <p className="val-card-para">
-                We architect future-ready cloud systems that scale effortlessly with your business needs. Whether you're a startup preparing for rapid growth or an enterprise seeking performance optimization, our experts design resilient, high-availability infrastructures tailored for AWS, Azure, and GCP. We incorporate load balancing, auto-scaling groups, and failover mechanisms to ensure your applications remain fast, reliable, and responsive under any traffic condition. With our scalable cloud architecture services, you gain the flexibility to expand without disruption, reduce downtime, and deliver consistent user experiences across regions.
+                We architect future-ready cloud systems that scale effortlessly with your business needs. Whether you&rsquo;re a startup preparing for rapid growth or an enterprise seeking performance optimization, our experts design resilient, high-availability infrastructures tailored for AWS, Azure, and GCP. We incorporate load balancing, auto-scaling groups, and failover mechanisms to ensure your applications remain fast, reliable, and responsive under any traffic condition. With our scalable cloud architecture services, you gain the flexibility to expand without disruption, reduce downtime, and deliver consistent user experiences across regions.
                 </p>
               </Card>
             </div>
@@ -593,7 +593,7 @@ export default function CloudConsulting() {
                 Cloud Expertise Across AWS, Azure & GCP
                 </h3>
                 <p className="val-card-para">
-                Our certified cloud consultants bring hands-on expertise across all major platforms — AWS, Microsoft Azure, and Google Cloud Platform (GCP). Whether you're planning a multi-cloud strategy, migrating workloads, or optimizing your infrastructure, our engineers ensure seamless integration, cost efficiency, and scalability. With deep platform knowledge, we tailor cloud architectures that align perfectly with your business objectives and industry-specific demands.
+                Our certified cloud consultants bring hands-on expertise across all major platforms — AWS, Microsoft Azure, and Google Cloud Platform (GCP). Whether you&rsquo;re planning a multi-cloud strategy, migrating workloads, or optimizing your infrastructure, our engineers ensure seamless integration, cost efficiency, and scalability. With deep platform knowledge, we tailor cloud architectures that align perfectly with your business objectives and industry-specific demands.
                 </p>
               </Card>
             </div>
@@ -601,7 +601,7 @@ export default function CloudConsulting() {
               <Card className="value-card">
                 <h3 className="val-card-heading3">Cloud-Powered Innovation</h3>
                 <p className="val-card-para">
-                Embrace the full potential of digital transformation with Trimsel’s cloud innovation capabilities. We help businesses harness cutting-edge cloud-native technologies like serverless computing, container orchestration, artificial intelligence, and machine learning. Whether you're building intelligent apps, deploying real-time analytics, or automating workflows, our cloud experts empower your team to innovate faster and smarter. With deep platform expertise and DevOps integration, we enable rapid prototyping, continuous improvement, and faster time-to-market—driving real competitive advantage in today’s digital economy.
+                Embrace the full potential of digital transformation with Trimsel’s cloud innovation capabilities. We help businesses harness cutting-edge cloud-native technologies like serverless computing, container orchestration, artificial intelligence, and machine learning. Whether you&rsquo;re building intelligent apps, deploying real-time analytics, or automating workflows, our cloud experts empower your team to innovate faster and smarter. With deep platform expertise and DevOps integration, we enable rapid prototyping, continuous improvement, and faster time-to-market—driving real competitive advantage in today’s digital economy.
                 </p>
               </Card>
             </div>
@@ -624,7 +624,7 @@ export default function CloudConsulting() {
           Leading Cloud Platforms We Support
         </h3>
         <p className="support-para">
-          As certified cloud experts, Trimsel provides consulting and support across all major cloud platforms—Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP). Whether you're planning a new deployment or managing a multi-cloud environment, our AWS Cloud experts, Azure consultants, and GCP specialists ensure secure, scalable, and high-performing cloud infrastructure tailored to your business goals.
+          As certified cloud experts, Trimsel provides consulting and support across all major cloud platforms—Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP). Whether you&rsquo;re planning a new deployment or managing a multi-cloud environment, our AWS Cloud experts, Azure consultants, and GCP specialists ensure secure, scalable, and high-performing cloud infrastructure tailored to your business goals.
         </p>
       </div>
       <div className="col-lg-6 col-md-6 support-col">
@@ -792,14 +792,14 @@ export default function CloudConsulting() {
                   height={18}
                   loading="lazy"
                 />
-                <p> LET'S TALK CLOUD </p>
+                <p> LET&rsquo;S TALK CLOUD </p>
               </div>
             </Stack>
             <h2 className="cldcta-heading pt-2">
               Accelerate Your Business with Expert Cloud Consulting Services
             </h2>
             <p className="cloud-cta-para mt-2 text-white">
-              Whether you're planning a cloud migration, cost optimization, or full-scale modernization—our certified AWS, Azure, and GCP consultants are here to help. Let’s turn your cloud vision into scalable results.
+              Whether you&rsquo;re planning a cloud migration, cost optimization, or full-scale modernization—our certified AWS, Azure, and GCP consultants are here to help. Let’s turn your cloud vision into scalable results.
             </p>
             <Link
               href="/contact-us"
@@ -1051,7 +1051,7 @@ export default function CloudConsulting() {
           </Stack>
           <div className="row pt-3">
             <div className="col-lg-6 col-md-6">
-              <h2 className="client-title">We're A Trusted Growth Partner</h2>
+              <h2 className="client-title">We&rsquo;re A Trusted Growth Partner</h2>
             </div>
             <div className="col-lg-6 col-md-6">
               <p className="cliented-text">
@@ -1115,7 +1115,7 @@ export default function CloudConsulting() {
                       Top 10 Mobile App Development Frameworks in 2023
                     </h5>
                     <p className="blog-card-para">
-                      We've entered on age where our lives are...{" "}
+                      We&rsquo;ve entered on age where our lives are...{" "}
                       <Link href="#">Read More</Link>
                     </p>
                   </div>
@@ -1134,7 +1134,7 @@ export default function CloudConsulting() {
                       Top 10 Mobile App Development Frameworks in 2023
                     </h5>
                     <p className="blog-card-para">
-                      We've entered on age where our lives are...{" "}
+                      We&rsquo;ve entered on age where our lives are...{" "}
                       <Link href="#">Read More</Link>
                     </p>
                   </div>
@@ -1252,7 +1252,7 @@ export default function CloudConsulting() {
         </Accordion.Header>
         <Accordion.Body>
           <p className="accordion-para">
-            Yes. Trimsel's cloud cost optimization services identify and eliminate unnecessary cloud spend, optimize resource usage, and implement budgeting strategies. We help businesses improve ROI while maintaining performance across AWS, Azure, and GCP.
+            Yes. Trimsel&rsquo;s cloud cost optimization services identify and eliminate unnecessary cloud spend, optimize resource usage, and implement budgeting strategies. We help businesses improve ROI while maintaining performance across AWS, Azure, and GCP.
           </p>
         </Accordion.Body>
       </Accordion.Item>
@@ -1307,7 +1307,7 @@ export default function CloudConsulting() {
         </Accordion.Header>
         <Accordion.Body>
           <p className="accordion-para">
-            Simply reach out to our cloud consulting team for an assessment. We'll evaluate your current environment, understand your goals, and propose a personalized roadmap covering cloud strategy, migration, optimization, and ongoing support.
+            Simply reach out to our cloud consulting team for an assessment. We&rsquo;ll evaluate your current environment, understand your goals, and propose a personalized roadmap covering cloud strategy, migration, optimization, and ongoing support.
           </p>
         </Accordion.Body>
       </Accordion.Item>

@@ -182,7 +182,7 @@ export default function Mocial() {
                           <p className="moc-para">
                             Search your family, colleagues, new friends and
                             people as well as stay connected with them. Upload
-                            photos, post updates and share someone else's posts
+                            photos, post updates and share someone else&rsquo;s posts
                             to spread what is happening around you.
                           </p>
                         </div>
@@ -439,14 +439,14 @@ export default function Mocial() {
               </div>
               <div className="col-lg-5 col-md-5">
                 <p className="mocial-chl-para">
-                  Upload photos, post updates and share someone else's posts to
+                  Upload photos, post updates and share someone else&rsquo;s posts to
                   spread what is happening around you. Create group chats and
                   calls with your loved ones for effective communication.
                 </p>
                 <p className="mocial-chl-para">
                   Search your family, colleagues, new friends and people as well
                   as stay connected with them. Upload photos, post updates and
-                  share someone else's posts to spread what is happening around
+                  share someone else&rsquo;s posts to spread what is happening around
                   you. Create group chats and calls with your loved ones for
                   effective communication. Be notified when someone rates,
                   comments or share your posts. Organize the photos you uploaded
@@ -477,7 +477,7 @@ export default function Mocial() {
                 requirement of an internet channel or financial sectors.
               </h2>
               <p className="mocial-chl-para">
-                Upload photos, post updates and share someone else's posts to
+                Upload photos, post updates and share someone else&rsquo;s posts to
                 spread what is happening around you. Create group chats and
                 calls with your loved ones for effective communication. Be
                 notified when someone rates, comments or share your posts.
@@ -523,7 +523,7 @@ export default function Mocial() {
                 <ol className="moc-list">
                   <li>
                     <p className="mocial-chl-para">
-                      Upload photos, post updates and share someone else's posts
+                      Upload photos, post updates and share someone else&rsquo;s posts
                       to spread what is happening around you.
                     </p>
                   </li>
@@ -720,7 +720,7 @@ export default function Mocial() {
                   <div className="col-lg-6 col-md-6">
                     <Card className="case-carousel-card">
                       <Card.Header className="case-carousel-header">
-                        <img src="/images/Group3001.png" />
+                        <img src="/images/Group3001.png"  alt=""/>
                       </Card.Header>
                       <Card.Body className="case-carousel-body">
                         <h3 className="case-carousel-heading">Ezyhelpers</h3>
@@ -737,7 +737,7 @@ export default function Mocial() {
                   <div className="col-lg-6 col-md-6">
                     <Card className="case-carousel-card">
                       <Card.Header className="case-carousel-header">
-                        <img src="/images/Group3002.png" />
+                        <img src="/images/Group3002.png"  alt=""/>
                       </Card.Header>
                       <Card.Body className="case-carousel-body">
                         <h3 className="case-carousel-heading">Xaber</h3>
@@ -762,7 +762,7 @@ export default function Mocial() {
                   <div className="col-lg-6 col-md-6">
                     <Card className="case-carousel-card">
                       <Card.Header className="case-carousel-header">
-                        <img src="/images/Group3001.png" />
+                        <img src="/images/Group3001.png"  alt=""/>
                       </Card.Header>
                       <Card.Body className="case-carousel-body">
                         <h3 className="case-carousel-heading">Ezyhelpers</h3>
@@ -779,7 +779,7 @@ export default function Mocial() {
                   <div className="col-lg-6 col-md-6">
                     <Card className="case-carousel-card">
                       <Card.Header className="case-carousel-header">
-                        <img src="/images/Group3002.png" />
+                        <img src="/images/Group3002.png"  alt=""/>
                       </Card.Header>
                       <Card.Body className="case-carousel-body">
                         <h3 className="case-carousel-heading">Xaber</h3>
@@ -804,7 +804,7 @@ export default function Mocial() {
                   <div className="col-lg-6 col-md-6">
                     <Card className="case-carousel-card">
                       <Card.Header className="case-carousel-header">
-                        <img src="/images/Group3001.png" />
+                        <img src="/images/Group3001.png"  alt=""/>
                       </Card.Header>
                       <Card.Body className="case-carousel-body">
                         <h3 className="case-carousel-heading">Ezyhelpers</h3>
@@ -821,7 +821,7 @@ export default function Mocial() {
                   <div className="col-lg-6 col-md-6">
                     <Card className="case-carousel-card">
                       <Card.Header className="case-carousel-header">
-                        <img src="/images/Group3002.png" />
+                        <img src="/images/Group3002.png"  alt=""/>
                       </Card.Header>
                       <Card.Body className="case-carousel-body">
                         <h3 className="case-carousel-heading">Xaber</h3>

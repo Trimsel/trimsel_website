@@ -1,14 +1,14 @@
 import Head from "next/head";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { FaBars } from "@react-icons/all-files/fa/FaBars";
 import { HiArrowNarrowRight } from "@react-icons/all-files/hi/HiArrowNarrowRight";
 import Image from "next/image";
 
 
 function Header({ page }) {
-  const [logo, setLogo] = useState("default");
   const navRef = useRef(null);
+  const logoVariant = page === "mobile-app" ? "mobile-app" : "default";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,27 +25,16 @@ function Header({ page }) {
     };
   }, []);
 
-  useEffect(() => {
-    switch (page) {
-      case "default":
-        setLogo("default");
-        break;
-      case "mobile-app":
-        setLogo("mobile-app");
-    }
-  }, [page]);
- 
-
   return (
     <>
       <header className="menu_wrapper">
         <nav className="navbar navbar-expand-lg fixed-top" ref={navRef} role="navigation" aria-label="Main navigation">
           <div className="container">
             <Link className="navbar-brand" href="/">
-              {logo === "default" && (
+              {logoVariant === "default" && (
                 <Image src="/trimsel-logo.svg" alt="Trimsel logo" width={150} height={40} priority />
               )}
-              {logo === "mobile-app" && (
+              {logoVariant === "mobile-app" && (
                 <Image src="/trimsel-logo-white.svg" alt="Trimsel logo" width={150} height={40} priority />
               )}
             </Link>
@@ -66,10 +55,12 @@ function Header({ page }) {
               aria-labelledby="offcanvasNavbarLabel"
             >
               <div className="offcanvas-header">
-                <img
+                <Image
                   src="/trimsel-logo.svg"
-                  alt="Trimsel Logo"
-                  style={{ width: "170px", height: "auto" }}
+                  alt="Trimsel logo"
+                  width={170}
+                  height={48}
+                  priority
                 />
                 <button
                   type="button"

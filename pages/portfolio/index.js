@@ -3,7 +3,6 @@ import Link from "next/link";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import Image from "next/image";
-import Script from "next/script";
 import Stack from "react-bootstrap/Stack";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
@@ -70,7 +69,7 @@ function Portfolio() {
         ease: Power2.out,
       });
     });
-  }, []);
+  }, [gsap]);
   const {
     register,
     handleSubmit,
@@ -543,7 +542,7 @@ function Portfolio() {
             <div className="row pt-3">
               <div className="col-lg-6 col-md-6">
                 <h2 className="client-title">
-                  We're A Trusted Growth Partner
+                  We&rsquo;re A Trusted Growth Partner
                 </h2>
               </div>
               <div className="col-lg-6 col-md-6">
@@ -575,7 +574,7 @@ function Portfolio() {
             <div className="row">
               <div className="col-lg-8 col-md-8">
                 <h2 className="contact-heading">
-                  Hello! Let's make great work together.{" "}
+                  Hello! Let&rsquo;s make great work together.{" "}
                   <span> &#129304; </span>{" "}
                 </h2>
                 <p className="contact-text">
@@ -609,7 +608,7 @@ function Portfolio() {
                       />
                     </div>
                     <div className="col-lg-10 col-md-12 col-10">
-                      <p className="lets-para mb-0">Let's talk</p>
+                      <p className="lets-para mb-0">Let&rsquo;s talk</p>
                       <Link href="/contact-us" className="lets-link">
                         Consult Our Experts
                       </Link>
@@ -664,10 +663,10 @@ function Portfolio() {
               <div className="col-lg-8 col-md-8">
                 <div className="card ntoct-card">
                   <h3 className="stages-heading">Have an idea?</h3>
-                  <h3 className="cntoct-heading">Let's get in touch</h3>
+                  <h3 className="cntoct-heading">Let&rsquo;s get in touch</h3>
 
                   <form id="home-form" onSubmit={handleSubmit(onSubmitForm)}>
-                    <p className="mt-5 form-lbl-para"> I'm intrested in :</p>
+                    <p className="mt-5 form-lbl-para"> I&rsquo;m intrested in :</p>
                     <div className="options">
                       <input
                         {...register("product")}
@@ -922,7 +921,6 @@ function Portfolio() {
           </div>
         </section>
         <Footer />
-        <Script type="module" src="/sc.js"></Script>
       </main>
     </>
   );

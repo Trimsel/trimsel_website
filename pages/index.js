@@ -246,7 +246,7 @@ export default function Home() {
               src="/images/homecta.webp"
               width={480}
               height={500}
-              alt="Connect with Trimsel's Digital Experts"
+              alt="Connect with Trimsel&rsquo;s Digital Experts"
               className="hmcta-image"
               loading="lazy"
               quality={70}
@@ -292,7 +292,7 @@ export default function Home() {
             <Image src="/images/app-development.png" width={80} height={80} className="do-icon pb-3" alt="App Development icon" loading="lazy" />
             <h3 className="qs-card-heading">Mobile App Development</h3>
             <p className="qsd-para">
-              As a <a href="/mobile-app-development-chennai">top mobile app development company in Chennai</a>, we deliver custom Android, iOS & cross-platform solutions with exceptional UX, performance, and scalability.
+              As a <Link href="/mobile-app-development-chennai">top mobile app development company in Chennai</Link>, we deliver custom Android, iOS & cross-platform solutions with exceptional UX, performance, and scalability.
             </p>
           </Card.Body>
         </Card>
@@ -305,7 +305,7 @@ export default function Home() {
             <Image src="/images/backend.png" width={80} height={80} className="do-icon pb-3" alt="Web Development icon" loading="lazy" />
             <h3 className="qs-card-heading">Website Development</h3>
             <p className="qsd-para">
-              We’re a <a href="/web-development-company-chennai">leading website development company in Chennai</a> building fast, SEO-friendly websites and enterprise-grade web applications that scale with your business.
+              We’re a <Link href="/web-development-company-chennai">leading website development company in Chennai</Link> building fast, SEO-friendly websites and enterprise-grade web applications that scale with your business.
             </p>
           </Card.Body>
         </Card>
@@ -318,7 +318,7 @@ export default function Home() {
             <Image src="/images/cloud-computing.png" width={80} height={80} className="do-icon pb-3" alt="Cloud Computing icon" loading="lazy" />
             <h3 className="qs-card-heading">Cloud Consulting Services</h3>
             <p className="qsd-para">
-              Our <a href="/cloud-consulting-services">cloud consulting experts</a> help you migrate, modernize, and optimize with AWS, Azure, and GCP for scalable and cost-effective cloud infrastructure.
+              Our <Link href="/cloud-consulting-services">cloud consulting experts</Link> help you migrate, modernize, and optimize with AWS, Azure, and GCP for scalable and cost-effective cloud infrastructure.
             </p>
           </Card.Body>
         </Card>
@@ -331,7 +331,7 @@ export default function Home() {
             <Image src="/images/devops.png" width={80} height={80} className="do-icon pb-3" alt="DevOps icon" loading="lazy" />
             <h3 className="qs-card-heading">DevOps Consulting</h3>
             <p className="qsd-para">
-              Our <a href="/devops-consulting-services">DevOps services in India</a> bring automation, CI/CD, and container orchestration (Kubernetes, Docker) to boost development speed and infrastructure reliability.
+              Our <Link href="/devops-consulting-services">DevOps services in India</Link> bring automation, CI/CD, and container orchestration (Kubernetes, Docker) to boost development speed and infrastructure reliability.
             </p>
           </Card.Body>
         </Card>
@@ -344,7 +344,7 @@ export default function Home() {
             <Image src="/images/digital-marketing.png" width={80} height={80} className="do-icon pb-3" alt="Digital Marketing icon" loading="lazy" />
             <h3 className="qs-card-heading">Digital Marketing</h3>
             <p className="qsd-para">
-              As a performance-driven <a href="/digital-marketing-company-chennai">digital marketing agency in Chennai</a>, we offer SEO, PPC, social ads & content strategies to help you grow visibility and leads.
+              As a performance-driven <Link href="/digital-marketing-company-chennai">digital marketing agency in Chennai</Link>, we offer SEO, PPC, social ads & content strategies to help you grow visibility and leads.
             </p>
           </Card.Body>
         </Card>
@@ -367,7 +367,7 @@ export default function Home() {
       <h3 className="qs-card-heading">AI Development</h3>
 
       <p className="qsd-para">
-      Bring AI to the heart of your business with solutions like chatbots, copilots, intelligent search, computer vision, and workflow automation. Our <a href="/ai-development-company">AI development team in Chennai</a> uses LLMs, retrieval-augmented generation, and fine-tuning to take your idea from prototype to production—securely, quickly, and at scale.
+      Bring AI to the heart of your business with solutions like chatbots, copilots, intelligent search, computer vision, and workflow automation. Our <Link href="/ai-development-company">AI development team in Chennai</Link> uses LLMs, retrieval-augmented generation, and fine-tuning to take your idea from prototype to production—securely, quickly, and at scale.
       </p>
     </Card.Body>
   </Card>
@@ -512,7 +512,7 @@ export default function Home() {
         </Accordion.Header>
         <Accordion.Body>
           <p className="accordion-para">
-            Trimsel offers <a href="/web-development-company-chennai">custom software development</a>, <a href="/mobile-app-development-chennai">mobile app development in Chennai</a>, web design, <a href="/cloud-consulting-services">cloud consulting</a>, DevOps automation, digital marketing, and quality engineering services. Our solutions are tailored to help businesses digitally transform and scale efficiently.
+            Trimsel offers <Link href="/web-development-company-chennai">custom software development</Link>, <Link href="/mobile-app-development-chennai">mobile app development in Chennai</Link>, web design, <Link href="/cloud-consulting-services">cloud consulting</Link>, DevOps automation, digital marketing, and quality engineering services. Our solutions are tailored to help businesses digitally transform and scale efficiently.
           </p>
         </Accordion.Body>
       </Accordion.Item>
@@ -523,7 +523,7 @@ export default function Home() {
         </Accordion.Header>
         <Accordion.Body>
           <p className="accordion-para">
-            We work across multiple industries including Fintech, Healthcare, E-commerce, SaaS, Logistics, and Startups. Our <a href="/mobile-app-development-chennai">digital transformation solutions</a> are customized to suit industry-specific needs such as scalability, compliance, and automation.
+            We work across multiple industries including Fintech, Healthcare, E-commerce, SaaS, Logistics, and Startups. Our <Link href="/mobile-app-development-chennai">digital transformation solutions</Link> are customized to suit industry-specific needs such as scalability, compliance, and automation.
           </p>
         </Accordion.Body>
       </Accordion.Item>
@@ -534,7 +534,7 @@ export default function Home() {
         </Accordion.Header>
         <Accordion.Body>
           <p className="accordion-para">
-            The cost of <a href="/mobile-app-development-chennai">custom application development</a> varies based on project complexity, tech stack, timeline, and features. We offer flexible engagement models for startups, SMEs, and enterprises. Get a consultation to receive a tailored quote.
+            The cost of <Link href="/mobile-app-development-chennai">custom application development</Link> varies based on project complexity, tech stack, timeline, and features. We offer flexible engagement models for startups, SMEs, and enterprises. Get a consultation to receive a tailored quote.
           </p>
         </Accordion.Body>
       </Accordion.Item>
@@ -545,7 +545,7 @@ export default function Home() {
         </Accordion.Header>
         <Accordion.Body>
           <p className="accordion-para">
-            Yes. Our <a href="/devops-consulting-services">DevOps consulting services</a> include CI/CD pipeline setup, Kubernetes deployment, infrastructure automation using Terraform, and cloud-native implementation across AWS, GCP, and Azure.
+            Yes. Our <Link href="/devops-consulting-services">DevOps consulting services</Link> include CI/CD pipeline setup, Kubernetes deployment, infrastructure automation using Terraform, and cloud-native implementation across AWS, GCP, and Azure.
           </p>
         </Accordion.Body>
       </Accordion.Item>

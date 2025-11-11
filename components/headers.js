@@ -38,15 +38,25 @@ const Headers = () => {
         <nav className="navbar navbar-expand-lg fixed-top" ref={navRef}>
           <div className="container">
             <Link className="navbar-brand" href="/">
-              <img src="/trimsel-logo-svg" className="mbl-logo" />
-              <img
+              <Image
+                src="/trimsel-logo.svg"
+                className="mbl-logo"
+                alt="Trimsel logo"
+                width={150}
+                height={40}
+                priority
+              />
+              <Image
                 src={
                   scrollPosition > 50
                     ? "/trimsel-logo.svg"
                     : "/trimsel-logo-white.svg"
                 }
                 className="dsktp-logo"
-                alt="Logo"
+                alt="Trimsel logo"
+                width={150}
+                height={40}
+                priority
               />
             </Link>
             <button
@@ -66,10 +76,12 @@ const Headers = () => {
               aria-labelledby="offcanvasNavbarLabel"
             >
               <div className="offcanvas-header">
-                <img
+                <Image
                   src="/trimsel-logo.svg"
-                  alt="Trimsel Logo"
-                  style={{ width: "170px", height: "auto" }}
+                  alt="Trimsel logo"
+                  width={170}
+                  height={48}
+                  priority
                 />
                 <button
                   type="button"

@@ -29,7 +29,7 @@ import React, { useRef, useEffect } from 'react';
 //   );
 // };
 
-const Image = ({ image, altText, idx }) => {
+const SlideImage = ({ image, altText = '', idx }) => {
   const imageRef = useRef(null);
 
   useEffect(() => {
@@ -61,15 +61,19 @@ const Image = ({ image, altText, idx }) => {
 };
 
 const SlideComponent = () => {
-    const images = ['/images/iPhone12Pro1.png', '/images/iPhone12.png', '/images/iPhone12Pro.png'];
+  const images = [
+    { src: '/images/iPhone12Pro1.png', alt: 'Mobile device mockup 1' },
+    { src: '/images/iPhone12.png', alt: 'Mobile device mockup 2' },
+    { src: '/images/iPhone12Pro.png', alt: 'Mobile device mockup 3' },
+  ];
 
-    return (
-        <div className = ' container images-container'>
-            {images.map((image, idx) => (
-            <Image key={idx} image={image} idx={idx} />
-        ))}
-        </div>
-    );
+  return (
+    <div className=" container images-container">
+      {images.map(({ src, alt }, idx) => (
+        <SlideImage key={src} image={src} altText={alt} idx={idx} />
+      ))}
+    </div>
+  );
 };
 
 export default SlideComponent
