@@ -32,13 +32,10 @@ const CLIENT_LOGOS = [
 
 export default function ClientLogo() {
   return (
-    <div className="row client-row pt-3 text-center">
+    <div className="client-row grid grid-cols-2 gap-4 pt-3 text-center sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
       {CLIENT_LOGOS.map((logo, idx) => (
-        <div
-          key={idx}
-          className={`col-lg-3 col-md-3 col-6 client-col ${logo.className || ""}`.trim()}
-        >
-          <div className="card client-bg">
+        <div key={`${logo.alt}-${idx}`} className={`client-col ${logo.className || ""}`.trim()}>
+          <div className="client-bg flex items-center justify-center rounded-2xl border border-slate-100 bg-white/90 p-4 shadow-inner">
             <Image
               src={logo.src}
               width={logo.width}
@@ -46,6 +43,7 @@ export default function ClientLogo() {
               alt={logo.alt}
               loading="lazy"
               sizes={DEFAULT_SIZES}
+              className="h-10 w-auto object-contain"
             />
           </div>
         </div>

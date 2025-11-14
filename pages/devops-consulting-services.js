@@ -2,45 +2,72 @@ import Headers from "../components/headers";
 import Footer from "../components/footer";
 import Link from "next/link";
 import Image from "next/image";
-import Col from "react-bootstrap/Col";
-import Nav from "react-bootstrap/Nav";
-import Row from "react-bootstrap/Row";
-import Tab from "react-bootstrap/Tab";
-import Stack from "react-bootstrap/Stack";
-import CarouselComponent from "../components/carouselComponent";
 import ClientLogo from "../components/clientLogo";
-import Card from "react-bootstrap/Card";
-import Accordion from "react-bootstrap/Accordion";
 import ContactForm from "../components/ContactForm";
+import { useState } from "react";
 import { NextSeo } from "next-seo";
 import Head from "next/head";
 import { buildServiceJsonLd } from "../lib/serviceSchema";
+import CheckIcon from "../components/icons/CheckIcon";
+
+const faqItems = [{"question": "What does a DevOps consulting company do?", "answer": "A DevOps consulting company like Trimsel helps businesses implement automation, continuous integration, CI/CD pipelines, and cloud-native infrastructure. We bridge the gap between development and operations to ensure faster, more reliable software delivery."}, {"question": "Why choose Trimsel for DevOps consulting services in India?", "answer": "Trimsel is a trusted DevOps consulting firm in India with global delivery capabilities. Our certified engineers specialize in infrastructure automation, Kubernetes consulting, and cloud DevOps solutions tailored to your business needs."}, {"question": "How much do DevOps services cost?", "answer": "The cost of DevOps services depends on the project scope, infrastructure complexity, and automation level required. Trimsel offers scalable DevOps service packages designed for startups, SMEs, and enterprise businesses."}, {"question": "What are the benefits of hiring a DevOps service provider?", "answer": "DevOps providers streamline SDLC, reduce deployment errors, improve security, and foster collaboration through automation and continuous delivery practices."}, {"question": "What DevOps automation tools do you work with?", "answer": "We work with Jenkins, GitLab CI/CD, GitHub Actions, Terraform, Docker, Kubernetes, Ansible, and cloud-native services from AWS, Azure, and GCP."}, {"question": "Can Trimsel help with Kubernetes consulting services?", "answer": "Yes. We implement and manage Kubernetes clusters on EKS, AKS, and GKE, handle Helm-based deployments, and optimize container workloads for scale."}, {"question": "Do you provide managed DevOps services?", "answer": "Absolutely. We offer 24/7 monitoring, incident response, CI/CD management, and infrastructure maintenance so your teams can focus on product delivery."}, {"question": "How long does DevOps implementation take?", "answer": "Engagement timelines vary, but most organizations start seeing measurable improvements in 4–8 weeks with Trimsel’s structured DevOps roadmap."}, {"question": "Can I hire a dedicated DevOps engineer from Trimsel?", "answer": "Yes, you can hire full-time or part-time DevOps engineers experienced in cloud automation, CI/CD pipelines, observability, and DevSecOps practices."}, {"question": "Do you support cloud and DevOps integration?", "answer": "We modernize infrastructure on AWS, Azure, and GCP, implement automation, and optimize cloud operations using proven DevOps best practices."}];
+
+const toolLogos = [
+  { src: "/images/tools-image/jenkins.png", alt: "Jenkins" },
+  { src: "/images/tools-image/github.png", alt: "GitHub" },
+  { src: "/images/tools-image/bamboo.png", alt: "Atlassian Bamboo" },
+  { src: "/images/tools-image/kubernetes.png", alt: "Kubernetes" },
+  { src: "/images/tools-image/docker.png", alt: "Docker" },
+  { src: "/images/tools-image/terraform.png", alt: "HashiCorp Terraform" },
+  { src: "/images/tools-image/teamcity.png", alt: "JetBrains TeamCity" },
+  { src: "/images/tools-image/bash.png", alt: "GNU Bash" },
+  { src: "/images/tools-image/linux_containers.png", alt: "Linux Containers" },
+  { src: "/images/tools-image/amazon_EKS.png", alt: "Amazon EKS" },
+  { src: "/images/tools-image/Amazon_ECS.png", alt: "Amazon ECS" },
+  { src: "/images/tools-image/azure_dev_ops.png", alt: "Azure DevOps" },
+  { src: "/images/tools-image/elasticsearch.png", alt: "Elasticsearch" },
+  { src: "/images/tools-image/logstash.png", alt: "Logstash" },
+  { src: "/images/tools-image/kibana.png", alt: "Kibana" },
+  { src: "/images/tools-image/beats.png", alt: "Elastic Beats" },
+  { src: "/images/tools-image/amazon_web_services.png", alt: "Amazon Web Services" },
+  { src: "/images/tools-image/azure.png", alt: "Microsoft Azure" },
+  { src: "/images/tools-image/cloud_development_kit.png", alt: "AWS Cloud Development Kit" },
+  { src: "/images/tools-image/datadog.png", alt: "Datadog" },
+  { src: "/images/tools-image/gitlab.png", alt: "GitLab" },
+];
+
+const heroHighlights = [
+  "60+ CI/CD pipelines automated with 99.95% uptime targets",
+  "Certified DevOps engineers across AWS, Azure, and GCP",
+  "Secure-by-design workflows with DevSecOps guardrails",
+];
+
+const differentiators = [
+  {
+    icon: "/images/devch-icon.png",
+    title: "Complex Delivery Expertise",
+    body:
+      "Navigate monolith-to-microservices migrations, hybrid cloud, and compliance-heavy environments with confidence.",
+  },
+  {
+    icon: "/images/devch-icon1.png",
+    title: "Certified DevOps Engineers",
+    body: "AWS, Azure, Kubernetes, GitOps, and Terraform specialists who combine strategy with hands-on build support.",
+  },
+  {
+    icon: "/images/devch-icon2.png",
+    title: "Security-Driven Automation",
+    body:
+      "DevSecOps baked into every pipeline with policy-as-code, secrets management, and container/runtime protection.",
+  },
+  {
+    icon: "/images/devch-icon3.png",
+    title: "Managed DevOps Support",
+    body: "24/7 releases, monitoring, and incident response so your teams focus on features instead of infrastructure firefighting.",
+  },
+];
 
 export default function DevOps() {
-  const toolImages = [
-    "/images/tools-image/jenkins.png",
-    "/images/tools-image/github.png",
-    "/images/tools-image/bamboo.png",
-    "/images/tools-image/kubernetes.png",
-    "/images/tools-image/docker.png",
-    "/images/tools-image/terraform.png",
-    "/images/tools-image/teamcity.png",
-    "/images/tools-image/bash.png",
-    "/images/tools-image/linux_containers.png",
-    "/images/tools-image/amazon_EKS.png",
-    "/images/tools-image/Amazon_ECS.png",
-    "/images/tools-image/azure_dev_ops.png",
-    "/images/tools-image/elasticsearch.png",
-    "/images/tools-image/logstash.png",
-    "/images/tools-image/kibana.png",
-    "/images/tools-image/beats.png",
-    "/images/tools-image/amazon_web_services.png",
-    "/images/tools-image/azure.png",
-    "/images/tools-image/cloud_development_kit.png",
-    "/images/tools-image/datadog.png",
-    "/images/tools-image/gitlab.png",
-  ];
-
   const devopsArticles = [
     {
       title: "DevOps Automation Roadmap",
@@ -53,8 +80,117 @@ export default function DevOps() {
       excerpt: "Explore Trimsel’s guides on operating EKS/AKS/GKE, optimizing FinOps, and keeping pipelines compliant.",
       href: "/blog",
       tag: "Engineering Insights",
-    },
+  },
   ];
+  const [activePillar, setActivePillar] = useState(0);
+
+const devopsPillars = [
+  {
+    title: "Continuous Integration (CI)",
+    description:
+      "Automate builds and tests so every code commit is validated within minutes. We use Jenkins, GitHub Actions, and GitLab CI to keep repos stable.",
+    bulletsLeft: [
+      "Automated builds & unit/integration testing",
+      "GitOps workflows across GitHub, GitLab, CircleCI",
+      "Parallel testing + static analysis to catch regressions",
+    ],
+    bulletsRight: [
+      "Artifact management and promotion flows",
+      "Quality gates with coverage, lint, and policy checks",
+      "ChatOps notifications for faster feedback loops",
+    ],
+  },
+  {
+    title: "Continuous Delivery",
+    description:
+      "Ship features safely with automated deployments, blue/green rollouts, and environment parity so releases stay predictable.",
+    bulletsLeft: [
+      "Automated staging/prod deployments",
+      "Blue/green & canary strategies baked into pipelines",
+      "Feature flag integrations for progressive delivery",
+    ],
+    bulletsRight: [
+      "Rollback & disaster recovery automation",
+      "Release orchestration across microservices",
+      "Compliance approvals and audit trails",
+    ],
+  },
+  {
+    title: "Infrastructure as Code (IaC)",
+    description:
+      "Codify infrastructure with Terraform, CloudFormation, and Pulumi so every environment is versioned, repeatable, and reviewable.",
+    bulletsLeft: [
+      "Modular Terraform/Crossplane stacks",
+      "Git-based change control with policy guardrails",
+      "Automated drift detection and remediation",
+    ],
+    bulletsRight: [
+      "Multi-cloud landing zones for AWS, Azure, GCP",
+      "Secrets + state management via Vault and SSM",
+      "Cost optimization baked into IaC pipelines",
+    ],
+  },
+  {
+    title: "Configuration Management",
+    description:
+      "Keep fleets consistent with Ansible, Puppet, and Chef. Immutable patterns ensure repeatable deploys across VMs, containers, and edge.",
+    bulletsLeft: [
+      "Configuration as Code playbooks (Ansible, Puppet, Chef)",
+      "Immutable infrastructure with Docker/Kubernetes",
+      "Secrets & parameter management via Vault/Key Vault",
+    ],
+    bulletsRight: [
+      "Dynamic config updates & feature toggles",
+      "Policy automation using OPA/CIS benchmarks",
+      "Golden AMI/container pipelines for compliance",
+    ],
+  },
+  {
+    title: "DevSecOps & Security Automation",
+    description:
+      "Bake security into every stage with shift-left testing, automated compliance, and continuous threat scanning across the SDLC.",
+    bulletsLeft: [
+      "Security-as-Code policies enforced in pipelines",
+      "Shift-left scanning (SAST/DAST/IAST)",
+      "Automated compliance for ISO, SOC 2, GDPR, HIPAA",
+    ],
+    bulletsRight: [
+      "Cloud & container hardening (Falco, Aqua, Prisma)",
+      "CI/CD credential & secret governance",
+      "Runtime protection with WAF, IDS, and SIEM hooks",
+    ],
+  },
+  {
+    title: "Continuous Monitoring & Logging",
+    description:
+      "End-to-end observability using Prometheus, Datadog, ELK, and OpenTelemetry so teams detect issues before customers do.",
+    bulletsLeft: [
+      "Centralized logging (ELK, Loki, Splunk)",
+      "APM + distributed tracing (Datadog, New Relic, Jaeger)",
+      "SLO/SLA dashboards with automated alerts",
+    ],
+    bulletsRight: [
+      "KPI reporting for engineering + product teams",
+      "Synthetic testing and canary health checks",
+      "Incident response runbooks + ChatOps automation",
+    ],
+  },
+  {
+    title: "Kubernetes & Cloud DevOps",
+    description:
+      "Design, run, and optimize EKS/AKS/GKE clusters with GitOps, autoscaling, and multi-cloud governance.",
+    bulletsLeft: [
+      "GitOps deployments with Argo CD & Flux",
+      "Autoscaling, HPA/VPA, and cost-aware scheduling",
+      "Service mesh + ingress security (Istio, Linkerd)",
+    ],
+    bulletsRight: [
+      "Hybrid/multi-cloud workload orchestration",
+      "Serverless + edge compute patterns",
+      "RBAC, policy enforcement, and supply-chain security",
+    ],
+  },
+];
 
   const serviceJsonLd = buildServiceJsonLd({
     slug: "devops-consulting-services",
@@ -170,494 +306,127 @@ export default function DevOps() {
         ))}
       </Head>
 
-      <section className="dev-hero">
-  <Headers />
-  <section className="hero-dev">
-    <div className="container pt-3">
-      <div className="row">
-        <div className="col-lg-6 col-md-6">
-          <div className="title">
-            <div className="title-inner">
-              <div className="cafe">
-                <div className="whiteLink">
-                  <p className="breadcrumbs-dev">
-                    <Link href="/">Home</Link>
-                    <span> &#x2027; </span>
-                    DevOps Consulting Services
-                  </p>
-                </div>
-              </div>
-              <div className="cafe">
-                <div className="cafe-inner devo-title">
-                  <h1 style={{ color: "#fff" }}>
-                  Leading DevOps Consulting Services
-                  </h1>
-                </div>
-              </div>
-              <div className="mozart">
-                <div className="mozart-inner">
-                  <p>
-                    Trimsel is a top-rated <strong>DevOps company in India</strong> offering expert <strong>DevOps consulting services</strong> to businesses worldwide. We help teams build scalable CI/CD pipelines, leverage Kubernetes, and automate infrastructure for high-speed, secure, and reliable deployments.
-                  </p>
-                </div>
-              </div>
-              <div className="mozarts">
-                <div className="mozarts-inner">
-                  <Link
-                    href="/contact-us"
-                    className="btn btn-primary dev-btn"
-                    aria-label="Book a DevOps consultation with Trimsel"
-                  >
-                    Get a DevOps Consultation{" "}
-                    <img src="/images/material-symbols_arrow-right-alt.png" alt="" aria-hidden="true" />
-                  </Link>
-                  <p className="hero-proof">
-                    60+ pipelines automated with 99.95% uptime targets for SaaS, BFSI, and ecommerce teams.
-                  </p>
-                </div>
-              </div>
+      <section className="bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white">
+        <Headers />
+        <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8">
+          <div className="space-y-6">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+              <Link href="/" className="hover:text-brand">
+                Home
+              </Link>
+              <span className="mx-2 text-slate-600">·</span>
+              DevOps Consulting Services
+            </p>
+            <h1 className="text-4xl font-semibold leading-tight">
+              Leading DevOps Consulting & Automation Services
+            </h1>
+            <p className="text-lg leading-relaxed text-slate-300">
+              Trimsel is a top-rated DevOps company in India helping teams build scalable CI/CD pipelines, leverage Kubernetes, and automate
+              infrastructure for high-speed, secure, and reliable deployments.
+            </p>
+            <div>
+              <Link
+                href="/contact-us"
+                className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white shadow-lg shadow-brand/40 transition hover:bg-brand-dark"
+                aria-label="Book a DevOps consultation with Trimsel"
+              >
+                Get a DevOps Consultation <Image src="/images/material-symbols_arrow-right-alt.png" width={20} height={20} alt="" />
+              </Link>
+              <p className="mt-4 text-sm text-slate-400">
+                60+ pipelines automated with 99.95% uptime targets for SaaS, BFSI, and ecommerce teams.
+              </p>
             </div>
+            <ul className="space-y-2 text-sm text-slate-300">
+              {heroHighlights.map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-brand"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
-        <div className="col-lg-6 col-md-6">
-          <div className="imgrs">
+          <div className="flex items-center justify-center">
             <Image
               src="/images/devops-banner.webp"
-              className="dev-hero-img"
-              alt="DevOps Automation & Consulting Services"
               width={594}
               height={480}
+              alt="DevOps automation and consulting services"
+              className="w-full max-w-[520px]"
               priority
               quality={75}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 594px"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 520px"
             />
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-</section>
+      </section>
 
 
-      <section id="about-dev">
-        <div className="container dev-about">
-          <Stack direction="horizontal">
-            <div className=" badge-abot-btn">
-              <img
-                src="/images/Rectangle-kariot.png"
-                className="me-2"
-                alt=""
-                aria-hidden="true"
-              />
-              <p>
-                {" "}
-                <strong> WHAT WE DO </strong>{" "}
-              </p>
+      <section id="about-dev" className="bg-white">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+            <Image src="/images/Rectangle-kariot.png" width={18} height={18} alt="" aria-hidden="true" loading="lazy" />
+            What we do
+          </div>
+          <div className="mt-6 grid gap-8 lg:grid-cols-[2fr,3fr,auto] lg:items-start">
+            <h2 className="text-3xl font-semibold text-slate-900">
+              End-to-End DevOps Services & Solutions to Accelerate Cloud Transformation
+            </h2>
+            <p className="text-lg leading-relaxed text-slate-600">
+              We streamline software delivery with automation tooling, cloud-native practices, CI/CD pipelines, infrastructure as code, and
+              Kubernetes deployments. Every engagement is designed to scale with your roadmap.
+            </p>
+            <Link
+              href="/contact-us"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-5 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-slate-900 shadow-lg shadow-slate-900/5 transition hover:border-brand hover:text-brand"
+              aria-label="Talk to Trimsel’s DevOps consultants"
+            >
+              Get a Consultation
+              <Image src="/images/material-symbols_arrow-right-alt.png" width={20} height={20} alt="" />
+            </Link>
+          </div>
+                    <div className="mt-10 grid gap-10 lg:grid-cols-[1.2fr,2fr]">
+            <div className="space-y-3">
+              {devopsPillars.map((pillar, idx) => (
+                <button
+                  key={pillar.title}
+                  type="button"
+                  onClick={() => setActivePillar(idx)}
+                  className={`w-full rounded-2xl border px-4 py-3 text-left text-sm font-semibold uppercase tracking-[0.3em] transition ${
+                    activePillar === idx
+                      ? "border-brand bg-brand/10 text-brand"
+                      : "border-slate-200 bg-white text-slate-600 hover:border-brand/40"
+                  }`}
+                >
+                  {String(idx + 1).padStart(2, "0")}. {pillar.title}
+                </button>
+              ))}
             </div>
-          </Stack>
-          <Row>
-            <Col lg={4} md={4}>
-              <h2 className="devop-head pt-3">End-to-End DevOps Services & Solutions to Accelerate Cloud Transformation</h2>
-            </Col>
-            <Col lg={5} md={5}>
-              <p className="dev-para pt-3">
-              As a trusted DevOps consulting company, we help businesses streamline their software delivery with DevOps automation tools, cloud-native practices, CI/CD pipelines, infrastructure automation, and Kubernetes deployments. Our DevOps solutions are designed to scale with your growth.
-              </p>
-            </Col>
-            <Col lg={3} md={3}>
-              <Link
-                href="/contact-us"
-                className="dev-abt-btn btn mt-3"
-                aria-label="Talk to Trimsel&rsquo;s DevOps consultants"
-              >
-                Get a Consultation
-                <img
-                  src="/images/material-symbols_arrow-right-alt.png"
-                  alt=""
-                  aria-hidden="true"
-                />
-              </Link>
-            </Col>
-          </Row>
-          <Tab.Container id="left-tabs" defaultActiveKey="first">
-            <Row className="left-tabs">
-              <Col lg={4} md={5} className="tbd-class">
-                <Nav variant="pills" className="flex-column">
-                  <Nav.Item className="tab-title pb-3">
-                    <Nav.Link eventKey="first">
-                    01. Continuous Integration (CI)
-                    </Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item className="tab-title pb-3">
-                    <Nav.Link eventKey="second">
-                    02. Continuous Delivery
-                    </Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item className="tab-title pb-3">
-                    <Nav.Link eventKey="third">
-                    03. Infrastructure as Code (IaC)
-                    </Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item className="tab-title pb-3">
-                    <Nav.Link eventKey="fourth">
-                    04. Configuration Management
-                    </Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item className="tab-title pb-3">
-                    <Nav.Link eventKey="fifth">05. DevSecOps & Security Automation</Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item className="tab-title pb-3">
-                    <Nav.Link eventKey="sixth">
-                    06. Continuous Monitoring & Logging
-                    </Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item className="tab-title pb-3">
-                    <Nav.Link eventKey="seven">07. Kubernetes & Cloud DevOps</Nav.Link>
-                  </Nav.Item>
-                </Nav>
-              </Col>
-              <Col lg={8} md={7}>
-                <Tab.Content className="left-content">
-                  <Tab.Pane eventKey="first">
-                    <div className=" card dev-card">
-                      <div className="dev-card-item">
-                        <Image
-                          src="/images/continn.png"
-                          width={86}
-                          height={86}
-                          className="dev-icon"
-                          alt="continuous-integration-icon"
-                        />
-                        <span style={{ float: "right" }}>
-                          <Image
-                            src="/images/01.white.png"
-                            width={76}
-                            height={47}
-                            alt="Number 1 Image Icon"
-                          />
-                        </span>
-                        <h2 className="dev-tab-title pt-3">
-                        Continuous Integration (CI)
-                        </h2>
-                        <p className="devtab-para">
-                        Continuous Integration is a pivotal DevOps practice that involves the frequent merging of code changes into a shared repository, followed by automated builds and tests. This approach enables early detection of issues, streamlines development processes, and enhances collaboration among teams. Our CI services utilize leading tools like Jenkins, GitLab CI, and CircleCI to automate workflows, ensuring rapid and reliable software delivery.
-                        </p>
-                        <div className="row">
-                          <div className="col-lg-6 col-md-6">
-                            <ul className="devtab-list">
-                            <li>Automated Builds & Testing – Catch errors early with automated unit and integration testing.</li>
-                    <li>Version Control & Branching – Enable seamless GitOps workflows using GitHub Actions, GitLab CI, Jenkins, or CircleCI</li>
-                    <li>Parallel Testing & Code Quality Checks – Speed up pipelines with parallel execution and static code analysis.</li>
-                            </ul>
-                          </div>
-                          <div className="col-lg-6 col-md-6">
-                            <ul className="devtab-list">
-                              <li className="pb-2">Artifact Management & Caching – Efficient storage and retrieval with JFrog Artifactory, Nexus, and AWS CodeArtifact.</li>
-                              <li className="pb-2">
-                              Zero Downtime Deployments – Use Blue-Green & Canary Releases for risk-free updates
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <p className="devtab-para">With Trimsel&rsquo;s Continuous Integration services, you get faster feedback loops, improved collaboration, and accelerated time to market.</p>
-                        <p className="devtab-para">
-  Looking to <strong>hire DevOps engineers</strong> to build custom CI workflows? Trimsel is a <strong>DevOps service company</strong> helping businesses implement scalable pipelines.
-</p>
-
-                      </div>
-                    </div>
-                  </Tab.Pane>
-                  <Tab.Pane eventKey="second">
-                    <div className=" card dev-card">
-                      <div className="dev-card-item">
-                        <Image
-                          src="/images/continn.png"
-                          width={86}
-                          height={86}
-                          className="dev-icon"
-                          alt="continuous-integration-icon"
-                        />
-                        <span style={{ float: "right" }}>
-                          <Image
-                            src="/images/01.white.png"
-                            width={76}
-                            height={47}
-                            alt="Number 1 Image Icon"
-                          />
-                        </span>
-                        <h2 className="dev-tab-title pt-3">
-                        Continuous Delivery (CD)
-                        </h2>
-                        <p className="devtab-para">
-                        Continuous Delivery extends Continuous Integration by automating the release of code to production environments. It ensures that code changes are deployable at any time, reducing risks associated with manual deployments. Our CD solutions focus on creating robust pipelines that automate testing and deployment, facilitating faster time-to-market and improved product quality.
-                        </p>
-                        <div className="row">
-                          <div className="col-lg-6 col-md-6">
-                            <ul className="devtab-list">
-                              <li className="pb-2">Automated Deployment Pipelines – Full automation from commit to production with GitHub Actions, GitLab CI/CD, and AWS CodePipeline.</li>
-                              <li className="pb-2">Blue-Green & Canary Deployments – Minimize risks and enable progressive rollouts.</li>
-                              <li className="pb-2">Rollback & Failure Recovery – Ensure reliable release rollback mechanisms.</li>
-                            </ul>
-                          </div>
-                          <div className="col-lg-6 col-md-6">
-                            <ul className="devtab-list">
-                              <li className="pb-2">Containerized Deployments – Deploy using Docker, Kubernetes, and Helm charts.</li>
-                              <li className="pb-2">
-                              Multi-Cloud Deployments – CI/CD workflows optimized for AWS, GCP, and Azure.
-                              </li>
-                              <li className="pb-2">
-                              Infrastructure as Code (IaC) – Provision environments using Terraform, CloudFormation, or Pulumi.
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <p className="devtab-para">With our Continuous Delivery approach, businesses achieve rapid, secure, and error-free deployments while reducing operational bottlenecks.</p>
-                        <p className="devtab-para">
-                        Accelerate your software releases with Trimsel’s DevOps consulting services in India, combining automated delivery pipelines with robust deployment strategies.
-</p>
-                      </div>
-                    </div>
-                  </Tab.Pane>
-                  <Tab.Pane eventKey="third">
-                    <div className=" card dev-card">
-                      <div className="dev-card-item">
-                        <Image
-                          src="/images/continn.png"
-                          width={86}
-                          height={86}
-                          className="dev-icon"
-                          alt="continuous-integration-icon"
-                        />
-                        <span style={{ float: "right" }}>
-                          <Image
-                            src="/images/01.white.png"
-                            width={76}
-                            height={47}
-                            alt="Number 1 Image Icon"
-                          />
-                        </span>
-                        <h2 className="dev-tab-title pt-3">
-                        Infrastructure as Code & Automation
-                        </h2>
-                        <p className="devtab-para">
-                        Effective Infrastructure Management is crucial for scalable and resilient IT environments. To provide and manage infrastructure programmatically, we use Infrastructure as Code (IaC) techniques with tools like Terraform and AWS CloudFormation. Our services encompass cloud infrastructure setup, on-premises solutions, and hybrid models, ensuring optimal performance and cost-efficiency.
-                        </p>
-                        <div className="row">
-                          <div className="col-lg-6 col-md-6">
-                            <ul className="devtab-list">
-                              <li className="pb-2">Infrastructure as Code (IaC) – Automate provisioning with Terraform, CloudFormation, and Ansible.</li>
-                              <li className="pb-2">Cloud Infrastructure Automation – Optimize AWS, Azure, and GCP workloads.</li>
-                              <li className="pb-2">Scalability & Performance Tuning – Dynamic scaling with Kubernetes, Load Balancers, and Auto-scaling Groups.</li>
-                            </ul>
-                          </div>
-                          <div className="col-lg-6 col-md-6">
-                            <ul className="devtab-list">
-                              <li className="pb-2">Hybrid & Multi-Cloud Strategy – Seamlessly manage workloads across multiple cloud providers.</li>
-                              <li className="pb-2">Serverless & Edge Computing – Leverage AWS Lambda, Azure Functions, and Cloud Run for cost-efficient execution.</li>
-                              <li className="pb-2">Security & Compliance – Implement role-based access control (RBAC), policy enforcement, and cloud security best practices.</li>
-                            </ul>
-                          </div>
-                        </div>
-                        <p className="devtab-para">With Trimsel’s Infrastructure Management services, businesses achieve cost-efficient, scalable, and high-performing IT ecosystems.</p>
-                        <p className="devtab-para">
-  As a leading <strong>DevOps consulting firm</strong>, we help organizations adopt <strong>infrastructure automation</strong> and <strong>multi-cloud DevOps strategies</strong> for long-term success.
-</p>
-
-                      </div>
-                    </div>
-                  </Tab.Pane>
-                  <Tab.Pane eventKey="fourth">
-                    <div className=" card dev-card">
-                      <div className="dev-card-item">
-                        <Image
-                          src="/images/continn.png"
-                          width={86}
-                          height={86}
-                          className="dev-icon"
-                          alt="continuous-integration-icon"
-                        />
-                        <span style={{ float: "right" }}>
-                          <Image
-                            src="/images/01.white.png"
-                            width={76}
-                            height={47}
-                            alt="Number 1 Image Icon"
-                          />
-                        </span>
-                        <h2 className="dev-tab-title pt-3">
-                        Configuration Management
-                        </h2>
-                        <p className="devtab-para">
-                        Configuration Management involves maintaining consistency of systems and software across the infrastructure. By utilizing tools such as Ansible, Puppet, and Chef, we automate the configuration of servers and environments, reducing manual errors and ensuring compliance with desired states. This automation speeds up deployment procedures and improves system reliability.
-                        </p>
-                        <div className="row">
-                          <div className="col-lg-6 col-md-6">
-                            <ul className="devtab-list">
-                              <li className="pb-2">Configuration as Code (CaC): Use Ansible, Puppet, or Chef to automate configurations.</li>
-                              <li className="pb-2">Immutable Infrastructure: To ensure repeated deployments, use Docker and Kubernetes.</li>
-                              <li className="pb-2">State & Secrets Management: Use HashiCorp Vault, Azure Key Vault and AWS Secrets Manager to safely manage configurations.</li>
-                            </ul>
-                          </div>
-                          <div className="col-lg-6 col-md-6">
-                            <ul className="devtab-list">
-                              <li className="pb-2">Dynamic Configuration Updates – Implement feature flags and runtime parameter changes.</li>
-                              <li className="pb-2">
-                              Compliance & Policy Automation – Enforce best practices with OPA (Open Policy Agent) and CIS Benchmarks.
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <p className="devtab-para">With Trimsel’s Configuration Management services, businesses achieve consistent, secure, and scalable infrastructure configurations.</p>
-                        <p className="devtab-para">
-                        Trimsel offers reliable DevOps solutions tailored to businesses seeking automated, consistent, and secure configuration management across environments.
-</p>
-                      </div>
-                    </div>
-                  </Tab.Pane>
-                  <Tab.Pane eventKey="fifth">
-                    <div className=" card dev-card">
-                      <div className="dev-card-item">
-                        <Image
-                          src="/images/continn.png"
-                          width={86}
-                          height={86}
-                          className="dev-icon"
-                          alt="continuous-integration-icon"
-                        />
-                        <span style={{ float: "right" }}>
-                          <Image
-                            src="/images/01.white.png"
-                            width={76}
-                            height={47}
-                            alt="Number 1 Image Icon"
-                          />
-                        </span>
-                        <h2 className="dev-tab-title pt-3">
-                        DevSecOps & Security Automation
-                        </h2>
-                        <p className="devtab-para">
-                        Security should never be an afterthought in software development. Our DevSecOps & Security Automation services integrate security seamlessly into the DevOps lifecycle, ensuring vulnerabilities are detected and mitigated early.
-                        We implement automated security testing, vulnerability scanning, and compliance enforcement across cloud and on-premises environments. Our expertise includes:
-                        </p>
-                        <div className="row">
-                          <div className="col-lg-6 col-md-6">
-                            <ul className="devtab-list">
-                            <li>Security as Code (SaC): Automating security policies and controls.</li>
-                    <li>Shift-Left Security: Identifying vulnerabilities in the early development stages.
+            <div className="rounded-3xl border border-slate-100 bg-white p-6 shadow-lg shadow-slate-900/5">
+              <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+                <Image src="/images/continn.png" width={48} height={48} alt="" aria-hidden="true" loading="lazy" />
+                {devopsPillars[activePillar].title}
+              </div>
+              <p className="mt-4 text-sm leading-relaxed text-slate-600">{devopsPillars[activePillar].description}</p>
+              <div className="mt-6 grid gap-6 md:grid-cols-2">
+                <ul className="space-y-2 text-sm text-slate-600">
+                  {devopsPillars[activePillar].bulletsLeft.map((bullet) => (
+                    <li key={`left-${bullet}`} className="flex items-start gap-2">
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-brand"></span>
+                      <span>{bullet}</span>
                     </li>
-                    <li>Automated Compliance: Ensuring industry-standard security (ISO 27001, SOC 2, GDPR, HIPAA).
+                  ))}
+                </ul>
+                <ul className="space-y-2 text-sm text-slate-600">
+                  {devopsPillars[activePillar].bulletsRight.map((bullet) => (
+                    <li key={`right-${bullet}`} className="flex items-start gap-2">
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-brand"></span>
+                      <span>{bullet}</span>
                     </li>
-                            </ul>
-                          </div>
-                          <div className="col-lg-6 col-md-6">
-                            <ul className="devtab-list">
-                              <li className="pb-2">Infrastructure & Cloud Security: Hardening cloud environments using AWS Security Hub, Azure Security Center, Google Chronicle.</li>
-                              <li className="pb-2">
-                              CI/CD Pipeline Security: Secure coding practices, automated static and dynamic analysis (SAST, DAST, IAST).
-                              </li>
-                              <li className="pb-2">
-                              Container & Kubernetes Security: Implementing runtime security with Kubernetes-native tools like Falco, Aqua, and Prisma Cloud.
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <p className="devtab-para">With DevSecOps & Security Automation, we ensure your applications are secure, compliant, and resilient against emerging cyber threats.</p>
-                      </div>
-                    </div>
-                  </Tab.Pane>
-                  <Tab.Pane eventKey="sixth">
-                    <div className=" card dev-card">
-                      <div className="dev-card-item">
-                        <Image
-                          src="/images/continn.png"
-                          width={86}
-                          height={86}
-                          className="dev-icon"
-                          alt="continuous-integration-icon"
-                        />
-                        <span style={{ float: "right" }}>
-                          <Image
-                            src="/images/01.white.png"
-                            width={76}
-                            height={47}
-                            alt="Number 1 Image Icon"
-                          />
-                        </span>
-                        <h2 className="dev-tab-title pt-3">
-                          Continuous Monitoring
-                        </h2>
-                        <p className="devtab-para">
-                        Continuous Monitoring & Logging is vital for real-time performance visibility, security detection, and system reliability. Our solutions offer end-to-end observability across cloud and on-prem infrastructure.
-                        </p>
-                        <div className="row">
-                          <div className="col-lg-6 col-md-6">
-                            <ul className="devtab-list">
-                              <li className="pb-2">Log Aggregation & Analysis – Centralized logging using ELK (Elasticsearch, Logstash, Kibana), Splunk, and Graylog.</li>
-                              <li className="pb-2">Application Performance Monitoring (APM) – Detect performance bottlenecks with Datadog, New Relic, and Prometheus.</li>
-                              <li className="pb-2">Distributed Tracing – Gain full insight into request flows with Jaeger and OpenTelemetry.</li>
-                            </ul>
-                          </div>
-                          <div className="col-lg-6 col-md-6">
-                            <ul className="devtab-list">
-                              <li className="pb-2">Automated Incident Management – Integrated with PagerDuty, Opsgenie, and VictorOps.</li>
-                              <li className="pb-2">
-                              Security & Compliance Monitoring – Ensure SOC 2, GDPR, and HIPAA compliance through real-time audits.
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <p className="devtab-para">With Continuous Monitoring, we help businesses maintain high availability, performance, and security of their applications.</p>
-                      </div>
-                    </div>
-                  </Tab.Pane>
-                  <Tab.Pane eventKey="seven">
-                    <div className=" card dev-card">
-                      <div className="dev-card-item">
-                        <Image
-                          src="/images/continn.png"
-                          width={86}
-                          height={86}
-                          className="dev-icon"
-                          alt="continuous-integration-icon"
-                        />
-                        <span style={{ float: "right" }}>
-                          <Image
-                            src="/images/01.white.png"
-                            width={76}
-                            height={47}
-                            alt="Number 1 Image Icon"
-                          />
-                        </span>
-                        <h2 className="dev-tab-title pt-3">Kubernetes & Cloud DevOps</h2>
-                        <p className="devtab-para">
-  Kubernetes & Cloud DevOps power modern, scalable, and cloud-native applications. Trimsel helps businesses deploy, manage, and optimize containerized workloads with best-in-class Kubernetes automation. Also explore our <Link href="/cloud-consulting-services">Cloud Consulting Services</Link> for integrated multi-cloud solutions.
-</p>
-
-                        <div className="row">
-                          <div className="col-lg-6 col-md-6">
-                            <ul className="devtab-list">
-                            <li>Kubernetes Deployment & Management – Setup & optimize AWS EKS, Azure AKS, Google GKE.</li>
-                    <li>Cloud-Native CI/CD Pipelines – Enable GitOps workflows with ArgoCD & Flux.</li>
-                    <li>Service Mesh & Networking – Implement Istio, Linkerd, and Consul for microservices security.</li>
-                            </ul>
-                          </div>
-                          <div className="col-lg-6 col-md-6">
-                            <ul className="devtab-list">
-                              <li className="pb-2">Container Security & Compliance – Protect workloads with Aqua Security, Prisma Cloud, and KubeArmor.</li>
-                              <li className="pb-2">
-                              Cost Optimization & Auto-Scaling – Right-size cloud resources with KEDA, Cluster Autoscaler, and Spot Instances.
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <p className="devtab-para">With Trimsel’s Kubernetes & Cloud DevOps expertise, businesses build resilient, scalable, and cost-efficient cloud applications.</p>
-                      </div>
-                    </div>
-                  </Tab.Pane>
-                </Tab.Content>
-              </Col>
-            </Row>
-          </Tab.Container>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -758,189 +527,108 @@ export default function DevOps() {
   </div>
 </section> */}
 
-<section id="dev-cta">
-  <div className="container cta-container">
-    <Card className="cta-dev my-5">
-      <Card.Body className="dev-card-body">
-        <div className="row">
-          <div className="col-lg-7 col-md-12 col-12">
-            <Stack direction="horizontal">
-              <div className="badge-abot-btn">
-                <img
-                  src="/images/Rectangle-kariot.png"
-                  className="me-2"
-                  alt=""
-                  aria-hidden="true"
-                />
-                <p><strong> GET IN TOUCH </strong></p>
+        <section className="bg-slate-900 text-white">
+          <div className="mx-auto max-w-6xl rounded-[32px] border border-white/10 px-6 py-12 shadow-2xl shadow-black/30 sm:px-10">
+            <div className="grid gap-10 lg:grid-cols-2">
+              <div>
+                <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-300">
+                  <Image src="/images/Rectangle-kariot.png" width={18} height={18} alt="" aria-hidden="true" loading="lazy" />
+                  Get in touch
+                </div>
+                <h2 className="mt-6 text-3xl font-semibold text-white">
+                  Scale smarter with Trimsel’s DevOps consulting services
+                </h2>
+                <p className="mt-4 text-lg leading-relaxed text-slate-300">
+                  Partner with engineers who understand your infrastructure inside out. We align strategy and execution to optimize CI/CD
+                  pipelines, automate cloud workflows, and accelerate deployment cycles with confidence.
+                </p>
+                <Link
+                  href="/contact-us"
+                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-slate-900 shadow-lg shadow-white/20 transition hover:bg-slate-100"
+                  aria-label="Contact Trimsel for DevOps consulting"
+                >
+                  Get Started <Image src="/images/material-symbols_arrow-right-alt.png" width={18} height={18} alt="" />
+                </Link>
               </div>
-            </Stack>
-            <h2 className="devcta-heading pt-2">
-              Scale Smarter with Our DevOps Consulting Services – Book a Consultation!
-            </h2>
-            <p className="cta-para text-white">
-            Partner with a DevOps consulting firm that understands your infrastructure inside out, aligning strategy with execution to optimize CI/CD pipelines, automate cloud workflows, and accelerate deployment cycles with precision and confidence.
-            </p>
-            <Link
-              href="/contact-us"
-              className="devcta-button btn-lg btn-info mt-3"
-              aria-label="Contact Trimsel for DevOps consulting"
-            >
-              Get Started{" "}
-              <span className="icon">
-                <img
-                  src="/images/material-symbols_arrow-right-alt.png"
-                  alt=""
-                  aria-hidden="true"
-                />
-              </span>
-            </Link>
+              <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-inner">
+                <h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-slate-200">How we help</h3>
+                <ul className="mt-4 space-y-3 text-sm text-slate-200">
+                  {[
+                    "Roadmaps that connect product goals to DevOps automation",
+                    "SRE support for uptime, observability, and FinOps",
+                    "Managed DevOps services so your teams focus on features",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <CheckIcon width={18} height={18} className="mt-1 text-brand" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
-        </div>
-      </Card.Body>
-    </Card>
-  </div>
-</section>
+        </section>
 
 
-<section id="dev-choose">
-  <div className="container devch-container">
-    <Stack direction="horizontal">
-      <div className="badge-abot-btn">
-        <img
-          src="/images/Rectangle-kariot.png"
-          className="me-2"
-          alt=""
-          aria-hidden="true"
-        />
-        <p><strong> WHY CHOOSE TRIMSEL </strong></p>
-      </div>
-    </Stack>
 
-    <Row className="pt-3">
-      <Col lg={6} md={6}>
-        <h3 className="devch-heading">
-          Why Choose Our DevOps Consulting Services for Seamless Cloud & Automation?
-        </h3>
-      </Col>
-      <Col lg={6} md={6}>
-        <p className="devch-para">
-          As a trusted DevOps consulting company in India, we help enterprises scale faster with robust cloud-native solutions, CI/CD automation, and infrastructure modernization. From planning to deployment, our expert DevOps engineers deliver measurable results through end-to-end DevOps implementation services.
-        </p>
-      </Col>
-    </Row>
+        <section className="bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+              <Image src="/images/Rectangle-kariot.png" width={18} height={18} alt="" aria-hidden="true" loading="lazy" />
+              Why Trimsel
+            </div>
+            <div className="mt-6 grid gap-8 lg:grid-cols-[2fr,3fr]">
+              <h3 className="text-3xl font-semibold text-slate-900">Why choose Trimsel for DevOps consulting?</h3>
+              <p className="text-lg text-slate-600">
+                We help enterprises scale faster with automation, cloud-native architectures, and measurable DevOps programs—from discovery to managed operations.
+              </p>
+            </div>
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {differentiators.map((item) => (
+                <div key={item.title} className="rounded-3xl border border-slate-100 bg-slate-50 p-6 shadow-inner">
+                  <Image src={item.icon} width={60} height={60} alt={item.title} loading="lazy" />
+                  <h4 className="mt-4 text-lg font-semibold text-slate-900">{item.title}</h4>
+                  <p className="mt-2 text-sm text-slate-600">{item.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
-    <Row className="pt-4">
-      <Col lg={3} md={6}>
-        <div className="card devch-card mb-2">
-          <Image
-            src="/images/devch-icon.png"
-            width={60}
-            height={60}
-            alt="Complex Delivery Icon"
-            className="cmplx-del"
-          />
-          <h3 className="chcard-heading">Complex Delivery Expertise</h3>
-          <p className="chcard-para">
-            Our DevOps migration services are designed to handle complex enterprise environments. We ensure seamless transition from monolithic to microservices architectures with zero downtime, using advanced CI/CD pipelines and release automation tools.
-          </p>
-        </div>
-      </Col>
-
-      <Col lg={3} md={6}>
-        <div className="card devch-card1 mb-2">
-          <Image
-            src="/images/devch-icon1.png"
-            width={60}
-            height={60}
-            alt="Skilled Talented Icon"
-            className="cmplx-del"
-          />
-          <h3 className="chcard-heading">Certified DevOps Engineers</h3>
-          <p className="chcard-para">
-            Hire DevOps engineers skilled in Kubernetes, Docker, GitOps, and Terraform. Our team enables scalable DevOps implementation across cloud platforms like AWS, Azure, and GCP with automation-first strategies.
-          </p>
-        </div>
-      </Col>
-
-      <Col lg={3} md={6}>
-        <div className="card devch-card2 mb-2">
-          <Image
-            src="/images/devch-icon2.png"
-            width={60}
-            height={60}
-            alt="Security Icon"
-            className="cmplx-del"
-          />
-          <h3 className="chcard-heading">Security-Driven Automation</h3>
-          <p className="chcard-para">
-            Security is embedded across every stage of our DevOps pipeline. We apply DevSecOps best practices including policy enforcement, SAST/DAST scans, secrets management, and container runtime protection.
-          </p>
-        </div>
-      </Col>
-
-      <Col lg={3} md={6}>
-        <div className="card devch-card3 mb-2">
-          <Image
-            src="/images/devch-icon3.png"
-            width={60}
-            height={60}
-            alt="Dedicated Team Icon"
-            className="cmplx-del"
-          />
-          <h3 className="chcard-heading">Managed DevOps Support</h3>
-          <p className="chcard-para">
-            Get 24/7 support from a dedicated DevOps team. From release management to cloud monitoring, our managed DevOps services help reduce downtime, cut costs, and ensure faster deployments.
-          </p>
-        </div>
-      </Col>
-    </Row>
-  </div>
-</section>
-
-<section className="devops-dev-tools">
-  <div className="container devtool-container">
-    <Stack direction="horizontal">
-      <div className=" badge-abot-btn">
-        <img
-          src="/images/Rectangle-kariot.png"
-          className="me-2"
-          alt=""
-          aria-hidden="true"
-        />
-        <p><strong>TOOLS WE USE</strong></p>
-      </div>
-    </Stack>
-
-    <Row className="pt-3">
-      <Col lg={5} md={5}>
-        <h3 className="tools-heading">
-          DevOps Automation Tools & Cloud Platforms We Leverage for Seamless CI/CD
-        </h3>
-      </Col>
-      <Col lg={7} md={7}>
-        <p className="tools-para">
-          At Trimsel, we work with the most powerful DevOps tools and cloud platforms to streamline development, accelerate delivery, and ensure infrastructure scalability. From source code management to CI/CD and monitoring, our DevOps service company integrates tools like <strong>Jenkins, GitHub Actions, Terraform, Kubernetes, Docker,</strong> and <strong>Prometheus</strong>. We also support leading cloud providers like <strong>AWS, Azure,</strong> and <strong>Google Cloud Platform (GCP)</strong>.
-        </p>
-      </Col>
-    </Row>
-
-    <Row className="tool-img-row">
-      {toolImages.map((image, index) => (
-        <Col lg={2} md={2} xs={4} className="pt-4 client-col" key={index}>
-          <Image
-            src={image}
-            width={150}
-            height={74.87}
-            alt={`DevOps Tool ${index + 1}`}
-            style={{ width: "-webkit-fill-available", height: "auto" }}
-          />
-          <hr />
-        </Col>
-      ))}
-    </Row>
-  </div>
-</section>
+        <section className="bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+              <Image src="/images/Rectangle-kariot.png" width={18} height={18} alt="" aria-hidden="true" loading="lazy" />
+              Tools we use
+            </div>
+            <div className="mt-6 grid gap-6 lg:grid-cols-[2fr,3fr]">
+              <h3 className="text-3xl font-semibold text-slate-900">
+                DevOps automation platforms we trust for seamless CI/CD
+              </h3>
+              <p className="text-lg text-slate-600">
+                From source control to observability, we pair the right tooling for each engagement—Jenkins, GitHub Actions, Terraform,
+                Kubernetes, Docker, Prometheus, plus AWS, Azure, and GCP cloud services.
+              </p>
+            </div>
+            <div className="mt-10 grid gap-6 sm:grid-cols-3 lg:grid-cols-6">
+              {toolLogos.map(({ src, alt }) => (
+                <div
+                  key={src}
+                  className="flex h-24 items-center justify-center rounded-3xl border border-slate-100 bg-slate-50 p-4 shadow-inner"
+                >
+                  <Image
+                    src={src}
+                    width={150}
+                    height={75}
+                    alt={`${alt} logo`}
+                    className="h-10 w-auto object-contain"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
 
       {/* <section id="recent-dev-work">
@@ -969,59 +657,62 @@ export default function DevOps() {
         </div>
       </section> */}
 
-      <section id="client" className="client-section">
-        <div className="container mt-5">
-          <Stack direction="horizontal">
-            <div className=" badge-abot-btn">
-              <img
-                src="/images/Rectangle-kariot.png"
-                className="me-2"
-                alt=""
-                aria-hidden="true"
-              />
-              <p> OUR CLIENTS </p>
+        <section id="client" className="bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+              <Image src="/images/Rectangle-kariot.png" width={18} height={18} alt="" aria-hidden="true" loading="lazy" />
+              Our clients
             </div>
-          </Stack>
-          <div className="row pt-3">
-            <div className="col-lg-5 col-md-5">
-              <h2 className="client-title">We&rsquo;re A Trusted Growth Partner</h2>
-            </div>
-            <div className="col-lg-7 col-md-7">
-              <p className="cliented-text">
-                At Trimsel, there is continuous learning that happens as we
-                work on various projects. We also love to update and upgrade
-                with the latest innovations in the field of technology and apps.
+            <div className="mt-6 grid gap-8 lg:grid-cols-[2fr,3fr]">
+              <h2 className="text-3xl font-semibold text-slate-900">We’re a trusted growth partner</h2>
+              <p className="text-lg text-slate-600">
+                Continuous learning and experimentation power every Trimsel engagement, so your DevOps programs benefit from fresh playbooks
+                and proven frameworks.
               </p>
             </div>
+            <div className="mt-10 rounded-3xl border border-slate-100 bg-slate-50 p-6 shadow-inner">
+              <ClientLogo />
+            </div>
           </div>
-          <ClientLogo />
-        </div>
-      </section>
-      <section id="devops-insights" className="home-insights py-5">
-        <div className="container">
-          <div className="d-flex align-items-center">
-            <div className="badge-abot-btn">
-              <Image src="/images/Rectangle-kariot.png" className="me-2" width={15} height={15} alt="" aria-hidden="true" loading="lazy" />
+        </section>
+      <section id="devops-insights" className="home-insights bg-white">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-3">
+            <div className="badge-abot-btn flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+              <Image src="/images/Rectangle-kariot.png" width={15} height={15} alt="" aria-hidden="true" loading="lazy" />
               <p> LATEST DEVOPS INSIGHTS </p>
             </div>
           </div>
-          <div className="row pt-4 g-4">
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
             {devopsArticles.map((article) => (
-              <div className="col-lg-6" key={article.title}>
-                <Card className="insight-card h-100">
-                  <Card.Body>
-                    <p className="insight-tag">{article.tag}</p>
-                    <h3 className="insight-title">
-                      <Link href={article.href}>{article.title}</Link>
-                    </h3>
-                    <p className="insight-excerpt">{article.excerpt}</p>
-                    <Link href={article.href} className="about-btn" aria-label={`Read ${article.title}`}>
-                      Read More
-                      <Image src="/images/material-symbols_arrow-right-alt.png" width={18} height={18} alt="" loading="lazy" />
-                    </Link>
-                  </Card.Body>
-                </Card>
-              </div>
+              <article
+                key={article.title}
+                className="insight-card flex h-full flex-col rounded-3xl border border-slate-100 bg-white p-6 shadow-inner"
+              >
+                <p className="insight-tag text-xs font-semibold uppercase tracking-[0.2em] text-brand">{article.tag}</p>
+                <h3 className="insight-title mt-3 text-2xl font-semibold text-slate-900">
+                  <Link href={article.href}>{article.title}</Link>
+                </h3>
+                <p className="insight-excerpt mt-3 flex-1 text-sm leading-relaxed text-slate-600">{article.excerpt}</p>
+                <Link href={article.href} className="about-btn mt-6 inline-flex items-center gap-2" aria-label={`Read ${article.title}`}>
+                  Read More
+                  <Image src="/images/material-symbols_arrow-right-alt.png" width={18} height={18} alt="" loading="lazy" />
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" className="bg-slate-50">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-semibold text-slate-900">Frequently Asked Questions</h2>
+          <div className="mt-6 space-y-4">
+            {faqItems.map(({ question, answer }) => (
+              <details key={question} className="rounded-2xl border border-slate-100 bg-white p-5 shadow-inner">
+                <summary className="cursor-pointer text-lg font-semibold text-slate-900">{question}</summary>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">{answer}</p>
+              </details>
             ))}
           </div>
         </div>
@@ -1033,125 +724,9 @@ export default function DevOps() {
         eventLabel="devops_service_page"
       />
 
-      <section id="faq">
-  <div className="container faq-container">
-    <h2 className="faq-heading">Frequently Asked Questions</h2>
-    <Accordion defaultActiveKey="0" flush className="py-5">
-      <Accordion.Item eventKey="0" className="pb-3">
-        <Accordion.Header>
-          What does a DevOps consulting company do?
-        </Accordion.Header>
-        <Accordion.Body>
-          <p className="accordion-para">
-            A DevOps consulting company like Trimsel helps businesses implement automation, continuous integration, CI/CD pipelines, and cloud-native infrastructure. We bridge the gap between development and operations to ensure faster, more reliable software delivery.
-          </p>
-        </Accordion.Body>
-      </Accordion.Item>
-
-      <Accordion.Item eventKey="1" className="pb-3">
-        <Accordion.Header>
-          Why choose Trimsel for DevOps consulting services in India?
-        </Accordion.Header>
-        <Accordion.Body>
-          <p className="accordion-para">
-            Trimsel is a trusted DevOps consulting firm in India with global delivery capabilities. Our certified engineers specialize in infrastructure automation, Kubernetes consulting, and cloud DevOps solutions tailored to your business needs.
-          </p>
-        </Accordion.Body>
-      </Accordion.Item>
-
-      <Accordion.Item eventKey="2" className="pb-3">
-        <Accordion.Header>
-          How much do DevOps services cost?
-        </Accordion.Header>
-        <Accordion.Body>
-          <p className="accordion-para">
-            The cost of DevOps services depends on the project scope, infrastructure complexity, and automation level required. Trimsel offers scalable DevOps service packages designed for startups, SMEs, and enterprise businesses.
-          </p>
-        </Accordion.Body>
-      </Accordion.Item>
-
-      <Accordion.Item eventKey="3" className="pb-3">
-        <Accordion.Header>
-          What are the benefits of hiring a DevOps service provider?
-        </Accordion.Header>
-        <Accordion.Body>
-          <p className="accordion-para">
-            Hiring a DevOps service provider streamlines your software development lifecycle, reduces deployment errors, improves security, and enhances collaboration between teams. Trimsel’s DevOps engineers focus on automation and continuous delivery for business agility.
-          </p>
-        </Accordion.Body>
-      </Accordion.Item>
-
-      <Accordion.Item eventKey="4" className="pb-3">
-        <Accordion.Header>
-          What DevOps automation tools do you work with?
-        </Accordion.Header>
-        <Accordion.Body>
-          <p className="accordion-para">
-            We work with top DevOps automation tools like Jenkins, GitLab CI/CD, Terraform, Docker, Ansible, Kubernetes, and cloud-native platforms like AWS, GCP, and Azure. These tools help us deliver faster, secure, and scalable DevOps solutions.
-          </p>
-        </Accordion.Body>
-      </Accordion.Item>
-
-      <Accordion.Item eventKey="5" className="pb-3">
-        <Accordion.Header>
-          Can Trimsel help with Kubernetes consulting services?
-        </Accordion.Header>
-        <Accordion.Body>
-          <p className="accordion-para">
-            Yes, we offer Kubernetes consulting services for container orchestration, workload scaling, and microservices management. From setting up EKS, AKS, or GKE to Helm-based deployments, we ensure enterprise-grade Kubernetes implementation.
-          </p>
-        </Accordion.Body>
-      </Accordion.Item>
-
-      <Accordion.Item eventKey="6" className="pb-3">
-        <Accordion.Header>
-          Do you provide managed DevOps services?
-        </Accordion.Header>
-        <Accordion.Body>
-          <p className="accordion-para">
-            Absolutely. We offer fully managed DevOps services including 24/7 monitoring, incident response, CI/CD management, and infrastructure maintenance. This allows you to focus on product development while we handle operations.
-          </p>
-        </Accordion.Body>
-      </Accordion.Item>
-
-      <Accordion.Item eventKey="7" className="pb-3">
-        <Accordion.Header>
-          How long does DevOps implementation take?
-        </Accordion.Header>
-        <Accordion.Body>
-          <p className="accordion-para">
-            DevOps implementation timelines vary by project size and existing infrastructure. On average, small to mid-sized businesses can start seeing results within 4–8 weeks. We provide a step-by-step roadmap for smooth DevOps transformation.
-          </p>
-        </Accordion.Body>
-      </Accordion.Item>
-
-      <Accordion.Item eventKey="8" className="pb-3">
-        <Accordion.Header>
-          Can I hire a dedicated DevOps engineer from Trimsel?
-        </Accordion.Header>
-        <Accordion.Body>
-          <p className="accordion-para">
-            Yes, you can hire experienced DevOps engineers from Trimsel on a full-time or part-time basis. Our experts specialize in cloud DevOps, CI/CD pipelines, infrastructure automation, and DevSecOps practices.
-          </p>
-        </Accordion.Body>
-      </Accordion.Item>
-
-      <Accordion.Item eventKey="9" className="pb-3">
-        <Accordion.Header>
-          Do you support cloud and DevOps integration?
-        </Accordion.Header>
-        <Accordion.Body>
-          <p className="accordion-para">
-            Definitely. Trimsel offers cloud and DevOps integration services for AWS, Azure, and GCP. We help you modernize infrastructure, automate deployments, and optimize your cloud environments using DevOps best practices.
-          </p>
-        </Accordion.Body>
-      </Accordion.Item>
-    </Accordion>
-  </div>
-</section>
-
       {/* <ContactModal title="Need A DevOps Service? Contact Us" /> */}
       <Footer />
     </>
   );
 }
+  

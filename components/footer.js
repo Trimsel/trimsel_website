@@ -1,144 +1,190 @@
 import Link from "next/link";
 import Image from "next/image";
 
+const serviceLinks = [
+  { href: "/mobile-app-development-chennai", label: "Mobile App Development" },
+  { href: "/web-development-company-chennai", label: "Web Development" },
+  { href: "/cloud-consulting-services", label: "Cloud Consulting" },
+  { href: "/devops-consulting-services", label: "DevOps Consulting" },
+  { href: "/digital-marketing-company-chennai", label: "Digital Marketing" },
+  { href: "/ai-development-company", label: "AI/ML Development" },
+];
+
+const companyLinks = [
+  { href: "/aboutus", label: "About Us" },
+  { href: "/contact-us", label: "Contact Us" },
+  { href: "/portfolio", label: "Our Work" },
+  { href: "/blog", label: "Blog" },
+  { href: "/privacy-policy", label: "Privacy Policy" },
+];
+
+const socials = [
+  {
+    href: "https://www.facebook.com/trimsel.softwares",
+    icon: "/facebook.png",
+    label: "Trimsel on Facebook",
+  },
+  {
+    href: "https://www.instagram.com/trimsel/",
+    icon: "/insta.png",
+    label: "Trimsel on Instagram",
+  },
+  {
+    href: "https://www.linkedin.com/company/trimsel/",
+    icon: "/linkedin.png",
+    label: "Trimsel on LinkedIn",
+  },
+  {
+    href: "https://in.pinterest.com/trimsel/",
+    icon: "/pinterest.png",
+    label: "Trimsel on Pinterest",
+  },
+];
+
 function Footer() {
-  const contactEmail = "contact@trimsel.com";
-  const contactPhoneRaw = "+917200841581"; // correct tel format for dialers
-  const contactPhoneDisplay = "+91 72008 41581";
   const currentYear = new Date().getFullYear();
 
   return (
-    <>
-      <footer id="new-footer">
-  <section className="container pt-5">
-    <div className="row pt-4 no-gutters new-row">
-      {/* Brand + About + Contact + Address */}
-      <div className="col-lg-4 col-md-6 pb-4">
-        <Image
-          src="/trimsel-logo-white.svg"
-          className="white-logo"
-          width={253}
-          height={88}
-          alt="Trimsel Softwares logo"
-          loading="lazy"
-        />
-        {/* Contact */}
-        <h5 className="footer-heading mt-3">Contact</h5>
-        <ul className="list-unstyled footer-contact">
-          <li>
-            <a href="mailto:contact@trimsel.com" className="mail-link" aria-label="Email Trimsel">contact@trimsel.com</a>
-          </li>
-          <li>
-            <a href="tel:+917200841581" className="mail-link" aria-label="Call Trimsel">+91 72008 41581</a>
-          </li>
-        </ul>
+    <footer className="mt-20 bg-slate-950 text-white">
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-[2fr_1fr_1fr_1fr]">
+          <div className="space-y-5">
+            <Image
+              src="/trimsel-logo-white.svg"
+              width={220}
+              height={72}
+              alt="Trimsel Softwares"
+              className="h-auto w-40"
+              loading="lazy"
+            />
+            <div>
+              <p className="text-sm uppercase tracking-[0.3em] text-slate-400">
+                Contact
+              </p>
+              <ul className="mt-3 space-y-2 text-sm font-semibold">
+                <li>
+                  <a
+                    href="mailto:contact@trimsel.com"
+                    className="hover:text-brand transition"
+                  >
+                    contact@trimsel.com
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="tel:+917200841581"
+                    className="hover:text-brand transition"
+                  >
+                    +91 72008 41581
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <p className="text-sm uppercase tracking-[0.3em] text-slate-400">
+                Visit Us
+              </p>
+              <address className="mt-3 text-sm not-italic text-slate-200">
+                <a
+                  href="https://maps.google.com/?q=Trimsel+Softwares,+Guindy,+Chennai+600032"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  className="hover:text-brand transition"
+                >
+                  21B 5th Cross St, South Phase
+                  <br />
+                  Thiru VI KA Industrial Estate, Guindy
+                  <br />
+                  Chennai, Tamil Nadu 600032, India
+                </a>
+              </address>
+            </div>
+            <div>
+              <p className="text-sm uppercase tracking-[0.3em] text-slate-400">
+                Follow Us
+              </p>
+              <div className="mt-3 flex gap-3">
+                {socials.map((item) => (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer nofollow"
+                    aria-label={item.label}
+                    className="rounded-full border border-white/20 p-2 transition hover:border-brand hover:bg-brand/10"
+                  >
+                    <Image
+                      src={item.icon}
+                      alt=""
+                      width={24}
+                      height={24}
+                      loading="lazy"
+                    />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
 
-        {/* Address */}
-        <h5 className="footer-heading mt-3">Visit Us</h5>
-        <address className="contact-para footer-address text-white mb-2">
-          <a
-            href="https://maps.google.com/?q=Trimsel+Softwares,+Guindy,+Chennai+600032"
-            target="_blank" rel="noopener noreferrer nofollow"
-            className="footer-address-link"
-            aria-label="Open Trimsel location on Google Maps"
-          >
-            21B 5th Cross St, South Phase<br />
-            Thiru VI KA Industrial Estate, Guindy<br />
-            Chennai, Tamil Nadu 600032, India
-          </a>
-        </address>
+          <div>
+            <p className="text-sm uppercase tracking-[0.3em] text-slate-400">
+              Services
+            </p>
+            <ul className="mt-4 space-y-3 text-sm font-semibold text-slate-200">
+              {serviceLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="hover:text-brand transition">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        {/* Social */}
-        <h5 className="footer-heading mt-4">Follow Us</h5>
-        <nav aria-label="Social media">
-          <ul className="list-inline m-0">
-            <li className="list-inline-item">
-              <a href="https://www.facebook.com/trimsel.softwares" target="_blank" rel="noopener noreferrer nofollow" aria-label="Trimsel on Facebook">
-                <Image className="social-icon" src="/facebook.png" width={40} height={40} alt="" loading="lazy" />
-              </a>
-            </li>
-            <li className="list-inline-item">
-              <a href="https://www.instagram.com/trimsel/" target="_blank" rel="noopener noreferrer nofollow" aria-label="Trimsel on Instagram">
-                <Image className="social-icon" src="/insta.png" width={40} height={40} alt="" loading="lazy" />
-              </a>
-            </li>
-            <li className="list-inline-item">
-              <a href="https://www.linkedin.com/company/trimsel/" target="_blank" rel="noopener noreferrer nofollow" aria-label="Trimsel on LinkedIn">
-                <Image className="social-icon" src="/linkedin.png" width={40} height={40} alt="" loading="lazy" />
-              </a>
-            </li>
-            <li className="list-inline-item">
-              <a href="https://in.pinterest.com/trimsel/" target="_blank" rel="noopener noreferrer nofollow" aria-label="Trimsel on Pinterest">
-                <Image className="social-icon" src="/pinterest.png" width={40} height={40} alt="" loading="lazy" />
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+          <div>
+            <p className="text-sm uppercase tracking-[0.3em] text-slate-400">
+              Company
+            </p>
+            <ul className="mt-4 space-y-3 text-sm font-semibold text-slate-200">
+              {companyLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="hover:text-brand transition">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-      {/* Services */}
-      <div className="col-lg-3 col-md-6 footer-sides mb-4">
-        <h5 className="footer-heading">Services</h5>
-        <nav aria-label="Services">
-          <ul className="footer-menu list-unstyled mb-0">
-            <li className="pt-3 footer-p-link"><Link href="/mobile-app-development-chennai" className="footer-link">Mobile App Development</Link></li>
-            <li className="footer-p-link"><Link href="/web-development-company-chennai" className="footer-link">Web Development</Link></li>
-            <li className="footer-p-link"><Link href="/cloud-consulting-services" className="footer-link">Cloud Consulting</Link></li>
-            <li className="footer-p-link"><Link href="/devops-consulting-services" className="footer-link">DevOps Consulting</Link></li>
-            <li className="footer-p-link"><Link href="/digital-marketing-company-chennai" className="footer-link">Digital Marketing</Link></li>
-            <li className="footer-p-link"><Link href="/ai-development-company" className="footer-link">AI/ML development</Link></li>
-          </ul>
-        </nav>
-      </div>
-
-      {/* About Trimsel */}
-      <div className="col-lg-3 col-md-6 footer-side mb-4">
-        <h5 className="footer-heading">About Us</h5>
-        <nav aria-label="About Trimsel">
-          <ul className="footer-menu list-unstyled mb-0">
-            <li className="pt-3 footer-p-link"><Link href="/aboutus" className="footer-link">About Us</Link></li>
-            <li className="footer-p-link"><Link href="/contact-us" className="footer-link">Contact Us</Link></li>
-            <li className="footer-p-link"><Link href="/portfolio" className="footer-link">Our Work</Link></li>
-            <li className="footer-p-link"><Link href="/blog" className="footer-link">Blog</Link></li>
-          </ul>
-        </nav>
-      </div>
-
-      {/* Visual pin/map */}
-      <div className="col-lg-2 col-md-6 mb-4">
-        <div className="pin-text">
-          <Image
-            src="/mahabalipuram.webp"
-            width={250}
-            height={166}
-            alt="Mahabalipuram, Chennai"
-            loading="lazy"
-            sizes="(max-width: 768px) 60vw, 250px"
-          />
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-4 shadow-lg shadow-slate-950/30 backdrop-blur">
+            <p className="text-xs uppercase tracking-[0.3em] text-slate-400">
+              Chennai, India
+            </p>
+            <Image
+              src="/mahabalipuram.webp"
+              width={300}
+              height={200}
+              alt="Mahabalipuram, Chennai"
+              className="mt-4 w-full rounded-2xl object-cover"
+              loading="lazy"
+            />
+            <p className="mt-4 text-sm text-slate-200">
+              Proudly building future-ready products from the heart of Tamil
+              Nadu’s tech corridor.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section id="footercpyright">
-    <div className="footer-copyright container mt-0 py-2">
-      <div className="row align-items-center">
-        <div className="col-md-6">
-          <small className="mt-2 pb-2" style={{ fontFamily: "Gilroy-Semibold" }}>
-            © {new Date().getFullYear()} Trimsel Softwares. All rights reserved.
-          </small>
-        </div>
-        <div className="col-md-6 text-md-end">
-          <small className="mt-2 footer-small" style={{ fontFamily: "Gilroy-Semibold" }}>
-            <Link href="/privacy-policy" className="footer-link">Privacy Policy</Link>
-          </small>
+      <div className="border-t border-white/10">
+        <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+          <p>© {currentYear} Trimsel Softwares. All rights reserved.</p>
+          <p className="text-xs uppercase tracking-[0.3em]">
+            AI + Product Engineering • Cloud • DevOps • Digital Experience
+          </p>
         </div>
       </div>
-    </div>
-  </section>
-</footer>
-
-    </>
+    </footer>
   );
 }
 

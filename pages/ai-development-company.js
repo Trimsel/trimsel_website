@@ -1,27 +1,212 @@
 import Link from "next/link";
 import Image from "next/image";
 import Header from "../components/header";
-import Stack from "react-bootstrap/Stack";
-import Card from "react-bootstrap/Card";
-import Accordion from "react-bootstrap/Accordion";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import dynamic from "next/dynamic";
 import { NextSeo } from "next-seo";
 import Head from "next/head";
 import ContactForm from "../components/ContactForm";
 import Footer from "../components/footer";
 import { buildServiceJsonLd } from "../lib/serviceSchema";
+import ArrowRightIcon from "../components/icons/ArrowRightIcon";
+import CheckIcon from "../components/icons/CheckIcon";
 
 const ClientLogo = dynamic(() => import("../components/clientLogo"), { ssr: false });
+
+const faqItems = [
+  {
+    question: "Why choose Trimsel as your AI development company in Chennai?",
+    answer:
+      "Trimsel has an expert AI development team in Chennai who specialize in building production-ready AI solutions — from predictive analytics and NLP models to generative AI agents — tailored for real business outcomes.",
+  },
+  {
+    question: "What AI development services do you offer?",
+    answer:
+      "We offer custom AI agent development, machine learning models, predictive analytics, NLP, computer vision, generative AI solutions, and MLOps deployment.",
+  },
+  {
+    question: "How much does AI development cost?",
+    answer:
+      "AI solution cost depends on scope, complexity, dataset availability, and deployment needs. We provide scalable packages based on prototype, MVP, and enterprise requirements.",
+  },
+  {
+    question: "Do you offer MLOps and post-launch support?",
+    answer:
+      "Yes. We help deploy, monitor, and maintain AI models in production with CI/CD, retraining pipelines, and infrastructure automation.",
+  },
+  {
+    question: "How long does it take to build an AI solution?",
+    answer:
+      "Initial prototypes or POCs can take 4–6 weeks. Full-scale enterprise AI rollouts generally span 3–6 months depending on integrations, data availability, and compliance requirements.",
+  },
+];
+
+const aboutHighlights = [
+  { title: "Identify High-Impact Use Cases", icon: "/images/list1.png" },
+  { title: "Build Custom AI Models", icon: "/images/automation.png" },
+  { title: "Integrate Seamlessly with Your Systems", icon: "/images/launch.png" },
+  { title: "Ensure Ethical & Reliable AI", icon: "/images/target.png" },
+];
+
+const whyTrimsel = [
+  {
+    title: "Tailored AI Solutions, Not Templates",
+    body:
+      "We build bespoke models and workflows that align with your data landscape, compliance needs, and product roadmap—no off-the-shelf shortcuts.",
+  },
+  {
+    title: "Strong Technical Expertise",
+    body:
+      "Data scientists, ML engineers, and cloud architects partner to deliver NLP, computer vision, predictive analytics, and generative AI programs.",
+  },
+  {
+    title: "Seamless Integration",
+    body:
+      "Your AI solution should fit into existing CRMs, ERPs, and apps. We focus on APIs, SDKs, and automation pipelines that minimize disruption.",
+  },
+  {
+    title: "Rapid Prototyping to Scale",
+    body:
+      "Validate ideas quickly with iterative prototypes, then scale confidently using IaC, MLOps, and continuous feedback loops.",
+  },
+  {
+    title: "Data Privacy & Compliance",
+    body:
+      "We adopt responsible AI principles and adhere to GDPR, HIPAA, SOC 2, and ISO mandates with encryption-first architectures.",
+  },
+  {
+    title: "End-to-End Partnership",
+    body:
+      "From discovery to ongoing optimization, we stay engaged so your AI products evolve with new data, regulations, and business goals.",
+  },
+];
+
+const aiServices = [
+  {
+    title: "Custom AI Development",
+    body:
+      "Build AI-powered applications tailored to your use case—from fraud detection to intelligent copilots—engineered to your goals.",
+    icon: "/images/ab-testing.png",
+  },
+  {
+    title: "AI Consulting & Strategy",
+    body:
+      "We assess readiness, identify high-impact opportunities, and blueprint the infrastructure required for long-term success.",
+    icon: "/images/ab-mobile.png",
+  },
+  {
+    title: "Machine Learning Solutions",
+    body:
+      "Predictive analytics, classification, and clustering models that uncover patterns, forecast demand, and personalize experiences.",
+    icon: "/images/performance-load.png",
+  },
+  {
+    title: "Natural Language Processing",
+    body:
+      "Chatbots, summarizers, sentiment analyzers, and text classifiers that understand human language and automate conversations.",
+    icon: "/images/cyber-security.png",
+  },
+  {
+    title: "Computer Vision",
+    body:
+      "Object detection, quality inspection, facial recognition, and intelligent tagging that turn images into actionable data.",
+    icon: "/images/automation-test.png",
+  },
+  {
+    title: "Robotic Process Automation",
+    body:
+      "Automate repetitive workflows across finance, operations, and support so teams focus on higher-value work.",
+    icon: "/images/robotpa.png",
+  },
+];
+
+const processPrinciples = [
+  {
+    title: "Use-Case Clarity",
+    body: "We define the business objective and target ROI before touching data or code.",
+    icon: "/images/simplicity-image.webp",
+  },
+  {
+    title: "Data Reliability",
+    body: "We ensure datasets are clean, unbiased, and production-ready for consistent performance.",
+    icon: "/images/thumb-up.webp",
+  },
+  {
+    title: "Explainability",
+    body: "Stakeholders get transparent insights into model decisions so adoption and governance stay simple.",
+    icon: "/images/transparencyicon.webp",
+  },
+];
+
+const scopeChecklist = [
+  "What business problem are we solving with AI?",
+  "Do you have enough data—or do we need to generate or collect it?",
+  "What metrics (accuracy, latency, ROI) define success?",
+  "Where will the model run—cloud, on-device, or edge?",
+];
+
+const engagementStages = [
+  {
+    title: "Prototype & Experimentation",
+    body:
+      "Validate feasibility fast. We prepare datasets, stand up early NLP/CV/predictive models, and benchmark value before large investments.",
+  },
+  {
+    title: "Production Deployment & MLOps",
+    body:
+      "Move proven models into secure CI/CD pipelines with monitoring, retraining, and governance so AI stays accurate in the real world.",
+  },
+];
+
+const ctaBenefits = [
+  "Free consultation with senior AI strategists",
+  "End-to-end design, engineering, and DevOps support",
+  "Solutions that stay scalable, compliant, and explainable",
+];
+
+const aiArticles = [
+  {
+    title: "How To Scope An AI MVP",
+    excerpt: "Use our discovery checklist to validate data readiness, model choice, and expected ROI before writing code.",
+    href: "/blog",
+    tag: "AI Strategy",
+  },
+  {
+    title: "Building Safe Generative AI Products",
+    excerpt: "See Trimsel’s guardrails for LLM security, prompt testing, and continuous monitoring in production.",
+    href: "/blog",
+    tag: "Generative AI",
+  },
+];
+
+const aiToolCategories = [
+  {
+    title: "Languages & Frameworks",
+    description: "Backend foundations for AI products, APIs, and orchestration layers.",
+    tools: ["Python", "TypeScript", "Go", "FastAPI", "Node.js"],
+  },
+  {
+    title: "ML & Generative AI Platforms",
+    description: "Model training, fine-tuning, and LLM orchestration stacks we rely on.",
+    tools: ["PyTorch", "TensorFlow", "LangChain", "OpenAI", "Vertex AI", "Anthropic"],
+  },
+  {
+    title: "Data & Pipelines",
+    description: "Pipelines that keep datasets fresh, reliable, and analysis-ready.",
+    tools: ["Airflow", "dbt", "Snowflake", "BigQuery", "Kafka", "Redis"],
+  },
+  {
+    title: "Cloud & DevOps",
+    description: "Infrastructure that helps us deploy and monitor AI safely at scale.",
+    tools: ["AWS SageMaker", "Azure ML", "GCP Vertex AI", "Kubernetes", "Docker", "Argo CD"],
+  },
+];
 
 export default function Quality() {
   const serviceJsonLd = buildServiceJsonLd({
     slug: "ai-development-company",
     serviceName: "AI Development Services (Chennai)",
     serviceType: "Artificial Intelligence Development",
-    description:
-      "Custom AI agents, ML models, NLP, computer vision, generative AI, and MLOps.",
+    description: "Custom AI agents, ML models, NLP, computer vision, generative AI, and MLOps.",
     offers: [
       "Custom AI Agent Development",
       "Machine Learning Model Development",
@@ -30,1022 +215,438 @@ export default function Quality() {
       "Generative AI Solutions",
       "MLOps & AI Consulting",
     ],
-    faq: [
-      {
-        question: "Why choose Trimsel as your AI development company in Chennai?",
-        answer:
-          "Trimsel has an expert AI development team in Chennai who specialize in building production-ready AI solutions — from predictive analytics and NLP models to generative AI agents — tailored for real business outcomes.",
-      },
-      {
-        question: "What AI development services do you offer?",
-        answer:
-          "We offer custom AI agent development, machine learning models, predictive analytics, NLP, computer vision, generative AI solutions, and MLOps deployment.",
-      },
-      {
-        question: "How much does AI development cost?",
-        answer:
-          "AI solution cost depends on scope, complexity, dataset availability, and deployment needs. We provide scalable packages based on prototype, MVP, and enterprise requirements.",
-      },
-      {
-        question: "Do you offer MLOps and post-launch support?",
-        answer:
-          "Yes. We help deploy, monitor, and maintain AI models in production with CI/CD, retraining pipelines, and infrastructure automation.",
-      },
-      {
-        question: "How long does it take to build an AI solution?",
-        answer:
-          "Initial prototype/POC can take 4–6 weeks. Full-scale enterprise AI system rollout generally takes 3–6 months depending on integrations, data availability, and compliance requirements.",
-      },
-    ],
+    faq: faqItems,
     breadcrumbs: [
       { name: "Home", item: "https://www.trimsel.com/" },
-      {
-        name: "AI Development Company",
-        item: "https://www.trimsel.com/ai-development-company",
-      },
+      { name: "AI Development Company", item: "https://www.trimsel.com/ai-development-company" },
     ],
   });
-  const aiArticles = [
-    {
-      title: "How To Scope An AI MVP",
-      excerpt: "Use our discovery checklist to validate data readiness, model choice, and expected ROI before writing code.",
-      href: "/blog",
-      tag: "AI Strategy",
-    },
-    {
-      title: "Building Safe Generative AI Products",
-      excerpt: "See Trimsel’s guardrails for LLM security, prompt testing, and continuous monitoring in production.",
-      href: "/blog",
-      tag: "Generative AI",
-    },
-  ];
-
-  const aiToolCategories = [
-    {
-      title: "Languages & Frameworks",
-      description: "Backend foundations for AI products, APIs, and orchestration layers.",
-      tools: ["Python", "TypeScript", "Go", "FastAPI", "Node.js"],
-    },
-    {
-      title: "ML & Generative AI Platforms",
-      description: "Model training, fine-tuning, and LLM orchestration stacks we rely on.",
-      tools: ["PyTorch", "TensorFlow", "LangChain", "OpenAI", "Vertex AI", "Anthropic"],
-    },
-    {
-      title: "Data & Pipelines",
-      description: "Pipelines that keep datasets fresh, reliable, and analysis-ready.",
-      tools: ["Airflow", "dbt", "Snowflake", "BigQuery", "Kafka", "Redis"],
-    },
-    {
-      title: "Cloud & DevOps",
-      description: "Infrastructure that helps us deploy and monitor AI safely at scale.",
-      tools: ["AWS SageMaker", "Azure ML", "GCP Vertex AI", "Kubernetes", "Docker", "Argo CD"],
-    },
-  ];
 
   return (
     <>
-<NextSeo
-  title="AI Development Company in Chennai, India | Trimsel"
-  description="Trimsel is a leading AI development company in Chennai, India specializing in custom AI agents, machine learning models, NLP, and generative AI solutions."
-  canonical="https://www.trimsel.com/ai-development-company"
-  openGraph={{
-    type: "website",
-    url: "https://www.trimsel.com/ai-development-company",
-    title: "Best AI Development Company in Chennai, India | Trimsel",
-    description:
-      "Trimsel is a top AI development company in Chennai, India helping enterprises build scalable AI agents, predictive models, NLP, and generative AI products.",
-    locale: "en_IN",
-    site_name: "Trimsel",
-    images: [
-      {
-        url: "https://www.trimsel.com/images/qa-hero-img.webp",
-        width: 1200,
-        height: 630,
-        alt: "Trimsel AI engineers building machine learning solutions in Chennai",
-      },
-    ],
-    article: {
-      section: "AI Development",
-      tags: [
-        "AI Development",
-        "Machine Learning",
-        "Generative AI",
-        "NLP",
-        "Chennai",
-      ],
-    },
-  }}
-  twitter={{
-    cardType: "summary_large_image",
-    handle: "@TrimselSoftwares",
-    site: "@TrimselSoftwares",
-  }}
-  additionalMetaTags={[
-    {
-      name: "twitter:title",
-      content: "AI Development Experts in Chennai – Trimsel",
-    },
-    {
-      name: "twitter:description",
-      content:
-        "Build production-ready AI agents, ML models, and generative AI products with Trimsel’s Chennai team.",
-    },
-    {
-      name: "twitter:image:alt",
-      content: "Trimsel AI engineers collaborating on machine learning models",
-    },
-  ]}
-/>
+      <NextSeo
+        title="AI Development Company in Chennai, India | Trimsel"
+        description="Trimsel is a leading AI development company in Chennai, India specializing in custom AI agents, machine learning models, NLP, and generative AI solutions."
+        canonical="https://www.trimsel.com/ai-development-company"
+        openGraph={{
+          type: "website",
+          url: "https://www.trimsel.com/ai-development-company",
+          title: "Best AI Development Company in Chennai, India | Trimsel",
+          description:
+            "Trimsel is a top AI development company in Chennai, India helping enterprises build scalable AI agents, predictive models, NLP, and generative AI products.",
+          locale: "en_IN",
+          site_name: "Trimsel",
+          images: [
+            {
+              url: "https://www.trimsel.com/images/qa-hero-img.webp",
+              width: 1200,
+              height: 630,
+              alt: "Trimsel AI engineers building machine learning solutions in Chennai",
+            },
+          ],
+          article: {
+            section: "AI Development",
+            tags: ["AI Development", "Machine Learning", "Generative AI", "NLP", "Chennai"],
+          },
+        }}
+        twitter={{
+          cardType: "summary_large_image",
+          handle: "@TrimselSoftwares",
+          site: "@TrimselSoftwares",
+        }}
+        additionalMetaTags={[
+          { name: "twitter:title", content: "AI Development Experts in Chennai – Trimsel" },
+          {
+            name: "twitter:description",
+            content: "Build production-ready AI agents, ML models, and generative AI products with Trimsel’s Chennai team.",
+          },
+          { name: "twitter:image:alt", content: "Trimsel AI engineers collaborating on machine learning models" },
+        ]}
+      />
+
       <Head>
         {serviceJsonLd.map((schema, index) => (
-          <script
-            key={`ai-dev-schema-${index}`}
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-          />
+          <script key={`ai-dev-schema-${index}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
         ))}
       </Head>
-      <section className="quality-hero">
-        <Header />
-        <section className="hero-dev">
-          <div className="container pt-3">
-            <div className="row">
-              <div className="col-lg-6 col-md-6">
-                <div className="title">
-                  <div className="title-inner">
-                    <div className="cafe">
-                      <div className="whiteLink">
-                        <p className="breadcrumbs-kar">
-                          <Link href="/">Home</Link> <span> &#x2027; </span>{" "}
-                          AI Development services
-                        </p>
-                      </div>
-                    </div>
-                    <div className="cafe">
-                      <div className="cafe-inner qs-title">
-                        <h1>AI Development Company in Chennai</h1>
-                      </div>
-                    </div>
-                    <div className="mozart">
-                      <div className="mozart-inner">
-                        <p className="qs-para">
-                          Unlock innovation with Trimsel&rsquo;s end-to-end AI development services. We design intelligent solutions tailored to your business goals, from custom models to seamless integration into your workflows. Whether you are a startup looking to scale or an enterprise modernizing its processes, we provide AI that solves real problems, not just proofs of concept.
-                        </p>
-                      </div>
-                    </div>
-                    <div className="mozarts">
-                      <div className="mozarts-inner">
-                      <Link href="/contact-us" className="btn btn-primary get-btn" aria-label="Talk to an AI Expert">
-                      Talk to an AI Expert{" "}
-                      <Image src="/images/material-symbols_arrow-right-alt.png" width={24} height={24} alt="" aria-hidden="true" />
-                    </Link>
-                    <p className="hero-proof">
-                      40+ AI products shipped across BFSI, healthcare, logistics, and SaaS with audited MLOps pipelines.
-                    </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+
+      <main>
+        <section className="bg-gradient-to-b from-white via-slate-50 to-white">
+          <Header />
+          <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8">
+            <div className="space-y-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+                <Link href="/" className="hover:text-brand">
+                  Home
+                </Link>
+                <span className="mx-2 text-slate-300">·</span> AI Development Services
+              </p>
+              <h1 className="text-4xl font-semibold text-slate-900">AI Development Company in Chennai</h1>
+              <p className="text-lg leading-relaxed text-slate-600">
+                Unlock innovation with Trimsel’s end-to-end AI development services. We design intelligent solutions tailored to your business
+                goals—from custom models to seamless integration. Whether you’re a startup scaling fast or an enterprise modernizing workflows,
+                we build AI that solves real problems, not just proofs of concept.
+              </p>
+              <div>
+                <Link
+                  href="/contact-us"
+                  className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white shadow-lg shadow-brand/40 transition hover:bg-brand-dark"
+                  aria-label="Talk to an AI Expert"
+                >
+                  Talk to an AI Expert <ArrowRightIcon width={20} height={20} />
+                </Link>
+                <p className="mt-4 text-sm text-slate-500">
+                  40+ AI products shipped across BFSI, healthcare, logistics, and SaaS with audited MLOps pipelines.
+                </p>
               </div>
-              <div className="col-lg-6 col-md-6">
-                <div className="imgrs">
-                  <Image
-                    src="/images/qa-hero-img.webp"
-                    className="quality-hero-img"
-                    alt="Trimsel AI engineers building machine learning solutions in Chennai"
-                    width={650}
-                    height={423}
-                    priority
-                    quality={70}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-                  />
+            </div>
+            <div className="flex items-center justify-center">
+              <Image
+                src="/images/qa-hero-img.webp"
+                width={650}
+                height={423}
+                alt="Trimsel AI engineers collaborating in Chennai"
+                className="w-full max-w-[520px]"
+                priority
+                quality={70}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 520px"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section id="client" className="bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+              <Image src="/images/Rectangle-kariot.png" width={15} height={15} alt="" aria-hidden="true" loading="lazy" />
+              Our Clients
+            </div>
+            <div className="mt-6 grid gap-8 lg:grid-cols-2">
+              <h2 className="text-3xl font-semibold text-slate-900">Trusted Digital Transformation Partner</h2>
+              <p className="text-lg text-slate-600">
+                From fast-growing startups to industry leaders, Trimsel brings bold ideas to life. Whether it’s
+                <Link href="/web-development-company-chennai" className="underline decoration-brand/40 underline-offset-4">
+                  {" "}
+                  custom software
+                </Link>
+                ,
+                <Link href="/cloud-consulting-services" className="underline decoration-brand/40 underline-offset-4">
+                  {" "}
+                  cloud adoption
+                </Link>
+                ,
+                <Link href="/mobile-app-development-chennai" className="underline decoration-brand/40 underline-offset-4">
+                  {" "}
+                  mobile experiences
+                </Link>
+                , or AI-driven products, we build solutions that scale, perform, and future-proof your business.
+              </p>
+            </div>
+            <div className="mt-10 rounded-3xl border border-slate-100 bg-slate-50 p-6 shadow-inner">
+              <ClientLogo />
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-slate-50">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+              <Image src="/images/Rectangle-kariot.png" width={18} height={18} alt="" aria-hidden="true" loading="lazy" />
+              Build your AI product
+            </div>
+            <div className="mt-6 grid gap-10 lg:grid-cols-2">
+              <div className="space-y-5">
+                <h2 className="text-3xl font-semibold text-slate-900">Transform Your Business with AI Development</h2>
+                <p className="text-lg leading-relaxed text-slate-600">
+                  AI has moved from concept to competitive advantage. Our Chennai-based team partners with you to design practical, real-world
+                  AI solutions—multilingual copilots for BFSI brands, predictive maintenance for logistics fleets, lead-qualifying chatbots for
+                  SaaS teams, and more.
+                </p>
+                <p className="text-lg leading-relaxed text-slate-600">
+                  Whether you’re leveraging data for smarter decisions, automating workflows via
+                  <Link href="/devops-consulting-services" className="underline decoration-brand/40 underline-offset-4">
+                    {" "}
+                    DevOps automation
+                  </Link>
+                  , or building intelligent products, we focus on measurable outcomes with
+                  <Link href="/cloud-consulting-services" className="underline decoration-brand/40 underline-offset-4">
+                    {" "}
+                    cloud-native architecture guidance
+                  </Link>
+                  .
+                </p>
+              </div>
+              <div className="rounded-3xl border border-white/60 bg-white p-6 shadow-lg shadow-slate-900/5">
+                <h3 className="text-xl font-semibold text-slate-900">Why Trimsel for AI Development?</h3>
+                <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                  {aboutHighlights.map((item) => (
+                    <div key={item.title} className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
+                      <Image src={item.icon} width={40} height={40} alt={`${item.title} icon`} loading="lazy" />
+                      <p className="mt-3 text-sm font-semibold text-slate-900">{item.title}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
           </div>
         </section>
-      </section>
-      <section id="client" className="client-section">
-        <div className="container mt-5 clt-container">
-        <div className="d-flex align-items-center">
-            <div className="badge-abot-btn">
-              <Image
-                src="/images/Rectangle-kariot.png"
-                className="me-2"
-                width={15}
-                height={15}
-                alt="Trimsel Section Divider"
-                loading="lazy"
-              />
-              <p> OUR CLIENTS </p>
-            </div>
-          </div>
-      
-          <div className="row pt-3">
-            <div className="col-lg-6 col-md-6">
-              <h2 className="client-title">
-                Trusted Digital Transformation Partner for Global Brands
-              </h2>
-            </div>
-            <div className="col-lg-6 col-md-6">
-              <p className="cliented-text">
-              From fast-growing startups to industry leaders, Trimsel has partnered with businesses worldwide to bring bold ideas to life. Whether it’s <strong>AI-driven innovation</strong>, <Link href="/web-development-company-chennai"><strong>custom software</strong></Link>, <Link href="/cloud-consulting-services"><strong>cloud adoption</strong></Link>, or <Link href="/mobile-app-development-chennai"><strong>mobile app development</strong></Link>, we build solutions that don’t just work—they scale. Our team keeps its finger on the pulse of emerging technologies, ensuring the products we deliver are future-ready, high-performing, and built for real business impact.
-              </p>
-            </div>
-          </div>
-                  <div className="row client-row pt-3 text-center">
-                    <ClientLogo />
-                  </div>
-                </div>
-              </section>
 
-      <section className="quality-abt">
-        <div className="container quality-abt-container">
-          <div className="row">
-            <div className="col-lg-6 col-md-6 col-12">
-              <Stack direction="horizontal">
-                <div className=" badge-kariot-btn">
-                  <Image
-                    src="/images/Rectangle-kariot.png"
-                    className="me-2"
-                    alt=""
-                    aria-hidden="true"
-                    width={18}
-                    height={18}
-                    loading="lazy"
-                  />
-                  <p> Build your AI Product </p>
-                </div>
-              </Stack>
-              <h2 className="webdev-title pt-4">
-              Transform Your Business with AI Development
-              </h2>
-              <p className="qs-abt-para">
-              Over the past few years, Artificial Intelligence has moved from being a futuristic concept to a practical, business-transforming reality. At Trimsel, we’ve seen first-hand how AI can unlock efficiency, accuracy, and innovation across industries. From enhancing customer experiences to automating complex processes, AI is no longer optional — it’s a competitive advantage.
-              </p>
-              <p className="qs-abt-para">
-              We work closely with businesses in Chennai and beyond to develop AI solutions that are not only cutting-edge but also practical for real-world challenges. Whether it’s leveraging data for smarter decisions, automating repetitive workflows through{" "}
-                <Link href="/devops-consulting-services">DevOps automation services</Link>, or creating intelligent products, our goal is simple: to help you achieve measurable outcomes through AI. Recent projects include multilingual support copilots for BFSI brands, predictive maintenance models for logistics fleets, and lead-qualifying chatbots for SaaS teams.
-              </p>
-              <p className="qs-abt-para">
-              By combining our technical expertise with a deep understanding of business needs, we create AI-driven systems that are robust, scalable, and future-ready with{" "}
-                <Link href="/cloud-consulting-services">cloud-native architecture guidance</Link>.
-              </p>
-            </div>
-            <div className="col-lg-6 col-md-6 col-12">
-              <Card className="qs-abt-card">
-                <h3 className="qs-card-heading pb-3">
-                Why Trimsel for AI Development?
-                </h3>
-                <div className="row">
-                  <div className="col-lg-6 col-md-6 mb-2">
-                    <div className="card icon-box">
-                      <Image
-                        src="/images/list1.png"
-                        width={40}
-                        height={40}
-                        alt="List of tasks icon"
-                      />
-                      <h5 className="qs-icon-heading pt-2">
-                        Identify High-Impact Use Cases
-                      </h5>
-                    </div>
+        <section id="ai-value" className="bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="grid gap-6 lg:grid-cols-[2fr,3fr]">
+              <div>
+                <h2 className="text-3xl font-semibold text-slate-900">Why Trimsel for AI Development?</h2>
+                <p className="mt-4 text-lg text-slate-600">
+                  Choosing the right partner determines how quickly AI delivers value. We treat AI as a business accelerator—not a buzzword—so
+                  every engagement focuses on measurable outcomes, governance, and long-term scale.
+                </p>
+              </div>
+              <div className="grid gap-4 sm:grid-cols-2">
+                {whyTrimsel.map((item) => (
+                  <div key={item.title} className="rounded-3xl border border-slate-100 bg-slate-50 p-5 shadow-inner">
+                    <h3 className="text-lg font-semibold text-slate-900">{item.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.body}</p>
                   </div>
-                  <div className="col-lg-6 col-md-6 mb-2">
-                    <div className="card icon-box">
-                      <Image
-                        src="/images/automation.png"
-                        width={40}
-                        height={40}
-                        alt="Automation icon"
-                      />
-                      <h5 className="qs-icon-heading pt-2">
-                      Build Custom AI Models
-                      </h5>
-                    </div>
-                  </div>
-                  <div className="col-lg-6 col-md-6">
-                    <div className="card icon-box mb-2">
-                      <Image
-                        src="/images/launch.png"
-                        width={40}
-                        height={40}
-                        alt="Launch Rocket icon"
-                      />
-                      <h5 className="qs-icon-heading pt-2">
-                      Integrate Seamlessly with Your Systems
-                      </h5>
-                    </div>
-                  </div>
-                  <div className="col-lg-6 col-md-6">
-                    <div className="card icon-box mb-2">
-                      <Image
-                        src="/images/target.png"
-                        width={40}
-                        height={40}
-                        alt="bug-target-icon"
-                      />
-                      <h5 className="qs-icon-heading pt-2">
-                      Ensure Ethical & Reliable AI
-                      </h5>
-                    </div>
-                  </div>
-                </div>
-              </Card>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="qs-test">
-        <div className="container test-container">
-          <div className="row">
-            <div className="col-lg-8 col-md-7">
-              <h3 className="test-heading">
-                Why Trimsel for an AI Development Company?
-              </h3>
-            </div>
-            <div className="col-lg-4 col-md-5">
-              <p className="qs-para">
-              Choosing the right AI development company can significantly influence the success of your digital transformation journey. At Trimsel, we approach AI not as a trend but as a tool to unlock measurable value. Our approach is holistic, strategic, and built to scale.
+        <section id="ai-services" className="bg-slate-50">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="grid gap-6 lg:grid-cols-[2fr,3fr]">
+              <div>
+                <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+                  <Image src="/images/Rectangle-kariot.png" width={18} height={18} alt="" aria-hidden="true" loading="lazy" />
+                  What we do
+                </div>
+                <h2 className="mt-4 text-3xl font-semibold text-slate-900">AI Development Services We Offer</h2>
+              </div>
+              <p className="text-lg leading-relaxed text-slate-600">
+                Expect faster decisions, streamlined operations, better customer experiences, and tangible ROI from your AI initiatives. We
+                focus on outcomes—not just code.
               </p>
             </div>
-          </div>
-          <div className="row">
-            <div className="col-lg-4 col-md-6 mt-4">
-              <div className="card service-qs-card">
-                <div className="card-image">
-                  <Image
-                    src="/images/diamond-icon.png"
-                    width={73}
-                    height={73}
-                    alt="Diamond Icon"
-                  />
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {aiServices.map((service) => (
+                <div key={service.title} className="rounded-3xl border border-white/60 bg-white p-6 shadow-lg shadow-slate-900/5">
+                  <Image src={service.icon} width={60} height={60} alt={`${service.title} icon`} loading="lazy" />
+                  <h3 className="mt-4 text-xl font-semibold text-slate-900">{service.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-600">{service.body}</p>
                 </div>
-                <div className="service-card-title pt-4 pb-2">
-                  <h3>Tailored AI Solutions, Not Templates</h3>
-                </div>
-                <div className="card-text service-card-text pb-3">
-                  <p>
-                  We build bespoke AI models and workflows that align with your business objectives, data landscape, and operational constraints. No generic tools—only solutions that are engineered to work for you and integrate with existing{" "}
-                    <Link href="/web-development-company-chennai">web and mobile products</Link>.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 mt-4">
-              <div className="card service-qs-card">
-                <div className="card-image">
-                  <Image
-                    src="/images/saving-icon.png"
-                    width={73}
-                    height={73}
-                    alt="Cost Saving Icon"
-                  />
-                </div>
-                <div className="service-card-title pt-4 pb-2">
-                  <h3>Strong Technical Expertise</h3>
-                </div>
-                <div className="card-text service-card-text pb-3">
-                  <p>
-                  Our team combines deep expertise in data science, machine learning, cloud computing, and software development. We specialize in building and deploying complex AI solutions across a wide range of domains including natural language processing, computer vision, generative AI, and predictive analytics.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 mt-4">
-              <div className="card service-qs-card">
-                <div className="card-image">
-                  <Image
-                    src="/images/timespeed.png"
-                    width={73}
-                    height={73}
-                    alt="Fast Delivery Icon"
-                  />
-                </div>
-                <div className="service-card-title pt-4 pb-2">
-                  <h3>Seamless Integration with Your Existing Tech Stack</h3>
-                </div>
-                <div className="card-text service-card-text pb-3">
-                  <p>
-                  Your AI solution should fit into your current systems, not disrupt them. We build AI software solutions that integrate effortlessly with your CRM, mobile app, ERP, or cloud backend—ensuring minimal disruption and maximum productivity with support from our{" "}
-                    <Link href="/cloud-consulting-services">cloud consulting practice</Link>.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 mt-4">
-              <div className="card service-qs-card">
-                <div className="card-image">
-                  <Image
-                    src="/images/agileicon.png"
-                    width={73}
-                    height={73}
-                    alt="Agile Icon"
-                  />
-                </div>
-                <div className="service-card-title pt-4 pb-2">
-                  <h3>Rapid Prototyping to Scalable Delivery</h3>
-                </div>
-                <div className="card-text service-card-text pb-3">
-                  <p>
-                  We follow an agile development process focused on speed and iteration. With Trimsel, you can validate your ideas quickly through prototypes and then scale confidently based on real data and user feedback.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 mt-4">
-              <div className="card service-qs-card">
-                <div className="card-image">
-                  <Image
-                    src="/images/approach-icon.png"
-                    width={73}
-                    height={73}
-                    alt="Approach Icon"
-                  />
-                </div>
-                <div className="service-card-title pt-4 pb-2">
-                  <h3>Data Privacy and Compliance First</h3>
-                </div>
-                <div className="card-text service-card-text pb-3">
-                  <p>
-                  We adopt responsible AI principles and strictly adhere to data protection standards, including GDPR, HIPAA, and SOC 2. Your sensitive data remains safe, encrypted, and governed by ethical frameworks.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 mt-4">
-              <div className="card service-qs-card">
-                <div className="card-image">
-                  <Image
-                    src="/images/transparency.png"
-                    width={73}
-                    height={73}
-                    alt="Transparency Icon"
-                  />
-                </div>
-                <div className="service-card-title pt-4 pb-2">
-                  <h3>End-to-End Partnership</h3>
-                </div>
-                <div className="card-text service-card-text pb-3">
-                  <p>
-                  From initial AI consulting and strategy to ongoing optimization and support, we act as your technology partner every step of the way. Our commitment goes beyond deployment; we ensure your AI evolves as your business grows alongside{" "}
-                    <Link href="/mobile-app-development-chennai">mobile</Link> and{" "}
-                    <Link href="/devops-consulting-services">DevOps</Link> roadmaps.
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="qs-customize">
-        <div className="container test-container">
-          <Stack direction="horizontal">
-            <div className=" badge-kariot-btn">
-              <Image
-                src="/images/Rectangle-kariot.png"
-                className="me-2"
-                alt=""
-                aria-hidden="true"
-                width={18}
-                height={18}
-                loading="lazy"
-              />
-              <p> WHAT WE DO </p>
-            </div>
-          </Stack>
-          <div className="row">
-            <div className="col-lg-7 col-md-7 col-12">
-              <h3 className="test-heading pt-4">
-                  AI Development Services We Offer
-              </h3>
-            </div>
-            <div className="col-lg-5 col-md-5 col-12">
-              <p className="qsds-para pt-4">
-              We focus on business outcomes, not just code. Expect faster decisions, streamlined operations, better customer experiences, and tangible ROI from your AI initiatives.
-              </p>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-lg-4 col-md-6 pt-3">
-              <Card className="qs-customize-card">
-                <Card.Body style={{ paddingRight: "0px", paddingLeft: "0px" }}>
-                  <Image
-                    src="/images/ab-testing.png"
-                    width={70}
-                    height={70}
-                    className="do-icon pb-3"
-                    alt="AB Testing icon"
-                  />
-                  <h3 className="qs-card-heading">Custom AI Development</h3>
-                  <p className="qsd-para">
-                        Build AI-powered applications tailored to your specific use case. Whether it&rsquo;s a fraud detection system or an intelligent chatbot, we develop solutions that align with your unique goals and data.
-                  </p>
-                </Card.Body>
-              </Card>
-            </div>
-            <div className="col-lg-4 col-md-6 pt-3">
-              <Card className="qs-customize-card">
-                <Card.Body style={{ paddingRight: "0px", paddingLeft: "0px" }}>
-                  <Image
-                    src="/images/ab-mobile.png"
-                    width={70}
-                    height={70}
-                    className="do-icon pb-3"
-                    alt="AB Mobile Testing icon"
-                  />
-                  <h3 className="qs-card-heading">AI Consulting & Strategy</h3>
-                  <p className="qsd-para">
-                  Our experts work with your stakeholders to define a strategic roadmap. We assess your readiness, identify high-impact AI opportunities, and help you prepare the right infrastructure for success.
-                  </p>
-                </Card.Body>
-              </Card>
-            </div>
-            <div className="col-lg-4 col-md-6 pt-3">
-              <Card className="qs-customize-card">
-                <Card.Body style={{ paddingRight: "0px", paddingLeft: "0px" }}>
-                  <Image
-                    src="/images/performance-load.png"
-                    width={70}
-                    height={70}
-                    className="do-icon pb-3"
-                    alt="Load & Performance icon"
-                  />
-                  <h3 className="qs-card-heading">
-                  Machine Learning Solutions{" "}
-                  </h3>
-                  <p className="qsd-para">
-                  Predictive analytics, classification, and clustering models for data-driven decision-making. Our ML models help you detect patterns, forecast trends, and personalize user experiences.
-                  </p>
-                </Card.Body>
-              </Card>
-            </div>
-            <div className="col-lg-4 col-md-6 pt-3">
-              <Card className="qs-customize-card">
-                <Card.Body style={{ paddingRight: "0px", paddingLeft: "0px" }}>
-                  <Image
-                    src="/images/cyber-security.png"
-                    width={70}
-                    height={70}
-                    className="do-icon pb-3"
-                    alt="Security Testing icon"
-                  />
-                  <h3 className="qs-card-heading">Natural Language Processing (NLP) </h3>
-                  <p className="qsd-para">
-                  Empower your systems to understand human language. We build chatbots, sentiment analyzers, summarization tools, and text classifiers to enhance engagement and insights.
-                  </p>
-                </Card.Body>
-              </Card>
-            </div>
-            <div className="col-lg-4 col-md-6 pt-3">
-              <Card className="qs-customize-card">
-                <Card.Body style={{ paddingRight: "0px", paddingLeft: "0px" }}>
-                  <Image
-                    src="/images/automation-test.png"
-                    width={70}
-                    height={70}
-                    className="do-icon pb-3"
-                    alt="Automation Testing icon"
-                  />
-                  <h3 className="qs-card-heading"> Computer Vision Solutions </h3>
-                  <p className="qsd-para">
-                  Enable machines to see and understand the visual world. From object detection and quality inspection to facial recognition and image tagging, we help you turn images into actionable insights.
-                  </p>
-                </Card.Body>
-              </Card>
-            </div>
-            <div className="col-lg-4 col-md-6 pt-3">
-              <Card className="qs-customize-card">
-                <Card.Body style={{ paddingRight: "0px", paddingLeft: "0px" }}>
-                  <Image
-                    src="/images/robotpa.png"
-                    width={70}
-                    height={70}
-                    className="do-icon pb-3"
-                    alt="Robotic Process Automation icon"
-                  />
-                  <h3 className="qs-card-heading">
-                    {" "}
-                    Robotic Process Automation{" "}
-                  </h3>
-                  <p className="qsd-para">
-                    It is highly essential for a company’s website to be up and
-                    running at all times. It cannot afford to have bugs or
-                    errors. Trimsel AI development company in Chennai ensures
-                    that all aspects of your website are functioning and are
-                    devoid of broken pages.
-                  </p>
-                </Card.Body>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="qs-sec-cta">
-        <div className="container">
-          <Card className="qs-cta my-5">
-            <Card.Body>
-              <div className="row">
-                <div className="col-lg-7 col-md-12 col-12">
-                  <Stack direction="horizontal">
-                    <div className=" badge-kariot-btn">
-                      <Image
-                        src="/images/Rectangle-kariot.png"
-                        className="me-2"
-                        alt=""
-                        aria-hidden="true"
-                        width={18}
-                        height={18}
-                        loading="lazy"
-                      />
-                      <p> GET IN TOUCH </p>
-                    </div>
-                  </Stack>
-                  <h2 className="cldcta-heading pt-2">
-                    Experience Technology to the Fullest with Trimsel AI Development Company
-                  </h2>
-                  <Link
-                    href="/contact-us"
-                    className="btn btn-primary dev-btn mt-3"
-                    aria-label="Contact Trimsel&rsquo;s AI team"
-                  >
-                    Contact Us{" "}
-                    <Image
-                      src="/images/material-symbols_arrow-right-alt.png"
-                      alt=""
-                      aria-hidden="true"
-                      width={18}
-                      height={18}
-                      loading="lazy"
-                    />
-                  </Link>
+        <section className="bg-slate-900">
+          <div className="mx-auto max-w-6xl rounded-[32px] border border-white/10 px-6 py-12 shadow-2xl shadow-black/30 sm:px-10">
+            <div className="grid gap-10 lg:grid-cols-2">
+              <div>
+                <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-300">
+                  <Image src="/images/Rectangle-kariot.png" width={18} height={18} alt="" aria-hidden="true" loading="lazy" />
+                  Get in touch
                 </div>
+                <h2 className="mt-6 text-3xl font-semibold text-white">Experience enterprise-grade AI with Trimsel</h2>
+                <p className="mt-4 text-lg leading-relaxed text-slate-300">
+                  From ideation to MLOps, we help teams design, deploy, and govern AI responsibly.
+                </p>
+                <ul className="mt-6 space-y-3 text-sm text-slate-200">
+                  {ctaBenefits.map((benefit) => (
+                    <li key={benefit} className="flex items-start gap-3">
+                      <CheckIcon width={18} height={18} className="mt-1 text-brand" />
+                      <span>{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/contact-us"
+                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-slate-900 shadow-lg shadow-white/20 transition hover:bg-slate-100"
+                  aria-label="Contact Trimsel’s AI team"
+                >
+                  <ArrowRightIcon width={18} height={18} />
+                  Contact Us
+                </Link>
               </div>
-            </Card.Body>
-          </Card>
-        </div>
-      </section>
-
-      <section id="ensure-section">
-        <div className="container ensure-container">
-          <div className="row">
-            <div className="col-lg-6 col-md-6">
-              <h2 className="ensure-heading whiteLink">
-              Build and Scale AI Solutions with a Proven Two-Stage Engagement Model
-              </h2>
-              <h3 className="ens-title whiteLink pt-4">Prototype & Experimentation</h3>
-              <p className="ens-para whiteLink">
-              Turn complex ideas into rapid AI prototypes. We explore feasibility, collect & prepare datasets, and develop early-stage models (NLP, CV, predictive). This phase provides clarity on expected business value and lays the groundwork before full-scale investments.
-              </p>
-              <h3 className="ens-title whiteLink pt-4">
-              Production Deployment & MLOps
-              </h3>
-              <p className="ens-para whiteLink">
-              Move from successful prototype to secure, scalable production. We containerize your models, deploy them to cloud/on-prem environments, and establish CI/CD pipelines and monitoring to ensure models remain accurate, explainable, and business-relevant.
-              </p>
-            </div>
-            <div className="col-lg-6 col-md-6">
-              <Image
-                src="/images/ensure-side.webp"
-                width={845}
-                height={745}
-                alt="Man Experiencing Fast and Performance Image"
-                className="ens-sd"
-                quality={100}
-              />
+              <div className="flex items-center justify-center">
+                <Image
+                  src="/images/ctambbg.webp"
+                  width={520}
+                  height={520}
+                  alt="Discuss AI projects with Trimsel"
+                  className="w-full max-w-sm rounded-[32px] shadow-2xl shadow-black/40"
+                  quality={70}
+                  placeholder="blur"
+                  blurDataURL="data:image/webp;base64,UklGRiIAAABXRUJQVlA4IDAAAADQAgCdASoIAAgAAkA4JQBOgCH/89JAAA=="
+                  sizes="(max-width: 768px) 100vw, 320px"
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="kariot-about">
-        <div className="container xaber-about-container">
-          <div className="row">
-            <div className="col-lg-7 col-md-6">
-              <h2 className="kariot-title pt-3">Our AI Development Process</h2>
-              <p className="qs-abt-para pb-3">
-              We follow a transparent, agile AI development approach to build production-ready models with predictable business outcomes.</p>
-              <div className="simp-card">
-                <div className="card smp-card">
-                  <div className="row">
-                    <div className="col-lg-2 col-md-2 col-2 col-size">
-                      <Image
-                        src="/images/simplicity-image.webp"
-                        width={40}
-                        height={40}
-                        alt="Simple Icon"
-                        className="me-2"
-                      />
-                    </div>
-                    <div className="col-lg-10 col-md-10 col-10 cols-size">
-                      <h4 className="simp-heading">
-                      Use-Case Clarity  -{" "}
-                        <span className="simp-para">
-                          {" "}
-                          We carefully define the business objective and AI use-case to align with the ROI you expect.
-                        </span>
-                      </h4>
-                    </div>
+        <section id="ai-engagement" className="bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="grid gap-10 lg:grid-cols-2">
+              <div className="space-y-5">
+                <h2 className="text-3xl font-semibold text-slate-900">Build and scale AI with a proven two-stage model</h2>
+                {engagementStages.map((stage) => (
+                  <div key={stage.title} className="rounded-3xl border border-slate-100 bg-slate-50 p-5 shadow-inner">
+                    <h3 className="text-xl font-semibold text-slate-900">{stage.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-slate-600">{stage.body}</p>
                   </div>
-                </div>
-                <div className="card smp-card my-3">
-                  <div className="row">
-                    <div className="col-lg-2 col-md-2 col-2 col-size">
-                      <Image
-                        src="/images/thumb-up.webp"
-                        width={40}
-                        height={40}
-                        alt="Thump Up Icon"
-                        className="me-2"
-                      />
-                    </div>
-                    <div className="col-lg-10 col-md-10 col-10 cols-size">
-                      <h4 className="simp-heading">
-                      Data Reliability -{" "}
-                        <span className="simp-para">
-                          {" "}
-                          We make sure your data is clean, unbiased and production-ready for consistent model performance.
-                        </span>
-                      </h4>
-                    </div>
-                  </div>
-                </div>
-                <div className="card smp-card my-4">
-                  <div className="row">
-                    <div className="col-lg-2 col-md-2 col-2 col-size">
-                      <Image
-                        src="/images/transparencyicon.webp"
-                        width={40}
-                        height={40}
-                        alt="Transparency Icon"
-                        className="me-2"
-                      />
-                    </div>
-                    <div className="col-lg-10 col-md-10 col-10 cols-size">
-                      <h4 className="simp-heading">
-                      Explainability -{" "}
-                        <span className="simp-para">
-                          {" "}
-                          Clear insight into model decisions so stakeholders can trust and adopt AI outcomes.
-                        </span>
-                      </h4>
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
-              <h3 className="sor-heading pt-3">
-                Based on these parameters, we scope out
-              </h3>
-              <div className="row pt-3">
-                <div className="col-lg-6 col-md-6 mt-3">
-                  <div className="card sor-card">
-                    <h4 className="sim-heading">
-                      <div className="row">
-                        <div className="col-lg-3 col-md-3 col-3 rw-size">
-                          <span>
-                            <Image
-                              src="/images/check-circle.png"
-                              width={30}
-                              height={30}
-                              alt="Check Icon"
-                              className="check-image"
-                            />
-                          </span>
-                        </div>
-                        <div className="col-lg-9 col-md-9 col-9 rws-size">
-                        What business problem are we solving with AI?
-                        </div>
+              <div className="flex items-center justify-center">
+                <Image
+                  src="/images/ensure-side.webp"
+                  width={520}
+                  height={460}
+                  alt="AI engineering workflow"
+                  className="w-full max-w-md rounded-[32px] shadow-2xl shadow-slate-900/20"
+                  quality={90}
+                  sizes="(max-width: 768px) 100vw, 420px"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-slate-50">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="grid gap-12 lg:grid-cols-[1.4fr,1fr]">
+              <div>
+                <h2 className="text-3xl font-semibold text-slate-900">Our AI Development Process</h2>
+                <p className="mt-4 text-lg text-slate-600">
+                  We follow a transparent, agile approach to launch production-ready AI with predictable outcomes.
+                </p>
+                <div className="mt-8 grid gap-4">
+                  {processPrinciples.map((principle) => (
+                    <div key={principle.title} className="flex gap-4 rounded-3xl border border-white/60 bg-white p-4 shadow-lg shadow-slate-900/5">
+                      <Image src={principle.icon} width={48} height={48} alt={`${principle.title} icon`} loading="lazy" />
+                      <div>
+                        <h3 className="text-lg font-semibold text-slate-900">{principle.title}</h3>
+                        <p className="text-sm text-slate-600">{principle.body}</p>
                       </div>
-                    </h4>
-                  </div>
-                </div>
-                <div className="col-lg-6 col-md-6 mt-3">
-                  <div className="card sor-card">
-                    <h4 className="sim-heading">
-                      <div className="row">
-                        <div className="col-lg-3 col-md-3 col-3 rw-size">
-                          <span>
-                            <Image
-                              src="/images/check-circle.png"
-                              width={30}
-                              height={30}
-                              alt="Check Icon"
-                              className="check-image"
-                            />
-                          </span>
-                        </div>
-                        <div className="col-lg-9 col-md-9 col-9 rws-size">
-                        Do you have enough data – or do we need to generate/collect it?
-                        </div>
-                      </div>
-                    </h4>
-                  </div>
-                </div>
-                <div className="col-lg-6 col-md-6 mt-3">
-                  <div className="card sor-card">
-                    <h4 className="sim-heading">
-                      <div className="row">
-                        <div className="col-lg-3 col-md-3 col-3 rw-size">
-                          <span>
-                            <Image
-                              src="/images/check-circle.png"
-                              width={30}
-                              height={30}
-                              alt="Check Icon"
-                              className="check-image"
-                            />
-                          </span>
-                        </div>
-                        <div className="col-lg-9 col-md-9 col-9 rws-size">
-                        What key metrics (accuracy, latency, ROI) define success?
-                        </div>
-                      </div>
-                    </h4>
-                  </div>
-                </div>
-                <div className="col-lg-6 col-md-6 mt-3">
-                  <div className="card sor-card">
-                    <h4 className="sim-heading">
-                      <div className="row">
-                        <div className="col-lg-3 col-md-3 col-3 rw-size">
-                          <span>
-                            <Image
-                              src="/images/check-circle.png"
-                              width={30}
-                              height={30}
-                              alt="Check Icon"
-                              className="check-image"
-                            />
-                          </span>
-                        </div>
-                        <div className="col-lg-9 col-md-9 col-9 rws-size">
-                        Where will the model run – cloud, on-device, or edge?
-                        </div>
-                      </div>
-                    </h4>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-5 col-md-6">
-              <div className=" card card-subs">
-                <div className="card-sor-details">
-                  <Stack direction="horizontal">
-                    <div className=" badge-kariot-btn mb-3">
-                      <Image
-                        src="/images/Rectangle-kariot.png"
-                        className="me-2"
-                        alt=""
-                        aria-hidden="true"
-                        width={18}
-                        height={18}
-                        loading="lazy"
-                      />
-                      <p> WHAT WE DELIVER </p>
                     </div>
-                  </Stack>
-                  <h2>
-                  End-to-End AI Engineering & Deployment
-                  </h2>
-                  <p>
-                  As your AI development partner, we support the entire lifecycle — from feasibility and prototyping through to scalable MLOps deployment. We build custom models (NLP, computer vision, predictive analytics, generative AI) and integrate them securely into your systems and workflows. With continuous monitoring and retraining pipelines, we ensure your models stay accurate and business-relevant in real-world conditions.
-                  </p>
+                  ))}
                 </div>
+                <h3 className="mt-10 text-xl font-semibold text-slate-900">Based on these parameters, we scope out:</h3>
+                <ul className="mt-4 space-y-3 text-sm text-slate-600">
+                  {scopeChecklist.map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-brand"></span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="rounded-3xl border border-white/60 bg-slate-900 p-6 text-white shadow-xl shadow-slate-900/30">
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-300">What we deliver</p>
+                <h3 className="mt-4 text-2xl font-semibold">End-to-End AI Engineering & Deployment</h3>
+                <p className="mt-4 text-sm leading-relaxed text-slate-200">
+                  From feasibility and prototyping to scalable MLOps, we build custom NLP, CV, predictive, and generative models—then integrate
+                  them securely into your products and workflows. Continuous monitoring and retraining pipelines keep them accurate and
+                  business-relevant.
+                </p>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="qsa-tools">
-        <div className="container devtool-container">
-          <Row className="gy-4">
-            <Col lg={6} md={6}>
-              <h3 className="tools-heading">Technology Stack We Use</h3>
-            </Col>
-            <Col lg={6} md={6}>
-              <p className="qsa-para">
-                Our AI engineers blend reliable programming languages, modern ML platforms, and production-ready MLOps tooling to keep models accurate and secure across mobile, web, and cloud surfaces.
+        <section id="ai-tools" className="bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="grid gap-6 lg:grid-cols-[2fr,3fr]">
+              <h2 className="text-3xl font-semibold text-slate-900">Technology Stack We Use</h2>
+              <p className="text-lg text-slate-600">
+                Our engineers blend reliable programming languages, modern ML platforms, and production-ready MLOps tooling to keep models
+                accurate and secure across mobile, web, and cloud surfaces.
               </p>
-            </Col>
-          </Row>
-          <Row className="pt-4 g-4">
-            {aiToolCategories.map((category) => (
-              <Col lg={6} md={6} key={category.title}>
-                <Card className="ai-tool-card h-100">
-                  <Card.Body>
-                    <p className="tool-cat-label">{category.title}</p>
-                    <p className="tool-card-desc">{category.description}</p>
-                    <ul className="tool-pill-list">
-                      {category.tools.map((tool) => (
-                        <li className="tool-pill" key={`${category.title}-${tool}`}>
-                          {tool}
-                        </li>
-                      ))}
-                    </ul>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
-          </Row>
-        </div>
-      </section>
-      <section id="ai-insights" className="home-insights py-5">
-        <div className="container">
-          <div className="d-flex align-items-center">
-            <div className="badge-abot-btn">
-              <Image src="/images/Rectangle-kariot.png" className="me-2" width={15} height={15} alt="" aria-hidden="true" loading="lazy" />
-              <p> LATEST AI INSIGHTS </p>
+            </div>
+            <div className="mt-10 grid gap-6 sm:grid-cols-2">
+              {aiToolCategories.map((category) => (
+                <div key={category.title} className="rounded-3xl border border-slate-100 bg-slate-50 p-6 shadow-inner">
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">{category.title}</p>
+                  <p className="mt-3 text-sm text-slate-600">{category.description}</p>
+                  <ul className="mt-4 flex flex-wrap gap-2">
+                    {category.tools.map((tool) => (
+                      <li
+                        key={`${category.title}-${tool}`}
+                        className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-slate-600"
+                      >
+                        {tool}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </div>
-          <div className="row pt-4 g-4">
-            {aiArticles.map((article) => (
-              <div className="col-lg-6" key={article.title}>
-                <Card className="insight-card h-100">
-                  <Card.Body>
-                    <p className="insight-tag">{article.tag}</p>
-                    <h3 className="insight-title">
-                      <Link href={article.href}>{article.title}</Link>
-                    </h3>
-                    <p className="insight-excerpt">{article.excerpt}</p>
-                    <Link href={article.href} className="about-btn" aria-label={`Read ${article.title}`}>
-                      Read More
-                      <Image src="/images/material-symbols_arrow-right-alt.png" width={18} height={18} alt="" aria-hidden="true" loading="lazy" />
-                    </Link>
-                  </Card.Body>
-                </Card>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <ContactForm
-        heading="Ready to Build an AI App?"
-        subText="Speak with our data scientists & engineers to scope your AI use-case."
-        eventLabel="ai_service_page"
-      />
-      <section id="faq">
-        <div className="container faq-container">
-          <h2 className="faq-heading">Frequently Asked Questions</h2>
-          <Accordion defaultActiveKey="0" flush className="py-5">
-            <Accordion.Item eventKey="0" className="pb-3">
-              <Accordion.Header>
-                Why choose Trimsel as your AI development company in Chennai?
-              </Accordion.Header>
-              <Accordion.Body>
-                <p className="accordion-para">
-                Trimsel has an expert AI development team in Chennai who specialize in building production-ready AI solutions — from predictive analytics and NLP models to generative AI agents — tailored for real business outcomes.
+        <section id="ai-insights" className="bg-slate-900">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-300">
+              <Image src="/images/Rectangle-kariot.png" width={15} height={15} alt="" aria-hidden="true" loading="lazy" />
+              Latest AI insights
+            </div>
+            <div className="mt-6 grid gap-8 lg:grid-cols-2">
+              <div>
+                <h2 className="text-3xl font-semibold text-white">Keep up with Trimsel’s AI playbooks</h2>
+                <p className="mt-4 text-lg text-slate-300">
+                  How-to guides on monetization, retention, DevOps automation, and AI-driven product growth—straight from our delivery teams.
                 </p>
-              </Accordion.Body>
-            </Accordion.Item>
-            <Accordion.Item eventKey="1" className="pb-3">
-              <Accordion.Header>
-                What AI development services do you offer?
-              </Accordion.Header>
-              <Accordion.Body>
-                <p className="accordion-para">
-                We offer custom AI agent development, machine learning models, predictive analytics, NLP, computer vision, generative AI solutions, and MLOps deployment.
-                </p>
-              </Accordion.Body>
-            </Accordion.Item>
-            <Accordion.Item eventKey="2" className="pb-3">
-              <Accordion.Header>
-                How much does AI development cost?
-              </Accordion.Header>
-              <Accordion.Body>
-                <p className="accordion-para">
-                AI solution cost depends on scope, complexity, dataset availability, and deployment needs. We provide scalable packages based on prototype, MVP, and enterprise requirements.
-                </p>
-              </Accordion.Body>
-            </Accordion.Item>
-            <Accordion.Item eventKey="3" className="pb-3">
-              <Accordion.Header>
-              Do you offer MLOps and post-launch support?
-              </Accordion.Header>
-              <Accordion.Body>
-                <p className="accordion-para">
-                Yes. We help deploy, monitor, and maintain AI models in production with CI/CD, retraining pipelines, and infrastructure automation.
-                </p>
-              </Accordion.Body>
-            </Accordion.Item>
-            <Accordion.Item eventKey="4" className="pb-3">
-              <Accordion.Header>
-              How long does it take to build an AI solution?
-              </Accordion.Header>
-              <Accordion.Body>
-                <p className="accordion-para">
-                Initial prototype/POC can take 4–6 weeks. Full-scale enterprise AI system rollout generally takes 3–6 months depending on integrations, data availability, and compliance requirements.
-                </p>
-              </Accordion.Body>
-            </Accordion.Item>
-          </Accordion>
-        </div>
-      </section>
-      <Footer />
+              </div>
+              <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-lg shadow-black/30">
+                <p className="text-sm uppercase tracking-[0.3em] text-slate-300">Featured reads</p>
+                <ul className="mt-4 space-y-4 text-sm text-slate-200">
+                  {aiArticles.map((article) => (
+                    <li key={article.title}>
+                      <p className="text-xs uppercase tracking-[0.3em] text-brand">{article.tag}</p>
+                      <Link href={article.href} className="text-lg font-semibold text-white transition hover:text-brand">
+                        {article.title}
+                      </Link>
+                      <p className="text-sm text-slate-200">{article.excerpt}</p>
+                      <Link
+                        href={article.href}
+                        className="mt-2 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-brand transition hover:text-white"
+                        aria-label={`Read ${article.title}`}
+                      >
+                        Read More
+                        <ArrowRightIcon width={16} height={16} />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <ContactForm
+          heading="Ready to Build an AI App?"
+          subText="Speak with our data scientists & engineers to scope your AI use-case."
+          eventLabel="ai_service_page"
+        />
+
+        <section id="faq" className="bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-semibold text-slate-900">Frequently Asked Questions</h2>
+            <p className="mt-4 text-lg text-slate-600">Answers to the most common questions teams ask before starting AI initiatives.</p>
+            <div className="mt-8 space-y-4">
+              {faqItems.map(({ question, answer }) => (
+                <details key={question} className="rounded-2xl border border-slate-100 bg-slate-50 p-5 shadow-inner">
+                  <summary className="cursor-pointer text-lg font-semibold text-slate-900">{question}</summary>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-600">{answer}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <Footer />
+      </main>
     </>
   );
 }

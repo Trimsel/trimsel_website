@@ -1,319 +1,236 @@
-import Head from "next/head";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
-import { FaBars } from "@react-icons/all-files/fa/FaBars";
-import { HiArrowNarrowRight } from "@react-icons/all-files/hi/HiArrowNarrowRight";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { FaBars } from "@react-icons/all-files/fa/FaBars";
+import { FaTimes } from "@react-icons/all-files/fa/FaTimes";
+import { HiArrowNarrowRight } from "@react-icons/all-files/hi/HiArrowNarrowRight";
+import { HiOutlineChevronDown } from "@react-icons/all-files/hi/HiOutlineChevronDown";
 
+const PRIMARY_LINKS = [
+  { href: "/", label: "Home" },
+  { href: "/aboutus", label: "About Us" },
+  { href: "/portfolio", label: "Our Work" },
+  { href: "/blog", label: "Blog" },
+];
 
-function Header({ page }) {
-  const navRef = useRef(null);
-  const logoVariant = page === "mobile-app" ? "mobile-app" : "default";
+const SERVICE_CARDS = [
+  {
+    title: "Mobile App Development",
+    description:
+      "Design, build, and scale intuitive mobile experiences for iOS, Android, and cross-platform users.",
+    href: "/mobile-app-development-chennai",
+    icon: "/images/menu-mobile-icon.png",
+  },
+  {
+    title: "DevOps Consulting",
+    description:
+      "Automate deployments, boost reliability, and streamline releases with Kubernetes, Docker, and CI/CD.",
+    href: "/devops-consulting-services",
+    icon: "/images/menu-devops-icon.png",
+  },
+  {
+    title: "Web Development",
+    description:
+      "Create responsive, SEO-ready, and scalable web applications tailored to your next growth milestone.",
+    href: "/web-development-company-chennai",
+    icon: "/images/menu-web-icon.png",
+  },
+  {
+    title: "AI & ML Development",
+    description:
+      "Build custom copilots, chatbots, and ML models that automate workflows and unlock intelligent experiences.",
+    href: "/ai-development-company",
+    icon: "/images/menu-qa-icon.png",
+  },
+  {
+    title: "Cloud Consulting",
+    description:
+      "Modernize infrastructure with secure, cost-optimized architectures on AWS, Azure, and Google Cloud.",
+    href: "/cloud-consulting-services",
+    icon: "/images/menu-cloud-icon.png",
+  },
+];
+
+const MenuCard = ({ item }) => (
+  <Link
+    href={item.href}
+    className="group relative flex gap-4 rounded-2xl border border-slate-100 bg-white/90 p-4 shadow-sm ring-1 ring-transparent transition hover:-translate-y-1 hover:border-brand/30 hover:shadow-brand/30"
+  >
+    <Image src={item.icon} alt={item.title} width={40} height={40} />
+    <div className="space-y-1">
+      <p className="flex items-center gap-2 text-base font-semibold text-slate-900">
+        {item.title}
+        <HiArrowNarrowRight className="text-brand opacity-0 transition group-hover:opacity-100" />
+      </p>
+      <p className="text-sm text-slate-500">{item.description}</p>
+    </div>
+  </Link>
+);
+
+export default function Header({ page }) {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMegaOpen, setIsMegaOpen] = useState(false);
+
+  const isDarkHero = page === "mobile-app";
+  const showLightLogo = isDarkHero && !isScrolled;
+  const navTextColor = showLightLogo ? "text-white" : "text-slate-800";
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!navRef.current) return; // <-- Safe guard!
-      if (window.scrollY > 50) {
-        navRef.current.classList.add("navbar-scrolled");
-      } else {
-        navRef.current.classList.remove("navbar-scrolled");
-      }
+      setIsScrolled(window.scrollY > 24);
     };
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
+
+  const closeMobileMenu = () => setIsMenuOpen(false);
+
   return (
-    <>
-      <header className="menu_wrapper">
-        <nav className="navbar navbar-expand-lg fixed-top" ref={navRef} role="navigation" aria-label="Main navigation">
-          <div className="container">
-            <Link className="navbar-brand" href="/">
-              {logoVariant === "default" && (
-                <Image src="/trimsel-logo.svg" alt="Trimsel logo" width={150} height={40} priority />
-              )}
-              {logoVariant === "mobile-app" && (
-                <Image src="/trimsel-logo-white.svg" alt="Trimsel logo" width={150} height={40} priority />
-              )}
-            </Link>
-            <button
-              className="navbar-toggler"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#menu"
-              aria-controls="menu"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <FaBars />
-            </button>
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-transparent transition duration-300">
+      <div
+        className={`${
+          isScrolled ? "border-slate-100 bg-white/95 backdrop-blur" : "bg-white"
+        }`}
+      >
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6">
+          <Link href="/" className="flex items-center gap-3">
+            <Image
+              src={showLightLogo ? "/trimsel-logo-white.svg" : "/trimsel-logo.svg"}
+              alt="Trimsel logo"
+              width={160}
+              height={44}
+              priority
+            />
+          </Link>
+
+          <nav className="hidden flex-1 items-center justify-end gap-10 lg:flex">
+            {PRIMARY_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`text-sm font-semibold uppercase tracking-[0.2em] transition hover:text-brand ${navTextColor}`}
+              >
+                {link.label}
+              </Link>
+            ))}
+
             <div
-              className="offcanvas offcanvas-end"
-              tabIndex="-1"
-              id="menu"
-              aria-labelledby="offcanvasNavbarLabel"
+              className="relative"
+              onMouseEnter={() => setIsMegaOpen(true)}
+              onMouseLeave={() => setIsMegaOpen(false)}
             >
-              <div className="offcanvas-header">
-                <Image
-                  src="/trimsel-logo.svg"
-                  alt="Trimsel logo"
-                  width={170}
-                  height={48}
-                  priority
-                />
-                <button
-                  type="button"
-                  className="btn-close"
-                  data-bs-dismiss="offcanvas"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div className="offcanvas-body">
-                <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                  <li className="nav-item px-3">
-                    <Link href="/" className="nav-link">
-                      HOME
-                    </Link>
-                  </li>
-                  <li className="nav-item px-3">
-                    <Link href="/aboutus" className="nav-link">
-                      ABOUT US
-                    </Link>
-                  </li>
-                  <li className="nav-item dropdown dropdown-mega position-static px-3">
-                    <a
-                      href="#"
-                      className="nav-link dropdown-toggle"
-                      id="navbarDropdown"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                      data-bs-auto-close="outside"
-                      data-hover="dropdown"
-                    >
-                      SERVICES
-                    </a>
-                    <div
-                      className="dropdown-menu shadow-md"
-                      data-hover="dropdown"
-                    >
-                      <div className="mega-content">
-                        <div className="container-fluid inner-container">
-                          <div className="row  rounded-lg p-3 mega-row">
-                            <div className="col-lg-6 col-md-6 mt-2 first-column">
-                              <Link
-                                href="/mobile-app-development-chennai"
-                                passHref
-                                className="dropdown-links"
-                              >
-                                <div className="card menu-card h-100">
-                                  <div className="row">
-                                    <div className="col-lg-1 col-md-1">
-                                      <Image
-                                        src="/images/menu-mobile-icon.png"
-                                        width={40}
-                                        height={40}
-                                        alt="Mobile App Icon"
-                                      />
-                                    </div>
-                                    <div className="col-lg-11 col-md-11 card-ned-col">
-                                      <h2 className="menu-dropdown">
-                                        Mobile App Development{" "}
-                                        <HiArrowNarrowRight className="svg-menu-icon" />
-                                      </h2>
+              <button
+                type="button"
+                className={`flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold uppercase tracking-[0.2em] transition ${
+                  navTextColor
+                }`}
+                onClick={() => setIsMegaOpen((prev) => !prev)}
+              >
+                Services <HiOutlineChevronDown className="h-4 w-4" />
+              </button>
+              {isMegaOpen && (
+                <div className="absolute right-0 top-12 w-[720px] rounded-3xl border border-slate-100 bg-white p-6 shadow-xl shadow-slate-900/10">
+                  <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                    {SERVICE_CARDS.map((card) => (
+                      <MenuCard key={card.href} item={card} />
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
 
-                                      <p className="dropdown-para">
-                                      Develop high-performance iOS & Android apps with a seamless user experience and scalable architecture.
-                                      </p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </Link>
-                            </div>
-                            <div className="col-lg-6 col-md-6 mt-2">
-                              <Link
-                                href="/devops-consulting-services"
-                                passHref
-                                className="dropdown-links"
-                              >
-                                <div className="card menu-second-card h-100">
-                                  <div className="row">
-                                    <div className="col-lg-1 col-md-1">
-                                      <Image
-                                        src="/images/menu-devops-icon.png"
-                                        width={40}
-                                        height={40}
-                                        alt="Mobile App Icon"
-                                      />
-                                    </div>
-                                    <div className="col-lg-11 col-md-11 card-ned-col">
-                                      <h2 className="menu-dropdown">
-                                        DevOps Consulting{" "}
-                                        <HiArrowNarrowRight className="svg-second" />
-                                      </h2>
+            <Link
+              href="/contact-us"
+              className="rounded-full bg-brand px-6 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-brand/90"
+            >
+              Contact Us
+            </Link>
+          </nav>
 
-                                      <p className="dropdown-para">
-                                      Automate deployments, enhance security, and streamline development with expert DevOps solutions.
-                                      </p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </Link>
-                            </div>
-                            <div className="col-lg-6 col-md-6 mt-2">
-                              <Link
-                                href="/web-development-company-chennai"
-                                passHref
-                                className="dropdown-links"
-                              >
-                                <div className="card menu-third-card h-100">
-                                  <div className="row">
-                                    <div className="col-lg-1 col-md-1">
-                                      <Image
-                                        src="/images/menu-web-icon.png"
-                                        width={40}
-                                        height={40}
-                                        alt="Web Development Icon"
-                                      />
-                                    </div>
-                                    <div className="col-lg-11 col-md-11 card-ned-col">
-                                      <h2 className="menu-dropdown">
-                                        Web Development{" "}
-                                        <HiArrowNarrowRight className="svg-third" />
-                                      </h2>
+          <button
+            type="button"
+            onClick={() => setIsMenuOpen(true)}
+            className={`rounded-full border border-slate-200 p-2 transition lg:hidden ${
+              showLightLogo ? "text-white" : "text-slate-700"
+            }`}
+            aria-label="Open menu"
+          >
+            <FaBars />
+          </button>
+        </div>
+      </div>
 
-                                      <p className="dropdown-para">
-                                      Create responsive, SEO-optimized, and scalable web applications tailored to your business needs.
-                                      </p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </Link>
-                            </div>
-                            <div className="col-lg-6 col-md-6 mt-2">
-                              <Link
-                                href="/ai-development-company"
-                                passHref
-                                className="dropdown-links"
-                              >
-                                <div className="card menu-fourth-card h-100">
-                                  <div className="row">
-                                    <div className="col-lg-1 col-md-1">
-                                      <Image
-                                        src="/images/menu-qa-icon.png"
-                                        width={40}
-                                        height={40}
-                                        alt="AI Develoment company Icon"
-                                      />
-                                    </div>
-                                    <div className="col-lg-11 col-md-11 card-ned-col">
-                                      <h2 className="menu-dropdown">
-                                        AI & ML Development{" "}
-                                        <HiArrowNarrowRight className="svg-four" />
-                                      </h2>
+      {isMenuOpen && (
+        <div className="fixed inset-0 z-50 flex lg:hidden">
+          <div
+            className="flex-1 bg-slate-900/50 backdrop-blur-sm"
+            onClick={closeMobileMenu}
+          />
+          <div className="flex h-full w-80 flex-col gap-6 bg-white p-6 shadow-2xl">
+            <div className="flex items-center justify-between">
+              <Image
+                src="/trimsel-logo.svg"
+                alt="Trimsel logo"
+                width={140}
+                height={40}
+              />
+              <button
+                type="button"
+                onClick={closeMobileMenu}
+                className="rounded-full border border-slate-200 p-2 text-slate-700"
+                aria-label="Close menu"
+              >
+                <FaTimes />
+              </button>
+            </div>
 
-                                      <p className="dropdown-para">
-                                      Build custom AI agents & machine-learning models to automate tasks, predict outcomes, and deliver smarter experiences.
-                                      </p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </Link>
-                            </div>
-                            <div className="col-lg-6 col-md-6 mt-2">
-                              <Link
-                                href="/digital-marketing-company-chennai"
-                                passHref
-                                className="dropdown-links"
-                              >
-                                <div className="card menu-fifth-card h-100">
-                                  <div className="row">
-                                    <div className="col-lg-1 col-md-1">
-                                      <Image
-                                        src="/images/menu-dig-icon.png"
-                                        width={40}
-                                        height={40}
-                                        alt="Digital Marketing Icon"
-                                      />
-                                    </div>
-                                    <div className="col-lg-11 col-md-11 card-ned-col">
-                                      <h2 className="menu-dropdown">
-                                        Digital Marketing{" "}
-                                        <HiArrowNarrowRight className="svg-five" />
-                                      </h2>
+            <div className="space-y-4 border-b border-slate-100 pb-4">
+              {PRIMARY_LINKS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={closeMobileMenu}
+                  className="block text-base font-semibold text-slate-800"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
 
-                                      <p className="dropdown-para">
-                                      Boost online visibility, drive traffic, and generate leads with strategic SEO, PPC, and content marketing.
-                                      </p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </Link>
-                            </div>
-                            <div className="col-lg-6 col-md-6 mt-2">
-                              <Link
-                                href="/cloud-consulting-services"
-                                passHref
-                                className="dropdown-links"
-                              >
-                                <div className="card menu-seventh-card h-100">
-                                  <div className="row">
-                                    <div className="col-lg-1 col-md-1">
-                                      <Image
-                                        src="/images/menu-cloud-icon.png"
-                                        width={40}
-                                        height={40}
-                                        alt="Cloud Consulting Icon"
-                                      />
-                                    </div>
-                                    <div className="col-lg-11 col-md-11 card-ned-col">
-                                      <h2 className="menu-dropdown">
-                                        Cloud Consulting{" "}
-                                        <HiArrowNarrowRight className="svg-seven" />
-                                      </h2>
-
-                                      <p className="dropdown-para">
-                                      Leverage cloud technologies with expert AWS, GCP, and Azure consulting for cost-efficient and scalable cloud solutions.
-                                      </p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </Link>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li className="nav-item ps-3">
-                    <Link href="/portfolio" className="nav-link">
-                      OUR WORK
-                    </Link>
-                  </li>
-                  <li className="nav-item ps-3">
-                    <Link href="/blog" className="nav-link">
-                      BLOG
-                    </Link>
-                  </li>
-                  <li className="nav-item ps-3">
-                    <Link href="/contact-us" passHref>
-                      <button
-                        className="btn btn-md btn-primary"
-                        href="/contact-us"
-                      >
-                        CONTACT US{" "}
-                      </button>
-                    </Link>
-                  </li>
-                </ul>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
+                Services
+              </p>
+              <div className="mt-3 space-y-3">
+                {SERVICE_CARDS.map((card) => (
+                  <MenuCard key={`mobile-${card.href}`} item={card} />
+                ))}
               </div>
             </div>
+
+            <Link
+              href="/contact-us"
+              onClick={closeMobileMenu}
+              className="mt-auto rounded-2xl bg-brand px-4 py-3 text-center text-sm font-semibold uppercase tracking-wide text-white shadow-brand/40 transition hover:bg-brand-dark"
+            >
+              Book a Strategy Call
+            </Link>
           </div>
-        </nav>
-      </header>
-    </>
+        </div>
+      )}
+    </header>
   );
 }
-
-export default Header;

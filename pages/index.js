@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import Card from "react-bootstrap/Card";
 import dynamic from 'next/dynamic';
 import { NextSeo, FAQPageJsonLd } from 'next-seo';
 import HomeSlider from "../components/homeSlider";
 import Footer from "../components/footer";
 import Image from "next/image";
 import Link from "next/link";
-import Accordion from "react-bootstrap/Accordion";
 import { postJson } from "../lib/api";
 import ArrowRightIcon from "../components/icons/ArrowRightIcon";
 
@@ -82,498 +80,488 @@ export default function Home() {
       {/* ✅ Keep only necessary elements in <Head> */}
       <main>
         <HomeSlider />
-        <section className="home-hero-intro">
-          <div className="container py-5">
-            <div className="row align-items-center">
-              <div className="col-lg-8">
-                <h1 className="home-hero-heading">
-                  Chennai’s AI-first software team for apps, cloud, and growth marketing
-                </h1>
-                <p className="home-hero-copy">
-                  Trimsel blends product strategy, full-stack engineering, and DevSecOps so you can launch
-                  reliable experiences faster. Whether you are validating an MVP or modernizing enterprise
-                  platforms, our architects cover the entire journey—from discovery workshops to post-launch
-                  success metrics.
-                </p>
+        <section className="bg-white">
+          <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[2fr,1fr] lg:px-8">
+            <div className="space-y-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+                Chennai’s AI-first product team
+              </p>
+              <h1 className="text-3xl font-semibold leading-tight text-slate-900 sm:text-4xl lg:text-[42px]">
+                Chennai’s AI-first software team for apps, cloud, and growth marketing
+              </h1>
+              <p className="text-lg text-slate-600">
+                Trimsel blends product strategy, full-stack engineering, and DevSecOps so you can launch
+                reliable experiences faster. Whether you are validating an MVP or modernizing enterprise
+                platforms, our architects cover the entire journey—from discovery workshops to post-launch
+                success metrics.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/contact-us"
+                  className="rounded-full bg-brand px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white shadow-lg shadow-brand/40 transition hover:bg-brand-dark"
+                >
+                  Book a strategy call
+                </Link>
+                <Link
+                  href="/portfolio"
+                  className="rounded-full border border-slate-200 px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-slate-800 transition hover:border-brand hover:text-brand"
+                >
+                  See our work
+                </Link>
               </div>
-              <div className="col-lg-4">
-                <ul className="home-hero-links">
-                  <li>
-                    <Link href="/mobile-app-development-chennai">Mobile app development</Link>
-                  </li>
-                  <li>
-                    <Link href="/cloud-consulting-services">Cloud &amp; DevOps consulting</Link>
-                  </li>
-                  <li>
-                    <Link href="/ai-development-company">AI copilots &amp; automation</Link>
-                  </li>
-                </ul>
-              </div>
+            </div>
+            <div className="space-y-4 rounded-3xl border border-slate-100 bg-slate-50/60 p-6 shadow-inner">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+                What we build
+              </p>
+              <ul className="space-y-3 text-sm font-semibold text-slate-700">
+                <li>
+                  <Link href="/mobile-app-development-chennai" className="flex items-center justify-between gap-3 hover:text-brand">
+                    <span>Mobile app development</span>
+                    <ArrowRightIcon width={16} height={16} />
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/cloud-consulting-services" className="flex items-center justify-between gap-3 hover:text-brand">
+                    <span>Cloud &amp; DevOps consulting</span>
+                    <ArrowRightIcon width={16} height={16} />
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/ai-development-company" className="flex items-center justify-between gap-3 hover:text-brand">
+                    <span>AI copilots &amp; automation</span>
+                    <ArrowRightIcon width={16} height={16} />
+                  </Link>
+                </li>
+              </ul>
             </div>
           </div>
         </section>
-        {/* ✅ Client Section */}
-<section id="client" className="client-section">
-  <div className="container mt-5 clt-container">
-  <div className="d-flex align-items-center">
-      <div className="badge-abot-btn">
-        <Image
-          src="/images/Rectangle-kariot.png"
-          className="me-2"
-          width={15}
-          height={15}
-          alt=""
-          aria-hidden="true"
-          loading="lazy"
-        />
-        <p> OUR CLIENTS </p>
-      </div>
-    </div>
-
-    <div className="row pt-3">
-      <div className="col-lg-6 col-md-6">
-        <h2 className="client-title">
-          Trusted Digital Transformation Partner for Global Brands
-        </h2>
-      </div>
-      <div className="col-lg-6 col-md-6">
-        <p className="cliented-text">
-        From fast-growing startups to industry leaders, Trimsel has partnered with businesses worldwide to bring bold ideas to life. Whether it’s <strong>AI-driven innovation</strong>, <strong>custom software</strong>, <strong>cloud adoption</strong>, or <strong>mobile app development</strong>, we build solutions that don’t just work—they scale. Our team keeps its finger on the pulse of emerging technologies, ensuring the products we deliver are future-ready, high-performing, and built for real business impact.
-        </p>
-      </div>
-    </div>
-            <div className="row client-row pt-3 text-center">
+        {/* Client Section */}
+        <section className="bg-slate-50">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+              <Image
+                src="/images/Rectangle-kariot.png"
+                width={15}
+                height={15}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+              />
+              Our Clients
+            </div>
+            <div className="mt-6 grid gap-8 lg:grid-cols-2">
+              <div>
+                <h2 className="text-3xl font-semibold text-slate-900">
+                  Trusted Digital Transformation Partner for Global Brands
+                </h2>
+              </div>
+              <div className="text-lg text-slate-600">
+                From fast-growing startups to industry leaders, Trimsel has partnered with businesses worldwide to bring bold ideas to life. Whether it’s{" "}
+                <strong>AI-driven innovation</strong>, <strong>custom software</strong>, <strong>cloud adoption</strong>, or
+                <strong> mobile app development</strong>, we build solutions that don’t just work—they scale. Our team keeps its finger on the pulse of emerging technologies, ensuring the products we deliver are future-ready, high-performing, and built for real business impact.
+              </div>
+            </div>
+            <div className="mt-8 rounded-3xl border border-white/40 bg-white p-6 shadow-lg shadow-slate-900/5">
               <ClientLogo />
             </div>
           </div>
         </section>
 
         {/* About Section */}
-        <section id="new-about">
-          <div className="container nw-abt-container">
-          <div className="d-flex align-items-center">
-              <div className=" badge-abot-btn">
-                <Image src={"/images/Rectangle-kariot.png"} className="me-2" width={15} height={15} alt="" aria-hidden="true" loading="lazy"/>
-                <p> WHO WE ARE </p>
-              </div>
+        <section className="bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+              <Image src="/images/Rectangle-kariot.png" width={15} height={15} alt="" aria-hidden="true" loading="lazy"/>
+              Who we are
             </div>
-            <div className="row">
-              <div className="col-lg-4 col-md-6">
-                <h3 className="client-abt-title pt-3">
-                Powering Business Growth through Custom Software & Digital Innovation
+            <div className="mt-8 grid gap-10 lg:grid-cols-[2fr,1fr]">
+              <div className="space-y-6">
+                <h3 className="text-3xl font-semibold text-slate-900">
+                  Powering Business Growth through Custom Software & Digital Innovation
                 </h3>
-                <div className="card ab-card">
-                  <h4 className="sim-heading">
-                    <div className="row">
-                      <div className="col-lg-3 col-md-3 col-3">
-                        <span>
-                          <Image
-                            src="/images/mission-new.png"
-                            width={70}
-                            height={75}
-                            alt="Check Icon"
-                            className="check-image"
-                            loading="lazy"
-                          />
-                        </span>
-                      </div>
-                      <div className="col-lg-9 col-md-12 col-9">
-                        <h4 className="nwabt-heading">
-                          Mission -{" "}
-                          <span style={{ color: "#6b738a" }}>
-                            {" "}
-                            Driving Digital Transformation with Cutting-Edge Software Solutions{" "}
-                          </span>
-                        </h4>
-                      </div>
+                <p className="text-lg text-slate-600">
+                  Digital transformation shouldn’t feel like an uphill battle—it should feel like progress. Since 2020, we’ve helped businesses modernize their systems, streamline operations, and create digital experiences that customers love. From intuitive mobile apps to cloud-native platforms and custom-built software, everything we create is designed with one goal: to solve your toughest challenges and spark long-term growth.
+                </p>
+                <div className="rounded-3xl border border-slate-100 bg-slate-50 p-6 shadow-inner">
+                  <div className="flex items-center gap-4">
+                    <Image
+                      src="/images/mission-new.png"
+                      width={70}
+                      height={75}
+                      alt="Mission icon"
+                      loading="lazy"
+                    />
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.3em] text-slate-500">Mission</p>
+                      <p className="text-base font-semibold text-slate-900">
+                        Driving digital transformation with cutting-edge software solutions
+                      </p>
                     </div>
-                  </h4>
+                  </div>
                 </div>
-                <Link href="/aboutus" className="abt-btn" aria-label="Learn more about Trimsel">
+                <Link href="/aboutus" className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-5 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-slate-800 transition hover:border-brand hover:text-brand" aria-label="Learn more about Trimsel">
                   Explore More
                   <ArrowRightIcon />
                 </Link>
               </div>
-              <div className="col-lg-4 col-md-6 mbvl">
-              <p className="abt-hero-para">
-              Digital transformation shouldn’t feel like an uphill battle—it should feel like progress. Since 2020, we’ve helped businesses modernize their systems, streamline operations, and create digital experiences that customers love. From intuitive mobile apps to cloud-native platforms and custom-built software, everything we create is designed with one goal: to solve your toughest challenges and spark long-term growth. Our developers, cloud architects, and DevOps experts bring deep expertise and a passion for delivering results—whether for a local startup or a Fortune 500 enterprise.
-        </p>
+              <div className="rounded-3xl border border-slate-100 bg-slate-50 p-6 shadow-inner">
+                <p className="text-sm leading-relaxed text-slate-600">
+                  Our developers, cloud architects, and DevOps experts bring deep expertise and a passion for delivering results—whether for a local startup or a Fortune 500 enterprise.
+                </p>
               </div>
             </div>
           </div>
         </section>
-        {/*CTA Section */}
-        <section className="hm-sec-cta">
-  <div className="container">
-    <Card className="home-cta my-5">
-      <Card.Body>
-        <div className="row">
-          {/* CTA Content Left */}
-          <div className="col-lg-7 col-md-7 col-12">
-          <div className="d-flex align-items-center">
-              <div className="badge-abot-btn">
+        {/* CTA Section */}
+        <section className="bg-slate-950">
+          <div className="mx-auto grid max-w-6xl gap-8 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8">
+            <div className="space-y-4">
+              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-300">
                 <Image
                   src="/images/Rectangle-kariot.png"
-                  className="me-2"
                   width={15}
                   height={15}
                   alt=""
                   aria-hidden="true"
                   loading="lazy"
                 />
-                <p> GET IN TOUCH </p>
+                Get in touch
               </div>
+              <h2 className="text-3xl font-semibold text-white">
+                Transform Your Vision into a Scalable Digital Product
+              </h2>
+              <p className="text-slate-300">
+                Partner with Trimsel — your trusted{" "}
+                <Link href="/mobile-app-development-chennai" className="font-semibold text-white underline underline-offset-4">
+                  mobile app development company in Chennai
+                </Link>{" "}
+                — for end-to-end digital transformation, AI application development, and cloud-first strategies.
+              </p>
+              <Link
+                href="/contact-us"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-slate-900 shadow-lg shadow-white/20 transition hover:bg-slate-100"
+                aria-label="Plan your AI and cloud roadmap with Trimsel"
+              >
+                Plan Your AI &amp; Cloud Roadmap
+                <ArrowRightIcon />
+              </Link>
+            </div>
+            <div className="flex items-center justify-center">
+              <Image
+                src="/images/homecta.webp"
+                width={480}
+                height={500}
+                alt="Connect with Trimsel’s Digital Experts"
+                className="rounded-3xl shadow-xl shadow-black/30"
+                loading="lazy"
+                quality={70}
+                sizes="(max-width: 768px) 80vw, 380px"
+              />
+            </div>
+          </div>
+        </section>
+
+
+        {/* Service Section */}
+        <section className="bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+              <Image
+                src="/images/Rectangle-kariot.png"
+                width={15}
+                height={15}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+              />
+              What We Do
+            </div>
+            <div className="mt-6 grid gap-8 lg:grid-cols-2">
+              <h2 className="text-3xl font-semibold text-slate-900">
+                Comprehensive Digital Solutions for Your Business Growth
+              </h2>
+              <p className="text-lg text-slate-600">
+                From cutting-edge mobile apps and lightning-fast websites to seamless cloud migrations and DevOps automation, we deliver technology that moves your business forward. Every project is custom-built, every solution future-ready—because your growth deserves more than a one-size-fits-all approach.
+              </p>
             </div>
 
-            <h2 className="homcta-heading pt-2">
-              Transform Your Vision into a Scalable Digital Product
-            </h2>
-
-            <p className="hmcta-para">
-            Partner with Trimsel — your trusted{" "}
-            <Link href="/mobile-app-development-chennai">mobile app development company in Chennai</Link> — 
-            for end-to-end digital transformation, AI application development, and cloud-first strategies.
-            </p>
-            <Link href="/contact-us" className="about-btn mt-3" aria-label="Plan your AI and cloud roadmap with Trimsel">
-              Plan Your AI &amp; Cloud Roadmap
-              <ArrowRightIcon />
-            </Link>
-          </div>
-
-          {/* CTA Image Right */}
-          <div className="col-lg-5 col-md-5">
-            <Image
-              src="/images/homecta.webp"
-              width={480}
-              height={500}
-              alt="Connect with Trimsel&rsquo;s Digital Experts"
-              className="hmcta-image"
-              loading="lazy"
-              quality={70}
-              sizes="(max-width: 768px) 80vw, 380px"
-            />
-          </div>
-        </div>
-      </Card.Body>
-    </Card>
-  </div>
-</section>
-
-
-        {/*Service Section */}
-
-        <section id="services">
-  <div className="container service-container">
-  <div className="d-flex align-items-center">
-      <div className="badge-abot-btn">
-        <Image src="/images/Rectangle-kariot.png" className="me-2" width={15} height={15} alt="" aria-hidden="true" loading="lazy" />
-        <p> WHAT WE DO </p>
-      </div>
-    </div>
-
-    <div className="row pt-4">
-      <div className="col-lg-6 col-md-6">
-        <h2 className="service-heading pb-1">
-          Comprehensive Digital Solutions for Your Business Growth
-        </h2>
-      </div>
-      <div className="col-lg-6 col-md-6">
-        <p className="service-para pb-3">
-        From cutting-edge mobile apps and lightning-fast websites to seamless cloud migrations and DevOps automation, we deliver technology that moves your business forward. Every project is custom-built, every solution future-ready—because your growth deserves more than a one-size-fits-all approach.
-        </p>
-      </div>
-    </div>
-
-    <div className="row">
-      {/* Mobile App */}
-      <div className="col-lg-4 col-md-6 pt-3">
-        <Card className="hm-customize-card">
-          <Card.Body>
-            <Image src="/images/app-development.png" width={80} height={80} className="do-icon pb-3" alt="App Development icon" loading="lazy" />
-            <h3 className="qs-card-heading">Mobile App Development</h3>
-            <p className="qsd-para">
-              As a <Link href="/mobile-app-development-chennai">top mobile app development company in Chennai</Link>, we deliver custom Android, iOS & cross-platform solutions with exceptional UX, performance, and scalability.
-            </p>
-          </Card.Body>
-        </Card>
-      </div>
-
-      {/* Web Development */}
-      <div className="col-lg-4 col-md-6 pt-3">
-        <Card className="hm-customize-card">
-          <Card.Body>
-            <Image src="/images/backend.png" width={80} height={80} className="do-icon pb-3" alt="Web Development icon" loading="lazy" />
-            <h3 className="qs-card-heading">Website Development</h3>
-            <p className="qsd-para">
-              We’re a <Link href="/web-development-company-chennai">leading website development company in Chennai</Link> building fast, SEO-friendly websites and enterprise-grade web applications that scale with your business.
-            </p>
-          </Card.Body>
-        </Card>
-      </div>
-
-      {/* Cloud Services */}
-      <div className="col-lg-4 col-md-6 pt-3">
-        <Card className="hm-customize-card">
-          <Card.Body>
-            <Image src="/images/cloud-computing.png" width={80} height={80} className="do-icon pb-3" alt="Cloud Computing icon" loading="lazy" />
-            <h3 className="qs-card-heading">Cloud Consulting Services</h3>
-            <p className="qsd-para">
-              Our <Link href="/cloud-consulting-services">cloud consulting experts</Link> help you migrate, modernize, and optimize with AWS, Azure, and GCP for scalable and cost-effective cloud infrastructure.
-            </p>
-          </Card.Body>
-        </Card>
-      </div>
-
-      {/* DevOps */}
-      <div className="col-lg-4 col-md-6 pt-3">
-        <Card className="hm-customize-card">
-          <Card.Body>
-            <Image src="/images/devops.png" width={80} height={80} className="do-icon pb-3" alt="DevOps icon" loading="lazy" />
-            <h3 className="qs-card-heading">DevOps Consulting</h3>
-            <p className="qsd-para">
-              Our <Link href="/devops-consulting-services">DevOps services in India</Link> bring automation, CI/CD, and container orchestration (Kubernetes, Docker) to boost development speed and infrastructure reliability.
-            </p>
-          </Card.Body>
-        </Card>
-      </div>
-
-      {/* Digital Marketing */}
-      <div className="col-lg-4 col-md-6 pt-3">
-        <Card className="hm-customize-card">
-          <Card.Body>
-            <Image src="/images/digital-marketing.png" width={80} height={80} className="do-icon pb-3" alt="Digital Marketing icon" loading="lazy" />
-            <h3 className="qs-card-heading">Digital Marketing</h3>
-            <p className="qsd-para">
-              As a performance-driven <Link href="/digital-marketing-company-chennai">digital marketing agency in Chennai</Link>, we offer SEO, PPC, social ads & content strategies to help you grow visibility and leads.
-            </p>
-          </Card.Body>
-        </Card>
-      </div>
-
-      {/* AI Development services  */}
-      <div className="col-lg-4 col-md-6 pt-3">
-  <Card className="hm-customize-card">
-    <Card.Body>
-      {/* use .webp if you have it; keep alt short + specific */}
-      <Image
-        src="/images/cloud-computing.png"   // or /images/ai-development.webp
-        width={80}
-        height={80}
-        className="do-icon pb-3"
-        alt="AI Development icon"
-        loading="lazy"
-      />
-
-      <h3 className="qs-card-heading">AI Development</h3>
-
-      <p className="qsd-para">
-      Bring AI to the heart of your business with solutions like chatbots, copilots, intelligent search, computer vision, and workflow automation. Our <Link href="/ai-development-company">AI development team in Chennai</Link> uses LLMs, retrieval-augmented generation, and fine-tuning to take your idea from prototype to production—securely, quickly, and at scale.
-      </p>
-    </Card.Body>
-  </Card>
-</div>
-
-    </div>
-  </div>
-</section>
-
-<section id="recent-works">
-          <div className="container new-ds">
-          <div className="d-flex align-items-center">
-              <div className=" badge-abot-btn">
-                <Image src={"/images/Rectangle-kariot.png"} className="me-2" width={15} height={15} alt="" aria-hidden="true" loading="lazy"/>
-                <p> CASE STUDIES </p>
-              </div>
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                {
+                  title: "Mobile App Development",
+                  copy: (
+                    <>
+                      As a{" "}
+                      <Link href="/mobile-app-development-chennai" className="underline decoration-brand/40 underline-offset-4">
+                        top mobile app development company in Chennai
+                      </Link>
+                      , we deliver custom Android, iOS & cross-platform solutions with exceptional UX, performance, and scalability.
+                    </>
+                  ),
+                  icon: "/images/app-development.png",
+                },
+                {
+                  title: "Website Development",
+                  copy: (
+                    <>
+                      We’re a{" "}
+                      <Link href="/web-development-company-chennai" className="underline decoration-brand/40 underline-offset-4">
+                        leading website development company in Chennai
+                      </Link>{" "}
+                      building fast, SEO-friendly websites and enterprise-grade web applications that scale with your business.
+                    </>
+                  ),
+                  icon: "/images/backend.png",
+                },
+                {
+                  title: "Cloud Consulting Services",
+                  copy: (
+                    <>
+                      Our{" "}
+                      <Link href="/cloud-consulting-services" className="underline decoration-brand/40 underline-offset-4">
+                        cloud consulting experts
+                      </Link>{" "}
+                      help you migrate, modernize, and optimize with AWS, Azure, and GCP for scalable and cost-effective cloud infrastructure.
+                    </>
+                  ),
+                  icon: "/images/cloud-computing.png",
+                },
+                {
+                  title: "DevOps Consulting",
+                  copy: (
+                    <>
+                      Our{" "}
+                      <Link href="/devops-consulting-services" className="underline decoration-brand/40 underline-offset-4">
+                        DevOps services in India
+                      </Link>{" "}
+                      bring automation, CI/CD, and container orchestration to boost development speed and infrastructure reliability.
+                    </>
+                  ),
+                  icon: "/images/devops.png",
+                },
+                {
+                  title: "Digital Marketing",
+                  copy: (
+                    <>
+                      As a performance-driven{" "}
+                      <Link href="/digital-marketing-company-chennai" className="underline decoration-brand/40 underline-offset-4">
+                        digital marketing agency in Chennai
+                      </Link>
+                      , we offer SEO, PPC, social ads & content strategies to help you grow visibility and leads.
+                    </>
+                  ),
+                  icon: "/images/digital-marketing.png",
+                },
+                {
+                  title: "AI Development",
+                  copy: (
+                    <>
+                      Bring AI to the heart of your business with copilots, intelligent search, and workflow automation. Our{" "}
+                      <Link href="/ai-development-company" className="underline decoration-brand/40 underline-offset-4">
+                        AI development team in Chennai
+                      </Link>{" "}
+                      uses LLMs, RAG, and fine-tuning to take your idea from prototype to production.
+                    </>
+                  ),
+                  icon: "/images/cloud-computing.png",
+                },
+              ].map((service) => (
+                <div key={service.title} className="rounded-3xl border border-slate-100 bg-white p-6 shadow-lg shadow-slate-900/5">
+                  <Image src={service.icon} width={72} height={72} alt={`${service.title} icon`} className="mb-4" loading="lazy" />
+                  <h3 className="text-xl font-semibold text-slate-900">{service.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-600">{service.copy}</p>
+                </div>
+              ))}
             </div>
-            <div className="row pt-4">
-              <div className="col-lg-3 col-md-3">
-                <h2 className="case-heading">Our Recent Works</h2>
+          </div>
+        </section>
+
+        <section className="bg-slate-50">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+              <Image src={"/images/Rectangle-kariot.png"} width={15} height={15} alt="" aria-hidden="true" loading="lazy"/>
+              Case Studies
+            </div>
+            <div className="mt-6 grid gap-8 lg:grid-cols-[1fr,2fr,1fr]">
+              <div>
+                <h2 className="text-3xl font-semibold text-slate-900">Our Recent Works</h2>
               </div>
-              <div className="col-lg-6 col-md-6">
-              <p className="case-para">
-          Explore how Trimsel has delivered <Link href="/web-development-company-chennai">custom application development</Link>, 
-          <strong> software solutions</strong>, and <Link href="/mobile-app-development-chennai">mobile app projects</Link> that drive real results. 
-          Over the past 6 years, we’ve completed more than 200 digital transformation projects across industries worldwide.
-        </p>
+              <div className="text-lg text-slate-600">
+                Explore how Trimsel has delivered <Link href="/web-development-company-chennai" className="underline decoration-brand/40 underline-offset-4">custom application development</Link>, <strong>software solutions</strong>, and <Link href="/mobile-app-development-chennai" className="underline decoration-brand/40 underline-offset-4">mobile app projects</Link> that drive real results. Over the past 6 years, we’ve completed more than 200 digital transformation projects across industries worldwide.
               </div>
-              <div className="col-lg-3 col-md-3">
-                <Link href="/portfolio" className="about-btn" aria-label="View all Trimsel case studies">
+              <div className="flex items-start justify-end">
+                <Link href="/portfolio" className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-5 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-slate-800 transition hover:border-brand hover:text-brand" aria-label="View all Trimsel case studies">
                   View All Cases
                   <ArrowRightIcon />
                 </Link>
               </div>
             </div>
+            <div className="mt-10 rounded-3xl border border-white/40 bg-white p-6 shadow-lg shadow-slate-900/5">
+              <ScrollSection />
+            </div>
           </div>
-          <ScrollSection />
         </section>
 
-<section id="why-mnt">
-  <div className="container mnt-container">
-  <div className="d-flex align-items-center">
-      <div className="badge-abot-btn">
-        <Image src="/images/Rectangle-kariot.png" className="me-2" width={15} height={15} alt="" aria-hidden="true" loading="lazy" />
-        <p> WHY TRIMSEL </p>
-      </div>
-    </div>
-
-    <div className="row pt-4">
-      <div className="col-lg-6 col-md-6">
-        <h2 className="service-heading pb-1">
-          Empowering Businesses with 360° Digital Transformation
-        </h2>
-      </div>
-      <div className="col-lg-6 col-md-6">
-        <p className="abot-hero-para">
-        At Trimsel, we don’t just build software—we build long-term partnerships. As a full-cycle software development company in Chennai, we deliver everything from mobile apps and cloud services to DevOps automation and AI-powered solutions. Our client-first approach means we start with your goals, not our tech stack, and deliver solutions that make a measurable difference.
-        </p>
-      </div>
-    </div>
-
-    <div className="row pt-4">
-      <div className="col-lg-3 col-md-6 my-3">
-        <Card className="hm-card tbt">
-          <Image src="/images/group-icon.png" width={50} height={50} alt="Client Portfolio Icon" className="grp" />
-          <h4 className="hmcard-heading pt-3">Diverse Global Clientele</h4>
-          <p className="carels-para">
-            From startups and SMBs to Fortune 500 enterprises, Trimsel has delivered <strong>custom software solutions</strong> tailored to unique business models and challenges across industries.
-          </p>
-        </Card>
-      </div>
-
-      <div className="col-lg-3 col-md-6 my-3">
-        <Card className="hm-card">
-          <Image src="/images/expert-icon.png" width={50} height={50} alt="Expert Icon" className="grp" loading="lazy" />
-          <h4 className="hmcard-heading pt-3">Domain & Tech Expertise</h4>
-          <p className="carels-para">
-            Our certified developers, DevOps engineers, and UI/UX designers have deep expertise in <strong>cloud computing, full stack development,</strong> and emerging tech like AI & automation.
-          </p>
-        </Card>
-      </div>
-
-      <div className="col-lg-3 col-md-6 my-3">
-        <Card className="hm-card tbt">
-          <Image src="/images/solution.png" width={50} height={50} alt="Solution Icon" className="grp" loading="lazy" />
-          <h4 className="hmcard-heading pt-3">Flexible Engagement Models</h4>
-          <p className="carels-para">
-            Whether you need end-to-end product delivery, team augmentation, or <strong>application development outsourcing</strong>, we adapt our approach to your preferred engagement style.
-          </p>
-        </Card>
-      </div>
-
-      <div className="col-lg-3 col-md-6 my-3">
-        <Card className="hm-card">
-          <Image src="/images/selection.png" width={50} height={50} alt="Selection Icon" className="grp" loading="lazy" />
-          <h4 className="hmcard-heading pt-3">All-in-One IT Partner</h4>
-          <p className="carels-para">
-            We manage your entire digital journey in-house — design, development, DevOps, QA, and support — ensuring seamless collaboration and better cost control.
-          </p>
-        </Card>
-      </div>
-    </div>
-  </div>
-</section>
-<section className="home-insights py-5">
-  <div className="container">
-    <div className="d-flex align-items-center">
-      <div className="badge-abot-btn">
-        <Image src="/images/Rectangle-kariot.png" className="me-2" width={15} height={15} alt="" aria-hidden="true" loading="lazy" />
-        <p> LATEST INSIGHTS </p>
-      </div>
-    </div>
-    <div className="row pt-4">
-      {insights.map((item) => (
-        <div className="col-lg-6 col-md-6 mb-4" key={item.title}>
-          <Card className="insight-card h-100">
-            <Card.Body>
-              <p className="insight-tag">{item.tag}</p>
-              <h3 className="insight-title">
-                <Link href={item.href}>{item.title}</Link>
-              </h3>
-              <p className="insight-excerpt">{item.excerpt}</p>
-              <Link href={item.href} className="about-btn" aria-label={`Read ${item.title}`}>
-                Read More
-                <ArrowRightIcon />
-              </Link>
-            </Card.Body>
-          </Card>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
+        <section className="bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+              <Image src="/images/Rectangle-kariot.png" width={15} height={15} alt="" aria-hidden="true" loading="lazy" />
+              Why Trimsel
+            </div>
+            <div className="mt-6 grid gap-8 lg:grid-cols-2">
+              <h2 className="text-3xl font-semibold text-slate-900">
+                Empowering Businesses with 360° Digital Transformation
+              </h2>
+              <p className="text-lg text-slate-600">
+                At Trimsel, we don’t just build software—we build long-term partnerships. Our client-first approach means we start with your goals, not our tech stack, and deliver solutions that make a measurable difference.
+              </p>
+            </div>
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                {
+                  icon: "/images/group-icon.png",
+                  title: "Diverse Global Clientele",
+                  body: (
+                    <>
+                      From startups to Fortune 500s, Trimsel delivers <strong>custom software solutions</strong> tailored to unique business models and challenges across industries.
+                    </>
+                  ),
+                },
+                {
+                  icon: "/images/expert-icon.png",
+                  title: "Domain & Tech Expertise",
+                  body: (
+                    <>
+                      Certified engineers with deep expertise in <strong>cloud computing, full stack development</strong>, and emerging tech like AI and automation.
+                    </>
+                  ),
+                },
+                {
+                  icon: "/images/solution.png",
+                  title: "Flexible Engagement Models",
+                  body: (
+                    <>
+                      Whether you need end-to-end delivery, team augmentation, or <strong>application development outsourcing</strong>, we adapt to your preferred engagement style.
+                    </>
+                  ),
+                },
+                {
+                  icon: "/images/selection.png",
+                  title: "All-in-One IT Partner",
+                  body: (
+                    <>
+                      We manage your entire digital journey—design, development, DevOps, QA, and support—ensuring seamless collaboration and better cost control.
+                    </>
+                  ),
+                },
+              ].map((card) => (
+                <div key={card.title} className="rounded-3xl border border-slate-100 bg-white p-6 shadow-lg shadow-slate-900/5">
+                  <Image src={card.icon} width={50} height={50} alt="" loading="lazy" />
+                  <h3 className="mt-4 text-lg font-semibold text-slate-900">{card.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-600">{card.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section className="bg-slate-900">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-300">
+              <Image src="/images/Rectangle-kariot.png" width={15} height={15} alt="" aria-hidden="true" loading="lazy" />
+              Latest Insights
+            </div>
+            <div className="mt-8 grid gap-6 lg:grid-cols-2">
+              {insights.map((item) => (
+                <article key={item.title} className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/20 backdrop-blur">
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-brand">
+                    {item.tag}
+                  </p>
+                  <h3 className="mt-4 text-2xl font-semibold text-white">
+                    <Link href={item.href} className="hover:text-brand transition">
+                      {item.title}
+                    </Link>
+                  </h3>
+                  <p className="mt-3 text-sm text-slate-200">{item.excerpt}</p>
+                  <Link
+                    href={item.href}
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.3em] text-white transition hover:text-brand"
+                    aria-label={`Read ${item.title}`}
+                  >
+                    Read More
+                    <ArrowRightIcon />
+                  </Link>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
       <ContactForm eventLabel="home_page" />
-        <section id="faq">
-  <div className="container faq-container">
-    <h2 className="faq-heading">Frequently Asked Questions</h2>
-    <Accordion defaultActiveKey="0" flush className="py-5">
-      <Accordion.Item eventKey="0" className="pb-3">
-        <Accordion.Header>
-          What services does Trimsel provide?
-        </Accordion.Header>
-        <Accordion.Body>
-          <p className="accordion-para">
-            Trimsel offers <Link href="/web-development-company-chennai">custom software development</Link>, <Link href="/mobile-app-development-chennai">mobile app development in Chennai</Link>, web design, <Link href="/cloud-consulting-services">cloud consulting</Link>, DevOps automation, digital marketing, and quality engineering services. Our solutions are tailored to help businesses digitally transform and scale efficiently.
-          </p>
-        </Accordion.Body>
-      </Accordion.Item>
-
-      <Accordion.Item eventKey="1" className="pb-3">
-        <Accordion.Header>
-          What industries does Trimsel serve?
-        </Accordion.Header>
-        <Accordion.Body>
-          <p className="accordion-para">
-            We work across multiple industries including Fintech, Healthcare, E-commerce, SaaS, Logistics, and Startups. Our <Link href="/mobile-app-development-chennai">digital transformation solutions</Link> are customized to suit industry-specific needs such as scalability, compliance, and automation.
-          </p>
-        </Accordion.Body>
-      </Accordion.Item>
-
-      <Accordion.Item eventKey="2" className="pb-3">
-        <Accordion.Header>
-          How much does custom application development cost?
-        </Accordion.Header>
-        <Accordion.Body>
-          <p className="accordion-para">
-            The cost of <Link href="/mobile-app-development-chennai">custom application development</Link> varies based on project complexity, tech stack, timeline, and features. We offer flexible engagement models for startups, SMEs, and enterprises. Get a consultation to receive a tailored quote.
-          </p>
-        </Accordion.Body>
-      </Accordion.Item>
-
-      <Accordion.Item eventKey="3" className="pb-3">
-        <Accordion.Header>
-          Do you offer DevOps and CI/CD automation?
-        </Accordion.Header>
-        <Accordion.Body>
-          <p className="accordion-para">
-            Yes. Our <Link href="/devops-consulting-services">DevOps consulting services</Link> include CI/CD pipeline setup, Kubernetes deployment, infrastructure automation using Terraform, and cloud-native implementation across AWS, GCP, and Azure.
-          </p>
-        </Accordion.Body>
-      </Accordion.Item>
-
-      <Accordion.Item eventKey="4" className="pb-3">
-        <Accordion.Header>
-          Can I hire a dedicated development team from Trimsel?
-        </Accordion.Header>
-        <Accordion.Body>
-          <p className="accordion-para">
-          Yes! Whether you need a dedicated developer, a UI/UX designer, a cloud engineer, or a DevOps specialist, we’ve got you covered. Hire full-time or on a project basis, and get a skilled extension of your own team—without the overhead.
-          </p>
-        </Accordion.Body>
-      </Accordion.Item>
-
-      <Accordion.Item eventKey="5" className="pb-3">
-        <Accordion.Header>
-          What makes Trimsel different from other IT service providers?
-        </Accordion.Header>
-        <Accordion.Body>
-          <p className="accordion-para">
-            Our client-first approach, commitment to innovation, and cross-functional expertise make us a reliable <strong>digital transformation partner</strong>. We deliver scalable, secure, and future-ready tech solutions, not just code.
-          </p>
-        </Accordion.Body>
-      </Accordion.Item>
-    </Accordion>
-  </div>
-</section>
+        <section className="bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8" id="faq">
+            <h2 className="text-3xl font-semibold text-slate-900">Frequently Asked Questions</h2>
+            <div className="mt-6 space-y-4">
+              {[
+                {
+                  question: "What services does Trimsel provide?",
+                  answer: (
+                    <>
+                      Trimsel offers <Link href="/web-development-company-chennai" className="underline decoration-brand/40 underline-offset-4">custom software development</Link>, <Link href="/mobile-app-development-chennai" className="underline decoration-brand/40 underline-offset-4">mobile app development</Link>, web design, <Link href="/cloud-consulting-services" className="underline decoration-brand/40 underline-offset-4">cloud consulting</Link>, DevOps automation, digital marketing, and quality engineering services.
+                    </>
+                  ),
+                },
+                {
+                  question: "What industries does Trimsel serve?",
+                  answer: (
+                    <>
+                      We partner with Fintech, Healthcare, E-commerce, SaaS, Logistics, and Startups. Our <Link href="/mobile-app-development-chennai" className="underline decoration-brand/40 underline-offset-4">digital transformation solutions</Link> adapt to industry-specific needs like compliance, scalability, and automation.
+                    </>
+                  ),
+                },
+                {
+                  question: "How much does custom application development cost?",
+                  answer: (
+                    <>
+                      The cost of <Link href="/mobile-app-development-chennai" className="underline decoration-brand/40 underline-offset-4">custom application development</Link> varies based on complexity, tech stack, and timeline. We offer flexible engagement models and tailored quotes after consultation.
+                    </>
+                  ),
+                },
+                {
+                  question: "Do you offer DevOps and CI/CD automation?",
+                  answer: (
+                    <>
+                      Yes. Our <Link href="/devops-consulting-services" className="underline decoration-brand/40 underline-offset-4">DevOps consulting services</Link> include CI/CD pipeline setup, Kubernetes deployment, infrastructure automation, and cloud-native implementation across AWS, Azure, and GCP.
+                    </>
+                  ),
+                },
+                {
+                  question: "Can I hire a dedicated development team from Trimsel?",
+                  answer: (
+                    <>
+                      Yes! You can hire developers, UI/UX designers, cloud engineers, or DevOps specialists full-time or project-based, giving you a skilled extension of your own team without overhead.
+                    </>
+                  ),
+                },
+                {
+                  question: "What makes Trimsel different from other IT service providers?",
+                  answer: (
+                    <>
+                      Our client-first approach, commitment to innovation, and cross-functional expertise make us a reliable <strong>digital transformation partner</strong>. We deliver secure, scalable, and future-ready tech solutions—not just code.
+                    </>
+                  ),
+                },
+              ].map((item, index) => (
+                <details key={item.question} className="rounded-2xl border border-slate-100 bg-white p-5 shadow-lg shadow-slate-900/5">
+                  <summary className="cursor-pointer text-lg font-semibold text-slate-900">
+                    {item.question}
+                  </summary>
+                  <div className="mt-3 text-sm leading-relaxed text-slate-600">{item.answer}</div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
 
         <FAQPageJsonLd
           mainEntity={[

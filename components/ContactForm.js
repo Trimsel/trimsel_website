@@ -1,15 +1,27 @@
 import React, { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Stack from "react-bootstrap/Stack";
-import Button from "react-bootstrap/Button";
 import { useForm } from "react-hook-form";
-import PhoneInput from 'react-phone-input-2';
-import 'react-phone-input-2/lib/bootstrap.css';
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 import ReCAPTCHA from "react-google-recaptcha";
-import Modal from "react-bootstrap/Modal";
 import { postJson } from "../lib/api";
 import { trackEvent } from "../lib/analytics";
+
+const contactHighlights = [
+  {
+    icon: "/images/contact-us-mail.png",
+    title: "Let’s talk",
+    body: "Prefer a direct chat? Call our co-founders:",
+    href: "/contact-us",
+  },
+  {
+    icon: "/images/mailer-icon.png",
+    title: "Send us an email",
+    body: "contact@trimsel.com",
+    href: "mailto:contact@trimsel.com",
+  },
+];
 
 export default function ContactForm({
   heading = "Let’s Build Your Dream App — Get a Free Consultation!",
@@ -23,7 +35,7 @@ export default function ContactForm({
     formState: { errors },
     reset,
   } = useForm();
-  
+
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState("");
@@ -35,7 +47,6 @@ export default function ContactForm({
     setShowThankYou(false);
     setIsSubmitted(false);
   };
-  const handleThankYouShow = () => setShowThankYou(true);
 
   const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
   if (!siteKey && process.env.NODE_ENV === "development") {
@@ -44,27 +55,20 @@ export default function ContactForm({
 
   async function onSubmitForm(values) {
     if (isSubmitting) return;
-
-    // simple client checks
     if (!phone) {
       setMessage("Please enter your mobile number (include country code).");
       return;
     }
-
     setIsSubmitting(true);
 
     try {
       let recaptchaToken = "";
       if (recaptchaRef.current) {
-        try {
-          recaptchaToken = await recaptchaRef.current.executeAsync();
-          recaptchaRef.current.reset();
-        } catch (error) {
-          console.error("Failed to execute reCAPTCHA", error);
-        }
+        recaptchaToken = await recaptchaRef.current.executeAsync();
+        recaptchaRef.current.reset();
       }
       if (!recaptchaToken) {
-        setMessage("We couldn&rsquo;t verify you as human. Please try again.");
+        setMessage("We couldn’t verify you as human. Please try again.");
         return;
       }
 
@@ -75,7 +79,6 @@ export default function ContactForm({
       };
 
       setMessage("");
-
       await postJson("/api/contact", payload);
       trackEvent("contact_form_submit", {
         event_category: "lead",
@@ -83,7 +86,7 @@ export default function ContactForm({
       });
       setMessage("Thank you! We have received your message. Our team will get back to you soon.");
       setIsSubmitted(true);
-      handleThankYouShow();
+      setShowThankYou(true);
       reset();
       setPhone("");
     } catch (error) {
@@ -94,268 +97,234 @@ export default function ContactForm({
   }
 
   return (
-    <section id="contact" className="my-4 py-4">
-      <div className="container contact-container">
-        <div className="row py-2">
-          <Stack direction="horizontal">
-            <div className="badge-abot-btn">
-              <img src="/images/Rectangle-kariot.png" className="me-2" alt="design-dot" />
-              <p> GET IN TOUCH </p>
-            </div>
-          </Stack>
-        </div>
-
-        <div className="row">
-          <div className="col-lg-8 col-md-8">
-            <h2 className="contact-heading">{heading} <span> &#129304; </span></h2>
-            <p className="contact-text">{subText}</p>
+    <>
+      <section id="contact" className="bg-gradient-to-b from-white to-slate-50 py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+            <Image src="/images/Rectangle-kariot.png" width={15} height={15} alt="" aria-hidden="true" loading="lazy" />
+            Get in touch
           </div>
-          <div className="col-lg-4 col-md-4">
-            <Button href="/portfolio" className="cntct-btn">
-              <p>look at our</p> <h6>Case Studies</h6>
-            </Button>
-          </div>
-        </div>
 
-        <div className="row mt-5">
-          <div className="col-lg-4 col-md-4">
-            <h2 className="contct-heading">Hey! Got a startup idea?</h2>
-            <p className="contct-para">
-              Let us give you our honest opinion. Book your
-              <strong style={{ color: "#1e2436" }}> 30-Minute Free Consultation </strong>
-              to discuss your app idea:
-            </p>
+          <div className="mt-8 grid gap-10 lg:grid-cols-[1fr,1fr]">
+            <div className="space-y-6">
+              <div>
+                <h2 className="text-3xl font-semibold text-slate-900">{heading}</h2>
+                <p className="mt-3 text-lg text-slate-600">{subText}</p>
+              </div>
 
-            <div className="card contct-card">
-              <div className="row">
-                <div className="col-lg-2 col-md-12 col-2">
-                  <Image src="/images/contact-us-mail.png" width={50} height={50} alt="Contact us mail icon" className="contct-icon" />
-                </div>
-                <div className="col-lg-10 col-md-12 col-10">
-                  <p className="lets-para mb-0">Let&rsquo;s talk</p>
-                  <Link href="/contact-us" className="lets-link">Prefer a direct chat? Call our co-founders:</Link>
-                </div>
+              <Link
+                href="/portfolio"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-slate-800 transition hover:border-brand hover:text-brand"
+              >
+                Look at our case studies
+              </Link>
+
+              <div className="space-y-4">
+                <h3 className="text-2xl font-semibold text-slate-900">Hey! Got a startup idea?</h3>
+                <p className="text-slate-600">
+                  Let us give you our honest opinion. Book your{" "}
+                  <strong className="text-slate-900">30-Minute Free Consultation</strong> to discuss your app idea.
+                </p>
+
+                {contactHighlights.map((item) => (
+                  <div key={item.title} className="flex items-start gap-4 rounded-3xl border border-slate-100 bg-white/80 p-4 shadow-sm">
+                    <Image src={item.icon} width={48} height={48} alt="" loading="lazy" />
+                    <div>
+                      <p className="text-sm font-semibold text-slate-900">{item.title}</p>
+                      <Link href={item.href} className="text-sm text-brand underline underline-offset-4">
+                        {item.body}
+                      </Link>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
-            <div className="card contct-card mt-4">
-              <div className="row">
-                <div className="col-lg-2 col-md-12 col-2">
-                  <Image src="/images/mailer-icon.png" width={50} height={50} alt="Mailer icon" className="contct-icon" />
-                </div>
-                <div className="col-lg-10 col-md-12 col-9">
-                  <p className="lets-para mb-0">Send us an email</p>
-                  <Link href="mailto:contact@trimsel.com" className="lets-link">contact@trimsel.com</Link>
-                </div>
-              </div>
-            </div>
-          </div>
+            <div className="rounded-3xl border border-slate-100 bg-white p-8 shadow-2xl shadow-slate-900/5">
+              <h3 className="text-2xl font-semibold text-slate-900">Have an idea?</h3>
+              <p className="mt-2 text-sm text-slate-600">Fill out the form below & let’s start building your success story!</p>
 
-          {/* ===== Form ===== */}
-          <div className="col-lg-8 col-md-8">
-            <div className="card ntoct-card">
-              <h3 className="stages-heading">Have an idea?</h3>
-              <h4 className="cntoct-heading">Fill out the form below & let’s start building your success story!</h4>
+              {message && (
+                <p className={`mt-4 rounded-2xl px-4 py-3 text-sm ${isSubmitted ? "bg-green-50 text-green-700" : "bg-rose-50 text-rose-700"}`}>
+                  {message}
+                </p>
+              )}
 
-              <form id="home-form" onSubmit={handleSubmit(onSubmitForm)} noValidate>
-                {message && <p className="form-message">{message}</p>}
-                <div className="row py-3">
-                  {/* Name */}
-                  <div className="col-lg-6 py-3">
-                    <div className="md-form ps-3">
-                      <input
-                        {...register("name", {
-                          required: { value: true, message: "Your name is required" },
-                        })}
-                        type="text"
-                        id="name"
-                        name="name"
-                        className="form-control abot-form"
-                        placeholder="Full Name*"
-                        aria-invalid={!!errors?.name}
-                      />
-                      {!errors?.name && (
-                        <small className="form-text text-muted">Enter your full name so we can address you properly.</small>
-                      )}
-                      <span className="error-design pt-3">{errors?.name?.message}</span>
-                    </div>
+              <form className="mt-6 space-y-6" onSubmit={handleSubmit(onSubmitForm)} noValidate>
+                <div className="grid gap-4 md:grid-cols-2">
+                  <div className="space-y-2">
+                    <input
+                      {...register("name", {
+                        required: { value: true, message: "Your name is required" },
+                      })}
+                      type="text"
+                      id="name"
+                      name="name"
+                      placeholder="Full Name*"
+                      aria-invalid={!!errors?.name}
+                      className="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
+                    />
+                    {!errors?.name && <p className="text-xs text-slate-400">Enter your full name so we can address you properly.</p>}
+                    <p className="text-xs text-rose-500">{errors?.name?.message}</p>
                   </div>
 
-                  {/* Phone */}
-                  <div className="col-lg-6 py-3">
-                    <div className="md-form pe-3">
-                      <label htmlFor="phone" className="labels">
-                        <h5>Mobile Number *</h5>
-                      </label>
-                      <div className="phone-input-container">
-                        <PhoneInput
-                          country={'in'}
-                          enableSearch={true}
-                          value={phone}
-                          onChange={(p) => setPhone(p)}
-                          inputProps={{ name: 'mobile', required: true, id: 'phone', 'aria-invalid': !phone ? 'true' : 'false' }}
-                          inputStyle={{ width: '100%', height: '58px', border: '1px solid #ccc', borderRadius: '5px', paddingLeft: '45px' }}
-                          containerStyle={{ width: '100%' }}
-                        />
-                        {!phone && <small className="form-text text-muted">Include your country code for faster connection.</small>}
-                      </div>
-                    </div>
+                  <div className="space-y-2">
+                    <label htmlFor="phone" className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                      Mobile Number *
+                    </label>
+                    <PhoneInput
+                      country="in"
+                      enableSearch
+                      value={phone}
+                      onChange={(p) => setPhone(p)}
+                      inputProps={{
+                        name: "mobile",
+                        required: true,
+                        id: "phone",
+                        "aria-invalid": !phone ? "true" : "false",
+                      }}
+                      inputStyle={{
+                        width: "100%",
+                        height: "52px",
+                        borderRadius: "16px",
+                        border: "1px solid rgb(226 232 240)",
+                        fontSize: "0.95rem",
+                      }}
+                      buttonStyle={{
+                        border: "none",
+                        borderRadius: "16px 0 0 16px",
+                      }}
+                      containerStyle={{ width: "100%" }}
+                    />
+                    {!phone && <p className="text-xs text-slate-400">Include your country code for faster connection.</p>}
                   </div>
 
-                  {/* Email */}
-                  <div className="col-lg-6 py-3">
-                    <div className="md-form ps-3">
-                      <input
-                        {...register("email", {
-                          required: { value: true, message: "Email is required" },
-                          pattern: {
-                            value: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
-                            message: "Enter a valid email address",
-                          },
-                        })}
-                        type="email"
-                        name="email"
-                        id="email"
-                        className="form-control abot-form"
-                        placeholder="Work Email*"
-                        aria-invalid={!!errors?.email}
-                      />
-                      {!errors?.email && (
-                        <small className="form-text text-muted">We’ll use this only to respond to your inquiry.</small>
-                      )}
-                      <span className="error-design pt-3">
-                        {errors?.email?.message}
-                      </span>
-                    </div>
+                  <div className="space-y-2">
+                    <input
+                      {...register("email", {
+                        required: { value: true, message: "Email is required" },
+                        pattern: {
+                          value: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
+                          message: "Enter a valid email address",
+                        },
+                      })}
+                      type="email"
+                      name="email"
+                      id="email"
+                      placeholder="Work Email*"
+                      aria-invalid={!!errors?.email}
+                      className="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
+                    />
+                    {!errors?.email && <p className="text-xs text-slate-400">We’ll use this only to respond to your inquiry.</p>}
+                    <p className="text-xs text-rose-500">{errors?.email?.message}</p>
                   </div>
 
-                  {/* Company */}
-                  <div className="col-lg-6 py-3">
-                    <div className="md-form ps-3">
-                      <input
-                        {...register("company")}
-                        type="text"
-                        name="company"
-                        id="company"
-                        className="form-control abot-form"
-                        placeholder="Company"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Referral Source */}
-                  <div className="col-lg-6 py-3">
-                    <div className="md-form pe-3">
-                      <select
-                        {...register("referralSource", {
-                          required: { value: true, message: "Please tell us how you heard about Trimsel" },
-                        })}
-                        id="referralSource"
-                        name="referralSource"
-                        className="form-control abot-form"
-                        aria-invalid={!!errors?.referralSource}
-                        defaultValue=""
-                      >
-                        <option value="" disabled>
-                          Where did you find us?*
-                        </option>
-                        <option value="Google">Google Search</option>
-                        <option value="Social">Social Media</option>
-                        <option value="Referral">Referral</option>
-                        <option value="Event">Event / Webinar</option>
-                        <option value="Other">Other</option>
-                      </select>
-                      <span className="error-design pt-3">{errors?.referralSource?.message}</span>
-                    </div>
-                  </div>
-
-                  {/* Message */}
-                  <div className="col-lg-12 py-3">
-                    <div className="md-form ps-3">
-                      <textarea
-                        {...register('message', {
-                          required: { value: true, message: 'Please describe your project' }
-                        })}
-                        name="message"
-                        id="message"
-                        className="form-control lg-textarea"
-                        placeholder="Describe your project*"
-                        aria-invalid={!!errors?.message}
-                      />
-                      {!errors?.message && (
-                        <small className="form-text text-muted">Tell us briefly about your idea, timeline, and budget range (if known).</small>
-                      )}
-                      <span className="error-design pt-3">{errors?.message?.message}</span>
-                    </div>
-                  </div>
-
-                  {/* Submit */}
-                  <div className="col-lg-12 py-3">
-                    <div className="text-right text-md-end">
-                      <button type="submit" className="sbmt-btn" disabled={isSubmitting}>
-                        {isSubmitting ? "Sending..." : submitLabel}
-                      </button>
-                    </div>
+                  <div className="space-y-2">
+                    <input
+                      {...register("company")}
+                      type="text"
+                      name="company"
+                      id="company"
+                      placeholder="Company (optional)"
+                      className="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
+                    />
                   </div>
                 </div>
+
+                <div className="grid gap-4 md:grid-cols-2">
+                  <div className="space-y-2">
+                    <input
+                      {...register("projectType")}
+                      type="text"
+                      name="projectType"
+                      id="projectType"
+                      placeholder="Project / Service type"
+                      className="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <input
+                      {...register("budget")}
+                      type="text"
+                      name="budget"
+                      id="budget"
+                      placeholder="Approx budget"
+                      className="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <textarea
+                    {...register("message", {
+                      required: { value: true, message: "Please describe your project" },
+                    })}
+                    id="message"
+                    name="message"
+                    placeholder="Describe your project*"
+                    aria-invalid={!!errors?.message}
+                    rows={4}
+                    className="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
+                  />
+                  <p className="text-xs text-rose-500">{errors?.message?.message}</p>
+                </div>
+
+                {siteKey && (
+                  <ReCAPTCHA
+                    ref={recaptchaRef}
+                    sitekey={siteKey}
+                    size="invisible"
+                  />
+                )}
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full rounded-2xl bg-brand px-6 py-4 text-sm font-semibold uppercase tracking-[0.3em] text-white shadow-lg shadow-brand/40 transition hover:bg-brand-dark disabled:cursor-not-allowed disabled:bg-brand/60"
+                >
+                  {isSubmitting ? "Sending…" : submitLabel}
+                </button>
               </form>
             </div>
-            {siteKey && (
-              <ReCAPTCHA
-                ref={recaptchaRef}
-                sitekey={siteKey}
-                size="invisible"
-              />
-            )}
           </div>
-          {/* ===== /Form ===== */}
         </div>
-      </div>
+      </section>
 
-      {/* Thank you modal */}
-      <Modal show={showThankYou} onHide={handleThankYouClose} centered>
-        <Modal.Header closeButton></Modal.Header>
-        <Modal.Body className="contact-body text-center px-4">
-          {isSubmitted && (
-            <div className="thank-you fade-in">
-              <div className="container thank-container">
-                {/* Consider replacing this GIF with a small MP4/WebM or a static image to save ~1MB */}
-                <img src="/images/astronaut-thanking.gif" alt="Thank you" className="gif-thanks" />
-                <h2 className="thank-heading">Thank you for contacting us!</h2>
-                <p className="thank-para">We have received your message. We&rsquo;ll reach out shortly.</p>
-                <h6>
-                  <Link href="/" passHref style={{ textDecoration: "none" }} className="me-3">
-                    <Button variant="outline-primary" className="mt-3 mb-2">Back To Homepage</Button>
-                  </Link>
-                </h6>
-                <div className="row">
-                  <div className="col-lg-6 col-md-6 col-6 follow-col">
-                    <h4 className="contact-addrs">Follow Us:</h4>
-                    <Link href="https://www.facebook.com/trimsel.softwares" target="_blank" rel="noopener noreferrer">
-                      <img className="social-icon" src="/images/fb-icon.png" alt="Facebook Icon" />
-                    </Link>
-                    <Link href="https://www.instagram.com/trimsel/" target="_blank" rel="noopener noreferrer">
-                      <img className="social-icon" src="/images/insta-icon.png" alt="Instagram Icon" />
-                    </Link>
-                    <Link href="https://www.linkedin.com/company/trimsel" target="_blank" rel="noopener noreferrer">
-                      <img className="social-icon" src="/images/linkedin-icon.png" alt="LinkedIn Icon" />
-                    </Link>
-                    <Link href="https://in.pinterest.com/trimsel/" target="_blank" rel="noopener noreferrer">
-                      <img className="social-icon" src="/images/pinterest-icon.png" alt="Pinterest Icon" />
-                    </Link>
+      {showThankYou && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
+          <div className="w-full max-w-lg rounded-3xl bg-white p-8 text-center shadow-2xl">
+            <button
+              type="button"
+              onClick={handleThankYouClose}
+              className="ml-auto flex items-center justify-center rounded-full border border-slate-200 p-2 text-slate-500"
+              aria-label="Close thank you dialog"
+            >
+              ×
+            </button>
+            <div className="mt-4 space-y-4">
+              <Image src="/images/astronaut-thanking.gif" width={200} height={200} alt="Thank you" className="mx-auto" loading="lazy" />
+              <h2 className="text-2xl font-semibold text-slate-900">Thank you for contacting us!</h2>
+              <p className="text-sm text-slate-600">
+                We have received your message. We’ll reach out shortly.
+              </p>
+              <div className="grid gap-3 md:grid-cols-2">
+                <div className="rounded-2xl border border-slate-100 p-4">
+                  <p className="text-sm font-semibold text-slate-900">Follow Us</p>
+                  <div className="mt-3 flex items-center justify-center gap-3">
+                    {["facebook", "insta", "linkedin", "pinterest"].map((name) => (
+                      <Image key={name} src={`/${name}.png`} width={28} height={28} alt="" loading="lazy" />
+                    ))}
                   </div>
-                  <div className="col-lg-6 col-md-6 col-6">
-                    <div className="card thank-card">
-                      <img src="/images/scan.png" width={159} height={49} alt="whatsapp-icon" />
-                      <img src="/images/trimselqr.png" width={90} height={90} alt="Trimsel Whatsapp QR Code" className="wht-qr" loading="lazy" />
-                    </div>
-                  </div>
+                </div>
+                <div className="rounded-2xl border border-slate-100 p-4">
+                  <p className="text-sm font-semibold text-slate-900">WhatsApp</p>
+                  <Image src="/images/trimselqr.png" width={90} height={90} alt="Trimsel Whatsapp QR Code" className="mx-auto" loading="lazy" />
                 </div>
               </div>
             </div>
-          )}
-        </Modal.Body>
-      </Modal>
-    </section>
+          </div>
+        </div>
+      )}
+    </>
   );
 }

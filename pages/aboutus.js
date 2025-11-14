@@ -4,14 +4,161 @@ import Link from "next/link";
 import Image from "next/image";
 import Header from "../components/header";
 import Footer from "../components/footer";
-import Stack from "react-bootstrap/Stack";
 import ContactForm from "../components/ContactForm";
-import Card from "react-bootstrap/Card";
 import dynamic from "next/dynamic";
-
+import CheckIcon from "../components/icons/CheckIcon";
+import ArrowRightIcon from "../components/icons/ArrowRightIcon";
 
 const ClientLogo = dynamic(() => import("../components/clientLogo"), { ssr: false });
 
+const heroStats = [
+  "200+ digital programs launched with 92% client retention",
+  "AI, cloud, mobile, and DevOps teams aligned to one roadmap",
+  "Discovery replies in under 24 hours with optional NDA",
+];
+
+const whoHighlights = [
+  "Business process optimisation through automated workflows",
+  "Scalable, high-performance applications ready for growth",
+  "AI and cloud integration for smarter insights",
+  "Human-centred UI/UX that earns loyalty",
+];
+
+const valueCards = [
+  {
+    icon: "/images/3triangle.webp",
+    title: "Our Core Values: Innovation & Excellence",
+    body:
+      "Innovation anchors every engagement. We blend AI automation, multi-cloud architecture, and product craftsmanship to deliver measurable performance gains across platforms.",
+    bullets: [
+      "AI-powered automation for smarter operations",
+      "Cloud-native solutions across AWS, Azure, and GCP",
+      "Optimised digital interfaces designed for conversion",
+    ],
+  },
+  {
+    icon: "/images/approachicon.webp",
+    title: "Our Commitment to Clients",
+    body:
+      "From startups to global enterprises, we build mission-critical products that are secure, scalable, and aligned with your roadmap and KPIs.",
+    bullets: [
+      "User-focused design and engineering",
+      "End-to-end cloud + DevOps transformation",
+      "Future-proof applications that accelerate ROI",
+    ],
+  },
+];
+
+const driveCards = [
+  {
+    icon: "/images/light-bulb.png",
+    title: "Scalable Cloud-Native Architecture",
+    body:
+      "Architecting resilient infrastructures on AWS, Azure, and GCP using microservices, containers, and serverless patterns so you can scale on demand.",
+  },
+  {
+    icon: "/images/ui-icon.png",
+    title: "Customer-First UI/UX Excellence",
+    body:
+      "Design systems that prioritise accessibility, conversion, and delight—across mobile and web touchpoints.",
+  },
+  {
+    icon: "/images/agile-operation.png",
+    title: "Agile Delivery & DevOps Engineering",
+    body:
+      "CI/CD pipelines, IaC, and observability baked into every release so teams ship faster with confidence.",
+  },
+  {
+    icon: "/images/versatile.png",
+    title: "Cross-Platform & Emerging Tech",
+    body:
+      "Flutter, React Native, AI/ML, IoT, and blockchain expertise that keeps your roadmap future-ready.",
+  },
+  {
+    icon: "/images/res.png",
+    title: "Data-Driven & Secure Development",
+    body:
+      "Secure SDLC, automated testing, and compliance (GDPR, HIPAA, ISO) to protect every interaction.",
+  },
+  {
+    icon: "/images/clients.png",
+    title: "Client-Centric Strategy",
+    body:
+      "We operate as an embedded partner—aligning market insight, KPIs, and execution to maximise ROI.",
+  },
+];
+
+const serviceCards = [
+  {
+    icon: "/images/app-development.png",
+    title: "Mobile App Development",
+    body:
+      "Scalable Android & iOS apps with intuitive UX, native performance, and deep cloud integration.",
+    href: "/mobile-app-development-chennai",
+    linkLabel: "Explore Mobile App Development",
+  },
+  {
+    icon: "/images/backend.png",
+    title: "Website Development",
+    body:
+      "Responsive, SEO-friendly, and CMS-ready web experiences built for conversion and growth.",
+    href: "/web-development-company-chennai",
+    linkLabel: "Explore Web Development",
+  },
+  {
+    icon: "/images/cloud-computing.png",
+    title: "Cloud Consulting & Implementation",
+    body:
+      "Migrate, modernise, and optimise AWS, Azure, and GCP estates with FinOps guardrails.",
+    href: "/cloud-consulting-services",
+    linkLabel: "Explore Cloud Services",
+  },
+  {
+    icon: "/images/devops.png",
+    title: "DevOps Consulting & Automation",
+    body:
+      "CI/CD, IaC, and Kubernetes automation that keeps releases predictable and secure.",
+    href: "/devops-consulting-services",
+    linkLabel: "Explore DevOps Consulting",
+  },
+  {
+    icon: "/images/digital-marketing.png",
+    title: "Digital Marketing & Growth",
+    body:
+      "SEO, paid media, and lifecycle automation to amplify acquisition and retention.",
+    href: "/digital-marketing-company-chennai",
+    linkLabel: "Explore Digital Marketing",
+  },
+  {
+    icon: "/images/software-testing.png",
+    title: "Quality Engineering & Support",
+    body:
+      "Manual + automated QA, performance testing, and 24/7 support for mission-critical products.",
+    href: "/contact-us",
+    linkLabel: "Talk to Support Leads",
+  },
+];
+
+const ctaHighlights = [
+  "AI, cloud, and DevOps pods aligned to your KPIs",
+  "Optional NDA before diving into sensitive details",
+  "Discovery, architecture, and rollout guided by proven playbooks",
+];
+
+const insights = [
+  {
+    title: "5 Easy Ways a Mobile App Can Grow Your Business",
+    excerpt: "See how we combine strategy, engineering, and DevOps to turn ideas into revenue.",
+    href: "/blog/how-mobile-apps-grow-business",
+    tag: "Growth Playbook",
+  },
+  {
+    title: "Explore Trimsel's Digital Transformation Library",
+    excerpt: "Browse cloud, AI, and product engineering articles that guide our client engagements.",
+    href: "/blog",
+    tag: "Thought Leadership",
+  },
+];
 
 export default function About() {
   const aboutJsonLd = [
@@ -46,685 +193,341 @@ export default function About() {
       mainEntity: [
         {
           "@type": "Question",
-          "name": "What industries does Trimsel support?",
-          "acceptedAnswer": {
+          name: "What industries does Trimsel support?",
+          acceptedAnswer: {
             "@type": "Answer",
-            "text": "We partner with SaaS scale-ups, BFSI leaders, healthcare providers, and consumer brands to modernize products with AI, cloud, and secure engineering practices."
-          }
+            text: "We partner with SaaS scale-ups, BFSI leaders, healthcare providers, and consumer brands to modernize products with AI, cloud, and secure engineering practices.",
+          },
         },
         {
           "@type": "Question",
-          "name": "How fast can Trimsel start a new engagement?",
-          "acceptedAnswer": {
+          name: "How fast can Trimsel start a new engagement?",
+          acceptedAnswer: {
             "@type": "Answer",
-            "text": "Discovery begins within 5 business days once scope is aligned. We can deploy a blended pod of product strategist, solution architect, and engineers in under 3 weeks."
-          }
+            text: "Discovery begins within 5 business days once scope is aligned. We can deploy a blended pod of product strategist, solution architect, and engineers in under 3 weeks.",
+          },
         },
         {
           "@type": "Question",
-          "name": "Does Trimsel work with in-house teams?",
-          "acceptedAnswer": {
+          name: "Does Trimsel work with in-house teams?",
+          acceptedAnswer: {
             "@type": "Answer",
-            "text": "Yes. Our squads plug into your product or platform teams, sharing documentation, DevSecOps guardrails, and regular business reviews to keep stakeholders aligned."
-          }
-        }
+            text: "Yes. Our squads plug into your product or platform teams, sharing documentation, DevSecOps guardrails, and regular business reviews to keep stakeholders aligned.",
+          },
+        },
       ],
     },
   ];
 
   return (
     <>
-{/* ✅ Next-SEO for Optimized Metadata */}
-<NextSeo
-  title="About Trimsel | Digital Transformation & IT Services Company in India"
-  description="Trimsel delivers digital transformation, software development, cloud, DevOps & AI solutions to help businesses scale with cutting-edge IT services."
-  canonical="https://www.trimsel.com/aboutus"
-  openGraph={{
-    type: "website",
-    url: "https://www.trimsel.com/aboutus",
-    title: "About Trimsel | Digital Transformation Experts",
-    description:
-      "Trimsel is a digital transformation company in Chennai offering software development, cloud solutions, DevOps & product engineering to scale your business.",
-    locale: "en_IN",
-    images: [
-      {
-        url: "https://www.trimsel.com/images/about-bg.png",
-        width: 1200,
-        height: 630,
-        alt: "Trimsel digital transformation team collaborating in Chennai",
-      },
-    ],
-    site_name: "Trimsel",
-  }}
-  additionalMetaTags={[{ name: "robots", content: "index, follow" }]}
-/>
+      <NextSeo
+        title="About Trimsel | Digital Transformation & IT Services Company in India"
+        description="Trimsel delivers digital transformation, software development, cloud, DevOps & AI solutions to help businesses scale with cutting-edge IT services."
+        canonical="https://www.trimsel.com/aboutus"
+        openGraph={{
+          type: "website",
+          url: "https://www.trimsel.com/aboutus",
+          title: "About Trimsel | Digital Transformation Experts",
+          description:
+            "Trimsel is a digital transformation company in Chennai offering software development, cloud solutions, DevOps & product engineering to scale your business.",
+          locale: "en_IN",
+          images: [
+            {
+              url: "https://www.trimsel.com/images/about-bg.png",
+              width: 1200,
+              height: 630,
+              alt: "Trimsel digital transformation team collaborating in Chennai",
+            },
+          ],
+          site_name: "Trimsel",
+        }}
+        additionalMetaTags={[{ name: "robots", content: "index, follow" }]}
+      />
       <Head>
         {aboutJsonLd.map((schema, index) => (
-          <script
-            key={`aboutus-schema-${index}`}
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-          />
+          <script key={`aboutus-schema-${index}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
         ))}
       </Head>
+
       <main>
-        <section id="abot-section">
+        <section className="relative overflow-hidden bg-slate-950 text-white">
           <Header />
-          <section id="abot-hero">
-  <div className="container abot-container">
-    <div className="row">
-      <div className="whiteLink">
-        <p className="breadcrumbs-kar">
-          <Link href="/">Home</Link> <span> &#x2027; </span> About Us
-        </p>
-      </div>
-      <div className="col-lg-6 col-md-6">
-        <h1 className="abot-heading py-3">
-          About Trimsel — <span className="badge abot-badge">AI-First</span> Digital Transformation Partner
-        </h1>
-        <h2 className="abot-abt">
-          <span className="badge about-badge">Mission</span> – Critical Digital Solutions for Complete Business Transformation
-        </h2>
-      </div>
-      <div className="col-lg-6 col-md-6">
-        <p className="abot-hero-para">
-          <strong>Empower your business transformation</strong> by replacing outdated legacy systems with 
-          <strong> modern digital solutions</strong> that ensure <strong>growth, operational optimization</strong>, and 
-          measurable <strong>ROI</strong>. At Trimsel, we architect mission-driven technology that accelerates innovation across <Link href="/cloud-consulting-services">cloud</Link>, <Link href="/mobile-app-development-chennai">mobile</Link>, and <Link href="/devops-consulting-services">DevOps</Link>.
-        </p>
-        <Link href="/contact-us" passHref className="lts-talk-link" aria-label="Talk with Trimsel&rsquo;s digital transformation consultants">
-          <span className="visually-hidden">Book a strategy call with Trimsel</span>
-          <Image
-            src="/images/talkimg.png"
-            width={150}
-            height={150}
-            alt="Let&rsquo;s Talk with Trimsel"
-            className="lts-tlk"
-            loading="lazy"
-          />
-        </Link>
-        <p className="hero-proof">200+ digital programs shipped with 92% client retention and replies within 24 hours.</p>
-      </div>
-    </div>
-  </div>
-</section>
-        </section>
-        <section>
-          <Image
-            src="/images/office-people.webp"
-            width={1349}
-            height={617}
-            alt="People in Office Image"
-            className="off-ppl"
-          />
-        </section>
-        <section id="abot-abt">
-  <div className="container abot-container">
-    <Stack direction="horizontal">
-      <div className=" badge-abot-btn">
-        <Image
-          src="/images/Rectangle-kariot.png"
-          className="me-2"
-          height={15}
-          width={15}
-          alt="design-dot"
-          loading="lazy"
-        />
-        <p> WHO WE ARE </p>
-      </div>
-    </Stack>
-    <div className="row">
-      <div className="col-lg-7 col-md-7 py-4">
-        <h2 className="abot-title">
-          Empowering Businesses with Digital Transformation & Innovation
-        </h2>
-
-        <p className="abot-abt-para">
-          In today’s rapidly evolving digital era, businesses that once relied on traditional brick-and-mortar operations are now embracing technology to stay competitive and future-ready. As customer expectations shift, organizations must adopt scalable, agile, and user-focused digital solutions.
-        </p>
-
-        <p className="abot-abt-para">
-        Through our expertise, we enable enterprises to drive complete digital transformation through cutting-edge mobile & web development, cloud consulting, and DevOps automation. Whether it&rsquo;s automating internal workflows, improving customer engagement, or scaling your business model, we deliver tailored digital solutions that unlock long-term value and innovation.
-        </p>
-
-        <p className="abot-abt-para">
-          Since our inception in 2020, our passionate team of developers, cloud architects, DevOps engineers, and UI/UX designers have successfully delivered high-impact software solutions to startups, SMEs, and Fortune 500 clients across the globe.
-          <br /><br />
-          We don’t just build apps — we engineer digital ecosystems that deliver:
-          <br />
-          ✔ Business Process Optimization – Automated workflows that boost operational efficiency<br />
-          ✔ Scalability & Performance – High-traffic-ready applications with seamless operations<br />
-          ✔ AI & Cloud Integration – Smart analytics and scalable cloud infrastructure<br />
-          ✔ Enhanced User Experience – Intuitive, human-centric UI/UX design that delights users
-        </p>
-
-        <p className="abot-abt-para">
-          We believe in future-focused innovation — building technology that adapts to business needs today and tomorrow.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="abot-reinventing">
-  <div className="container reinvent-container">
-    <div className="row">
-      {/* Left Section - Narrative */}
-      <div className="col-lg-6 col-md-6">
-        <h2 className="abot-title">
-          Reinventing Business Environments with the Power of Technology
-        </h2>
-
-        <p className="abot-abt-para">
-          In today’s hyper-competitive digital world, staying ahead requires more than just adapting — it requires transformation. At Trimsel, we empower businesses through innovation, cloud-first strategies, and user-centric design, ensuring long-term growth and operational agility.
-        </p>
-
-        <p className="abot-abt-para">
-          <strong>Tailored Digital Transformation:</strong> We deliver customized technology strategies aligned with your business vision and industry requirements.<br />
-          <strong>Scalable & Future-Ready Solutions:</strong> Our cloud and DevOps experts build high-performing, secure, and flexible applications that evolve with your business.<br />
-          <strong>Next-Gen Technology Integration:</strong> From AI automation to cloud migration, our services are designed to give you a strategic edge in the global market.
-        </p>
-
-        <p className="abot-abt-para">
-          <strong>At Trimsel</strong>, we don’t just build technology—we create impact-driven experiences that transform the way you operate and grow.
-        </p>
-      </div>
-
-      {/* Right Section - Values */}
-      <div className="col-lg-6 col-md-6">
-        <Card className="abot-customize-card">
-          <Card.Body style={{ paddingRight: "0px", paddingLeft: "0px" }}>
+          <div className="relative isolate pt-24">
             <Image
-              src="/images/3triangle.webp"
-              width={80}
-              height={80}
-              className="do-icon pb-3"
-              alt="Trimsel Company Values - Triangle Icon"
+              src="/images/about-bg.png"
+              alt="Trimsel team collaborating"
+              fill
+              priority
+              className="pointer-events-none object-cover opacity-60"
+              sizes="100vw"
             />
-            <h3 className="qs-card-heading">Our Core Values: Innovation & Excellence</h3>
-            <p className="qsd-para">
-              Innovation is at the heart of everything we do at Trimsel. Our team embraces emerging technologies to design intelligent solutions that improve performance, scalability, and user experience across platforms.
-              <br /><br />
-              AI-powered automation to streamline operations<br />
-              Scalable cloud-native solutions across AWS, Azure, and GCP<br />
-              Optimized digital interfaces designed for conversion and speed
-            </p>
-          </Card.Body>
-        </Card>
-
-        <Card className="abot-customize-card mt-3">
-          <Card.Body style={{ paddingRight: "0px", paddingLeft: "0px" }}>
-            <Image
-              src="/images/approachicon.webp"
-              width={80}
-              height={80}
-              className="do-icon pb-3"
-              alt="Client Success Icon"
-            />
-            <h3 className="qs-card-heading">Our Commitment to Clients</h3>
-            <p className="qsd-para">
-              Your success is our mission. Whether you&rsquo;re a startup or a global enterprise, our commitment is to deliver scalable, secure, and mission-critical digital solutions that accelerate your path to market and maximize ROI.
-              <br /><br />
-              User-focused design and engineering<br />
-              End-to-end cloud and DevOps transformation<br />
-              Reliable, future-proof applications that drive business outcomes
-            </p>
-          </Card.Body>
-        </Card>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section id="abot-drives">
-  <div className="container drives-container">
-    <div className="row">
-      <div className="col-lg-6 col-md-6">
-        <h2 className="do-heading">
-          What Drives Trimsel Toward Digital Excellence
-        </h2>
-      </div>
-      <div className="col-lg-6 col-md-6">
-        <p className="dos-para">
-        We’re driven by a relentless pursuit of innovation. From <Link href="/cloud-consulting-services">cloud-native architecture</Link> to <Link href="/devops-consulting-services">agile DevOps automation</Link>, everything we do is geared toward crafting scalable, secure, and engaging digital experiences.
-        </p>
-      </div>
-    </div>
-
-    <div className="row">
-      {/* Card 1 */}
-      <div className="col-lg-4 col-md-6 pt-3">
-        <Card className="abot-drives-card">
-          <Card.Body style={{ paddingRight: "0px", paddingLeft: "0px" }}>
-            <Image src="/images/light-bulb.png" width={142} height={142} className="dr-icon" alt="Scalable Solutions icon" />
-            <h3 className="do-card-heading">Scalable Cloud-Native Architecture</h3>
-            <p className="do-para">
-              We bring proven cloud capability to architect highly scalable and resilient cloud-native infrastructures tailored to your growth. Whether on AWS, Azure, or GCP, our cloud consultants ensure your applications are built with microservices, containers, and serverless capabilities that scale effortlessly and deliver enterprise-grade performance.
-
-            </p>
-          </Card.Body>
-        </Card>
-      </div>
-
-      {/* Card 2 */}
-      <div className="col-lg-4 col-md-6 pt-3">
-        <Card className="abot-drives1-card">
-          <Card.Body style={{ paddingRight: "0px", paddingLeft: "0px" }}>
-            <Image src="/images/ui-icon.png" width={142} height={142} className="dr-icon" alt="UI/UX icon" />
-            <h3 className="do-card-heading">Customer-First UI/UX Excellence</h3>
-            <p className="do-para">
-            We design with purpose, keeping your users at the heart of every interaction. Our design team creates intuitive, accessible, and high-converting user experiences across mobile and web platforms, ensuring your product isn’t just functional but also memorable and user-loved.
-            </p>
-          </Card.Body>
-        </Card>
-      </div>
-
-      {/* Card 3 */}
-      <div className="col-lg-4 col-md-6 pt-3">
-        <Card className="abot-drives2-card">
-          <Card.Body style={{ paddingRight: "0px", paddingLeft: "0px" }}>
-            <Image src="/images/agile-operation.png" width={142} height={142} className="dr-icon" alt="Agile Operations Icon" />
-            <h3 className="do-card-heading">Agile Delivery & DevOps Engineering</h3>
-            <p className="do-para">
-            Speed, reliability, and quality define our delivery model. We combine Agile best practices with robust DevOps automation to deliver faster releases, CI/CD pipelines, and infrastructure as code (IaC)—all designed for continuous improvement and scalability.
-            </p>
-          </Card.Body>
-        </Card>
-      </div>
-
-      {/* Card 4 */}
-      <div className="col-lg-4 col-md-6 pt-4">
-        <Card className="abot-drives-card">
-          <Card.Body style={{ paddingRight: "0px", paddingLeft: "0px" }}>
-            <Image src="/images/versatile.png" width={142} height={142} className="dr-icon" alt="Tech Stack Icon" />
-            <h3 className="do-card-heading">Cross-Platform & Emerging Tech Expertise</h3>
-            <p className="do-para">
-            From Flutter and React Native to AI/ML, IoT, and Blockchain, our development team works across the full spectrum of modern technologies. We help businesses embrace innovation, reduce time-to-market, and build products that stand out in today&rsquo;s competitive tech ecosystem.
-            </p>
-          </Card.Body>
-        </Card>
-      </div>
-
-      {/* Card 5 */}
-      <div className="col-lg-4 col-md-6 pt-4">
-        <Card className="abot-drives1-card">
-          <Card.Body style={{ paddingRight: "0px", paddingLeft: "0px" }}>
-            <Image src="/images/res.png" width={142} height={142} className="dr-icon" alt="Responsive Design icon" />
-            <h3 className="do-card-heading">Data-Driven & Secure Digital Development</h3>
-            <p className="do-para">
-            Security and data integrity are built into every phase of our development process. We implement secure coding practices, automated testing, and compliance measures like GDPR, HIPAA, and ISO standards to ensure every solution is both reliable and future-proof.
-
-            </p>
-          </Card.Body>
-        </Card>
-      </div>
-
-      {/* Card 6 */}
-      <div className="col-lg-4 col-md-6 pt-4">
-        <Card className="abot-drives2-card">
-          <Card.Body style={{ paddingRight: "0px", paddingLeft: "0px" }}>
-            <Image src="/images/clients.png" width={142} height={142} className="dr-icon" alt="Client Focused Icon" />
-            <h3 className="do-card-heading">Client-Centric Digital Strategy Execution</h3>
-            <p className="do-para">
-            Your business vision drives our strategy. Our team works as an extended partner by analyzing business goals, understanding market positioning, and crafting custom digital strategies that accelerate ROI, reduce risk, and future-proof your digital investments.
-            </p>
-          </Card.Body>
-        </Card>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section id="abot-needs">
-  <div className="container needs-container">
-    <Stack direction="horizontal">
-      <div className="badge-abot-btn">
-        <Image
-          src="/images/Rectangle-kariot.png"
-          className="me-2"
-          height={15}
-          width={15}
-          alt="design-dot"
-          loading="lazy"
-        />
-        <p> WHAT WE DO </p>
-      </div>
-    </Stack>
-
-    <div className="row">
-      <div className="col-lg-6 col-md-6 col-12">
-        <h3 className="drive-heading pt-4">Comprehensive Digital Solutions for Businesses</h3>
-      </div>
-      <div className="col-lg-6 col-md-6 col-12">
-        <p className="abds-para pt-4">
-        We specialize in end-to-end digital transformation by offering cutting-edge technology solutions that empower businesses to thrive in the modern digital landscape.
-        </p>
-      </div>
-    </div>
-
-    <div className="row">
-      {/* Mobile App Development */}
-      <div className="col-lg-4 col-md-6 pt-3">
-        <Card className="qs-customize-card">
-          <Card.Body style={{ paddingRight: "0px", paddingLeft: "0px" }}>
-            <Image
-              src="/images/app-development.png"
-              width={80}
-              height={80}
-              className="do-icon pb-3"
-              alt="Mobile App Development icon"
-            />
-            <h3 className="qs-card-heading">Mobile App Development</h3>
-            <p className="qsd-para">
-            We develop scalable and secure Android & iOS apps with intuitive UI/UX, native performance, and cloud integration to accelerate your digital growth.
-            </p>
-            <Link href="/mobile-app-development-chennai" className="explore-link" aria-label="Explore Trimsel mobile app development services">
-              <span>🔗 <strong>Explore Mobile App Development</strong></span>
-              <Image src="/images/Group2495.png" width={56} height={56} className="do-btn-icon" alt="Arrow icon" />
-            </Link>
-          </Card.Body>
-        </Card>
-      </div>
-
-      {/* Website Development */}
-      <div className="col-lg-4 col-md-6 pt-3">
-        <Card className="qs-customize-card">
-          <Card.Body style={{ paddingRight: "0px", paddingLeft: "0px" }}>
-            <Image
-              src="/images/backend.png"
-              width={80}
-              height={80}
-              className="do-icon pb-3"
-              alt="Website Development icon"
-            />
-            <h3 className="qs-card-heading">Website Development</h3>
-            <p className="qsd-para">
-            From business websites to enterprise-grade platforms, we build responsive and SEO-friendly websites that engage users and boost conversions.
-            </p>
-            <Link href="/web-development-company-chennai" className="explore-link" aria-label="Explore Trimsel web development services">
-              <span>🔗 <strong>Explore Web Development</strong></span>
-              <Image src="/images/Group2495.png" width={56} height={56} className="do-btn-icon" alt="Arrow icon" />
-            </Link>
-          </Card.Body>
-        </Card>
-      </div>
-
-      {/* Cloud Services */}
-      <div className="col-lg-4 col-md-6 pt-3">
-        <Card className="qs-customize-card">
-          <Card.Body style={{ paddingRight: "0px", paddingLeft: "0px" }}>
-            <Image
-              src="/images/cloud-computing.png"
-              width={80}
-              height={80}
-              className="do-icon pb-3"
-              alt="Cloud Services icon"
-            />
-            <h3 className="qs-card-heading">Cloud Consulting & Implementation</h3>
-            <p className="qsd-para">
-            Migrate, modernize, and manage infrastructure across AWS, Azure, and GCP with our expert cloud consulting services.
-            </p>
-            <Link href="/cloud-consulting-services" className="explore-link" aria-label="Explore Trimsel cloud consulting services">
-              <span>🔗 <strong>Explore Cloud Services</strong></span>
-              <Image src="/images/Group2495.png" width={56} height={56} className="do-btn-icon" alt="Arrow icon" />
-            </Link>
-          </Card.Body>
-        </Card>
-      </div>
-
-      {/* DevOps Services */}
-      <div className="col-lg-4 col-md-6 pt-3">
-        <Card className="qs-customize-card">
-          <Card.Body style={{ paddingRight: "0px", paddingLeft: "0px" }}>
-            <Image
-              src="/images/devops.png"
-              width={80}
-              height={80}
-              className="do-icon pb-3"
-              alt="DevOps icon"
-            />
-            <h3 className="qs-card-heading">DevOps Consulting & Automation</h3>
-            <p className="qsd-para">
-            Accelerate delivery pipelines with CI/CD, Infrastructure as Code (IaC), and Kubernetes automation powered by expert DevOps consulting.
-            </p>
-            <Link href="/devops-consulting-services" className="explore-link" aria-label="Explore Trimsel DevOps consulting services">
-              <span>🔗 <strong>Explore DevOps Consulting</strong></span>
-              <Image src="/images/Group2495.png" width={56} height={56} className="do-btn-icon" alt="Arrow icon" />
-            </Link>
-          </Card.Body>
-        </Card>
-      </div>
-
-      {/* Digital Marketing */}
-      <div className="col-lg-4 col-md-6 pt-3">
-        <Card className="qs-customize-card">
-          <Card.Body style={{ paddingRight: "0px", paddingLeft: "0px" }}>
-            <Image
-              src="/images/digital-marketing.png"
-              width={80}
-              height={80}
-              className="do-icon pb-3"
-              alt="Digital Marketing icon"
-            />
-            <h3 className="qs-card-heading">Digital Marketing & SEO</h3>
-            <p className="qsd-para">
-            We help brands grow online through strategic SEO, paid ads, social media, and content marketing that drive targeted traffic and conversions.
-            </p>
-            <Link href="/digital-marketing-company-chennai" className="explore-link" aria-label="Explore Trimsel digital marketing services">
-              <span>🔗 <strong>Explore Digital Marketing</strong></span>
-              <Image src="/images/Group2495.png" width={56} height={56} className="do-btn-icon" alt="Arrow icon" />
-            </Link>
-          </Card.Body>
-        </Card>
-      </div>
-
-      {/* AI/ML Development */}
-      <div className="col-lg-4 col-md-6 pt-3">
-        <Card className="qs-customize-card">
-          <Card.Body style={{ paddingRight: "0px", paddingLeft: "0px" }}>
-            <Image
-              src="/images/testing.png"
-              width={80}
-              height={80}
-              className="do-icon pb-3"
-              alt="Software Testing icon"
-            />
-            <h3 className="qs-card-heading">AI/ML Development services</h3>
-            <p className="qsd-para">
-            Build intelligent, future-ready solutions with our end-to-end AI development services — from use-case discovery and model development to multi-agent orchestration and production deployment. We help you leverage generative AI, machine learning, and AI agents to automate processes, enhance customer experiences, and drive business growth.
-            </p>
-            <Link href="/ai-development-company" className="explore-link" aria-label="Explore Trimsel AI development services">
-              <span>🔗 <strong>Explore AI Development</strong></span>
-              <Image src="/images/Group2495.png" width={56} height={56} className="do-btn-icon" alt="Arrow icon" />
-            </Link>
-          </Card.Body>
-        </Card>
-      </div>
-    </div>
-  </div>
-</section>
-        
-
-<section className="about-trust py-5">
-  <div className="container">
-    <div className="row">
-      <div className="col-lg-4 col-md-6 mb-4">
-        <h3>Industries We Support</h3>
-        <p>
-          SaaS scale-ups, BFSI innovators, healthcare leaders, and consumer brands trust Trimsel to modernize their products with AI, secure engineering, and compliant cloud foundations.
-        </p>
-      </div>
-      <div className="col-lg-4 col-md-6 mb-4">
-        <h3>How Fast We Engage</h3>
-        <p>
-          Discovery workshops kick off within 5 business days once scope is aligned. We assemble a pod of product strategist, solution architect, and engineers inside three weeks to keep momentum high.
-        </p>
-      </div>
-      <div className="col-lg-4 col-md-6 mb-4">
-        <h3>Partnering With Your Team</h3>
-        <p>
-          Our squads plug into your in-house team with shared documentation, DevSecOps guardrails, and executive business reviews so stakeholders stay aligned throughout the transformation journey.
-        </p>
-      </div>
-    </div>
-    <div className="row pt-4">
-      <div className="col-lg-3 col-md-6">
-        <p className="stat-label">Projects Delivered</p>
-        <p className="stat-value">200+</p>
-      </div>
-      <div className="col-lg-3 col-md-6">
-        <p className="stat-label">Client Retention</p>
-        <p className="stat-value">92%</p>
-      </div>
-      <div className="col-lg-3 col-md-6">
-        <p className="stat-label">Avg. Time to Launch</p>
-        <p className="stat-value">&lt; 12 weeks</p>
-      </div>
-      <div className="col-lg-3 col-md-6">
-        <p className="stat-label">Global Delivery Hubs</p>
-        <p className="stat-value">3</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section className="abot-sec-cta">
-  <div className="container">
-    <Card className="abot-cta my-5">
-      <Card.Body>
-        <div className="row">
-          {/* Left Side: Content */}
-          <div className="col-lg-7 col-md-7 col-12">
-            <Stack direction="horizontal">
-              <div className="badge-abot-btn">
-                <Image
-                  src="/images/Rectangle-kariot.png"
-                  className="me-2"
-                  height={15}
-                  width={15}
-                  alt="design-dot"
-                  loading="lazy"
-                />
-                <p> LET&rsquo;S CONNECT </p>
+            <div className="absolute inset-0 bg-slate-950/70" />
+            <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-300">
+                <Link href="/" className="hover:text-brand">
+                  Home
+                </Link>
+                <span className="mx-2 text-slate-500">&middot;</span>
+                About Us
+              </p>
+              <div className="mt-6 grid gap-10 lg:grid-cols-2">
+                <div className="space-y-4">
+                  <h1 className="text-4xl font-semibold leading-tight">
+                    About Trimsel — <span className="rounded-full border border-white/40 px-3 py-1 text-sm uppercase tracking-[0.3em]">AI-first</span> Digital Transformation Partner
+                  </h1>
+                  <h2 className="text-lg font-semibold text-orange-300">
+                    <span className="mr-2 rounded-full border border-orange-300 px-3 py-1 text-xs uppercase tracking-[0.3em]">Mission</span>
+                    Critical Digital Solutions for Complete Business Transformation
+                  </h2>
+                </div>
+                <div className="space-y-4 text-lg text-white/90">
+                  <p>
+                    <strong>Empower your business transformation</strong> by replacing legacy systems with modern digital solutions that deliver
+                    <strong> growth, operational optimisation</strong>, and measurable <strong>ROI</strong>. We architect technology that accelerates innovation across {" "}
+                    <Link href="/cloud-consulting-services" className="text-orange-300 underline-offset-4 hover:underline">
+                      cloud
+                    </Link>
+                    , {" "}
+                    <Link href="/mobile-app-development-chennai" className="text-orange-300 underline-offset-4 hover:underline">
+                      mobile
+                    </Link>
+                    , and {" "}
+                    <Link href="/devops-consulting-services" className="text-orange-300 underline-offset-4 hover:underline">
+                      DevOps
+                    </Link>
+                    .
+                  </p>
+                  <Link href="/contact-us" className="inline-flex items-center gap-2 rounded-full bg-white/90 px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-slate-900 shadow-lg shadow-black/30 transition hover:bg-white" aria-label="Talk with Trimsel consultants">
+                    Book a strategy call
+                    <ArrowRightIcon width={20} height={20} />
+                  </Link>
+                  <p className="text-sm text-slate-200">200+ digital programs shipped with 92% client retention and replies within 24 hours.</p>
+                </div>
               </div>
-            </Stack>
-
-            <h2 className="abtcta-heading py-3">
-              Let’s Transform Your Business with Digital Innovation!
-            </h2>
-            <p className="abtcta-para">
-              Whether it&rsquo;s <strong>mobile app development</strong>, <strong>cloud consulting</strong>, <strong>DevOps automation</strong>, or <strong>digital marketing</strong>, our experts will guide your digital journey. Book a <strong>consultation</strong> today and discover how we can elevate your business. Expect a response within 24 hours and optional NDA before sharing details.
-            </p>
-
-            <div className="cta-buttons d-flex flex-wrap gap-3 mt-3">
-              <Link href="/contact-us" passHref>
-                <button className="btn btn-primary get-btn me-3">
-                  Get Your Free Consultation Today{" "}
-                  <Image
-                    src="/images/material-symbols_arrow-right-alt.png"
-                    height={30}
-                    width={30}
-                    alt="Arrow Icon"
-                    loading="lazy"
-                  />
-                </button>
-              </Link>
-              <Link href="/contact-us#contact-insights" passHref>
-                <button className="btn btn-outline-primary get-btn">
-                  Preview Our Insights
-                </button>
-              </Link>
+              <ul className="mt-8 space-y-2 text-sm text-white/80">
+                {heroStats.map((item) => (
+                  <li key={item} className="flex items-start gap-2">
+                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-orange-300" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
+        </section>
 
-          {/* Right Side: Image */}
-          <div className="col-lg-5 col-md-5">
-            <Image
-              src="/images/abt-cta.webp"
-              width={600}
-              height={598}
-              alt="Trimsel Contact CTA Illustration"
-              className="abotcta-image"
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </Card.Body>
-    </Card>
-  </div>
-</section>
+        <section>
+          <Image src="/images/office-people.webp" width={1349} height={617} alt="People working in Trimsel office" className="h-auto w-full object-cover" priority={false} />
+        </section>
 
-
-        {/* <section id="recent-web-work">
-          <div className="container new-ds">
-            <div className="row">
-              <div className="col-lg-3 col-md-3">
-                <h2 className="case-heading">CASE STUDIES</h2>
+        <section className="bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+              <Image src="/images/Rectangle-kariot.png" width={18} height={18} alt="" loading="lazy" />
+              Who we are
+            </div>
+            <div className="mt-6 grid gap-10 lg:grid-cols-[1.2fr,0.8fr]">
+              <div className="space-y-4 text-lg leading-relaxed text-slate-600">
+                <h2 className="text-3xl font-semibold text-slate-900">Empowering Businesses with Digital Transformation & Innovation</h2>
+                <p>
+                  In today&apos;s rapidly evolving digital era, businesses that once relied on traditional operations now embrace technology to stay competitive. As customer expectations shift, organisations must adopt scalable, agile, and user-focused digital solutions.
+                </p>
+                <p>
+                  Through our expertise, we enable enterprises to drive transformation via cutting-edge mobile & web development, cloud consulting, and DevOps automation. From automated workflows to scalable business models, we deliver solutions that unlock long-term value.
+                </p>
+                <p>
+                  Since 2020 our team of developers, cloud architects, DevOps engineers, and designers has shipped high-impact software to startups, SMEs, and Fortune 500 clients worldwide.
+                </p>
+                <p className="font-semibold text-slate-900">We don&apos;t just build apps — we engineer ecosystems that deliver:</p>
+                <ul className="grid gap-3 sm:grid-cols-2">
+                  {whoHighlights.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-slate-600">
+                      <CheckIcon width={18} height={18} className="mt-1 text-brand" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p>We believe in future-focused innovation — technology that adapts to today&apos;s needs and tomorrow&apos;s ambitions.</p>
               </div>
-              <div className="col-lg-6 col-md-6">
-                <p className="casecarousel-para">
-                  In 6 years we have completed more than 200 individual projects
-                  to develop modern websites, web and mobile applications for
-                  clients from all over the world.
+              <div className="space-y-4 rounded-3xl border border-slate-100 bg-slate-50 p-6 shadow-inner">
+                <h3 className="text-lg font-semibold text-slate-900">Our promise</h3>
+                <p className="text-sm text-slate-600">
+                  We deliver measurable outcomes through cross-functional pods that stay embedded with your stakeholders. Strategy, design, engineering, and growth stay aligned from discovery to adoption.
                 </p>
               </div>
-              <div className="col-lg-3 col-md-3">
-                <button className="about-btn">
-                  View All Cases{" "}
-                  <Image src={"/images/material-symbols_arrow-right-alt.png"} height={30} width={30} alt="Arrow Icon" loading="lazy"/>
-                </button>
-              </div>
             </div>
-            <CarouselComponent />
-          </div>
-        </section> */}
-
-        <section id="client" className="client-section">
-          <div className="container mt-5">
-            <h2 className="client-title">
-              Trusted By Customers, Partners and The Industry
-            </h2>
-            <p className="clients-text">
-              At Trimsel, there is continuous learning that happens as we work
-              on various projects. We also love to update and upgrade with the
-              latest innovations in the field of technology and apps.
-            </p>
-            <ClientLogo />
           </div>
         </section>
-        <section id="about-insights" className="home-insights py-5">
-          <div className="container">
-            <div className="d-flex align-items-center">
-              <div className="badge-abot-btn">
-                <Image src="/images/Rectangle-kariot.png" className="me-2" width={15} height={15} alt="" aria-hidden="true" loading="lazy" />
-                <p> LATEST INSIGHTS </p>
+
+        <section className="bg-slate-50">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="grid gap-10 lg:grid-cols-2">
+              <div className="space-y-4">
+                <h2 className="text-3xl font-semibold text-slate-900">Reinventing business environments with the power of technology</h2>
+                <p className="text-lg text-slate-600">
+                  In today&apos;s hyper-competitive world, staying ahead requires transformation. We empower businesses through innovation, cloud-first strategies, and user-centric design.
+                </p>
+                <p className="text-sm text-slate-600">
+                  <strong>Tailored Digital Transformation:</strong> strategies aligned with your industry and roadmap.<br />
+                  <strong>Scalable & Future-Ready:</strong> high-performing, secure architectures that evolve with you.<br />
+                  <strong>Next-Gen Integration:</strong> AI automation, cloud migration, and analytics for a strategic edge.
+                </p>
+                <p className="text-lg text-slate-600">At Trimsel we don&apos;t just build technology—we create impact-driven experiences.</p>
+              </div>
+              <div className="grid gap-6">
+                {valueCards.map((card) => (
+                  <div key={card.title} className="rounded-3xl border border-slate-100 bg-white p-6 shadow-lg shadow-slate-900/5">
+                    <Image src={card.icon} width={80} height={80} alt={card.title} loading="lazy" />
+                    <h3 className="mt-4 text-xl font-semibold text-slate-900">{card.title}</h3>
+                    <p className="mt-2 text-sm text-slate-600">{card.body}</p>
+                    <ul className="mt-3 space-y-2 text-sm text-slate-600">
+                      {card.bullets.map((bullet) => (
+                        <li key={bullet} className="flex items-start gap-2">
+                          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-brand" />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </div>
             </div>
-            <div className="row pt-4 g-4">
-              {[{title: "5 Easy Ways a Mobile App Can Grow Your Business", excerpt: "See how we combine strategy, engineering, and DevOps to turn ideas into revenue.", href: "/blog/how-mobile-apps-grow-business", tag: "Growth Playbook"}, {title: "Explore Trimsel’s Digital Transformation Library", excerpt: "Browse cloud, AI, and product engineering articles that guide our client engagements.", href: "/blog", tag: "Thought Leadership"}].map((article) => (
-                <div className="col-lg-6" key={article.title}>
-                  <Card className="insight-card h-100">
-                    <Card.Body>
-                      <p className="insight-tag">{article.tag}</p>
-                      <h3 className="insight-title">
-                        <Link href={article.href}>{article.title}</Link>
-                      </h3>
-                      <p className="insight-excerpt">{article.excerpt}</p>
-                      <Link href={article.href} className="about-btn" aria-label={`Read ${article.title}`}>
-                        Read More
-                        <Image src="/images/material-symbols_arrow-right-alt.png" width={18} height={18} alt="" loading="lazy" />
-                      </Link>
-                    </Card.Body>
-                  </Card>
-                </div>
+          </div>
+        </section>
+
+        <section className="bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="grid gap-6 lg:grid-cols-[2fr,3fr]">
+              <h2 className="text-3xl font-semibold text-slate-900">What drives Trimsel toward digital excellence</h2>
+              <p className="text-lg text-slate-600">
+                We&apos;re driven by relentless innovation. From {" "}
+                <Link href="/cloud-consulting-services" className="text-brand underline-offset-4 hover:underline">
+                  cloud-native architecture
+                </Link>{" "}
+                to {" "}
+                <Link href="/devops-consulting-services" className="text-brand underline-offset-4 hover:underline">
+                  agile DevOps automation
+                </Link>
+                , every engagement focuses on scalable, secure, and engaging digital experiences.
+              </p>
+            </div>
+            <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {driveCards.map((card) => (
+                <article key={card.title} className="rounded-3xl border border-slate-100 bg-slate-50 p-6 shadow-inner">
+                  <Image src={card.icon} width={120} height={120} alt={card.title} className="mb-4" loading="lazy" />
+                  <h3 className="text-xl font-semibold text-slate-900">{card.title}</h3>
+                  <p className="mt-2 text-sm text-slate-600">{card.body}</p>
+                </article>
               ))}
             </div>
           </div>
         </section>
+
+        <section className="bg-slate-50">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+              <Image src="/images/Rectangle-kariot.png" width={18} height={18} alt="" loading="lazy" />
+              What we do
+            </div>
+            <div className="mt-6 grid gap-8 lg:grid-cols-[2fr,3fr]">
+              <h3 className="text-3xl font-semibold text-slate-900">Comprehensive digital solutions for modern businesses</h3>
+              <p className="text-lg text-slate-600">
+                We specialise in end-to-end transformation with cutting-edge technology solutions that help you thrive in today&apos;s landscape.
+              </p>
+            </div>
+            <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {serviceCards.map((card) => (
+                <article key={card.title} className="rounded-3xl border border-slate-100 bg-white p-6 shadow-lg shadow-slate-900/5 transition hover:-translate-y-1">
+                  <Image src={card.icon} width={80} height={80} alt={card.title} loading="lazy" />
+                  <h3 className="mt-4 text-xl font-semibold text-slate-900">{card.title}</h3>
+                  <p className="mt-2 text-sm text-slate-600">{card.body}</p>
+                  <Link href={card.href} className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand">
+                    🔗 {card.linkLabel}
+                    <Image src="/images/Group2495.png" width={40} height={40} alt="Arrow icon" loading="lazy" />
+                  </Link>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="rounded-[32px] border border-slate-100 bg-gradient-to-br from-white to-slate-50 p-8 shadow-lg shadow-slate-900/5">
+              <div className="grid gap-8 lg:grid-cols-[3fr,2fr]">
+                <div>
+                  <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+                    <Image src="/images/Rectangle-kariot.png" width={18} height={18} alt="" loading="lazy" />
+                    Ready to collaborate
+                  </div>
+                  <h3 className="mt-6 text-3xl font-semibold text-slate-900">Let&apos;s build your next growth story</h3>
+                  <p className="mt-4 text-lg text-slate-600">
+                    Whether you need support across product engineering, cloud, DevOps, or digital marketing, our experts guide your journey. Book a consultation and expect a response within 24 hours—NDA optional.
+                  </p>
+                  <ul className="mt-6 space-y-3 text-sm text-slate-600">
+                    {ctaHighlights.map((item) => (
+                      <li key={item} className="flex items-start gap-3">
+                        <CheckIcon width={18} height={18} className="mt-1 text-brand" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    <Link href="/contact-us" className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white shadow-lg shadow-brand/40 transition hover:bg-brand-dark">
+                      Get your free consultation
+                      <Image src="/images/material-symbols_arrow-right-alt.png" width={24} height={24} alt="" loading="lazy" />
+                    </Link>
+                    <Link href="/contact-us#contact-insights" className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-slate-900 transition hover:border-brand hover:text-brand">
+                      Preview our insights
+                    </Link>
+                  </div>
+                </div>
+                <div className="flex justify-center">
+                  <Image src="/images/abt-cta.webp" width={520} height={520} alt="Trimsel contact illustration" className="w-full max-w-sm" loading="lazy" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-slate-50">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <h2 className="text-center text-3xl font-semibold text-slate-900">Trusted by customers, partners, and the industry</h2>
+            <p className="mt-4 text-center text-lg text-slate-600">
+              Continuous learning fuels every Trimsel engagement. We constantly upgrade our playbooks with the latest innovations.
+            </p>
+            <div className="mt-10 rounded-3xl border border-white/60 bg-white p-6 shadow-lg shadow-slate-900/5">
+              <ClientLogo />
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+              <Image src="/images/Rectangle-kariot.png" width={15} height={15} alt="" loading="lazy" />
+              Latest insights
+            </div>
+            <div className="mt-8 grid gap-6 lg:grid-cols-2">
+              {insights.map((article) => (
+                <article key={article.title} className="rounded-3xl border border-slate-100 bg-slate-50 p-6 shadow-inner">
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-brand">{article.tag}</p>
+                  <h3 className="mt-3 text-2xl font-semibold text-slate-900">
+                    <Link href={article.href}>{article.title}</Link>
+                  </h3>
+                  <p className="mt-3 text-sm text-slate-600">{article.excerpt}</p>
+                  <Link href={article.href} className="mt-5 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.3em] text-brand">
+                    Read More
+                    <Image src="/images/material-symbols_arrow-right-alt.png" width={18} height={18} alt="" loading="lazy" />
+                  </Link>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <ContactForm eventLabel="about_page" />
-        {/* <ContactModal title="Wanna Develop A Mobile Application? Contact Us" /> */}
         <Footer />
       </main>
     </>
