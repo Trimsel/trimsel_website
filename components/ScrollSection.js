@@ -1,9 +1,67 @@
 import React, { useRef, useEffect, useState, useCallback } from "react";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import Stack from "react-bootstrap/Stack";
 import Link from "next/link";
 import Image from "next/image";
+
+const caseSlides = [
+  {
+    id: "ezyhelpers",
+    heading: "Our Recent Works",
+    headingClass: "bg-gradient-to-br from-sky-500 to-blue-600 text-white",
+    image: { src: "/images/12346.webp", alt: "Ezyhelpers app preview" },
+    icon: "/images/01.webp",
+    tags: ["iOS & Android", "Web"],
+    subtitle: "Home Services & House Cleaning",
+    description:
+      "On-demand marketplace connecting users with vetted professionals. Built with a scalable backend and seamless booking flows.",
+    cta: { label: "View Case Study", href: "/portfolio/ezyhelpers-case-study" },
+    panelClass: "bg-gradient-to-br from-slate-950 to-slate-900 text-white",
+    tagClass: "bg-white/20 text-white",
+  },
+  {
+    id: "xaber",
+    heading: "Our Recent Works",
+    headingClass: "bg-gradient-to-br from-amber-400 to-orange-500 text-white",
+    image: { src: "/images/top-mobile-a.webp", alt: "Xaber app preview" },
+    icon: "/images/02..png",
+    tags: ["iOS & Android", "Web"],
+    subtitle: "Taxi business powered by our Uber-style platform",
+    description:
+      "Multi-tenant ride platform with real-time tracking, in-app payments, and operational analytics for dispatch, riders, and drivers.",
+    cta: { label: "View Case Study", href: "/portfolio/xaber-case-study" },
+    panelClass: "bg-gradient-to-br from-orange-500 to-rose-500 text-white",
+    tagClass: "bg-white/15 text-white",
+  },
+  {
+    id: "kariot",
+    heading: "Our Recent Works",
+    headingClass: "bg-gradient-to-br from-emerald-500 to-teal-500 text-white",
+    image: { src: "/images/kariotlap.webp", alt: "KarIOT dashboard preview" },
+    icon: "/images/03..png",
+    tags: ["iOS & Android", "Web"],
+    subtitle: "IoT-powered smart water management",
+    description:
+      "Real-time monitoring of water quality and quantity for residential, commercial, and industrial use cases across campuses.",
+    cta: { label: "View Case Study", href: "/portfolio/kariot-case-study" },
+    panelClass: "bg-gradient-to-br from-slate-900 to-slate-800 text-white",
+    tagClass: "bg-white/15 text-white",
+  },
+  {
+    id: "mocial",
+    heading: "Our Recent Works",
+    headingClass: "bg-gradient-to-br from-purple-500 to-fuchsia-500 text-white",
+    image: { src: "/images/mocial-phone.webp", alt: "Mocial social platform preview" },
+    icon: "/images/04..png",
+    tags: ["iOS & Android", "Web"],
+    subtitle: "All-in-one social platform",
+    description:
+      "A community platform to grow brand reach, increase engagement, and maintain a healthier work-life balance for creators.",
+    cta: { label: "View Case Study", href: "/portfolio/mocial-case-study" },
+    panelClass: "bg-gradient-to-br from-slate-950 to-slate-900 text-white",
+    tagClass: "bg-white/15 text-white",
+  },
+];
 
 export default function ScrollSection() {
   const wrapperRef = useRef(null);
@@ -116,209 +174,66 @@ export default function ScrollSection() {
         ))}
       </div> */}
 
-      <div className="scroll-track-viewport" /* isolates overflow for mobile */>
+      <div className="scroll-track-viewport">
         <div ref={trackRef} className="scroll-section-inner">
-          {/* Slide 1 */}
-          <section
-            className="scroll-section"
-            id="case-slide-1"
-            data-slide="1"
-            ref={(el) => (sectionRefs.current[0] = el)}
-            aria-roledescription="slide"
-            aria-label="Ezyhelpers case study, slide 1 of 4"
-          >
-            <div className="recent-section">
-              <div className="row rcnt-row">
-                <div className="col-lg-1 col-md-2 heading-content py-3">
-                  <h3 className="h6 m-0">OUR RECENT WORKS</h3>
-                </div>
-                <div className="col-lg-6 col-md-5 image-content">
-                  <Image
-                    src="/images/12346.webp"
-                    alt="Ezyhelpers app preview"
-                    className="overlap-image"
-                    width={820}
-                    height={520}
-                    loading="lazy"
-                    sizes="(max-width: 768px) 100vw, 52vw"
-                  />
-                </div>
-                <div className="col-lg-5 col-md-5 contents py-3">
-                  <div className="container">
-                    <span className="case-image">
-                      <Image src="/images/01.webp" alt="Ezyhelpers" width={64} height={64} loading="lazy" />
+          {caseSlides.map((slide, index) => (
+            <section
+              key={slide.id}
+              className="scroll-section"
+              id={`case-slide-${index + 1}`}
+              data-slide={index + 1}
+              ref={(el) => (sectionRefs.current[index] = el)}
+              aria-roledescription="slide"
+              aria-label={`${slide.subtitle} case study, slide ${index + 1} of ${caseSlides.length}`}
+            >
+              <div className="recent-section flex h-full items-center px-4 py-10 sm:px-6 lg:px-12">
+                <div className="grid h-full w-full gap-6 lg:grid-cols-[0.35fr,1.2fr,1fr] lg:items-center">
+                  <div className={`rounded-3xl px-4 py-6 text-xs font-semibold uppercase tracking-[0.4em] ${slide.headingClass}`}>
+                    {slide.heading}
+                  </div>
+                  <div className="flex items-center justify-center">
+                    <Image
+                      src={slide.image.src}
+                      alt={slide.image.alt}
+                      width={820}
+                      height={520}
+                      className="w-full max-w-3xl rounded-[32px] border border-white/10 object-cover shadow-2xl"
+                      loading="lazy"
+                      sizes="(max-width: 768px) 100vw, 52vw"
+                    />
+                  </div>
+                  <div className={`flex flex-col gap-4 rounded-[32px] border border-white/20 p-6 shadow-2xl ${slide.panelClass}`}>
+                    <span className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10">
+                      <Image src={slide.icon} alt={slide.label} width={48} height={48} loading="lazy" />
                     </span>
-                    <h2 className="case-title mb-3">Ezyhelpers</h2>
-                    <Stack direction="horizontal" gap={3}>
-                      <div className="badges">iOS & Android</div>
-                      <div className="badges">Web</div>
-                    </Stack>
-                    <h4 className="title-texts py-3">Home Services & House Cleaning</h4>
-                    <p className="texts-para">
-                      On-demand marketplace connecting users with vetted professionals. Built with a scalable backend and seamless booking flows.
-                    </p>
-                    <Link href="/portfolio/ezyhelpers-case-study" passHref>
-                      <button className="btn case-btn mb-3" aria-label="View Ezyhelpers Case Study">
-                        View Case Study <Image src="/images/material-symbols_arrow-right-alt.png" alt="" width={24} height={24} />
-                      </button>
+                    <h2 className="text-3xl font-semibold">{slide.label}</h2>
+                    <div className="flex flex-wrap gap-3">
+                      {slide.tags.map((tag) => (
+                        <span key={`${slide.id}-${tag}`} className={`rounded-full px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] ${slide.tagClass}`}>
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <h4 className="text-xl font-semibold">{slide.subtitle}</h4>
+                    <p className="text-sm leading-relaxed opacity-90">{slide.description}</p>
+                    <Link
+                      href={slide.cta.href}
+                      className="mt-4 inline-flex items-center gap-2 rounded-full border border-white/30 px-5 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white transition hover:border-white hover:bg-white/10"
+                    >
+                      {slide.cta.label}
+                      <Image src="/images/material-symbols_arrow-right-alt.png" alt="" width={20} height={20} />
                     </Link>
                   </div>
                 </div>
               </div>
-            </div>
-          </section>
-
-          {/* Slide 2 */}
-          <section
-            className="scroll-section"
-            id="case-slide-2"
-            data-slide="2"
-            ref={(el) => (sectionRefs.current[1] = el)}
-            aria-roledescription="slide"
-            aria-label="Xaber case study, slide 2 of 4"
-          >
-            <div className="recent-section">
-              <div className="row rcnt-row">
-                <div className="col-lg-1 col-md-2 heading-content-1 py-3">
-                  <h3 className="h6 m-0">OUR RECENT WORKS</h3>
-                </div>
-                <div className="col-lg-6 col-md-5 images-content">
-                  <Image
-                    src="/images/top-mobile-a.webp"
-                    className="overlaps-image"
-                    alt="Xaber app preview"
-                    width={820}
-                    height={520}
-                    loading="lazy"
-                    sizes="(max-width: 768px) 100vw, 52vw"
-                  />
-                </div>
-                <div className="col-lg-5 col-md-5 contents1 py-3">
-                  <div className="container pt-4">
-                    <span className="cases-image">
-                      <Image src="/images/02..png" alt="Xaber" width={64} height={64} loading="lazy" />
-                    </span>
-                    <h2 className="case-title mb-3">Xaber</h2>
-                    <Stack direction="horizontal" gap={3}>
-                      <div className="badges1">iOS & Android</div>
-                      <div className="badges1">Web</div>
-                    </Stack>
-                    <h4 className="title-texts py-2">Taxi business powered by our Uber-style platform</h4>
-                    <p className="texts-para">
-                      Multi-tenant ride platform with real-time tracking, in-app payments, and operational analytics.
-                    </p>
-                    <Link href="/portfolio/xaber-case-study" passHref>
-                      <button className="btn cases-btn mb-3 mt-3">
-                        View Case Study <Image src="/images/material-symbols_arrow-right-alt.png" alt="" width={24} height={24} />
-                      </button>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Slide 3 */}
-          <section
-            className="scroll-section"
-            id="case-slide-3"
-            data-slide="3"
-            ref={(el) => (sectionRefs.current[2] = el)}
-            aria-roledescription="slide"
-            aria-label="KarIOT case study, slide 3 of 4"
-          >
-            <div className="recent-section">
-              <div className="row rcnt-row">
-                <div className="col-lg-1 col-md-2 heading-content-3 py-3">
-                  <h3 className="h6 m-0">OUR RECENT WORKS</h3>
-                </div>
-                <div className="col-lg-6 col-md-5 images-kariot-content">
-                  <Image
-                    src="/images/kariotlap.webp"
-                    className="overlaps-kariot-image"
-                    alt="KarIOT dashboard preview"
-                    width={820}
-                    height={520}
-                    loading="lazy"
-                    sizes="(max-width: 768px) 100vw, 52vw"
-                  />
-                </div>
-                <div className="col-lg-5 col-md-5 contents3 py-3">
-                  <span className="cases-image">
-                    <Image src="/images/03..png" alt="KarIOT" width={64} height={64} loading="lazy" />
-                  </span>
-                  <h2 className="case-title mb-3">KarIOT</h2>
-                  <Stack direction="horizontal" gap={3}>
-                    <div className="badges1">iOS & Android</div>
-                    <div className="badges1">Web</div>
-                  </Stack>
-                  <h4 className="title-texts py-2">IoT-powered smart water management</h4>
-                  <p className="texts-para">
-                    Real-time monitoring of water quality and quantity for residential, commercial, and industrial use cases.
-                  </p>
-                  <Link href="/portfolio/kariot-case-study" passHref>
-                    <button className="btn case-btn mb-3">
-                      View Case Study <Image src="/images/material-symbols_arrow-right-alt.png" alt="" width={24} height={24} />
-                    </button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Slide 4 */}
-          <section
-            className="scroll-section"
-            id="case-slide-4"
-            data-slide="4"
-            ref={(el) => (sectionRefs.current[3] = el)}
-            aria-roledescription="slide"
-            aria-label="Mocial case study, slide 4 of 4"
-          >
-            <div className="recent-section">
-              <div className="row rcnt-row">
-                <div className="col-lg-1 col-md-2 heading-content-4 py-3">
-                  <h3 className="h6 m-0">OUR RECENT WORKS</h3>
-                </div>
-                <div className="col-lg-6 col-md-5 images-mocial-content">
-                  <Image
-                    src="/images/mocial-phone.webp"
-                    className="overlaps-mocial-image"
-                    alt="Mocial social platform preview"
-                    width={820}
-                    height={520}
-                    loading="lazy"
-                    sizes="(max-width: 768px) 100vw, 52vw"
-                  />
-                </div>
-                <div className="col-lg-5 col-md-5 contents4 py-3">
-                  <span className="cases-image">
-                    <Image src="/images/04..png" alt="Mocial" width={64} height={64} loading="lazy" />
-                  </span>
-                  <h2 className="case-title mb-3">Mocial</h2>
-                  <Stack direction="horizontal" gap={3}>
-                    <div className="badges1">iOS & Android</div>
-                    <div className="badges1">Web</div>
-                  </Stack>
-                  <h4 className="title-texts py-2">All-in-one social platform</h4>
-                  <p className="texts-para">
-                    A community platform to grow brand reach, increase engagement, and maintain a healthier work-life balance.
-                  </p>
-                  <Link href="/portfolio/mocial-case-study" passHref>
-                    <button className="btn case-btn mb-3">
-                      View Case Study <Image src="/images/material-symbols_arrow-right-alt.png" alt="" width={24} height={24} />
-                    </button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </section>
+            </section>
+          ))}
         </div>
       </div>
 
       {/* Visually hidden live region to announce slide changes for screen readers */}
       <span className="visually-hidden" role="status" aria-live="polite">
-        Slide {active + 1} of 4
+        Slide {active + 1} of {caseSlides.length}
       </span>
     </section>
   );

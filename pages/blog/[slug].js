@@ -14,6 +14,8 @@ const components = { Button, SyntaxHighlighter };
 const HEADER_HEIGHT = 50; // adjust this if your header height is different
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.trimsel.com";
+const tagPillClasses =
+  "inline-flex items-center rounded-full border border-brand/20 bg-brand/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-brand";
 
 const mapTags = (tags) => {
   if (!Array.isArray(tags)) return [];
@@ -145,104 +147,63 @@ const PostPage = ({ serializedContent, slug }) => {
       <Header />
       {/* Spacer below header */}
       <div style={{ height: HEADER_HEIGHT }} />
+
       {/* Hero Image */}
-      <div
-  className="blog-post-hero-full"
-  style={{
-    width: "100vw",
-    maxWidth: "100vw",
-    position: "relative",
-    left: "50%",
-    right: "50%",
-    marginLeft: "-50vw",
-    marginRight: "-50vw",
-    background: "#f8f9fb",
-    padding: "24px 0",
-    marginBottom: "2rem",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  }}
->
-  {frontmatter.coverImage && (
-    <img
-      src={frontmatter.coverImage}
-      alt={frontmatter.title}
-      style={{
-        width: "100%",
-        height: "auto",
-        maxHeight: "480px",
-        objectFit: "contain",
-        display: "block",
-        borderRadius: "18px",
-        background: "#fff",
-      }}
-    />
-  )}
-</div>
-      {/* Blog Post Content */}
-      <main
-        className="container blog-post-main"
-        style={{ maxWidth: "800px", margin: "0 auto", paddingBottom: 40 }}
-      >
-        <div className="blog-post-meta" style={{ marginBottom: "1.5rem" }}>
-          <span style={{
-            color: "#007bff",
-            fontWeight: 500,
-            marginRight: "8px"
-          }}>
-            {frontmatter.author}
-          </span>
-          <span style={{ color: "#888", fontSize: "1rem", marginRight: "8px" }}>
-            | {publishedDate}
-          </span>
-          {tags.map((tag) => (
-            <span key={tag} style={{
-              display: "inline-block",
-              background: "#E6F0FA",
-              color: "#007bff",
-              borderRadius: "6px",
-              padding: "2px 10px",
-              marginRight: "8px",
-              fontSize: "0.9em",
-              fontWeight: 500
-            }}>{tag}</span>
-          ))}
+      <section className="relative left-1/2 right-1/2 w-screen -ml-[50vw] -mr-[50vw] bg-slate-50 py-8">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          {frontmatter.coverImage && (
+            <img
+              src={frontmatter.coverImage}
+              alt={frontmatter.title}
+              className="w-full max-h-[480px] rounded-3xl border border-white bg-white object-contain shadow-2xl"
+            />
+          )}
         </div>
-        <h1 className="blog-post-title" style={{
-          fontSize: "2.6rem",
-          fontWeight: 700,
-          lineHeight: "1.2",
-          marginBottom: "1.2rem"
-        }}>{frontmatter.title}</h1>
-        <div className="blog-post-content" style={{
-          fontSize: "1.2rem",
-          lineHeight: "1.7",
-          color: "#2c2c2c"
-        }}>
+      </section>
+
+      {/* Blog Post Content */}
+      <main className="mx-auto max-w-3xl px-4 pb-16 sm:px-6 lg:px-8">
+        <div className="border-b border-slate-100 pb-6">
+          <div className="flex flex-wrap items-center gap-3 text-sm text-slate-500">
+            {frontmatter.author && (
+              <span className="font-semibold uppercase tracking-[0.3em] text-brand">
+                {frontmatter.author}
+              </span>
+            )}
+            {publishedDate && (
+              <span className="text-slate-400">&middot; {publishedDate}</span>
+            )}
+            {tags.map((tag) => (
+              <span key={tag} className={tagPillClasses}>
+                {tag}
+              </span>
+            ))}
+          </div>
+          <h1 className="mt-4 text-4xl font-semibold leading-tight text-slate-900 md:text-5xl">
+            {frontmatter.title}
+          </h1>
+        </div>
+
+        <div className="blog-post-content max-w-none space-y-6 pt-8 text-lg leading-relaxed text-slate-700">
           <MDXRemote {...serializedContent} components={components} />
         </div>
+
         {faqEntries.length > 0 && (
-          <section style={{ marginTop: "3rem" }}>
-            <h2 style={{ fontSize: "2rem", fontWeight: 700, marginBottom: "1rem" }}>
+          <section className="mt-12 space-y-6">
+            <h2 className="text-3xl font-semibold text-slate-900">
               Frequently Asked Questions
             </h2>
-            <div style={{ display: "grid", gap: "1.5rem" }}>
+            <div className="space-y-4">
               {faqEntries.map((item, idx) => (
-                <div
+                <article
                   key={`faq-${idx}`}
-                  style={{
-                    border: "1px solid #e5e7eb",
-                    borderRadius: "12px",
-                    padding: "1.25rem",
-                    background: "#f9fafb",
-                  }}
+                  className="rounded-2xl border border-slate-100 bg-slate-50 p-6"
                 >
-                  <h3 style={{ fontSize: "1.25rem", fontWeight: 600, marginBottom: ".5rem" }}>
+                  <h3 className="text-xl font-semibold text-slate-900">
                     {item.question}
                   </h3>
-                  <p style={{ margin: 0, lineHeight: 1.6 }}>{item.answer}</p>
-                </div>
+                  <p className="mt-3 text-base text-slate-600">{item.answer}</p>
+                </article>
               ))}
             </div>
           </section>

@@ -1,19 +1,61 @@
 import Head from "next/head";
+import Link from "next/link";
 import Image from "next/image";
 import Header from "../../components/header";
-import Link from "next/link";
 import Footer from "../../components/footer";
-import Stack from "react-bootstrap/Stack";
-import Carousel from "react-bootstrap/Carousel";
-import Card from "react-bootstrap/Card";
+import { NextSeo } from "next-seo";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import ScrollTrigger from "react-scroll-trigger";
 import CountUp from "react-countup";
-import SlideComponent from "../../components/slideComponent";
-import { FaLongArrowAltRight } from "@react-icons/all-files/fa/FaLongArrowAltRight";
-import { NextSeo } from 'next-seo';
 import { postJson } from "../../lib/api";
+import ArrowRightIcon from "../../components/icons/ArrowRightIcon";
+import SlideComponent from "../../components/slideComponent";
+
+const heroStats = [
+  "30K+ downloads across iOS, Android, and desktop",
+  "10K+ monthly active riders & drivers",
+  "590+ daily ride requests processed securely",
+];
+
+const overviewStats = [
+  { label: "Client", value: "Xaber – Uber Clone" },
+  { label: "Industry", value: "Ride-Hailing, Local Business" },
+  { label: "Duration", value: "3 months" },
+  { label: "Platforms", value: "iOS, Android, Web, Desktop" },
+];
+
+const chips = ["iOS & Android", "Web", "Desktop"];
+
+const counters = [
+  { label: "Downloads", end: 30, suffix: "K+" },
+  { label: "Active Users", end: 10, suffix: "K+" },
+  { label: "Request A Ride", end: 590, suffix: "+" },
+];
+
+const techLogos = [
+  "/images/flutter.png",
+  "/images/react-native.png",
+  "/images/nodejs-logo.png",
+  "/images/aws-logo.png",
+  "/images/postgresql-logo.png",
+  "/images/devops-logo.png",
+];
+
+const relatedStudies = [
+  {
+    logo: "/images/Group3001.png",
+    title: "Ezyhelpers",
+    description: "Mobile/web platform for verified home service professionals.",
+    href: "/portfolio/ezyhelpers-case-study",
+  },
+  {
+    logo: "/images/kariot-case.png",
+    title: "KarIOT",
+    description: "AI-enabled smart water management for utilities and campuses.",
+    href: "/portfolio/kariot-case-study",
+  },
+];
 
 export default function Xaber() {
   const {
@@ -22,676 +64,334 @@ export default function Xaber() {
     formState: { errors },
     reset,
   } = useForm();
+  const [counterOn, setCounterOn] = useState(false);
 
   async function onSubmitForm(values) {
     try {
       await postJson("/api/newcontact", values);
-      console.log("Contact request sent");
+      reset();
     } catch (error) {
       console.error("Failed to submit form", error);
     }
   }
 
-  const [counterOn, setCounterOn] = useState(false);
-
-  const slides = [0, 1, 2];
-  const [index, setIndex] = useState(0);
-  const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex);
-  };
-
   return (
     <>
-    <NextSeo
-  title="Xaber Case Study – Ride-hailing App (Uber-like) | Trimsel"
-  description="How Trimsel built Xaber, a multi-platform ride-hailing solution with web, iOS, Android and desktop apps—covering booking, growth automation, and scale."
-  canonical="https://www.trimsel.com/portfolio/xaber-case-study"
-  openGraph={{
-    type: "article",
-    url: "https://www.trimsel.com/portfolio/xaber-case-study",
-    title: "Xaber Case Study – Ride-hailing App (Uber-like) | Trimsel",
-    description:
-      "Multi-platform Uber-like taxi booking solution built by Trimsel with growth-focused UX and scalable architecture.",
-    locale: "en_IN",
-    images: [
-      {
-        url: "https://www.trimsel.com/images/portfolio/xaber-og.jpg", // update if your OG image differs
-        width: 1200,
-        height: 630,
-        alt: "Trimsel Xaber ride-hailing app case study",
-      },
-    ],
-    site_name: "Trimsel",
-    article: {
-      section: "Case Study",
-      tags: [
-        "Case Study",
-        "Ride-hailing",
-        "Mobile App",
-        "Taxi Booking",
-        "Trimsel",
-      ],
-    },
-  }}
-  twitter={{
-    handle: "@TrimselSoftwares",
-    site: "@TrimselSoftwares",
-    cardType: "summary_large_image",
-    title: "Case Study: Xaber Ride-hailing Platform",
-    description:
-      "Discover how Trimsel delivered Xaber’s multi-platform ride-hailing solution spanning web, mobile, and desktop.",
-  }}
-  additionalMetaTags={[
-    { name: "robots", content: "index, follow" },
-    {
-      name: "twitter:title",
-      content: "Case Study: Xaber Ride-hailing Platform",
-    },
-    {
-      name: "twitter:description",
-      content:
-        "Discover how Trimsel delivered Xaber’s multi-platform ride-hailing solution spanning web, mobile, and desktop.",
-    },
-    {
-      name: "twitter:image:alt",
-      content: "Trimsel Xaber ride-hailing case study",
-    },
-  ]}
-/>
+      <NextSeo
+        title="Xaber Case Study – Ride-hailing App (Uber-like) | Trimsel"
+        description="How Trimsel built Xaber, a multi-platform ride-hailing solution with booking flows, growth automation, and a scale-ready architecture."
+        canonical="https://www.trimsel.com/portfolio/xaber-case-study"
+      />
       <Head>
         {[
-    // CaseStudy entity
-    {
-      "@context": "https://schema.org",
-      "@type": "CaseStudy",
-      "@id": "https://www.trimsel.com/portfolio/xaber-case-study#case",
-      "name": "Xaber Case Study – Ride-hailing App",
-      "headline": "Xaber Case Study – Ride-hailing App",
-      "description": "How Trimsel built Xaber, a multi-platform Uber-like taxi booking solution with web, iOS, Android and desktop apps—covering booking, growth automation, and scale.",
-      "inLanguage": "en",
-      "url": "https://www.trimsel.com/portfolio/xaber-case-study",
-      "isPartOf": { "@type": "WebSite", "@id": "https://www.trimsel.com/#website" },
-      "about": { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
-      "author": { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
-      "publisher": { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
-      "primaryImageOfPage": {
-        "@type": "ImageObject",
-        "url": "https://www.trimsel.com/images/portfolio/xaber-og.jpg",
-        "width": 1200,
-        "height": 630
-      },
-      "image": {
-        "@type": "ImageObject",
-        "url": "https://www.trimsel.com/images/portfolio/xaber-og.jpg",
-        "width": 1200,
-        "height": 630
-      }
-      // Optional if you display it on-page:
-      // "datePublished": "2024-10-05",
-      // "dateModified": "2025-08-21",
-      // "keywords": ["ride-hailing","Uber clone","mobile apps","web app","Trimsel"]
-    },
-    // Breadcrumbs
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "@id": "https://www.trimsel.com/portfolio/xaber-case-study#breadcrumbs",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.trimsel.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://www.trimsel.com/portfolio" },
-        { "@type": "ListItem", "position": 3, "name": "Xaber Case Study", "item": "https://www.trimsel.com/portfolio/xaber-case-study" }
-      ]
-    }
-  ].map((schema, index) => (
-          <script
-            key={`xaber-schema-${index}`}
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-          />
+          {
+            "@context": "https://schema.org",
+            "@type": "CaseStudy",
+            "@id": "https://www.trimsel.com/portfolio/xaber-case-study#case",
+            name: "Xaber Case Study – Ride-hailing App",
+            headline: "Xaber Case Study – Ride-hailing App",
+            description:
+              "How Trimsel built Xaber, a multi-platform Uber-like taxi booking solution with web, iOS, Android and desktop apps.",
+            inLanguage: "en",
+            url: "https://www.trimsel.com/portfolio/xaber-case-study",
+            isPartOf: { "@type": "WebSite", "@id": "https://www.trimsel.com/#website" },
+            about: { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
+            author: { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
+            publisher: { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
+            primaryImageOfPage: {
+              "@type": "ImageObject",
+              url: "https://www.trimsel.com/images/portfolio/xaber-og.jpg",
+              width: 1200,
+              height: 630,
+            },
+            image: {
+              "@type": "ImageObject",
+              url: "https://www.trimsel.com/images/portfolio/xaber-og.jpg",
+              width: 1200,
+              height: 630,
+            },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "@id": "https://www.trimsel.com/portfolio/xaber-case-study#breadcrumbs",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://www.trimsel.com/" },
+              { "@type": "ListItem", position: 2, name: "Portfolio", item: "https://www.trimsel.com/portfolio" },
+              { "@type": "ListItem", position: 3, name: "Xaber Case Study", item: "https://www.trimsel.com/portfolio/xaber-case-study" },
+            ],
+          },
+        ].map((schema, index) => (
+          <script key={`xaber-schema-${index}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
         ))}
       </Head>
-      <section id="xaber-hero">
-        <Header />
-        <div className="container xaber-container">
-          <div id="app">
-            <div className="row">
-              <div className="col-lg-6 col-md-6">
-                <div className="titles">
-                  <div className="titles-inner">
-                    <div className="cafes">
-                      <div className="cafes-inner mb-2">
-                        <ol className="bread d-flex align-items-center">
-                          <li className="case-breadcrumb">
-                            <Link href="/">Home</Link>
-                          </li>
-                          <li className="case-dot">&middot;</li>
-                          <li className="cases-breadcrumb">
-                            <Link href="/portfolio">Portfolio</Link>
-                          </li>
-                          <li className="case-dot">&middot;</li>
-                          <li className="active-bread">Xaber</li>
-                        </ol>
-                      </div>
-                    </div>
-                    <div className="cafes">
-                      <div className="cafes-inner mb-2">
-                        <img
-                          src="/trimsel-clients/xaber-logo.png"
-                          width={211}
-                          height={58}
-                          alt="Xaber logo"
-                        />
-                      </div>
-                    </div>
-                    <div className="cafes">
-                      <div className="cafes-inner mb-4">
-                        <Stack
-                          direction="horizontal"
-                          gap={3}
-                          className="xaber-stack"
-                        >
-                          <div className="chip chip-lg badge-btn">
-                            IOS & ANDROID
-                          </div>
-                          <div className="chip chip-lg badge-btn">WEB</div>
-                          <div className="chip chip-lg badge-btn">DESKTOP</div>
-                        </Stack>
-                      </div>
-                    </div>
-                    <div className="cafes">
-                      <div className="cafes-inner">
-                        <h1 className="heading-title">
-                          {" "}
-                          Uber Clone: Online Taxi-Booking For Your Business
-                          Success{" "}
-                        </h1>
-                      </div>
-                    </div>
-                    <div className="mozarts">
-                      <div className="mozarts-inner">
-                        <p className="hero-para">
-                          If you want to take your taxi business digital, go for
-                          Uber like app development by partnering with us
-                        </p>
-                      </div>
-                    </div>
-                    <div className="mozarts">
-                      <div className="mozarts-inner">
-                        <button className="btn btn-primary case-study-btn">
-                          Get Started Today{" "}
-                          <img src="/images/material-symbols_arrow-right-alt.png" alt="" aria-hidden="true" />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+
+      <main>
+        <section className="bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white">
+          <Header />
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-300">
+              <Link href="/" className="hover:text-brand">
+                Home
+              </Link>
+              <span className="mx-2 text-slate-500">&middot;</span>
+              <Link href="/portfolio" className="hover:text-brand">
+                Portfolio
+              </Link>
+              <span className="mx-2 text-slate-500">&middot;</span>
+              Xaber
+            </p>
+            <div className="mt-8 grid gap-10 lg:grid-cols-[1.2fr,0.8fr]">
+              <div className="space-y-4">
+                <Image src="/trimsel-clients/xaber-logo.png" width={211} height={58} alt="Xaber logo" />
+                <div className="flex flex-wrap gap-3">
+                  {chips.map((chip) => (
+                    <span key={chip} className="rounded-full border border-white/40 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-white/80">
+                      {chip}
+                    </span>
+                  ))}
                 </div>
+                <h1 className="text-4xl font-semibold leading-tight">Uber Clone: Online taxi-booking for your business success</h1>
+                <p className="text-lg leading-relaxed text-white/80">
+                  If you want to take your taxi business digital, partner with Trimsel for Uber-like app development. We blended best-in-class UX patterns with a DevOps-first foundation so your riders, drivers, and dispatch teams stay in sync.
+                </p>
+                <Link
+                  href="/contact-us"
+                  className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white shadow-lg shadow-brand/40 transition hover:bg-brand-dark"
+                >
+                  Get started today
+                  <Image src="/images/material-symbols_arrow-right-alt.png" width={20} height={20} alt="" />
+                </Link>
+              </div>
+              <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-inner">
+                <Image src="/images/Group25321.png" width={600} height={400} alt="Xaber hero mockup" className="w-full object-cover" priority />
               </div>
             </div>
+            <ul className="mt-10 space-y-2 text-sm text-white/80">
+              {heroStats.map((stat) => (
+                <li key={stat} className="flex items-start gap-2">
+                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-brand" />
+                  <span>{stat}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
-      </section>
-      <section id="xaber-about">
-        <div className="container xaber-about-container">
-          <div className="row">
-            <div className="col-lg-7 col-md-6">
-              <Stack direction="horizontal">
-                <div className=" badge-xaber-btn">
-                  <img src="/images/Rectangle550.png" className="me-2" alt="" aria-hidden="true" />{" "}
-                  OVERVIEW
+        </section>
+
+        <section className="bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="grid gap-10 lg:grid-cols-[1.2fr,0.8fr]">
+              <div className="space-y-4 text-lg text-slate-600">
+                <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+                  <Image src="/images/Rectangle550.png" width={15} height={15} alt="" loading="lazy" />
+                  Overview
                 </div>
-              </Stack>
-              <h2 className="xaber-title pt-3">
-                Xaber – Uber Clone App That Automates and Drives Growth for
-                Businesses
-              </h2>
-              <p className="xaber-abt-para pb-3">
-                Uber clone is an on-demand taxi booking software that helps
-                expand business reach by providing taxi services to customers
-                anytime. Any services like taxi booking, carpooling, taxi
-                renting, car sharing, etc., are all managed within the platform.
-              </p>
-              <p className="xaber-abt-para pb-3">
-                If you are an entrepreneur or business owner and wish to start
-                your ride-hailing business online, we provide a white label Uber
-                clone app solution for any range of businesses.
-              </p>
-            </div>
-            <div className="col-lg-5 col-md-6">
-              <div className=" card card-sub">
-                <div className="card-sub-details">
-                  <h5 className="pb-3">START YOUR PROJECT</h5>
-                  <h2>Interested in building something similar?</h2>
-                  <p>
-                    Request a one to one consultation for your next big
-                    idea.
-                  </p>
-                  <form id="home-form" onSubmit={handleSubmit(onSubmitForm)}>
-                    <div className="md-form">
+                <h2 className="text-3xl font-semibold text-slate-900">Xaber – Uber clone app that automates and drives growth</h2>
+                <p>
+                  The Xaber platform helps taxi businesses deliver on-demand services anywhere, anytime. From instant bookings and ride sharing to rentals and corporate fleets, everything is handled inside one scalable solution.
+                </p>
+                <p>
+                  Entrepreneurs can launch, customise, and expand with Trimsel’s white-label Uber clone that keeps operations simple for riders, drivers, and administrators.
+                </p>
+              </div>
+              <div className="rounded-3xl border border-slate-100 bg-slate-900 text-white shadow-2xl">
+                <div className="rounded-3xl bg-gradient-to-br from-blue-600 to-indigo-600 p-6">
+                  <h3 className="text-sm uppercase tracking-[0.3em] text-white/80">Start your project</h3>
+                  <p className="mt-2 text-2xl font-semibold">Interested in building something similar?</p>
+                  <p className="mt-3 text-sm text-white/90">Request a one-to-one consultation for your next big idea.</p>
+                  <form className="mt-5 space-y-3" onSubmit={handleSubmit(onSubmitForm)}>
+                    <div>
                       <input
                         {...register("email", {
-                          required: {
-                            value: true,
-                            message: "Email id is required",
-                          },
-                          pattern: {
-                            value:
-                              /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
-                            message: "Enter a valid email address",
-                          },
+                          required: { value: true, message: "Email id is required" },
+                          pattern: { value: /^([a-z0-9_.-]+)@([\da-z.-]+)\.([a-z.]{2,6})$/, message: "Enter a valid email address" },
                         })}
                         type="email"
-                        name="email"
-                        id="email"
-                        className="form-control sub-form"
                         placeholder="Enter Email Address"
+                        className="w-full rounded-2xl border border-white/40 bg-white/10 px-4 py-3 text-sm text-white placeholder-white/60 outline-none transition focus:border-white focus:bg-white/20"
                       />
-                      <span className="error-design pt-3">
-                        {errors?.email?.message}
-                        {errors?.email?.pattern?.message}
-                      </span>
+                      {(errors?.email?.message || errors?.email?.pattern?.message) && (
+                        <p className="mt-2 text-xs text-red-200">{errors?.email?.message || errors?.email?.pattern?.message}</p>
+                      )}
                     </div>
-                    <input
-                      type="submit"
-                      className="sub-btn my-3"
-                      value="Book A Consultation"
-                    />
+                    <button type="submit" className="w-full rounded-2xl bg-white/90 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-slate-900 transition hover:bg-white">
+                      Book a consultation
+                    </button>
                   </form>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="row xaber-details-row">
-            <div className="col-lg-3 col-md-3 col-6">
-              <div className="line-section">
-                <h3>Client :</h3>
-                <p>Xaber - Uber Clone</p>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-3 col-6">
-              <div className="line-section">
-                <h3>Industry :</h3>
-                <p>Services, Local Business</p>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-3 col-6">
-              <div className="line-section">
-                <h3>Duration :</h3>
-                <p>3 months</p>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-3 col-6">
-              <div className="line-section">
-                <h3>Platforms :</h3>
-                <p>iOS, Android, Web & Desktop</p>
-              </div>
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {overviewStats.map(({ label, value }) => (
+                <div key={label} className="rounded-3xl border border-slate-100 bg-slate-50 p-6 shadow-inner">
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">{label}</p>
+                  <p className="mt-2 text-lg font-semibold text-slate-900">{value}</p>
+                </div>
+              ))}
             </div>
           </div>
-          <div className=" xaber-counter">
-            <ScrollTrigger
-              onEnter={() => setCounterOn(true)}
-              onExit={() => setCounterOn(false)}
-            >
-              <div className="row">
-                <div className="col-lg-4 col-md-4 xaber-border-col">
-                  <div className="card xaber-counter-card">
-                    <div className="card-body">
-                      <div className="card-title">
-                        <h3 className="outline-text">
-                          {counterOn && (
-                            <CountUp
-                              start={0}
-                              end={30}
-                              duration={2}
-                              delay={0}
-                            />
-                          )}
-                          <span>K + </span>
-                        </h3>
-                        <h4 className="static-text">Downloads</h4>
-                      </div>
-                    </div>
+        </section>
+
+        <section className="bg-slate-50">
+          <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+            <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {counters.map((metric) => (
+                  <div key={metric.label} className="rounded-3xl border border-white/60 bg-white p-6 text-center shadow-lg shadow-slate-900/5">
+                    <p className="text-3xl font-semibold text-slate-900">
+                      {counterOn && <CountUp start={0} end={metric.end} duration={2} delay={0} />}
+                      <span className="ml-1 text-2xl">{metric.suffix}</span>
+                    </p>
+                    <p className="mt-2 text-sm uppercase tracking-[0.3em] text-slate-500">{metric.label}</p>
                   </div>
-                </div>
-                <div className="col-lg-4 col-md-4">
-                  <div className="card xaber-counter-card">
-                    <div className="card-body">
-                      <div className="card-title">
-                        <h3 className="outlines-text">
-                          {counterOn && (
-                            <CountUp
-                              start={0}
-                              end={10}
-                              duration={2}
-                              delay={0}
-                            />
-                          )}
-                          <span>K + </span>
-                        </h3>
-                        <h4 className="static-text">Active Users</h4>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-4 col-md-4">
-                  <div className="card xaber-counter-card">
-                    <div className="card-body">
-                      <div className="card-title">
-                        <h3 className="outliness-text">
-                          {counterOn && (
-                            <CountUp
-                              start={0}
-                              end={590}
-                              duration={2}
-                              delay={0}
-                            />
-                          )}
-                          <span> + </span>
-                        </h3>
-                        <h4 className="static-text">Request A Ride</h4>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
             </ScrollTrigger>
           </div>
-        </div>
-      </section>
-      <section id="xaber-about">
-        <SlideComponent />
-      </section>
-      <section id="xaber-challenge">
-        <div className="container challenge-container">
-          <div className="row mbl-abt">
-            <div className="col-lg-10 col-md-9">
-              <Stack direction="horizontal">
-                <div className=" badge-xaber-btn">
-                  <img src="/images/Rectangle550.png" className="me-2" alt="" aria-hidden="true" /> THE
-                  CHALLENGE
-                </div>
-              </Stack>
-              <h2 className="challenge-heading pt-4">
-                Xaber - Uber Clone App That Automates And Drives Growth For
-                Businesses
-              </h2>
-              <p className="challenge-para">
-                If you want to take your taxi business digital, go for Uber like
-                app development by partnering with us. We have integrated the
-                top features and user experiences from every successful taxi
-                booking app in the market. Our expert team of developers will
-                customize and follow a proven Uber clone app development
-                process. This will let you differentiate it from the competition
-                while keeping it easy to use for your customers and unique to
-                you to ensure success for your business.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="d-flex justify-content-center overlay-images align-content-center">
-          <Image
-            src="/images/Group25321.png"
-            width={900}
-            height={474}
-            alt="xaber app dashboard"
-          />
-        </div>
-      </section>
-      <section id="xaber-prob">
-        <div className="container prob-container">
-          <Stack direction="horizontal">
-            <div className=" badge-xaber-btn">
-              <img src="/images/Rectangle550.png" className="me-2" alt="" aria-hidden="true" /> THE
-              CHALLENGE
-            </div>
-          </Stack>
-          <h2 className="prob-heading pt-4">
-            Uber Clone For Your Ride-hailing Business Success
-          </h2>
-          <p className="prob-para">
-            If you want to take your taxi business digital, go for Uber like app
-            development by partnering with us. We have integrated the top
-            features and user experiences from every successful taxi booking app
-            in the market. Our expert team of developers will customize and
-            follow a proven Uber clone app development process. This will let
-            you differentiate it from the competition while keeping it easy to
-            use for your customers and unique to you to ensure success for your
-            business.
-          </p>
-        </div>
-      </section>
-      <section id="xaber-solution">
-        <div className="container sol-container">
-          <div className="row">
-            <div className="col-lg-6 col-md-6">
-              <Stack direction="horizontal">
-                <div className=" badge-xaber-btn">
-                  <img src="/images/Rectangle550.png" className="me-2" alt="" aria-hidden="true" /> THE
-                  SOLUTION
-                </div>
-              </Stack>
-              <h3 className="sol-heading pt-4">
-                Uber Clone For Your Ride-Hailing Business Success
-              </h3>
-              <p className="sol-para">
-                If you want to take your taxi business digital, go for Uber like
-                app development by partnering with us. We have integrated the
-                top features and user experiences from every successful taxi
-                booking app in the market. Our expert team of developers will
-                customize and follow a proven Uber clone app development
-                process. This will let you differentiate it from the competition
-                while keeping it easy to use for your customers and unique to
-                you to ensure success for your business.
-              </p>
-            </div>
-            <div className="col-lg-6 col-md-6">
-              <Image
-                src="/images/Group25331.png"
-                width={662}
-                height={603}
-                className="sol-image"
-                alt="Xaber solution workflow"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id="xaber-tech">
-        <div className="container tech-container mb-5">
-          <Stack direction="horizontal">
-            <div className=" badge-xaber-btn">
-              <img src="/images/Rectangle550.png" className="me-2" alt="" aria-hidden="true" /> THE
-              SOLUTION
-            </div>
-          </Stack>
-          <h3 className="tech-heading pt-5">Tools And Technology</h3>
-          <div className="row pt-4">
-            <div className="col-lg-7 col-md-8">
-              <h5 className="tech-sub py-3">Development</h5>
-              <div className="tech-img-container">
-                <Image
-                  src="/images/flutter.png"
-                  alt="Fluttermobile-app-development-image"
-                  width={216}
-                  height={84}
-                  className="me-2 mb-2 mbl-design"
-                />
-                <Image
-                  src="/images/react-native.png"
-                  alt="React-native mobile-app-development-image"
-                  width={216}
-                  height={84}
-                  className="me-2 mb-2 mbl-design"
-                />
-                <Image
-                  src="/images/native.png"
-                  alt="Nativescript mobile-app-development-image"
-                  width={185}
-                  height={84}
-                  className="me-2 mb-2 native-img mbl-design"
-                />
-                <Image
-                  src="/images/js.png"
-                  alt="Javascript mobile-app-development-image"
-                  width={216}
-                  height={84}
-                  className="me-2 mb-2 mbl-design"
-                />
-                <Image
-                  src="/images/c++.png"
-                  alt="C++-mobile-app-development-image"
-                  width={216}
-                  height={84}
-                  className="me-2 mb-2 mbl-design"
-                />
-              </div>
-            </div>
-            <div className="col-lg-5 col-md-4">
-              <h5 className="tech-sub py-3">Design</h5>
-              <div className="tech-img-container">
-                <Image
-                  src="/images/photoshop.png"
-                  alt="photoshop"
-                  width={216}
-                  height={84}
-                  className="me-2 mb-2 mbl-design"
-                />
-                <Image
-                  src="/images/figma.png"
-                  alt="figma"
-                  width={216}
-                  height={84}
-                  className="me-2 mb-2 mbl-design"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="xaber-carousel my-5 py-5">
-        <div className="carousel-container">
-          <Carousel
-            className="xaber-car"
-            animation="fade"
-            prevIcon={
-              <img
-                src="/images/prev1.png"
-                className="full-img-previous"
-                alt="Previous"
-              />
-            }
-            nextIcon={
-              <img
-                src="/images/next1.png"
-                className="full-img-next"
-                alt="Next"
-              />
-            }
-            interval={null}
-            activeIndex={index}
-            onSelect={handleSelect}
-            indicators={false}
-          >
-            <Carousel.Item>
-              <img src="/images/Frame2.png" className="carousel-image" alt="Xaber admin console screen" />
-            </Carousel.Item>
-            <Carousel.Item>
-              <img src="/images/Frame2.png" className="carousel-image" alt="Xaber admin console screen" />
-            </Carousel.Item>
-            <Carousel.Item>
-              <img src="/images/Frame2.png" className="carousel-image" alt="Xaber admin console screen" />
-            </Carousel.Item>
-          </Carousel>
-        </div>
-      </section>
-      <section className="xabe-cta">
-        <div className="container">
-          <Card className="xaber-cta my-5">
-            <Card.Body className="mbl-card-body">
-              <div className="row">
-                <div className="col-lg-7 col-md-12 col-12 xaber-card-col">
-                  <Stack direction="horizontal">
-                    <div className=" badge-xaber-btn">
-                      <img src="/images/Rectangle550.png" className="me-2" alt="" aria-hidden="true" />{" "}
-                      GET IN TOUCH
-                    </div>
-                  </Stack>
-                  <h2 className="mblcta-heading pt-2">
-                    Wanna Develop a Mobile Application? Contact us Now!
-                  </h2>
-                  <Link href="/contact-us" passHref>
-                    <button className="xabercta-button btn-lg btn-info mt-3">
-                      Get In Touch{" "}
-                      <span className="icon">
-                        {" "}
-                        <img
-                          src="/images/iconorange.png"
-                          alt="arrow-icon"
-                        />{" "}
-                      </span>
-                    </button>
-                  </Link>
-                </div>
-              </div>
-            </Card.Body>
-          </Card>
-        </div>
-      </section>
+        </section>
 
-      <section className="xaber-case">
-        <div className="container case-container">
-          <Stack direction="horizontal">
-            <div className=" badge-xaber-btn">
-              <img src="/images/Rectangle550.png" className="me-2" alt="" aria-hidden="true" /> GET IN
-              TOUCH
+        <section className="bg-white">
+          <SlideComponent />
+        </section>
+
+        <section className="bg-slate-50">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+              <Image src="/images/Rectangle550.png" width={15} height={15} alt="" loading="lazy" />
+              The challenge
             </div>
-          </Stack>
-          <h2 className="casex-heading pt-4">
-            Read About The Challenges We Faced and How We Helped Our Clients
-            Achieve Their Goals.
-          </h2>
-          <div className="row py-5">
-            <div className="col-lg-6 col-md-6">
-              <Card className="case-carousel-card">
-                <Card.Header className="case-carousel-header">
-                  <img src="/images/Group3001.png" alt="" aria-hidden="true" />
-                </Card.Header>
-                <Card.Body className="case-carousel-body">
-                  <h3 className="case-carousel-heading">Ezyhelpers</h3>
-                  <p className="case-carousel-para justify-content-center">
-                    Quisque a pretium nulla, at porttitor eros. Mauris pharetra
-                    nisl sit amet mauris efficitur malesuada.
-                  </p>
-                  <Link className="case-carousel-link" href="#">
-                    Read Case Study <FaLongArrowAltRight />
-                  </Link>
-                </Card.Body>
-              </Card>
+            <h2 className="mt-4 text-3xl font-semibold text-slate-900">
+              Xaber – Uber clone app that automates and drives growth for businesses
+            </h2>
+            <p className="mt-4 text-lg text-slate-600">
+              If you want to take your taxi business digital, go for Uber-like app development by partnering with Trimsel. We integrated the
+              top features and user experiences from every successful taxi booking app in the market. Our developers customise the flow so
+              it stays easy for riders yet unique to your brand.
+            </p>
+            <div className="mt-8 flex justify-center">
+              <Image src="/images/Group25321.png" width={900} height={474} alt="Xaber admin dashboard" className="w-full rounded-3xl" />
             </div>
-            <div className="col-lg-6 col-md-6">
-              <Card className="case-carousel-card">
-                <Card.Header className="case-carousel-header">
-                  <img src="/images/kariot-case.png" alt="KarIOT project preview" />
-                </Card.Header>
-                <Card.Body className="case-carousel-body">
-                  <h3 className="case-carousel-heading">KarIOT</h3>
-                  <p className="case-carousel-para justify-content-center">
-                    Quisque a pretium nulla, at porttitor eros. Mauris pharetra
-                    nisl sit amet mauris efficitur malesuada.
+          </div>
+        </section>
+
+        <section className="bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 space-y-6 text-lg text-slate-600">
+            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+              <Image src="/images/Rectangle550.png" width={15} height={15} alt="" loading="lazy" />
+              The challenge
+            </div>
+            <h2 className="text-3xl font-semibold text-slate-900">Uber clone for your ride-hailing business success</h2>
+            <p>
+              We built a white-label Uber clone that supports instant ride booking, rentals, ride sharing, and more. The platform keeps the
+              flow effortless for riders while ensuring your dispatchers and drivers handle requests without friction.
+            </p>
+          </div>
+        </section>
+
+        <section className="bg-slate-50">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="grid gap-10 lg:grid-cols-[1fr,1fr]">
+              <div className="space-y-4 text-lg text-slate-600">
+                <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+                  <Image src="/images/Rectangle550.png" width={15} height={15} alt="" loading="lazy" />
+                  The solution
+                </div>
+                <h3 className="text-3xl font-semibold text-slate-900">An Uber-like experience tailored to your operations</h3>
+                <p>
+                  Trimsel delivered a full-stack solution spanning rider apps, driver apps, dispatch consoles, and analytics. Stripe-powered
+                  payments, rating systems, and referral programs keep usage growing, while our DevOps pipelines ensure releases stay fast and reliable.
+                </p>
+              </div>
+              <Image src="/images/Group25331.png" width={662} height={603} alt="Xaber solution flow" className="w-full rounded-3xl" />
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+              <Image src="/images/Rectangle550.png" width={15} height={15} alt="" loading="lazy" />
+              Tools & Technology
+            </div>
+            <h3 className="mt-4 text-3xl font-semibold text-slate-900">Tools and technology</h3>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {techLogos.map((logo) => (
+                <div key={logo} className="rounded-3xl border border-slate-100 bg-slate-50 p-4 shadow-inner">
+                  <Image src={logo} width={140} height={60} alt="Tech logo" className="h-10 w-auto object-contain" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-slate-50">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-semibold text-slate-900">Experience highlights</h2>
+            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {["/images/Frame2.png", "/images/Frame2.png", "/images/Frame2.png"].map((shot, idx) => (
+                <div key={`${shot}-${idx}`} className="rounded-3xl border border-slate-100 bg-white p-4 shadow-inner">
+                  <Image src={shot} width={360} height={640} alt="Xaber UI preview" className="w-full rounded-2xl" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="rounded-[32px] border border-slate-100 bg-gradient-to-br from-slate-50 to-white p-8 shadow-lg shadow-slate-900/5">
+              <div className="grid gap-8 lg:grid-cols-2">
+                <div>
+                  <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+                    <Image src="/images/Rectangle550.png" width={15} height={15} alt="" loading="lazy" />
+                    Get in touch
+                  </div>
+                  <h2 className="mt-4 text-3xl font-semibold text-slate-900">Ready to launch your ride-hailing platform?</h2>
+                  <p className="mt-4 text-lg text-slate-600">
+                    Trimsel’s engineers design, build, and operate Uber-like experiences for fleets, taxi operators, and logistics brands worldwide.
                   </p>
                   <Link
-                    className="case-carousel-link"
-                    href="/portfolio/kariot-case-study"
+                    href="/contact-us"
+                    className="mt-6 inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white shadow-lg shadow-brand/40 transition hover:bg-brand-dark"
                   >
-                    Read Case Study <FaLongArrowAltRight />
+                    Get in touch
+                    <ArrowRightIcon width={18} height={18} />
                   </Link>
-                </Card.Body>
-              </Card>
+                </div>
+                <Image src="/images/Group25331.png" width={520} height={360} alt="CTA graphic" className="w-full" />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <Footer />
+        <section className="bg-slate-50">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+              <Image src="/images/Rectangle550.png" width={15} height={15} alt="" loading="lazy" />
+              Related Case Studies
+            </div>
+            <h2 className="mt-4 text-3xl font-semibold text-slate-900">Read how we help ambitious teams ship faster.</h2>
+            <div className="mt-8 grid gap-6 md:grid-cols-2">
+              {relatedStudies.map((study) => (
+                <article key={study.title} className="rounded-3xl border border-slate-100 bg-white p-6 shadow-inner">
+                  <div className="flex items-center justify-between">
+                    <Image src={study.logo} width={120} height={60} alt={`${study.title} logo`} />
+                    <ArrowRightIcon width={20} height={20} className="text-slate-400" />
+                  </div>
+                  <h3 className="mt-4 text-2xl font-semibold text-slate-900">{study.title}</h3>
+                  <p className="mt-3 text-sm text-slate-600">{study.description}</p>
+                  <Link href={study.href} className="mt-5 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.3em] text-brand">
+                    Read Case Study
+                    <ArrowRightIcon width={18} height={18} />
+                  </Link>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <Footer />
+      </main>
     </>
   );
 }

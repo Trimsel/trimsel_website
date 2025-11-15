@@ -12,7 +12,7 @@ import { postJson } from "../lib/api";
 import { trackEvent } from "../lib/analytics";
 import ArrowRightIcon from "../components/icons/ArrowRightIcon";
 import CheckIcon from "../components/icons/CheckIcon";
-import "react-phone-input-2/lib/bootstrap.css";
+import "react-phone-input-2/lib/style.css";
 
 const PhoneInput = dynamic(() => import("react-phone-input-2"), { ssr: false });
 

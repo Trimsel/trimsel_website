@@ -1,859 +1,425 @@
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import Stack from "react-bootstrap/Stack";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
+import { NextSeo } from "next-seo";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import ScrollTrigger from "react-scroll-trigger";
 import CountUp from "react-countup";
-import Card from "react-bootstrap/Card"
-import Carousel from "react-bootstrap/Carousel"
-import { FaLongArrowAltRight } from "@react-icons/all-files/fa/FaLongArrowAltRight";
-import { NextSeo } from 'next-seo';
 import { postJson } from "../../lib/api";
+import ArrowRightIcon from "../../components/icons/ArrowRightIcon";
+
+const heroStats = [
+  "30K+ downloads across iOS & Android",
+  "10K+ monthly active users",
+  "590+ daily ride requests handled securely",
+];
+
+const overviewStats = [
+  { label: "Client", value: "Mocial" },
+  { label: "Industry", value: "Social Media, Communities" },
+  { label: "Duration", value: "3 months" },
+  { label: "Service", value: "DevOps Enablement" },
+];
+
+const counters = [
+  { label: "Downloads", end: 30, suffix: "K+" },
+  { label: "Active Users", end: 10, suffix: "K+" },
+  { label: "Request A Ride", end: 590, suffix: "+" },
+];
+
+const storeBadges = [
+  { src: "/images/google-play.png", alt: "Google Play badge" },
+  { src: "/images/app-store.png", alt: "App Store badge" },
+];
+
+const problemParagraphs = [
+  "Upload photos, post updates, and share someone else's posts to spread what's happening around you. Create group chats and calls with your loved ones for effective communication.",
+  "Be notified when someone rates, comments, or shares your posts. Organize the photos you uploaded, broadcast live, watch streams, and other videos anywhere, anytime.",
+  "Follow popular artists, influencers, and organisations to stay connected. Search favourite jobs and apply using your profile as a resume.",
+];
+
+const solutionHighlights = [
+  "Traffic-ready architecture capable of serving millions",
+  "Real-time chat, video rooms, and push notifications",
+  "Live streaming & short-video support",
+  "Brand partnership dashboards and moderation tooling",
+  "Job marketplace and commerce extensions",
+];
+
+const productHighlights = [
+  {
+    title: "Social Feed & Engagement",
+    bullets: ["Create, like, and share posts", "Rich media cards with preview", "Inline reactions and quick replies"],
+  },
+  {
+    title: "Messaging & Rooms",
+    bullets: ["Direct messages and community rooms", "Voice + video calling", "Notifications for mentions and invites"],
+  },
+  {
+    title: "Live & Media Experiences",
+    bullets: ["Broadcast live with followers", "Watch streams and playlists", "Discover trending content via curation"],
+  },
+  {
+    title: "Commerce & Brand Tools",
+    bullets: ["Jobs marketplace", "Brand collaboration dashboard", "Creator analytics and insights"],
+  },
+];
+
+const techLogos = [
+  { src: "/images/flutter.png", alt: "Flutter" },
+  { src: "/images/react-native.png", alt: "React Native" },
+  { src: "/images/nodejs-logo.png", alt: "Node.js" },
+  { src: "/images/aws-logo.png", alt: "AWS" },
+  { src: "/images/postgresql-logo.png", alt: "PostgreSQL" },
+  { src: "/images/devops-logo.png", alt: "DevOps" },
+  { src: "/images/figma.png", alt: "Figma" },
+  { src: "/images/photoshop.png", alt: "Photoshop" },
+];
+
+const relatedStudies = [
+  {
+    logo: "/images/Group3001.png",
+    title: "Ezyhelpers",
+    description: "Mobile/web platform for verified home service professionals.",
+    href: "/portfolio/ezyhelpers-case-study",
+  },
+  {
+    logo: "/images/Group3002.png",
+    title: "Xaber",
+    description: "Ride-hailing platform inspired by Uber for scalable taxi operations.",
+    href: "/portfolio/xaber-case-study",
+  },
+];
 
 export default function Mocial() {
-  const [counterOn, setCounterOn] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
   } = useForm();
+  const [counterOn, setCounterOn] = useState(false);
 
   async function onSubmitForm(values) {
     try {
       await postJson("/api/newcontact", values);
-      console.log("Contact request sent");
+      reset();
     } catch (error) {
       console.error("Failed to submit form", error);
     }
   }
-  const slides = [0, 1, 2];
-  const [index, setIndex] = useState(0);
-  const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex);
-  };
+
   return (
     <>
-    <NextSeo
-  title="Mocial Case Study – Social Network Platform | Trimsel"
-  description="How Trimsel engineered Mocial, a scalable social network with rich media, groups, live streaming, and admin tools built for growth."
-  canonical="https://www.trimsel.com/portfolio/mocial-case-study"
-  openGraph={{
-    type: "article",
-    url: "https://www.trimsel.com/portfolio/mocial-case-study",
-    title: "Mocial Case Study – Social Network Platform | Trimsel",
-    description:
-      "Scalable social network engineered by Trimsel: posts, groups, voice/video, live streams, notifications, and admin tools.",
-    locale: "en_IN",
-    images: [
-      {
-        url: "https://www.trimsel.com/images/portfolio/mocial-og.jpg", // update if your OG image differs
-        width: 1200,
-        height: 630,
-        alt: "Trimsel Mocial social network case study",
-      },
-    ],
-    site_name: "Trimsel",
-    article: {
-      section: "Case Study",
-      tags: [
-        "Case Study",
-        "Social Network",
-        "Live Streaming",
-        "Mobile App",
-        "Trimsel",
-      ],
-    },
-  }}
-  twitter={{
-    handle: "@TrimselSoftwares",
-    site: "@TrimselSoftwares",
-    cardType: "summary_large_image",
-    title: "Case Study: Mocial Social Network",
-    description:
-      "Discover how Trimsel built Mocial’s scalable social media platform with live streaming and community tools.",
-  }}
-  additionalMetaTags={[
-    { name: "robots", content: "index, follow" },
-    {
-      name: "twitter:title",
-      content: "Case Study: Mocial Social Network",
-    },
-    {
-      name: "twitter:description",
-      content:
-        "Discover how Trimsel built Mocial’s scalable social media platform with live streaming and community tools.",
-    },
-    {
-      name: "twitter:image:alt",
-      content: "Trimsel Mocial social network case study",
-    },
-  ]}
-/>
+      <NextSeo
+        title="Mocial Case Study – Social Network Platform | Trimsel"
+        description="How Trimsel engineered Mocial, a scalable social network with live streaming, real-time chat, and admin playbooks built for growth."
+        canonical="https://www.trimsel.com/portfolio/mocial-case-study"
+      />
       <Head>
         {[
-    // CaseStudy entity
-    {
-      "@context": "https://schema.org",
-      "@type": "CaseStudy",
-      "@id": "https://www.trimsel.com/portfolio/mocial-case-study#case",
-      "name": "Mocial Case Study – Social Network Platform",
-      "headline": "Mocial Case Study – Social Network Platform",
-      "description": "Trimsel engineered Mocial, a robust social platform supporting rich media, community features, live streaming, notifications, and growth-ready admin controls.",
-      "inLanguage": "en",
-      "url": "https://www.trimsel.com/portfolio/mocial-case-study",
-      "isPartOf": { "@type": "WebSite", "@id": "https://www.trimsel.com/#website" },
-      "about": { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
-      "author": { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
-      "publisher": { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
-      "primaryImageOfPage": {
-        "@type": "ImageObject",
-        "url": "https://www.trimsel.com/images/portfolio/mocial-og.jpg",
-        "width": 1200,
-        "height": 630
-      },
-      "image": {
-        "@type": "ImageObject",
-        "url": "https://www.trimsel.com/images/portfolio/mocial-og.jpg",
-        "width": 1200,
-        "height": 630
-      }
-      // Optional:
-      // "datePublished": "2024-09-22",
-      // "dateModified": "2025-08-21",
-      // "keywords": ["social network","live streaming","mobile apps","Trimsel"]
-    },
-    // Breadcrumbs
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "@id": "https://www.trimsel.com/portfolio/mocial-case-study#breadcrumbs",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.trimsel.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://www.trimsel.com/portfolio" },
-        { "@type": "ListItem", "position": 3, "name": "Mocial Case Study", "item": "https://www.trimsel.com/portfolio/mocial-case-study" }
-      ]
-    }
-  ].map((schema, index) => (
-          <script
-            key={`mocial-schema-${index}`}
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-          />
+          {
+            "@context": "https://schema.org",
+            "@type": "CaseStudy",
+            "@id": "https://www.trimsel.com/portfolio/mocial-case-study#case",
+            name: "Mocial Case Study – Social Network Platform",
+            headline: "Mocial Case Study – Social Network Platform",
+            description:
+              "Trimsel engineered Mocial, a robust social platform supporting rich media, community features, live streaming, notifications, and growth-ready admin controls.",
+            inLanguage: "en",
+            url: "https://www.trimsel.com/portfolio/mocial-case-study",
+            isPartOf: { "@type": "WebSite", "@id": "https://www.trimsel.com/#website" },
+            about: { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
+            author: { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
+            publisher: { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
+            primaryImageOfPage: {
+              "@type": "ImageObject",
+              url: "https://www.trimsel.com/images/portfolio/mocial-og.jpg",
+              width: 1200,
+              height: 630,
+            },
+            image: {
+              "@type": "ImageObject",
+              url: "https://www.trimsel.com/images/portfolio/mocial-og.jpg",
+              width: 1200,
+              height: 630,
+            },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "@id": "https://www.trimsel.com/portfolio/mocial-case-study#breadcrumbs",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://www.trimsel.com/" },
+              { "@type": "ListItem", position: 2, name: "Portfolio", item: "https://www.trimsel.com/portfolio" },
+              { "@type": "ListItem", position: 3, name: "Mocial Case Study", item: "https://www.trimsel.com/portfolio/mocial-case-study" },
+            ],
+          },
+        ].map((schema, index) => (
+          <script key={`mocial-schema-${index}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
         ))}
       </Head>
+
       <main>
-        <section id="moc-section">
+        <section className="bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white">
           <Header />
-          <section id="ezy-hero">
-            <div className="container pt-3">
-              <div className="row">
-                <div className="col-lg-7 col-md-7">
-                  <div className="title">
-                    <div className="title-inner">
-                      <div className="cafe">
-                        <div className="whiteLink">
-                          <p className="breadcrumbs-kar">
-                            <Link href="/">Home</Link> <span> &#x2027; </span>{" "}
-                            <Link href="/portfolio">Portfolio</Link>{" "}
-                            <span> &#x2027; </span> Mocial
-                          </p>
-                        </div>
-                      </div>
-                      <div className="cafe" style={{ marginTop: "-20px" }}>
-                        <div className="cafe-inner mb-2">
-                          <div className="badge moc-badge">
-                            <h4 className="badge-txt mb-0">DevOps Service</h4>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="cafe">
-                        <div className="cafe-inner moc-title">
-                          An all-in-one platform that is going to be a right
-                          choice for your brand.
-                        </div>
-                      </div>
-                      <div className="mozart">
-                        <div className="mozart-inner">
-                          <p className="moc-para">
-                            Search your family, colleagues, new friends and
-                            people as well as stay connected with them. Upload
-                            photos, post updates and share someone else&rsquo;s posts
-                            to spread what is happening around you.
-                          </p>
-                        </div>
-                      </div>
-                      <div className="mozart">
-                        <div className="mozart-inner">
-                          <Stack
-                            direction="horizontal"
-                            gap={1}
-                            className="kar-mbl-stack"
-                          >
-                            <Link href="#">
-                              <Image
-                                src="/images/google-play.png"
-                                width={200}
-                                height={60}
-                                className="app-link"
-                                alt="google-play"
-                              />
-                            </Link>
-                            <Link href="#">
-                              <Image
-                                src="/images/app-store.png"
-                                width={200}
-                                height={60}
-                                className="app-link"
-                                alt="app-store"
-                              />
-                            </Link>
-                          </Stack>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-300">
+              <Link href="/" className="hover:text-brand">
+                Home
+              </Link>
+              <span className="mx-2 text-slate-500">&middot;</span>
+              <Link href="/portfolio" className="hover:text-brand">
+                Portfolio
+              </Link>
+              <span className="mx-2 text-slate-500">&middot;</span>
+              Mocial
+            </p>
+            <div className="mt-8 grid gap-10 lg:grid-cols-[1.2fr,0.8fr]">
+              <div className="space-y-4">
+                <div className="inline-flex items-center rounded-full border border-white/40 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-white/80">
+                  DevOps Service
                 </div>
-                <div className="col-lg-5 col-md-5 moc-col">
-                  <div className="imgrs">
-                    <Image
-                      src="/images/mocial-img.png"
-                      width={500}
-                      height={589}
-                      alt="Mocial App Hero Image"
-                      className="moc-app-image"
-                      quality={100}
-                    />
-                  </div>
+                <h1 className="text-4xl font-semibold leading-tight">
+                  An all-in-one platform that is going to be the right choice for your brand
+                </h1>
+                <p className="text-lg leading-relaxed text-white/80">
+                  Search your family, colleagues, new friends, and people as well as stay connected with them. Upload photos, post updates, share stories, and go live—Mocial centralizes every social interaction for consumers and brands.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  {storeBadges.map((badge) => (
+                    <Image key={badge.alt} src={badge.src} width={180} height={60} alt={badge.alt} className="h-12 w-auto" />
+                  ))}
                 </div>
+              </div>
+              <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-inner">
+                <Image src="/images/mocial-img.png" width={500} height={589} alt="Mocial mockup" className="w-full" priority />
               </div>
             </div>
-          </section>
+            <ul className="mt-10 space-y-2 text-sm text-white/80">
+              {heroStats.map((stat) => (
+                <li key={stat} className="flex items-start gap-2">
+                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-brand" />
+                  <span>{stat}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </section>
 
-        <section id="moc-about">
-          <div className="container xaber-about-container">
-            <div className="row">
-              <div className="col-lg-7 col-md-6">
-                <Stack direction="horizontal">
-                  <div className=" badge-kariot-btn mb-3">
-                    <img
-                      src="/images/Rectangle-kariot.png"
-                      className="me-2"
-                      alt="design-dot"
-                    />
-                    <p> OVERVIEW </p>
-                  </div>
-                </Stack>
-                <Image
-                  src="/images/mocile-logo.png"
-                  width={98}
-                  height={98}
-                  alt="Mocial App Logo"
-                  className="moc-logo"
-                />
-                <h2 className="kariot-title pt-1">
-                  Building an extensive Social Network of the future
-                </h2>
-                <p className="kariot-abt-para pb-3">
-                  We built a robust social media app for Mocial, that can take
-                  and handle traffic of millions of people to ensure they can
-                  scale with ease. We built a robust social media app for the
-                  client that can take and handle traffic of millions of people
-                  to ensure they can scale with ease. We also had built an admin
-                  backend for them to handle brand partnerships etc.
+        <section className="bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="grid gap-10 lg:grid-cols-[1.2fr,0.8fr]">
+              <div className="space-y-4 text-lg text-slate-600">
+                <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+                  <Image src="/images/Rectangle-kariot.png" width={15} height={15} alt="" loading="lazy" />
+                  Overview
+                </div>
+                <Image src="/images/mocile-logo.png" width={98} height={98} alt="Mocial logo" />
+                <h2 className="text-3xl font-semibold text-slate-900">Building an extensive social network of the future</h2>
+                <p>
+                  We built a robust social media app for Mocial that can handle traffic from millions of users, ensuring they can scale with ease. We also built an admin backend for brand partnerships, campaign management, and growth operations.
                 </p>
               </div>
-              <div className="col-lg-5 col-md-6">
-                <div className=" card card-subs">
-                  <div className="card-moc-details">
-                    <h5 className="pb-3">START YOUR PROJECT</h5>
-                    <h2>Interested in building something similar?</h2>
-                    <p>
-                      Request a one to one consultation for your next big
-                      idea.
-                    </p>
-                    <form id="home-form" onSubmit={handleSubmit(onSubmitForm)}>
-                      <div className="md-form">
-                        <input
-                          {...register("email", {
-                            required: {
-                              value: true,
-                              message: "Email id is required",
-                            },
-                            pattern: {
-                              value:
-                                /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
-                              message: "Enter a valid email address",
-                            },
-                          })}
-                          type="email"
-                          name="email"
-                          id="email"
-                          className="form-control subs-form"
-                          placeholder="Enter Email Address"
-                        />
-                        <span className="error-design pt-3">
-                          {errors?.email?.message}
-                          {errors?.email?.pattern?.message}
-                        </span>
-                      </div>
+              <div className="rounded-3xl border border-slate-100 bg-slate-900 text-white shadow-2xl">
+                <div className="rounded-3xl bg-gradient-to-br from-blue-600 to-indigo-600 p-6">
+                  <h3 className="text-sm uppercase tracking-[0.3em] text-white/80">Start your project</h3>
+                  <p className="mt-2 text-2xl font-semibold">Interested in building something similar?</p>
+                  <p className="mt-3 text-sm text-white/90">Request a one-to-one consultation for your next big idea.</p>
+                  <form className="mt-5 space-y-3" onSubmit={handleSubmit(onSubmitForm)}>
+                    <div>
                       <input
-                        type="submit"
-                        className="moc-btn my-3"
-                        value="Book A Consultation"
+                        {...register("email", {
+                          required: { value: true, message: "Email id is required" },
+                          pattern: { value: /^([a-z0-9_.-]+)@([\da-z.-]+)\.([a-z.]{2,6})$/, message: "Enter a valid email address" },
+                        })}
+                        type="email"
+                        placeholder="Enter Email Address"
+                        className="w-full rounded-2xl border border-white/40 bg-white/10 px-4 py-3 text-sm text-white placeholder-white/60 outline-none transition focus:border-white focus:bg-white/20"
                       />
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="row xaber-details-row">
-              <div className="col-lg-3 col-md-3 col-6">
-                <div className="lines-section">
-                  <h3>Client :</h3>
-                  <p>Mocial</p>
-                </div>
-              </div>
-              <div className="col-lg-3 col-md-3 col-6">
-                <div className="lines-section">
-                  <h3>Industry :</h3>
-                  <p>Services, Local Business</p>
-                </div>
-              </div>
-              <div className="col-lg-3 col-md-3 col-6">
-                <div className="lines-section">
-                  <h3>Duration :</h3>
-                  <p>3 months</p>
-                </div>
-              </div>
-              <div className="col-lg-3 col-md-3 col-6">
-                <div className="lines-section">
-                  <h3>Service :</h3>
-                  <p>DevOps Services</p>
-                </div>
-              </div>
-            </div>
-            <div className=" xaber-counter">
-              <ScrollTrigger
-                onEnter={() => setCounterOn(true)}
-                onExit={() => setCounterOn(false)}
-              >
-                <div className="row">
-                  <div className="col-lg-4 col-md-4 xaber-border-col">
-                    <div className="card kariot-counter-card">
-                      <div className="card-body card-body-bg">
-                        <div className="card-title">
-                          <h3 className="filled-moc-text">
-                            {counterOn && (
-                              <CountUp
-                                start={0}
-                                end={30}
-                                duration={2}
-                                delay={0}
-                              />
-                            )}
-                            <span>K + </span>
-                          </h3>
-                          <h4 className="static-text">Downloads</h4>
-                        </div>
-                      </div>
+                      {(errors?.email?.message || errors?.email?.pattern?.message) && (
+                        <p className="mt-2 text-xs text-red-200">{errors?.email?.message || errors?.email?.pattern?.message}</p>
+                      )}
                     </div>
-                  </div>
-                  <div className="col-lg-4 col-md-4">
-                    <div className="card kariot-counter-card">
-                      <div className="card-body card-body-bg">
-                        <div className="card-title">
-                          <h3 className="filleds-moc-text">
-                            {counterOn && (
-                              <CountUp
-                                start={0}
-                                end={10}
-                                duration={2}
-                                delay={0}
-                              />
-                            )}
-                            <span>K + </span>
-                          </h3>
-                          <h4 className="static-text">Active Users</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-lg-4 col-md-4">
-                    <div className="card kariot-counter-card">
-                      <div className="card-body card-body-bg">
-                        <div className="card-title">
-                          <h3 className="filledss-moc-text">
-                            {counterOn && (
-                              <CountUp
-                                start={0}
-                                end={590}
-                                duration={2}
-                                delay={0}
-                              />
-                            )}
-                            <span> + </span>
-                          </h3>
-                          <h4 className="static-text">Request A Ride</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </ScrollTrigger>
-            </div>
-          </div>
-        </section>
-
-        <section id="moc-challenge">
-          <div className="container moc-ch-container">
-            <Stack direction="horizontal">
-              <div className=" badge-kariot-btn mb-3">
-                <img
-                  src="/images/Rectangle-kariot.png"
-                  className="me-2"
-                  alt="design-dot"
-                />
-                <p> THE CHALLENGE </p>
-              </div>
-            </Stack>
-            <div className="row">
-              <div className="col-lg-7 col-md-7">
-                <h2 className="mochallenge-heading">
-                  Building an extensive Social Network of the future
-                </h2>
-
-                <Image
-                  src="/images/mocial-work-bg.png"
-                  width={790}
-                  height={393}
-                  alt="Mocial App Work Infographic"
-                  className="moc-work pt-3"
-                  quality={100}
-                />
-              </div>
-              <div className="col-lg-5 col-md-5">
-                <p className="mocial-chl-para">
-                  Upload photos, post updates and share someone else&rsquo;s posts to
-                  spread what is happening around you. Create group chats and
-                  calls with your loved ones for effective communication.
-                </p>
-                <p className="mocial-chl-para">
-                  Search your family, colleagues, new friends and people as well
-                  as stay connected with them. Upload photos, post updates and
-                  share someone else&rsquo;s posts to spread what is happening around
-                  you. Create group chats and calls with your loved ones for
-                  effective communication. Be notified when someone rates,
-                  comments or share your posts. Organize the photos you uploaded
-                  Live broadcast, watch streams and other videos anywhere,
-                  anytime.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="moc-problem">
-          <div className="container prob-container">
-            <Stack direction="horizontal">
-              <div className=" badge-kariot-btn mb-3">
-                <img
-                  src="/images/Rectangle-kariot.png"
-                  className="me-2"
-                  alt="design-dot"
-                />
-                <p> PROBLEM FACED </p>
-              </div>
-            </Stack>
-            <div className="col-lg-12 col-md-12">
-              <h2 className="moprob-heading">
-                Mocial is a social mobility platform that operates through web
-                and mobile applications. It fulfills the 360 ​​degree
-                requirement of an internet channel or financial sectors.
-              </h2>
-              <p className="mocial-chl-para">
-                Upload photos, post updates and share someone else&rsquo;s posts to
-                spread what is happening around you. Create group chats and
-                calls with your loved ones for effective communication. Be
-                notified when someone rates, comments or share your posts.
-                Organize the photos you uploaded Live broadcast, watch streams
-                and other videos anywhere, anytime. Follow popular artists,
-                influencers and organizations to keep in touch with their recent
-                updates. Search your favorite jobs and apply them using your
-                profile as resume. Search potential clients and the right
-                candidates for recruiters and organizations. Network with people
-                from the organizations you are interested in
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section id="moc-solution">
-          <div className="container mocsol-container">
-            <div className="row">
-              <div className="col-lg-6 col-md-6">
-                <Image
-                  src="/images/mocial-screens.png"
-                  width={658}
-                  height={860}
-                  alt="Mocial App Screens"
-                  className="moc-screen"
-                />
-              </div>
-              <div className="col-lg-6 col-md-6">
-                <Stack direction="horizontal">
-                  <div className=" badge-kariot-btn mb-3">
-                    <img
-                      src="/images/Rectangle-kariot.png"
-                      className="me-2"
-                      alt="design-dot"
-                    />
-                    <p> THE SOLUTION </p>
-                  </div>
-                </Stack>
-                <h2 className="moprob-heading">
-                  An all-in-one platform that is going to be a right choice for
-                  your brand.
-                </h2>
-                <ol className="moc-list">
-                  <li>
-                    <p className="mocial-chl-para">
-                      Upload photos, post updates and share someone else&rsquo;s posts
-                      to spread what is happening around you.
-                    </p>
-                  </li>
-                  <li>
-                    <p className="mocial-chl-para">
-                      Create group chats and calls with your loved ones for
-                      effective communication.
-                    </p>
-                  </li>
-                  <li>
-                    <p className="mocial-chl-para">
-                      Be notified when someone rates, comments or share your
-                      posts.
-                    </p>
-                  </li>
-                  <li>
-                    <p className="mocial-chl-para">
-                      Organize the photos you uploaded
-                    </p>
-                  </li>
-                  <li>
-                    <p className="mocial-chl-para">
-                      Live broadcast, watch streams and other videos anywhere,
-                      anytime.
-                    </p>
-                  </li>
-                  <li>
-                    <p className="mocial-chl-para">
-                      Follow popular artists, influencers and organizations to
-                      keep in touch with their recent updates.
-                    </p>
-                  </li>
-                  <li>
-                    <p className="mocial-chl-para">
-                      Search your favorite jobs and apply them using your
-                      profile as resume.
-                    </p>
-                  </li>
-                  <li>
-                    <p className="mocial-chl-para">
-                      Search potential clients and the right candidates for
-                      recruiters and organizations.
-                    </p>
-                  </li>
-
-                  <li>
-                    <p className="mocial-chl-para">
-                      Network with people from the organizations you are
-                      interested in
-                    </p>
-                  </li>
-                </ol>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section id="xaber-tech">
-          <div className="container tech-container mb-5">
-            <Stack direction="horizontal">
-              <div className=" badge-kariot-btn">
-                <img
-                  src="/images/Rectangle-kariot.png"
-                  className="me-2"
-                  alt="design-dot"
-                />
-                <p> TECHNOLOGY</p>
-              </div>
-            </Stack>
-            <h3 className="tech-kariot-heading pt-5">Tools And Technology</h3>
-            <div className="row pt-4">
-              <div className="col-lg-7 col-md-8">
-                <h5 className="tech-kariot-sub py-3">Development</h5>
-                <div className="tech-img-container">
-                  <Image
-                    src="/images/flutter.png"
-                    alt="Fluttermobile-app-development-image"
-                    width={216}
-                    height={84}
-                    className="me-2 mb-2 mbl-design"
-                  />
-                  <Image
-                    src="/images/react-native.png"
-                    alt="React-native-mobile-app-development-image"
-                    width={216}
-                    height={84}
-                    className="me-2 mb-2 mbl-design"
-                  />
-                  <Image
-                    src="/images/native.png"
-                    alt="Nativescript-mobile-app-development-image"
-                    width={185}
-                    height={84}
-                    className="me-2 mb-2 native-img mbl-design"
-                  />
-                  <Image
-                    src="/images/js.png"
-                    alt="Javascript-mobile-app-development-image"
-                    width={216}
-                    height={84}
-                    className="me-2 mb-2 mbl-design"
-                  />
-                  <Image
-                    src="/images/c++.png"
-                    alt="C++-mobile-app-development-image"
-                    width={216}
-                    height={84}
-                    className="me-2 mb-2 mbl-design"
-                  />
-                </div>
-              </div>
-              <div className="col-lg-5 col-md-4">
-                <h5 className="tech-kariot-sub py-3">Design</h5>
-                <div className="tech-img-container">
-                  <Image
-                    src="/images/photoshop.png"
-                    alt="photoshop"
-                    width={216}
-                    height={84}
-                    className="me-2 mb-2 mbl-design"
-                  />
-                  <Image
-                    src="/images/figma.png"
-                    alt="figma"
-                    width={216}
-                    height={84}
-                    className="me-2 mb-2 mbl-design"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className="xabe-cta">
-          <div className="container">
-            <Card className="kariot-cta my-5">
-              <Card.Body className="mbl-card-body">
-                <div className="row">
-                  <div className="col-lg-7 col-md-12 col-12 xaber-card-col">
-                    <Stack direction="horizontal">
-                      <div className=" badge-kariot-btn mb-3">
-                        <img
-                          src="/images/Rectangle-kariot.png"
-                          className="me-2"
-                          alt="design-dot"
-                        />
-                        <p> GET IN TOUCH</p>
-                      </div>
-                    </Stack>
-                    <h2 className="mblcta-heading pt-2">
-                      Wanna Develop a Mobile Application? Contact us Now!
-                    </h2>
-                    <button className="karcta-button btn-lg btn-info mt-3">
-                      Get In Touch{" "}
-                      <span className="icon">
-                        {" "}
-                        <img
-                          src="/images/arrowiconblue.png"
-                          alt="arrow-icon"
-                        />{" "}
-                      </span>
+                    <button type="submit" className="w-full rounded-2xl bg-white/90 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-slate-900 transition hover:bg-white">
+                      Book a consultation
                     </button>
-                  </div>
+                  </form>
                 </div>
-              </Card.Body>
-            </Card>
+              </div>
+            </div>
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {overviewStats.map(({ label, value }) => (
+                <div key={label} className="rounded-3xl border border-slate-100 bg-slate-50 p-6 shadow-inner">
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">{label}</p>
+                  <p className="mt-2 text-lg font-semibold text-slate-900">{value}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
-        <section id="kariot-case-carousel">
-          <div className="container kariot-case-container">
-            <Stack direction="horizontal">
-              <div className=" badge-kariot-btn">
-                <img
-                  src="/images/Rectangle-kariot.png"
-                  className="me-2"
-                  alt="design-dot"
-                />
-                <p> RELATED CASE STUDIES</p>
-              </div>
-            </Stack>
-            <h2 className="case-kariot-heading pt-4">
-              Read About The Challenges We Faced and How We Helped Our Clients
-              Achieve Their Goals.
-            </h2>
-            <Carousel
-              className="case-carousel"
-              activeIndex={index}
-              onSelect={handleSelect}
-              indicators={false}
-              interval={null}
-              controls={false}
-            >
-              <Carousel.Item>
-                <div className="row py-5">
-                  <div className="col-lg-6 col-md-6">
-                    <Card className="case-carousel-card">
-                      <Card.Header className="case-carousel-header">
-                        <img src="/images/Group3001.png"  alt=""/>
-                      </Card.Header>
-                      <Card.Body className="case-carousel-body">
-                        <h3 className="case-carousel-heading">Ezyhelpers</h3>
-                        <p className="case-carousel-para justify-content-center">
-                          Quisque a pretium nulla, at porttitor eros. Mauris
-                          pharetra nisl sit amet mauris efficitur malesuada.
-                        </p>
-                        <Link className="case-carousel-link" href="#">
-                          Read Case Study <FaLongArrowAltRight />
-                        </Link>
-                      </Card.Body>
-                    </Card>
+
+        <section className="bg-slate-50">
+          <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+            <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {counters.map((metric) => (
+                  <div key={metric.label} className="rounded-3xl border border-white/60 bg-white p-6 text-center shadow-lg shadow-slate-900/5">
+                    <p className="text-3xl font-semibold text-slate-900">
+                      {counterOn && <CountUp start={0} end={metric.end} duration={2} delay={0} />}
+                      <span className="ml-1 text-2xl">{metric.suffix}</span>
+                    </p>
+                    <p className="mt-2 text-sm uppercase tracking-[0.3em] text-slate-500">{metric.label}</p>
                   </div>
-                  <div className="col-lg-6 col-md-6">
-                    <Card className="case-carousel-card">
-                      <Card.Header className="case-carousel-header">
-                        <img src="/images/Group3002.png"  alt=""/>
-                      </Card.Header>
-                      <Card.Body className="case-carousel-body">
-                        <h3 className="case-carousel-heading">Xaber</h3>
-                        <p className="case-carousel-para justify-content-center">
-                          Quisque a pretium nulla, at porttitor eros. Mauris
-                          pharetra nisl sit amet mauris efficitur malesuada.
-                        </p>
-                        <Link
-                          className="case-carousel-link"
-                          href="/portfolio/xaber-case-study"
-                          passHref
-                        >
-                          Read Case Study <FaLongArrowAltRight />
-                        </Link>
-                      </Card.Body>
-                    </Card>
-                  </div>
-                </div>
-              </Carousel.Item>
-              <Carousel.Item>
-                <div className="row py-5">
-                  <div className="col-lg-6 col-md-6">
-                    <Card className="case-carousel-card">
-                      <Card.Header className="case-carousel-header">
-                        <img src="/images/Group3001.png"  alt=""/>
-                      </Card.Header>
-                      <Card.Body className="case-carousel-body">
-                        <h3 className="case-carousel-heading">Ezyhelpers</h3>
-                        <p className="case-carousel-para justify-content-center">
-                          Quisque a pretium nulla, at porttitor eros. Mauris
-                          pharetra nisl sit amet mauris efficitur malesuada.
-                        </p>
-                        <Link className="case-carousel-link" href="#">
-                          Read Case Study <FaLongArrowAltRight />
-                        </Link>
-                      </Card.Body>
-                    </Card>
-                  </div>
-                  <div className="col-lg-6 col-md-6">
-                    <Card className="case-carousel-card">
-                      <Card.Header className="case-carousel-header">
-                        <img src="/images/Group3002.png"  alt=""/>
-                      </Card.Header>
-                      <Card.Body className="case-carousel-body">
-                        <h3 className="case-carousel-heading">Xaber</h3>
-                        <p className="case-carousel-para justify-content-center">
-                          Quisque a pretium nulla, at porttitor eros. Mauris
-                          pharetra nisl sit amet mauris efficitur malesuada.
-                        </p>
-                        <Link
-                          className="case-carousel-link"
-                          href="/portfolio/xaber-case-study"
-                          passHref
-                        >
-                          Read Case Study <FaLongArrowAltRight />
-                        </Link>
-                      </Card.Body>
-                    </Card>
-                  </div>
-                </div>
-              </Carousel.Item>
-              <Carousel.Item>
-                <div className="row py-5">
-                  <div className="col-lg-6 col-md-6">
-                    <Card className="case-carousel-card">
-                      <Card.Header className="case-carousel-header">
-                        <img src="/images/Group3001.png"  alt=""/>
-                      </Card.Header>
-                      <Card.Body className="case-carousel-body">
-                        <h3 className="case-carousel-heading">Ezyhelpers</h3>
-                        <p className="case-carousel-para justify-content-center">
-                          Quisque a pretium nulla, at porttitor eros. Mauris
-                          pharetra nisl sit amet mauris efficitur malesuada.
-                        </p>
-                        <Link className="case-carousel-link" href="#">
-                          Read Case Study <FaLongArrowAltRight />
-                        </Link>
-                      </Card.Body>
-                    </Card>
-                  </div>
-                  <div className="col-lg-6 col-md-6">
-                    <Card className="case-carousel-card">
-                      <Card.Header className="case-carousel-header">
-                        <img src="/images/Group3002.png"  alt=""/>
-                      </Card.Header>
-                      <Card.Body className="case-carousel-body">
-                        <h3 className="case-carousel-heading">Xaber</h3>
-                        <p className="case-carousel-para justify-content-center">
-                          Quisque a pretium nulla, at porttitor eros. Mauris
-                          pharetra nisl sit amet mauris efficitur malesuada.
-                        </p>
-                        <Link
-                          className="case-carousel-link"
-                          href="/portfolio/xaber-case-study"
-                          passHref
-                        >
-                          Read Case Study <FaLongArrowAltRight />
-                        </Link>
-                      </Card.Body>
-                    </Card>
-                  </div>
-                </div>
-              </Carousel.Item>
-              <ol className="carousel-indicators">
-                {slides.map((slide, i) => (
-                  <li
-                    className={`carousel-indicator ${
-                      i === index ? "active" : ""
-                    }`}
-                    key={i}
-                    data-slide-to={i}
-                    onClick={(e) => handleSelect(i, e)}
-                  />
                 ))}
-              </ol>
-            </Carousel>
+              </div>
+            </ScrollTrigger>
+          </div>
+        </section>
+
+        <section className="bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+              <Image src="/images/Rectangle-kariot.png" width={15} height={15} alt="" loading="lazy" />
+              The Challenge
+            </div>
+            <h2 className="mt-4 text-3xl font-semibold text-slate-900">Building an extensive social network of the future</h2>
+            <p className="mt-4 text-lg text-slate-600">
+              Mocial is a social mobility platform operating through web and mobile applications. It fulfils the 360-degree requirement of an internet channel for community and financial sectors.
+            </p>
+            <Image src="/images/mocial-work-bg.png" width={900} height={420} alt="Mocial infographic" className="mt-6 w-full rounded-2xl" />
+            <div className="mt-6 space-y-3 text-sm text-slate-600">
+              {problemParagraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-slate-50">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="grid gap-10 lg:grid-cols-[1fr,1fr]">
+              <Image src="/images/mocial-screens.png" width={658} height={860} alt="Mocial screens" className="w-full rounded-2xl" />
+              <div className="space-y-4 text-lg text-slate-600">
+                <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+                  <Image src="/images/Rectangle-kariot.png" width={15} height={15} alt="" loading="lazy" />
+                  The Solution
+                </div>
+                <h2 className="text-3xl font-semibold text-slate-900">An all-in-one platform that scales with your brand</h2>
+                <p>
+                  Upload photos, post updates, share posts, and create group chats. Receive notifications for every engagement, organise media, broadcast live, and run brand campaigns—all supported by a scalable DevOps backbone.
+                </p>
+                <ul className="space-y-3 text-sm text-slate-600">
+                  {solutionHighlights.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <ArrowRightIcon width={18} height={18} className="mt-1 text-brand" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-semibold text-slate-900">Platform Highlights</h2>
+            <div className="mt-8 grid gap-6 md:grid-cols-2">
+              {productHighlights.map((section) => (
+                <div key={section.title} className="rounded-3xl border border-slate-100 bg-slate-50 p-6 shadow-inner">
+                  <h3 className="text-xl font-semibold text-slate-900">{section.title}</h3>
+                  <ul className="mt-3 space-y-2 text-sm text-slate-600">
+                    {section.bullets.map((bullet) => (
+                      <li key={bullet} className="flex items-start gap-2">
+                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-brand" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-slate-50">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-semibold text-slate-900">Tools & Technology</h2>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {techLogos.map((logo) => (
+                <div key={logo.alt} className="rounded-3xl border border-slate-100 bg-white p-4 shadow-inner">
+                  <Image src={logo.src} width={140} height={60} alt={logo.alt} className="h-10 w-auto object-contain" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-semibold text-slate-900">Snapshots of the experience</h2>
+            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                "/images/mocial-img.png",
+                "/images/mocial-screens.png",
+                "/images/mocial-work-bg.png",
+              ].map((shot) => (
+                <div key={shot} className="rounded-3xl border border-slate-100 bg-slate-50 p-4 shadow-inner">
+                  <Image src={shot} width={360} height={640} alt="Mocial UI" className="w-full rounded-2xl" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-slate-900">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="rounded-[32px] border border-white/10 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 p-8 shadow-2xl">
+              <div className="grid gap-8 lg:grid-cols-2">
+                <div>
+                  <h3 className="text-3xl font-semibold text-white">Ready to build your next digital solution?</h3>
+                  <p className="mt-4 text-lg text-slate-200">Partner with Trimsel to launch social media and community-first products that scale.</p>
+                  <Link
+                    href="/contact-us"
+                    className="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-slate-900 shadow-lg shadow-white/20 transition hover:bg-slate-100"
+                  >
+                    Get in touch
+                    <ArrowRightIcon width={18} height={18} />
+                  </Link>
+                </div>
+                <Image src="/images/ezycta.png" width={520} height={360} alt="CTA graphic" className="w-full" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+              <Image src="/images/Rectangle-kariot.png" width={18} height={18} alt="" loading="lazy" />
+              Related Case Studies
+            </div>
+            <h2 className="mt-4 text-3xl font-semibold text-slate-900">Read how we help ambitious teams ship faster.</h2>
+            <div className="mt-8 grid gap-6 md:grid-cols-2">
+              {relatedStudies.map((study) => (
+                <article key={study.title} className="rounded-3xl border border-slate-100 bg-slate-50 p-6 shadow-inner">
+                  <div className="flex items-center justify-between">
+                    <Image src={study.logo} width={120} height={60} alt={`${study.title} logo`} />
+                    <ArrowRightIcon width={20} height={20} className="text-slate-400" />
+                  </div>
+                  <h3 className="mt-4 text-2xl font-semibold text-slate-900">{study.title}</h3>
+                  <p className="mt-3 text-sm text-slate-600">{study.description}</p>
+                  <Link href={study.href} className="mt-5 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.3em] text-brand">
+                    Read Case Study
+                    <ArrowRightIcon width={18} height={18} />
+                  </Link>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 

@@ -15,16 +15,20 @@ const ContactForm = dynamic(() => import("../components/ContactForm"), { ssr: fa
 const ClientLogo = dynamic(() => import("../components/clientLogo"), {
   ssr: false,
   loading: () => (
-    <div className="text-center w-100 py-5" role="status" aria-live="polite">
-      <span className="spinner-border text-primary" aria-hidden="true"></span>
-      <span className="ms-2">Loading client logos…</span>
+    <div className="flex w-full flex-col items-center justify-center gap-3 py-10 text-sm text-slate-500" role="status" aria-live="polite">
+      <span className="inline-block h-8 w-8 animate-spin rounded-full border-2 border-brand border-t-transparent" aria-hidden="true" />
+      <span>Loading client logos…</span>
     </div>
   ),
 });
 
 const ScrollSection = dynamic(() => import("../components/ScrollSection"), {
   ssr: false,
-  loading: () => <div className="section text-center text-muted">Loading highlights…</div>,
+  loading: () => (
+    <div className="py-10 text-center text-sm text-slate-500" role="status">
+      Loading highlights…
+    </div>
+  ),
 });
 
 export default function Home() {
