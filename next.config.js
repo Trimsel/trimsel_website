@@ -51,6 +51,11 @@ const nextConfig = {
   async redirects() {
     return [
       { source: '/admin/config.yml', destination: '/admin/config.yml', permanent: false },
+      {
+        source: '/blog/top-10-mobile-app-development-company-in-tirunelveli-1',
+        destination: '/blog/top-10-mobile-app-development-company-in-tirunelveli',
+        permanent: true,
+      },
     ];
   },
 };
