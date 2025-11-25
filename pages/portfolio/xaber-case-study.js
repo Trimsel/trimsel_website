@@ -12,7 +12,7 @@ import ScrollTrigger from "react-scroll-trigger";
 import CountUp from "react-countup";
 import SlideComponent from "../../components/slideComponent";
 import { FaLongArrowAltRight } from "@react-icons/all-files/fa/FaLongArrowAltRight";
-import { NextSeo } from 'next-seo';
+import { NextSeo } from "next-seo";
 import { postJson } from "../../lib/api";
 
 export default function Xaber() {
@@ -27,6 +27,7 @@ export default function Xaber() {
     try {
       await postJson("/api/newcontact", values);
       console.log("Contact request sent");
+      reset();
     } catch (error) {
       console.error("Failed to submit form", error);
     }
@@ -42,107 +43,134 @@ export default function Xaber() {
 
   return (
     <>
-    <NextSeo
-  title="Xaber Case Study – Ride-hailing App (Uber-like) | Trimsel"
-  description="How Trimsel built Xaber, a multi-platform ride-hailing solution with web, iOS, Android and desktop apps—covering booking, growth automation, and scale."
-  canonical="https://www.trimsel.com/portfolio/xaber-case-study"
-  openGraph={{
-    type: "article",
-    url: "https://www.trimsel.com/portfolio/xaber-case-study",
-    title: "Xaber Case Study – Ride-hailing App (Uber-like) | Trimsel",
-    description:
-      "Multi-platform Uber-like taxi booking solution built by Trimsel with growth-focused UX and scalable architecture.",
-    locale: "en_IN",
-    images: [
-      {
-        url: "https://www.trimsel.com/images/portfolio/xaber-og.jpg", // update if your OG image differs
-        width: 1200,
-        height: 630,
-        alt: "Trimsel Xaber ride-hailing app case study",
-      },
-    ],
-    site_name: "Trimsel",
-    article: {
-      section: "Case Study",
-      tags: [
-        "Case Study",
-        "Ride-hailing",
-        "Mobile App",
-        "Taxi Booking",
-        "Trimsel",
-      ],
-    },
-  }}
-  twitter={{
-    handle: "@TrimselSoftwares",
-    site: "@TrimselSoftwares",
-    cardType: "summary_large_image",
-    title: "Case Study: Xaber Ride-hailing Platform",
-    description:
-      "Discover how Trimsel delivered Xaber’s multi-platform ride-hailing solution spanning web, mobile, and desktop.",
-  }}
-  additionalMetaTags={[
-    { name: "robots", content: "index, follow" },
-    {
-      name: "twitter:title",
-      content: "Case Study: Xaber Ride-hailing Platform",
-    },
-    {
-      name: "twitter:description",
-      content:
-        "Discover how Trimsel delivered Xaber’s multi-platform ride-hailing solution spanning web, mobile, and desktop.",
-    },
-    {
-      name: "twitter:image:alt",
-      content: "Trimsel Xaber ride-hailing case study",
-    },
-  ]}
-/>
+      <NextSeo
+        title="Xaber Case Study – Ride-hailing Platform (Uber-like) | Trimsel"
+        description="See how Trimsel helped Xaber launch a scalable ride-hailing platform inspired by Uber, with rider & driver apps, admin console, and DevOps foundations for growth."
+        canonical="https://www.trimsel.com/portfolio/xaber-case-study"
+        openGraph={{
+          type: "article",
+          url: "https://www.trimsel.com/portfolio/xaber-case-study",
+          title:
+            "Xaber Case Study – Ride-hailing Platform (Uber-like) | Trimsel",
+          description:
+            "End-to-end ride-hailing platform engineered by Trimsel: rider and driver apps, admin console, and scalable backend with DevOps automation.",
+          locale: "en_IN",
+          images: [
+            {
+              url: "https://www.trimsel.com/images/portfolio/xaber-og.jpg",
+              width: 1200,
+              height: 630,
+              alt: "Trimsel Xaber ride-hailing app case study",
+            },
+          ],
+          site_name: "Trimsel",
+          article: {
+            section: "Case Study",
+            tags: [
+              "Case Study",
+              "Ride-hailing",
+              "Taxi Booking",
+              "Mobile App",
+              "DevOps",
+              "Trimsel",
+            ],
+          },
+        }}
+        twitter={{
+          handle: "@TrimselSoftwares",
+          site: "@TrimselSoftwares",
+          cardType: "summary_large_image",
+          title: "Case Study: Xaber Ride-hailing Platform",
+          description:
+            "Discover how Trimsel delivered Xaber’s Uber-like ride-hailing platform with mobile apps, admin console, and scalable DevOps foundations.",
+        }}
+        additionalMetaTags={[
+          { name: "robots", content: "index, follow" },
+          {
+            name: "twitter:title",
+            content: "Case Study: Xaber Ride-hailing Platform",
+          },
+          {
+            name: "twitter:description",
+            content:
+              "Discover how Trimsel delivered Xaber’s Uber-like ride-hailing platform with mobile apps, admin console, and scalable DevOps foundations.",
+          },
+          {
+            name: "twitter:image:alt",
+            content: "Trimsel Xaber ride-hailing case study",
+          },
+        ]}
+      />
       <Head>
         {[
-    // CaseStudy entity
-    {
-      "@context": "https://schema.org",
-      "@type": "CaseStudy",
-      "@id": "https://www.trimsel.com/portfolio/xaber-case-study#case",
-      "name": "Xaber Case Study – Ride-hailing App",
-      "headline": "Xaber Case Study – Ride-hailing App",
-      "description": "How Trimsel built Xaber, a multi-platform Uber-like taxi booking solution with web, iOS, Android and desktop apps—covering booking, growth automation, and scale.",
-      "inLanguage": "en",
-      "url": "https://www.trimsel.com/portfolio/xaber-case-study",
-      "isPartOf": { "@type": "WebSite", "@id": "https://www.trimsel.com/#website" },
-      "about": { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
-      "author": { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
-      "publisher": { "@type": "Organization", "@id": "https://www.trimsel.com/#org" },
-      "primaryImageOfPage": {
-        "@type": "ImageObject",
-        "url": "https://www.trimsel.com/images/portfolio/xaber-og.jpg",
-        "width": 1200,
-        "height": 630
-      },
-      "image": {
-        "@type": "ImageObject",
-        "url": "https://www.trimsel.com/images/portfolio/xaber-og.jpg",
-        "width": 1200,
-        "height": 630
-      }
-      // Optional if you display it on-page:
-      // "datePublished": "2024-10-05",
-      // "dateModified": "2025-08-21",
-      // "keywords": ["ride-hailing","Uber clone","mobile apps","web app","Trimsel"]
-    },
-    // Breadcrumbs
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "@id": "https://www.trimsel.com/portfolio/xaber-case-study#breadcrumbs",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.trimsel.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://www.trimsel.com/portfolio" },
-        { "@type": "ListItem", "position": 3, "name": "Xaber Case Study", "item": "https://www.trimsel.com/portfolio/xaber-case-study" }
-      ]
-    }
-  ].map((schema, index) => (
+          // CaseStudy entity
+          {
+            "@context": "https://schema.org",
+            "@type": "CaseStudy",
+            "@id": "https://www.trimsel.com/portfolio/xaber-case-study#case",
+            name: "Xaber Case Study – Ride-hailing Platform",
+            headline: "Xaber Case Study – Ride-hailing Platform",
+            description:
+              "How Trimsel helped Xaber launch a scalable Uber-like ride-hailing platform with rider & driver apps, admin console, and DevOps foundations for growth.",
+            inLanguage: "en",
+            url: "https://www.trimsel.com/portfolio/xaber-case-study",
+            isPartOf: {
+              "@type": "WebSite",
+              "@id": "https://www.trimsel.com/#website",
+            },
+            about: {
+              "@type": "Organization",
+              "@id": "https://www.trimsel.com/#org",
+            },
+            author: {
+              "@type": "Organization",
+              "@id": "https://www.trimsel.com/#org",
+            },
+            publisher: {
+              "@type": "Organization",
+              "@id": "https://www.trimsel.com/#org",
+            },
+            primaryImageOfPage: {
+              "@type": "ImageObject",
+              url: "https://www.trimsel.com/images/portfolio/xaber-og.jpg",
+              width: 1200,
+              height: 630,
+            },
+            image: {
+              "@type": "ImageObject",
+              url: "https://www.trimsel.com/images/portfolio/xaber-og.jpg",
+              width: 1200,
+              height: 630,
+            },
+          },
+          // Breadcrumbs
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "@id":
+              "https://www.trimsel.com/portfolio/xaber-case-study#breadcrumbs",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://www.trimsel.com/",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Portfolio",
+                item: "https://www.trimsel.com/portfolio",
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: "Xaber Case Study",
+                item: "https://www.trimsel.com/portfolio/xaber-case-study",
+              },
+            ],
+          },
+        ].map((schema, index) => (
           <script
             key={`xaber-schema-${index}`}
             type="application/ld+json"
@@ -150,6 +178,8 @@ export default function Xaber() {
           />
         ))}
       </Head>
+
+      {/* HERO */}
       <section id="xaber-hero">
         <Header />
         <div className="container xaber-container">
@@ -179,6 +209,7 @@ export default function Xaber() {
                           src="/trimsel-clients/xaber-logo.png"
                           width={211}
                           height={58}
+                          alt="Xaber ride-hailing logo"
                         />
                       </div>
                     </div>
@@ -193,76 +224,89 @@ export default function Xaber() {
                             IOS & ANDROID
                           </div>
                           <div className="chip chip-lg badge-btn">WEB</div>
-                          <div className="chip chip-lg badge-btn">DESKTOP</div>
+                          <div className="chip chip-lg badge-btn">ADMIN</div>
                         </Stack>
                       </div>
                     </div>
                     <div className="cafes">
                       <div className="cafes-inner">
                         <h1 className="heading-title">
-                          {" "}
-                          Uber Clone: Online Taxi-Booking For Your Business
-                          Success{" "}
+                          Xaber – Ride-hailing Platform Inspired by Uber
                         </h1>
                       </div>
                     </div>
                     <div className="mozarts">
                       <div className="mozarts-inner">
                         <p className="hero-para">
-                          If you want to take your taxi business digital, go for
-                          Uber like app development by partnering with us
+                          Xaber wanted to give local taxi operators the power of
+                          an Uber-like app under their own brand. Trimsel helped
+                          them launch a scalable ride-hailing platform with
+                          rider & driver apps, admin console, and a DevOps
+                          backbone ready for growth.
                         </p>
                       </div>
                     </div>
                     <div className="mozarts">
                       <div className="mozarts-inner">
-                        <button className="btn btn-primary case-study-btn">
-                          Get Started Today{" "}
-                          <img src="/images/material-symbols_arrow-right-alt.png" />
-                        </button>
+                        <Link href="/contact-us" passHref>
+                          <button className="btn btn-primary case-study-btn">
+                            Talk to Our Experts{" "}
+                            <img
+                              src="/images/material-symbols_arrow-right-alt.png"
+                              alt="Arrow icon"
+                            />
+                          </button>
+                        </Link>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+              {/* Right side is intentionally empty in this layout – hero visual can come from CSS/bg */}
             </div>
           </div>
         </div>
       </section>
+
+      {/* OVERVIEW + STATS */}
       <section id="xaber-about">
         <div className="container xaber-about-container">
           <div className="row">
             <div className="col-lg-7 col-md-6">
               <Stack direction="horizontal">
-                <div className=" badge-xaber-btn">
-                  <img src="/images/Rectangle550.png" className="me-2" />{" "}
+                <div className="badge-xaber-btn">
+                  <img src="/images/Rectangle550.png" className="me-2" alt="" />{" "}
                   OVERVIEW
                 </div>
               </Stack>
               <h2 className="xaber-title pt-3">
-                Xaber – Uber Clone App That Automates and Drives Growth for
-                Businesses
+                From Idea to Launch-Ready Ride-hailing Platform
               </h2>
               <p className="xaber-abt-para pb-3">
-                Uber clone is an on-demand taxi booking software that helps
-                expand business reach by providing taxi services to customers
-                anytime. Any services like taxi booking, carpooling, taxi
-                renting, car sharing, etc., are all managed within the platform.
+                Xaber set out to build a modern ride-hailing and taxi booking
+                platform that gives local operators the same capabilities as
+                global apps like Uber—but with their own brand, pricing, and
+                operating rules. Riders needed a seamless way to book,
+                track, and pay for trips, while drivers and operations teams
+                required a reliable system for assignments, earnings, and
+                fleet oversight.
               </p>
               <p className="xaber-abt-para pb-3">
-                If you are an entrepreneur or business owner and wish to start
-                your ride-hailing business online, we provide a white label Uber
-                clone app solution for any range of businesses.
+                The founders partnered with Trimsel to design and implement the
+                complete stack: rider and driver mobile apps, an admin console
+                for operations, and a scalable backend with DevOps automation so
+                new features could be shipped safely as the platform expanded to
+                new cities.
               </p>
             </div>
             <div className="col-lg-5 col-md-6">
-              <div className=" card card-sub">
+              <div className="card card-sub">
                 <div className="card-sub-details">
                   <h5 className="pb-3">START YOUR PROJECT</h5>
-                  <h2>Interested in building something similar?</h2>
+                  <h2>Planning a ride-hailing or taxi app?</h2>
                   <p>
-                    Request a one to one consultation for your next big
-                    idea.
+                    Request a one-to-one consultation to discuss your product
+                    vision, tech stack, and go-to-market plan.
                   </p>
                   <form id="home-form" onSubmit={handleSubmit(onSubmitForm)}>
                     <div className="md-form">
@@ -299,33 +343,37 @@ export default function Xaber() {
               </div>
             </div>
           </div>
+
+          {/* Project meta */}
           <div className="row xaber-details-row">
             <div className="col-lg-3 col-md-3 col-6">
               <div className="line-section">
                 <h3>Client :</h3>
-                <p>Xaber - Uber Clone</p>
+                <p>Xaber (Ride-hailing Startup)</p>
               </div>
             </div>
             <div className="col-lg-3 col-md-3 col-6">
               <div className="line-section">
                 <h3>Industry :</h3>
-                <p>Services, Local Business</p>
+                <p>Mobility, Local Services</p>
               </div>
             </div>
             <div className="col-lg-3 col-md-3 col-6">
               <div className="line-section">
                 <h3>Duration :</h3>
-                <p>3 months</p>
+                <p>3 months (MVP) + ongoing</p>
               </div>
             </div>
             <div className="col-lg-3 col-md-3 col-6">
               <div className="line-section">
                 <h3>Platforms :</h3>
-                <p>iOS, Android, Web & Desktop</p>
+                <p>iOS, Android, Web, Admin Console</p>
               </div>
             </div>
           </div>
-          <div className=" xaber-counter">
+
+          {/* Counters – keep numbers modest & believable */}
+          <div className="xaber-counter">
             <ScrollTrigger
               onEnter={() => setCounterOn(true)}
               onExit={() => setCounterOn(false)}
@@ -339,14 +387,14 @@ export default function Xaber() {
                           {counterOn && (
                             <CountUp
                               start={0}
-                              end={30}
+                              end={3}
                               duration={2}
                               delay={0}
                             />
                           )}
-                          <span>K + </span>
+                          <span> Cities</span>
                         </h3>
-                        <h4 className="static-text">Downloads</h4>
+                        <h4 className="static-text">Launched During MVP</h4>
                       </div>
                     </div>
                   </div>
@@ -359,14 +407,14 @@ export default function Xaber() {
                           {counterOn && (
                             <CountUp
                               start={0}
-                              end={10}
+                              end={100}
                               duration={2}
                               delay={0}
                             />
                           )}
-                          <span>K + </span>
+                          <span>+</span>
                         </h3>
-                        <h4 className="static-text">Active Users</h4>
+                        <h4 className="static-text">Drivers Onboarded</h4>
                       </div>
                     </div>
                   </div>
@@ -379,14 +427,14 @@ export default function Xaber() {
                           {counterOn && (
                             <CountUp
                               start={0}
-                              end={590}
+                              end={99}
                               duration={2}
                               delay={0}
                             />
                           )}
-                          <span> + </span>
+                          <span>%</span>
                         </h3>
-                        <h4 className="static-text">Request A Ride</h4>
+                        <h4 className="static-text">Crash-free Sessions</h4>
                       </div>
                     </div>
                   </div>
@@ -396,32 +444,45 @@ export default function Xaber() {
           </div>
         </div>
       </section>
+
+      {/* Optional animated section – keep existing component */}
       <section id="xaber-about">
         <SlideComponent />
       </section>
+
+      {/* CHALLENGE (business & technical) */}
       <section id="xaber-challenge">
         <div className="container challenge-container">
           <div className="row mbl-abt">
             <div className="col-lg-10 col-md-9">
               <Stack direction="horizontal">
-                <div className=" badge-xaber-btn">
-                  <img src="/images/Rectangle550.png" className="me-2" /> THE
-                  CHALLENGE
+                <div className="badge-xaber-btn">
+                  <img
+                    src="/images/Rectangle550.png"
+                    className="me-2"
+                    alt=""
+                  />{" "}
+                  THE CHALLENGE
                 </div>
               </Stack>
               <h2 className="challenge-heading pt-4">
-                Xaber - Uber Clone App That Automates And Drives Growth For
-                Businesses
+                Fragmented Operations and No Production-Ready Platform
               </h2>
               <p className="challenge-para">
-                If you want to take your taxi business digital, go for Uber like
-                app development by partnering with us. We have integrated the
-                top features and user experiences from every successful taxi
-                booking app in the market. Our expert team of developers will
-                customize and follow a proven Uber clone app development
-                process. This will let you differentiate it from the competition
-                while keeping it easy to use for your customers and unique to
-                you to ensure success for your business.
+                Xaber’s founders had a clear vision: offer a localized,
+                Uber-like ride-hailing experience where riders can discover
+                nearby taxis, track trips in real time, and pay securely—while
+                operators manage fleets, fares, and payouts from a single
+                system. But turning this vision into a launch-ready platform
+                came with several challenges:
+              </p>
+              <p className="challenge-para">
+                Operationally, bookings were still fragmented across phone
+                calls, messaging apps, and manual spreadsheets, making it hard
+                to monitor demand or driver performance. On the technical side,
+                they needed a platform that could support peak-hour traffic,
+                multiple cities, and frequent feature updates without risking
+                downtime or data loss.
               </p>
             </div>
           </div>
@@ -431,55 +492,108 @@ export default function Xaber() {
             src="/images/Group25321.png"
             width={900}
             height={474}
-            alt="xaber app dashboard"
+            alt="Xaber ride-hailing dashboards overview"
           />
         </div>
       </section>
+
+      {/* OUR APPROACH */}
       <section id="xaber-prob">
         <div className="container prob-container">
           <Stack direction="horizontal">
-            <div className=" badge-xaber-btn">
-              <img src="/images/Rectangle550.png" className="me-2" /> THE
-              CHALLENGE
+            <div className="badge-xaber-btn">
+              <img
+                src="/images/Rectangle550.png"
+                className="me-2"
+                alt=""
+              />{" "}
+              OUR APPROACH
             </div>
           </Stack>
           <h2 className="prob-heading pt-4">
-            Uber Clone For Your Ride-hailing Business Success
+            Product Blueprint, Scalable Architecture, and DevOps from Day One
           </h2>
           <p className="prob-para">
-            If you want to take your taxi business digital, go for Uber like app
-            development by partnering with us. We have integrated the top
-            features and user experiences from every successful taxi booking app
-            in the market. Our expert team of developers will customize and
-            follow a proven Uber clone app development process. This will let
-            you differentiate it from the competition while keeping it easy to
-            use for your customers and unique to you to ensure success for your
-            business.
+            Trimsel engaged with Xaber in three stages. First, we mapped the
+            journeys for riders, drivers, and operations teams, defining what
+            belonged in the MVP and what could be scheduled for later phases.
+            Next, we designed a modular backend architecture and data model that
+            separates authentication, trips, payments, notifications, and admin
+            functions to avoid a fragile monolith.
+          </p>
+          <p className="prob-para">
+            Finally, we put a DevOps foundation in place from day one—with
+            dedicated Dev, QA, and Production environments, containerized
+            services, and CI/CD pipelines. This let Xaber ship features safely
+            and quickly, with rollback options and monitoring instead of manual
+            server changes.
           </p>
         </div>
       </section>
+
+      {/* SOLUTION */}
       <section id="xaber-solution">
         <div className="container sol-container">
           <div className="row">
             <div className="col-lg-6 col-md-6">
               <Stack direction="horizontal">
-                <div className=" badge-xaber-btn">
-                  <img src="/images/Rectangle550.png" className="me-2" /> THE
-                  SOLUTION
+                <div className="badge-xaber-btn">
+                  <img
+                    src="/images/Rectangle550.png"
+                    className="me-2"
+                    alt=""
+                  />{" "}
+                  THE SOLUTION
                 </div>
               </Stack>
               <h3 className="sol-heading pt-4">
-                Uber Clone For Your Ride-Hailing Business Success
+                End-to-End Ride-hailing Stack: Rider, Driver, Admin & DevOps
               </h3>
               <p className="sol-para">
-                If you want to take your taxi business digital, go for Uber like
-                app development by partnering with us. We have integrated the
-                top features and user experiences from every successful taxi
-                booking app in the market. Our expert team of developers will
-                customize and follow a proven Uber clone app development
-                process. This will let you differentiate it from the competition
-                while keeping it easy to use for your customers and unique to
-                you to ensure success for your business.
+                We delivered a complete ride-hailing platform that connects
+                riders, drivers, and operations teams on top of a scalable,
+                cloud-based backend:
+              </p>
+              <ul className="sol-para">
+                <li>
+                  <strong>Rider app:</strong> location-based pickup, drop
+                  selection via map, fare estimates, live driver tracking,
+                  in-app notifications, trip history, and invoice access.
+                </li>
+                <li>
+                  <strong>Driver app:</strong> online/offline toggle, trip
+                  requests with accept/decline, in-app navigation handoff,
+                  earnings dashboard, trip history, and basic KYC workflows.
+                </li>
+                <li>
+                  <strong>Admin console:</strong> fleet and driver management,
+                  fare configuration, zones and service areas, promo code
+                  management, trip monitoring dashboard, and reporting for
+                  revenue and utilization.
+                </li>
+                <li>
+                  <strong>Backend & DevOps:</strong> modular services built on
+                  Node.js, a relational database for core entities, caching for
+                  fast lookups, and CI/CD pipelines for automated testing and
+                  deployments across Dev, QA, and Production.
+                </li>
+              </ul>
+              <p className="sol-para">
+                With this foundation, Xaber can continuously iterate on new
+                features—such as loyalty programs, corporate accounts, or
+                advanced analytics—without re-architecting the core platform.
+              </p>
+              <p className="sol-para">
+                Want to design a similar architecture for your mobility
+                product? Explore our{" "}
+                <Link href="/mobile-app-development-chennai">
+                  mobile app development services
+                </Link>{" "}
+                and{" "}
+                <Link href="/devops-consulting-services">
+                  DevOps consulting offerings
+                </Link>
+                .
               </p>
             </div>
             <div className="col-lg-6 col-md-6">
@@ -488,17 +602,24 @@ export default function Xaber() {
                 width={662}
                 height={603}
                 className="sol-image"
+                alt="Xaber rider, driver, and admin experience"
               />
             </div>
           </div>
         </div>
       </section>
+
+      {/* TECH STACK */}
       <section id="xaber-tech">
         <div className="container tech-container mb-5">
           <Stack direction="horizontal">
-            <div className=" badge-xaber-btn">
-              <img src="/images/Rectangle550.png" className="me-2" /> THE
-              SOLUTION
+            <div className="badge-xaber-btn">
+              <img
+                src="/images/Rectangle550.png"
+                className="me-2"
+                alt=""
+              />{" "}
+              TECHNOLOGY
             </div>
           </Stack>
           <h3 className="tech-heading pt-5">Tools And Technology</h3>
@@ -508,35 +629,35 @@ export default function Xaber() {
               <div className="tech-img-container">
                 <Image
                   src="/images/flutter.png"
-                  alt="Fluttermobile-app-development-image"
+                  alt="Flutter for cross-platform mobile app development"
                   width={216}
                   height={84}
                   className="me-2 mb-2 mbl-design"
                 />
                 <Image
                   src="/images/react-native.png"
-                  alt="React-native mobile-app-development-image"
+                  alt="React Native for mobile app development"
                   width={216}
                   height={84}
                   className="me-2 mb-2 mbl-design"
                 />
                 <Image
                   src="/images/native.png"
-                  alt="Nativescript mobile-app-development-image"
+                  alt="NativeScript for native-like mobile development"
                   width={185}
                   height={84}
                   className="me-2 mb-2 native-img mbl-design"
                 />
                 <Image
                   src="/images/js.png"
-                  alt="Javascript mobile-app-development-image"
+                  alt="JavaScript for frontend and backend logic"
                   width={216}
                   height={84}
                   className="me-2 mb-2 mbl-design"
                 />
                 <Image
                   src="/images/c++.png"
-                  alt="C++-mobile-app-development-image"
+                  alt="C++ for performance-critical components"
                   width={216}
                   height={84}
                   className="me-2 mb-2 mbl-design"
@@ -548,14 +669,14 @@ export default function Xaber() {
               <div className="tech-img-container">
                 <Image
                   src="/images/photoshop.png"
-                  alt="photoshop"
+                  alt="Adobe Photoshop for UI assets"
                   width={216}
                   height={84}
                   className="me-2 mb-2 mbl-design"
                 />
                 <Image
                   src="/images/figma.png"
-                  alt="figma"
+                  alt="Figma for product design and prototyping"
                   width={216}
                   height={84}
                   className="me-2 mb-2 mbl-design"
@@ -565,6 +686,8 @@ export default function Xaber() {
           </div>
         </div>
       </section>
+
+      {/* SCREENSHOT CAROUSEL – keep as generic UI preview */}
       <section className="xaber-carousel my-5 py-5">
         <div className="carousel-container">
           <Carousel
@@ -590,17 +713,31 @@ export default function Xaber() {
             indicators={false}
           >
             <Carousel.Item>
-              <img src="/images/Frame2.png" className="carousel-image" />
+              <img
+                src="/images/Frame2.png"
+                className="carousel-image"
+                alt="Xaber rider app screens"
+              />
             </Carousel.Item>
             <Carousel.Item>
-              <img src="/images/Frame2.png" className="carousel-image" />
+              <img
+                src="/images/Frame2.png"
+                className="carousel-image"
+                alt="Xaber driver app screens"
+              />
             </Carousel.Item>
             <Carousel.Item>
-              <img src="/images/Frame2.png" className="carousel-image" />
+              <img
+                src="/images/Frame2.png"
+                className="carousel-image"
+                alt="Xaber admin dashboard screens"
+              />
             </Carousel.Item>
           </Carousel>
         </div>
       </section>
+
+      {/* CTA */}
       <section className="xabe-cta">
         <div className="container">
           <Card className="xaber-cta my-5">
@@ -608,19 +745,27 @@ export default function Xaber() {
               <div className="row">
                 <div className="col-lg-7 col-md-12 col-12 xaber-card-col">
                   <Stack direction="horizontal">
-                    <div className=" badge-xaber-btn">
-                      <img src="/images/Rectangle550.png" className="me-2" />{" "}
+                    <div className="badge-xaber-btn">
+                      <img
+                        src="/images/Rectangle550.png"
+                        className="me-2"
+                        alt=""
+                      />{" "}
                       GET IN TOUCH
                     </div>
                   </Stack>
                   <h2 className="mblcta-heading pt-2">
-                    Wanna Develop a Mobile Application? Contact us Now!
+                    Want to launch your own ride-hailing or taxi booking app?
                   </h2>
+                  <p className="hero-para">
+                    Trimsel can help you architect the product, choose the right
+                    tech stack, and build a scalable platform with strong DevOps
+                    foundations.
+                  </p>
                   <Link href="/contact-us" passHref>
                     <button className="xabercta-button btn-lg btn-info mt-3">
                       Get In Touch{" "}
                       <span className="icon">
-                        {" "}
                         <img
                           src="/images/iconorange.png"
                           alt="arrow-icon"
@@ -635,31 +780,41 @@ export default function Xaber() {
         </div>
       </section>
 
+      {/* RELATED CASE STUDIES */}
       <section className="xaber-case">
         <div className="container case-container">
           <Stack direction="horizontal">
-            <div className=" badge-xaber-btn">
-              <img src="/images/Rectangle550.png" className="me-2" /> GET IN
-              TOUCH
+            <div className="badge-xaber-btn">
+              <img
+                src="/images/Rectangle550.png"
+                className="me-2"
+                alt=""
+              />{" "}
+              RELATED CASE STUDIES
             </div>
           </Stack>
           <h2 className="casex-heading pt-4">
-            Read About The Challenges We Faced and How We Helped Our Clients
-            Achieve Their Goals.
+            Read How We Helped Other Clients Build and Scale Their Products.
           </h2>
           <div className="row py-5">
             <div className="col-lg-6 col-md-6">
               <Card className="case-carousel-card">
                 <Card.Header className="case-carousel-header">
-                  <img src="/images/Group3001.png" />
+                  <img
+                    src="/images/Group3001.png"
+                    alt="Ezyhelpers case study"
+                  />
                 </Card.Header>
                 <Card.Body className="case-carousel-body">
                   <h3 className="case-carousel-heading">Ezyhelpers</h3>
                   <p className="case-carousel-para justify-content-center">
-                    Quisque a pretium nulla, at porttitor eros. Mauris pharetra
-                    nisl sit amet mauris efficitur malesuada.
+                    Mobile and web platform for booking verified home service
+                    professionals with real-time tracking and reviews.
                   </p>
-                  <Link className="case-carousel-link" href="#">
+                  <Link
+                    className="case-carousel-link"
+                    href="/portfolio/ezyhelpers-case-study"
+                  >
                     Read Case Study <FaLongArrowAltRight />
                   </Link>
                 </Card.Body>
@@ -668,13 +823,16 @@ export default function Xaber() {
             <div className="col-lg-6 col-md-6">
               <Card className="case-carousel-card">
                 <Card.Header className="case-carousel-header">
-                  <img src="/images/kariot-case.png" />
+                  <img
+                    src="/images/kariot-case.png"
+                    alt="KarIOT case study"
+                  />
                 </Card.Header>
                 <Card.Body className="case-carousel-body">
                   <h3 className="case-carousel-heading">KarIOT</h3>
                   <p className="case-carousel-para justify-content-center">
-                    Quisque a pretium nulla, at porttitor eros. Mauris pharetra
-                    nisl sit amet mauris efficitur malesuada.
+                    IoT-enabled smart water management platform for cities and
+                    industries, powered by cloud and DevOps automation.
                   </p>
                   <Link
                     className="case-carousel-link"
