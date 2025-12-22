@@ -1,4 +1,4 @@
-import { TagName } from './Tag';
+import { TagName } from "./Tag";
 
 export interface MetaData {
   title: string;

@@ -27,6 +27,20 @@ module.exports = {
         md: '12px',
         lg: '18px',
       },
+      animation: {
+        'logo-marquee-ltr': 'marquee-ltr 30s linear infinite',
+        'logo-marquee-rtl': 'marquee-rtl 30s linear infinite',
+      },
+      keyframes: {
+        'marquee-ltr': {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        'marquee-rtl': {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0%)' },
+        },
+      },
     },
   },
   plugins: [],

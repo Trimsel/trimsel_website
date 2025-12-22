@@ -60,9 +60,7 @@ export default function Blog({ posts }) {
   const categoryTags = useMemo(
     () =>
       Array.from(
-        new Set(
-          posts.flatMap((post) => post.frontmatter?.tags ?? [])
-        )
+        new Set(posts.flatMap((post) => post.frontmatter?.tags ?? []))
       ).filter(Boolean),
     [posts]
   );
@@ -132,7 +130,7 @@ export default function Blog({ posts }) {
             <div className="mt-10 grid gap-10 lg:grid-cols-[1.7fr,1fr]">
               <div className="space-y-6">
                 <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.5em] text-brand">
+                  <p className="text-sm font-semibold uppercase tracking-[0.5em] text-brand mt-5">
                     Insights
                   </p>
                   <h1 className="mt-4 text-4xl font-semibold leading-tight md:text-5xl">
@@ -140,8 +138,9 @@ export default function Blog({ posts }) {
                   </h1>
                 </div>
                 <p className="text-lg text-white/80">
-                  All the latest news, playbooks, and experiments from Trimsel&apos;s
-                  product engineers, strategists, and growth partners.
+                  All the latest news, playbooks, and experiments from
+                  Trimsel&apos;s product engineers, strategists, and growth
+                  partners.
                 </p>
               </div>
               <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-inner">
@@ -181,7 +180,7 @@ export default function Blog({ posts }) {
                   </h2>
                   {sliderLength > 0 && (
                     <p className="text-sm font-semibold text-slate-500">
-                      {String(activeIndex + 1).padStart(2, "0")} / {" "}
+                      {String(activeIndex + 1).padStart(2, "0")} /{" "}
                       {String(sliderLength).padStart(2, "0")}
                     </p>
                   )}
@@ -191,7 +190,9 @@ export default function Blog({ posts }) {
                     <div className="overflow-hidden rounded-2xl">
                       <div
                         className="flex transition-transform duration-500 ease-out"
-                        style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+                        style={{
+                          transform: `translateX(-${activeIndex * 100}%)`,
+                        }}
                       >
                         {sliderPosts.map((post) => (
                           <Link
@@ -210,11 +211,16 @@ export default function Blog({ posts }) {
                                 />
                               </div>
                               <div className="mt-6 flex flex-wrap gap-2">
-                                {post.frontmatter.tags.slice(0, 2).map((tag) => (
-                                  <span key={`${post.slug}-tag-${tag}`} className={tagPillClasses}>
-                                    {tag}
-                                  </span>
-                                ))}
+                                {post.frontmatter.tags
+                                  .slice(0, 2)
+                                  .map((tag) => (
+                                    <span
+                                      key={`${post.slug}-tag-${tag}`}
+                                      className={tagPillClasses}
+                                    >
+                                      {tag}
+                                    </span>
+                                  ))}
                               </div>
                               <div className="mt-4 space-y-2">
                                 <h3 className="text-2xl font-semibold text-slate-900">
@@ -262,7 +268,8 @@ export default function Blog({ posts }) {
                   </div>
                 ) : (
                   <p className="mt-6 text-sm text-slate-500">
-                    New insights are on the way. Check back soon for fresh posts.
+                    New insights are on the way. Check back soon for fresh
+                    posts.
                   </p>
                 )}
               </div>
@@ -307,7 +314,10 @@ export default function Blog({ posts }) {
                         <div className="flex flex-1 flex-col">
                           <div className="flex flex-wrap gap-2">
                             {post.frontmatter.tags.slice(0, 1).map((tag) => (
-                              <span key={`${post.slug}-recent-${tag}`} className={tagPillClasses}>
+                              <span
+                                key={`${post.slug}-recent-${tag}`}
+                                className={tagPillClasses}
+                              >
                                 {tag}
                               </span>
                             ))}
@@ -322,7 +332,9 @@ export default function Blog({ posts }) {
                       </Link>
                     ))
                   ) : (
-                    <p className="text-sm text-slate-500">No recent posts yet.</p>
+                    <p className="text-sm text-slate-500">
+                      No recent posts yet.
+                    </p>
                   )}
                 </div>
               </div>
@@ -363,7 +375,10 @@ export default function Blog({ posts }) {
                     </div>
                     <div className="mt-4 flex flex-wrap gap-2">
                       {post.frontmatter.tags.slice(0, 2).map((tag) => (
-                        <span key={`${post.slug}-grid-${tag}`} className={tagPillClasses}>
+                        <span
+                          key={`${post.slug}-grid-${tag}`}
+                          className={tagPillClasses}
+                        >
                           {tag}
                         </span>
                       ))}

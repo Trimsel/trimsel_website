@@ -3,7 +3,9 @@
 @tailwind utilities;
 
 /* Global Reset / Base */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -14,7 +16,14 @@ html {
 
 body {
   margin: 0;
-  font-family: var(--font-body, system-ui, -apple-system, Segoe UI, Roboto, sans-serif);
+  font-family: var(
+    --font-body,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    sans-serif
+  );
   color: var(--color-text, #2b2d33);
   line-height: 1.7;
   background-color: var(--color-surface, #fff);
@@ -32,8 +41,8 @@ body {
   --color-text: #1f2330;
   --color-heading: #111827;
   --color-muted: #6b7280;
-  --color-primary: #0059ff;
-  --color-primary-dark: #0041bf;
+  --color-primary: #ffffff;
+  --color-primary-dark: none;
   --color-surface: #ffffff;
   --color-surface-alt: #f6f8fb;
   --color-border: #e5e7eb;
@@ -70,7 +79,12 @@ body {
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   color: var(--color-heading);
   font-weight: 700;
@@ -78,14 +92,37 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 0 var(--space-2);
 }
 
-h1 { font-size: var(--step-5); line-height: 1.05; }
-h2 { font-size: var(--step-4); line-height: 1.1; }
-h3 { font-size: var(--step-3); line-height: 1.2; }
-h4 { font-size: var(--step-2); line-height: 1.25; }
-h5 { font-size: var(--step-1); line-height: 1.3; }
-h6 { font-size: var(--step-0); line-height: 1.35; text-transform: uppercase; letter-spacing: 0.08em; }
+h1 {
+  font-size: var(--step-5);
+  line-height: 1.05;
+}
+h2 {
+  font-size: var(--step-4);
+  line-height: 1.1;
+}
+h3 {
+  font-size: var(--step-3);
+  line-height: 1.2;
+}
+h4 {
+  font-size: var(--step-2);
+  line-height: 1.25;
+}
+h5 {
+  font-size: var(--step-1);
+  line-height: 1.3;
+}
+h6 {
+  font-size: var(--step-0);
+  line-height: 1.35;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
 
-p, span, li, a {
+p,
+span,
+li,
+a {
   font-size: var(--step-0);
   color: var(--color-text);
 }
@@ -198,22 +235,48 @@ img {
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.6rem; }
-  h3 { font-size: 1.3rem; }
-  p, li { font-size: 0.95rem; }
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.6rem;
+  }
+  h3 {
+    font-size: 1.3rem;
+  }
+  p,
+  li {
+    font-size: 0.95rem;
+  }
 }
 
 #hm-hero {
   background: radial-gradient(80% 120% at 10% 10%, #f6f9ff 0%, #ffffff 60%);
 }
 
-.footer-heading { text-transform: uppercase; letter-spacing: .02em; margin-top: .5rem; }
-.footer-link { color: #cfe7ff; text-decoration: none; }
-.footer-link:hover { text-decoration: underline; }
-.footer-contact li + li { margin-top: .25rem; }
-.social-icon { opacity: .9; transition: transform .15s ease, opacity .15s ease; }
-.social-icon:hover { transform: translateY(-2px); opacity: 1; }
+.footer-heading {
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-top: 0.5rem;
+}
+.footer-link {
+  color: #cfe7ff;
+  text-decoration: none;
+}
+.footer-link:hover {
+  text-decoration: none;
+}
+.footer-contact li + li {
+  margin-top: 0.25rem;
+}
+.social-icon {
+  opacity: 0.9;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+.social-icon:hover {
+  transform: translateY(-2px);
+  opacity: 1;
+}
 
 .whatsapp-floating {
   position: fixed;
@@ -264,6 +327,30 @@ img {
     height: 28px;
   }
 }
+
+/* .flip-vertical-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.rotate-x-180 {
+  transform: rotateX(180deg);
+}
+
+.flip-vertical-front,
+.flip-vertical-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-vertical-back {
+  transform: rotateX(180deg);
+} */
 
 /* .faq-item { border-bottom: 1px solid #e6e6e6; padding: 12px 0; }
 .faq-q { cursor: pointer; font-weight: 600; outline: none; }

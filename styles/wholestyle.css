@@ -1144,7 +1144,7 @@ a.footer-link {
   white-space: nowrap;
 }
 a.footer-link:hover {
-  color: white;
+  color: none;
 }
 .social-icon {
   font-size: 26px;
@@ -7508,7 +7508,7 @@ h2.case-title{
 }
 
 .office-addr a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .office-name {
@@ -7542,7 +7542,7 @@ h2.case-title{
 }
 
 .office-contact:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .office-map {

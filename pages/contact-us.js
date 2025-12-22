@@ -29,7 +29,8 @@ const CONTACT_JSON_LD = [
     telephone: "+91 72008 41581",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "No. 21-B, 5th Cross St, South Phase, Thiru Vi Ka Industrial Estate, Guindy",
+      streetAddress:
+        "No. 21-B, 5th Cross St, South Phase, Thiru Vi Ka Industrial Estate, Guindy",
       addressLocality: "Chennai",
       addressRegion: "TN",
       postalCode: "600032",
@@ -43,7 +44,14 @@ const CONTACT_JSON_LD = [
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        dayOfWeek: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ],
         opens: "09:00",
         closes: "18:00",
       },
@@ -145,13 +153,15 @@ const formBenefits = [
 const marketingInsights = [
   {
     title: "5 Easy Ways a Mobile App Can Grow Your Business",
-    excerpt: "Understand the product and GTM frameworks we bring to strategy calls.",
+    excerpt:
+      "Understand the product and GTM frameworks we bring to strategy calls.",
     href: "/blog/how-mobile-apps-grow-business",
     tag: "Growth Playbook",
   },
   {
     title: "Explore Trimsel's Cloud & AI Guides",
-    excerpt: "Browse articles on DevOps, automation, and digital transformation to prep for our chat.",
+    excerpt:
+      "Browse articles on DevOps, automation, and digital transformation to prep for our chat.",
     href: "/blog",
     tag: "Digital Insights",
   },
@@ -202,14 +212,33 @@ const faqItems = [
 
 const thankYouLinks = [
   { href: "/cloud-consulting-services", label: "Explore Cloud Services" },
-  { href: "/blog/how-mobile-apps-grow-business", label: "Read Our Latest Insight" },
+  {
+    href: "/blog/how-mobile-apps-grow-business",
+    label: "Read Our Latest Insight",
+  },
 ];
 
 const socialLinks = [
-  { href: "https://www.facebook.com/trimsel.softwares", icon: "/images/fb-icon.png", label: "Facebook" },
-  { href: "https://www.instagram.com/trimsel/", icon: "/images/insta-icon.png", label: "Instagram" },
-  { href: "https://www.linkedin.com/company/trimsel", icon: "/images/linkedin-icon.png", label: "LinkedIn" },
-  { href: "https://in.pinterest.com/trimsel/", icon: "/images/pinterest-icon.png", label: "Pinterest" },
+  {
+    href: "https://www.facebook.com/trimsel.softwares",
+    icon: "/images/fb-icon.png",
+    label: "Facebook",
+  },
+  {
+    href: "https://www.instagram.com/trimsel/",
+    icon: "/images/insta-icon.png",
+    label: "Instagram",
+  },
+  {
+    href: "https://www.linkedin.com/company/trimsel",
+    icon: "/images/linkedin-icon.png",
+    label: "LinkedIn",
+  },
+  {
+    href: "https://in.pinterest.com/trimsel/",
+    icon: "/images/pinterest-icon.png",
+    label: "Pinterest",
+  },
 ];
 
 export default function Contact() {
@@ -235,7 +264,9 @@ export default function Contact() {
 
   const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
   if (!siteKey && process.env.NODE_ENV === "development") {
-    console.warn("NEXT_PUBLIC_RECAPTCHA_SITE_KEY is missing. reCAPTCHA will not render.");
+    console.warn(
+      "NEXT_PUBLIC_RECAPTCHA_SITE_KEY is missing. reCAPTCHA will not render."
+    );
   }
 
   async function onSubmitForm(values) {
@@ -291,8 +322,10 @@ export default function Contact() {
         openGraph={{
           type: "website",
           url: "https://www.trimsel.com/contact-us",
-          title: "Contact Trimsel | AI-Powered Digital Transformation & App Development",
-          description: "Connect with Trimsel to plan AI-fuelled digital transformation, Android/iOS builds, or cloud-native programs.",
+          title:
+            "Contact Trimsel | AI-Powered Digital Transformation & App Development",
+          description:
+            "Connect with Trimsel to plan AI-fuelled digital transformation, Android/iOS builds, or cloud-native programs.",
           locale: "en_IN",
           site_name: "Trimsel",
           images: [
@@ -304,19 +337,34 @@ export default function Contact() {
             },
           ],
         }}
-        twitter={{ cardType: "summary_large_image", handle: "@TrimselSoftwares", site: "@TrimselSoftwares" }}
+        twitter={{
+          cardType: "summary_large_image",
+          handle: "@TrimselSoftwares",
+          site: "@TrimselSoftwares",
+        }}
         additionalMetaTags={[
-          { name: "twitter:title", content: "Contact Trimsel's Digital Transformation Specialists" },
+          {
+            name: "twitter:title",
+            content: "Contact Trimsel's Digital Transformation Specialists",
+          },
           {
             name: "twitter:description",
-            content: "Book a consultation with Trimsel's Chennai software team for AI, digital transformation, mobile, web, cloud, or automation projects.",
+            content:
+              "Book a consultation with Trimsel's Chennai software team for AI, digital transformation, mobile, web, cloud, or automation projects.",
           },
-          { name: "twitter:image:alt", content: "Trimsel Chennai office contact hero image" },
+          {
+            name: "twitter:image:alt",
+            content: "Trimsel Chennai office contact hero image",
+          },
         ]}
       />
       <Head>
         {CONTACT_JSON_LD.map((schema, index) => (
-          <script key={`contact-schema-${index}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+          <script
+            key={`contact-schema-${index}`}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
         ))}
       </Head>
 
@@ -340,45 +388,76 @@ export default function Contact() {
                 <span className="mx-2 text-slate-500">&middot;</span>
                 Contact Us
               </p>
-              <h1 className="text-4xl font-semibold leading-snug">Contact Trimsel&apos;s AI Digital Transformation Team</h1>
+              <h1 className="text-4xl font-semibold leading-snug">
+                Contact Trimsel&apos;s AI Digital Transformation Team
+              </h1>
               <p className="text-lg leading-relaxed text-slate-200">
-                Looking for {" "}
-                <Link href="/mobile-app-development-chennai" className="text-orange-400 underline-offset-4 hover:underline">
+                Looking for{" "}
+                <Link
+                  href="/mobile-app-development-chennai"
+                  className="text-orange-400 underline-offset-4 hover:underline"
+                >
                   AI-driven mobile app development
                 </Link>{" "}
-                or {" "}
-                <Link href="/cloud-consulting-services" className="text-orange-400 underline-offset-4 hover:underline">
+                or{" "}
+                <Link
+                  href="/cloud-consulting-services"
+                  className="text-orange-400 underline-offset-4 hover:underline"
+                >
                   cloud modernization
                 </Link>
-                ? Talk to our architects about automation, copilots, or a modernization sprint, or email {" "}
-                <Link href="mailto:contact@trimsel.com" className="text-orange-400 underline-offset-4 hover:underline">
+                ? Talk to our architects about automation, copilots, or a
+                modernization sprint, or email{" "}
+                <Link
+                  href="mailto:contact@trimsel.com"
+                  className="text-orange-400 underline-offset-4 hover:underline"
+                >
                   contact@trimsel.com
                 </Link>
                 .
               </p>
               <p className="text-lg leading-relaxed text-slate-200">
-                We blend strategy, design, engineering, and responsible AI so enterprises in Chennai and worldwide can accelerate digital
-                transformation safely. Expect a response in under one business day and see how our {" "}
-                <Link href="/devops-consulting-services" className="text-orange-400 underline-offset-4 hover:underline">
+                We blend strategy, design, engineering, and responsible AI so
+                enterprises in Chennai and worldwide can accelerate digital
+                transformation safely. Expect a response in under one business
+                day and see how our{" "}
+                <Link
+                  href="/devops-consulting-services"
+                  className="text-orange-400 underline-offset-4 hover:underline"
+                >
                   DevOps
                 </Link>{" "}
-                and {" "}
-                <Link href="/digital-marketing-company-chennai" className="text-orange-400 underline-offset-4 hover:underline">
+                and{" "}
+                <Link
+                  href="/digital-marketing-company-chennai"
+                  className="text-orange-400 underline-offset-4 hover:underline"
+                >
                   growth
                 </Link>{" "}
                 teams stay aligned with every engagement.
               </p>
               <div className="rounded-3xl border border-white/20 bg-white/5 p-5 shadow-inner">
-                <p className="text-sm uppercase tracking-[0.3em] text-slate-300">Talk to us about</p>
+                <p className="text-sm uppercase tracking-[0.3em] text-slate-300">
+                  Talk to us about
+                </p>
                 <p className="mt-3 text-lg text-white">
-                  Automation copilots &middot; AI copilots &middot; Mobile and web builds &middot; Cloud & DevOps &middot; Demand generation
+                  Automation copilots &middot; AI copilots &middot; Mobile and
+                  web builds &middot; Cloud & DevOps &middot; Demand generation
                 </p>
                 <div className="mt-4 flex flex-wrap gap-4 text-sm text-white/90">
-                  <Link href="mailto:contact@trimsel.com" className="inline-flex items-center gap-2 underline-offset-4 hover:underline">
-                    <span className="h-1.5 w-1.5 rounded-full bg-orange-400" /> contact@trimsel.com
+                  <Link
+                    href="mailto:contact@trimsel.com"
+                    className="inline-flex items-center gap-2 underline-offset-4 hover:underline"
+                  >
+                    <span className="h-1.5 w-1.5 rounded-full bg-orange-400" />{" "}
+                    contact@trimsel.com
                   </Link>
-                  <Link href="tel:+917200841581" className="inline-flex items-center gap-2 underline-offset-4 hover:underline">
-                    <span className="h-1.5 w-1.5 rounded-full bg-orange-400" /> +91 72008 41581
+                  <Link
+                    href="tel:+917200841581"
+                    className="inline-flex items-center gap-2 underline-offset-4 hover:underline"
+                  >
+                    <span className="h-1.5 w-1.5 rounded-full bg-orange-400" />{" "}
+                    +91 72008 41581
                   </Link>
                 </div>
               </div>
@@ -396,16 +475,23 @@ export default function Contact() {
 
         <section className="bg-white">
           <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6">
-            <h2 className="text-3xl font-semibold text-slate-900">Why brands contact Trimsel</h2>
+            <h2 className="text-3xl font-semibold text-slate-900">
+              Why brands contact Trimsel
+            </h2>
             <div className="mt-6 space-y-4 text-lg leading-relaxed text-slate-600">
               <p>
-                Whether you need to launch a new SaaS product, migrate legacy workloads to the cloud, or infuse AI copilots into your
-                workflows, our consultants craft roadmaps that balance velocity with governance. Every engagement starts with a discovery
-                call where we align on outcomes, data readiness, and success metrics so your investment compounds over time.
+                Whether you need to launch a new SaaS product, migrate legacy
+                workloads to the cloud, or infuse AI copilots into your
+                workflows, our consultants craft roadmaps that balance velocity
+                with governance. Every engagement starts with a discovery call
+                where we align on outcomes, data readiness, and success metrics
+                so your investment compounds over time.
               </p>
               <p>
-                Share a brief below and we will assemble the right specialists—solution architects, UX strategists, AI engineers, and
-                DevSecOps—to guide you from proof of concept to scalable adoption.
+                Share a brief below and we will assemble the right
+                specialists—solution architects, UX strategists, AI engineers,
+                and DevSecOps—to guide you from proof of concept to scalable
+                adoption.
               </p>
             </div>
           </div>
@@ -414,35 +500,69 @@ export default function Contact() {
         <section className="bg-slate-50">
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
             <div className="rounded-[32px] border border-white bg-white p-6 shadow-lg shadow-slate-900/5 sm:p-10">
-              <h3 className="text-2xl font-semibold text-slate-900">Let&apos;s level up your brand, together</h3>
-              <p className="mt-2 text-sm text-slate-500">We confirm receipt instantly and schedule discovery calls within 24 hours.</p>
+              <h3 className="text-2xl font-semibold text-slate-900">
+                Let&apos;s level up your brand, together
+              </h3>
+              <p className="mt-2 text-sm text-slate-500">
+                We confirm receipt instantly and schedule discovery calls within
+                24 hours.
+              </p>
               <ul className="mt-4 grid gap-3 md:grid-cols-2">
                 {formBenefits.map((benefit) => (
-                  <li key={benefit} className="flex items-start gap-3 rounded-2xl border border-slate-100 bg-slate-50 p-4 text-sm text-slate-600">
-                    <CheckIcon width={18} height={18} className="mt-1 text-brand" />
+                  <li
+                    key={benefit}
+                    className="flex items-start gap-3 rounded-2xl border border-slate-100 bg-slate-50 p-4 text-sm text-slate-600"
+                  >
+                    <CheckIcon
+                      width={18}
+                      height={18}
+                      className="mt-1 text-brand"
+                    />
                     <span>{benefit}</span>
                   </li>
                 ))}
               </ul>
-              {message && <p className="mt-6 rounded-2xl bg-red-50 px-4 py-3 text-sm text-red-700">{message}</p>}
+              {message && (
+                <p className="mt-6 rounded-2xl bg-red-50 px-4 py-3 text-sm text-red-700">
+                  {message}
+                </p>
+              )}
               <div className="mt-8 grid gap-10 lg:grid-cols-[3fr,2fr]">
-                <form onSubmit={handleSubmit(onSubmitForm)} className="space-y-6">
+                <form
+                  onSubmit={handleSubmit(onSubmitForm)}
+                  className="space-y-6"
+                >
                   <div className="grid gap-6 md:grid-cols-2">
                     <div>
-                      <label htmlFor="name" className="text-sm font-semibold text-slate-600">
+                      <label
+                        htmlFor="name"
+                        className="text-sm font-semibold text-slate-600"
+                      >
                         Full Name *
                       </label>
                       <input
-                        {...register("name", { required: { value: true, message: "Your name is required" } })}
+                        {...register("name", {
+                          required: {
+                            value: true,
+                            message: "Your name is required",
+                          },
+                        })}
                         id="name"
                         type="text"
                         className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
                         placeholder="Enter your full name"
                       />
-                      {errors?.name?.message && <p className="mt-2 text-xs text-red-500">{errors.name.message}</p>}
+                      {errors?.name?.message && (
+                        <p className="mt-2 text-xs text-red-500">
+                          {errors.name.message}
+                        </p>
+                      )}
                     </div>
                     <div>
-                      <label htmlFor="phone" className="text-sm font-semibold text-slate-600">
+                      <label
+                        htmlFor="phone"
+                        className="text-sm font-semibold text-slate-600"
+                      >
                         Mobile Number *
                       </label>
                       <div className="mt-2">
@@ -456,42 +576,79 @@ export default function Contact() {
                               enableSearch
                               value={field.value}
                               onChange={(phone) => field.onChange(phone)}
-                              inputProps={{ name: "mobile", required: true, id: "phone", "aria-label": "Mobile number" }}
+                              inputProps={{
+                                name: "mobile",
+                                required: true,
+                                id: "phone",
+                                "aria-label": "Mobile number",
+                              }}
                               inputStyle={{
                                 width: "100%",
-                                height: "54px",
+                                height: "48px",
                                 borderRadius: "1rem",
-                                border: "1px solid rgb(226, 232, 240)",
+                                border: "1px solid #e2e8f0",
+                                backgroundColor: "#ffffff",
                                 fontSize: "14px",
+                                paddingLeft: "55px",
+                                boxSizing: "border-box",
                               }}
                               containerStyle={{ width: "100%" }}
-                              buttonStyle={{ borderRadius: "1rem 0 0 1rem" }}
+                              buttonStyle={{
+                                height: "54px",
+                                borderRadius: "1rem 0 0 1rem",
+                                backgroundColor: "#ffffff",
+                                border: "1px solid #e2e8f0",
+                                padding: "0 7px",
+                                width: "3rem",
+                                height: "48px",
+                              }}
                             />
                           )}
                         />
                       </div>
-                      {errors?.mobile?.message && <p className="mt-2 text-xs text-red-500">{errors.mobile.message}</p>}
+                      {errors?.mobile?.message && (
+                        <p className="mt-2 text-xs text-red-500">
+                          {errors.mobile.message}
+                        </p>
+                      )}
                     </div>
                     <div>
-                      <label htmlFor="email" className="text-sm font-semibold text-slate-600">
+                      <label
+                        htmlFor="email"
+                        className="text-sm font-semibold text-slate-600"
+                      >
                         Email *
                       </label>
                       <input
                         {...register("email", {
-                          required: { value: true, message: "Email is required" },
-                          pattern: { value: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/, message: "Enter a valid email address" },
+                          required: {
+                            value: true,
+                            message: "Email is required",
+                          },
+                          pattern: {
+                            value:
+                              /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
+                            message: "Enter a valid email address",
+                          },
                         })}
                         id="email"
                         type="email"
                         className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
                         placeholder="example@company.com"
                       />
-                      {(errors?.email?.message || errors?.email?.pattern?.message) && (
-                        <p className="mt-2 text-xs text-red-500">{errors?.email?.message || errors?.email?.pattern?.message}</p>
+                      {(errors?.email?.message ||
+                        errors?.email?.pattern?.message) && (
+                        <p className="mt-2 text-xs text-red-500">
+                          {errors?.email?.message ||
+                            errors?.email?.pattern?.message}
+                        </p>
                       )}
                     </div>
                     <div>
-                      <label htmlFor="company" className="text-sm font-semibold text-slate-600">
+                      <label
+                        htmlFor="company"
+                        className="text-sm font-semibold text-slate-600"
+                      >
                         Company
                       </label>
                       <input
@@ -504,12 +661,19 @@ export default function Contact() {
                     </div>
                   </div>
                   <div>
-                    <label htmlFor="referralSource" className="text-sm font-semibold text-slate-600">
+                    <label
+                      htmlFor="referralSource"
+                      className="text-sm font-semibold text-slate-600"
+                    >
                       Where did you find us? *
                     </label>
                     <select
                       {...register("referralSource", {
-                        required: { value: true, message: "Please let us know how you heard about Trimsel" },
+                        required: {
+                          value: true,
+                          message:
+                            "Please let us know how you heard about Trimsel",
+                        },
                       })}
                       id="referralSource"
                       className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
@@ -524,36 +688,69 @@ export default function Contact() {
                       <option value="Event">Event / Webinar</option>
                       <option value="Other">Other</option>
                     </select>
-                    {errors?.referralSource?.message && <p className="mt-2 text-xs text-red-500">{errors.referralSource.message}</p>}
+                    {errors?.referralSource?.message && (
+                      <p className="mt-2 text-xs text-red-500">
+                        {errors.referralSource.message}
+                      </p>
+                    )}
                   </div>
                   <div>
-                    <label htmlFor="message" className="text-sm font-semibold text-slate-600">
+                    <label
+                      htmlFor="message"
+                      className="text-sm font-semibold text-slate-600"
+                    >
                       Your Message *
                     </label>
                     <textarea
-                      {...register("message", { required: { value: true, message: "Please describe your project" } })}
+                      {...register("message", {
+                        required: {
+                          value: true,
+                          message: "Please describe your project",
+                        },
+                      })}
                       id="message"
                       rows={5}
                       className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
                       placeholder="Describe your project"
                     />
-                    {errors?.message?.message && <p className="mt-2 text-xs text-red-500">{errors.message.message}</p>}
+                    {errors?.message?.message && (
+                      <p className="mt-2 text-xs text-red-500">
+                        {errors.message.message}
+                      </p>
+                    )}
                   </div>
                   <div className="flex flex-wrap items-center justify-between gap-4">
-                    <p className="text-xs text-slate-500">By submitting, you agree to our privacy policy and terms.</p>
+                    <p className="text-xs text-slate-500">
+                      By submitting, you agree to our privacy policy and terms.
+                    </p>
                     <button
                       type="submit"
                       className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white shadow-lg shadow-brand/40 transition hover:bg-brand-dark disabled:cursor-not-allowed disabled:opacity-60"
                       disabled={isSubmitting}
                     >
-                      {isSubmitting ? "Sending..." : "Book a Digital Transformation Call"}
+                      {isSubmitting
+                        ? "Sending..."
+                        : "Book a Digital Transformation Call"}
                       <ArrowRightIcon width={18} height={18} />
                     </button>
                   </div>
-                  {siteKey && <ReCAPTCHA ref={recaptchaRef} sitekey={siteKey} size="invisible" />}
+                  {siteKey && (
+                    <ReCAPTCHA
+                      ref={recaptchaRef}
+                      sitekey={siteKey}
+                      size="invisible"
+                    />
+                  )}
                 </form>
                 <div className="rounded-3xl border border-slate-100 bg-white p-6 shadow-inner">
-                  <Image src="/images/Letstalk.png" width={420} height={360} alt="Let's Talk" className="w-full" priority={false} />
+                  <Image
+                    src="/images/Letstalk.png"
+                    width={420}
+                    height={360}
+                    alt="Let's Talk"
+                    className="w-full"
+                    priority={false}
+                  />
                 </div>
               </div>
             </div>
@@ -573,9 +770,20 @@ export default function Contact() {
               </button>
               {isSubmitted && (
                 <div className="space-y-4">
-                  <Image src="/images/astronaut-thanking.gif" width={260} height={260} alt="Animated thank you" className="mx-auto" />
-                  <h2 className="text-2xl font-semibold text-slate-900">Thank you for contacting us!</h2>
-                  <p className="text-sm text-slate-600">We have received your message. A strategist will reach out shortly.</p>
+                  <Image
+                    src="/images/astronaut-thanking.gif"
+                    width={260}
+                    height={260}
+                    alt="Animated thank you"
+                    className="mx-auto"
+                  />
+                  <h2 className="text-2xl font-semibold text-slate-900">
+                    Thank you for contacting us!
+                  </h2>
+                  <p className="text-sm text-slate-600">
+                    We have received your message. A strategist will reach out
+                    shortly.
+                  </p>
                   <div className="flex flex-wrap justify-center gap-3">
                     {thankYouLinks.map((cta) => (
                       <Link
@@ -589,18 +797,42 @@ export default function Contact() {
                   </div>
                   <div className="grid gap-6 pt-4 sm:grid-cols-2">
                     <div className="text-left">
-                      <h4 className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-400">Follow us</h4>
+                      <h4 className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-400">
+                        Follow us
+                      </h4>
                       <div className="mt-3 flex flex-wrap gap-3">
                         {socialLinks.map((link) => (
-                          <Link key={link.href} href={link.href} target="_blank" rel="noopener noreferrer">
-                            <Image src={link.icon} width={32} height={32} alt={`${link.label} icon`} />
+                          <Link
+                            key={link.href}
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <Image
+                              src={link.icon}
+                              width={32}
+                              height={32}
+                              alt={`${link.label} icon`}
+                            />
                           </Link>
                         ))}
                       </div>
                     </div>
                     <div className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
-                      <Image src="/images/scan.png" width={120} height={40} alt="WhatsApp" className="mx-auto" />
-                      <Image src="/images/trimselqr.png" width={90} height={90} alt="Trimsel WhatsApp QR" className="mx-auto" />
+                      <Image
+                        src="/images/scan.png"
+                        width={120}
+                        height={40}
+                        alt="WhatsApp"
+                        className="mx-auto"
+                      />
+                      <Image
+                        src="/images/trimselqr.png"
+                        width={90}
+                        height={90}
+                        alt="Trimsel WhatsApp QR"
+                        className="mx-auto"
+                      />
                     </div>
                   </div>
                 </div>
@@ -612,16 +844,32 @@ export default function Contact() {
         <section className="bg-white">
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
             <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
-              <Image src="/images/Rectangle-kariot.png" width={18} height={18} alt="" loading="lazy" />
+              <Image
+                src="/images/Rectangle-kariot.png"
+                width={18}
+                height={18}
+                alt=""
+                loading="lazy"
+              />
               Our global office
             </div>
             <div className="mt-6 grid gap-10 lg:grid-cols-[1.1fr,1.5fr]">
               <div className="space-y-4 rounded-3xl border border-slate-100 bg-slate-50 p-6 shadow-inner">
-                <p className="text-sm uppercase tracking-[0.3em] text-slate-400">India</p>
-                <h3 className="text-2xl font-semibold text-slate-900">Trimsel Softwares</h3>
+                <p className="text-sm uppercase tracking-[0.3em] text-slate-400">
+                  India
+                </p>
+                <h3 className="text-2xl font-semibold text-slate-900">
+                  Trimsel Softwares
+                </h3>
                 <p className="text-sm text-slate-600">
-                  <Link href="https://maps.google.com/?q=Trimsel+Softwares,+Guindy,+Chennai+600032" target="_blank" rel="noopener noreferrer" className="text-brand">
-                    21B 5th Cross St, South Phase, Thiru VI KA Industrial Estate, Guindy, Chennai, Tamil Nadu 600032
+                  <Link
+                    href="https://maps.google.com/?q=Trimsel+Softwares,+Guindy,+Chennai+600032"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-brand"
+                  >
+                    21B 5th Cross St, South Phase, Thiru VI KA Industrial
+                    Estate, Guindy, Chennai, Tamil Nadu 600032
                   </Link>
                 </p>
                 <div className="space-y-2 text-sm text-slate-600">
@@ -633,7 +881,10 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="font-semibold text-slate-900">Email</p>
-                    <Link href="mailto:contact@trimsel.com" className="text-brand">
+                    <Link
+                      href="mailto:contact@trimsel.com"
+                      className="text-brand"
+                    >
                       contact@trimsel.com
                     </Link>
                   </div>
@@ -659,20 +910,42 @@ export default function Contact() {
         <section className="bg-slate-50">
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
             <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
-              <Image src="/images/Rectangle-kariot.png" width={15} height={15} alt="" loading="lazy" />
+              <Image
+                src="/images/Rectangle-kariot.png"
+                width={15}
+                height={15}
+                alt=""
+                loading="lazy"
+              />
               Latest insights
             </div>
             <div className="mt-8 grid gap-6 md:grid-cols-2">
               {marketingInsights.map((article) => (
-                <article key={article.title} className="rounded-3xl border border-slate-100 bg-white p-6 shadow-lg shadow-slate-900/5">
-                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-brand">{article.tag}</p>
+                <article
+                  key={article.title}
+                  className="rounded-3xl border border-slate-100 bg-white p-6 shadow-lg shadow-slate-900/5"
+                >
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-brand">
+                    {article.tag}
+                  </p>
                   <h3 className="mt-3 text-2xl font-semibold text-slate-900">
                     <Link href={article.href}>{article.title}</Link>
                   </h3>
-                  <p className="mt-3 text-sm text-slate-600">{article.excerpt}</p>
-                  <Link href={article.href} className="mt-5 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.3em] text-brand">
+                  <p className="mt-3 text-sm text-slate-600">
+                    {article.excerpt}
+                  </p>
+                  <Link
+                    href={article.href}
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.3em] text-brand"
+                  >
                     Read More
-                    <Image src="/images/material-symbols_arrow-right-alt.png" width={18} height={18} alt="" loading="lazy" />
+                    <Image
+                      src="/images/material-symbols_arrow-right-alt.png"
+                      width={18}
+                      height={18}
+                      alt=""
+                      loading="lazy"
+                    />
                   </Link>
                 </article>
               ))}
@@ -684,8 +957,13 @@ export default function Contact() {
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
             <div className="grid gap-8 lg:grid-cols-3">
               {quickAnswers.map(({ title, body }) => (
-                <div key={title} className="rounded-3xl border border-slate-100 bg-slate-50 p-6 shadow-inner">
-                  <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
+                <div
+                  key={title}
+                  className="rounded-3xl border border-slate-100 bg-slate-50 p-6 shadow-inner"
+                >
+                  <h3 className="text-lg font-semibold text-slate-900">
+                    {title}
+                  </h3>
                   <p className="mt-2 text-sm text-slate-600">{body}</p>
                 </div>
               ))}
@@ -697,16 +975,31 @@ export default function Contact() {
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
               <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
-                <Image src="/images/Rectangle-kariot.png" width={18} height={18} alt="" loading="lazy" />
+                <Image
+                  src="/images/Rectangle-kariot.png"
+                  width={18}
+                  height={18}
+                  alt=""
+                  loading="lazy"
+                />
                 Contact & Digital Transformation FAQs
               </div>
-              <h2 className="mt-4 text-3xl font-semibold text-slate-900">Questions founders ask before we hop on a call</h2>
+              <h2 className="mt-4 text-3xl font-semibold text-slate-900">
+                Questions founders ask before we hop on a call
+              </h2>
             </div>
             <div className="mt-8 space-y-4">
               {faqItems.map(({ question, answer }) => (
-                <details key={question} className="rounded-2xl border border-slate-100 bg-white p-5 shadow-inner">
-                  <summary className="cursor-pointer text-lg font-semibold text-slate-900">{question}</summary>
-                  <p className="mt-3 text-sm leading-relaxed text-slate-600">{answer}</p>
+                <details
+                  key={question}
+                  className="rounded-2xl border border-slate-100 bg-white p-5 shadow-inner"
+                >
+                  <summary className="cursor-pointer text-lg font-semibold text-slate-900">
+                    {question}
+                  </summary>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                    {answer}
+                  </p>
                 </details>
               ))}
             </div>
