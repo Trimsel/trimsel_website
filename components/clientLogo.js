@@ -164,7 +164,7 @@ function LogoRow({ logos, direction = "ltr" }) {
               alt={logo.alt}
               loading="lazy"
               sizes={DEFAULT_SIZES}
-              className="h-auto max-h-[140px] w-auto object-contain filter grayscale transition-all duration-300 hover:grayscale-0 hover:scale-110"
+              className="h-auto max-h-[140px] w-auto object-contain filter grayscale transition-all duration-200 hover:grayscale-0 hover:scale-110"
             />
           </div>
         ))}

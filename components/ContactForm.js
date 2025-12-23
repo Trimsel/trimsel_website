@@ -78,9 +78,10 @@ export function ContactForm() {
     { code: "+7", label: "Russia", flag: "/indiaflag.png" },
   ];
 
-  const filteredCountries = countries.filter((country) =>
-    country.label.toLowerCase().includes(countrySearch.toLowerCase()) ||
-    country.code.includes(countrySearch)
+  const filteredCountries = countries.filter(
+    (country) =>
+      country.label.toLowerCase().includes(countrySearch.toLowerCase()) ||
+      country.code.includes(countrySearch)
   );
 
   const handleCountrySelect = (country) => {
@@ -98,10 +99,13 @@ export function ContactForm() {
 
   // Close dropdown when clicking outside
   const countryDropdownRef = useRef(null);
-  
+
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (countryDropdownRef.current && !countryDropdownRef.current.contains(event.target)) {
+      if (
+        countryDropdownRef.current &&
+        !countryDropdownRef.current.contains(event.target)
+      ) {
         setShowCountry(false);
         setCountrySearch("");
       }
@@ -393,7 +397,10 @@ export function ContactForm() {
                     className="font-manrope font-normal text-sm leading-[1.366em] text-[#52525A] bg-transparent border-none outline-none placeholder:text-[#52525A]"
                   />
                 </div>
-                <div ref={countryDropdownRef} className="relative flex items-center gap-[5px] px-[6px] py-[6px] pr-[217px] border-b border-black bg-white w-[270px] h-[39px]">
+                <div
+                  ref={countryDropdownRef}
+                  className="relative flex items-center gap-[5px] px-[6px] py-[6px] pr-[217px] border-b border-black bg-white w-[270px] h-[39px]"
+                >
                   <div className="flex items-center gap-[5px] relative">
                     <div className="w-6 h-6 flex-shrink-0 flex items-center justify-center">
                       <img
@@ -418,7 +425,7 @@ export function ContactForm() {
                       width={10}
                       height={10}
                       className={`transition-transform duration-200
-      ${showCountry ? 'rotate-180' : 'rotate-0'}`}
+      ${showCountry ? "rotate-180" : "rotate-0"}`}
                     />
                   </button>
                   <span className="font-manrope font-light text-xl leading-[1.366em] text-black">
@@ -432,7 +439,7 @@ export function ContactForm() {
                     onChange={handleChange}
                     className="font-manrope font-normal text-sm leading-[1.366em] text-[#52525A] bg-transparent border-none outline-none flex-1 placeholder:text-[#52525A]"
                   />
-                  
+
                   {/* Country Dropdown */}
                   {showCountry && (
                     <div className="absolute top-full left-0 mt-1 bg-white border border-gray-300 rounded shadow-lg z-50 max-h-[300px] overflow-y-auto w-[280px]">
@@ -447,7 +454,7 @@ export function ContactForm() {
                           onClick={(e) => e.stopPropagation()}
                         />
                       </div>
-                      
+
                       {/* Country List */}
                       <div className="max-h-[250px] overflow-y-auto">
                         {filteredCountries.length > 0 ? (
@@ -457,7 +464,9 @@ export function ContactForm() {
                               type="button"
                               onClick={() => handleCountrySelect(country)}
                               className={`w-full flex items-center gap-2 px-3 py-2 text-left hover:bg-gray-100 transition-colors ${
-                                selectedCountry.code === country.code ? 'bg-blue-50' : ''
+                                selectedCountry.code === country.code
+                                  ? "bg-blue-50"
+                                  : ""
                               }`}
                             >
                               <img
@@ -563,7 +572,7 @@ export function ContactForm() {
 
             {/* Captcha and Submit */}
             <div className="flex items-center gap-[49px] w-full">
-              <div className="flex items-center gap-2 w-[178px] h-[38px]">
+              <div className="flex items-center gap-2 w-[220px] h-[50px]">
                 <span className="font-manrope font-normal text-[28px] leading-[1.366em] text-black whitespace-pre">
                   5 + 4 =
                 </span>
@@ -575,8 +584,11 @@ export function ContactForm() {
                   type="text"
                   name="captcha"
                   value={formData.captcha}
-                  onChange={handleChange}
-                  className="w-6 font-manrope font-normal text-[28px] leading-[1.366em] text-black bg-transparent border-none outline-none"
+                  onChange={(e) =>
+                    /^[0-9]*$/.test(e.target.value) &&
+                    setFormData({ ...formData, captcha: e.target.value })
+                  }
+                  className="w-8 font-manrope font-normal text-[28px] leading-[1.366em] text-black bg-transparent border-none outline-none"
                 />
               </div>
               <button
