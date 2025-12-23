@@ -683,7 +683,80 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="bg-slate-900">
+        {/* Industries We Serve – from Figma Desktop - 2 */}
+        <section className="bg-[#F5F6FF]">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="flex flex-col items-center gap-4 text-center">
+              <h2
+                className="font-urbanist text-[40px] font-semibold leading-[1.2]"
+                style={{
+                  background:
+                    "linear-gradient(90deg, rgba(28, 125, 189, 1) 0%, rgba(5, 168, 152, 1) 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  textShadow: "0px 2px 3px rgba(0, 0, 0, 0.25)",
+                }}
+              >
+                INDUSTRIES WE SERVE
+              </h2>
+              <p className="max-w-3xl font-manrope text-[18px] leading-[1.6] text-[#000000] sm:text-[20px]">
+                Android App Solutions for Various Industries help businesses
+                streamline operations, enhance customer engagement, and boost
+                efficiency. From healthcare and education to retail and
+                logistics, our tailored Android apps meet specific industry
+                needs.
+              </p>
+            </div>
+
+            <div className="mt-10 grid grid-cols-6 gap-4 justify-items-center">
+              {[
+                { name: "Healthcare", bg: "#CBE6FC", icon: "/healthcare.svg" },
+                { name: "On-Demand", bg: "#ACFFCE", icon: "/on-demand.svg" },
+                {
+                  name: "Entertainment",
+                  bg: "#EDAFF7",
+                  icon: "/entertainment.svg",
+                },
+                { name: "Logistics", bg: "#FAD4B6", icon: "/logistics.svg" },
+                { name: "E-Commerce", bg: "#FDA8A6", icon: "/ecommerce.svg" },
+                {
+                  name: "Real Estate",
+                  bg: "#F9DF89",
+                  icon: "/real-estate.svg",
+                },
+                {
+                  name: "Food Delivery",
+                  bg: "#FFCACE",
+                  icon: "/food-delivery.svg",
+                },
+                { name: "Grocery", bg: "#DCCFCB", icon: "/grocery.svg" },
+                { name: "Travel", bg: "#A3D5FD", icon: "/travel.svg" },
+                { name: "Restaurant", bg: "#D4F7AA", icon: "/restaurant.svg" },
+                { name: "Media", bg: "#E080F9", icon: "/media.svg" },
+                { name: "EduTech", bg: "#7AEE7F", icon: "/edutech.svg" },
+              ].map((item) => (
+                <div
+                  key={item.name}
+                  className="flex h-[110px] w-[130px] flex-col items-center justify-center gap-2 rounded-[12px] border border-white/60 shadow-sm backdrop-blur-sm transition-transform duration-200 hover:scale-105"
+                  style={{ backgroundColor: item.bg }}
+                >
+                  <Image
+                    src={item.icon}
+                    alt={item.name}
+                    width={48}
+                    height={48}
+                    className="object-contain"
+                  />
+                  <span className="text-center text-[13px] font-semibold text-black">
+                    {item.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* <section className="bg-slate-900">
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
             <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-300">
               <Image
@@ -726,7 +799,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
         <ContactForm eventLabel="home_page" />
 
         {/* Hero, navbar, whatever your page has... */}
