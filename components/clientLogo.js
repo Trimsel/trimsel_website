@@ -8,42 +8,42 @@ const CLIENT_LOGOS = [
   // NOTE: looks like a path typo: "timsel-clients" → probably "trimsel-clients"
   {
     src: "/trimsel-clients/taxpare.png",
-    width: 130,
-    height: 31.1,
+    width: 150,
+    height: 38,
     alt: "Taxpare client logo",
   },
 
   {
     src: "/trimsel-clients/transparent3x.png",
-    width: 130,
-    height: 33.35,
+    width: 150,
+    height: 38,
     alt: "Megbing client logo",
     className: "client-mg",
   },
   {
     src: "/trimsel-clients/ero.png",
-    width: 120,
-    height: 36.48,
+    width: 140,
+    height: 38,
     alt: "Erover client logo",
     className: "client-ero",
   },
   {
     src: "/trimsel-clients/xaber-logo.png",
-    width: 130,
-    height: 35.54,
+    width: 150,
+    height: 38,
     alt: "Xaber client logo",
     className: "client-xaber",
   },
   {
     src: "/trimsel-clients/Logo-Main.png",
-    width: 120,
-    height: 39.37,
+    width: 150,
+    height: 43,
     alt: "Echarge client logo",
     className: "client-echg",
   },
   {
     src: "/trimsel-clients/gobuzzr.png",
-    width: 93.17,
+    width: 130,
     height: 39,
     alt: "Gobuzzr client logo",
     className: "client-buzr",
@@ -51,14 +51,14 @@ const CLIENT_LOGOS = [
   {
     src: "/trimsel-clients/ezyhelpers-logo.png",
     width: 172,
-    height: 54,
+    height: 60,
     alt: "Ezyhelpers client logo",
     className: "new-pd client-ez",
   },
   {
     src: "/trimsel-clients/celeb_gap.png",
     width: 160,
-    height: 34.29,
+    height: 39,
     alt: "Celeb Gab client logo",
     className: "client-ez",
   },
@@ -67,7 +67,7 @@ const CLIENT_LOGOS = [
   {
     src: "/trimsel-clients/encompass-logo-regular 1.png",
     width: 120,
-    height: 72.14,
+    height: 74,
     alt: "Encompass client logo",
     className: "new-pd1 client-ez",
   },
@@ -75,21 +75,21 @@ const CLIENT_LOGOS = [
   {
     src: "/trimsel-clients/fisto.png",
     width: 110,
-    height: 37.07,
+    height: 39,
     alt: "Fisto Sports client logo",
     className: "client-ez",
   },
   {
     src: "/trimsel-clients/marc-shiparo.png",
     width: 164,
-    height: 38.64,
+    height: 40,
     alt: "Marc-Shiparo client logo",
     className: "client-ez",
   },
   {
     src: "/trimsel-clients/wood.png",
     width: 138,
-    height: 42.71,
+    height: 45,
     alt: "Wood Shelving client logo",
     className: "client-mg client-ez",
   },
@@ -103,7 +103,7 @@ const CLIENT_LOGOS = [
   {
     src: "/trimsel-clients/progreen.png",
     width: 130,
-    height: 53.18,
+    height: 58,
     alt: "Progreen Carpet client logo",
     className: "new-pd3 client-ez",
   },
@@ -148,8 +148,11 @@ function LogoRow({ logos, direction = "ltr" }) {
       : "animate-logo-marquee-rtl";
 
   return (
-    <div className="relative w-full overflow-hidden py-4">
-      <div className={`flex w-[300%] items-center gap-16 ${animationClass}`}>
+    <div className="relative w-full overflow-hidden -my-0">
+      <div
+        className={`flex w-[200%] items-center gap-10 ${animationClass}`}
+        style={{ willChange: "transform" }}
+      >
         {[...logos, ...logos].map((logo, idx) => (
           <div
             key={`${logo.alt}-${idx}`}
@@ -159,12 +162,12 @@ function LogoRow({ logos, direction = "ltr" }) {
           >
             <Image
               src={logo.src}
-              width={logo.width * 6}
-              height={logo.height * 6}
+              width={logo.width}
+              height={logo.height}
               alt={logo.alt}
-              loading="lazy"
+              priority
               sizes={DEFAULT_SIZES}
-              className="h-auto max-h-[140px] w-auto object-contain filter grayscale transition-all duration-200 hover:grayscale-0 hover:scale-110"
+              className="h-auto max-h-[70px] w-auto object-contain filter grayscale transition duration-300 hover:grayscale-0"
             />
           </div>
         ))}
@@ -175,7 +178,7 @@ function LogoRow({ logos, direction = "ltr" }) {
 
 export default function ClientLogo() {
   return (
-    <div className="w-full space-y-6">
+    <div className="w-full -my-0">
       <LogoRow logos={FIRST_ROW_LOGOS} direction="ltr" />
       <LogoRow logos={SECOND_ROW_LOGOS} direction="rtl" />
     </div>
