@@ -26,7 +26,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 
 // Fonts via next/font (no render-blocking @import)
-import { Poppins, Montserrat } from "next/font/google";
+import { Poppins, Montserrat, Manrope, Urbanist } from "next/font/google";
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -37,6 +37,18 @@ const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["600", "700"],
   variable: "--font-montserrat",
+  display: "swap",
+});
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-manrope",
+  display: "swap",
+});
+const urbanist = Urbanist({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-urbanist",
   display: "swap",
 });
 
@@ -86,7 +98,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     // Apply font variables at the top-level wrapper
-    <div className={`${poppins.variable} ${montserrat.variable}`}>
+    <div className={`${poppins.variable} ${montserrat.variable} ${manrope.variable} ${urbanist.variable}`}>
       {/* Viewport once for the whole app */}
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />

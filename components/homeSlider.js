@@ -15,9 +15,9 @@ export default function HomeSlider() {
             {/* Left: Copy + CTAs */}
             <div className="col-lg-6 col-md-6">
               <div className="titles">
-                <div className="titles-inner">
+                
                   {/* Decorative tag – hidden from SR */}
-                  <Image
+                  {/* <Image
                     src={ribbonImage}
                     width={298}
                     height={38}
@@ -27,7 +27,7 @@ export default function HomeSlider() {
                     aria-hidden="true"
                     placeholder="blur"
                     blurDataURL={ribbonImage.blurDataURL}
-                  />
+                  /> */}
 
                   <h1 className="headings-title">
                     Vision to Reality<br />
@@ -55,7 +55,7 @@ export default function HomeSlider() {
                     <li className="list-inline-item me-3">Cloud: AWS · Azure · GCP</li>
                     <li className="list-inline-item">From MVP to Enterprise</li>
                   </ul>
-                </div>
+                
               </div>
             </div>
 

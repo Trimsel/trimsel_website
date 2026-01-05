@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import Image from "next/image";
 
 export function ContactForm() {
@@ -10,21 +10,6 @@ export function ContactForm() {
       text: "It's been an absolute pleasure to work with TechAhead team through this project.I know you have all gone way over and above to deliver the app to the right quality, and the team has collectivety added value at each stage.",
       name: "Andy Hobbs",
       company: "ICC",
-    },
-    {
-      text: "It's been an absolute pleasure to work with TechAhead team through this project.I know you have all gone way over and above to deliver the app to the right quality, and the team has collectivety added value at each stage.",
-      name: "Andy Hobbs",
-      company: "ICC",
-    },
-    {
-      text: "Trimsel delivered exceptional results on our mobile app. Their expertise in AI and scalability helped us grow our business significantly.",
-      name: "Jane Doe",
-      company: "TechCorp",
-    },
-    {
-      text: "Trimsel delivered exceptional results on our mobile app. Their expertise in AI and scalability helped us grow our business significantly.",
-      name: "Jane Doe",
-      company: "TechCorp",
     },
   ];
   const totalSlides = testimonials.length || 1;
@@ -53,72 +38,12 @@ export function ContactForm() {
     captcha: "",
   });
 
-  // country selector for phone field
-  const [showCountry, setShowCountry] = useState(false);
-  const [countrySearch, setCountrySearch] = useState("");
-  const [selectedCountry, setSelectedCountry] = useState({
-    code: "+91",
-    label: "India",
-  });
-  const countries = [
-    { code: "+91", label: "India", flag: "/indiaflag.png" },
-    { code: "+1", label: "United States", flag: "/indiaflag.png" },
-    { code: "+44", label: "United Kingdom", flag: "/indiaflag.png" },
-    { code: "+61", label: "Australia", flag: "/indiaflag.png" },
-    { code: "+49", label: "Germany", flag: "/indiaflag.png" },
-    { code: "+33", label: "France", flag: "/indiaflag.png" },
-    { code: "+81", label: "Japan", flag: "/indiaflag.png" },
-    { code: "+86", label: "China", flag: "/indiaflag.png" },
-    { code: "+971", label: "UAE", flag: "/indiaflag.png" },
-    { code: "+65", label: "Singapore", flag: "/indiaflag.png" },
-    { code: "+82", label: "South Korea", flag: "/indiaflag.png" },
-    { code: "+31", label: "Netherlands", flag: "/indiaflag.png" },
-    { code: "+34", label: "Spain", flag: "/indiaflag.png" },
-    { code: "+39", label: "Italy", flag: "/indiaflag.png" },
-    { code: "+7", label: "Russia", flag: "/indiaflag.png" },
-  ];
-
-  const filteredCountries = countries.filter(
-    (country) =>
-      country.label.toLowerCase().includes(countrySearch.toLowerCase()) ||
-      country.code.includes(countrySearch)
-  );
-
-  const handleCountrySelect = (country) => {
-    setSelectedCountry(country);
-    setShowCountry(false);
-    setCountrySearch("");
-  };
-
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
-
-  // Close dropdown when clicking outside
-  const countryDropdownRef = useRef(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        countryDropdownRef.current &&
-        !countryDropdownRef.current.contains(event.target)
-      ) {
-        setShowCountry(false);
-        setCountrySearch("");
-      }
-    };
-
-    if (showCountry) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [showCountry]);
 
   return (
     <div className="flex flex-col gap-8 ml-8">
@@ -159,65 +84,40 @@ export function ContactForm() {
             </div>
 
             {/* Testimonial Cards Carousel */}
-            <div className="relative w-[500px] mt-6">
-              <div className="relative w-full h-full overflow-hidden">
+            <div className="flex flex-col items-center gap-8 w-full relative h-[265px] overflow-hidden">
+              <div className="relative w-full h-full">
                 <div
                   className="flex transition-transform duration-500 ease-in-out h-full"
-                  style={{ transform: `translateX(-${currentSlide * 500}px)` }}
+                  style={{ transform: `translateX(-${currentSlide * 527}px)` }}
                 >
                   {Array.from({ length: totalSlides }).map((_, index) => (
-                    <div key={index} className="min-w-[500px] flex-shrink-0">
-                      <div className="relative w-[500px] mx-auto">
+                    <div key={index} className="min-w-[527px] flex-shrink-0">
+                      <div className="relative w-[501px] mx-auto">
                         <div className="relative">
                           <div
-                            className="bg-[#F5FAFF] rounded-[4px] p-[30px_20px] shadow-[0px_0px_17px_0px_rgba(0,0,0,0.14)] flex flex-col gap-5 relative z-10 h-[280px]"
+                            className="bg-[#F5FAFF] rounded-[4px] p-[30px_20px] shadow-[0px_0px_17px_0px_rgba(0,0,0,0.14)] flex flex-col gap-5 relative z-10"
                             style={{ marginTop: "15px" }}
                           >
-                            <p className="font-manrope font-semibold text-[14px] leading-[1.714em] text-black w-[431px]">
+                            <p className="font-manrope font-semibold text-sm leading-[1.714em] text-black w-[431px]">
                               {testimonials[0].text}
                             </p>
-                            <div className="flex items-center gap-[5px]">
+                            <div className="flex items-center gap-[10px]">
                               <div
                                 className="w-14 h-14 rounded-full bg-gray-200 flex-shrink-0"
-                                style={{ borderRadius: "100px" }}
+                                style={{ borderRadius: "156px" }}
                               />
                               <div className="flex flex-col gap-[2px] w-[116px]">
-                                <p className="font-manrope font-semibold text-sm leading-[1.366em] text-black text-center">
-                                  {testimonials[1].name}
+                                <p className="font-manrope font-bold text-lg leading-[1.366em] text-black text-center">
+                                  {testimonials[0].name}
                                 </p>
-                                <p className="font-manrope font-semibold text-sm leading-[1.366em] text-[#52525A] text-center">
-                                  {testimonials[2].company}
+                                <p className="font-manrope font-medium text-lg leading-[1.366em] text-[#52525A] text-center">
+                                  {testimonials[0].company}
                                 </p>
                               </div>
                             </div>
                           </div>
 
-                          {/* Quote icons (positioned inside card) */}
-                          <div className="absolute top-[-15] left-3 w-[36px] h-[36px] z-20">
-                            <Image
-                              src="/TopQuotes.png"
-                              alt="Top Quotes"
-                              width={32}
-                              height={32}
-                            />
-                          </div>
-                          <div className="absolute bottom-[-15] right-3 w-[36px] h-[36px] z-20">
-                            <Image
-                              src="/BottomQuotes.png"
-                              alt="Bottom Quotes"
-                              width={32}
-                              height={32}
-                            />
-                          </div>
-                          <div className="absolute bottom-[10px] left-[15px] w-[70px] h-[70px] z-20">
-                            <Image
-                              src="/ClientImage.png"
-                              alt="Client Image"
-                              width={60}
-                              height={60}
-                            />
-                          </div>
-
+                          {/* Quote icons */}
                           {/* <div className="absolute top-[11px] left-[11px] w-[30px] h-[30px] z-20">
                             <svg
                               width="30"
@@ -257,18 +157,7 @@ export function ContactForm() {
                     </div>
                   ))}
                 </div>
-
-                {/* Dots */}
-                <div className="flex justify-center gap-2 mt-6">
-                  {testimonials.map((_, i) => (
-                    <span
-                      key={i}
-                      className={`w-3 h-3 rounded-full transition ${
-                        i === currentSlide ? "bg-teal-500 w-6" : "bg-gray-300"
-                      }`}
-                    />
-                  ))}
-                </div>
+                {/* Navigation arrows */}
                 {/* <button
                   type="button"
                   onClick={() => goToSlide(currentSlide - 1)}
@@ -281,8 +170,8 @@ export function ContactForm() {
                     width={14}
                     height={14}
                   />
-                </button>
-                <button
+                </button> */}
+                {/* <button
                   type="button"
                   onClick={() => goToSlide(currentSlide + 1)}
                   className="absolute right-[-12px] top-1/2 -translate-y-1/2 rounded-full bg-white shadow-md border border-slate-200 w-9 h-9 flex items-center justify-center hover:bg-slate-50 transition"
@@ -320,31 +209,6 @@ export function ContactForm() {
                   );
                 })}
               </div> */}
-              {/* Navigation arrows */}
-              <div
-                onClick={() => goToSlide(currentSlide - 1)}
-                className="absolute left-3 top-1/2 -translate-y-1/2 p-0 cursor-pointer z-30 -ml-10 -mt-3"
-                aria-label="Previous testimonial"
-              >
-                <Image
-                  src="/arrowLeft.png"
-                  alt="Previous"
-                  width={48}
-                  height={48}
-                />
-              </div>
-              <div
-                onClick={() => goToSlide(currentSlide + 1)}
-                className="absolute right-0 top-1/2 -translate-y-1/2 cursor-pointer z-30 -mr-7 -mt-3"
-                aria-label="Next testimonial"
-              >
-                <Image
-                  src="/arrowRight.png"
-                  alt="Next"
-                  width={48}
-                  height={48}
-                />
-              </div>
             </div>
           </div>
         </div>
@@ -397,37 +261,47 @@ export function ContactForm() {
                     className="font-manrope font-normal text-sm leading-[1.366em] text-[#52525A] bg-transparent border-none outline-none placeholder:text-[#52525A]"
                   />
                 </div>
-                <div
-                  ref={countryDropdownRef}
-                  className="relative flex items-center gap-[5px] px-[6px] py-[6px] pr-[217px] border-b border-black bg-white w-[270px] h-[39px]"
-                >
-                  <div className="flex items-center gap-[5px] relative">
+                <div className="flex items-center gap-[5px] px-[6px] py-[6px] pr-[217px] border-b border-black bg-white w-[270px] h-[39px]">
+                  <div className="flex items-center gap-[5px]">
                     <div className="w-6 h-6 flex-shrink-0 flex items-center justify-center">
-                      <img
-                        src={selectedCountry.flag || "/indiaflag.png"}
-                        alt={`${selectedCountry.label} Flag`}
-                        width={20}
-                        height={20}
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
                       />
+                      {/* <rect
+                          y="15.33"
+                          width="24"
+                          height="5.33"
+                          fill="#138808"
+                        />
+                        <rect
+                          y="8.67"
+                          width="24"
+                          height="6.67"
+                          fill="#EEEEEE"
+                        />
+                        {/* <rect
+                          y="3.33"
+                          width="24"
+                          height="5.33"
+                          fill="#FF9933"
+                        /> */}
+                      {/* <circle cx="9.34" cy="9.33" r="2.67" fill="#000080" />
+                        <circle cx="10" cy="10" r="2" fill="#6666B3" />
+                        <circle cx="11.34" cy="11.33" r="0.67" fill="#6666B3" /> */}
                     </div>
                     <span className="font-manrope font-normal text-xs leading-[0.583em] text-black">
-                      {selectedCountry.code}
+                      +91
                     </span>
                   </div>
-                  <button
-                    type="button"
-                    onClick={() => setShowCountry(!showCountry)}
-                    className="flex justify-center cursor-pointer hover:bg-transparent border-none focus:outline-none"
-                  >
-                    <Image
-                      src="/arrow.svg"
-                      alt="Toggle country"
-                      width={10}
-                      height={10}
-                      className={`transition-transform duration-200
-      ${showCountry ? "rotate-180" : "rotate-0"}`}
-                    />
-                  </button>
+                  <div className="flex items-center justify-center w-4 h-4">
+                    <span className="font-manrope font-normal text-xl leading-[0.35em] text-black rotate-90">
+                      ‣
+                    </span>
+                  </div>
                   <span className="font-manrope font-light text-xl leading-[1.366em] text-black">
                     |
                   </span>
@@ -439,65 +313,12 @@ export function ContactForm() {
                     onChange={handleChange}
                     className="font-manrope font-normal text-sm leading-[1.366em] text-[#52525A] bg-transparent border-none outline-none flex-1 placeholder:text-[#52525A]"
                   />
-
-                  {/* Country Dropdown */}
-                  {showCountry && (
-                    <div className="absolute top-full left-0 mt-1 bg-white border border-gray-300 rounded shadow-lg z-50 max-h-[300px] overflow-y-auto w-[280px]">
-                      {/* Search Input */}
-                      <div className="sticky top-0 bg-white border-b border-gray-200 p-2">
-                        <input
-                          type="text"
-                          placeholder="Search country..."
-                          value={countrySearch}
-                          onChange={(e) => setCountrySearch(e.target.value)}
-                          className="w-full px-2 py-1 text-sm border border-gray-300 rounded outline-none focus:border-blue-500"
-                          onClick={(e) => e.stopPropagation()}
-                        />
-                      </div>
-
-                      {/* Country List */}
-                      <div className="max-h-[250px] overflow-y-auto">
-                        {filteredCountries.length > 0 ? (
-                          filteredCountries.map((country) => (
-                            <button
-                              key={country.code}
-                              type="button"
-                              onClick={() => handleCountrySelect(country)}
-                              className={`w-full flex items-center gap-2 px-3 py-2 text-left hover:bg-gray-100 transition-colors ${
-                                selectedCountry.code === country.code
-                                  ? "bg-blue-50"
-                                  : ""
-                              }`}
-                            >
-                              <img
-                                src={country.flag || "/indiaflag.png"}
-                                alt={`${country.label} Flag`}
-                                width={20}
-                                height={20}
-                                className="flex-shrink-0"
-                              />
-                              <span className="font-manrope font-normal text-sm text-black">
-                                {country.code}
-                              </span>
-                              <span className="font-manrope font-normal text-sm text-gray-600 ml-auto">
-                                {country.label}
-                              </span>
-                            </button>
-                          ))
-                        ) : (
-                          <div className="px-3 py-2 text-sm text-gray-500 text-center">
-                            No countries found
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  )}
                 </div>
               </div>
 
               {/* Third Row: Company & Source */}
-              <div className="flex items-center gap-[25px] w-full">
-                <div className="flex items-left gap-[4px] px-[3px] py-[10px] pr-[198px] border-b border-black bg-white w-[270px]">
+              <div className="flex items-center gap-[33px] w-full">
+                <div className="flex items-left gap-[5px] px-[3px] py-[10px] pr-[198px] border-b border-black bg-white w-[270px]">
                   <input
                     type="text"
                     name="company"
@@ -507,41 +328,33 @@ export function ContactForm() {
                     className="font-manrope font-normal text-sm leading-[1.366em] text-[#52525A] bg-transparent border-none outline-none placeholder:text-[#52525A]"
                   />
                 </div>
-                <div className="flex items-center gap-[10px] px-[10px] py-[10px] pr-[106px] border-b border-black bg-white -mb-5">
-                  <span className="font-manrope font-normal text-sm  text-black w-full">
+                <div className="flex items-center gap-[5px] px-[10px] py-[10px] pr-[106px] border-b border-black bg-white">
+                  <span className="font-manrope font-normal text-sm leading-[1.366em] text-black">
                     Where did you find us?
                   </span>
-                  {/* <div className="flex items-center justify-center w-4 h-4 mr-5">
+                  <div className="flex items-center justify-center w-4 h-4">
                     <span className="font-manrope font-normal text-xl leading-[0.35em] text-black">
                       ‣
                     </span>
-                  </div> */}
+                  </div>
                 </div>
               </div>
             </div>
             {/* Fourth Row: Project Description */}
             <div className="border-b border-black bg-white w-full">
               <textarea
-                type="text"
                 name="project"
                 placeholder="Tell about your project"
                 value={formData.project}
                 onChange={handleChange}
-                className="font-manrope font-normal text-sm text-[#52525A] bg-transparent border-none outline-none placeholder:text-[#52525A] resize-none mt-3 w-full"
+                className="font-manrope font-normal text-sm text-[#52525A] bg-transparent border-none outline-none placeholder:text-[#52525A] resize-none"
               />
             </div>
 
             {/* Privacy Notice */}
             <div className="flex flex-col gap-[2px] w-[431px]">
-              <div className="flex items-center w-full">
-                <div className="w-5 h-4">
-                  <img
-                    src="/Tick.png"
-                    alt="Tick"
-                    width={18}
-                    height={18}
-                    className="-mt-2"
-                  />
+              <div className="flex items-center gap-1 w-full">
+                <div className="w-5 h-5 flex-shrink-0">
                   {/* <svg
                     width="20"
                     height="20"
@@ -572,7 +385,7 @@ export function ContactForm() {
 
             {/* Captcha and Submit */}
             <div className="flex items-center gap-[49px] w-full">
-              <div className="flex items-center gap-2 w-[220px] h-[50px]">
+              <div className="flex items-center gap-2 w-[178px] h-[38px]">
                 <span className="font-manrope font-normal text-[28px] leading-[1.366em] text-black whitespace-pre">
                   5 + 4 =
                 </span>
@@ -584,11 +397,8 @@ export function ContactForm() {
                   type="text"
                   name="captcha"
                   value={formData.captcha}
-                  onChange={(e) =>
-                    /^[0-9]*$/.test(e.target.value) &&
-                    setFormData({ ...formData, captcha: e.target.value })
-                  }
-                  className="w-8 font-manrope font-normal text-[28px] leading-[1.366em] text-black bg-transparent border-none outline-none"
+                  onChange={handleChange}
+                  className="w-6 font-manrope font-normal text-[28px] leading-[1.366em] text-black bg-transparent border-none outline-none"
                 />
               </div>
               <button

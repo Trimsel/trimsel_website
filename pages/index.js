@@ -535,60 +535,9 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-slate-50">
-          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
-              <Image
-                src={"/images/Rectangle-kariot.png"}
-                width={15}
-                height={15}
-                alt=""
-                aria-hidden="true"
-                loading="lazy"
-              />
-              Case Studies
-            </div>
-            <div className="mt-6 grid gap-8 lg:grid-cols-[1fr,2fr,1fr]">
-              <div>
-                <h2 className="text-3xl font-semibold text-slate-900">
-                  Our Recent Works
-                </h2>
-              </div>
-              <div className="text-lg text-slate-600">
-                Explore how Trimsel has delivered{" "}
-                <Link
-                  href="/web-development-company-chennai"
-                  className="underline decoration-brand/40 underline-offset-4"
-                >
-                  custom application development
-                </Link>
-                , <strong>software solutions</strong>, and{" "}
-                <Link
-                  href="/mobile-app-development-chennai"
-                  className="underline decoration-brand/40 underline-offset-4"
-                >
-                  mobile app projects
-                </Link>{" "}
-                that drive real results. Over the past 6 years, we’ve completed
-                more than 200 digital transformation projects across industries
-                worldwide.
-              </div>
-              <div className="flex items-start justify-end">
-                <Link
-                  href="/portfolio"
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-5 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-slate-800 transition hover:border-brand hover:text-brand"
-                  aria-label="View all Trimsel case studies"
-                >
-                  View All Cases
-                  <ArrowRightIcon />
-                </Link>
-              </div>
-            </div>
-            <div className="mt-10 rounded-3xl border border-white/40 bg-white p-6 shadow-lg shadow-slate-900/5">
-              <ScrollSection />
-            </div>
-          </div>
-        </section>
+        
+        {/* Portfolio */}
+        <ScrollSection />
 
         <section className="bg-white">
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
