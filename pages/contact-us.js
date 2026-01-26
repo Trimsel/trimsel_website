@@ -206,13 +206,13 @@ export default function Contact() {
         <>
         <NextSeo
   title="Contact Trimsel | AI-Powered Digital Transformation & App Development"
-  description="Talk to Trimsel’s Chennai team about AI-driven digital transformation, mobile apps, and cloud products. Book a strategy call to modernize your business."
+  description="Start your digital transformation with Chennai's leading AI development company. Mobile apps, web solutions, SEO, cloud & DevOps. Book a strategy call to modernize your business!"
   canonical="https://www.trimsel.com/contact-us"
   openGraph={{
     type: 'website',
     url: 'https://www.trimsel.com/contact-us',
     title: 'Contact Trimsel | AI-Powered Digital Transformation & App Development',
-    description: 'Connect with Trimsel to plan AI-fuelled digital transformation, Android/iOS builds, or cloud-native programs.',
+    description: "Start your digital transformation with Chennai's leading AI development company. Mobile apps, web solutions, SEO, cloud & DevOps. Book a strategy call to modernize your business!",
     locale: 'en_IN',
     site_name: 'Trimsel',
     images: [
