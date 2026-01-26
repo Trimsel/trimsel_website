@@ -93,7 +93,6 @@ const PostPage = ({ serializedContent, slug }) => {
       <Head>
         <title>{metaTitle}</title>
         <meta name="description" content={metaDescription} />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon-min.ico" />
         <link rel="canonical" href={canonicalUrl} />
         <meta

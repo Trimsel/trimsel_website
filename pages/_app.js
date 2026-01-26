@@ -49,6 +49,7 @@ config.autoAddCss = false;
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
+  const isBlogPost = router.pathname === "/blog/[slug]";
   const baseUrl = "https://www.trimsel.com";
   const cleanPath = router.asPath.split("?")[0].split("#")[0];
   const canonicalUrl =
@@ -99,6 +100,8 @@ export default function App({ Component, pageProps }) {
       </Head>
 
       {/* Site-wide SEO defaults (per-page <NextSeo> can override) */}
+    {!isBlogPost && (
+      <>
       <DefaultSeo
         defaultTitle="Trimsel – Software, Cloud & AI Services"
         titleTemplate="%s | Trimsel"
@@ -225,6 +228,8 @@ export default function App({ Component, pageProps }) {
           "https://in.pinterest.com/trimsel/",
         ]}
       />
+      </>
+    )}
       {/* GA: load afterInteractive */}
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-8PHY8FQ1CW"
