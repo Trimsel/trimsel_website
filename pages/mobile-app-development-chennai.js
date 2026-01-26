@@ -147,15 +147,15 @@ export default function mobileApp() {
   return (
     <>
 <NextSeo
-  title="Mobile App Development Company in Chennai, India"
-  description="Trimsel is a top mobile app development company in Chennai, India. We build secure, scalable iOS, Android, Flutter & hybrid apps tailored to your business."
+  title="Mobile App Development Company Chennai, India | iOS, Android"
+  description="Top mobile app development company in Chennai, India. We build secure, scalable iOS, Android, Flutter & cross platform apps with exceptional UX. From MVP to enterprise apps. 200+ successful projects delivered."
   canonical="https://www.trimsel.com/mobile-app-development-chennai"
   openGraph={{
     type: "website",
     url: "https://www.trimsel.com/mobile-app-development-chennai",
-    title: "Mobile App Development Company in Chennai, India",
+    title: "Mobile App Development Company Chennai, India | iOS, Android",
     description:
-      "Trimsel is a top mobile app development company in Chennai, India. We build secure, scalable iOS, Android, Flutter & hybrid apps tailored to your business.",
+      "Top mobile app development company in Chennai, India. We build secure, scalable iOS, Android, Flutter & cross platform apps with exceptional UX. From MVP to enterprise apps. 200+ successful projects delivered.",
     locale: "en_IN",
     site_name: "Trimsel",
     images: [
