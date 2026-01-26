@@ -134,15 +134,15 @@ export default function DevOps() {
   return (
     <>
 <NextSeo
-  title="Best DevOps Consulting Services | DevOps Automation & Cloud Solutions"
-  description="Trimsel offers DevOps consulting, CI/CD pipelines, Kubernetes consulting, and infrastructure automation to optimize your cloud and deployment workflows."
+  title="DevOps Automation & Consulting Company India"
+  description="Scale faster with DevOps consulting services in India. CI/CD automation, Kubernetes orchestration, Infrastructure as Code & 24/7 support. Trusted by SaaS, fintech & ecommerce."
   canonical="https://www.trimsel.com/devops-consulting-services"
   openGraph={{
     type: "website",
     url: "https://www.trimsel.com/devops-consulting-services",
-    title: "Best DevOps Consulting Services | DevOps Automation & Cloud Solutions",
+    title: "DevOps Automation & Consulting Company India",
     description:
-      "Trimsel offers DevOps consulting, CI/CD pipelines, Kubernetes consulting, and infrastructure automation to optimize your cloud and deployment workflows.",
+      "Scale faster with DevOps consulting services in India. CI/CD automation, Kubernetes orchestration, Infrastructure as Code & 24/7 support. Trusted by SaaS, fintech & ecommerce.",
     locale: "en_IN",
     site_name: "Trimsel",
     images: [
