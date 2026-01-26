@@ -106,15 +106,14 @@ export default function Quality() {
   return (
     <>
 <NextSeo
-  title="AI Development Company in Chennai, India | Trimsel"
-  description="Trimsel is a leading AI development company in Chennai, India specializing in custom AI agents, machine learning models, NLP, and generative AI solutions."
+  title="AI Development Company Chennai | ML, GenAI & LLM"
+  description="Trimsel is a leading AI development company in Chennai, India specializing in chatbots, copilots, computer vision, custom AI agents, ML models & workflow automation. LLMs, RAG & fine-tuning. From prototype to production"
   canonical="https://www.trimsel.com/ai-development-company"
   openGraph={{
     type: "website",
     url: "https://www.trimsel.com/ai-development-company",
     title: "Best AI Development Company in Chennai, India | Trimsel",
-    description:
-      "Trimsel is a top AI development company in Chennai, India helping enterprises build scalable AI agents, predictive models, NLP, and generative AI products.",
+    description:"Trimsel is a leading AI development company in Chennai, India specializing in chatbots, copilots, computer vision, custom AI agents, ML models & workflow automation. LLMs, RAG & fine-tuning. From prototype to production",
     locale: "en_IN",
     site_name: "Trimsel",
     images: [
