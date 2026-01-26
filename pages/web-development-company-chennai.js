@@ -95,15 +95,14 @@ export default function WebDevelopment() {
   return (
     <>
 <NextSeo
-  title="Top Web Development Company in Chennai | Website Design Experts"
-  description="Trimsel is a top web development company in Chennai offering website design, CMS, ecommerce, and custom solutions in ReactJS & NodeJS."
+  title="Web Development Company Chennai | Custom Websites & Apps"
+  description="Leading web development company in Chennai building fast, SEO-friendly websites, ecommerce & enterprise web applications. React, Node.js, Python. Scalable solutions for startups to enterprises."
   canonical="https://www.trimsel.com/web-development-company-chennai"
   openGraph={{
     type: "website",
     url: "https://www.trimsel.com/web-development-company-chennai",
-    title: "Top Web Development Company in Chennai | Website Design & Development",
-    description:
-      "Trimsel is a trusted web development company in Chennai, offering high-performance web development services, including ReactJS, NodeJS, CMS, and ecommerce.",
+    title: "Web Development Company Chennai | Custom Websites & Apps",
+    description:"Leading web development company in Chennai building fast, SEO-friendly websites, ecommerce & enterprise web applications. React, Node.js, Python. Scalable solutions for startups to enterprises.",
     locale: "en_IN",
     site_name: "Trimsel",
     images: [
