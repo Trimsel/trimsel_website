@@ -106,15 +106,15 @@ export default function Digital() {
   return (
     <>
 <NextSeo
-  title="Top Digital Marketing Company in Chennai | SEO, PPC, SMM Experts"
-  description="Trimsel is a digital marketing company in Chennai offering SEO, PPC, social media marketing & content strategies to boost visibility and drive results."
+  title="SEO & Digital Marketing Company Chennai | Proven Results"
+  description="Performance-driven digital marketing in Chennai. Rank #1 on Google with our SEO experts. PPC, Instagram ads, LinkedIn marketing & content that converts. Book free consultation today."
   canonical="https://www.trimsel.com/digital-marketing-company-chennai"
   openGraph={{
     type: "article",
     url: "https://www.trimsel.com/digital-marketing-company-chennai",
-    title: "Top Digital Marketing Company in Chennai | SEO, PPC, SMM Experts",
+    title: "SEO & Digital Marketing Company Chennai | Proven Results",
     description:
-      "Trimsel is a trusted digital marketing agency in Chennai specializing in SEO services, PPC advertising, and social media campaigns for high-growth brands.",
+      "Performance-driven digital marketing in Chennai. Rank #1 on Google with our SEO experts. PPC, Instagram ads, LinkedIn marketing & content that converts. Book free consultation today.",
     locale: "en_IN",
     site_name: "Trimsel",
     images: [
