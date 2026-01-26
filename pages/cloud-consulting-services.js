@@ -119,14 +119,14 @@ export default function CloudConsulting() {
   return (
     <>
   <NextSeo
-  title="Cloud Consulting in Chennai, India | AWS, Azure & GCP Experts"
-  description="Trimsel offers expert cloud consulting in Chennai, India, including AWS, Azure & GCP consulting, migration, and cost optimization. Get started today!"
+  title="Cloud Consulting services Chennai, India | AWS, Azure & GCP Experts"
+  description="Trimsel offers expert cloud consulting services in Chennai, India, including AWS, Azure & GCP migration, modernization, FinOps, Security & cost optimization. Get started today!"
   canonical="https://www.trimsel.com/cloud-consulting-services"
   openGraph={{
     type: 'website',
     url: 'https://www.trimsel.com/cloud-consulting-services',
-    title: 'Cloud Consulting Services in Chennai, India | AWS, Azure & GCP Experts',
-    description: 'Expert Cloud Consulting Services in Chennai, India. We offer cloud migration, cloud cost optimization, AWS, Azure & GCP consulting. Get in touch today!',
+    title: 'Cloud Consulting Services Chennai, India | AWS, Azure & GCP Experts',
+    description: 'Trimsel offers expert cloud consulting services in Chennai, India, including AWS, Azure & GCP migration, modernization, FinOps, Security & cost optimization. Get started today!',
     locale: 'en_IN',
     site_name: 'Trimsel',
     images: [
