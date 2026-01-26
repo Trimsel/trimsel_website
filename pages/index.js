@@ -61,14 +61,14 @@ export default function Home() {
     <>
        {/* ✅ Next-SEO for SEO Optimization */}
        <NextSeo
-  title="AI-Powered Software Development Company in Chennai"
-  description="We build intelligent mobile apps, scalable web apps, AI and ML apps, cloud consulting, DevOps, and ROI-focused digital marketing for global brands"
+  title="AI-Powered Software Development Company Chennai"
+  description="Trimsel delivers custom software, mobile app, web development, AI solutions, cloud consulting & DevOps services in Chennai. Transform your business with cutting-edge technology."
   canonical="https://www.trimsel.com/"
   openGraph={{
     type: "website",
     url: "https://www.trimsel.com/",
-    title: "AI-Powered Software Development Company in Chennai",
-    description: "We build intelligent mobile apps, scalable web apps, AI and ML apps, cloud consulting, DevOps, and ROI-focused digital marketing for global brands",
+    title: "AI-Powered Software Development Company Chennai",
+    description: "Trimsel delivers custom software, mobile app, web development, AI solutions, cloud consulting & DevOps services in Chennai. Transform your business with cutting-edge technology.",
     images: [{ url: "https://www.trimsel.com/images/myherocloud.png", width: 1200, height: 630, alt: "Trimsel" }],
     site_name: "Trimsel",
   }}
