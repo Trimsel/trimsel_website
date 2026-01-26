@@ -580,7 +580,7 @@ export default function Home() {
             {
               questionName: "What services does Trimsel provide?",
               acceptedAnswerText:
-                "Trimsel offers custom software development, mobile app development in Chennai, web design, cloud consulting, DevOps automation, digital marketing, and quality engineering services tailored to support efficient digital transformation.",
+                "Trimsel is an AI-powered software development company in Chennai offering custom software, mobile app development, web design, cloud consulting, DevOps automation, and digital transformation services.",
             },
             {
               questionName: "What industries does Trimsel serve?",
