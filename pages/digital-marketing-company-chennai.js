@@ -9,6 +9,7 @@ import ContactForm from "../components/ContactForm";
 import { buildServiceJsonLd } from "../lib/serviceSchema";
 import ArrowRightIcon from "../components/icons/ArrowRightIcon";
 import CheckIcon from "../components/icons/CheckIcon";
+import { manropeFont } from "../lib/fonts";
 
 const faqItems = [
   {
@@ -316,61 +317,60 @@ export default function Digital() {
         ))}
       </Head>
 
-      <section className="bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white">
+      <section className="bg-white text-slate-950">
         <Header />
-        <div className="mx-auto grid max-w-6xl gap-12 px-4 pb-16 pt-24 sm:px-6 lg:grid-cols-2 lg:px-8">
+        <div className="mx-auto grid max-w-6xl gap-12 px-4 pb-8 pt-44 sm:px-6 lg:grid-cols-2 lg:px-8">
           <div className="space-y-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
-              <Link href="/" className="hover:text-brand">
-                Home
-              </Link>
-              <span className="mx-2 text-slate-600">·</span>
-              Digital Marketing Services
-            </p>
-            <h1 className="text-4xl font-semibold leading-tight">Top Digital Marketing Company in Chennai</h1>
-            <p className="text-lg leading-relaxed text-slate-300">
-              Boost visibility, traffic, and revenue with Trimsel’s Chennai-based SEO, PPC, social media, and content experts.
-              We pair hyperlocal playbooks with AI-driven analytics so every impression accelerates your pipeline.
+            <h1 className={`text-5xl lg:text-4xl font-semibold leading-tight ${manropeFont.className}`}>
+              Chennai’s Trusted Digital <br />
+              Marketing Company – Strategy, <br />
+              Growth, Results.
+            </h1>
+            <p className={`text-base leading-relaxed text-slate-600 ${manropeFont.className}`}>
+              An AI-driven logistics optimization platform that revolutionizes how <br />
+              businesses plan, execute, and manage transportation.Real-time <br />
+              insights enable smarter decisions, while end-to-end visibility ensures <br />
+              greater transparency across every stage of the supply chain.
             </p>
             <div>
-              <Link
-                href="/contact-us"
-                className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white shadow-lg shadow-brand/40 transition hover:bg-brand-dark"
-                aria-label="Book a digital marketing strategy session with Trimsel"
+              <button
+                className={`mt-4 inline-flex items-center gap-2 px-6 py-3 rounded-xs bg-gradient-to-r from-[#29B375] to-[#2E70C3] text-white font-medium hover:scale-105 transition-all shadow-lg ${manropeFont.className}`}
               >
-                Get a Digital Strategy Session
-                <ArrowRightIcon width={20} height={20} />
-              </Link>
-              <p className="mt-4 text-sm text-slate-400">
-                150+ campaigns delivered for SaaS, retail, and BFSI brands with 4.5x average ROAS.
-              </p>
+                Get a Digital Strategy Session <Image src="/images/material-symbols_arrow-right-alt.png" width={20} height={20} alt="" />
+              </button>
             </div>
-            <ul className="space-y-2 text-sm text-slate-300">
-              {heroStats.map((item) => (
-                <li key={item} className="flex items-start gap-2">
-                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-brand" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
           </div>
-          <div className="flex items-center justify-center">
-            <Image
-              src="/images/digitall-hero.webp"
-              width={620}
-              height={520}
-              alt="Trimsel digital marketing strategists collaborating"
-              className="w-full max-w-[520px]"
-              priority
-              quality={80}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 55vw, 520px"
-            />
+          <div className="flex items-center justify-center -mt-16">
+            {/* RIGHT IMAGE */}
+            <div className="relative flex justify-center">
+              <div className="absolute  w-72 h-72 rounded-full bg-blue-100 blur-3xl opacity-60" />
+
+              <div className="relative">
+                <Image
+                  src="/Digital1.svg"
+                  alt="Digital1"
+                  width={380}
+                  height={340}
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 w-[600px] max-w-none h-auto  ml-8 scale-95 opacity-80"
+                  priority
+                />
+
+                <Image
+                  src="/Digital2.svg"
+                  alt="Digital2"
+                  width={600}
+                  height={600}
+                  className="relative z-0 scale-105 drop-shadow-2xl animate-shake ml-14 mt-16"
+                  priority
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       <section id="dig-overview" className="bg-white">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[2fr,1fr] lg:px-8">
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-8 sm:px-6 lg:grid-cols-[2fr,1fr] lg:px-8">
           <div className="space-y-4">
             <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
               <Image src="/images/Rectangle-kariot.png" width={18} height={18} alt="" loading="lazy" />

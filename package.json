@@ -46,7 +46,8 @@
     "react-syntax-highlighter": "^15.5.0",
     "rehype-slug": "^6.0.0",
     "remark-gfm": "^4.0.1",
-    "sharp": "^0.33.5"
+    "sharp": "^0.33.5",
+    "three": "^0.169.0"
   },
   "devDependencies": {
     "@types/node": "^22.7.4",

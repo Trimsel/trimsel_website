@@ -120,10 +120,10 @@ function Footer() {
       </div>
       <div className="w-full bg-black text-white">
         {/* Black footer card from Figma */}
-        <div className="mx-auto max-w-6xl px-4 pb-16 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[1.2fr_1.4fr_1.4fr] items-start">
             {/* Logo + socials (left column in Figma) */}
-            <div className="space-y-8 mt-5">
+            <div className="space-y-2 mt-5">
               <Image
                 src="/trimsel-logo-white.svg"
                 width={283}
@@ -133,7 +133,7 @@ function Footer() {
                 loading="lazy"
               />
 
-              <div className="space-y-3">
+              <div className="space-y-2">
                 <div className="flex flex-wrap gap-3">
                   <nav aria-label="Social media">
                     <ul className="list-inline mt-2">

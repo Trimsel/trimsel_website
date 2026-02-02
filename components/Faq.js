@@ -6,7 +6,7 @@ import { manropeFont } from "../lib/fonts";
 
 export default function Faq({ question, answer, isOpen, onToggle }) {
   return (
-    <div className="border border-gray-300 rounded-xl w-full max-w-xl mx-auto bg-white">
+    <div className="border-1 border-gray-400 rounded-xl group w-full max-w-xl mx-auto bg-white">
       <button
         type="button"
         aria-expanded={isOpen}
@@ -15,7 +15,7 @@ export default function Faq({ question, answer, isOpen, onToggle }) {
           relative w-full flex items-center justify-between
           p-3 
           hover:bg-[#dcecff] transition-colors duration-300
-          focus:outline-none
+          focus:outline-none rounded-xl
         "
       >
         <div
@@ -28,7 +28,7 @@ export default function Faq({ question, answer, isOpen, onToggle }) {
           <p
             className={`
               text-sm text-black text-left ${manropeFont.className}
-              transition-all duration-300
+              transition-all duration-300 group-hover:text-[#2E70C3]
               ${isOpen ? "opacity-0 -translate-y-1" : "opacity-100 translate-y-0"}
             `}
           >
@@ -56,7 +56,7 @@ export default function Faq({ question, answer, isOpen, onToggle }) {
         />
       </button>
 
-      {isOpen && <div className="h-[2px] bg-blue-500 w-full rounded-b-xl mx-auto"></div>}
+      {isOpen && <div className="h-[4px] bg-blue-500 w-full rounded-b-2xl mx-auto"></div>}
     </div>
   );
 }

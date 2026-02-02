@@ -331,194 +331,194 @@ export default function WebDevelopment() {
   ];
   return (
     <>
-<NextSeo
-  title="Top Web Development Company in Chennai | Website Design Experts"
-  description="Trimsel is a top web development company in Chennai offering website design, CMS, ecommerce, and custom solutions in ReactJS & NodeJS."
-  canonical="https://www.trimsel.com/web-development-company-chennai"
-  openGraph={{
-    type: "website",
-    url: "https://www.trimsel.com/web-development-company-chennai",
-    title: "Top Web Development Company in Chennai | Website Design & Development",
-    description:
-      "Trimsel is a trusted web development company in Chennai, offering high-performance web development services, including ReactJS, NodeJS, CMS, and ecommerce.",
-    locale: "en_IN",
-    site_name: "Trimsel",
-    images: [
-      {
-        url: "https://www.trimsel.com/images/web-dev-hero.png",
-        width: 1200,
-        height: 630,
-        alt: "Trimsel web development team building responsive interfaces in Chennai",
-      },
-    ],
-    article: {
-      section: "Web Development",
-      tags: [
-        "Web Development",
-        "ReactJS",
-        "NodeJS",
-        "Ecommerce Development",
-        "Chennai",
-      ],
-    },
-  }}
-  twitter={{
-    cardType: "summary_large_image",
-    handle: "@TrimselSoftwares",
-    site: "@TrimselSoftwares",
-  }}
-  additionalMetaTags={[
-    {
-      name: "twitter:title",
-      content: "Web Development Company in Chennai – Trimsel",
-    },
-    {
-      name: "twitter:description",
-      content:
-        "Custom websites, ecommerce platforms, and CMS solutions crafted by Trimsel’s Chennai-based web developers.",
-    },
-    {
-      name: "twitter:image:alt",
-      content: "Trimsel web development team designing responsive interfaces",
-    },
-  ]}
-/>
-<Head>
-  {serviceJsonLd.map((schema, index) => (
-    <script
-      key={`web-dev-schema-${index}`}
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
-  ))}
-</Head>
+      <NextSeo
+        title="Top Web Development Company in Chennai | Website Design Experts"
+        description="Trimsel is a top web development company in Chennai offering website design, CMS, ecommerce, and custom solutions in ReactJS & NodeJS."
+        canonical="https://www.trimsel.com/web-development-company-chennai"
+        openGraph={{
+          type: "website",
+          url: "https://www.trimsel.com/web-development-company-chennai",
+          title: "Top Web Development Company in Chennai | Website Design & Development",
+          description:
+            "Trimsel is a trusted web development company in Chennai, offering high-performance web development services, including ReactJS, NodeJS, CMS, and ecommerce.",
+          locale: "en_IN",
+          site_name: "Trimsel",
+          images: [
+            {
+              url: "https://www.trimsel.com/images/web-dev-hero.png",
+              width: 1200,
+              height: 630,
+              alt: "Trimsel web development team building responsive interfaces in Chennai",
+            },
+          ],
+          article: {
+            section: "Web Development",
+            tags: [
+              "Web Development",
+              "ReactJS",
+              "NodeJS",
+              "Ecommerce Development",
+              "Chennai",
+            ],
+          },
+        }}
+        twitter={{
+          cardType: "summary_large_image",
+          handle: "@TrimselSoftwares",
+          site: "@TrimselSoftwares",
+        }}
+        additionalMetaTags={[
+          {
+            name: "twitter:title",
+            content: "Web Development Company in Chennai – Trimsel",
+          },
+          {
+            name: "twitter:description",
+            content:
+              "Custom websites, ecommerce platforms, and CMS solutions crafted by Trimsel’s Chennai-based web developers.",
+          },
+          {
+            name: "twitter:image:alt",
+            content: "Trimsel web development team designing responsive interfaces",
+          },
+        ]}
+      />
+      <Head>
+        {serviceJsonLd.map((schema, index) => (
+          <script
+            key={`web-dev-schema-${index}`}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
+        ))}
+      </Head>
 
-<main>
-      <section className="bg-gradient-to-b from-white via-slate-50 to-white">
-        <Header />
-        <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8">
-          <div className="space-y-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
-              <Link href="/" className="hover:text-brand">
-                Home
-              </Link>
-              <span className="mx-2 text-slate-300">·</span> Web Development Services
-            </p>
-            <h1 className="text-4xl font-semibold text-slate-900">
-              Top Web Development Company in Chennai — Fast, Flexible, Built for Results
-            </h1>
-            <p className="text-lg leading-relaxed text-slate-600">
-              Trimsel creates responsive websites and powerful web applications tailored to your business. From sleek marketing sites to
-              feature-rich SaaS platforms, we use React, Next.js, Node.js, and WordPress to deliver high-performance digital experiences.
-            </p>
-            <div>
-              <Link
-                href="/contact-us"
-                className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white shadow-lg shadow-brand/40 transition hover:bg-brand-dark"
-                aria-label="Book a web development consultation with Trimsel"
-              >
-                Get a Web Development Consultation <ArrowRightIcon width={20} height={20} />
-              </Link>
-              <p className="mt-4 text-sm text-slate-500">180+ websites shipped with 95% on-time delivery across SaaS, ecommerce, and BFSI.</p>
-            </div>
-            <ul className="space-y-2 text-sm text-slate-600">
-              {heroHighlights.map((highlight) => (
-                <li key={highlight} className="flex items-start gap-2">
-                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-brand"></span>
-                  <span>{highlight}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="flex items-center justify-center">
-            <Image
-              src="/images/web-dev-hero.webp"
-              width={646}
-              height={651}
-              alt="Custom website and web application development team"
-              className="w-full max-w-[520px]"
-              priority
-              quality={75}
-              sizes="(max-width: 768px) 95vw, (max-width: 1200px) 55vw, 520px"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-[1.4fr,1fr]">
-            <div>
-              <h2 className="text-3xl font-semibold text-slate-900">Custom Web Development Services That Work for You</h2>
-              <p className="mt-4 text-lg leading-relaxed text-slate-600">
-                Your website needs to look great and perform flawlessly. Every Trimsel build is responsive, performant, and ready to scale—with
-                clean code, mobile-first design, and releases powered by{" "}
-                <Link href="/cloud-consulting-services" className="underline decoration-brand/40 underline-offset-4">
-                  cloud
-                </Link>{" "}
-                and{" "}
-                <Link href="/devops-consulting-services" className="underline decoration-brand/40 underline-offset-4">
-                  DevOps automation
-                </Link>
-                .
+      <main>
+        <section className="bg-gradient-to-b from-white via-slate-50 to-white">
+          <Header />
+          <div className="mx-auto grid max-w-6xl gap-12 px-4 pt-40 pb-16 sm:px-6 lg:grid-cols-2 lg:px-8">
+            <div className="space-y-6">
+              <h1 className="text-3xl lg:text-4xl font-semibold text-slate-900">
+                Top-Rated Web Development <br />
+                Company in Chennai – <br />
+                Built for Growth & Performance.
+              </h1>
+              <p className="text-base leading-relaxed text-slate-600">
+                An AI-driven logistics optimization platform that revolutionizes how <br />
+                businesses plan, execute, and manage transportation.Real-time <br />
+                insights enable smarter decisions, while end-to-end visibility ensures <br />
+                greater transparency across every stage of the supply chain.
               </p>
-              <p className="mt-4 text-lg font-semibold text-slate-900">Our core services</p>
-              <ul className="mt-4 space-y-3 text-sm text-slate-600">
-                {aboutList.map((item) => (
-                  <li key={item} className="flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-brand"></span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-4 text-lg text-slate-600">
-                Looking for a top-rated web app development company in Chennai? Let’s build a site that drives results and fits your budget.
-              </p>
+              <div>
+                <button
+                  className="mt-4 inline-flex items-center gap-2 px-6 py-3 rounded-xs bg-gradient-to-r from-[#29B375] to-[#2E70C3] text-white font-medium hover:scale-105 transition-all shadow-lg"
+                >
+                  Get a Free Consultation <Image src="/images/material-symbols_arrow-right-alt.png" width={20} height={20} alt="" />
+                </button>
+              </div>
             </div>
-            <div className="rounded-3xl border border-white/60 bg-slate-900 p-6 text-white shadow-2xl shadow-slate-900/30">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-300">Start your project</p>
-              <h3 className="mt-4 text-2xl font-semibold">Ready to Launch Your New Website?</h3>
-              <p className="mt-3 text-sm text-slate-200">Tap the button below and our web engineers will reach out within one business day.</p>
-              <Link
-                href="/contact-us"
-                className="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-slate-900 shadow-lg shadow-white/20 transition hover:bg-slate-100"
-                aria-label="Book a web development consultation"
-              >
-                Book a Consultation <ArrowRightIcon width={18} height={18} />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+            {/* RIGHT IMAGE */}
+            <div className="relative flex justify-center">
+              <div className="absolute  w-72 h-72 rounded-full bg-blue-100 blur-3xl opacity-60" />
 
-      <section id="web-do" className="bg-slate-50">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
-            <Image src="/images/web-rect.png" width={18} height={18} alt="" aria-hidden="true" loading="lazy" />
-            What we do
+              <div className="relative">
+                <Image
+                  src="/Web1.svg"
+                  alt="Web1"
+                  width={380}
+                  height={340}
+                  className="absolute top-1/2 left-1/4 -translate-x-1/8 -translate-y-1/2 z-15 w-[340px] max-w-none h-auto  ml-8 scale-95 opacity-80"
+                  priority
+                />
+
+                <Image
+                  src="/Web2.svg"
+                  alt="AI Robot"
+                  width={300}
+                  height={300}
+                  className="relative z-0 -translate-x-1/6 -translate-y-1/8 scale-105 drop-shadow-2xl animate-shake"
+                  priority
+                />
+              </div>
+            </div>
+
           </div>
-          <div className="mt-6 grid gap-6 lg:grid-cols-[2fr,3fr]">
-            <h2 className="text-3xl font-semibold text-slate-900">Full-Stack Web Development Services in Chennai</h2>
-            <p className="text-lg leading-relaxed text-slate-600">
-              From CMS sites and custom apps to API integration and DevOps, we build scalable, SEO-friendly experiences for startups and
-              enterprises alike.
-            </p>
-          </div>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {webServices.map((service) => (
-              <div key={service.title} className="rounded-3xl border border-white/60 bg-white p-6 shadow-lg shadow-slate-900/5">
-                <Image src={service.icon} width={70} height={70} alt={`${service.title} icon`} loading="lazy" />
-                <h3 className="mt-4 text-lg font-semibold text-slate-900">{service.title}</h3>
-                <p className="mt-3 text-sm text-slate-600">{service.body}</p>
-                <Link href="/contact-us" aria-label={`Discuss ${service.title}`} className="mt-4 inline-flex items-center gap-2 text-brand">
-                  <span className="text-sm font-semibold uppercase tracking-[0.3em]">Let’s chat</span>
-                  <ArrowRightIcon width={16} height={16} />
+        </section>
+
+        <section className="bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="grid gap-10 lg:grid-cols-[1.4fr,1fr]">
+              <div>
+                <h2 className="text-3xl font-semibold text-slate-900">Custom Web Development Services That Work for You</h2>
+                <p className="mt-4 text-lg leading-relaxed text-slate-600">
+                  Your website needs to look great and perform flawlessly. Every Trimsel build is responsive, performant, and ready to scale—with
+                  clean code, mobile-first design, and releases powered by{" "}
+                  <Link href="/cloud-consulting-services" className="underline decoration-brand/40 underline-offset-4">
+                    cloud
+                  </Link>{" "}
+                  and{" "}
+                  <Link href="/devops-consulting-services" className="underline decoration-brand/40 underline-offset-4">
+                    DevOps automation
+                  </Link>
+                  .
+                </p>
+                <p className="mt-4 text-lg font-semibold text-slate-900">Our core services</p>
+                <ul className="mt-4 space-y-3 text-sm text-slate-600">
+                  {aboutList.map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-brand"></span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-4 text-lg text-slate-600">
+                  Looking for a top-rated web app development company in Chennai? Let’s build a site that drives results and fits your budget.
+                </p>
+              </div>
+              <div className="rounded-3xl border border-white/60 bg-slate-900 p-6 text-white shadow-2xl shadow-slate-900/30">
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-300">Start your project</p>
+                <h3 className="mt-4 text-2xl font-semibold">Ready to Launch Your New Website?</h3>
+                <p className="mt-3 text-sm text-slate-200">Tap the button below and our web engineers will reach out within one business day.</p>
+                <Link
+                  href="/contact-us"
+                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-slate-900 shadow-lg shadow-white/20 transition hover:bg-slate-100"
+                  aria-label="Book a web development consultation"
+                >
+                  Book a Consultation <ArrowRightIcon width={18} height={18} />
                 </Link>
               </div>
-            ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        <section id="web-do" className="bg-slate-50">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+              <Image src="/images/web-rect.png" width={18} height={18} alt="" aria-hidden="true" loading="lazy" />
+              What we do
+            </div>
+            <div className="mt-6 grid gap-6 lg:grid-cols-[2fr,3fr]">
+              <h2 className="text-3xl font-semibold text-slate-900">Full-Stack Web Development Services in Chennai</h2>
+              <p className="text-lg leading-relaxed text-slate-600">
+                From CMS sites and custom apps to API integration and DevOps, we build scalable, SEO-friendly experiences for startups and
+                enterprises alike.
+              </p>
+            </div>
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {webServices.map((service) => (
+                <div key={service.title} className="rounded-3xl border border-white/60 bg-white p-6 shadow-lg shadow-slate-900/5">
+                  <Image src={service.icon} width={70} height={70} alt={`${service.title} icon`} loading="lazy" />
+                  <h3 className="mt-4 text-lg font-semibold text-slate-900">{service.title}</h3>
+                  <p className="mt-3 text-sm text-slate-600">{service.body}</p>
+                  <Link href="/contact-us" aria-label={`Discuss ${service.title}`} className="mt-4 inline-flex items-center gap-2 text-brand">
+                    <span className="text-sm font-semibold uppercase tracking-[0.3em]">Let’s chat</span>
+                    <ArrowRightIcon width={16} height={16} />
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
 
         <section id="web-source" className="bg-white">
@@ -771,12 +771,12 @@ export default function WebDevelopment() {
           </div>
         </section>
 
-<ContactForm
-        heading="Launch A High-Performance Web App"
-        subText="Let’s architect a scalable, SEO-ready web application tailored to your business goals."
-        eventLabel="web_service_page"
-      />
-      <Footer />
+        <ContactForm
+          heading="Launch A High-Performance Web App"
+          subText="Let’s architect a scalable, SEO-ready web application tailored to your business goals."
+          eventLabel="web_service_page"
+        />
+        <Footer />
       </main>
     </>
   );

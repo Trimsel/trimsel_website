@@ -1,32 +1,43 @@
+
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 
 export function ContactForm() {
-  const [currentSlide, setCurrentSlide] = useState(0);
   const testimonials = [
     {
-      text: "It's been an absolute pleasure to work with TechAhead team through this project.I know you have all gone way over and above to deliver the app to the right quality, and the team has collectivety added value at each stage.",
+      text: "It's been an absolute pleasure to work with TechAhead team through this project. They went above and beyond to deliver quality work.",
       name: "Andy Hobbs",
       company: "ICC",
     },
+    {
+      text: "Trimsel delivered exceptional results on our mobile app. Their expertise helped us scale efficiently.",
+      name: "Jane Doe",
+      company: "TechCorp",
+    },
+    {
+      text: "The team understood our vision and delivered beyond expectations.",
+      name: "John Smith",
+      company: "InnovateLabs",
+    },
   ];
-  const totalSlides = testimonials.length || 1;
-  const arrowLeftSrc =
-    "data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 19L8 12L15 5' stroke='%230F172A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E";
-  const arrowRightSrc =
-    "data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 5L16 12L9 19' stroke='%230F172A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E";
+  const totalSlides = testimonials.length;
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const next = () => setCurrentSlide((prev) => (prev + 1) % totalSlides);
+  const prev = () => setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
 
   const goToSlide = (index) => {
-    if (index < 0) {
-      setCurrentSlide(totalSlides - 1);
-    } else if (index >= totalSlides) {
-      setCurrentSlide(0);
-    } else {
-      setCurrentSlide(index);
-    }
+    setCurrentSlide((index + totalSlides) % totalSlides);
   };
+
+  // Auto-advance slider every 4 seconds
+  useEffect(() => {
+    const id = setInterval(next, 4000);
+    return () => clearInterval(id);
+  }, [totalSlides]);
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -38,6 +49,57 @@ export function ContactForm() {
     captcha: "",
   });
 
+  // Country picker state
+  const [showCountryDropdown, setShowCountryDropdown] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState({
+    code: "+91",
+    name: "India",
+    flag: "/indiaflag.png",
+  });
+  const [countrySearch, setCountrySearch] = useState("");
+  const countryDropdownRef = useRef(null);
+
+  const countries = [
+    { code: "+91", name: "India", flag: "/indiaflag.png" },
+    { code: "+1", name: "United States", flag: "/indiaflag.png" },
+    { code: "+44", name: "United Kingdom", flag: "/indiaflag.png" },
+    { code: "+61", name: "Australia", flag: "/indiaflag.png" },
+    { code: "+971", name: "UAE", flag: "/indiaflag.png" },
+    { code: "+65", name: "Singapore", flag: "/indiaflag.png" },
+    { code: "+49", name: "Germany", flag: "/indiaflag.png" },
+    { code: "+33", name: "France", flag: "/indiaflag.png" },
+    { code: "+81", name: "Japan", flag: "/indiaflag.png" },
+    { code: "+86", name: "China", flag: "/indiaflag.png" },
+  ];
+
+  const filteredCountries = countries.filter(
+    (c) =>
+      c.name.toLowerCase().includes(countrySearch.toLowerCase()) ||
+      c.code.includes(countrySearch)
+  );
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        countryDropdownRef.current &&
+        !countryDropdownRef.current.contains(event.target)
+      ) {
+        setShowCountryDropdown(false);
+        setCountrySearch("");
+      }
+    };
+    if (showCountryDropdown) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [showCountryDropdown]);
+
+  const handleCountrySelect = (country) => {
+    setSelectedCountry(country);
+    setShowCountryDropdown(false);
+    setCountrySearch("");
+  };
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -48,14 +110,14 @@ export function ContactForm() {
   return (
     <div className="flex flex-col gap-8 ml-8">
       <div className="flex flex-col gap-3 mt-10">
-        <h1 className="font-urbanist font-semibold text-[30px] leading-[1.2em] text-black text-left">
+        <h1 className="font-urbanist font-semibold text-3xl leading-[1.2em] text-black text-left">
           Let&apos;s Build Your Dream App — Get a Free Consultation!
         </h1>
-        <p className="font-manrope font-normal text-[20px] leading-[1.6em] text-black max-w-[868px]">
-          Have an idea or need expert help with your digital project? At
-          Trimsel, we help businesses of all sizes with end-to-end development
-          services — from websites and mobile apps to cloud, DevOps, and digital
-          marketing.
+        <p className="font-manrope font-normal text-2xl leading-[1.6em] text-black text-left">
+          Have an idea or need expert help with your digital project?
+          At Trimsel, we help businesses of all sizes with
+          end-to-end development services from websites and mobile apps
+          to cloud, DevOps, and digital marketing.
         </p>
       </div>
 
@@ -83,141 +145,47 @@ export function ContactForm() {
               </div>
             </div>
 
-            {/* Testimonial Cards Carousel */}
-            <div className="flex flex-col items-center gap-8 w-full relative h-[265px] overflow-hidden">
-              <div className="relative w-full h-full">
+            {/* Testimonial Slider */}
+            <div className="flex flex-col items-center gap-6 w-full relative">
+              <div className="relative min-h-[1080px] w-full max-w-[520px] overflow-hidden flex flex-col">
                 <div
                   className="flex transition-transform duration-500 ease-in-out h-full"
-                  style={{ transform: `translateX(-${currentSlide * 527}px)` }}
+                  style={{ transform: `translateX(-${currentSlide * 100}%)` }}
                 >
-                  {Array.from({ length: totalSlides }).map((_, index) => (
-                    <div key={index} className="min-w-[527px] flex-shrink-0">
-                      <div className="relative w-[501px] mx-auto">
-                        <div className="relative">
-                          <div
-                            className="bg-[#F5FAFF] rounded-[4px] p-[30px_20px] shadow-[0px_0px_17px_0px_rgba(0,0,0,0.14)] flex flex-col gap-5 relative z-10"
-                            style={{ marginTop: "15px" }}
-                          >
-                            <p className="font-manrope font-semibold text-sm leading-[1.714em] text-black w-[431px]">
-                              {testimonials[0].text}
-                            </p>
-                            <div className="flex items-center gap-[10px]">
-                              <div
-                                className="w-14 h-14 rounded-full bg-gray-200 flex-shrink-0"
-                                style={{ borderRadius: "156px" }}
-                              />
-                              <div className="flex flex-col gap-[2px] w-[116px]">
-                                <p className="font-manrope font-bold text-lg leading-[1.366em] text-black text-center">
-                                  {testimonials[0].name}
-                                </p>
-                                <p className="font-manrope font-medium text-lg leading-[1.366em] text-[#52525A] text-center">
-                                  {testimonials[0].company}
-                                </p>
-                              </div>
-                            </div>
+                  {testimonials.map((item, index) => (
+                    <div key={index} className="relative w-full flex-shrink-0 px-4 h-full">
+                      {/* Main card */}
+                      <div className="relative rounded-2xl bg-[#F5FAFF] py-8 px-8 z-0 h-full flex flex-col justify-between">
+                        <p className="font-manrope text-[15px] font-semibold leading-relaxed text-slate-800 mb-28">
+                          {item.text}
+                        </p>
+                        <div className="mt-6 flex items-center gap-3">
+                          <div className="h-12 w-12 overflow-hidden rounded-full bg-slate-200">
+                            <div className="h-full w-full bg-slate-300"></div>
                           </div>
-
-                          {/* Quote icons */}
-                          {/* <div className="absolute top-[11px] left-[11px] w-[30px] h-[30px] z-20">
-                            <svg
-                              width="30"
-                              height="30"
-                              viewBox="0 0 30 30"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path d="M0 3.75H30V26.25H0V3.75Z" fill="white" />
-                              <path d="M0 0H30V22.5H0V0Z" fill="white" />
-                              <path
-                                d="M18.75 0H30V22.5H18.75V0Z"
-                                fill="#030104"
-                              />
-                              <path d="M0 0H11.25V22.5H0V0Z" fill="#030104" />
-                            </svg>
-                          </div> */}
-                          {/* <div className="absolute bottom-[11px] right-[11px] w-[30px] h-[30px] z-20">
-                            <svg
-                              width="30"
-                              height="30"
-                              viewBox="0 0 30 30"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path d="M0 3.75H30V26.25H0V3.75Z" fill="white" />
-                              <path d="M0 0H30V22.5H0V0Z" fill="white" />
-                              <path
-                                d="M18.75 0H30V22.5H18.75V0Z"
-                                fill="#030104"
-                              />
-                              <path d="M0 0H11.25V22.5H0V0Z" fill="#030104" />
-                            </svg>
-                          </div> */}
+                          <div>
+                            <p className="font-manrope text-base font-bold leading-tight text-slate-900">
+                              {item.name}
+                            </p>
+                            <p className="font-manrope text-sm font-medium leading-tight text-slate-500 mt-1">
+                              {item.company}
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
                   ))}
                 </div>
-                {/* Navigation arrows */}
-                {/* <button
-                  type="button"
-                  onClick={() => goToSlide(currentSlide - 1)}
-                  className="absolute left-[-12px] top-1/2 -translate-y-1/2 rounded-full bg-white shadow-md border border-slate-200 w-9 h-9 flex items-center justify-center hover:bg-slate-50 transition"
-                  aria-label="Previous testimonial"
-                >
-                  <Image
-                    src={arrowLeftSrc}
-                    alt="Previous"
-                    width={14}
-                    height={14}
-                  />
-                </button> */}
-                {/* <button
-                  type="button"
-                  onClick={() => goToSlide(currentSlide + 1)}
-                  className="absolute right-[-12px] top-1/2 -translate-y-1/2 rounded-full bg-white shadow-md border border-slate-200 w-9 h-9 flex items-center justify-center hover:bg-slate-50 transition"
-                  aria-label="Next testimonial"
-                >
-                  <Image
-                    src={arrowRightSrc}
-                    alt="Next"
-                    width={14}
-                    height={14}
-                  />
-                </button> */}
               </div>
-
-              {/* Navigation dots */}
-              {/* <div className="flex items-center gap-4 w-[82px] h-[10px] mt-5">
-                <button
-                  onClick={() => setCurrentSlide(0)}
-                  className={`h-[10px] rounded-full transition-all ${
-                    currentSlide === 0
-                      ? "bg-[#06A799] w-[18px]"
-                      : "bg-[#D9D9D9] w-[10px]"
-                  }`}
-                />
-                {Array.from({ length: totalSlides - 1 }).map((_, i) => {
-                  const index = i + 1;
-                  return (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentSlide(index)}
-                      className={`w-[10px] h-[10px] rounded-full transition-all ${
-                        currentSlide === index ? "bg-[#06A799]" : "bg-[#D9D9D9]"
-                      }`}
-                    />
-                  );
-                })}
-              </div> */}
             </div>
           </div>
         </div>
 
         {/* Form */}
-        <div className="flex-1 bg-white rounded-[4px] shadow-[0px_0px_24px_0px_rgba(0,0,0,0.19)] py-[50px] px-5 flex flex-col items-center mb-12 mr-5">
+        <div className="flex-1 bg-white rounded-[4px] border border-gradient-to-r from-[#29B375] to-[#2E70C3] py-[50px] px-5 flex flex-col items-center mb-12 mr-5">
           {/* Form Header */}
           <div className="px-4 py-3">
-            <h3 className="font-manrope text-xl font-semibold text-black flex-items-center">
+            <h3 className="font-manrope text-2xl font-semibold text-black flex-items-center">
               Start Your project Discussion
             </h3>
           </div>
@@ -261,57 +229,98 @@ export function ContactForm() {
                     className="font-manrope font-normal text-sm leading-[1.366em] text-[#52525A] bg-transparent border-none outline-none placeholder:text-[#52525A]"
                   />
                 </div>
-                <div className="flex items-center gap-[5px] px-[6px] py-[6px] pr-[217px] border-b border-black bg-white w-[270px] h-[39px]">
-                  <div className="flex items-center gap-[5px]">
+                <div
+                  ref={countryDropdownRef}
+                  className="relative flex items-center gap-[5px] px-[6px] py-[6px] pr-[10px] border-b border-black bg-white w-[270px] h-[39px]"
+                >
+                  <div
+                    className="flex items-center gap-[5px] cursor-pointer hover:opacity-80 transition-opacity"
+                    onClick={() => setShowCountryDropdown(!showCountryDropdown)}
+                  >
                     <div className="w-6 h-6 flex-shrink-0 flex items-center justify-center">
-                      <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
+                      <Image
+                        src={selectedCountry.flag}
+                        alt={`${selectedCountry.name} flag`}
+                        width={20}
+                        height={20}
+                        className="object-contain"
                       />
-                      {/* <rect
-                          y="15.33"
-                          width="24"
-                          height="5.33"
-                          fill="#138808"
-                        />
-                        <rect
-                          y="8.67"
-                          width="24"
-                          height="6.67"
-                          fill="#EEEEEE"
-                        />
-                        {/* <rect
-                          y="3.33"
-                          width="24"
-                          height="5.33"
-                          fill="#FF9933"
-                        /> */}
-                      {/* <circle cx="9.34" cy="9.33" r="2.67" fill="#000080" />
-                        <circle cx="10" cy="10" r="2" fill="#6666B3" />
-                        <circle cx="11.34" cy="11.33" r="0.67" fill="#6666B3" /> */}
                     </div>
                     <span className="font-manrope font-normal text-xs leading-[0.583em] text-black">
-                      +91
+                      {selectedCountry.code}
                     </span>
+                    <div className="flex items-center justify-center w-6 h-6 transition-all duration-200">
+                      <span
+                        className={`font-manrope font-normal text-xl leading-[0.35em] text-black transition-transform duration-200 ${showCountryDropdown ? "rotate-270" : "rotate-90"
+                          }`}
+                      >
+                        ‣
+                      </span>
+                    </div>
                   </div>
-                  <div className="flex items-center justify-center w-4 h-4">
-                    <span className="font-manrope font-normal text-xl leading-[0.35em] text-black rotate-90">
-                      ‣
-                    </span>
-                  </div>
-                  <span className="font-manrope font-light text-xl leading-[1.366em] text-black">
+
+                  {/* Country Dropdown */}
+                  {showCountryDropdown && (
+                    <div className="absolute top-full left-0 mt-1 bg-white border border-gray-300 rounded shadow-2xl z-[100] max-h-[300px] overflow-y-auto w-[280px]">
+                      {/* Search Input */}
+                      <div className="sticky top-0 bg-white border-b border-gray-200 p-2">
+                        <input
+                          type="text"
+                          placeholder="Search country..."
+                          value={countrySearch}
+                          onChange={(e) => setCountrySearch(e.target.value)}
+                          className="w-full px-2 py-1 text-sm border border-gray-300 rounded outline-none focus:border-blue-500"
+                          onClick={(e) => e.stopPropagation()}
+                        />
+                      </div>
+
+                      {/* Country List */}
+                      <div className="max-h-[250px] overflow-y-auto">
+                        {filteredCountries.length > 0 ? (
+                          filteredCountries.map((country) => (
+                            <button
+                              key={country.code + country.name}
+                              type="button"
+                              onClick={() => handleCountrySelect(country)}
+                              className={`w-full flex items-center gap-2 px-3 py-2 text-left hover:bg-gray-100 transition-colors ${selectedCountry.code === country.code
+                                ? "bg-blue-50"
+                                : ""
+                                }`}
+                            >
+                              <Image
+                                src={country.flag}
+                                alt={`${country.name} Flag`}
+                                width={20}
+                                height={20}
+                                className="flex-shrink-0 object-contain"
+                              />
+                              <span className="font-manrope font-normal text-sm text-black">
+                                {country.code}
+                              </span>
+                              <span className="font-manrope font-normal text-sm text-gray-600 ml-auto">
+                                {country.name}
+                              </span>
+                            </button>
+                          ))
+                        ) : (
+                          <div className="px-3 py-2 text-sm text-gray-500 text-center">
+                            No countries found
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+
+                  <span className="font-manrope font-light text-xl leading-[1.366em] text-black ml-1">
                     |
                   </span>
                   <input
                     type="tel"
                     name="phone"
-                    placeholder=""
+                    placeholder="Mobile Number"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="font-manrope font-normal text-sm leading-[1.366em] text-[#52525A] bg-transparent border-none outline-none flex-1 placeholder:text-[#52525A]"
+                    className="font-manrope font-normal text-sm leading-[1.366em] text-[#52525A] bg-transparent border-none outline-none flex-1 placeholder:text-[#52525A] ml-2"
                   />
                 </div>
               </div>
@@ -328,15 +337,23 @@ export function ContactForm() {
                     className="font-manrope font-normal text-sm leading-[1.366em] text-[#52525A] bg-transparent border-none outline-none placeholder:text-[#52525A]"
                   />
                 </div>
-                <div className="flex items-center gap-[5px] px-[10px] py-[10px] pr-[106px] border-b border-black bg-white">
-                  <span className="font-manrope font-normal text-sm leading-[1.366em] text-black">
-                    Where did you find us?
-                  </span>
-                  <div className="flex items-center justify-center w-4 h-4">
-                    <span className="font-manrope font-normal text-xl leading-[0.35em] text-black">
-                      ‣
-                    </span>
-                  </div>
+                <div className="relative flex items-center px-[10px] py-[10px] border-b border-black bg-white w-[270px]">
+                  <select
+                    name="source"
+                    value={formData.source}
+                    onChange={handleChange}
+                    className={`w-full font-manrope font-normal text-sm bg-transparent border-none outline-none appearance-none cursor-pointer z-10 ${formData.source ? "text-black" : "text-[#52525A]"
+                      }`}
+                  >
+                    <option value="" disabled hidden>
+                      Where did you find us?
+                    </option>
+                    <option value="Career Page">Career Page</option>
+                    <option value="LinkedIn">LinkedIn</option>
+                    <option value="WhatsApp">WhatsApp</option>
+                    <option value="Instagram">Instagram</option>
+                    <option value="Others">Others</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -354,25 +371,8 @@ export function ContactForm() {
             {/* Privacy Notice */}
             <div className="flex flex-col gap-[2px] w-[431px]">
               <div className="flex items-center gap-1 w-full">
-                <div className="w-5 h-5 flex-shrink-0">
-                  {/* <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <rect
-                      x="2.5"
-                      y="2.5"
-                      width="15"
-                      height="15"
-                      rx="2"
-                      stroke="#0851F6"
-                      strokeWidth="1.5"
-                      fill="white"
-                    />
-                  </svg> */}
+                <div className="w-5 h-5 flex-shrink-0 mb-2">
+                  <Image src="/Tick.svg" width={18} height={18} alt="Security" />
                 </div>
                 <p className="font-manrope font-normal text-sm leading-[1.366em] text-black">
                   Your idea is 100% protected by our Non-Disclosure Agreement.
@@ -403,7 +403,7 @@ export function ContactForm() {
               </div>
               <button
                 type="submit"
-                className="bg-[#1C75BC] rounded-[4px] px-20 py-3 flex items-center gap-[10px] hover:opacity-90 transition-opacity"
+                className="bg-[#1C75BC] rounded-[4px] px-20 py-3 flex items-center gap-[10px] transition-opacity"
               >
                 <span className="font-manrope font-bold text-base leading-[1.366em] text-white whitespace-pre">
                   Get a Free Consultation

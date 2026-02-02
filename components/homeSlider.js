@@ -1,79 +1,99 @@
-import Link from "next/link";
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Header from "./header";
-import ArrowRightIcon from "./icons/ArrowRightIcon";
-import heroIllustration from "../public/images/digital-homepage.webp";
-import ribbonImage from "../public/images/digital.png";
+import { manropeFont } from "../lib/fonts";
 
 export default function HomeSlider() {
+  const words = [
+    "AI",
+    "Intelligent Automation",
+    "Cognitive Computing",
+    "Smart Technology",
+  ];
+
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % words.length);
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, [words.length]);
+
   return (
     <section id="new-hm" aria-label="Trimsel hero">
       <Header />
-      <section id="hm-hero">
-        <div className="container hm-sl-container">
-          <div className="row align-items-center">
-            {/* Left: Copy + CTAs */}
-            <div className="col-lg-6 col-md-6">
-              <div className="titles">
-                
-                  {/* Decorative tag – hidden from SR */}
-                  {/* <Image
-                    src={ribbonImage}
-                    width={298}
-                    height={38}
-                    alt=""
-                    className="one"
-                    loading="lazy"
-                    aria-hidden="true"
-                    placeholder="blur"
-                    blurDataURL={ribbonImage.blurDataURL}
-                  /> */}
 
-                  <h1 className="headings-title">
-                    Vision to Reality<br />
-                    Engineering the Future with AI-Driven Innovation
-                  </h1>
+      <section className="w-full bg-white">
+        <div className="mx-auto max-w-7xl px-6 py-20 grid grid-cols-1 lg:grid-cols-2 items-center gap-6">
 
-                  <p className="abt-hero-para">
-                    We blend <strong>AI</strong> with <strong>mobile</strong>, <strong>web</strong>, <strong>cloud</strong>, and <strong>DevOps</strong> to help businesses launch faster, smarter, and stronger.
-                  </p>
+          {/* LEFT CONTENT */}
+          <div>
+            <h1
+              className={`mt-5 text-4xl lg:text-5xl lg:ml-20 font-semibold leading-tight text-black ${manropeFont.className}`}
+            >
+              Smarter Logistics,
+              <br />
+              Powered by{" "}
+              <span className="relative inline-block min-w-[220px] align-baseline mb-8">
+                <span
+                  key={`${index}-${words[index]}`} // 🔥 forces animation restart
+                  className={`absolute inset-0 text-[#1FA6A0] animate-rotate-word whitespace-nowrap text-semibold text-3xl lg:text-4xl ${manropeFont.className}`}
+                >
+                  {words[index]}
+                </span>
+              </span>
+            </h1>
 
-                  <div className="d-flex gap-3">
-                    <Link href="/contact-us" className="btn btn-primary get-btn" aria-label="Book a free strategy call">
-                      Book a free strategy call
-                      <ArrowRightIcon />
-                    </Link>
-                    <Link href="/portfolio" className="btn btn-outline-secondary get-btn" aria-label="See case studies">
-                      See case studies
-                      <ArrowRightIcon />
-                    </Link>
-                  </div>
+            <p
+              className={`max-w-xl lg:ml-20 text-[#5C5A5A] text-lg leading-relaxed mt-4 ${manropeFont.className}`}
+            >
+              An AI-driven logistics optimization platform that revolutionizes how
+              businesses plan, execute, and manage transportation. Real-time
+              insights enable smarter decisions, while end-to-end visibility
+              ensures greater transparency across every stage of the supply chain.
+            </p>
 
-                  {/* Optional mini social proof */}
-                  <ul className="list-inline mt-3 mb-0">
-                    <li className="list-inline-item me-3">AI + Product Engineering</li>
-                    <li className="list-inline-item me-3">Cloud: AWS · Azure · GCP</li>
-                    <li className="list-inline-item">From MVP to Enterprise</li>
-                  </ul>
-                
-              </div>
+            {/* BUTTONS */}
+            <div className="mt-8 flex gap-4 lg:ml-20">
+              <button className={`px-6 py-3 rounded-xs bg-[#1F6AE1] text-white font-medium hover:bg-[#1958B8] transition ${manropeFont.className}`}>
+                Get Started
+              </button>
+
+              <button className={`px-6 py-3 rounded-xs border border-[#1C75BC] text-black font-medium hover:bg-gray-50 transition ${manropeFont.className}`}>
+                Book a demo
+              </button>
             </div>
+          </div>
 
-            {/* Right: Hero visual */}
-            <div className="col-lg-6 col-md-6 text-center">
+          {/* RIGHT IMAGE */}
+          <div className="relative flex justify-center mt-8">
+            <div className="absolute inset-0 rounded-full bg-blue-100 blur-3xl opacity-60" />
+
+            <div className="relative">
               <Image
-                src={heroIllustration}
-                className="home--frst"
-                alt="Teams using AI to build and launch modern digital products"
-                width={600}
-                height={626}
+                src="/homeimage.svg"
+                alt="Home"
+                width={400}
+                height={380}
+                className="relative z-10 animate-shake ml-16"
                 priority
-                placeholder="blur"
-                quality={70}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 480px"
+              />
+
+              <Image
+                src="/robot.svg"
+                alt="AI Robot"
+                width={600}
+                height={600}
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-[600px] max-w-none h-auto ml-4"
+                priority
               />
             </div>
           </div>
+
         </div>
       </section>
     </section>

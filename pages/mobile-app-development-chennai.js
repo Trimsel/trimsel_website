@@ -263,33 +263,33 @@ export default function MobileApp() {
 
   return (
     <>
-<NextSeo
-  title="Mobile App Development Company in Chennai, India"
-  description="Trimsel is a top mobile app development company in Chennai, India. We build secure, scalable iOS, Android, Flutter & hybrid apps tailored to your business."
-  canonical="https://www.trimsel.com/mobile-app-development-chennai"
-  openGraph={{
-    type: "website",
-    url: "https://www.trimsel.com/mobile-app-development-chennai",
-    title: "Mobile App Development Company in Chennai, India",
-    description:
-      "Trimsel is a top mobile app development company in Chennai, India. We build secure, scalable iOS, Android, Flutter & hybrid apps tailored to your business.",
-    locale: "en_IN",
-    site_name: "Trimsel",
-    images: [
-      {
-        url: "https://www.trimsel.com/images/mobilehero.webp",
-        width: 1200,
-        height: 630,
-        alt: "Trimsel team delivering mobile app solutions in Chennai",
-      },
-    ],
-  }}
-  twitter={{
-    cardType: "summary_large_image",
-    handle: "@TrimselSoftwares",
-    site: "@TrimselSoftwares",
-  }}
-/>
+      <NextSeo
+        title="Mobile App Development Company in Chennai, India"
+        description="Trimsel is a top mobile app development company in Chennai, India. We build secure, scalable iOS, Android, Flutter & hybrid apps tailored to your business."
+        canonical="https://www.trimsel.com/mobile-app-development-chennai"
+        openGraph={{
+          type: "website",
+          url: "https://www.trimsel.com/mobile-app-development-chennai",
+          title: "Mobile App Development Company in Chennai, India",
+          description:
+            "Trimsel is a top mobile app development company in Chennai, India. We build secure, scalable iOS, Android, Flutter & hybrid apps tailored to your business.",
+          locale: "en_IN",
+          site_name: "Trimsel",
+          images: [
+            {
+              url: "https://www.trimsel.com/images/mobilehero.webp",
+              width: 1200,
+              height: 630,
+              alt: "Trimsel team delivering mobile app solutions in Chennai",
+            },
+          ],
+        }}
+        twitter={{
+          cardType: "summary_large_image",
+          handle: "@TrimselSoftwares",
+          site: "@TrimselSoftwares",
+        }}
+      />
       <Head>
         {serviceJsonLd.map((schema, index) => (
           <script
@@ -302,56 +302,56 @@ export default function MobileApp() {
       <main>
         <section className="bg-gradient-to-b from-white via-slate-50 to-white">
           <Header />
-          <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8">
+          <div className="mx-auto grid max-w-6xl gap-12 px-4 py-28 sm:px-6 lg:grid-cols-2 lg:px-8">
             <div className="space-y-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
-                <Link href="/" aria-label="Go to Trimsel Homepage" className="hover:text-brand">
-                  Home
-                </Link>
-                <span className="mx-2 text-slate-300">·</span>
-                Mobile App Development
-              </p>
-              <h1 className="text-4xl font-semibold text-slate-900">
-                Mobile App Development Company in Chennai
+              <h1 className="mt-4 text-4xl font-semibold text-slate-900">
+                Mobile App Development <br />
+                Company in Chennai
               </h1>
-              <p className="text-lg leading-relaxed text-slate-600">
-                We craft custom-built mobile apps for businesses that demand speed, security, and growth-focused outcomes.
-                From MVPs to enterprise-grade apps, we bring your ideas to life—explore our{" "}
-                <Link href="#digital-mbl" className="underline decoration-brand/40 underline-offset-4">
-                  mobile app services
-                </Link>{" "}
-                or{" "}
-                <Link href="/portfolio" className="underline decoration-brand/40 underline-offset-4">
-                  see our portfolio
-                </Link>
-                .
+              <p className="mt-8 text-base leading-relaxed text-black">
+                An AI-driven logistics optimization platform that revolutionizes how <br />
+                businesses plan, execute, and manage transportation. Real-time <br />
+                insights enable smarter decisions, while end-to-end visibility ensures <br />
+                greater transparency across every stage of the supply chain.
               </p>
               <div>
                 <Link
                   href="/contact-us"
-                  className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white shadow-lg shadow-brand/40 transition hover:bg-brand-dark"
-                  aria-label="Book a mobile app consultation with Trimsel"
+                  className="mt-4 inline-flex items-center gap-2 px-6 py-3 rounded-xs bg-gradient-to-r from-[#29B375] to-[#2E70C3] text-white font-medium hover:scale-105 transition-all shadow-lg"
                 >
-                  Get a Consultation <ArrowRightIcon width={20} height={20} />
+                  Get a Mobile App Consultation <Image src="/images/material-symbols_arrow-right-alt.png" width={20} height={20} alt="" />
                 </Link>
-                <p className="mt-4 text-sm text-slate-500">
-                  200+ apps launched across FinTech, healthcare, and SaaS with 4.8★ store ratings on average.
-                </p>
               </div>
             </div>
-            <div className="flex items-center justify-center">
-              <Image
-                src="/images/mobilehero.webp"
-                width={637}
-                height={666}
-                alt="Leading mobile app development company in Chennai – Build high-performance Android & iOS apps today!"
-                className="w-full max-w-[520px]"
-                priority
-                quality={70}
-                placeholder="blur"
-                blurDataURL="data:image/webp;base64,UklGRiIAAABXRUJQVlA4IDAAAADQAgCdASoIAAgAAkA4JQBOgCH/89JAAA=="
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 520px"
-              />
+            <div className="relative flex justify-center mt-8">
+              <div className="absolute inset-0 rounded-full bg-blue-100 blur-3xl opacity-60" />
+
+              <div className="relative">
+                <Image
+                  src="/mobile2.png"
+                  alt="Home"
+                  width={340}
+                  height={360}
+                  className="absolute top-1/2 left-1/2 z-20 -translate-x-1/2 -translate-y-1/2 scale-[1.3] zoom-animation ml-6"
+                  priority
+                />
+                <Image
+                  src="/mobile1.png"
+                  alt="Home"
+                  width={520}
+                  height={640}
+                  className="relative z-10"
+                  priority
+                />
+                <Image
+                  src="/mobile3.png"
+                  alt="AI Robot"
+                  width={100}
+                  height={100}
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-[320px] max-w-none h-auto ml-2 mt-3"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -446,7 +446,7 @@ export default function MobileApp() {
           </div>
         </section>
 
-{/*Why choose Trimsel Section*/}
+        {/*Why choose Trimsel Section*/}
         {/* <section id="about-mbl">
           <div className="container mbl-about">
             <div className="row mbl-abt">
@@ -721,12 +721,12 @@ export default function MobileApp() {
           </div>
         </section>
 
-  <ContactForm
-    heading="Ready To Build Your Mobile App?"
-    subText="Speak with our iOS & Android experts to turn your idea into a secure, high-performance mobile product."
-    eventLabel="mobile_service_page"
-  />
-  <Footer />
+        <ContactForm
+          heading="Ready To Build Your Mobile App?"
+          subText="Speak with our iOS & Android experts to turn your idea into a secure, high-performance mobile product."
+          eventLabel="mobile_service_page"
+        />
+        <Footer />
       </main>
     </>
   );

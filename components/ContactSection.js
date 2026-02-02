@@ -326,11 +326,10 @@ export default function ContactSection({
                   {[1, 2, 3, 4].map((dot) => (
                     <div
                       key={dot}
-                      className={`h-[10px] w-[10px] rounded-full ${
-                        activeSlide === dot - 1
+                      className={`h-[10px] w-[10px] rounded-full ${activeSlide === dot - 1
                           ? "bg-[#06A799]"
                           : "bg-[#D9D9D9]"
-                      }`}
+                        }`}
                     />
                   ))}
                 </div>
@@ -347,11 +346,10 @@ export default function ContactSection({
 
               {message && (
                 <p
-                  className={`mb-4 rounded-2xl px-4 py-3 text-sm ${
-                    isSubmitted
+                  className={`mb-4 rounded-2xl px-4 py-3 text-sm ${isSubmitted
                       ? "bg-green-50 text-green-700"
                       : "bg-rose-50 text-rose-700"
-                  }`}
+                    }`}
                 >
                   {message}
                 </p>

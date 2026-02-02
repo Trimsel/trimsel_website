@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import Header from "../components/header";
@@ -9,6 +11,20 @@ import Footer from "../components/footer";
 import { buildServiceJsonLd } from "../lib/serviceSchema";
 import ArrowRightIcon from "../components/icons/ArrowRightIcon";
 import CheckIcon from "../components/icons/CheckIcon";
+import { useEffect, useRef } from "react";
+import * as THREE from "three";
+import { motion } from "framer-motion";
+import { manropeFont } from "../lib/fonts";
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+};
 
 const ClientLogo = dynamic(() => import("../components/clientLogo"), { ssr: false });
 
@@ -202,6 +218,230 @@ const aiToolCategories = [
 ];
 
 export default function Quality() {
+  const canvasParentRef = useRef(null);
+
+  useEffect(() => {
+    if (!canvasParentRef.current) return;
+    let frameId;
+
+    const parent = canvasParentRef.current;
+    const width = parent.clientWidth;
+    const height = parent.clientHeight;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(55, width / height, 0.1, 100);
+    camera.position.set(0, 0, 15);
+
+    const renderer = new THREE.WebGLRenderer({
+      antialias: true,
+      alpha: true,
+    });
+    renderer.setPixelRatio(window.devicePixelRatio || 1);
+    renderer.setSize(width, height);
+    renderer.setClearColor(0x000000, 0);
+    parent.appendChild(renderer.domElement);
+
+    // Soft fog for depth
+    scene.fog = new THREE.Fog(0x020103, 8, 25);
+
+    // ==== Graph Network Structure ====
+    const networkGroup = new THREE.Group();
+
+    // Node geometry and materials
+    const smallNodeGeometry = new THREE.SphereGeometry(0.04, 8, 8);
+    const largeNodeGeometry = new THREE.SphereGeometry(0.08, 12, 12);
+
+    const nodeMaterial = new THREE.MeshBasicMaterial({
+      color: new THREE.Color("#ffffff"),
+      transparent: true,
+      opacity: 0.9,
+    });
+
+    const largeNodeMaterial = new THREE.MeshBasicMaterial({
+      color: new THREE.Color("#ffffff"),
+      transparent: true,
+      opacity: 1,
+    });
+
+    // Line material
+    const lineMaterial = new THREE.LineBasicMaterial({
+      color: new THREE.Color("#2FE4FF"),
+      transparent: true,
+      opacity: 0.6,
+      linewidth: 1,
+    });
+
+    // Create nodes with density variation (denser in bottom-left and bottom-right)
+    const nodes = [];
+    const nodePositions = [];
+
+    // Generate nodes with higher density in bottom quadrants
+    for (let i = 0; i < 180; i++) {
+      let x, y, z;
+
+      // Create density variation - spread out more
+      const rand = Math.random();
+      if (rand < 0.35) {
+        // Bottom-left quadrant - dense
+        x = (Math.random() - 0.7) * 18;
+        y = (Math.random() - 0.7) * 14;
+        z = (Math.random() - 0.5) * 12;
+      } else if (rand < 0.65) {
+        // Bottom-right quadrant - dense
+        x = (Math.random() + 0.2) * 18;
+        y = (Math.random() - 0.7) * 14;
+        z = (Math.random() - 0.5) * 12;
+      } else if (rand < 0.8) {
+        // Top-left - sparse
+        x = (Math.random() - 0.7) * 18;
+        y = (Math.random() + 0.3) * 14;
+        z = (Math.random() - 0.5) * 12;
+      } else {
+        // Center and top-right - sparse
+        x = (Math.random() - 0.3) * 16;
+        y = (Math.random() + 0.1) * 12;
+        z = (Math.random() - 0.5) * 12;
+      }
+
+      const isLarge = Math.random() < 0.15; // 15% are larger nodes
+      const geometry = isLarge ? largeNodeGeometry : smallNodeGeometry;
+      const material = isLarge ? largeNodeMaterial : nodeMaterial;
+
+      const node = new THREE.Mesh(geometry, material);
+      node.position.set(x, y, z);
+      networkGroup.add(node);
+      nodes.push(node);
+      nodePositions.push({ x, y, z, isLarge });
+    }
+
+    // Connect nodes with lines (connect nearby nodes) - increased distance for more spread
+    const connections = [];
+    const maxConnectionDistance = 5.5;
+
+    for (let i = 0; i < nodePositions.length; i++) {
+      for (let j = i + 1; j < nodePositions.length; j++) {
+        const p1 = nodePositions[i];
+        const p2 = nodePositions[j];
+        const distance = Math.sqrt(
+          Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2) + Math.pow(p1.z - p2.z, 2)
+        );
+
+        if (distance < maxConnectionDistance) {
+          // Random connection probability based on distance
+          const connectionProb = 1 - distance / maxConnectionDistance;
+          if (Math.random() < connectionProb * 0.4) {
+            const points = [
+              new THREE.Vector3(p1.x, p1.y, p1.z),
+              new THREE.Vector3(p2.x, p2.y, p2.z),
+            ];
+            const geometry = new THREE.BufferGeometry().setFromPoints(points);
+            const line = new THREE.Line(geometry, lineMaterial);
+            networkGroup.add(line);
+            connections.push({ line, p1: i, p2: j });
+          }
+        }
+      }
+    }
+
+    // Add standalone triangles (sparse areas) - spread out more
+    const triangleMaterial = new THREE.LineBasicMaterial({
+      color: new THREE.Color("#2FE4FF"),
+      transparent: true,
+      opacity: 0.5,
+    });
+
+    for (let i = 0; i < 12; i++) {
+      const size = 1.2 + Math.random() * 0.8;
+      const x = (Math.random() - 0.5) * 20;
+      const y = (Math.random() + 0.2) * 14;
+      const z = (Math.random() - 0.5) * 12;
+
+      const trianglePoints = [
+        new THREE.Vector3(x, y, z),
+        new THREE.Vector3(x + size, y, z),
+        new THREE.Vector3(x + size * 0.5, y + size * 0.866, z),
+        new THREE.Vector3(x, y, z), // Close the triangle
+      ];
+      const triangleGeometry = new THREE.BufferGeometry().setFromPoints(trianglePoints);
+      const triangle = new THREE.Line(triangleGeometry, triangleMaterial);
+      networkGroup.add(triangle);
+    }
+
+    // Add glow effect to larger nodes
+    nodes.forEach((node, idx) => {
+      if (nodePositions[idx].isLarge) {
+        const glowGeometry = new THREE.SphereGeometry(0.12, 12, 12);
+        const glowMaterial = new THREE.MeshBasicMaterial({
+          color: new THREE.Color("#ffffff"),
+          transparent: true,
+          opacity: 0.2,
+        });
+        const glow = new THREE.Mesh(glowGeometry, glowMaterial);
+        node.add(glow);
+      }
+    });
+
+    networkGroup.rotation.x = -0.3;
+    networkGroup.rotation.z = 0.1;
+    scene.add(networkGroup);
+
+    // Ambient light
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+    scene.add(ambientLight);
+
+    // Animation - slower motion
+    let t = 0;
+    const animate = () => {
+      frameId = requestAnimationFrame(animate);
+      t += 0.003; // Reduced from 0.01 to slow down animation
+
+      // Subtle pulsing animation on nodes - slower
+      nodes.forEach((node, idx) => {
+        const offset = idx * 0.05; // Reduced offset for slower variation
+        const pulse = Math.sin(t * 0.5 + offset) * 0.015; // Slower pulse
+        node.scale.setScalar(1 + pulse);
+      });
+
+      // Slow rotation for depth - much slower
+      networkGroup.rotation.y += 0.0003; // Reduced from 0.001
+      networkGroup.rotation.z = 0.1 + Math.sin(t * 0.15) * 0.03; // Slower oscillation
+
+      renderer.render(scene, camera);
+    };
+    animate();
+
+    // Handle resize
+    const handleResize = () => {
+      if (!parent) return;
+      const newWidth = parent.clientWidth;
+      const newHeight = parent.clientHeight || window.innerHeight * 0.9;
+      renderer.setSize(newWidth, newHeight);
+      camera.aspect = newWidth / newHeight;
+      camera.updateProjectionMatrix();
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      cancelAnimationFrame(frameId);
+      window.removeEventListener("resize", handleResize);
+      if (parent && renderer.domElement.parentNode === parent) {
+        parent.removeChild(renderer.domElement);
+      }
+      renderer.dispose();
+      scene.traverse((obj) => {
+        if (obj.isMesh || obj.isLine) {
+          obj.geometry?.dispose();
+          if (Array.isArray(obj.material)) {
+            obj.material.forEach((m) => m.dispose());
+          } else {
+            obj.material?.dispose();
+          }
+        }
+      });
+    };
+  }, []);
+
   const serviceJsonLd = buildServiceJsonLd({
     slug: "ai-development-company",
     serviceName: "AI Development Services (Chennai)",
@@ -246,7 +486,13 @@ export default function Quality() {
           ],
           article: {
             section: "AI Development",
-            tags: ["AI Development", "Machine Learning", "Generative AI", "NLP", "Chennai"],
+            tags: [
+              "AI Development",
+              "Machine Learning",
+              "Generative AI",
+              "NLP",
+              "Chennai",
+            ],
           },
         }}
         twitter={{
@@ -255,207 +501,379 @@ export default function Quality() {
           site: "@TrimselSoftwares",
         }}
         additionalMetaTags={[
-          { name: "twitter:title", content: "AI Development Experts in Chennai – Trimsel" },
+          {
+            name: "twitter:title",
+            content: "AI Development Experts in Chennai – Trimsel",
+          },
           {
             name: "twitter:description",
-            content: "Build production-ready AI agents, ML models, and generative AI products with Trimsel’s Chennai team.",
+            content:
+              "Build production-ready AI agents, ML models, and generative AI products with Trimsel’s Chennai team.",
           },
-          { name: "twitter:image:alt", content: "Trimsel AI engineers collaborating on machine learning models" },
+          {
+            name: "twitter:image:alt",
+            content:
+              "Trimsel AI engineers collaborating on machine learning models",
+          },
         ]}
       />
 
       <Head>
         {serviceJsonLd.map((schema, index) => (
-          <script key={`ai-dev-schema-${index}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+          <script
+            key={`ai-dev-schema-${index}`}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
         ))}
       </Head>
 
       <main>
-        <section className="bg-gradient-to-b from-white via-slate-50 to-white">
-          <Header />
-          <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8">
-            <div className="space-y-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
-                <Link href="/" className="hover:text-brand">
-                  Home
-                </Link>
-                <span className="mx-2 text-slate-300">·</span> AI Development Services
-              </p>
-              <h1 className="text-4xl font-semibold text-slate-900">AI Development Company in Chennai</h1>
-              <p className="text-lg leading-relaxed text-slate-600">
-                Unlock innovation with Trimsel’s end-to-end AI development services. We design intelligent solutions tailored to your business
-                goals—from custom models to seamless integration. Whether you’re a startup scaling fast or an enterprise modernizing workflows,
-                we build AI that solves real problems, not just proofs of concept.
-              </p>
-              <div>
-                <Link
-                  href="/contact-us"
-                  className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white shadow-lg shadow-brand/40 transition hover:bg-brand-dark"
-                  aria-label="Talk to an AI Expert"
-                >
-                  Talk to an AI Expert <ArrowRightIcon width={20} height={20} />
-                </Link>
-                <p className="mt-4 text-sm text-slate-500">
-                  40+ AI products shipped across BFSI, healthcare, logistics, and SaaS with audited MLOps pipelines.
-                </p>
-              </div>
-            </div>
-            <div className="flex items-center justify-center">
-              <Image
-                src="/images/qa-hero-img.webp"
-                width={650}
-                height={423}
-                alt="Trimsel AI engineers collaborating in Chennai"
-                className="w-full max-w-[520px]"
-                priority
-                quality={70}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 520px"
+        <Header page="ai-development" />
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[linear-gradient(140deg,#020103_0%,#21073D_28%,#3F1179_54%,#311C6A_69%,#1D235A_100%)] text-white">
+          {/* Three.js graph network background */}
+          <div
+            ref={canvasParentRef}
+            className="pointer-events-none absolute inset-0"
+            aria-hidden="true"
+          />
+
+          {/* Soft vignette overlay */}
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,#ffffff1a_0%,transparent_45%),radial-gradient(circle_at_bottom,#00000080_0%,transparent_55%)] mix-blend-screen" />
+
+          {/* Content */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="relative z-10 mx-auto w-full max-w-[90rem] flex flex-col items-center text-center gap-8 px-4 pb-20 pt-24 sm:px-6 lg:px-12 lg:pt-28">
+            {/* Floating Tag */}
+            <motion.div
+              variants={fadeInUp}
+              className={`mt-12 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1 text-xl text-white backdrop-blur ${manropeFont.className}`}>
+              {/* Front Image */}
+              <img
+                src="/aileftimage.svg"
+                alt="AI"
+                className="w-6 h-6 object-contain"
               />
-            </div>
-          </div>
+              <span className="text-white text-xl">Next-Gen AI Technology</span>
+              {/* Back Image */}
+              <img
+                src="/airightimage.svg"
+                alt="AI"
+                className="w-6 h-6 object-contain"
+              />
+            </motion.div>
+
+            {/* Title */}
+            <motion.h1
+              variants={fadeInUp}
+              className={`max-w-4xl text-5xl md:text-6xl font-extrabold leading-tight ${manropeFont.className}`}>
+              Artificial Intelligence <br />
+              <span
+                className={`text-secondary text-white text-5xl ${manropeFont.className}`}>
+                Development Platform
+              </span>
+            </motion.h1>
+
+            {/* Subtitle */}
+            <motion.p
+              variants={fadeInUp}
+              className={`max-w-2xl text-white text-xl md:text-2xl ${manropeFont.className}`}>
+              Harness the power of neural networks and machine learning to build
+              the future of intelligent applications
+            </motion.p>
+
+            {/* Buttons */}
+            <motion.div variants={fadeInUp} className="mb-2 flex gap-4">
+              <button
+                className={`bg-primary hover:bg-violet-700 transition px-6 py-3 rounded-lg text-sm font-semibold ${manropeFont.className}`}>
+                Get Started
+              </button>
+
+              <button
+                className={`bg-gray-300 hover:bg-white hover:shadow-lg transition-all duration-300 px-6 py-3 rounded-lg text-sm text-black ${manropeFont.className}`}>
+                Learn More
+              </button>
+            </motion.div>
+          </motion.div>
         </section>
 
         <section id="client" className="bg-white">
-          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
-              <Image src="/images/Rectangle-kariot.png" width={15} height={15} alt="" aria-hidden="true" loading="lazy" />
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="mx-auto w-full max-w-[90rem] px-4 py-16 sm:px-6 lg:px-12">
+            <motion.div
+              variants={fadeInUp}
+              className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+              <Image
+                src="/images/Rectangle-kariot.png"
+                width={15}
+                height={15}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+              />
               Our Clients
-            </div>
-            <div className="mt-6 grid gap-8 lg:grid-cols-2">
-              <h2 className="text-3xl font-semibold text-slate-900">Trusted Digital Transformation Partner</h2>
+            </motion.div>
+            <motion.div
+              variants={fadeInUp}
+              className="mt-6 grid gap-8 lg:grid-cols-2">
+              <h2 className="text-3xl font-semibold text-slate-900">
+                Trusted Digital Transformation Partner
+              </h2>
               <p className="text-lg text-slate-600">
-                From fast-growing startups to industry leaders, Trimsel brings bold ideas to life. Whether it’s
-                <Link href="/web-development-company-chennai" className="underline decoration-brand/40 underline-offset-4">
+                From fast-growing startups to industry leaders, Trimsel brings
+                bold ideas to life. Whether it’s
+                <Link
+                  href="/web-development-company-chennai"
+                  className="underline decoration-brand/40 underline-offset-4">
                   {" "}
                   custom software
                 </Link>
                 ,
-                <Link href="/cloud-consulting-services" className="underline decoration-brand/40 underline-offset-4">
+                <Link
+                  href="/cloud-consulting-services"
+                  className="underline decoration-brand/40 underline-offset-4">
                   {" "}
                   cloud adoption
                 </Link>
                 ,
-                <Link href="/mobile-app-development-chennai" className="underline decoration-brand/40 underline-offset-4">
+                <Link
+                  href="/mobile-app-development-chennai"
+                  className="underline decoration-brand/40 underline-offset-4">
                   {" "}
                   mobile experiences
                 </Link>
-                , or AI-driven products, we build solutions that scale, perform, and future-proof your business.
+                , or AI-driven products, we build solutions that scale, perform,
+                and future-proof your business.
               </p>
-            </div>
-            <div className="mt-10 rounded-3xl border border-slate-100 bg-slate-50 p-6 shadow-inner">
+            </motion.div>
+            <motion.div
+              variants={fadeInUp}
+              className="mt-10 rounded-3xl border border-slate-100 bg-slate-50 p-6 shadow-inner">
               <ClientLogo />
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </section>
 
         <section className="bg-slate-50">
-          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
-              <Image src="/images/Rectangle-kariot.png" width={18} height={18} alt="" aria-hidden="true" loading="lazy" />
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="mx-auto w-full max-w-[90rem] px-4 py-16 sm:px-6 lg:px-12">
+            <motion.div
+              variants={fadeInUp}
+              className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+              <Image
+                src="/images/Rectangle-kariot.png"
+                width={18}
+                height={18}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+              />
               Build your AI product
-            </div>
+            </motion.div>
             <div className="mt-6 grid gap-10 lg:grid-cols-2">
-              <div className="space-y-5">
-                <h2 className="text-3xl font-semibold text-slate-900">Transform Your Business with AI Development</h2>
+              <motion.div variants={fadeInUp} className="space-y-5">
+                <h2 className="text-3xl font-semibold text-slate-900">
+                  Transform Your Business with AI Development
+                </h2>
                 <p className="text-lg leading-relaxed text-slate-600">
-                  AI has moved from concept to competitive advantage. Our Chennai-based team partners with you to design practical, real-world
-                  AI solutions—multilingual copilots for BFSI brands, predictive maintenance for logistics fleets, lead-qualifying chatbots for
-                  SaaS teams, and more.
+                  AI has moved from concept to competitive advantage. Our
+                  Chennai-based team partners with you to design practical,
+                  real-world AI solutions—multilingual copilots for BFSI brands,
+                  predictive maintenance for logistics fleets, lead-qualifying
+                  chatbots for SaaS teams, and more.
                 </p>
                 <p className="text-lg leading-relaxed text-slate-600">
-                  Whether you’re leveraging data for smarter decisions, automating workflows via
-                  <Link href="/devops-consulting-services" className="underline decoration-brand/40 underline-offset-4">
+                  Whether you’re leveraging data for smarter decisions,
+                  automating workflows via
+                  <Link
+                    href="/devops-consulting-services"
+                    className="underline decoration-brand/40 underline-offset-4">
                     {" "}
                     DevOps automation
                   </Link>
-                  , or building intelligent products, we focus on measurable outcomes with
-                  <Link href="/cloud-consulting-services" className="underline decoration-brand/40 underline-offset-4">
+                  , or building intelligent products, we focus on measurable
+                  outcomes with
+                  <Link
+                    href="/cloud-consulting-services"
+                    className="underline decoration-brand/40 underline-offset-4">
                     {" "}
                     cloud-native architecture guidance
                   </Link>
                   .
                 </p>
-              </div>
+              </motion.div>
               <div className="rounded-3xl border border-white/60 bg-white p-6 shadow-lg shadow-slate-900/5">
-                <h3 className="text-xl font-semibold text-slate-900">Why Trimsel for AI Development?</h3>
+                <motion.h3
+                  variants={fadeInUp}
+                  className="text-xl font-semibold text-slate-900">
+                  Why Trimsel for AI Development?
+                </motion.h3>
                 <div className="mt-6 grid gap-4 sm:grid-cols-2">
                   {aboutHighlights.map((item) => (
-                    <div key={item.title} className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
-                      <Image src={item.icon} width={40} height={40} alt={`${item.title} icon`} loading="lazy" />
-                      <p className="mt-3 text-sm font-semibold text-slate-900">{item.title}</p>
-                    </div>
+                    <motion.div
+                      variants={fadeInUp}
+                      key={item.title}
+                      className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
+                      <Image
+                        src={item.icon}
+                        width={40}
+                        height={40}
+                        alt={`${item.title} icon`}
+                        loading="lazy"
+                      />
+                      <p className="mt-3 text-sm font-semibold text-slate-900">
+                        {item.title}
+                      </p>
+                    </motion.div>
                   ))}
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </section>
 
         <section id="ai-value" className="bg-white">
-          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="mx-auto w-full max-w-[90rem] px-4 py-16 sm:px-6 lg:px-12">
             <div className="grid gap-6 lg:grid-cols-[2fr,3fr]">
-              <div>
-                <h2 className="text-3xl font-semibold text-slate-900">Why Trimsel for AI Development?</h2>
+              <motion.div variants={fadeInUp}>
+                <h2 className="text-3xl font-semibold text-slate-900">
+                  Why Trimsel for AI Development?
+                </h2>
                 <p className="mt-4 text-lg text-slate-600">
-                  Choosing the right partner determines how quickly AI delivers value. We treat AI as a business accelerator—not a buzzword—so
-                  every engagement focuses on measurable outcomes, governance, and long-term scale.
+                  Choosing the right partner determines how quickly AI delivers
+                  value. We treat AI as a business accelerator—not a buzzword—so
+                  every engagement focuses on measurable outcomes, governance,
+                  and long-term scale.
                 </p>
-              </div>
+              </motion.div>
               <div className="grid gap-4 sm:grid-cols-2">
                 {whyTrimsel.map((item) => (
-                  <div key={item.title} className="rounded-3xl border border-slate-100 bg-slate-50 p-5 shadow-inner">
-                    <h3 className="text-lg font-semibold text-slate-900">{item.title}</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.body}</p>
-                  </div>
+                  <motion.div
+                    variants={fadeInUp}
+                    key={item.title}
+                    className="rounded-3xl border border-slate-100 bg-slate-50 p-5 shadow-inner">
+                    <h3 className="text-lg font-semibold text-slate-900">
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                      {item.body}
+                    </p>
+                  </motion.div>
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         </section>
 
         <section id="ai-services" className="bg-slate-50">
-          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="mx-auto w-full max-w-[90rem] px-4 py-16 sm:px-6 lg:px-12">
             <div className="grid gap-6 lg:grid-cols-[2fr,3fr]">
-              <div>
+              <motion.div variants={fadeInUp}>
                 <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
-                  <Image src="/images/Rectangle-kariot.png" width={18} height={18} alt="" aria-hidden="true" loading="lazy" />
+                  <Image
+                    src="/images/Rectangle-kariot.png"
+                    width={18}
+                    height={18}
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                  />
                   What we do
                 </div>
-                <h2 className="mt-4 text-3xl font-semibold text-slate-900">AI Development Services We Offer</h2>
-              </div>
-              <p className="text-lg leading-relaxed text-slate-600">
-                Expect faster decisions, streamlined operations, better customer experiences, and tangible ROI from your AI initiatives. We
-                focus on outcomes—not just code.
-              </p>
+                <h2 className="mt-4 text-3xl font-semibold text-slate-900">
+                  AI Development Services We Offer
+                </h2>
+              </motion.div>
+              <motion.p
+                variants={fadeInUp}
+                className="text-lg leading-relaxed text-slate-600">
+                Expect faster decisions, streamlined operations, better customer
+                experiences, and tangible ROI from your AI initiatives. We focus
+                on outcomes—not just code.
+              </motion.p>
             </div>
             <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {aiServices.map((service) => (
-                <div key={service.title} className="rounded-3xl border border-white/60 bg-white p-6 shadow-lg shadow-slate-900/5">
-                  <Image src={service.icon} width={60} height={60} alt={`${service.title} icon`} loading="lazy" />
-                  <h3 className="mt-4 text-xl font-semibold text-slate-900">{service.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-slate-600">{service.body}</p>
-                </div>
+                <motion.div
+                  variants={fadeInUp}
+                  key={service.title}
+                  className="rounded-3xl border border-white/60 bg-white p-6 shadow-lg shadow-slate-900/5">
+                  <Image
+                    src={service.icon}
+                    width={60}
+                    height={60}
+                    alt={`${service.title} icon`}
+                    loading="lazy"
+                  />
+                  <h3 className="mt-4 text-xl font-semibold text-slate-900">
+                    {service.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                    {service.body}
+                  </p>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </section>
 
         <section className="bg-slate-900">
-          <div className="mx-auto max-w-6xl rounded-[32px] border border-white/10 px-6 py-12 shadow-2xl shadow-black/30 sm:px-10">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="mx-auto w-full max-w-[90rem] rounded-[32px] border border-white/10 px-6 py-12 shadow-2xl shadow-black/30 sm:px-10 lg:my-16 lg:mx-12">
             <div className="grid gap-10 lg:grid-cols-2">
-              <div>
+              <motion.div variants={fadeInUp}>
                 <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-300">
-                  <Image src="/images/Rectangle-kariot.png" width={18} height={18} alt="" aria-hidden="true" loading="lazy" />
+                  <Image
+                    src="/images/Rectangle-kariot.png"
+                    width={18}
+                    height={18}
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                  />
                   Get in touch
                 </div>
-                <h2 className="mt-6 text-3xl font-semibold text-white">Experience enterprise-grade AI with Trimsel</h2>
+                <h2 className="mt-6 text-3xl font-semibold text-white">
+                  Experience enterprise-grade AI with Trimsel
+                </h2>
                 <p className="mt-4 text-lg leading-relaxed text-slate-300">
-                  From ideation to MLOps, we help teams design, deploy, and govern AI responsibly.
+                  From ideation to MLOps, we help teams design, deploy, and
+                  govern AI responsibly.
                 </p>
                 <ul className="mt-6 space-y-3 text-sm text-slate-200">
                   {ctaBenefits.map((benefit) => (
                     <li key={benefit} className="flex items-start gap-3">
-                      <CheckIcon width={18} height={18} className="mt-1 text-brand" />
+                      <CheckIcon
+                        width={18}
+                        height={18}
+                        className="mt-1 text-brand"
+                      />
                       <span>{benefit}</span>
                     </li>
                   ))}
@@ -463,13 +881,14 @@ export default function Quality() {
                 <Link
                   href="/contact-us"
                   className="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-slate-900 shadow-lg shadow-white/20 transition hover:bg-slate-100"
-                  aria-label="Contact Trimsel’s AI team"
-                >
+                  aria-label="Contact Trimsel’s AI team">
                   <ArrowRightIcon width={18} height={18} />
                   Contact Us
                 </Link>
-              </div>
-              <div className="flex items-center justify-center">
+              </motion.div>
+              <motion.div
+                variants={fadeInUp}
+                className="flex items-center justify-center">
                 <Image
                   src="/images/ctambbg.webp"
                   width={520}
@@ -481,24 +900,40 @@ export default function Quality() {
                   blurDataURL="data:image/webp;base64,UklGRiIAAABXRUJQVlA4IDAAAADQAgCdASoIAAgAAkA4JQBOgCH/89JAAA=="
                   sizes="(max-width: 768px) 100vw, 320px"
                 />
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </section>
 
         <section id="ai-engagement" className="bg-white">
-          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="mx-auto w-full max-w-[90rem] px-4 py-16 sm:px-6 lg:px-12">
             <div className="grid gap-10 lg:grid-cols-2">
-              <div className="space-y-5">
-                <h2 className="text-3xl font-semibold text-slate-900">Build and scale AI with a proven two-stage model</h2>
+              <motion.div variants={fadeInUp} className="space-y-5">
+                <h2 className="text-3xl font-semibold text-slate-900">
+                  Build and scale AI with a proven two-stage model
+                </h2>
                 {engagementStages.map((stage) => (
-                  <div key={stage.title} className="rounded-3xl border border-slate-100 bg-slate-50 p-5 shadow-inner">
-                    <h3 className="text-xl font-semibold text-slate-900">{stage.title}</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-slate-600">{stage.body}</p>
-                  </div>
+                  <motion.div
+                    variants={fadeInUp}
+                    key={stage.title}
+                    className="rounded-3xl border border-slate-100 bg-slate-50 p-5 shadow-inner">
+                    <h3 className="text-xl font-semibold text-slate-900">
+                      {stage.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                      {stage.body}
+                    </p>
+                  </motion.div>
                 ))}
-              </div>
-              <div className="flex items-center justify-center">
+              </motion.div>
+              <motion.div
+                variants={fadeInUp}
+                className="flex items-center justify-center">
                 <Image
                   src="/images/ensure-side.webp"
                   width={520}
@@ -508,111 +943,176 @@ export default function Quality() {
                   quality={90}
                   sizes="(max-width: 768px) 100vw, 420px"
                 />
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </section>
 
         <section className="bg-slate-50">
-          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="mx-auto w-full max-w-[90rem] px-4 py-16 sm:px-6 lg:px-12">
             <div className="grid gap-12 lg:grid-cols-[1.4fr,1fr]">
-              <div>
-                <h2 className="text-3xl font-semibold text-slate-900">Our AI Development Process</h2>
+              <motion.div variants={fadeInUp}>
+                <h2 className="text-3xl font-semibold text-slate-900">
+                  Our AI Development Process
+                </h2>
                 <p className="mt-4 text-lg text-slate-600">
-                  We follow a transparent, agile approach to launch production-ready AI with predictable outcomes.
+                  We follow a transparent, agile approach to launch
+                  production-ready AI with predictable outcomes.
                 </p>
                 <div className="mt-8 grid gap-4">
                   {processPrinciples.map((principle) => (
-                    <div key={principle.title} className="flex gap-4 rounded-3xl border border-white/60 bg-white p-4 shadow-lg shadow-slate-900/5">
-                      <Image src={principle.icon} width={48} height={48} alt={`${principle.title} icon`} loading="lazy" />
+                    <motion.div
+                      variants={fadeInUp}
+                      key={principle.title}
+                      className="flex gap-4 rounded-3xl border border-white/60 bg-white p-4 shadow-lg shadow-slate-900/5">
+                      <Image
+                        src={principle.icon}
+                        width={48}
+                        height={48}
+                        alt={`${principle.title} icon`}
+                        loading="lazy"
+                      />
                       <div>
-                        <h3 className="text-lg font-semibold text-slate-900">{principle.title}</h3>
-                        <p className="text-sm text-slate-600">{principle.body}</p>
+                        <h3 className="text-lg font-semibold text-slate-900">
+                          {principle.title}
+                        </h3>
+                        <p className="text-sm text-slate-600">
+                          {principle.body}
+                        </p>
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
-                <h3 className="mt-10 text-xl font-semibold text-slate-900">Based on these parameters, we scope out:</h3>
+                <h3 className="mt-10 text-xl font-semibold text-slate-900">
+                  Based on these parameters, we scope out:
+                </h3>
                 <ul className="mt-4 space-y-3 text-sm text-slate-600">
                   {scopeChecklist.map((item) => (
-                    <li key={item} className="flex items-start gap-2">
+                    <motion.li
+                      variants={fadeInUp}
+                      key={item}
+                      className="flex items-start gap-2">
                       <span className="mt-2 h-1.5 w-1.5 rounded-full bg-brand"></span>
                       <span>{item}</span>
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
-              </div>
-              <div className="rounded-3xl border border-white/60 bg-slate-900 p-6 text-white shadow-xl shadow-slate-900/30">
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-300">What we deliver</p>
-                <h3 className="mt-4 text-2xl font-semibold">End-to-End AI Engineering & Deployment</h3>
-                <p className="mt-4 text-sm leading-relaxed text-slate-200">
-                  From feasibility and prototyping to scalable MLOps, we build custom NLP, CV, predictive, and generative models—then integrate
-                  them securely into your products and workflows. Continuous monitoring and retraining pipelines keep them accurate and
-                  business-relevant.
+              </motion.div>
+              <motion.div
+                variants={fadeInUp}
+                className="rounded-3xl border border-white/60 bg-slate-900 p-6 text-white shadow-xl shadow-slate-900/30">
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-300">
+                  What we deliver
                 </p>
-              </div>
+                <h3 className="mt-4 text-2xl font-semibold">
+                  End-to-End AI Engineering & Deployment
+                </h3>
+                <p className="mt-4 text-sm leading-relaxed text-slate-200">
+                  From feasibility and prototyping to scalable MLOps, we build
+                  custom NLP, CV, predictive, and generative models—then
+                  integrate them securely into your products and workflows.
+                  Continuous monitoring and retraining pipelines keep them
+                  accurate and business-relevant.
+                </p>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </section>
 
         <section id="ai-tools" className="bg-white">
-          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="mx-auto w-full max-w-[90rem] px-4 py-16 sm:px-6 lg:px-12">
             <div className="grid gap-6 lg:grid-cols-[2fr,3fr]">
-              <h2 className="text-3xl font-semibold text-slate-900">Technology Stack We Use</h2>
+              <h2 className="text-3xl font-semibold text-slate-900">
+                Technology Stack We Use
+              </h2>
               <p className="text-lg text-slate-600">
-                Our engineers blend reliable programming languages, modern ML platforms, and production-ready MLOps tooling to keep models
+                Our engineers blend reliable programming languages, modern ML
+                platforms, and production-ready MLOps tooling to keep models
                 accurate and secure across mobile, web, and cloud surfaces.
               </p>
             </div>
             <div className="mt-10 grid gap-6 sm:grid-cols-2">
               {aiToolCategories.map((category) => (
-                <div key={category.title} className="rounded-3xl border border-slate-100 bg-slate-50 p-6 shadow-inner">
-                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">{category.title}</p>
-                  <p className="mt-3 text-sm text-slate-600">{category.description}</p>
+                <motion.div
+                  variants={fadeInUp}
+                  key={category.title}
+                  className="rounded-3xl border border-slate-100 bg-slate-50 p-6 shadow-inner">
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+                    {category.title}
+                  </p>
+                  <p className="mt-3 text-sm text-slate-600">
+                    {category.description}
+                  </p>
                   <ul className="mt-4 flex flex-wrap gap-2">
                     {category.tools.map((tool) => (
                       <li
                         key={`${category.title}-${tool}`}
-                        className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-slate-600"
-                      >
+                        className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-slate-600">
                         {tool}
                       </li>
                     ))}
                   </ul>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </section>
 
         <section id="ai-insights" className="bg-slate-900">
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
             <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-300">
-              <Image src="/images/Rectangle-kariot.png" width={15} height={15} alt="" aria-hidden="true" loading="lazy" />
+              <Image
+                src="/images/Rectangle-kariot.png"
+                width={15}
+                height={15}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+              />
               Latest AI insights
             </div>
             <div className="mt-6 grid gap-8 lg:grid-cols-2">
               <div>
-                <h2 className="text-3xl font-semibold text-white">Keep up with Trimsel’s AI playbooks</h2>
+                <h2 className="text-3xl font-semibold text-white">
+                  Keep up with Trimsel’s AI playbooks
+                </h2>
                 <p className="mt-4 text-lg text-slate-300">
-                  How-to guides on monetization, retention, DevOps automation, and AI-driven product growth—straight from our delivery teams.
+                  How-to guides on monetization, retention, DevOps automation,
+                  and AI-driven product growth—straight from our delivery teams.
                 </p>
               </div>
               <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-lg shadow-black/30">
-                <p className="text-sm uppercase tracking-[0.3em] text-slate-300">Featured reads</p>
+                <p className="text-sm uppercase tracking-[0.3em] text-slate-300">
+                  Featured reads
+                </p>
                 <ul className="mt-4 space-y-4 text-sm text-slate-200">
                   {aiArticles.map((article) => (
                     <li key={article.title}>
-                      <p className="text-xs uppercase tracking-[0.3em] text-brand">{article.tag}</p>
-                      <Link href={article.href} className="text-lg font-semibold text-white transition hover:text-brand">
+                      <p className="text-xs uppercase tracking-[0.3em] text-brand">
+                        {article.tag}
+                      </p>
+                      <Link
+                        href={article.href}
+                        className="text-lg font-semibold text-white transition hover:text-brand">
                         {article.title}
                       </Link>
-                      <p className="text-sm text-slate-200">{article.excerpt}</p>
+                      <p className="text-sm text-slate-200">
+                        {article.excerpt}
+                      </p>
                       <Link
                         href={article.href}
                         className="mt-2 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-brand transition hover:text-white"
-                        aria-label={`Read ${article.title}`}
-                      >
+                        aria-label={`Read ${article.title}`}>
                         Read More
                         <ArrowRightIcon width={16} height={16} />
                       </Link>
@@ -632,13 +1132,24 @@ export default function Quality() {
 
         <section id="faq" className="bg-white">
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-semibold text-slate-900">Frequently Asked Questions</h2>
-            <p className="mt-4 text-lg text-slate-600">Answers to the most common questions teams ask before starting AI initiatives.</p>
+            <h2 className="text-3xl font-semibold text-slate-900">
+              Frequently Asked Questions
+            </h2>
+            <p className="mt-4 text-lg text-slate-600">
+              Answers to the most common questions teams ask before starting AI
+              initiatives.
+            </p>
             <div className="mt-8 space-y-4">
               {faqItems.map(({ question, answer }) => (
-                <details key={question} className="rounded-2xl border border-slate-100 bg-slate-50 p-5 shadow-inner">
-                  <summary className="cursor-pointer text-lg font-semibold text-slate-900">{question}</summary>
-                  <p className="mt-3 text-sm leading-relaxed text-slate-600">{answer}</p>
+                <details
+                  key={question}
+                  className="rounded-2xl border border-slate-100 bg-slate-50 p-5 shadow-inner">
+                  <summary className="cursor-pointer text-lg font-semibold text-slate-900">
+                    {question}
+                  </summary>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                    {answer}
+                  </p>
                 </details>
               ))}
             </div>

@@ -67,7 +67,7 @@ button,
 button:hover,
 .cta-button:hover,
 .portcta-btn:hover {
-  background: var(--color-hover);
+  pointer-events: none;
 }
 
 /* Forms */
