@@ -13,6 +13,51 @@ tags:
   - Artificial Intelligence
 seo:
   indexing: true
+  jsonLd: >
+    <script type="application/ld+json">
+
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Do I need to have my data ready before starting an AI project?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, A qualified team will assess your data, fill gaps, and handle cleaning as part of the project. That said, well-organised historical data speeds up timelines and improves early model accuracy."
+        }
+      },{
+        "@type": "Question",
+        "name": "What data security standards should an AI company follow?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "At minimum, look for ISO 27001 certification, GDPR compliance for international data, alignment with India's DPDPA, encrypted data handling, clear NDA terms on data ownership, and an on-premises deployment option for sensitive data."
+        }
+      },{
+        "@type": "Question",
+        "name": "What is the difference between custom AI and off-the-shelf tools?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Off-the-shelf tools handle common tasks quickly and cheaply but cannot adapt to specific business problems or proprietary data. Custom AI is built on your data for your problem, it costs more and takes longer but delivers accuracy that generic tools cannot match."
+        }
+      },{
+        "@type": "Question",
+        "name": "What is MLOps and why should I ask a vendor about it?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "MLOps covers how a model is monitored and maintained after launch. Without it, accuracy quietly degrades as real-world data shifts. Ask vendors specifically how they detect model drift and what triggers a retraining cycle vague answers are a red flag."
+        }
+      },{
+        "@type": "Question",
+        "name": "Which industries in Chennai are using AI most actively?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Healthcare, financial services, manufacturing, retail, and logistics are the most active. Manufacturing is currently the fastest-growing area, driven by defect detection and predictive maintenance on factory floors."
+        }
+      }]
+    }
+
+    </script>
 ---
 Artificial intelligence is no longer a future investment. Businesses across Chennai from manufacturing units to fintech startups are already running AI systems that cut costs, reduce errors, and speed up decisions.
 
@@ -21,6 +66,10 @@ But here's where most businesses run into trouble: every AI vendor in Chennai lo
 This guide gives you a factual, structured breakdown of what separates capable AI teams from average ones the technologies they use, the industries they serve, the questions worth asking, and the red flags that are easy to miss when you're in the middle of vendor conversations.
 
 ## The Machine Learning Frameworks That Power Real AI Projects
+
+### Framework Comparison at a Glance
+
+![framework comparison at a glance ](/images/blog/framework-comparison.png)
 
 A machine learning framework is the software foundation on which AI models are built, trained, and deployed. The choice of framework determines how fast a model can be developed, how well it scales in production, and what class of problems it can handle effectively.
 
@@ -62,6 +111,10 @@ Fine-tuning typically takes days rather than months and produces substantially b
 
 Computer vision enables machines to extract meaning from visual inputs images, camera feeds, or recorded video. It is actively used in manufacturing inspection, medical imaging, retail analytics, security monitoring, and mobile applications.
 
+### Computer Vision Tool Reference
+
+![Computer vision tool reference ](/images/blog/computer-version-tool-reference.png)
+
 ### Industry Applications in Chennai's Context
 
 * **Manufacturing:** YOLO-based defect detection systems inspect products on live production lines at 30 or more frames per second, flagging issues without interrupting line speed
@@ -81,9 +134,9 @@ Building an AI model is one part of the work. Deploying it so it runs reliably a
 
 Three factors drive the right choice:
 
-* **Existing infrastructure** - businesses already running Microsoft 365 or Azure services typically integrate AI more cleanly on Azure without additional migration overhead
-* **Data volume and type** - Google Cloud's BigQuery processes very large structured datasets faster than alternatives and pairs naturally with data analytics workflows
-* **Compliance requirements** - all three platforms carry enterprise-grade certifications, but specific regional certifications (data residency, sector-specific standards) vary and need direct verification
+* **Existing infrastructure** - businesses already running Microsoft 365 or Azure services typically integrate AI more cleanly on Azure without additional migration overhead.
+* **Data volume and type** - Google Cloud's BigQuery processes very large structured datasets faster than alternatives and pairs naturally with data analytics workflows.
+* **Compliance requirements** - all three platforms carry enterprise-grade certifications, but specific regional certifications (data residency, sector-specific standards) vary and need direct verification.
 
 A vendor recommending one platform without asking about these factors is not making a considered recommendation.
 
@@ -97,10 +150,10 @@ An AI model is trained on historical data. As real-world patterns shift customer
 
 ### Core MLOps Tools
 
-* **Docker**  packages models into portable containers that run consistently across environments
-* **Kubernetes** orchestrates containers and handles automatic scaling under variable load
-* **MLflow** tracks experiments, manages model versions, and enables clean rollback if a deployment fails
-* **Prometheus and Grafana** monitor live model performance metrics and trigger alerts when accuracy drops below defined thresholds
+* **Docker**  packages models into portable containers that run consistently across environments.
+* **Kubernetes** orchestrates containers and handles automatic scaling under variable load.
+* **MLflow** tracks experiments, manages model versions, and enables clean rollback if a deployment fails.
+* **Prometheus and Grafana** monitor live model performance metrics and trigger alerts when accuracy drops below defined thresholds.
 
 #### The Question to Ask Every Vendor
 
@@ -128,7 +181,7 @@ Different industries require different tools, different data handling standards,
 
 * Fraud detection on live transaction data
 * Credit risk scoring and automated KYC document review
-* Time series forecasting for portfolio and risk managemen
+* Time series forecasting for portfolio and risk management
 
 > RBI data localisation requirements apply verify on-premises deployment availability before engaging a vendor.
 
@@ -156,9 +209,9 @@ Standard data privacy practices apply - masking customer data before processing 
 
 **Tools:** Route optimisation algorithms, time series demand models, fleet analytics
 
-*  Delivery route planning and dynamic real-time re-routing
-*  Warehouse demand prediction and stock positioning
-*  Fleet maintenance scheduling based on usage patterns
+* Delivery route planning and dynamic real-time re-routing
+* Warehouse demand prediction and stock positioning
+* Fleet maintenance scheduling based on usage patterns
 
 > GPS and location data handling should align with India's DPDPA guidelines.
 
