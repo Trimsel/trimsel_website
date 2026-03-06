@@ -45,10 +45,10 @@ Natural language processing (NLP) is the AI discipline that enables systems to r
 ### NLP Tools in Active Use
 
 * **spaCy** - high-speed text processing for document classification and entity extraction at scale
-*  **BERT** - deep contextual language understanding used in contract review, support ticket routing, and Q&A systems
-*  **GPT-based models** - text generation for automated report drafting, email responses, and intelligent search
-*  **Hugging Face Transformers** - the standard library for accessing and fine-tuning pre-trained models across most production NLP applications
-*  **NLTK** - used primarily for prototyping and proof-of-concept NLP development
+* **BERT** - deep contextual language understanding used in contract review, support ticket routing, and Q&A systems
+* **GPT-based models** - text generation for automated report drafting, email responses, and intelligent search
+* **Hugging Face Transformers** - the standard library for accessing and fine-tuning pre-trained models across most production NLP applications
+* **NLTK** - used primarily for prototyping and proof-of-concept NLP development
 
 ### Why Fine-Tuning Changes What NLP Can Do
 
@@ -64,10 +64,10 @@ Computer vision enables machines to extract meaning from visual inputs images, c
 
 ### Industry Applications in Chennai's Context
 
-*  **Manufacturing:** YOLO-based defect detection systems inspect products on live production lines at 30 or more frames per second, flagging issues without interrupting line speed
-*  **Healthcare:** ResNet and Faster R-CNN handle radiology image analysis where missing a finding carries serious consequences  accuracy takes priority over processing speed
-*  **Retail:** OpenCV pipelines monitor shelf inventory in real time, identifying gaps, misplacements, and planogram violations automatically
-*  **Mobile:** MobileNet runs inference directly on a smartphone, enabling visual features without requiring a cloud connection or fast internet
+* **Manufacturing:** YOLO-based defect detection systems inspect products on live production lines at 30 or more frames per second, flagging issues without interrupting line speed
+* **Healthcare:** ResNet and Faster R-CNN handle radiology image analysis where missing a finding carries serious consequences  accuracy takes priority over processing speed
+* **Retail:** OpenCV pipelines monitor shelf inventory in real time, identifying gaps, misplacements, and planogram violations automatically
+* **Mobile:** MobileNet runs inference directly on a smartphone, enabling visual features without requiring a cloud connection or fast internet
 
 ## Cloud Infrastructure: Where AI Models Live and Scale
 
@@ -75,16 +75,13 @@ Building an AI model is one part of the work. Deploying it so it runs reliably a
 
 ### Cloud Platform Comparison for AI Projects
 
-
-
-
 #### How to Decide Which Platform Fits
 
 Three factors drive the right choice:
 
-*  **Existing infrastructure** - businesses already running Microsoft 365 or Azure services typically integrate AI more cleanly on Azure without additional migration overhead
-*  **Data volume and type** - Google Cloud's BigQuery processes very large structured datasets faster than alternatives and pairs naturally with data analytics workflows
-*  **Compliance requirements** - all three platforms carry enterprise-grade certifications, but specific regional certifications (data residency, sector-specific standards) vary and need direct verification
+* **Existing infrastructure** - businesses already running Microsoft 365 or Azure services typically integrate AI more cleanly on Azure without additional migration overhead
+* **Data volume and type** - Google Cloud's BigQuery processes very large structured datasets faster than alternatives and pairs naturally with data analytics workflows
+* **Compliance requirements** - all three platforms carry enterprise-grade certifications, but specific regional certifications (data residency, sector-specific standards) vary and need direct verification
 
 A vendor recommending one platform without asking about these factors is not making a considered recommendation.
 
@@ -98,10 +95,10 @@ An AI model is trained on historical data. As real-world patterns shift customer
 
 ### Core MLOps Tools
 
-*  **Docker**  packages models into portable containers that run consistently across environments
-*  **Kubernetes** orchestrates containers and handles automatic scaling under variable load
-*  **MLflow** tracks experiments, manages model versions, and enables clean rollback if a deployment fails
-*  **Prometheus and Grafana** monitor live model performance metrics and trigger alerts when accuracy drops below defined thresholds
+* **Docker**  packages models into portable containers that run consistently across environments
+* **Kubernetes** orchestrates containers and handles automatic scaling under variable load
+* **MLflow** tracks experiments, manages model versions, and enables clean rollback if a deployment fails
+* **Prometheus and Grafana** monitor live model performance metrics and trigger alerts when accuracy drops below defined thresholds
 
 #### The Question to Ask Every Vendor
 
@@ -117,226 +114,40 @@ Different industries require different tools, different data handling standards,
 
 **Tools:** PyRadiomics, DICOM processing libraries, MONAI
 
-*  Medical image analysis and diagnostic decision support
-*  Patient risk stratification and clinical scoring models
-*  Clinical document processing and report automation
+* Medical image analysis and diagnostic decision support
+* Patient risk stratification and clinical scoring models
+* Clinical document processing and report automation
 
->
 > HIPAA-adjacent data handling practices apply even for domestic Indian deployments.
 
 #### 💳 Financial Services
 
 **Tools:** Prophet, Scikit-learn, custom anomaly detection pipelines
 
-*  Fraud detection on live transaction data
-*  Credit risk scoring and automated KYC document review
-*  Time series forecasting for portfolio and risk managemen
+* Fraud detection on live transaction data
+* Credit risk scoring and automated KYC document review
+* Time series forecasting for portfolio and risk managemen
 
->
 > RBI data localisation requirements apply verify on-premises deployment availability before engaging a vendor.
 
 #### ⚙️ Manufacturing
 
 **Tools:** YOLO, ONNX, TensorRT
 
-*  Real-time defect detection on production lines at 30+ frames per second
-*  Predictive maintenance on industrial equipment
-*  Energy consumption optimisation across factory operations
+* Real-time defect detection on production lines at 30+ frames per second
+* Predictive maintenance on industrial equipment
+* Energy consumption optimisation across factory operations
 
 > Edge deployment on factory hardware removes cloud latency and eliminates connectivity dependency entirely.
 
 #### 🛒 Retail & E-commerce
 
+**Tools:** TensorFlow Recommenders, collaborative filtering, demand forecasting models
 
+*  Personalised product recommendation engines
+*  Inventory optimisation and automated restocking alerts
+*  Customer segmentation for targeted marketing campaigns
 
+Standard data privacy practices apply - masking customer data before processing is recommended as a baseline.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-###
+#### 🚚 Logistics
