@@ -110,7 +110,7 @@ A team with a specific, process-level answer has operated AI systems in producti
 
 Different industries require different tools, different data handling standards, and different compliance frameworks. Generic AI capability is not the same as domain-specific AI experience.
 
-#### 🏥 Healthcare
+#### 1. Healthcare
 
 **Tools:** PyRadiomics, DICOM processing libraries, MONAI
 
@@ -120,7 +120,7 @@ Different industries require different tools, different data handling standards,
 
 > HIPAA-adjacent data handling practices apply even for domestic Indian deployments.
 
-#### 💳 Financial Services
+#### 2. Financial Services
 
 **Tools:** Prophet, Scikit-learn, custom anomaly detection pipelines
 
@@ -130,7 +130,7 @@ Different industries require different tools, different data handling standards,
 
 > RBI data localisation requirements apply verify on-premises deployment availability before engaging a vendor.
 
-#### ⚙️ Manufacturing
+#### 3. Manufacturing
 
 **Tools:** YOLO, ONNX, TensorRT
 
@@ -140,14 +140,58 @@ Different industries require different tools, different data handling standards,
 
 > Edge deployment on factory hardware removes cloud latency and eliminates connectivity dependency entirely.
 
-#### 🛒 Retail & E-commerce
+#### 4. Retail & E-commerce
 
 **Tools:** TensorFlow Recommenders, collaborative filtering, demand forecasting models
 
-*  Personalised product recommendation engines
-*  Inventory optimisation and automated restocking alerts
-*  Customer segmentation for targeted marketing campaigns
+* Personalised product recommendation engines
+* Inventory optimisation and automated restocking alerts
+* Customer segmentation for targeted marketing campaigns
 
 Standard data privacy practices apply - masking customer data before processing is recommended as a baseline.
 
-#### 🚚 Logistics
+#### 5. Logistics
+
+**Tools:** Route optimisation algorithms, time series demand models, fleet analytics
+
+*  Delivery route planning and dynamic real-time re-routing
+*  Warehouse demand prediction and stock positioning
+*  Fleet maintenance scheduling based on usage patterns
+
+> GPS and location data handling should align with India's DPDPA guidelines.
+
+## AutoML vs. Custom Development: Choosing the Right Approach
+
+AutoML platforms automate portions of the machine learning pipeline feature selection, model selection, hyperparameter tuning that traditionally require significant data scientist time. Platforms like Google AutoML, H2O.ai, and DataRobot can deliver working models in days rather than months for well-defined problems.
+
+AutoML is not an inferior approach. It is the right tool for a specific category of problem. A vendor who recommends full custom development for every project regardless of scope is not giving objective advice and neither is one who defaults to AutoML to keep costs low on problems that genuinely need custom work.
+
+## How to Evaluate an AI Development Company in Chennai
+
+### The Six Criteria That Actually Separate Strong Vendors from Average Ones
+
+**1.  Team Composition:**
+Production AI requires data scientists, ML engineers, software engineers for system integration, and QA staff working together. A team composed only of data scientists can build models but cannot deliver a reliable production system. Ask specifically who is on the team, what each person's role is, and who handles post-deployment monitoring.
+
+**2. Framework Breadth in Production:**
+Ask which frameworks they have deployed to production, not experimented with in internal projects. Production experience across TensorFlow, PyTorch, and major cloud ML platforms indicates a team that has navigated real deployment challenges across different problem types.
+
+**3. MLOps Maturity:**
+Ask how they detect model drift and what triggers a retraining cycle. Specific, process-level answers indicate operational experience. Vague answers indicate the team has not sustained AI systems past the initial launch phase.
+
+**4. Industry Experience:** 
+Request case studies from your specific sector. Domain knowledge shortens timelines and reduces errors that come from models that are technically sound but contextually wrong for the industry.
+
+**5. Post-Deployment Support Scope:**
+Clarify exactly what ongoing support includes: monitoring frequency, retraining triggers, SLA response times, and whether support is time-limited or ongoing. Support terms vary significantly between vendors and are rarely detailed upfront.
+
+**6. Data Security and Compliance:** 
+Verify ISO 27001 certification, NDA terms that cover data ownership, data handling procedures, and whether on-premises or private cloud deployment is available for sensitive data.
+
+## Conclusion
+
+Most businesses approach AI vendor selection the same way they approach any software purchase comparing pricing, reviewing portfolios, and checking references. That approach misses the factors that actually determine whether an AI project succeeds over time.
+
+By this point you know what frameworks signal genuine production experience. You know what MLOps maturity looks like and why its absence is a serious operational risk. You know the difference between a team that has deployed AI and a team that has only built models. You know what questions to ask and what specific answers sound like versus rehearsed ones.
+
+If you are evaluating AI development company in Chennai and want a direct, no-pitch conversation about your specific problem [reach out to trimsel team](https://www.trimsel.com/contact-us). We will assess your problem, review your data situation, and give you an honest view of what is viable, what timeline is realistic, and whether we are the right fit, nothing more
